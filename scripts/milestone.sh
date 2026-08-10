@@ -8,7 +8,7 @@ if ! git diff --quiet || ! git diff --cached --quiet; then
   echo "⚠️  uncommitted changes - commit the evidence first (./scripts/save.sh), then re-run."
   git status --short; exit 1
 fi
-git tag -a "$TAG" -m "$MSG"
+git tag -s "$TAG" -m "$MSG"
 echo "✅ tagged $TAG"
 echo "   1) flip the milestone ⬜→✅ in Mechatronics/ROADMAP.md"
 echo "   2) ./scripts/save.sh \"roadmap: mark $TAG complete\""
