@@ -1,18 +1,22 @@
 # Practice Protocols
->
+
 > Reference document. Consult during weekly reviews, troubleshooting, or when choosing new material.
+
 > [!abstract] The rules that matter most
 >
-> 1. Daily beats marathon.
+> 1. It's a marathon, not a sprint.
 > 2. Interleave: rotate material every 5–8 minutes during learning/polishing.
 > 3. Rule of Almost: leave passages almost secure, then return later.
 > 4. Slow is fast: speed increases only when control is present.
 > 5. End clean: the last repetition should be one you would happily repeat tomorrow.
 > 6. Sleep consolidates: practice timing matters.
 > 7. Body first: biomechanical efficiency prevents injury and enables speed.
+
+
 > [!warning] Health red flags
 > Stop immediately for pain, weakness, tingling, numbness, swelling, loss of dexterity, unusual fatigue, or increasing tension. See [Technique and Health](#technique-and-health).
->
+
+
 ## Contents
 
 - [1. Session Engine](#session-engine)
@@ -571,7 +575,7 @@ The wrist must be flexible and springy for octave passages.
 
 ### Principle 6: Finger independence
 
-Each finger should be able to move independently without dragging adjacent fingers.
+Each finger should be able to move independently without dragging adjacent fingers. (This is NOT a finger 'independence' exercise)
 
 - Practice holding one finger down while moving others.
 - Practice polyrhythmic patterns between fingers.
@@ -590,7 +594,7 @@ Piano playing is not just hands. It is the whole body.
 
 ### Principle 8: Tension release
 
-Tension is the enemy. It must be identified and released.
+Tension is the enemy. It must be identified and released. (Tension release doesn't mean playing sloppily)
 
 - After each phrase, consciously release the shoulders and wrists.
 - During rests, drop the hands to the lap and shake gently.
