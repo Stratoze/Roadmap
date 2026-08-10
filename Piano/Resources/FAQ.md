@@ -1,0 +1,56 @@
+# FAQ
+
+A triage page. It diagnoses the feeling, then routes you to the owner of the answer.
+It does not re-state the protocols. If an answer lives somewhere else, you get a link, not a copy.
+
+## I do not feel like practicing today
+
+Normal. The fix is not willpower; it is reducing friction.
+
+- Anchor it: after coffee, laptop, or brushing teeth, I sit at the piano.
+- Start absurdly small: I will just play one scale.
+- Use the 2-minute rule: commit to 2 minutes. You may stop after 2.
+- Forgive the skip. Missed a day? Fine. Missed three? Still fine.
+- Reframe: you are not "someone trying to practice piano." You are a pianist. Pianists sit down. Some days they play one scale. That is not a failed session; that is a pianist's Tuesday. Motivation follows action, not the other way around.
+
+## This piece is impossible or I am not improving
+
+- You probably are improving. Results often surface days or weeks later, not during the session.
+- Stuck 2+ weeks? Go to [Plateau-Breaking](Practice%20Protocols.md#plateau-breaking).
+- Suspect the piece is mis-leveled? See [Shelving Pieces](Progression.md#shelving-pieces) and the difficulty check in [Repertoire and 12-Week Goals](Repertoire%20and%2012-Week%20Goals.md#difficulty-check).
+- Then play something you love for 5 minutes. Remember why.
+
+## Practice feels mechanical or joyless
+
+- Give passages a character: thunderstorm, lullaby, question, answer.
+- Sing the phrase. Make it breathe.
+- Improvise for 5 minutes. No rules, no goals. See [Creative Play](Creative%20Play.md).
+- Listen to a recording that moves you.
+- Remember: you play music, not just piano.
+
+## Quick routing
+
+Match the symptom to the file that owns it. Do not look for the answer here.
+
+| Symptom | Go to |
+| --- | --- |
+| Same mistake keeps returning | [Recurring error workflow](Practice%20Protocols.md#recurring-error-workflow), [Q-Spots](Practice%20Protocols.md#q-spots) |
+| Slow is clean but fast falls apart | [Speed Work](Practice%20Protocols.md#speed-work) |
+| Tension, pain, tingling, numbness | [Technique and Health](Practice%20Protocols.md#technique-and-health) — stop now |
+| How much should I practice? | [Practice Volume and Pacing](Progression.md#practice-volume-and-pacing) |
+| Metronome: how much? | [Learning Protocol](Practice%20Protocols.md#learning-protocol) |
+| Should I record every rep? | [Recording and Self-Assessment](Maintenance%20and%20Performance.md#recording-and-self-assessment) |
+| Are piano apps enough? | [Recording and Self-Assessment](Maintenance%20and%20Performance.md#recording-and-self-assessment) |
+| When do I shelve a piece? | [Shelving Pieces](Progression.md#shelving-pieces) |
+| Sleep and timing | [Session Engine](Practice%20Protocols.md#session-engine) |
+| New to functional / J-pop playing | [Functional and J-pop Track](Functional%20and%20Jpop%20Track.md) |
+| Wrist hurts or feels stiff | [Biomechanical Practice Principles](Practice%20Protocols.md#biomechanical-practice-principles) — check alignment |
+| How do I play anime songs by ear? | [Functional and J-pop Track](Functional%20and%20Jpop%20Track.md) |
+| How do I sight-read faster? | [Sight-Reading](Musicianship.md#sight-reading) — eye-hand span, dual-task |
+| How do I use sleep to practice better? | [Sleep consolidation protocol](Practice%20Protocols.md#sleep-consolidation-protocol) |
+| What is dual-task training? | [Dual-Task Training](Practice%20Protocols.md#dual-task-training) |
+| How do I prepare for La Campanella? | [La Campanella technical prerequisites](Roadmap.md#la-campanella-technical-prerequisites) |
+
+## The meta-rule
+
+A theoretically perfect plan you abandon in three weeks loses to a simpler plan you run for three years.
