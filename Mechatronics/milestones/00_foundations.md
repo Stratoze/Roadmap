@@ -50,16 +50,16 @@ Working dev environment, local Git repo with first commit, Anki deck, and a prob
 
 ### MVM
 
-- [ ] Git repo initialized, first meaningful commit
-- [ ] Editor, terminal, toolchain verified
-- [ ] Anki deck created
-- [ ] Can state: "What is the Input, Output, and Transformation here?"
+- [x] Git repo initialized, first meaningful commit
+- [x] Editor, terminal, toolchain verified
+- [x] Anki deck created
+- [x] Can state: "What is the Input, Output, and Transformation here?"
 
 ### Full Pass
 
-- [ ] Flashlight deconstruction: black boxes, energy chain, first principles
-- [ ] Can apply binary-search debugging to a simple fault
-- [ ] Can Fermi-estimate before computing, within an order of magnitude
+- [x] Flashlight deconstruction: black boxes, energy chain, first principles
+- [x] Can apply binary-search debugging to a simple fault
+- [x] Can Fermi-estimate before computing, within an order of magnitude
 
 > [!warning] ⚠️ Landmines
 > 1. **"Setting up the environment" is not the work.** `[HYPOTHESIS]`
