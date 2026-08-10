@@ -1,0 +1,28 @@
+# Obsidian app state (volatile, machine-specific) - not tracked
+.obsidian/
+
+# Python
+Mechatronics/.pytest_cache/
+*.pyc
+__pycache__/
+
+# OS cruft
+.DS_Store
+Thumbs.db
+
+# Heavy binaries live in project repos / external storage, NOT the learning vault.
+# Images in docs/captures/ stay tracked - they ARE the evidence.
+*.step
+*.stp
+*.stl
+*.3mf
+*.gbr
+*.gerber
+*.drl
+*.zip
+
+# Local state / backups / plugin data
+.backup_*/
+session_state.json
+.clipper/
+Reading/

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="520" viewBox="0 0 1100 520">
+  <rect width="1100" height="520" fill="#111827"/>
+  <text x="550" y="42" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#f9fafb">Mechatronics Roadmap</text>
+  <text x="550" y="72" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#cbd5e1">Predict → Attempt → Compare → Explain the gap → Integrate → Maintain</text>
+  <defs>
+    <style>
+      .box { fill: #1f2937; stroke: #60a5fa; stroke-width: 2; }
+      .title { fill: #f9fafb; font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; }
+      .sub { fill: #d1d5db; font-family: Arial, sans-serif; font-size: 13px; }
+      .arrow { stroke: #9ca3af; stroke-width: 3; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#9ca3af"/>
+    </marker>
+  </defs>
+  <rect class="box" x="70" y="130" width="280" height="86" rx="14"/>
+  <text class="title" x="210" y="162" text-anchor="middle">Phase 0</text>
+  <text class="sub" x="210" y="188" text-anchor="middle">Foundations and Vocabulary</text>
+  <rect class="box" x="410" y="130" width="280" height="86" rx="14"/>
+  <text class="title" x="550" y="162" text-anchor="middle">Phase 1</text>
+  <text class="sub" x="550" y="188" text-anchor="middle">Signals, Actuators, Dynamics</text>
+  <rect class="box" x="750" y="130" width="280" height="86" rx="14"/>
+  <text class="title" x="890" y="162" text-anchor="middle">Phase 2</text>
+  <text class="sub" x="890" y="188" text-anchor="middle">Embedded Real-Time Control</text>
+  <rect class="box" x="70" y="310" width="280" height="86" rx="14"/>
+  <text class="title" x="210" y="342" text-anchor="middle">Phase 3</text>
+  <text class="sub" x="210" y="368" text-anchor="middle">Mechanical, PCB, Verification</text>
+  <rect class="box" x="410" y="310" width="280" height="86" rx="14"/>
+  <text class="title" x="550" y="342" text-anchor="middle">Phase 4</text>
+  <text class="sub" x="550" y="368" text-anchor="middle">Capstone and Safety Integration</text>
+  <rect class="box" x="750" y="310" width="280" height="86" rx="14"/>
+  <text class="title" x="890" y="342" text-anchor="middle">Phase 5</text>
+  <text class="sub" x="890" y="368" text-anchor="middle">Portfolio and Delivery</text>
+  <path class="arrow" d="M350 173 H405"/>
+  <path class="arrow" d="M690 173 H745"/>
+  <path class="arrow" d="M890 216 C890 260 210 260 210 305"/>
+  <path class="arrow" d="M350 353 H405"/>
+  <path class="arrow" d="M690 353 H745"/>
+  <text x="550" y="470" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#9ca3af">Status lives in ROADMAP.md. Evidence lives in docs/captures.</text>
+</svg>
