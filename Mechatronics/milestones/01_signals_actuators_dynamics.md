@@ -3,16 +3,28 @@
 ## Outcome
 
 Real sensors, real motors, real noise. The bridge between paper physics and hardware that misbehaves.
-By the end: you've read a sensor at the register level, understood noise in the frequency domain, built an H-bridge from discrete parts with a proper analog current-sense front end, spun a BLDC with sinusoidal commutation and encoder feedback, driven a stepper with microstepping, fused gyro and accelerometer into a stable calibrated angle, and compared a simulation to reality.
+
+By the end: you've read a sensor at the register level, understood noise in the frequency domain, built an H-bridge from discrete parts with a proper analog current-sense front end, spun a BLDC with sinusoidal commutation and encoder feedback, driven a stepper with microstepping, fused gyro and accelerometer into a stable calibrated angle, compared a simulation to reality, **wound your own voice coil actuator, and built the 3D-printed test rig you will characterize motors on for the rest of the roadmap.**
 
 This phase is where the analog world meets the digital one. Every sensor produces an analog signal. Every actuator is driven by analog power. The MCU sits in the middle, and the quality of everything downstream depends on the analog stages on both sides.
 
+**Physical artifacts of this phase:**
+1. Hand-Wound Voice Coil Actuator (Milestone 1.7)
+2. 3D-Printed Motor Test Rig (Milestone 1.7)
+3. IMU telemetry module on perfboard — your first soldered board (Milestone 1.1)
+4. 3D-printed pendulum rig (Milestone 1.4)
+
+**Fabrication & safety envelope (Phase 1):**
+- 3D printing (PETG for flexures), through-hole soldering on perfboard.
+- ≤ 24 V DC. Current-limited bench supply ALWAYS. No mains. No LiPo.
+- First soldering: practice 5 joints on scrap before the real board. Iron in stand. Ventilation. Eye protection clipping leads.
+- Spinning motors: secured before power. Nothing loose near the shaft.
 
 ### Modeling Language: Bond Graphs
+
 Throughout this phase, you will encounter energy transduction across domains: electrical
 energy becomes mechanical motion (motors), mechanical motion becomes electrical signals
 (encoders, back-EMF), thermal energy limits electrical performance (MOSFET heating).
-
 Bond graphs provide a unified graphical language for modeling this energy flow. Each
 "bond" represents a power pair (effort × flow): voltage × current in electrical domains,
 force × velocity in mechanical domains, pressure × flow rate in hydraulic domains. The
@@ -28,14 +40,13 @@ with coupling coefficient Ke = Kt."
 
 The speaker-as-microphone insight from your IDEAS.md is exactly this: same bond graph,
 reversed causality. When you build the speaker in Phase 0 speed runs, you're building a
-bond graph in physical form.
+bond graph in physical form. The VCA in Milestone 1.7 is the same bond graph built to spec.
 
 ---
 
 ## Phase Pass Condition
 
 ### MVM
-
 - [ ] Live IMU data in PlotJuggler
 - [ ] Filtered vs. raw overlay visible
 - [ ] FFT of IMU noise: can identify dominant frequency peaks
@@ -50,9 +61,11 @@ bond graph in physical form.
 - [ ] Pendulum simulated in Python
 - [ ] Physical pendulum drop logged, compared to sim
 - [ ] IMU tilt angle from complementary filter, calibrated (offset removed)
+- [ ] **Physical:** VCA assembled; force vs current measured; moves visibly under command
+- [ ] **Physical:** motor test rig assembled; load cell calibrated with a known mass
+- [ ] **Physical:** IMU module soldered on perfboard, labeled, photographed
 
 ### Full Pass
-
 - [ ] Back-EMF measured, pole pairs verified, phase resistance documented
 - [ ] Sim vs. real comparison with error margin
 - [ ] IMU → complementary filter → motor in one integrated loop
@@ -65,6 +78,8 @@ bond graph in physical form.
 - [ ] Can explain I2C, SPI, UART, CAN, RS-485 tradeoffs: topology, speed, noise immunity, failure modes
 - [ ] Can explain calibration as a recurring primitive: offset, scale, alignment, temperature drift
 - [ ] Can explain braking/coast/freewheel behavior in motor drives
+- [ ] **Physical:** VCA force constant (N/A) measured with uncertainty; compared to F = BILN prediction
+- [ ] **Physical:** torque-speed curve of one motor measured on the rig, plotted
 - [ ] Phase synthesis from memory
 
 ---
@@ -76,26 +91,29 @@ bond graph in physical form.
 > **Interactive:** Velxio (self-hosted, free) — wire MPU6050+ESP32, verify WHO_AM_I before hardware. Logic analyzer on SDA/SCL.
 > **Theory:** MPU6050 register map/datasheet; I2C spec basics.
 
-
 ## Deliverable
 
 ESP32 reading raw MPU6050 registers over I2C, streaming live in PlotJuggler. No library abstractions.
 
+**Physical artifact:** by the end of this milestone the circuit transitions from breadboard to a **soldered perfboard** — your first soldered artifact. Label it "IMU Telemetry v1", date it, photograph it.
+
+**First-soldering protocol:** practice 5 joints on scrap → inspect (shiny, concave = good; dull, ball-shaped = reflow it) → then solder the real board. Through-hole only. No SMD in this phase.
+
 ## Pass Condition
 
 ### MVM
-
 - [ ] Raw register values change when you move the board
 - [ ] Data visible in serial monitor
+- [ ] **Physical:** circuit works on breadboard
 
 ### Full Pass
-
 - [ ] Data in PlotJuggler, not serial monitor
 - [ ] Multi-axis, real-time, labeled
 - [ ] Can explain I2C: START, address, R/W, ACK, STOP
 - [ ] Can explain I2C pull-up sizing, bus capacitance, address conflicts, clock stretching, and bus hang recovery
 - [ ] Telemetry format is versioned and defined before firmware loop
 - [ ] **ADC fundamentals:** Can explain: the MPU6050 has an internal 16-bit ADC. Resolution = full-scale range / 2^16. But resolution ≠ accuracy. ENOB (effective number of bits) is lower due to noise. Can explain: sampling rate must be > 2× the highest frequency of interest (Nyquist). Can explain: input impedance matters — a high-impedance source with a sample-and-hold capacitor gives wrong readings if the source can't charge the cap fast enough. These principles apply to EVERY ADC you'll use: the STM32's internal ADC, external SPI ADCs, the current-sense ADC in Phase 2.
+- [ ] **Physical:** board soldered, inspected, labeled, photo in `docs/captures/`
 
 > [!warning] ⚠️ Landmines
 > 1. **MPU6050 address depends on AD0 pin.** `[COMMUNITY]`
@@ -116,6 +134,9 @@ ESP32 reading raw MPU6050 registers over I2C, streaming live in PlotJuggler. No 
 > 6. **ADC resolution is not ADC accuracy.** `[COMMUNITY]`
 >    A 16-bit ADC with ±2g range gives 0.061 mg/LSB resolution. But if the noise floor is 5 LSB, your effective resolution is ~13 bits. The datasheet's "noise density" spec tells you the real story. Don't design to the resolution number. Design to the noise floor.
 >
+> 7. **Solder the perfboard AFTER the firmware works on breadboard.** `[HYPOTHESIS]`
+>    If you solder first and the firmware has a bug, you'll debug wiring when the bug is logic. Breadboard → verify → solder. And perfboard has no ground plane: run a dedicated ground wire next to SDA/SCL or I2C will glitch.
+>
 
 ## Dependencies that waste your week if hit backwards
 
@@ -123,6 +144,7 @@ ESP32 reading raw MPU6050 registers over I2C, streaming live in PlotJuggler. No 
 - WHO_AM_I before anything else. If the bus doesn't work, nothing downstream works.
 - Wake the device before reading. All-zeros ≠ broken sensor.
 - Output format before firmware loop. PlotJuggler parsing is annoying to retrofit.
+- Practice solder joints on scrap BEFORE the real board.
 
 > Log sessions in Daily/ notes using the unified template.
 
@@ -135,7 +157,6 @@ ESP32 reading raw MPU6050 registers over I2C, streaming live in PlotJuggler. No 
 > **Interactive:** Falstad RC low-pass + square wave (this is what an EMA does in code). Plot your real IMU noise floor with scipy/Audacity FFT.
 > **Theory:** Smith *DSP Guide* Ch 8–9 (free, better than Ulaby for this topic).
 
-
 ## Deliverable
 
 EMA filter on raw IMU data, PlotJuggler overlay: raw vs. filtered. Then: FFT of the raw noise, identify dominant peaks, explain what's causing them. Design a targeted fix (notch, rate change, or physical isolation) based on what the FFT shows.
@@ -143,14 +164,12 @@ EMA filter on raw IMU data, PlotJuggler overlay: raw vs. filtered. Then: FFT of 
 ## Pass Condition
 
 ### MVM
-
 - [ ] EMA in C on ESP32
 - [ ] Raw and filtered visible simultaneously
 - [ ] Filtered is visibly smoother
 - [ ] Alpha tuned: understand lag vs. noise rejection tradeoff
 
 ### Full Pass
-
 - [ ] Can explain α = 0.01 vs. α = 0.99 physically
 - [ ] Second filter type attempted, SMA or discrete LPF
 - [ ] FFT of raw IMU noise computed in Python, plotted
@@ -201,7 +220,6 @@ EMA filter on raw IMU data, PlotJuggler overlay: raw vs. filtered. Then: FFT of 
 > **Interactive:** LTspice/Falstad H-bridge — watch flyback & dead-time before wiring. Scope the phase terminals for back-EMF.
 > **Theory:** Hughes *Electric Motors & Drives* Ch 1–4; ST/TI gate-driver & current-sense app notes.
 
-
 ## Deliverable
 
 **Stage 0:** Discrete H-bridge driving a brushed DC motor. PWM speed control, direction reversal, flyback protection. **Analog current-sense front end:** shunt resistor → current-sense amplifier → anti-aliasing filter → ADC. Verify the analog waveform on scope before trusting the digital reading.
@@ -210,10 +228,11 @@ EMA filter on raw IMU data, PlotJuggler overlay: raw vs. filtered. Then: FFT of 
 
 The H-bridge is the brick. A 3-phase BLDC inverter is three H-bridges with sinusoidal commutation. The analog front end is the eye. Without it, the MCU is blind to current. The encoder is the sense of position. Without it, FOC is open-loop. Build all three.
 
+**Physical artifact note:** mount the H-bridge + driver on the 3D-printed test rig base from Milestone 1.7. Nothing dangles. This habit is what makes Phase 3's Puck look professional.
+
 ## Pass Condition
 
 ### MVM
-
 - [ ] **H-bridge:** brushed DC motor spins forward and reverse via PWM
 - [ ] **H-bridge:** flyback diodes present, no voltage spikes on scope when PWM switches off
 - [ ] **H-bridge:** no shoot-through (both switches on same leg never on simultaneously)
@@ -225,7 +244,6 @@ The H-bridge is the brick. A 3-phase BLDC inverter is three H-bridges with sinus
 - [ ] Phase resistance measured
 
 ### Full Pass
-
 - [ ] **H-bridge:** deadtime measured on scope, explained (why it exists, what happens without it)
 - [ ] **H-bridge:** braking/coast/freewheel behavior explained: what the FETs/diodes do in each state, and what is safe for the supply/bus
 - [ ] **H-bridge:** can explain: PWM duty → average voltage → speed. Flyback diode provides path for inductive current when switch opens. Without it → voltage spike → dead FET.
@@ -302,24 +320,29 @@ The H-bridge is the brick. A 3-phase BLDC inverter is three H-bridges with sinus
 > **Interactive:** scipy.integrate.solve_ivp pendulum sim; compare to the real drop.
 > **Theory:** Ulaby Ch 4–5, Nise Ch 2 & 7. Derive on paper before coding.
 
-
 ## Deliverable
 
-Python simulation of a 1D simple or physical pendulum, `scipy.integrate.solve_ivp`, physical pendulum with IMU, comparison plot with error analysis.
+Python simulation of a 1D simple or physical pendulum, `scipy.integrate.solve_ivp`, physical pendulum **on a designed 3D-printed rig**, IMU mounted, comparison plot with error analysis.
+
+**Physical artifact: the pendulum rig.** Not a stick with tape. Design it:
+- Pivot: printed bracket + 3 mm steel dowel pin or 608 bearing. Must swing freely 10+ oscillations.
+- Arm: printed beam (PETG preferred), known length and mass — measured with calipers, not taken from CAD.
+- IMU pocket at a known, measured distance from the pivot.
+- Release hook: holds at known θ₀, releases with zero added velocity.
 
 ## Pass Condition
 
 ### MVM
-
 - [ ] Python sim runs, plausible trajectory
 - [ ] Physical pendulum built, dropped, IMU logged
 - [ ] Both curves on same plot
+- [ ] **Physical:** rig printed and assembled; pivot low-friction (verified by hand)
 
 ### Full Pass
-
 - [ ] Error estimated and documented
 - [ ] Dominant mismatch source identified: friction? initial conditions? sensor lag?
 - [ ] Phase portrait, θ vs. θ̇, plotted
+- [ ] **Physical:** arm moment of inertia taken from CAD mass properties, compared to value implied by the measured period; discrepancy documented
 
 > [!warning] ⚠️ Landmines
 > 1. **solve_ivp state vector order must match equations.** `[COMMUNITY]`
@@ -334,11 +357,19 @@ Python simulation of a 1D simple or physical pendulum, `scipy.integrate.solve_iv
 > 4. **Initial conditions must match.** `[HYPOTHESIS]`
 >    Sim starts at θ = 0, physical drop must too. Mismatched ICs explain most "curves don't match" problems.
 >
+> 5. **The pivot IS the experiment.** `[HYPOTHESIS]`
+>    If the pivot has friction, decay is faster than the sim. If it wobbles, the IMU reads garbage. A printed hole with 0.1 mm clearance on a smooth pin, or a bearing, is the minimum. Test by hand first.
+>
+> 6. **Weigh the arm. Don't trust CAD mass.** `[HYPOTHESIS]`
+>    Print infill varies. Measure mass and length physically (Milestone 0.10 skills), put the measured values in the sim. The sim-vs-real comparison only means something if the inputs are real.
+>
 
 ## Dependencies that waste your week if hit backwards
 
 - Derive equations of motion on paper BEFORE coding. For a simple pendulum with θ from downward vertical: θ̈ = -(g/L)sin(θ). Predict the trajectory shape. Then code and compare.
 - Match initial conditions between sim and hardware before comparing curves.
+- Print and verify the rig BEFORE running experiments. Bad pivot = garbage data = wrong conclusions about your model.
+- Measure mass/length with calipers BEFORE setting sim parameters.
 
 > Log sessions in Daily/ notes using the unified template.
 
@@ -351,7 +382,6 @@ Python simulation of a 1D simple or physical pendulum, `scipy.integrate.solve_iv
 > **Interactive:** PlotJuggler — fuse gyro+accel, watch drift disappear; calibrate 6 orientations.
 > **Theory:** calibration (offset/gain); complementary-filter math.
 
-
 ## Deliverable
 
 Single loop on ESP32: IMU → calibration → complementary filter → motor response. Motor responds to orientation changes in real time. The tilt angle comes from fusing gyro and accelerometer, not from raw gyro integration. The IMU is calibrated: offset removed, scale factor verified.
@@ -359,13 +389,11 @@ Single loop on ESP32: IMU → calibration → complementary filter → motor res
 ## Pass Condition
 
 ### MVM
-
 - [ ] One loop: read IMU, filter, command motor, repeat
 - [ ] Motor visibly responds to tilt
 - [ ] No crashes for 60 seconds
 
 ### Full Pass
-
 - [ ] **IMU calibrated:** offset measured in 6 static orientations (±X, ±Y, ±Z up). For each axis: offset = mean of readings when that axis is aligned with gravity. Scale factor verified: when +Z is up, az should read +1g (±0.05g after calibration). Can explain: offset is the zero-input output. Gain/scale error is the deviation from ideal sensitivity. Linearity is how well the response follows a straight line across the range. Hysteresis is whether the reading depends on the direction you approached from. Temperature drift is how all of these change with temperature.
 - [ ] **Can explain why calibration is not optional:** a 2° offset in the accelerometer means a 2° steady-state error in the complementary filter. The filter can't correct what it doesn't know is wrong. Calibration removes the systematic error. The filter handles the random noise. Both are needed.
 - [ ] **Complementary filter implemented:** angle = α × (angle + gyro × dt) + (1-α) × accel_angle. Can explain: gyro is accurate short-term but drifts (integrate → unbounded error). Accelerometer is noisy but bounded (atan2 of gravity components). Complementary filter: high-pass gyro + low-pass accel. α ≈ 0.98 for ~1s time constant.
@@ -416,7 +444,6 @@ Single loop on ESP32: IMU → calibration → complementary filter → motor res
 > **Interactive:** TMC2209 — set current limit, sweep microsteps, listen for resonance.
 > **Theory:** TMC2209 datasheet; stepper torque-speed fundamentals.
 
-
 ## Deliverable
 
 NEMA17 stepper driven by a microstepping driver (A4988, DRV8825, or TMC2209). Full-step → half-step → 1/16 microstep. Step accuracy measured. Resonance observed. Torque-speed behavior compared to BLDC.
@@ -426,14 +453,12 @@ Steppers are the other half of the actuator world. BLDC for continuous rotation 
 ## Pass Condition
 
 ### MVM
-
 - [ ] Stepper spins: full-step, half-step, 1/16 microstep
 - [ ] Direction reversal works
 - [ ] Can explain: step pulse + direction pin. Each pulse = one step (or microstep). No feedback needed for open-loop.
 - [ ] Current limit set on driver (potentiometer or register), verified with multimeter
 
 ### Full Pass
-
 - [ ] **Chopper drive explained:** the driver regulates coil current by rapidly switching the H-bridge (chopping). When current exceeds the set limit, it turns off (or reverses) until current drops. This is why stepper drivers need a supply voltage well above the motor's rated voltage — the chopper uses the excess voltage to force current through the coil inductance quickly.
 - [ ] **Decay modes explained:** slow decay (recirculate current through low-side FETs) vs. fast decay (reverse voltage across coil). Slow → smoother but slower current change. Fast → quicker current change but more ripple. Mixed decay → compromise. TMC drivers auto-tune this.
 - [ ] **Microstep accuracy measured:** command 200 full steps (one revolution), measure actual angle. Command 3200 microsteps (1/16 × 200), measure actual angle. Microstepping improves smoothness but NOT absolute accuracy — the rotor doesn't land exactly on the microstep position under load.
@@ -472,10 +497,86 @@ Steppers are the other half of the actuator world. BLDC for continuous rotation 
 
 ---
 
+# Milestone 1.7 — Voice Coil Actuator + Motor Test Rig
+
+> [!info] 📚 Resources — VCA & Motor Characterization
+> **Visual:** Ben Briny FOC series (Lorentz force context); any "how a voice coil works" video.
+> **Interactive:** wind the coil, measure resistance, plot F vs I in Python.
+> **Theory:** Lorentz force F = B·I·L·N; Hooke's law for the flexure; H-bridge drive (from 1.3); Ohm/KVL (from 0.5).
+> **Fabrication:** 3D print (PETG for the flexure), hand-wound magnet wire, purchased N42 ring magnet, purchased S-beam load cell. NO metal cutting.
+
+## Deliverable
+
+**Artifact 1 — Hand-Wound Voice Coil Actuator:**
+- Coil: 30–50 turns of 28–32 AWG magnet wire on a printed former
+- Magnet: N42 neodymium ring magnet
+- Flexure: printed leaf spring (PETG), constrains motion to one axis, provides centering force
+- Housing: printed frame holding magnet, guiding the coil, mounting to the rig
+- Drive: the H-bridge from 1.3, PWM force control
+
+**Artifact 2 — 3D-Printed Motor Test Rig (dynamometer frame):**
+- Printed baseplate + risers, motor mount, lever arm
+- S-beam load cell (5 kg) + HX711: measures tangential force at a measured radius → torque = F × r
+- Speed: hand-spin for back-EMF, or the motor's own encoder
+- This rig is REUSED in Phase 3 to characterize the QDD actuator. Build it flat and modular.
+
+## Pass Condition
+
+### MVM
+- [ ] Coil wound (30+ turns), resistance measured, no shorted turns
+- [ ] Coil moves under current; reverses with polarity
+- [ ] Rig assembled; load cell reads zero unloaded and correct under a known mass
+- [ ] Lever arm radius measured with calipers (Milestone 0.10 method)
+
+### Full Pass
+- [ ] Force vs. current curve: 5+ points, plotted with units
+- [ ] Force constant (N/A) from slope, compared to F = BILN prediction; gap explained
+- [ ] Flexure spring rate measured: known displacement → restoring force
+- [ ] Load cell calibration documented: known mass → counts → Newtons, with uncertainty
+- [ ] Torque constant Kt measured for at least one motor on the rig
+- [ ] Back-EMF constant Ke measured by hand-spinning and measuring open-circuit voltage
+- [ ] Torque-speed curve plotted (5+ points, no-load toward stall)
+- [ ] Stall tests kept under 2 seconds, current-limited supply
+- [ ] Both artifacts mounted, labeled, photographed; data in `data/processed/`
+
+> [!warning] ⚠️ Landmines
+> 1. **Magnet-wire insulation is invisible.** `[COMMUNITY]`
+>    Nick the enamel while winding → shorted turn → local hot spot → dead coil. Wind slowly with a cloth between fingers and wire. Measure resistance after; lower than expected = shorted turns.
+>
+> 2. **Print the flexure in PETG, layers along the length.** `[HYPOTHESIS]`
+>    PLA creeps within hours. Layers must run along the spring's length, not across its thickness, or it cracks at 20 cycles. Bench-test the flexure alone for 100 cycles before assembling.
+>
+> 3. **Neodymium magnets are brittle and pinch.** `[COMMUNITY]`
+>    They shatter on impact and snap together with real force. Eye protection near steel tools. Keep away from electronics until mounted.
+>
+> 4. **An uncalibrated load cell produces confident garbage.** `[HYPOTHESIS]`
+>    HX711 outputs raw counts. Calibrate with a mass you weighed on a kitchen scale. Record the calibration in the same file as every measurement it produces.
+>
+> 5. **Lever-arm uncertainty dominates torque uncertainty.** `[HYPOTHESIS]`
+>    τ = F × r. At r = 50 mm, ±1 mm is ±2% torque error. Measure r with calipers, record it with the data.
+>
+> 6. **Printed motor mounts flex.** `[HYPOTHESIS]`
+>    A flexing mount eats torque the load cell never sees. PETG, 4+ walls, high infill. If it visibly flexes by hand, it's too weak.
+>
+> 7. **Stall heats as I²R.** `[COMMUNITY]`
+>    Stall current is 5–10× running current. Two seconds max per reading, current limit on, then release. This is why the torque-speed curve is taken point-by-point, not held.
+>
+
+## Dependencies that waste your week if hit backwards
+
+- **Complete 1.3 (H-bridge) FIRST** — the VCA needs bidirectional drive.
+- **Complete 0.10 (metrology) FIRST** — the rig's lever arm and calibration inherit it.
+- Wind the coil BEFORE designing the housing; the coil OD sets the magnet bore.
+- Calibrate the load cell BEFORE any motor measurement.
+- Test the flexure alone BEFORE assembling the VCA.
+
+> Log sessions in Daily/ notes using the unified template.
+
+---
+
 # Phase 1 Deload / Synthesis
 
 No new inputs.
-
 - [ ] Re-explain IMU-to-motor signal chain from memory, including the analog front end
 - [ ] Re-derive EMA transfer function
 - [ ] Explain complementary filter equation from memory: angle = α(angle + gyro·dt) + (1-α)·accel_angle
@@ -486,17 +587,16 @@ No new inputs.
 - [ ] Explain encoder types: incremental vs absolute, quadrature decoding, electrical offset calibration
 - [ ] Explain chopper drive and decay modes from memory
 - [ ] Explain what the FFT showed about your IMU noise, from memory
+- [ ] Explain the VCA's bond graph from memory: effort, flow, storage, dissipation
+- [ ] State the measured VCA force constant and one motor's Kt from memory, with units
 - [ ] Clean ESP32 firmware: consistent naming, remove debug prints
 - [ ] Commit clean state
-- [ ] Explain the bond graph question for one transducer from memory: effort, flow, storage, dissipation
+- [ ] **Physical:** all Phase 1 artifacts photographed, labeled, stored in `docs/captures/`
 - [ ] Run `scripts/cold_tools.sh`
 
 ## Phase 1 Retro
 
-Actual time vs. range, 10–18 wk:
-
+Actual time vs. range, 12–20 wk:
 Most surprising result from hardware vs. simulation:
-
 What I'd tell someone starting Phase 1:
-
 Missing landmine:

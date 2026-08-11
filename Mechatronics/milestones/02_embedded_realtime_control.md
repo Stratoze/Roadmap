@@ -3,13 +3,22 @@
 ## Outcome
 
 Move from "code that runs" to deterministic embedded control.
-By the end: bring up STM32 at register level with GPIO, timers, SPI, UART, and hardware encoder decoding; create a deterministic timer-driven loop; simulate PID; attempt FOC from understanding; use FreeRTOS without destroying timing guarantees; model the coupled dynamics of the 2-DOF arm with state-space tools; implement a homing sequence with limit switches; and design state machines as a general firmware pattern.
+By the end: bring up STM32 at register level with GPIO, timers, SPI, UART, and hardware encoder decoding; create a deterministic timer-driven loop; simulate PID; attempt FOC from understanding; use FreeRTOS without destroying timing guarantees; model the coupled dynamics of the 2-DOF arm with state-space tools; implement a homing sequence with limit switches; design state machines as a general firmware pattern; **and integrate everything into two real sub-systems — a force-feedback haptic knob and an inverted pendulum cart.**
 
 This phase is about control over time, hardware, and failure.
 
+**Physical artifacts of this phase:**
+1. Force-Feedback Haptic Knob (Milestone 2.7) — BLDC + AS5048 + printed housing + impedance control firmware. This is the QDD control stack in miniature.
+2. Inverted Pendulum Cart (Milestone 2.8) — MGN12 rail + printed chassis + state-space control. This is Milestone 2.5 made physical.
 
+**Fabrication & safety envelope (Phase 2):**
+- 3D printing; bolt-together 2020 extrusion. NO cutting/drilling metal — use extrusion slots and T-nuts.
+- Soldering: through-hole + basic SMD with hot air if you own it. No QFN reflow yet.
+- ≤ 24 V DC. Same current-limit discipline as Phase 1.
+- NEW hazard: moving mechanisms with kinetic energy. First motion at 10% duty. Hands out of travel paths. Software AND hardware end-stops before first run.
 
 ### Real-Time Determinism: Hard vs. Soft
+
 A critical distinction for this phase and everything after:
 
 **Hard real-time:** missing a deadline is a system failure. The control loop must execute
@@ -40,7 +49,6 @@ have a timing problem.
 ## Phase Pass Condition
 
 ### MVM
-
 - [ ] Bare-metal STM32 blink without HAL
 - [ ] 1 kHz timer interrupt verified on scope
 - [ ] SPI device read at register level (encoder or ADC)
@@ -52,9 +60,10 @@ have a timing problem.
 - [ ] 2-DOF arm equations of motion derived and simulated
 - [ ] Homing sequence: limit switch → debounce → state machine → zero
 - [ ] Firmware has explicit modes/fault state: IDLE, RUN, FAULT, with watchdog and timeout behavior
+- [ ] **Physical:** haptic knob assembled; one impedance profile working
+- [ ] **Physical:** pendulum cart balances 5+ seconds from a hand start
 
 ### Full Pass
-
 - [ ] Register-level project builds from command line
 - [ ] Linker script and startup flow understood at "Applied" level
 - [ ] 1 kHz jitter measured and documented
@@ -72,6 +81,8 @@ have a timing problem.
 - [ ] Can explain cascade control: current/torque → velocity → position, and why inner loop bandwidth must exceed outer loop bandwidth
 - [ ] Can explain feedforward vs feedback: model-based torque/position feedforward reduces tracking error, feedback handles residual
 - [ ] Can explain telemetry/parameter/calibration storage as firmware architecture: non-blocking telemetry, versioned config, calibration persistence
+- [ ] **Physical:** haptic knob: 3 switchable profiles (detent/spring/damper), housing labeled, video
+- [ ] **Physical:** pendulum cart: balances 30+ seconds, recovers from a push, video
 - [ ] Phase synthesis from memory
 
 ---
@@ -83,7 +94,6 @@ have a timing problem.
 > **Interactive:** arm-none-eabi-gcc + CMake + OpenOCD + GDB; blink, then 1 kHz timer on a scope.
 > **Theory:** STM32 Reference Manual + Datasheet. RCC → GPIO → TIM order.
 
-
 ## Deliverable
 
 LED blinking via direct register writes, no HAL, compiled from command line, flashed via OpenOCD, with a 1 kHz timer interrupt verified on scope. SPI device read. UART telemetry. Quadrature encoder via timer encoder mode.
@@ -91,13 +101,11 @@ LED blinking via direct register writes, no HAL, compiled from command line, fla
 ## Pass Condition
 
 ### MVM
-
 - [ ] LED blinks via RCC + GPIO register writes
 - [ ] Compiled and flashed from command line
 - [ ] Can explain why RCC enable comes before GPIO config
 
 ### Full Pass
-
 - [ ] Custom linker script works
 - [ ] CMakeLists.txt builds from scratch
 - [ ] OpenOCD flashes, GDB connects, breakpoint hits
@@ -163,7 +171,6 @@ LED blinking via direct register writes, no HAL, compiled from command line, fla
 > **Interactive:** Python PID sim — step response, Bode, tune Kp→Ki→Kd.
 > **Theory:** Nise Ch 8–10; Åström & Murray for depth.
 
-
 ## Deliverable
 
 Python PID simulation with step response plots, Bode plots, and a tuning guide in your own words.
@@ -171,13 +178,11 @@ Python PID simulation with step response plots, Bode plots, and a tuning guide i
 ## Pass Condition
 
 ### MVM
-
 - [ ] Simulates a first-order or second-order plant
 - [ ] P, PI, PID responses plotted separately
 - [ ] Can explain P, I, D effects physically
 
 ### Full Pass
-
 - [ ] Overshoot created and reduced intentionally
 - [ ] Integral windup demonstrated and fixed
 - [ ] Derivative noise amplification observed
@@ -222,7 +227,6 @@ Python PID simulation with step response plots, Bode plots, and a tuning guide i
 > **Interactive:** SimpleFOC as reference; scope the current loop.
 > **Theory:** ST AN1086, TI SLUA171 (Clarke/Park, ADC-to-PWM sync, encoder offset).
 
-
 ## Deliverable
 
 Field Oriented Control on real hardware, built in stages: open-loop spin → current sensing → Clarke/Park logging → Iq loop → Id loop.
@@ -232,7 +236,6 @@ The goal is not to "copy FOC." The goal is to understand what each transformatio
 ## Pass Condition
 
 ### MVM
-
 - [ ] Open-loop sinusoidal spin works
 - [ ] Current sensing topology identified
 - [ ] ADC samples at intentional PWM timing point
@@ -241,7 +244,6 @@ The goal is not to "copy FOC." The goal is to understand what each transformatio
 - [ ] Motor holds torque 10 sec against light hand load
 
 ### Full Pass
-
 - [ ] Iq step: no sustained oscillation
 - [ ] Id bounded near zero
 - [ ] Cold start first attempt
@@ -293,7 +295,6 @@ The goal is not to "copy FOC." The goal is to understand what each transformatio
 > **Interactive:** FreeRTOS on your STM32 — 3 tasks, priority-inversion demo, watchdog.
 > **Theory:** FreeRTOS manual; WCET measurement; hard vs soft real-time.
 
-
 ## Deliverable
 
 FreeRTOS with separate tasks for motor control, sensor polling, and telemetry, preserving deterministic control timing.
@@ -301,14 +302,12 @@ FreeRTOS with separate tasks for motor control, sensor polling, and telemetry, p
 ## Pass Condition
 
 ### MVM
-
 - [ ] FreeRTOS builds and runs on STM32
 - [ ] 3 tasks: motor/control, sensor, telemetry
 - [ ] Motor timing not blocked by UART printing
 - [ ] Basic queue or mutex used correctly
 
 ### Full Pass
-
 - [ ] Priority inversion intentionally created and captured
 - [ ] Fixed with priority inheritance or design change
 - [ ] Watchdog configured and tested
@@ -319,7 +318,7 @@ FreeRTOS with separate tasks for motor control, sensor polling, and telemetry, p
 - [ ] Calibration/parameters stored in non-volatile memory with versioning, or the plan for it is documented
 - [ ] **WCET measurement:** control ISR worst-case execution time measured over 10,000+ cycles via debug GPIO + scope. Value documented. Compared to loop period. If WCET > 80% of period, documented why and what the mitigation is.
 - [ ] Can explain: hard real-time vs. soft real-time. Which tasks in this firmware are
-      hard? Which are soft? What happens if a soft task blocks a hard task?
+hard? Which are soft? What happens if a soft task blocks a hard task?
 
 > [!warning] ⚠️ Landmines
 > 1. **RTOS does not make real-time automatic.** `[COMMUNITY]`
@@ -361,7 +360,6 @@ FreeRTOS with separate tasks for motor control, sensor polling, and telemetry, p
 > **Interactive:** sympy for the 2-link Lagrangian, scipy to simulate, eigenvalues for natural freqs.
 > **Theory:** Craig *Intro to Robotics* Ch 6–7; Lynch & Park for state-space.
 
-
 ## Deliverable
 
 Derive the coupled equations of motion for the 2-DOF planar arm using Lagrangian mechanics. Simulate in Python. Build the state-space representation. Identify natural frequencies. Show why independent PID per joint is insufficient for coordinated motion.
@@ -371,7 +369,6 @@ This milestone connects Phase 0 statics and Phase 1 pendulum dynamics to the act
 ## Pass Condition
 
 ### MVM
-
 - [ ] Lagrangian derived for 2-link planar arm: T, V, L = T - V
 - [ ] Equations of motion: M(q)q̈ + C(q, q̇)q̇ + g(q) = τ, written out
 - [ ] Can explain: M is the inertia matrix, C is Coriolis/centripetal, g is gravity. Each has a physical meaning.
@@ -379,7 +376,6 @@ This milestone connects Phase 0 statics and Phase 1 pendulum dynamics to the act
 - [ ] Can explain WHY joint 1 torque depends on joint 2 position: the inertia matrix is configuration-dependent
 
 ### Full Pass
-
 - [ ] State-space form: ẋ = Ax + Bu, y = Cx + Du. A, B, C, D matrices written for linearized case
 - [ ] Natural frequencies computed from eigenvalues of A. Can explain: these are the frequencies at which the arm wants to oscillate
 - [ ] Can explain: if motor excitation hits a natural frequency → resonance → large oscillations → bad
@@ -426,7 +422,6 @@ This milestone connects Phase 0 statics and Phase 1 pendulum dynamics to the act
 > **Interactive:** wire an NC limit switch, scope the bounce, debounce in HW+SW.
 > **Theory:** state-machine patterns (states/transitions/guards); NC-fails-safe reasoning.
 
-
 ## Deliverable
 
 Homing sequence for one axis: NC limit switch → GPIO interrupt → hardware + software debounce → state machine (fast approach → slow approach → back off → zero). Hall effect sensor verified for BLDC commutation. State machine design practiced as a general firmware pattern.
@@ -438,14 +433,12 @@ The homing sequence is also your first real state machine. The pattern — state
 ## Pass Condition
 
 ### MVM
-
 - [ ] Limit switch triggers GPIO interrupt on falling edge
 - [ ] Debounce: switch press produces exactly ONE interrupt, verified on scope
 - [ ] Homing state machine: motor moves toward switch, stops on trigger
 - [ ] Can explain: NC (normally closed) vs. NO (normally open). NC is safer: wire break → circuit opens → switch triggers → system stops. NO fails silently: wire break → circuit opens → switch never triggers → axis crashes.
 
 ### Full Pass
-
 - [ ] **Full homing sequence:** fast approach → switch triggers → back off → slow approach → switch triggers → back off small distance → set position zero. Can explain why two passes: the first pass is fast (saves time), the second is slow (precision). The back-off distance ensures the switch is released before the slow approach.
 - [ ] **Debounce verified on scope:** mechanical switch shows 5–50 µs of bouncing. Hardware RC filter (10kΩ + 100nF → ~1ms) cleans the edge. Software timer (ignore edges for 5–10ms after first trigger) catches the rest. Both together. Can explain: hardware debounce protects the interrupt from noise. Software debounce protects the state machine from multiple triggers.
 - [ ] **Hall effect sensor:** verified for BLDC commutation (if using hall-sensored motor). Can explain: hall sensors give 6 states per electrical revolution, ~60° resolution. Enough for trapezoidal commutation. Not enough for FOC (need encoder or observer). Can explain: hall sensors are digital (open-drain or push-pull), need pull-ups, and are sensitive to magnetic orientation.
@@ -453,10 +446,10 @@ The homing sequence is also your first real state machine. The pattern — state
 - [ ] **Failsafe test:** disconnect the limit switch wire during motion. NC → system stops (safe). NO → system does NOT stop (unsafe). Document which type you used and why.
 - [ ] Every homing state has a timeout; timeout transitions to FAULT with a documented recovery path
 - [ ] **State machine design as a general pattern:**
-  - Can draw the homing state diagram: states as circles (IDLE, FAST_APPROACH, BACKOFF_1, SLOW_APPROACH, BACKOFF_2, DONE, FAULT), transitions as arrows, guards as labels on arrows ("switch triggered," "backoff distance reached"), entry actions as labels inside circles ("set speed = 100 RPM," "set speed = 10 RPM," "zero the encoder").
-  - Can explain: a state machine is better than nested if/else because: (1) you can't enter an invalid state, (2) transitions are explicit and reviewable, (3) adding a new state doesn't require rewriting all the conditions, (4) the state diagram IS the documentation.
-  - Can explain: entry actions (do something when entering a state), exit actions (do something when leaving), guards (conditions that must be true for a transition to fire). These three concepts cover 90% of firmware state management.
-  - Can identify 3 other places in the firmware where a state machine applies: safety mode management (IDLE → ARMED → RUNNING → E_STOP → FAULT), communication protocol (LISTENING → RECEIVING → PROCESSING → RESPONDING), startup sequence (POWER_ON → SELF_TEST → CALIBRATE → READY).
+- Can draw the homing state diagram: states as circles (IDLE, FAST_APPROACH, BACKOFF_1, SLOW_APPROACH, BACKOFF_2, DONE, FAULT), transitions as arrows, guards as labels on arrows ("switch triggered," "backoff distance reached"), entry actions as labels inside circles ("set speed = 100 RPM," "set speed = 10 RPM," "zero the encoder").
+- Can explain: a state machine is better than nested if/else because: (1) you can't enter an invalid state, (2) transitions are explicit and reviewable, (3) adding a new state doesn't require rewriting all the conditions, (4) the state diagram IS the documentation.
+- Can explain: entry actions (do something when entering a state), exit actions (do something when leaving), guards (conditions that must be true for a transition to fire). These three concepts cover 90% of firmware state management.
+- Can identify 3 other places in the firmware where a state machine applies: safety mode management (IDLE → ARMED → RUNNING → E_STOP → FAULT), communication protocol (LISTENING → RECEIVING → PROCESSING → RESPONDING), startup sequence (POWER_ON → SELF_TEST → CALIBRATE → READY).
 
 > [!warning] ⚠️ Landmines
 > 1. **NO switches fail silently. Use NC for safety.** `[COMMUNITY]`
@@ -492,10 +485,154 @@ The homing sequence is also your first real state machine. The pattern — state
 
 ---
 
+# Milestone 2.7 — Integrated Sub-System: Haptic Knob
+
+> [!info] 📚 Resources — Haptic Knob
+> **Visual:** Scott Bezek "smartknob" videos (GitHub/YouTube) — the reference for BLDC haptic devices.
+> **Interactive:** your FOC firmware from 2.3 on a gimbal BLDC + AS5048.
+> **Theory:** impedance control τ = Kp(θ_des − θ) + Kd(ω_des − ω); nested loops (FOC inner, impedance outer); encoder SPI from 2.1.
+> **Fabrication:** 3D-printed housing + knob grip (PETG/ABS), purchased 6800-series bearings, purchased diametric magnet for AS5048. No CNC.
+
+## Deliverable
+
+A force-feedback rotary knob: BLDC + AS5048 absolute encoder + printed housing, running FOC with an impedance outer loop. Three switchable feel profiles:
+- **Detent:** virtual clicks every N degrees
+- **Spring:** returns to center
+- **Damper:** resists velocity, no position preference
+
+This artifact is the QDD actuator's firmware and sensor stack in miniature. Everything you get wrong here (encoder offset, bearing play, gain confusion) you would otherwise discover inside the sealed Phase 3 housing.
+
+**Fabrication constraints (Phase 2 envelope):**
+- Housing printed in PETG/ABS, 4+ walls, bearing bores printed 0.05 mm undersize and pressed slowly.
+- Shaft: purchased 6–8 mm steel with D-flat; knob attaches with a set screw. Never friction-only.
+- NO CNC, NO metal cutting. If a printed bore is oval, use a retaining ring or re-print — do not "fix" it with a drill.
+
+## Pass Condition
+
+### MVM
+- [ ] AS5048 reads position via SPI at 1 kHz, changes with rotation
+- [ ] Motor spins under FOC with encoder feedback
+- [ ] One impedance profile working (spring or detent)
+
+### Full Pass
+- [ ] 3 profiles working, switchable by serial command or button
+- [ ] Spring profile holds position against a gentle push
+- [ ] Detent profile: discrete clicks felt
+- [ ] Damper profile: resists fast rotation, free at slow
+- [ ] 1 kHz loop timing verified, jitter documented (WCET habit from 2.4)
+- [ ] Encoder electrical offset calibrated (method from 1.3)
+- [ ] **Physical:** zero detectable radial play at the shaft; knob does not slip under hand torque
+- [ ] **Physical:** wires routed and secured, no dangling jumpers; labeled; hero photo + 30 s demo video
+
+> [!warning] ⚠️ Landmines
+> 1. **AS5048 needs a DIAMETRICALLY magnetized magnet at 0.5–3 mm.** `[DATASHEET]`
+>    Radial magnets read wrong. Distance out of range → weak signal or saturation. Check the AS5048 diagnostic registers. Glue the magnet to the shaft end with a spacer; don't eyeball it.
+>
+> 2. **SPI timing is strict and silent.** `[DATASHEET]`
+>    CS setup/hold, clock limits — violate them and you get garbage with no error flag. Read the timing diagram before writing the driver (habit from 2.1).
+>
+> 3. **Impedance gains are NOT FOC gains.** `[HYPOTHESIS]`
+>    Kp, Kd here are N·m/rad and N·m·s/rad commanding TORQUE at 1 kHz; the FOC loop tracks CURRENT at 10–20 kHz. Confuse the two and the knob oscillates or feels dead. Two loops, two gain sets, inner loop always faster.
+>
+> 4. **Bearing play reads as mush.** `[HYPOTHESIS]`
+>    Radial play → encoder wobble → noisy angle → smeared detents. Shaft should rotate freely with ZERO detectable play. This is a feel test your hands can do; use it.
+>
+> 5. **Printed bores are not round.** `[HYPOTHESIS]`
+>    Layer lines make them slightly oval. Press bearings in slowly with a socket of the right size. If it stays oval, retaining ring or reprint.
+>
+> 6. **Gimbal motors are low-speed parts.** `[COMMUNITY]`
+>    14+ pole pairs. Past ~500 RPM back-EMF exceeds your 24 V supply and control degrades. Fine for a knob. Don't try to spin it fast; that's the wrong actuator for speed.
+>
+> 7. **Keep magnets ≥ 30 mm from the encoder die.** `[HYPOTHESIS]`
+>    Any extra magnets (mounting, decorations) corrupt the AS5048. This same landmine appears on the Phase 4 tool changer.
+>
+
+## Dependencies that waste your week if hit backwards
+
+- **2.3 (FOC) must work on the bench first.** The knob is FOC plus an outer loop. If FOC misbehaves, the knob hides the cause.
+- **2.1 (SPI) verified before wiring the AS5048 into the housing.** Debug on breadboard, then assemble.
+- Calibrate encoder offset BEFORE assembling the housing. You cannot re-align inside a closed shell.
+- Print the housing AFTER measuring the actual motor, bearings, and shaft with calipers (0.10 skills).
+- Test all three gain sets on the bench, motor visible, BEFORE closing the housing. Oscillation you can see is fixable; oscillation you can only hear from inside a box is not.
+
+> Log sessions in Daily/ notes using the unified template.
+
+---
+
+# Milestone 2.8 — Inverted Pendulum Cart
+
+> [!info] 📚 Resources — Inverted Pendulum Cart
+> **Visual:** Brian Douglas inverted pendulum / LQR videos.
+> **Interactive:** linearize your 2.5 model around upright, design LQR in Python, simulate, THEN build.
+> **Theory:** 2.5 state-space; LQR/pole placement; 2.6 homing + limit switches; 2.3 or 1.6 for drive.
+> **Fabrication:** MGN12 linear rail (purchased, bolted to 2020 extrusion with T-nuts — no drilling metal), printed chassis (PETG/ABS), printed pendulum arm or purchased carbon tube.
+
+## Deliverable
+
+A cart on a linear rail that balances an inverted pendulum. This is Milestone 2.5 made physical: the A, B, C, D matrices and LQR gains you simulated now run at 500 Hz–1 kHz on real hardware with real friction and backlash.
+
+**Drive:** NEMA17 + TMC2209 (simpler, from 1.6) or BLDC + FOC (smoother, from 2.3).
+**Pendulum angle:** AS5048 at the pivot (preferred) or potentiometer.
+**Cart position:** step-count (open loop, documented weakness) or magnetic strip + second AS5048.
+**End stops:** NC microswitches from 2.6, wired failsafe.
+
+## Pass Condition
+
+### MVM
+- [ ] Cart moves under control; pendulum angle reads correctly
+- [ ] Cart moves the right way when the pendulum tilts
+- [ ] Balances 5+ seconds from a hand start near upright
+- [ ] Limit switches stop the cart; NC failsafe verified
+
+### Full Pass
+- [ ] Balances 30+ seconds
+- [ ] Recovers from a gentle push (disturbance rejection, video)
+- [ ] LQR Q/R documented with physical meaning of each weight
+- [ ] Control loop timing verified and documented
+- [ ] Homing sequence from 2.6 reused: cart finds center at startup
+- [ ] Linearized model checked against reality; discrepancy documented (friction, backlash, rail stiction)
+- [ ] **Physical:** rail runs smoothly by hand with no binding before motor is ever powered
+- [ ] **Physical:** cable loop/catch-free routing for cart travel ±150 mm
+- [ ] **Physical:** labeled, photo, video: balance + push recovery
+
+> [!warning] ⚠️ Landmines
+> 1. **The linearized model only holds near upright.** `[HYPOTHESIS]`
+>    LQR designed at θ=0 will not swing the pendulum up from horizontal. Start near upright by hand (MVM). Swing-up control is parked in IDEAS.md; don't let it hijack this milestone.
+>
+> 2. **Rail binding beats any controller.** `[HYPOTHESIS]`
+>    If the carriage is preloaded too tight or the rail is misaligned, the motor fights friction and the model is wrong. Slide the cart by hand FIRST. Smooth + zero play, then wire the motor.
+>
+> 3. **Extrusion slots are ±0.5 mm.** `[COMMUNITY]`
+>    T-nut mounting is not precision. If the rail isn't parallel to the extrusion, the cart binds mid-travel. Shim with washers. This is normal, not a defect.
+>
+> 4. **Open-loop step counting drifts.** `[COMMUNITY]`
+>    Missed steps move your "zero." Either home periodically (2.6 sequence), use StallGuard, or add a linear encoder. Document which, and why.
+>
+> 5. **Encoder resolution sets balance quality.** `[HYPOTHESIS]`
+>    Potentiometer (~10 bit) → visible hunting. AS5048 (14 bit) → smooth. If you can afford one encoder on this project, put it on the pendulum pivot.
+>
+> 6. **The arm must be light.** `[HYPOTHESIS]`
+>    Required torque scales with arm inertia. Keep it under ~100 g (carbon tube or thin-walled print). A heavy arm saturates the motor and you'll blame the gains.
+>
+> 7. **Cables snag = pendulum falls.** `[COMMUNITY]`
+>    Route a flexible loop along the rail. Test full travel by hand before powering.
+>
+
+## Dependencies that waste your week if hit backwards
+
+- **Simulate the FULL firmware model in Python first (2.5).** If it can't balance in sim with actuator limits, it won't balance on rails.
+- **2.6 homing + limit switches working BEFORE first powered motion.** An unbounded cart drives off the rail and breaks itself.
+- Verify pendulum encoder on the bench BEFORE mounting it on the cart.
+- Assemble the chassis around the physical motor + carriage + bearing stack, measured — not around datasheet drawings.
+- Balance tests only after the mechanical check (rail, arm, cables) passes by hand.
+
+> Log sessions in Daily/ notes using the unified template.
+
+---
+
 # Phase 2 Deload / Synthesis
 
 No new inputs. Do not start CAD/PCB yet.
-
 - [ ] Re-draw STM32 startup flow from memory
 - [ ] Re-draw timer ISR timing
 - [ ] Explain SPI CPOL/CPHA modes from memory
@@ -508,21 +645,19 @@ No new inputs. Do not start CAD/PCB yet.
 - [ ] Explain what the natural frequencies mean for controller design
 - [ ] Draw the homing state machine from memory, with guards and entry actions
 - [ ] Explain NC vs NO failsafe reasoning
+- [ ] Explain impedance control from memory: τ = Kp(θ_des − θ) + Kd(ω_des − ω), and why inner loop must be faster
+- [ ] Explain LQR Q/R physically from memory
 - [ ] Name 3 other firmware state machines and sketch one
 - [ ] Run largest integrated firmware cold
 - [ ] Run `scripts/versions.sh` and `scripts/cold_tools.sh`
 - [ ] Clean code naming, commit phase state
+- [ ] **Physical:** haptic knob + pendulum cart photographed, labeled, videos in `docs/captures/`
 
 ## Phase 2 Retro
 
-Actual time vs. range, 11–24 wk:
-
+Actual time vs. range, 12–26 wk:
 What was easier than expected:
-
 What was harder than expected:
-
 Most valuable landmine:
-
 Missing landmine:
-
 What Phase 3 needs from Phase 2:
