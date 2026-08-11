@@ -3,27 +3,37 @@
 ## Outcome
 
 The physics, math, and reasoning base that everything else depends on.
-Vectors, calculus intuition, statics, circuits, power, materials, manufacturing, and the kinematic vocabulary of machines.
+Vectors, calculus intuition, statics, circuits, power, materials, manufacturing, the kinematic vocabulary of machines, and the metrology to measure what you build.
+
 You don't need to master these before building. You need them at "Applied" level — you've solved a real problem with each one, not just followed a derivation.
 
 The test: close the notes and solve a new version of the problem.
 If you can, move on. If you can't, find the gap and close it.
+
+**Physical artifacts of this phase:**
+1. Parametric Mechanism Testbed — 3D-printed (or cardboard) baseplate with 5+ interchangeable mechanisms
+2. Metrology Kit — calipers + dial indicator + documented measurement uncertainty
+
+**Fabrication & safety envelope (Phase 0):**
+- Cardboard, hand tools, hobby knife, 3D printer only.
+- NO soldering. NO power tools. USB / 5V only for the blinky speed run.
+- Eye protection when clipping anything. Cut away from your body.
 
 ---
 
 ## Phase Pass Condition
 
 ### MVM
-
 - [ ] Can re-solve each milestone task with notes open
 - [ ] Can explain each concept aloud, Feynman test — stumble = gap
 - [ ] Git repo + log + Anki deck operational
 - [ ] Can state basic measurement sanity: voltage across, current through, scope ground/probe discipline, current-limited supply default
 - [ ] Can look at a part and name the manufacturing process that made it
 - [ ] Can look at a mechanism and name it, count its DOF, and state its input→output motion
+- [ ] **Physical:** mechanism testbed assembled, ≥ 3 mechanisms, photographed
+- [ ] **Physical:** one 3D-printed part measured with calipers, uncertainty stated
 
 ### Full Pass
-
 - [ ] Can re-solve each milestone task from memory, blank page
 - [ ] One-page synthesis sheet: one paragraph per concept
 - [ ] Safety setup reflexive — not something you have to remember
@@ -31,6 +41,8 @@ If you can, move on. If you can't, find the gap and close it.
 - [ ] Can select a material for a given load/environment using Ashby reasoning
 - [ ] Can sketch a DFM/DFA critique of a simple part
 - [ ] Can draw the kinematic diagram of any mechanism from 0.9 and explain where it's used
+- [ ] **Physical:** testbed has 5+ mechanisms with kinematic diagrams posted beside them
+- [ ] **Physical:** metrology log with Type A + Type B uncertainty committed to `data/processed/`
 
 ---
 
@@ -41,7 +53,6 @@ If you can, move on. If you can't, find the gap and close it.
 > **Interactive:** set up the toolchain and flash a blinky. That *is* the milestone — stop when it blinks.
 > **Theory:** none. This is an environment milestone, not a theory one.
 
-
 ### Deliverable
 
 Working dev environment, local Git repo with first commit, Anki deck, and a problem-solving vocabulary you can use when stuck.
@@ -49,17 +60,15 @@ Working dev environment, local Git repo with first commit, Anki deck, and a prob
 ## Pass Condition
 
 ### MVM
-
-- [x] Git repo initialized, first meaningful commit
-- [x] Editor, terminal, toolchain verified
-- [x] Anki deck created
-- [x] Can state: "What is the Input, Output, and Transformation here?"
+- [ ] Git repo initialized, first meaningful commit
+- [ ] Editor, terminal, toolchain verified
+- [ ] Anki deck created
+- [ ] Can state: "What is the Input, Output, and Transformation here?"
 
 ### Full Pass
-
-- [x] Flashlight deconstruction: black boxes, energy chain, first principles
-- [x] Can apply binary-search debugging to a simple fault
-- [x] Can Fermi-estimate before computing, within an order of magnitude
+- [ ] Flashlight deconstruction: black boxes, energy chain, first principles
+- [ ] Can apply binary-search debugging to a simple fault
+- [ ] Can Fermi-estimate before computing, within an order of magnitude
 
 > [!warning] ⚠️ Landmines
 > 1. **"Setting up the environment" is not the work.** `[HYPOTHESIS]`
@@ -87,7 +96,6 @@ Working dev environment, local Git repo with first commit, Anki deck, and a prob
 > **Interactive:** plot the 2-link arm tip in Python for a few (θ1,θ2); see the vector add.
 > **Theory:** Ulaby Ch 1 / Khan Academy — only what forward kinematics needs.
 
-
 ## Deliverable
 
 Hand-calculated forward kinematics for a 2-link planar arm. Given link lengths and joint angles, find the tip position, X, Y.
@@ -95,13 +103,11 @@ Hand-calculated forward kinematics for a 2-link planar arm. Given link lengths a
 ## Pass Condition
 
 ### MVM
-
 - [ ] Can calculate tip position for given θ1, θ2, L1, L2
 - [ ] Understands world frame vs. link frame
 - [ ] Can draw the vector diagram, not just plug into a formula
 
 ### Full Pass
-
 - [ ] Can modify: add a third link, rotate the base, change reference frame
 - [ ] Dot product has physical meaning: projection
 
@@ -127,7 +133,6 @@ Hand-calculated forward kinematics for a 2-link planar arm. Given link lengths a
 > **Interactive:** Desmos — plot v(t)=2t, shade area to t=3, see it equals position. Confirm with scipy.
 > **Theory:** intuition over symbolic fluency. Ulaby appendix.
 
-
 ## Deliverable
 
 Given v(t) = 2t m/s: derive acceleration, calculate position at t = 3s by integration, explain the physical meaning of the area under the curve.
@@ -135,14 +140,12 @@ Given v(t) = 2t m/s: derive acceleration, calculate position at t = 3s by integr
 ## Pass Condition
 
 ### MVM
-
 - [ ] Can take a derivative of a polynomial
 - [ ] Can integrate a polynomial with limits
 - [ ] Can chain: position → velocity → acceleration and back
 - [ ] Can explain: derivative = rate of change, integral = accumulation
 
 ### Full Pass
-
 - [ ] Power → Energy by integration, same idea, different domain
 - [ ] Can explain why area under v(t) is displacement without the formula
 
@@ -165,7 +168,6 @@ Given v(t) = 2t m/s: derive acceleration, calculate position at t = 3s by integr
 > **Interactive:** PhET *Balancing Act* — 15 min for torque intuition before the math.
 > **Theory:** Shigley Ch 3 (equilibrium & FBDs). Skip the rest until Phase 3.
 
-
 ## Deliverable
 
 FBD of the 2-link arm holding 0.5 kg at full horizontal extension. Calculate holding torque at the shoulder joint.
@@ -173,14 +175,12 @@ FBD of the 2-link arm holding 0.5 kg at full horizontal extension. Calculate hol
 ## Pass Condition
 
 ### MVM
-
 - [ ] FBD drawn with all forces labeled, directions correct
 - [ ] ΣF = 0 and Στ = 0 applied correctly
 - [ ] Torque = F × perpendicular distance
 - [ ] Numerical answer with units
 
 ### Full Pass
-
 - [ ] Can identify what happens to torque if elbow extends further
 - [ ] Can solve for reaction forces at the base
 - [ ] **FEM intuition:** Can explain what FEM does in one paragraph: discretize geometry into elements → each element has a stiffness relation → assemble into global system → apply boundary conditions → solve for displacements → derive stresses. Can explain: the mesh is an approximation; finer mesh → more accurate but more compute; boundary conditions dominate the result more than mesh density; a point load creates infinite stress (artifact, not reality); hand calcs validate FEA, not the other way around. **Tool awareness:** in Phase 3 you will run FEA in PrePoMax (free, open-source GUI wrapping the CalculiX solver). You design in Solid Edge, export STEP, import into PrePoMax. The hand calc from THIS milestone is what you validate the PrePoMax result against. Install nothing now. Just know the pipeline exists.
@@ -210,7 +210,6 @@ FBD of the 2-link arm holding 0.5 kg at full horizontal extension. Calculate hol
 > **Interactive:** Falstad — build LED+resistor, watch current, then measure it.
 > **Theory:** Rizzoni Ch 1–2 / Horowitz & Hill intro. KVL + Ohm only.
 
-
 ## Deliverable
 
 Calculate the current-limiting resistor for an LED, Vf = 2.2V, If = 20mA, from a 5V pin. Simulate in Falstad. Verify with multimeter on real hardware.
@@ -218,13 +217,11 @@ Calculate the current-limiting resistor for an LED, Vf = 2.2V, If = 20mA, from a
 ## Pass Condition
 
 ### MVM
-
 - [ ] Correct resistor value using KVL + Ohm's Law
 - [ ] Physical intuition: voltage = pressure, current = flow, resistance = opposition
 - [ ] Simulation matches calculation
 
 ### Full Pass
-
 - [ ] KCL at a branching node
 - [ ] KVL around a multi-component loop
 - [ ] Can read a datasheet for Vf and If max
@@ -252,7 +249,6 @@ Calculate the current-limiting resistor for an LED, Vf = 2.2V, If = 20mA, from a
 > **Interactive:** hand-calc the H-bridge loss, confirm with a SPICE power readout.
 > **Theory:** Horowitz & Hill power/thermal; reading RθJA in a datasheet.
 
-
 ## Deliverable
 
 H-bridge: 2A at 12V, Rds(on) = 0.05Ω, two switches in series. Calculate input power, heat loss, efficiency. Heatsink needed?
@@ -260,14 +256,12 @@ H-bridge: 2A at 12V, Rds(on) = 0.05Ω, two switches in series. Calculate input p
 ## Pass Condition
 
 ### MVM
-
 - [ ] P_in = V × I correct
 - [ ] P_loss = I² × R_total correct
 - [ ] Efficiency as percentage
 - [ ] Knows what thermal resistance means
 
 ### Full Pass
-
 - [ ] Can find Rth_ja in a datasheet, estimate junction temperature
 - [ ] Can apply to a real MOSFET
 - [ ] Can sketch a system power budget: rails, loads, modes, peak vs nominal, fuse/regulator margin
@@ -294,7 +288,6 @@ H-bridge: 2A at 12V, Rds(on) = 0.05Ω, two switches in series. Calculate input p
 > **Interactive:** MatWeb or Ansys Granta edu — look up 6061-T6, plot E/ρ vs σy/ρ.
 > **Theory:** Ashby *Materials Selection* (indices chapter); Callister for crystal/fatigue.
 
-
 ## Deliverable
 
 5mm diameter 6061-T6 rod, yield ≈ 276 MPa, FoS = 3. Calculate allowable stress and maximum axial tensile force. Then: select a material for the 2-DOF arm links using Ashby-style reasoning, and explain why cyclic loading changes the answer.
@@ -302,7 +295,6 @@ H-bridge: 2A at 12V, Rds(on) = 0.05Ω, two switches in series. Calculate input p
 ## Pass Condition
 
 ### MVM
-
 - [ ] Allowable stress = yield / FoS
 - [ ] Stress = F/A, rearranged for force
 - [ ] Circular area = πr²
@@ -310,7 +302,6 @@ H-bridge: 2A at 12V, Rds(on) = 0.05Ω, two switches in series. Calculate input p
 - [ ] Can explain WHY FoS > 1: load uncertainty, material variation, fatigue
 
 ### Full Pass
-
 - [ ] **Stress-strain curve anatomy:** Can draw and label: elastic region (linear, slope = E), yield point (0.2% offset for metals without sharp yield), strain hardening region, ultimate tensile strength, necking, fracture. Can explain: area under the curve = toughness (energy to fracture). Peak stress = strength. Slope = stiffness. These are three different properties.
 - [ ] **Crystal structure matters:** FCC (aluminum, copper, austenitic stainless) → many slip systems → ductile. BCC (iron at room temp, tungsten) → fewer slip systems → stronger but less ductile, ductile-brittle transition temperature exists. HCP (titanium, magnesium, zinc) → fewest slip systems → anisotropic, limited formability. Can explain: this is WHY aluminum bends and cast iron snaps.
 - [ ] **Dislocations and work hardening:** Metals are 100–1000× weaker than theoretical bond strength because dislocations let planes slide incrementally. Cold working multiplies dislocations → they tangle → harder to move → material gets stronger but less ductile. This is why bending a paperclip back and forth makes it harder to bend, then it breaks.
@@ -368,7 +359,6 @@ H-bridge: 2A at 12V, Rds(on) = 0.05Ω, two switches in series. Calculate input p
 > **Interactive:** 3D-print a bracket, then redesign it for a mill; note what changed.
 > **Theory:** Boothroyd-Dewhurst DFA; GD&T only for fits you'll use.
 
-
 ## Deliverable
 
 Take a simple L-bracket: design it for CNC milling, then redesign the same function for sheet metal bending. Document what changed, what became impossible, what became free. Then: redesign it for minimum part count and fastest assembly. Write 5 DFM rules and 3 DFA rules you'll follow in Phase 3.
@@ -376,7 +366,6 @@ Take a simple L-bracket: design it for CNC milling, then redesign the same funct
 ## Pass Condition
 
 ### MVM
-
 - [ ] Can name the 4 primary manufacturing families: machining, forming, casting, molding
 - [ ] Can state 3 things a 3-axis CNC mill cannot do (internal sharp corners, undercuts without special tooling, features on non-accessible faces)
 - [ ] Can state 3 sheet metal constraints (minimum bend radius, K-factor for flat pattern, grain direction)
@@ -384,15 +373,14 @@ Take a simple L-bracket: design it for CNC milling, then redesign the same funct
 - [ ] Bracket sketch for sheet metal with DFM annotations
 
 ### Full Pass
-
 - [ ] Can explain: casting needs draft angles and fillets. Why. (Pattern removal, stress concentration.)
 - [ ] Can explain: injection molding needs uniform wall thickness, draft, ribs instead of thick sections. Why. (Sink marks, warpage, cycle time.)
 - [ ] Can name 2 joining methods beyond bolts: welding (TIG/MIG), adhesives, brazing, rivets. When each is appropriate.
 - [ ] Can name 2 surface treatments and why: anodizing (corrosion + wear), powder coat (corrosion + aesthetics), plating, passivation.
 - [ ] **DFA — Design for Assembly:**
-  - Can explain the Boothroyd-Dewhurst principles: minimize part count (does this part NEED to be separate?), design for z-axis assembly (parts stack downward, no flipping), self-locating features (dowels, tabs, asymmetric holes — parts can only go together one way), minimize fasteners (snap-fits, welds, adhesives replace screws), avoid flexible parts (cables, O-rings, gaskets are hard to automate).
-  - Can look at a 5-part assembly and identify: which parts could be merged? Which fasteners could be eliminated? Which features would make assembly foolproof?
-  - Can explain: the cheapest part is the part you didn't design. The cheapest fastener is the one you didn't add. Assembly time often exceeds manufacturing time.
+- Can explain the Boothroyd-Dewhurst principles: minimize part count (does this part NEED to be separate?), design for z-axis assembly (parts stack downward, no flipping), self-locating features (dowels, tabs, asymmetric holes — parts can only go together one way), minimize fasteners (snap-fits, welds, adhesives replace screws), avoid flexible parts (cables, O-rings, gaskets are hard to automate).
+- Can look at a 5-part assembly and identify: which parts could be merged? Which fasteners could be eliminated? Which features would make assembly foolproof?
+- Can explain: the cheapest part is the part you didn't design. The cheapest fastener is the one you didn't add. Assembly time often exceeds manufacturing time.
 - [ ] 5 personal DFM rules written down, specific enough to check against in Phase 3
 - [ ] 3 personal DFA rules written down
 - [ ] Can look at a part photo and identify the likely manufacturing process
@@ -430,32 +418,38 @@ Take a simple L-bracket: design it for CNC milling, then redesign the same funct
 
 ---
 
-# Milestone 0.9 — Mechanisms & Kinematic Elements
+# Milestone 0.9 — Mechanisms & Kinematic Elements + Physical Testbed
 
 > [!info] 📚 Resources — Mechanisms & Kinematic Elements
 > **Visual:** Thang010146 (mechanism animations); *507 Mechanical Movements*.
 > **Interactive:** GeoGebra/linkage sim — build a four-bar, flip the grounded link, watch Grashof change it.
 > **Theory:** Norton *Design of Machinery* Ch 1–5; Gruebler's equation.
-
+> **Fabrication:** 3D printer (FDM, PLA). No printer yet → cardboard + brass split pins. Same kinematics.
 
 ## Deliverable
 
-Build a physical model (cardboard, 3D print, or CAD assembly) of 3 mechanisms from the list below. For each: draw the kinematic diagram, count DOF using Gruebler's equation, identify input→output motion transformation, state mechanical advantage behavior, and name one real-world application.
+**Theory:** For each of 12 mechanisms: kinematic diagram, DOF via Gruebler's, input→output motion, mechanical advantage behavior, one real-world application.
 
-This is the vocabulary of machines. Without it, you look at a mechanism and see "metal shapes." With it, you see "that's a crank-rocker four-bar converting continuous rotation to oscillation, and the transmission angle is bad at the extremes." Every machine you will ever build or debug is a combination of these elements.
+**Physical artifact: the Parametric Mechanism Testbed.**
+A baseplate (3D-printed or cardboard) with interchangeable mechanism modules that swap in and out by hand. This is the first portfolio artifact. It must be photographed and labeled, not left as a pile of parts.
+
+**Fabrication constraints (Phase 0 envelope):**
+- PLA, 0.2 mm layers. Pins: 3 mm steel dowel pins or printed axles.
+- Print a tolerance calibration cube FIRST. A printed 3.0 mm hole will not fit a 3 mm pin. Print holes at 3.2–3.3 mm clearance. Measure with calipers (Milestone 0.10).
+- NO adhesives beyond hot glue for cardboard versions. NO power tools.
+- This is a demonstration model, not a machine. PLA joints wear after ~100 cycles. That is acceptable here and you should be able to say why.
 
 ## Pass Condition
 
 ### MVM
-
-- [ ] 3 mechanisms modeled (physical or CAD)
+- [ ] 3 mechanisms modeled physically on the testbed
 - [ ] Kinematic diagram drawn for each: links as lines, joints as symbols (revolute = circle, prismatic = square, cam = contact point)
 - [ ] DOF counted using Gruebler's equation: DOF = 3(n-1) - 2j₁ - j₂ (planar). Can explain: n = links, j₁ = full joints (revolute/prismatic), j₂ = half joints (cam contact)
 - [ ] Input→output motion stated for each: "continuous rotation → oscillation," "rotation → linear translation," etc.
 - [ ] One real-world application named for each
+- [ ] **Physical:** modules swap by hand, no tools; testbed photographed
 
 ### Full Pass
-
 - [ ] All 12 mechanisms below covered (diagram + DOF + motion + application)
 - [ ] **Four-bar linkage:** Can explain Grashof condition (s + l ≤ p + q). Can identify: crank-rocker (shortest link is input), double-crank (shortest link is ground), double-rocker (shortest link is coupler). Can explain: the same four bars behave completely differently depending on which link is grounded.
 - [ ] **Slider-crank:** Can explain: this is a four-bar with one revolute joint replaced by a prismatic joint. Engine piston = slider-crank. Can explain dead-center positions and why a flywheel is needed.
@@ -469,6 +463,7 @@ This is the vocabulary of machines. Without it, you look at a mechanism and see 
 - [ ] **Planetary gear (epicyclic):** Can explain: sun + planets + ring + carrier. Can explain the ratio formula: ω_s·N_s + ω_r·N_r = ω_c·(N_s + N_r). Can explain: load is shared across planets → compact, high torque density. Can explain: one element must be held fixed (or two inputs needed) to get a defined ratio. Application: automatic transmissions, robot joint reducers, drill drivers.
 - [ ] **Ball screw / lead screw:** Can explain: converts rotation to linear motion. Ball screw: recirculating balls → low friction (~90% efficient), backdrivable. Lead screw (Acme/trapezoidal): sliding contact → high friction (~30-50% efficient), often self-locking. Can explain: backdrivability matters — if the load can drive the screw backwards, you need a brake or a self-locking screw. Application: CNC machines (ball screw), vises (lead screw), 3D printers (lead screw).
 - [ ] **Belt and chain drive:** Can explain: timing belts (toothed) maintain synchronization, no slip. V-belts rely on friction, can slip (sometimes a feature — overload protection). Roller chains: high strength, positive engagement, need lubrication. Can explain: tensioning matters — too loose → skip/slap, too tight → bearing overload. Application: 3D printers (GT2 timing belt), motorcycles (chain), automotive accessories (serpentine belt).
+- [ ] **Physical:** 5+ modules on the testbed; kinematic diagrams posted beside them; 60-second video narrating each mechanism
 
 > [!warning] ⚠️ Landmines
 > 1. **Gruebler's equation counts DOF, not motion quality.** `[HYPOTHESIS]`
@@ -495,6 +490,12 @@ This is the vocabulary of machines. Without it, you look at a mechanism and see 
 > 8. **A mechanism is not a machine.** `[HYPOTHESIS]`
 >    A mechanism transmits/transforms motion. A machine transmits/transforms motion AND force/energy. The four-bar in your car's windshield wiper is a mechanism. The wiper motor + linkage + blade is a machine. Know the difference: mechanism design is kinematics (geometry of motion). Machine design adds kinetics (forces, torques, power).
 >
+> 9. **Print tolerance is a landmine, not a footnote.** `[HYPOTHESIS]`
+>    Every printed hole needs clearance compensation. Calibrate once (calibration cube + calipers), then use one compensation value for the whole testbed. If you skip calibration, you'll reprint every module once.
+>
+> 10. **PLA joints wear; that's the lesson, not a failure.** `[COMMUNITY]`
+>     After 50–100 cycles a press-fit PLA pin loosens. Document it. This is exactly why Phase 3 uses CNC aluminum + real bearings. Feeling the difference IS the curriculum.
+>
 
 ## Dependencies that waste your week if hit backwards
 
@@ -502,6 +503,72 @@ This is the vocabulary of machines. Without it, you look at a mechanism and see 
 - Draw the kinematic diagram BEFORE building the physical/CAD model. The diagram strips away the geometry and shows the topology. If the diagram is wrong, the model is wrong.
 - Study the four-bar FIRST. It's the foundation. Slider-crank is a four-bar variant. Geneva is a modified four-bar. Understanding Grashof unlocks the rest.
 - Do the leaf spring / compliant mechanism AFTER the rigid-body mechanisms. Compliance is a design choice that replaces joints. You need to understand joints first.
+- Print the calibration cube BEFORE printing mechanism modules. Measure, compensate, then print.
+
+> Log sessions in Daily/ notes using the unified template.
+
+---
+
+# Milestone 0.10 — Metrology + Measurement Uncertainty
+
+> [!info] 📚 Resources — Metrology & Measurement
+> **Visual:** Mitutoyo/Starrett "how to read calipers and dial indicators" videos.
+> **Interactive:** measure the same printed cube 10×; compute mean, std dev, uncertainty in a spreadsheet or Python.
+> **Theory:** GUM basics — resolution vs accuracy, repeatability, systematic vs random error.
+
+## Deliverable
+
+A documented measurement of a testbed part from Milestone 0.9:
+- Nominal dimension (from CAD or drawing)
+- Measured dimension (mean of 10 readings)
+- Type A uncertainty (repeatability: std dev / √n)
+- Type B uncertainty (instrument resolution: resolution / √12)
+- Combined uncertainty (root-sum-square)
+- Stated as: `dimension = X ± U mm (k=2, ~95%)`
+
+This is the foundation of every characterization in Phases 1–4. A torque constant measured
+with a sloppy lever-arm length is worthless. Metrology first, always.
+
+**Fabrication constraints (Phase 0 envelope):** no fabrication. You measure what you already printed. Tools: calipers, dial indicator (if owned), steel ruler.
+
+## Pass Condition
+
+### MVM
+- [ ] Can read calipers correctly (outside, inside, depth) and zero them
+- [ ] Can state a measured dimension with units
+- [ ] Understands: resolution ≠ accuracy ≠ precision
+
+### Full Pass
+- [ ] 10 repeated measurements recorded in `data/raw/`
+- [ ] Type A and Type B uncertainty computed; combined by RSS
+- [ ] Measurement stated with uncertainty and coverage factor
+- [ ] Can explain systematic vs random error, and why averaging fixes one but not the other
+- [ ] Can explain why "25.43 mm" is meaningless without stating the instrument
+- [ ] Dial indicator used to check flatness or runout of a printed part (if available)
+- [ ] Ambient temperature noted in the log (habit-building for later phases)
+
+> [!warning] ⚠️ Landmines
+> 1. **Caliper resolution is not caliper accuracy.** `[COMMUNITY]`
+>    A $30 caliper reads 0.01 mm but may be accurate to ±0.03 mm. Check it against a known dimension (gauge pin, drill bit shank with stamped size) and record the offset.
+>
+> 2. **3D-printed dimensions are not your CAD.** `[HYPOTHESIS]`
+>    FDM shrinks ~0.1–0.3% in XY. A 25 mm cube prints at ~24.95 mm. That is a PROCESS error, not a measurement error. Your uncertainty budget covers the measurement; the CAD-to-part gap is a separate, documented thing.
+>
+> 3. **Squeezing the caliper lies.** `[HYPOTHESIS]`
+>    Too much jaw force deforms PLA and reads small. Use the thumb roller gently; same force every reading, which is why you repeat 10×.
+>
+> 4. **Parallax on dial indicators.** `[COMMUNITY]`
+>    Read the face straight-on. Angled reads are ±0.02 mm off.
+>
+> 5. **Uncertainty is not "I'm not sure."** `[HYPOTHESIS]`
+>    It is a quantitative claim about where the true value lies. Stating it is what separates a lab report from a guess, and it is exactly what you'll attach to the QDD's torque constant in Phase 3.
+>
+
+## Dependencies that waste your week if hit backwards
+
+- Buy calipers BEFORE this milestone.
+- Measure a part FROM Milestone 0.9 so the two artifacts connect.
+- Finish this BEFORE Phase 1: the VCA's lever arm, the load cell calibration, and every Phase 3 bearing fit inherit this skill.
 
 > Log sessions in Daily/ notes using the unified template.
 
@@ -510,22 +577,20 @@ This is the vocabulary of machines. Without it, you look at a mechanism and see 
 # Phase 0 Deload / Synthesis
 
 No new inputs.
-
-- [ ] Re-solve all 9 milestone deliverables from memory, blank page
+- [ ] Re-solve all 10 milestone deliverables from memory, blank page
 - [ ] Red-pen every hesitation
 - [ ] One-page synthesis sheet
 - [ ] Safety setup verified and reflexive
 - [ ] 5 DFM rules + 3 DFA rules readable and specific
 - [ ] Can draw kinematic diagrams for 3 mechanisms from memory
 - [ ] Can draw and label a stress-strain curve from memory
+- [ ] Can state a measurement with its uncertainty from memory
+- [ ] **Physical:** testbed photographed and labeled; metrology log committed
 - [ ] Run `scripts/versions.sh`
 
 ## Phase 0 Retro
 
 Actual time vs. range, 8–14 wk:
-
 Most useful concept for what comes next:
-
 What I'd tell someone starting Phase 0:
-
 Missing landmine:
