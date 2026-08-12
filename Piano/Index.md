@@ -152,11 +152,11 @@ tags:
 - Why this piece:
 
 ## Logs
-- [[{{title}} - Error Log|Error log]]
-- [[{{title}} - Tempo Log|Tempo log]]
+- [Piece Error Log](../_templates/piano/Piece%20Error%20Log.md)
+- [Piece Tempo Log](../_templates/piano/Piece%20Tempo%20Log.md)
 
 ## Movement map
-Name the archetype(s) per passage. Full specs: [Movement](../../Piano/Resources/Movement.md).
+Name the archetype(s) per passage. Full specs: [Movement](Resources/Movement.md).
 Mark the seams (S) — errors live there.
 
 | Bars | Archetype(s) | Seam notes | Concern |
