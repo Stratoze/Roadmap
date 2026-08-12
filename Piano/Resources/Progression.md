@@ -1,8 +1,9 @@
 # Progression
 > Reference for long-term development. For piece lists, see [Roadmap](Roadmap.md).
+> For the technique vocabulary itself, see [Movement](Movement.md).
 > Exam boards are calibration only. The real goal is skill.
 > Design principle: progression is gated by skills, not time.
-> Every stage develops four pillars: Reading, Technique, Ear/Functional, Musicianship.
+> Every stage develops four pillars: Reading, Technique (Movement), Ear/Functional, Musicianship.
 
 ## Contents
 - [1. Practice Volume, Pacing, and Deload](#practice-volume-and-pacing)
@@ -10,7 +11,7 @@
 - [3. Starting from Zero](#starting-from-zero)
 - [4. Skill Stages](#skill-stages)
 - [5. Technical Progression Ladder](#technical-progression-ladder)
-- [6. Biomechanical Progression Ladder](#biomechanical-progression-ladder)
+- [6. Movement Progression Ladder](#movement-progression-ladder)
 - [7. Musicianship Progression](#musicianship-progression)
 - [8. Sight-Reading Progression](#sight-reading-progression)
 - [9. Ear and Functional Progression](#ear-and-functional-progression)
@@ -21,8 +22,9 @@
 - [14. Liszt Path](#liszt-path)
 - [15. Teacher and Feedback Checkpoints](#teacher-and-feedback-checkpoints)
 - [16. Exam Calibration Only](#exam-calibration-only)
-- [Core Loop](#core-loop)
+
 ---
+
 ## Practice Volume and Pacing
 | Practice pattern | Expected effect |
 | --- | --- |
@@ -58,6 +60,7 @@ Signs you need a deload:
 - You dread sitting down.
 - Sleep quality has declined.
 - You are injured or recovering from illness.
+- **Movement regression:** form you own degrades (wrist twists return, stretch replaces rotation). Form regression is a fatigue signal, not a skill loss.
 
 A deload week is not quitting. You sit down every day. You just play less, slower, and for pleasure.
 
@@ -73,6 +76,7 @@ A deload week is not quitting. You sit down every day. You just play less, slowe
 | Sun | Rest. Visualize next week's goals. |
 
 ---
+
 ## Implementation Order
 Do not add everything tomorrow. Phase it in.
 
@@ -83,12 +87,13 @@ Sit down, play, 15 minutes.
 - Use the adaptive tempo protocol, not a rigid tempo algorithm.
 - Use error triage instead of binary pass/fail.
 - Define chunks explicitly before starting a piece.
+- **Movement-map every new chunk** (name the archetype; see [Movement](Movement.md)).
 - Choose HS or HT based on the actual problem.
 - Begin musical work immediately.
 - Stop recording every repetition.
 - Use two concurrent pieces: learning and polishing.
 - Use outcome targets for method book work, not page counts.
-- Add biomechanical check-in to every session.
+- Add movement check-in to every session.
 
 ### Weeks 3 to 4: Repair repertoire management
 - Establish learning, polishing, and maintenance pool.
@@ -103,18 +108,21 @@ Sit down, play, 15 minutes.
 - Ear and theory, 2 to 3 times per week.
 - One weekly chord, lead-sheet, improv, or by-ear session.
 - Start the listening habit.
-- Add scales, arpeggios, and technical requirements to the technique rotation.
+- Add scales, arpeggios, and technical requirements to the technique rotation —
+  always with the matching archetype goal (M3 for scales, M4 for arpeggios).
 - Begin dual-task training: play scales while counting aloud.
 
 ### Month 3: Add long-term structure
 - Identify your current stage from [Roadmap](Roadmap.md).
-- Select exact etudes by technical objective.
+- Select exact etudes by technical objective **and dominant archetype**.
 - Set a 12-week outcome and write it down.
 - Arrange one form of external feedback.
 - Record a mock recital at the end of the cycle.
 - Begin mental practice sessions: one per week minimum.
+- Start your Personal Calibration Log in [Movement](Movement.md#individual-calibration).
 
 ---
+
 ## Starting from Zero
 For the first sitting only. After that, use the daily note (`_system/Daily Template.md`).
 
@@ -125,8 +133,8 @@ For the first sitting only. After that, use the daily note (`_system/Daily Templ
 - Metronome nearby. Pencil in reach.
 - Phone in another room, or set up to record.
 
-### Biomechanical setup
-- Check wrist alignment: forearm, wrist, and fingertip in a straight line.
+### Movement setup
+- Check wrist alignment: forearm, wrist, and fingertip in a straight line (P3).
 - Shoulders relaxed, not elevated.
 - Feet flat on the floor.
 - Spine tall but not rigid.
@@ -143,6 +151,7 @@ For the first sitting only. After that, use the daily note (`_system/Daily Templ
 8. Before bed, visualize the passage you played. 2 minutes.
 
 ---
+
 ## Skill stages
 | Stage | Main skill markers |
 | ---: | --- |
@@ -158,6 +167,7 @@ For the first sitting only. After that, use the daily note (`_system/Daily Templ
 | 9 Concert and specialization | personal repertoire identity |
 
 ---
+
 ## Technical progression ladder
 ### Scales and chords
 | Stage | Technical focus |
@@ -186,22 +196,43 @@ For the first sitting only. After that, use the daily note (`_system/Daily Templ
 | 8 | Liszt Transcendental major selection, Alkan, Saint-Saëns, Ligeti selected, Kapustin optional |
 
 ---
-## Biomechanical progression ladder
-| Stage | Biomechanical focus | Key exercises |
+
+## Movement Progression Ladder
+> The canonical technique ladder. Each row is a movement acquisition target; the full
+> specs live in [Movement](Movement.md). "Owned" means the archetype passes the
+> movement diagnostic inside real repertoire, not just in drills.
+
+| Stage | Archetypes to own | Gate test (in repertoire) |
 | ---: | --- | --- |
-| 0–1 | Neutral wrist. Whole-arm alignment. No ulnar deviation. Relaxed shoulder. | Bench setup check. Wrist alignment drill. Shoulder release. |
-| 2–3 | Efficient kinetic chain. Economy of motion. Begin finger independence. | Finger independence: hold one finger, move others. Black key exercises. |
-| 4–5 | Controlled arm weight. Rotation for arpeggios. Avoid excessive finger lifting. | Arm drop exercises. Forearm rotation for arpeggios. |
-| 5–6 | Octave mechanics: wrist as shock absorber. Leaps: prepare in air, arrive relaxed. | Octave bounce drill. Leap accuracy: close eyes, feel the distance. |
-| 6–7 | Large chord voicing without tension. Stamina through efficiency, not force. | Chord voicing: play one note louder. Long passage endurance. |
-| 7–8 | Velocity through minimal motion. Whole-body coordination for fortissimo. | Speed with minimum finger height. Fortissimo with arm weight. |
-| 8–9 | Sustained virtuosity. Self-monitoring for micro-tension. Recovery protocols. | 30-min continuous playing. Body scan during performance. |
+| 0–1 | M1 intro (knuckle stroke, neutral wrist), M2 (arm drop + release) | Five-finger patterns: knuckle-initiated, zero wrist dipping |
+| 2 | M3 (thumb travel), M4 (rotation arpeggios — never stretch), M6 (pre-shaped triads) | Scale seam inaudible; arpeggio shows rotation, no spread |
+| 3 | M4 fluency + in/out, M5 small leaps, M8 trill awareness, M10 hand-off legato | Invention legato by hand-off; small leap 7/10 eyes-closed |
+| 4 | M11 voicing as weight steering, M5 moderate leaps eyes-free, M9 substitution, M12 syncopized pedal | Melody voiced over accompaniment; leaps 8/10 eyes-closed |
+| 5 | M7 octave frame + wrist spring (slow, correct), M5 large leaps, M11 in texture, M4 velocity | 30 s of octaves: wrist spring visible, zero forearm fatigue |
+| 6 | M7 stamina, M8 tremolo, M6 large voiced chords, M12 half-pedal; gait transitions installed | 45 min run, no residual tension; fast passages use smaller motion |
+| 7 | Full velocity composition; M5 precision at tempo; M11 orchestral | 60 min recital program; fastest passage = smallest motion |
+| 8 | La Campanella gate (see [Roadmap](Roadmap.md#la-campanella-gate-movement-specific)); sustained virtuosity | Gate table passed with teacher present |
+| 9 | Self-diagnosis; personal movement signature; calibration maintained | Run the diagnostic on yourself, cold, correctly |
+
+### The gait-transition checkpoint (all stages, from Stage 4 on)
+Any passage that is clean slow and collapses fast has an uninstalled gait transition.
+Prescription: [Speed Work](Practice%20Protocols.md#speed-work) + chaining. This is a
+movement problem, not a repetition problem.
+
+### When movement, not notes, is the bottleneck
+Symptoms that the limiter is movement (diagnose via [Movement](Movement.md#movement-diagnostics)):
+- errors cluster at one physical gesture, not one musical spot
+- the passage improves with form work but not with repetition
+- tension appears at a predictable tempo
+- the error travels: same failure in different pieces, same gesture
 
 ---
+
 ## Musicianship progression
 Musicianship progression lives in [Musicianship](Musicianship.md). Keep sight-reading about two stages below repertoire, rotate ear and theory weekly, and treat listening as mandatory before learning a new piece.
 
 ---
+
 ## Sight-Reading Progression
 | Stage | Sight-reading focus | Dual-task level |
 | ---: | --- | --- |
@@ -219,6 +250,7 @@ Musicianship progression lives in [Musicianship](Musicianship.md). Keep sight-re
 - After playing, identify 1–2 patterns that were slow to recognize.
 
 ---
+
 ## Ear and Functional Progression
 | Stage | Ear training focus | Functional level |
 | ---: | --- | --- |
@@ -235,6 +267,7 @@ Musicianship progression lives in [Musicianship](Musicianship.md). Keep sight-re
 - Sing before playing. Always.
 
 ---
+
 ## Readiness Stages and Shelving
 ### Learned
 Notes, rhythm, and fingering mostly stable in sections. Musical intentions identified.
@@ -248,6 +281,7 @@ Heuristic criteria:
 - maintains pulse and recovers after a minor mistake
 - plays with intended dynamics, articulation, voicing, pedaling
 - no pain or excessive tension
+- **movement form holds at target tempo (run the diagnostic once, cold)**
 - passes on at least two separate days
 
 ### Secure
@@ -264,15 +298,18 @@ Recoverable efficiently after increasing intervals.
 Perfection is asymptotic. It is not the entry requirement.
 
 ---
+
 ## Shelving Pieces
 Shelve without guilt if:
-- blocked 3+ weeks despite plateau-breaking
+- blocked 3+ weeks despite plateau-breaking **and movement decomposition**
 - you no longer feel motivated by it
 - it turns out to be mis-leveled
+- the movement demands exceed your current gate by more than one stage (return when the archetype is owned)
 
 Return in three months and it may go quickly. Or never return. Two concurrent pieces must never become two concurrent obligations.
 
 ---
+
 ## Method Book Protocol
 Work by outcome, not by page.
 
@@ -294,14 +331,15 @@ Work by outcome, not by page.
 Then transition to graded repertoire and etudes. Do not restart a higher method book from page one; move directly into standard repertoire at the right stage.
 
 ### Apply the learning protocol
-Method book pieces get the same treatment as repertoire: preview, chunking, appropriate HS/HT, error triage, musical intent from session one.
+Method book pieces get the same treatment as repertoire: preview (including a one-line movement map), chunking, appropriate HS/HT, error triage, musical intent from session one.
 
 ---
+
 ## Macrocycle and Cycle Structure
 | Level | Scope | What it answers |
 | --- | --- | --- |
 | Macrocycle | Roadmap stage, 1–3 years | What skills and repertoire define this era? |
-| Mesocycle | 12-week goal | What specific pieces and technical targets? |
+| Mesocycle | 12-week goal | What specific pieces, technical targets, and movement targets? |
 | Microcycle | Weekly review | What did I do, what is stuck, what is next? |
 | Session | Daily note | What am I improving today? |
 
@@ -309,44 +347,34 @@ At the end of each 12-week cycle:
 1. Record the mock recital.
 2. Score it with the rubric.
 3. Compare to the previous cycle's recording.
-4. Update the macrocycle: am I still in the same Roadmap stage?
-5. Set the next 12-week goal using [12-Week Goal](../../_templates/piano/12-Week%20Goal.md) template.
-6. Take a deload week before starting the new cycle.
-7. Review biomechanical progress: has the current stage's focus been integrated?
+4. **Run the movement diagnostic on the cycle's pieces; confirm the cycle's movement target advanced.**
+5. Update the macrocycle: am I still in the same Roadmap stage?
+6. Set the next 12-week goal using [12-Week Goal](../../_templates/piano/12-Week%20Goal.md) template.
+7. Take a deload week before starting the new cycle.
 8. Review ear/functional progress: has the current functional stage been met?
+9. Update the Personal Calibration Log if any deviation was confirmed.
 
 ---
+
 ## Liszt Path
 - This pathway reflects the original author's long-term artistic goal (Liszt). Treat it as one example of an advanced specialization, not the only destination.
-
 ### Prerequisites
 Before serious Liszt, you should have:
-- secure four-octave scales and arpeggios
-- octaves, broken octaves, chords, and leaps
-- repeated notes, trills, and chromatic velocity
-- ability to voice melody over thick texture
-- half pedaling and dynamic pedaling
-- 30 to 45 minute continuous playing stamina
+- secure four-octave scales and arpeggios (M1, M3, M4 at velocity)
+- octaves, broken octaves, chords, and leaps (M6, M7, M5)
+- repeated notes, trills, and chromatic velocity (M9, M8)
+- ability to voice melody over thick texture (M11)
+- half pedaling and dynamic pedaling (M12)
+- 30 to 45 minute continuous playing stamina (release budget, P6)
 - reliable memory and structural starts
 - performance experience
-- biomechanical efficiency: no tension, efficient movement, whole-body coordination
-
+- full ownership of Stages 0–6 movement gates
 ### Gateway sequence
-See the canonical [Liszt gateway order](Roadmap.md#liszt-gateway-order) in the Roadmap.
-
+See the canonical [Liszt gateway order](Roadmap.md#liszt-gateway-order-with-movement-demands) in the Roadmap.
 ### La Campanella specific preparation
-La Campanella requires specific technical prerequisites beyond general Liszt readiness:
-1. **Large right-hand leaps**: Practice 10th and beyond leaps with spatial accuracy. Close eyes. Feel the distance.
-2. **Rapid chromatic scales**: Parallel thirds and sixths at velocity.
-3. **Bell-tone voicing**: Melody note clearly above accompaniment. Practice voicing one note louder in a chord.
-4. **Left-hand octave stability**: Resonant, controlled octaves without tension.
-5. **Sustained velocity**: 5+ minutes of continuous fast playing without fatigue.
-6. **Paganini Etude No.6**: Master the theme and variations before attempting La Campanella.
-7. **Teacher supervision**: Mandatory for La Campanella. Do not attempt alone.
-
+See the [La Campanella gate](Roadmap.md#la-campanella-gate-movement-specific) — it is defined as movement standards, not vibes.
 ### Transcendental Etudes by objective
-See the [Transcendental Etudes by objective](Roadmap.md#transcendental-etudes-by-objective) table in the Roadmap.
-
+See the [Transcendental Etudes by objective](Roadmap.md#transcendental-etudes-by-objective) table in the Roadmap (now with archetype mapping).
 ### Major Liszt targets
 - Sonata in B minor
 - Dante Sonata
@@ -356,7 +384,6 @@ See the [Transcendental Etudes by objective](Roadmap.md#transcendental-etudes-by
 - Paganini Etudes selected
 - Années de pèlerinage cycles
 - Paraphrases selected
-
 ### Beyond Liszt
 - Alkan
 - Godowsky
@@ -369,7 +396,10 @@ See the [Transcendental Etudes by objective](Roadmap.md#transcendental-etudes-by
 - Kapustin
 - contemporary virtuoso works only if easy to source and genuinely useful
 
+All of it is the same alphabet. New composers = new compositions of M1–M12.
+
 ---
+
 ## Teacher and Feedback Checkpoints
 | Stage | Suggested feedback frequency |
 | --- | --- |
@@ -379,16 +409,17 @@ See the [Transcendental Etudes by objective](Roadmap.md#transcendental-etudes-by
 | Stage 8 and beyond | every 2 to 6 weeks, possibly multiple coaches |
 
 Ask specifically about:
-- physical coordination and biomechanics
+- movement form per archetype (bring your movement map and diagnostic results)
 - tone production
 - pedaling
 - voicing
 - style
 - repertoire difficulty
 - practice priorities
-- wrist alignment and tension patterns
+- personal calibration deviations (is your documented deviation sound?)
 
 ---
+
 ## Exam calibration only
 - RCM and ABRSM can help estimate level.
 - Do not let exam lists dictate musical value.
@@ -397,5 +428,6 @@ Ask specifically about:
 - Use [Editions and Sources](Editions%20and%20Sources.md) to choose scores.
 
 ---
+
 ## Core Loop
 See the [Core Loop](Practice%20Protocols.md#core-loop) in Practice Protocols.
