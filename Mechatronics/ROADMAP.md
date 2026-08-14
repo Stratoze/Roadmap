@@ -22,14 +22,14 @@ No daily pushing, no new repo per milestone.
 The portfolio is NOT a flea market of 30 desk toys. It is a dependency tree of
 artifacts where each one proves a phase's skills AND feeds the next phase:
 
-| Phase | Artifact | What it proves | Feeds into |
-| --- | --- | --- | --- |
-| 0 | Parametric Mechanism Testbed + Metrology Kit | kinematics vocabulary, measurement uncertainty | every measurement after |
-| 1 | Hand-Wound Voice Coil Actuator + 3D-Printed Dynamometer | Lorentz force, motor characterization, first soldering | QDD sizing in Phase 3 |
-| 2 | Force-Feedback Haptic Knob + Inverted Pendulum Cart | FOC + impedance control + state-space on real hardware | QDD firmware in Phase 3 |
-| 3 | Quasi-Direct Drive (QDD) Actuator: CNC housing + Puck PCB + gearbox | CAD, FEA, 4-layer PCB, EMC, machine elements | the arm's joints |
-| 4 | 2-DOF Arm (two QDDs) + Safety PDU + Gripper + Tool Changer | integration, CAN, functional safety, harnessing | the portfolio hero |
-| 5 | Exploded-View Pedestal + Bench Museum | communication of the whole system | the interview |
+| Phase | Artifact                                                            | What it proves                                         | Feeds into              |
+| ----- | ------------------------------------------------------------------- | ------------------------------------------------------ | ----------------------- |
+| 0     | Parametric Mechanism Testbed + Metrology Kit                        | kinematics vocabulary, measurement uncertainty         | every measurement after |
+| 1     | Hand-Wound Voice Coil Actuator + 3D-Printed Dynamometer             | Lorentz force, motor characterization, first soldering | QDD sizing in Phase 3   |
+| 2     | Force-Feedback Haptic Knob + Inverted Pendulum Cart                 | FOC + impedance control + state-space on real hardware | QDD firmware in Phase 3 |
+| 3     | Quasi-Direct Drive (QDD) Actuator: CNC housing + Puck PCB + gearbox | CAD, FEA, 4-layer PCB, EMC, machine elements           | the arm's joints        |
+| 4     | 2-DOF Arm (two QDDs) + Safety PDU + Gripper + Tool Changer          | integration, CAN, functional safety, harnessing        | the portfolio hero      |
+| 5     | Exploded-View Pedestal + Bench Museum                               | communication of the whole system                      | the interview           |
 
 Every physical deliverable is judged by: *"Does this look like something a Tier-1
 robotics supplier would ship, or a science fair project?"* Mount it, label it,
