@@ -95,7 +95,7 @@ Working dev environment, local Git repo with first commit, Anki deck, and a prob
 > [!info] 📚 Resources — Vectors, Trig & Frames
 > **Visual:** 3Blue1Brown *Essence of Linear Algebra* (vectors, linear combinations).
 > **Interactive:** plot the 2-link arm tip in Python for a few (θ1,θ2); see the vector add.
-> **Theory:** Ulaby Ch 1 / Khan Academy — only what forward kinematics needs.
+> **Theory:** Craig *Introduction to Robotics* Ch 2 (frames & transformations) / Khan Academy — only what forward kinematics needs.
 
 ## Deliverable
 
