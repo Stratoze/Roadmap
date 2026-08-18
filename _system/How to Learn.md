@@ -32,6 +32,11 @@ The delta between prediction and reality is where the mental model gets correcte
 - **Avoidance check:** saturated across the phase, or dodging one hard problem? One problem → unblock, don't deload.
 - **Weekly signal check:** scan `Landmine Log.md` once a week. ≥3 entries in the same domain = rising errors → trigger deload or shrink the chunk. Single entries are noise; clusters are signal.
 
+## JIT vs JIC
+- **JIT first**: learn the minimum the current deliverable needs, when it needs it. Momentum beats coverage.
+- **JIC for load-bearing concepts**: anything the next deliverables stand on (e.g. frames for FK) gets the deep pass now.
+- A finished course is not a capability — if you can't say how it helps the next deliverable, the gap is understanding, not completion. `[2026-08-17]`
+
 ## Landmine Tags
 `[HYPOTHESIS]` expected · `[COMMUNITY]` common trap · `[DATASHEET]` from the source · `[VERIFIED]` you hit it (add date) · `[RETIRED]` obsolete. When one fires, promote it: `[VERIFIED — 2026-08-14]`. Landmines feed the FMEA.
 
