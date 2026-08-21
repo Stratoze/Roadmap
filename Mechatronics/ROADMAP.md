@@ -54,7 +54,7 @@ No welding. No manual CNC. No mains — ever, in this roadmap.
 |**Milestone**|**Status**|
 |---|---|
 |[0.1 — Problem-Solving + Toolchain](milestones/00_foundations.md#milestone-01-problem-solving-framework-toolchain)|✅|
-|[0.2 — Vectors + Trig](milestones/00_foundations.md#milestone-02-vectors-trig-frames-of-reference)|⬜|
+|[0.2 — Vectors + Trig](milestones/00_foundations.md#milestone-02-vectors-trig-frames-of-reference)|✅|
 |[0.3 — Calculus Intuition](milestones/00_foundations.md#milestone-03-calculus-intuition)|⬜|
 |[0.4 — Statics + FBDs + FEM Intuition](milestones/00_foundations.md#milestone-04-statics-free-body-diagrams)|⬜|
 |[0.5 — Circuits Basics](milestones/00_foundations.md#milestone-05-circuits-basics)|⬜|
