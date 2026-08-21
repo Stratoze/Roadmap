@@ -40,6 +40,11 @@ The delta between prediction and reality is where the mental model gets correcte
 ## Landmine Tags
 `[HYPOTHESIS]` expected · `[COMMUNITY]` common trap · `[DATASHEET]` from the source · `[VERIFIED]` you hit it (add date) · `[RETIRED]` obsolete. When one fires, promote it: `[VERIFIED — 2026-08-14]`. Landmines feed the FMEA.
 
+## Memory / SRS Strategy
+- **Engram owns spaced repetition for concepts & procedures.** All learning trees run on its FSRS engine with receipt-based evidence: mechatronics (spine + software/electronics/mechanical/project-safety), piano, data science/AI, math foundations, physics, Japanese grammar + output. Reviews via `/review-loop`.
+- **Anki owns Japanese vocabulary only.** Kaishi 1.5k + mined cards (<20k freq). No topic overlap — one fact lives in exactly one SRS.
+- **Routing rule:** a pattern/procedure you must *reconstruct* → Engram. A word you must recognize/produce *instantly* → Anki.
+
 ## Definitions
 - **MVM** = enough evidence to move on without lying to yourself. A clean handoff, not mastery.
 - **Full Pass** = the stronger gate; earn it when the milestone feeds safety/reliability/portfolio.
