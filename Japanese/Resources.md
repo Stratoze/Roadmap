@@ -11,6 +11,7 @@
 - [Kaishi 1.5k](https://ankiweb.net/shared/byauthor/...) — Core deck (use with FSRS)
 - Mining - do on cards with freq less than 20,000
 - [JSchoreels/Anki](https://github.com/JSchoreels/anki) — Fork: FSRS 7 + RWKV
+- **Scope note:** Anki = vocabulary ONLY. Grammar and output practice run in Engram (`japanese-grammar`, `japanese-output`) — don't double-SRS either side. See [[_system/How to Learn|Memory / SRS Strategy]].
 
 ## Grammar
 

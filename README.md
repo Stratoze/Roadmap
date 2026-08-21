@@ -8,6 +8,7 @@ learning loop. Every milestone is verified via Git tags (`git tag -l`).
 - **Start here:** [Mechatronics/ROADMAP.md](Mechatronics/ROADMAP.md)
 - **Evidence:** `git log --oneline --decorate` or browse tags
 - **Method:** [_system/How to Learn.md](_system/How%20to%20Learn.md)
+- **Memory:** Engram (FSRS) runs all concept/procedure reviews; Anki stays Japanese-vocab-only — see the SRS strategy section in How to Learn
 - **Status:** Active, in progress, always incomplete
 
 The final portfolio deliverable (Phase 5) will be a separate, curated repository.

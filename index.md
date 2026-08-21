@@ -21,3 +21,9 @@ title: Knowledge Base
 
 # 🇯🇵 Japanese
 - [[Japanese/Resources|Japanese Resources]]
+
+# 📊 Data Science & AI
+- [[DataScience/Index|Index]] — engram topic `data-science-ai`
+
+# 🔬 Science Foundations
+- [[Science/Index|Index]] — engram topics `math-foundations`, `physics-first-principles`
