@@ -104,9 +104,9 @@ Hand-calculated forward kinematics for a 2-link planar arm. Given link lengths a
 ## Pass Condition
 
 ### MVM
-- [ ] Can calculate tip position for given θ1, θ2, L1, L2
-- [ ] Understands world frame vs. link frame
-- [ ] Can draw the vector diagram, not just plug into a formula
+- [x] Can calculate tip position for given θ1, θ2, L1, L2
+- [x] Understands world frame vs. link frame
+- [x] Can draw the vector diagram, not just plug into a formula
 
 ### Full Pass
 - [ ] Can modify: add a third link, rotate the base, change reference frame
