@@ -109,8 +109,8 @@ Hand-calculated forward kinematics for a 2-link planar arm. Given link lengths a
 - [x] Can draw the vector diagram, not just plug into a formula
 
 ### Full Pass
-- [ ] Can modify: add a third link, rotate the base, change reference frame
-- [ ] Dot product has physical meaning: projection
+- [x] Can modify: add a third link, rotate the base, change reference frame
+- [x] Dot product has physical meaning: projection
 
 > [!warning] ⚠️ Landmines
 > 1. **Multi-link kinematics requires vector addition.** `[HYPOTHESIS]`
