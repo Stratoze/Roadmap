@@ -9,8 +9,8 @@ Revision:
 ## Power
 
 - [ ] Input voltage range defined
-- [ ] Fusing / protection considered
-- [ ] Reverse polarity considered
+- [ ] Fusing / protection checked (fuse present, DC-rated, sized per SAFETY_CARD)
+- [ ] Reverse polarity checked (survives a backwards plug or is keyed against it)
 - [ ] Regulator thermal checked
 - [ ] All rails named consistently
 
@@ -26,6 +26,7 @@ Revision:
 
 - [ ] Gate driver datasheet reviewed
 - [ ] Deadtime requirements known
+- [ ] Bootstrap / inrush / sequencing VALUES computed (C_boot, NTC/soft-start, enable order) — not copied from a reference
 - [ ] Current-sensing topology documented
 - [ ] Sense resistor power checked
 - [ ] ADC input range protected

@@ -15,6 +15,8 @@ Expected rails:
 
 ## Pre-power checks
 
+- [ ] Fast power-off path known (first item — before anything is connected)
+- [ ] Phase envelope confirmed (voltage ceiling, fuse, discharge for this phase)
 - [ ] Visual inspection complete
 - [ ] No obvious solder bridges / loose strands
 - [ ] Polarity checked
@@ -22,7 +24,6 @@ Expected rails:
 - [ ] Load disconnected unless intentionally testing it
 - [ ] Current limit set
 - [ ] DMM connected to first rail
-- [ ] Fast power-off path known
 
 ## Supply setup
 

@@ -9,11 +9,10 @@ Determinism gate BEFORE HIL sign-off. A loop that usually makes it is a loop tha
 
 ## Checks
 
-- [ ] Control-loop jitter measured (GPIO toggle + scope); WCET over 10k cycles with 80% headroom rule
-- [ ] ADC-to-PWM sync verified: sample point vs switching edge documented
-- [ ] SPI modes (CPOL/CPHA) and UART divisor proven on hardware, not assumed from examples
+- [ ] Control-loop jitter measured (GPIO toggle + scope); WCET over 10k cycles with utilization ≤20% at the loop rate (5x headroom — state the rate, the WCET, and the quotient)
+- [ ] ADC-to-PWM sync verified: sample point vs switching edge documented; evidence filed in `measurement_capture.md`
+- [ ] SPI modes (CPOL/CPHA) and UART divisor proven at bench bring-up (3.2) — re-verified here, not discovered here
 - [ ] Interrupt priorities: control > limit/fault > telemetry, stated and set
-- [ ] SIL-vs-HIL divergence triaged: >2x tracking gap means the model is wrong — update the model, not the gains
 - [ ] Watchdog + HardFault paths demonstrated, not just enabled
 
 ## Verdict

@@ -12,9 +12,10 @@ tags:
 ## Start here
 - [[_system/Daily Template|Daily Template]] — unified daily note (all domains)
 - [[Piano/Resources/Movement|Movement]] — the technique library (M1–M12), canonical source
-- [[Piano/Resources/Practice Protocols|Practice Protocols]]
-- [[Piano/Resources/Progression|Progression]]
-- [[Piano/Resources/Roadmap|Roadmap]]
+- [[Piano/Resources/Practice Protocols|Practice Protocols]] — session engine, learning protocol, tempo, Q-spots
+- [[Piano/Resources/Progression|Progression]] — volume, stages, ladders, cycles
+- [[Piano/Resources/Roadmap|Roadmap]] — stage map
+- [[Piano/Resources/Repertoire and 12-Week Goals|Repertoire and 12-Week Goals]]
 - [[Piano/Resources/FAQ|FAQ]]
 
 ## Practice engine
@@ -78,5 +79,4 @@ TABLE composer, status, notes
 FROM "Piano/Pieces"
 WHERE type = "piece" AND status = "shelved"
 SORT composer ASC
-```
 ```

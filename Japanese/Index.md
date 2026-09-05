@@ -1,7 +1,7 @@
 # Japanese hub
 
 Grammar and output practice run in Engram (`japanese-grammar`,
-`japanese-output`) — see [[_system/How to Learn|Memory / SRS Strategy]].
+`japanese-output`) — see [[_system/How to Learn#Memory / SRS Strategy|Memory / SRS Strategy]].
 Anki holds vocabulary only.
 
 - [[Japanese/Resources|Resources]] — links, decks, references

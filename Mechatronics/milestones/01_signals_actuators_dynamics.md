@@ -36,7 +36,7 @@ encounter a transducer or energy conversion, ask: "What is the effort? What is t
 Where does the power go? What stores it? What dissipates it?" This is the bond graph
 question, even if you never draw the graph. It prevents the component-catalog thinking
 where a motor is "a thing that spins" instead of "an electromechanical energy transducer
-with coupling coefficient Ke = Kt."
+with coupling coefficient Ke = Kt (in SI units: V·s/rad = N·m/A — in V/kRPM or oz·in/A they differ, convert explicitly)."
 
 The speaker-as-microphone insight from your IDEAS.md is exactly this: same bond graph,
 reversed causality. When you build the speaker in Phase 0 speed runs, you're building a
@@ -146,7 +146,6 @@ ESP32 reading raw MPU6050 registers over I2C, streaming live in PlotJuggler. No 
 - Output format before firmware loop. PlotJuggler parsing is annoying to retrofit.
 - Practice solder joints on scrap BEFORE the real board.
 
-> Log sessions in Daily/ notes using the unified template.
 
 ---
 
@@ -209,7 +208,6 @@ EMA filter on raw IMU data, PlotJuggler overlay: raw vs. filtered. Then: FFT of 
 - Verify α = 1, passthrough, and α → 0, frozen, as sanity checks before tuning the real value.
 - Compute the FFT BEFORE designing the second filter. The FFT tells you what filter to design.
 
-> Log sessions in Daily/ notes using the unified template.
 
 ---
 
@@ -247,9 +245,9 @@ The H-bridge is the brick. A 3-phase BLDC inverter is three H-bridges with sinus
 - [ ] **H-bridge:** deadtime measured on scope, explained (why it exists, what happens without it)
 - [ ] **H-bridge:** braking/coast/freewheel behavior explained: what the FETs/diodes do in each state, and what is safe for the supply/bus
 - [ ] **H-bridge:** can explain: PWM duty → average voltage → speed. Flyback diode provides path for inductive current when switch opens. Without it → voltage spike → dead FET.
-- [ ] **Analog front end:** Can explain: current-sense amplifier gain (e.g., INA219 gain = 320 V/V, so 100 mV across shunt → 3.2V output). Can explain: CMRR (common-mode rejection ratio) — why the amplifier rejects the high common-mode voltage on the shunt and amplifies only the differential voltage. Can explain: amplifier bandwidth must exceed PWM frequency, otherwise the current reading is attenuated and phase-shifted. Can explain: offset voltage — the amplifier outputs a small voltage even at zero current. Measure it. Subtract it. This is calibration.
+- [ ] **Analog front end:** Can explain: current-sense amplifier gain (e.g., INA240 gain = 20 V/V, so 100 mV across shunt → 2.0 V output; INA181/MAX4080-class similar). NOTE: the INA219 is a digital I2C power monitor (internal ADC), NOT an analog-output amp — never size an analog chain or FOC bandwidth off it. Can explain: CMRR (common-mode rejection ratio) — why the amplifier rejects the high common-mode voltage on the shunt and amplifies only the differential voltage. Can explain: amplifier bandwidth must exceed PWM frequency, otherwise the current reading is attenuated and phase-shifted. Can explain: offset voltage — the amplifier outputs a small voltage even at zero current. Measure it. Subtract it. This is calibration.
 - [ ] **Analog front end:** Can explain: the anti-aliasing filter is not optional. Without it, PWM switching noise (tens of MHz) aliases into the current measurement band. A simple RC lowpass with cutoff well below Fs/2 is the minimum. The filter adds phase lag — account for it in the control loop.
-- [ ] **Encoder:** Can explain: incremental encoder outputs two square waves (A, B) 90° apart. Quadrature decoding counts both edges of both channels → 4× resolution. A 2000 CPR encoder gives 8000 counts/rev = 0.045° per count. Can explain: absolute encoder (AS5048 via SPI) gives a unique position per revolution, no homing needed. Incremental needs a reference (index pulse or homing switch).
+- [ ] **Encoder:** Can explain: incremental encoder outputs two square waves (A, B) 90° apart. Quadrature decoding counts both edges of both channels → 4× resolution. Terminology (vendor-dependent — define once per datasheet): PPR = physical lines/pstripes per rev; decoded counts = 4× PPR. Example: 2000 PPR → 8000 counts/rev = 0.045° per count. Can explain: absolute encoder (AS5048 via SPI) gives a unique position per revolution, no homing needed. Incremental needs a reference (index pulse or homing switch).
 - [ ] **Encoder:** Can explain: encoder calibration for FOC — the encoder's mechanical zero ≠ the motor's electrical zero. The offset must be measured: energize one phase pair, let the rotor settle, read the encoder. That's the electrical offset. Without it, Park transform uses the wrong angle → torque is in the wrong direction → motor vibrates instead of spinning.
 - [ ] **BLDC:** pole pairs verified from back-EMF cycle count
 - [ ] **BLDC:** Ke estimated from scope measurement
@@ -269,7 +267,7 @@ The H-bridge is the brick. A 3-phase BLDC inverter is three H-bridges with sinus
 >    Too low (< 1 kHz) → audible whine. Too high (> 50 kHz) → switching losses dominate, FETs heat. 10–20 kHz is the sweet spot for small motors. The gate driver's rise/fall time limits the practical maximum.
 >
 > 4. **Current-sense amplifier bandwidth is not the same as the ADC sample rate.** `[COMMUNITY — Analog Devices AN-105]`
->    The amplifier has a gain-bandwidth product. At gain = 320, an INA219 has ~14 kHz bandwidth. If your PWM is 20 kHz, the amplifier can't track the current waveform — it outputs an averaged, phase-shifted version. For FOC at 20 kHz PWM, you need an amplifier with > 100 kHz bandwidth at your chosen gain (e.g., INA240: 400 kHz at gain 20). Check the gain-bandwidth product, not just the "bandwidth" spec.
+>    The amplifier has a gain-bandwidth product. At high gain the bandwidth shrinks: always check the gain-bandwidth product at YOUR gain, not just the headline "bandwidth" spec. Example: INA240 gives 400 kHz at gain 20 — for FOC at 20 kHz PWM you need an amplifier with > 100 kHz bandwidth at your chosen gain. (The INA219 is digital-out and has no analog bandwidth at all — conversion time ~100+ µs.)
 >
 > 5. **The shunt resistor value is a trade-off.** `[COMMUNITY]`
 >    Larger shunt → larger voltage → better SNR. But larger shunt → more power dissipation (P = I²R) → more heat → more error (resistance changes with temperature). For 2A continuous: 100 mΩ gives 200 mV at 2A, 0.4W dissipation. That's reasonable. For 10A: 10 mΩ gives 100 mV at 10A, 1W dissipation. Use a 4-terminal (Kelvin) shunt for accuracy — the sense taps avoid the voltage drop in the current-carrying leads.
@@ -278,13 +276,13 @@ The H-bridge is the brick. A 3-phase BLDC inverter is three H-bridges with sinus
 >    An RC filter at 160 kHz cutoff adds ~0.1 µs of group delay at 1 kHz. Negligible. But a 10 kHz cutoff (for a slow ADC) adds ~16 µs. At a 1 kHz control loop, that's 1.6% of the period. It matters. Know your filter's phase response. Include it in your loop timing budget.
 >
 > 7. **Back-EMF: measure between two phase terminals, not phase-to-ground.** `[COMMUNITY]`
->    With motor spinning freely, each pair shows a sinusoid. Frequency × 1/pole_pairs = mechanical RPM.
+>    With motor spinning freely, each pair shows a sinusoid. RPM = 60 × frequency / pole_pairs (frequency in Hz gives rev/sec — the ×60 makes RPM; e.g. 70 Hz / 7 pp = 10 rev/s = 600 RPM).
 >
 > 8. **Pole pairs vs. poles.** `[COMMUNITY]`
 >    14 poles = 7 pole pairs. One mechanical revolution = 7 electrical. Count electrical cycles per mechanical turn.
 >
 > 9. **Encoder resolution is not accuracy.** `[COMMUNITY]`
->    A 2000 CPR encoder gives 0.18° per count (4× decoding: 0.045°). But mechanical runout (shaft eccentricity), mounting misalignment, and electrical noise degrade actual accuracy to maybe 0.5–1°. For FOC, this is usually fine. For precision positioning, it's not. Calibrate, don't trust the datasheet.
+>    A 2000 PPR encoder gives 0.18° per physical line (4× decoding: 8000 counts = 0.045° per count). But mechanical runout (shaft eccentricity), mounting misalignment, and electrical noise degrade actual accuracy to maybe 0.5–1°. For FOC, this is usually fine. For precision positioning, it's not. Calibrate, don't trust the datasheet.
 >
 > 10. **Encoder wiring is noise-sensitive.** `[COMMUNITY]`
 >     Quadrature encoder signals are low-voltage digital (5V or 3.3V) at potentially high frequency. Long wires near motor cables pick up noise → false counts → position jumps. Use twisted pair or shielded cable. Keep encoder wires away from motor power wires. If using differential (RS-422) encoder outputs, use a differential receiver.
@@ -296,7 +294,7 @@ The H-bridge is the brick. A 3-phase BLDC inverter is three H-bridges with sinus
 >     LTspice H-bridge first, then 3-phase inverter. Verify switching produces expected waveforms before touching hardware. Otherwise you can't tell if the problem is your circuit or your wiring.
 >
 > 13. **Current limiting during bring-up.** `[HYPOTHESIS]`
->     A commutation bug can cause shoot-through. Always current-limited supply. Set below stall current.
+>     A commutation bug can cause shoot-through. Always current-limited supply. Set below stall current with a named margin (e.g. 50% of stall) — "below" without a number is not a setting.
 >
 
 ## Dependencies that waste your week if hit backwards
@@ -309,7 +307,6 @@ The H-bridge is the brick. A 3-phase BLDC inverter is three H-bridges with sinus
 - Characterize, back-EMF, resistance, pole pairs, with motor UNPOWERED. You cannot measure back-EMF while the driver is switching.
 - **Calibrate the encoder electrical offset BEFORE attempting FOC.** Without it, the Park transform angle is wrong. The motor will vibrate, cog, or spin in the wrong direction. This is Step 0 of FOC, not a tuning step.
 
-> Log sessions in Daily/ notes using the unified template.
 
 ---
 
@@ -372,7 +369,6 @@ Python simulation of a 1D simple or physical pendulum, `scipy.integrate.solve_iv
 - Print and verify the rig BEFORE running experiments. Bad pivot = garbage data = wrong conclusions about your model.
 - Measure mass/length with calipers BEFORE setting sim parameters.
 
-> Log sessions in Daily/ notes using the unified template.
 
 ---
 
@@ -399,7 +395,7 @@ Single loop on ESP32: IMU → calibration → complementary filter → motor res
 ### Full Pass
 - [ ] **IMU calibrated:** offset measured in 6 static orientations (±X, ±Y, ±Z up). For each axis: offset = mean of readings when that axis is aligned with gravity. Scale factor verified: when +Z is up, az should read +1g (±0.05g after calibration). Can explain: offset is the zero-input output. Gain/scale error is the deviation from ideal sensitivity. Linearity is how well the response follows a straight line across the range. Hysteresis is whether the reading depends on the direction you approached from. Temperature drift is how all of these change with temperature.
 - [ ] **Can explain why calibration is not optional:** a 2° offset in the accelerometer means a 2° steady-state error in the complementary filter. The filter can't correct what it doesn't know is wrong. Calibration removes the systematic error. The filter handles the random noise. Both are needed.
-- [ ] **Complementary filter implemented:** angle = α × (angle + gyro × dt) + (1-α) × accel_angle. Can explain: gyro is accurate short-term but drifts (integrate → unbounded error). Accelerometer is noisy but bounded (atan2 of gravity components). Complementary filter: high-pass gyro + low-pass accel. α ≈ 0.98 for ~1s time constant.
+- [ ] **Complementary filter implemented:** angle = α × (angle + gyro × dt) + (1-α) × accel_angle. Time constant τ = α·dt/(1-α) — α ≈ 0.98 is ~0.5 s at dt = 10 ms; always state dt with α. Can explain: gyro is accurate short-term but drifts (integrate → unbounded error). Accelerometer is noisy but bounded (atan2 of gravity components). Complementary filter: high-pass gyro + low-pass accel.
 - [ ] **Can explain why neither sensor alone works:** gyro-only drifts within seconds. Accel-only is garbage during motion (measures all acceleration, not just gravity). Fusion is not optional for any real system.
 - [ ] **Filter output vs. raw gyro vs. raw accel plotted on same timeline.** The improvement is visible.
 - [ ] Loop timing consistent, verify with GPIO toggle + scope
@@ -436,7 +432,6 @@ Single loop on ESP32: IMU → calibration → complementary filter → motor res
 - **Calibrate the IMU BEFORE implementing the complementary filter.** If the filter output has a steady-state offset, you need to know: is it the filter, or is it the sensor? Calibrate first. Then any residual error is the filter's, not the sensor's.
 - Implement the complementary filter BEFORE connecting the motor. Verify the angle estimate against a known tilt (protractor) first.
 
-> Log sessions in Daily/ notes using the unified template.
 
 ---
 
@@ -475,7 +470,7 @@ Steppers are the other half of the actuator world. BLDC for continuous rotation 
 >    Before connecting the motor, set the driver's current limit (potentiometer on A4988/DRV8825, register on TMC2209). Too high → motor and driver overheat. Too low → missed steps. Measure the reference voltage with a multimeter. The formula is in the driver datasheet (e.g., A4988: Vref = I_limit × 8 × R_sense).
 >
 > 2. **Supply voltage ≠ motor rated voltage.** `[COMMUNITY]`
->    A "12V stepper" does not mean you supply 12V. The motor's rated voltage is the DC voltage that produces rated current through the coil resistance. The chopper driver needs a HIGHER supply (24–48V typical) to force current through the inductance quickly. If you supply only 12V, the current rises slowly → torque drops at speed → poor performance.
+>    A "12V stepper" does not mean you supply 12V. The motor's rated voltage is the DC voltage that produces rated current through the coil resistance. The chopper driver needs a HIGHER supply (24–48V typical) to force current through the inductance quickly. PHASE-1 CLAMP: in this phase stay ≤ 24 V (48 V enters Phase 3+) — if you supply only 12V, the current rises slowly → torque drops at speed → poor performance.
 >
 > 3. **Microstepping is not free precision.** `[COMMUNITY]`
 >    1/16 microstep divides each full step into 16 microsteps. This makes motion smoother and quieter. But the rotor's actual position under load lags the commanded microstep. Microstepping improves smoothness and reduces resonance. It does NOT improve absolute positioning accuracy. For that, you need an encoder.
@@ -496,7 +491,6 @@ Steppers are the other half of the actuator world. BLDC for continuous rotation 
 - Full-step BEFORE microstepping. Verify basic motion and direction first. Then increase microstep resolution.
 - Observe resonance BEFORE trying to eliminate it. You need to know it exists and what it sounds/feels like. Then microstepping or StealthChop is the fix.
 
-> Log sessions in Daily/ notes using the unified template.
 
 ---
 
@@ -573,7 +567,6 @@ Steppers are the other half of the actuator world. BLDC for continuous rotation 
 - Calibrate the load cell BEFORE any motor measurement.
 - Test the flexure alone BEFORE assembling the VCA.
 
-> Log sessions in Daily/ notes using the unified template.
 
 ---
 

@@ -123,11 +123,11 @@ Modern Japanese music requires licensed sources.
 
 ### Neuroscience of practice (for understanding, not daily reading)
 
-- Sleep consolidation: motor skills consolidate during slow-wave sleep. Practice before bed.
-- Interleaving: mixing tasks improves long-term retention vs blocked practice.
-- Retrieval practice: effortful recall (Rule of Almost) builds stronger memory than passive review.
-- Mental practice: activates same motor cortex as physical practice. Use for consolidation.
-- Dual-task training: builds cognitive capacity for sight-reading and performance.
+- Sleep consolidation: sleep supports consolidation (declarative strongly, motor modestly); no bedtime-proximity prescription.
+- Interleaving: mixing confusable tasks improves retention vs blocking similar material; blocking suits new/very different material.
+- Retrieval practice: effortful recall (Rule of Almost) builds stronger memory than passive review — with feedback on errors.
+- Mental practice: overlapping (not identical) motor-network activation. A supplement, not a substitute.
+- Dual-task training: automatizes the trained pairing; no general capacity expansion, narrow transfer.
 
 ## External feedback
 

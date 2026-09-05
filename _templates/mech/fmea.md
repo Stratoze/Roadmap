@@ -17,7 +17,7 @@ Complete BEFORE design. Update AFTER fabrication/bring-up with what actually hap
 | 10 | Safety hazard, injury risk | High (> 1 in 5) | Will NOT detect before harm |
 
 **Risk Priority Number:** RPN = S × O × D.
-RPN ≥ 48 or Severity ≥ 9: mitigation is REQUIRED before design proceeds.
+RPN ≥ 48, S×O ≥ 12, or Severity ≥ 9: mitigation is REQUIRED before design proceeds.
 RPN 20–47: mitigation recommended. Document if skipped.
 RPN < 20: acceptable risk. Monitor.
 

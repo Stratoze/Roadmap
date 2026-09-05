@@ -3,7 +3,7 @@
 Read before real power, soldering, batteries, rotating parts, or anything that can move unexpectedly.
 This is not a complete safety manual. It is the quick card.
 
-**Safety knowledge is progressive.** You learn each hazard when it enters your workspace, not before.
+**Safety knowledge is progressive.** You learn each hazard when it enters your workspace, not before — and you do not enter next-phase energy without its section below plus its template first.
 
 ---
 
@@ -14,9 +14,9 @@ This is not a complete safety manual. It is the quick card.
 | 0 | Hobby knife, clipped wire ends | Cut away from body, eye protection when clipping | No soldering, no power tools, USB/5V only |
 | 1 | Soldering iron 350 °C, low-voltage DC, spinning motors | Burn care, current limiting, entanglement | ≤ 24 V DC, through-hole only, no mains |
 | 2 | Phase 1 + moving mechanisms with kinetic energy | Pinch points, travel limits, first-motion discipline | ≤ 24 V DC, 10% duty first motion |
-| 3 | Phase 2 + 48 V bus, hotplate 250 °C, machined burrs | DC arc awareness, fusing, capacitor discharge, deburring | 48 V ceiling, fuse before power, discharge caps |
-| 4 | Phase 3 + gravity-loaded arm, high current | Lockout, crush zones, hardwired safety verified with MCU dead | E-stop must work with MCU power pulled |
-| 5 | Acrylic dust, adhesives | Ventilation, eye protection | Laser cutting done by service, not you |
+| 3 | Phase 2 + 48 V bus, hotplate 250 °C, machined burrs | DC arc awareness, fusing, capacitor discharge, deburring | 48 V ceiling, fuse before power, discharge caps, current-limited bring-up |
+| 4 | Phase 3 + gravity-loaded arm, high current | Lockout, crush zones, hardwired safety verified with MCU dead | E-stop must work with MCU power pulled (all Phase-3 electrical rules still apply) |
+| 5 | Acrylic dust, adhesives (the 48 V arm + PDU still exist — all Phase 3–4 electrical rules still apply) | Ventilation, eye protection | Laser cutting done by service, not you |
 
 ## Stop immediately
 
@@ -46,10 +46,10 @@ Use `_templates/mech/first_power_on.md` for real bring-up.
 
 - Clear mechanical path.
 - No loose clothing, wires, sleeves, hair, or tools near rotating parts.
-- Current limit below destructive level.
+- Current limit set below the destructive level of the weakest link (wire ampacity, connector rating, FET/motor stall) — name the number before power.
 - Motor mounted or constrained before torque tests.
-- E-stop / power removal path known.
-- First motion should be low voltage, low duty, low speed.
+- E-stop / power removal path known and tested (not just known).
+- First motion MUST be low voltage, low duty (≤10% per the Phase-2 envelope), low speed.
 
 Use `_templates/mech/pre_motion_check.md` before motor tests.
 
@@ -66,12 +66,17 @@ Use `_templates/mech/pre_motion_check.md` before motor tests.
 
 - Grounded wrist strap + mat for STM32, encoders, gate drivers. If it's too much trouble to strap on, the board is already dead — you just don't know it yet.
 
+## Heat + resin (enter Phase 3)
+
+- Hotplate 250 °C: burn care as for the iron, plus fume ventilation.
+- Resin printing (optional): SDS read first, nitrile gloves, IPA wash + UV cure with ventilation — resin is a sensitizer, not "just plastic".
+
 ## 48 V DC bus (enters Phase 3)
 
-- 48 V DC does not electrocute through dry skin, but it ARCS (DC arcs don't self-extinguish) and a short melts copper in milliseconds.
+- 48 V DC does not electrocute through dry intact skin — but sweat, cuts, jewelry, and probe slips erase that margin, and it ARCS (DC arcs don't self-extinguish) while a short melts copper in milliseconds.
 - Always fused. Fuse protects the *wiring*: sized above nominal draw, below wire ampacity, and verified to blow on a dead short. Motor stall/overload protection is separate — a fuse rated at stall current allows sustained stall.
 - Always current-limited supply during bring-up.
-- Capacitors store energy. After power-off, wait 30 s or bleed by touching a 1 kΩ resistor rated 2 W or higher across the terminals briefly — it dissipates ~2.3 W at 48 V and runs hot, so remove it right after. Measure < 1 V before touching.
+- Capacitors store energy. After power-off, discharge through a ≥5 W-class resistor (e.g. 1 kΩ/5 W, or 2× 2 kΩ/3 W in parallel) on insulated leads for a fixed 10 s, then remove it. Then measure < 1 V before touching anything. Waiting alone is NOT a discharge method for large bus caps; "briefly" is not a time.
 - One-hand rule when probing live circuits.
 - Never work tired.
 

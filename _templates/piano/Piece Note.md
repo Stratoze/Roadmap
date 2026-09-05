@@ -83,7 +83,7 @@ Piece-specific progress is tracked in the Error Log and Tempo Log above.
 
 ## Readiness
 
-Piece-level checklist (stage definitions live in [[Piano/Resources/Progression|Readiness Stages and Shelving]]):
+Piece-level checklist (stage definitions live in [[Piano/Resources/Progression#Readiness Stages and Shelving|Readiness Stages and Shelving]]):
 
 - [ ] Plays through without major breakdown
 - [ ] Can start from several structural points

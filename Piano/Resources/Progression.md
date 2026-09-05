@@ -38,20 +38,18 @@ Consistency beats intensity.
 A plan you can run for 15 years beats a plan you burn out on in 15 months.
 
 ### Sleep and recovery
-- Sleep is not optional. It is when motor skills consolidate.
+- Sleep is not optional. It supports consolidation and next-day encoding.
 - 7–9 hours per night is the target.
-- Practice timing matters: practicing closer to bedtime gives sleep more material to consolidate.
-- A 45-minute session followed by 8 hours of sleep outperforms a 2-hour session followed by 5 hours.
 - Naps or brief rest after practice may also help.
 
-### Deload Weeks
-Every 4th or 5th week, or whenever fatigue accumulates, take a deload:
+### Deload Weeks (pragmatic coaching habit — borrowed from strength periodization, no RCT license; run it for fatigue management, not as a consolidation mechanism)
+Every 4th or 5th week, or whenever fatigue accumulates, take a deload (percentages are starting points, not findings):
 - Cut practice time by 40–50%.
 - Drop tempo on everything by 20–30%.
 - No new material. Play only things you already know and enjoy.
 - Extra sleep, extra listening, extra score study away from the piano.
 - Extra mental practice and visualization.
-- No guilt. This is not a missed week. It is a consolidation week.
+- No guilt. This is fatigue management that preserves the daily habit — not a missed week.
 
 Signs you need a deload:
 - Practice feels like a chore for 4+ days straight.

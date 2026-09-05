@@ -122,7 +122,7 @@ Do not immediately chase a better take.
 - Auditory: can you sing it away from the piano?
 - Visual: can you see key spots in your mind?
 - Analytical: can you describe the harmony and form in words?
-- Sleep consolidation: visualize the piece before bed. The brain replays and strengthens motor sequences during sleep.
+- Sleep consolidation: visualize the piece before bed. Overnight replay supports retention; gain is a bonus, not a promise.
 - Mental practice: rehearse the piece away from the piano. See it, feel it, hear it.
 
 Muscle memory alone is the most likely to collapse under nerves.
@@ -136,7 +136,7 @@ Once per month, add a cognitive load to your performance simulation:
 - Play the piece while counting aloud
 - Play while naming the chords
 - Play while a metronome plays on off-beats
-- Play while a recording of the piece plays slightly out of sync
+- Play while a recording of the piece plays slightly out of sync (optional experiment, not a standard — pressure inoculation evidence is thin; performance failure is mostly arousal-driven retrieval collapse, not distraction-overload)
 
 This trains recovery and focus under distraction, which is what real performance demands.
 

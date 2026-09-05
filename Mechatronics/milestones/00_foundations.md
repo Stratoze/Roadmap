@@ -86,9 +86,11 @@ Working dev environment, local Git repo with first commit, Engram topic subscrib
 
 - Don't configure 15 tools before verifying ONE compiles. Blink first, configure later.
 
-> Evidence: [[Mechatronics/milestones/evidence/0.1-toolchain|personal evidence 0.1]]
+> Evidence: [[Mechatronics/milestones/evidence/0.1-toolchain|personal evidence 0.1]] (MVM `m0.1-mvm` · Full `m0.1-fullpass` — see note below)
 
-> Log sessions in Daily/ notes using the unified template.
+> [!note] Record note (forward annotation, history intact)
+> The 0.1 evidence file is thin: no Fermi number, no blinky artifact pointer, one wrong LED mechanism in the prose. Boxes stay checked (earned in August); from 0.3 on, every numeric result needs units + tolerance and every physical pass needs an artifact pointer per the evidence convention. Tags keep their names (convention standardized at `m<phase>.<n>-(mvm|full)` going forward).
+
 
 ---
 
@@ -124,9 +126,8 @@ Hand-calculated forward kinematics for a 2-link planar arm. Given link lengths a
 > 3. **atan2 is not atan.** `[COMMUNITY]`
 >    atan returns -90° to 90°. atan2(y, x) returns -180° to 180°. For robotics, always atan2.
 >
-> > Log sessions in Daily/ notes using the unified template.
 > >
-> > Evidence: [[Mechatronics/milestones/evidence/0.2-3link-fk|personal evidence 0.2]]
+> > Evidence: [[Mechatronics/milestones/evidence/0.2-3link-fk|personal evidence 0.2]] (MVM `m0.2-mvm` · Full `m0.2-full`)
 
 ---
 
@@ -160,7 +161,6 @@ Given v(t) = 2t m/s: derive acceleration, calculate position at t = 3s by integr
 > 2. **You don't need symbolic fluency for embedded work.** `[HYPOTHESIS]`
 >    Digital controllers use discrete approximations. But you need the continuous intuition to know if your approximation is correct.
 >
-> > Log sessions in Daily/ notes using the unified template.
 >
 
 ---
@@ -202,7 +202,6 @@ FBD of the 2-link arm holding 0.5 kg at full horizontal extension. Calculate hol
 > 4. **FEM is not a black box that gives the right answer.** `[HYPOTHESIS]`
 >    Garbage in → garbage out. If your boundary conditions are wrong, the prettiest color contour is meaningless. The hand calc from THIS milestone is what you validate the FEA against in Phase 3. Learn what FEM does now, so you're not trusting a color picture blindly later.
 >
-> > Log sessions in Daily/ notes using the unified template.
 >
 
 ---
@@ -241,7 +240,6 @@ Calculate the current-limiting resistor for an LED, Vf = 2.2V, If = 20mA, from a
 > 3. **Falstad is a teaching tool, not precision.** `[HYPOTHESIS]`
 >    Use it for topology and direction. Use a real multimeter for real numbers.
 >
-> > Log sessions in Daily/ notes using the unified template.
 >
 
 ---
@@ -281,7 +279,6 @@ H-bridge: 2A at 12V, Rds(on) = 0.05Ω, two switches in series. Calculate input p
 > 3. **Rds_on increases with temperature.** `[COMMUNITY]`
 >    Datasheet value is at 25°C. At 150°C it can be 2× higher.
 >
-> > Log sessions in Daily/ notes using the unified template.
 >
 
 ---
@@ -310,7 +307,7 @@ H-bridge: 2A at 12V, Rds(on) = 0.05Ω, two switches in series. Calculate input p
 Depth rule: state correctly + apply to one example each. (derive) marks the three derivation gates; the rest are vocabulary with an example.
 **A — mechanical behavior:** stress-strain, crystals, dislocations, hardness, toughness, fatigue.
 - [ ] **Stress-strain curve anatomy (derive):** Can draw and label: elastic region (linear, slope = E), yield point (0.2% offset for metals without sharp yield), strain hardening region, ultimate tensile strength, necking, fracture. Can explain: area under the curve = toughness (energy to fracture). Peak stress = strength. Slope = stiffness. These are three different properties.
-- [ ] **Crystal structure matters:** FCC (aluminum, copper, austenitic stainless) → many slip systems → ductile. BCC (iron at room temp, tungsten) → fewer slip systems → stronger but less ductile, ductile-brittle transition temperature exists. HCP (titanium, magnesium, zinc) → fewest slip systems → anisotropic, limited formability. Can explain: this is WHY aluminum bends and cast iron snaps.
+- [ ] **Crystal structure matters:** FCC (aluminum, copper, austenitic stainless) → close-packed planes glide easily → ductile. BCC (iron at room temp, tungsten) → high lattice friction (Peierls stress) on non-close-packed planes → stronger but less ductile at low temperature, ductile-brittle transition temperature exists. HCP (titanium, magnesium, zinc) → fewest slip systems → anisotropic, limited formability. Can explain: this is WHY aluminum bends and cast iron snaps.
 - [ ] **Dislocations and work hardening:** Metals are 100–1000× weaker than theoretical bond strength because dislocations let planes slide incrementally. Cold working multiplies dislocations → they tangle → harder to move → material gets stronger but less ductile. This is why bending a paperclip back and forth makes it harder to bend, then it breaks.
 - [ ] **Hardness:** Rockwell, Brinell, Vickers — all measure resistance to indentation. Correlates with tensile strength (empirical, not fundamental). Useful because it's a quick, non-destructive proxy. Can explain: harder ≠ tougher. A file is hard and brittle. A spring is tough and moderately hard.
 - [ ] **Toughness vs. strength:** Strength = peak stress. Toughness = energy absorbed before fracture (area under stress-strain). A material can be strong but not tough (ceramic, hardened steel) or tough but not strong (rubber, annealed copper). Impact loading demands toughness. Static loading demands strength. Fatigue demands both.
@@ -333,7 +330,7 @@ Depth rule: state correctly + apply to one example each. (derive) marks the thre
 >    Estimate the load first. FoS accounts for uncertainty in the estimate.
 >
 > 3. **6061-T6 ≠ generic aluminum.** `[COMMUNITY]`
->    -T6 is a heat treatment: solution treat → quench → artificial age. Precipitates (Mg₂Si) block dislocation motion. Annealed 6061-O has ~⅓ the yield strength. Verify alloy AND temper of your stock.
+>    -T6 is a heat treatment: solution treat → quench → artificial age. Precipitates (Mg₂Si) block dislocation motion. Annealed 6061-O has ~⅕ the yield strength (~55 MPa vs ~276 MPa). Verify alloy AND temper of your stock.
 >
 > 4. **Polymers creep at room temperature.** `[COMMUNITY]`
 >    A 3D-printed bracket holding a static load will deform over weeks. PLA glass transition is ~60°C. Near a motor or in a hot car, it softens. PETG and nylon are better but still creep. This is not a footnote — it's a design constraint for any printed structural part.
@@ -357,7 +354,6 @@ Depth rule: state correctly + apply to one example each. (derive) marks the thre
 - Draw the stress-strain curve from memory BEFORE reading about fatigue mechanisms. The curve is the map; fatigue is a territory on it.
 - Look at real fracture surfaces (photos are fine) BEFORE reading about failure modes. The visual anchors the theory.
 
-> Log sessions in Daily/ notes using the unified template.
 
 ---
 
@@ -384,10 +380,10 @@ Take a simple L-bracket: design it for CNC milling, then redesign the same funct
 ### Full Pass
 - [ ] Can explain: casting needs draft angles and fillets. Why. (Pattern removal, stress concentration.)
 - [ ] Can explain: injection molding needs uniform wall thickness, draft, ribs instead of thick sections. Why. (Sink marks, warpage, cycle time.)
-- [ ] Can name 2 joining methods beyond bolts: welding (TIG/MIG), adhesives, brazing, rivets. When each is appropriate.
+- [ ] Can name 2 joining methods beyond bolts: adhesives, brazing, rivets (welding is BANNED in this roadmap — name it only to rule it out). When each is appropriate.
 - [ ] Can name 2 surface treatments and why: anodizing (corrosion + wear), powder coat (corrosion + aesthetics), plating, passivation.
 - [ ] **DFA — Design for Assembly:**
-- Can explain the Boothroyd-Dewhurst principles: minimize part count (does this part NEED to be separate?), design for z-axis assembly (parts stack downward, no flipping), self-locating features (dowels, tabs, asymmetric holes — parts can only go together one way), minimize fasteners (snap-fits, welds, adhesives replace screws), avoid flexible parts (cables, O-rings, gaskets are hard to automate).
+- Can explain the Boothroyd-Dewhurst principles: minimize part count (does this part NEED to be separate?), design for z-axis assembly (parts stack downward, no flipping), self-locating features (dowels, tabs, asymmetric holes — parts can only go together one way), minimize fasteners (snap-fits, adhesives replace screws — welds excluded: banned in this roadmap), avoid flexible parts (cables, O-rings, gaskets are hard to automate).
 - Can look at a 5-part assembly and identify: which parts could be merged? Which fasteners could be eliminated? Which features would make assembly foolproof?
 - Can explain: the cheapest part is the part you didn't design. The cheapest fastener is the one you didn't add. Assembly time often exceeds manufacturing time.
 - [ ] 5 personal DFM rules written down, specific enough to check against in Phase 3
@@ -423,7 +419,6 @@ Take a simple L-bracket: design it for CNC milling, then redesign the same funct
 - Do the DFA redesign AFTER the DFM sketches. You need to know what's manufacturable before you can judge what's assemblable.
 - Write the DFM + DFA rules BEFORE Phase 3, not during. You'll forget them under CAD pressure.
 
-> Log sessions in Daily/ notes using the unified template.
 
 ---
 
@@ -431,7 +426,7 @@ Take a simple L-bracket: design it for CNC milling, then redesign the same funct
 
 > [!info] 📚 Resources — Mechanisms & Kinematic Elements
 > **Visual:** Thang010146 (mechanism animations); *507 Mechanical Movements*.
-> **Interactive:** GeoGebra/linkage sim — build a four-bar, flip the grounded link, watch Grashof change it.
+> **Interactive:** GeoGebra/linkage sim — build a four-bar, flip the grounded link, watch the TYPE change (the Grashof inequality never changes — only which link is grounded does).
 > **Theory:** Norton *Design of Machinery* Ch 1–5; Gruebler's equation.
 > **Fabrication:** 3D printer (FDM, PLA). No printer yet → cardboard + brass split pins. Same kinematics.
 
@@ -461,7 +456,7 @@ A baseplate (3D-printed or cardboard) with interchangeable mechanism modules tha
 ### Full Pass
 Depth rule: each mechanism below is its own sign-off (diagram + DOF + motion + application); state correctly + one example. This is a multiple of the MVM — spread across the phase, not one sitting.
 - [ ] All 12 mechanisms below covered (diagram + DOF + motion + application)
-- [ ] **Four-bar linkage:** Can explain Grashof condition (s + l ≤ p + q). Can identify: crank-rocker (shortest link is input), double-crank (shortest link is ground), double-rocker (shortest link is coupler). Can explain: the same four bars behave completely differently depending on which link is grounded.
+- [ ] **Four-bar linkage:** Can explain Grashof condition (s + l ≤ p + q). Can identify: crank-rocker (shortest link is a side link, adjacent to ground, and driven), double-crank / drag-link (shortest link is ground), double-rocker (shortest link is the coupler; non-Grashof s + l > p + q is always double-rocker). Re-grounding the same four bars changes the type — the Grashof inequality itself does not change. Can explain: the same four bars behave completely differently depending on which link is grounded and driven.
 - [ ] **Slider-crank:** Can explain: this is a four-bar with one revolute joint replaced by a prismatic joint. Engine piston = slider-crank. Can explain dead-center positions and why a flywheel is needed.
 - [ ] **CAM and follower:** Can explain: the cam profile IS the motion program. Follower displacement, velocity, acceleration are determined by the profile shape. Can explain pressure angle and why > 30° causes jamming/side-loading. Can explain undercutting and why it limits how aggressive the profile can be.
 - [ ] **Geneva mechanism:** Can explain: converts continuous rotation to intermittent rotation (indexing). The driver has a pin that engages slots in the driven wheel. Can explain: the driven wheel dwells (locks) between engagements. Can explain: acceleration is HIGH at pin entry — not suitable for high speed without modification. Application: film projectors, indexing tables, mechanical watches.
@@ -515,7 +510,6 @@ Depth rule: each mechanism below is its own sign-off (diagram + DOF + motion + a
 - Do the leaf spring / compliant mechanism AFTER the rigid-body mechanisms. Compliance is a design choice that replaces joints. You need to understand joints first.
 - Print the calibration cube BEFORE printing mechanism modules. Measure, compensate, then print.
 
-> Log sessions in Daily/ notes using the unified template.
 
 ---
 
@@ -532,7 +526,7 @@ A documented measurement of a testbed part from Milestone 0.9:
 - Nominal dimension (from CAD or drawing)
 - Measured dimension (mean of 10 readings)
 - Type A uncertainty (repeatability: std dev / √n)
-- Type B uncertainty (instrument resolution: resolution / √12)
+- Type B uncertainty (instrument: resolution / √12 for quantization, PLUS accuracy spec / calibration offset / thermal — RSS them; a ±0.03 mm caliper is dominated by accuracy, not its 0.01 mm resolution)
 - Combined uncertainty (root-sum-square)
 - Stated as: `dimension = X ± U mm (k=2, ~95%)`
 
@@ -562,7 +556,7 @@ with a sloppy lever-arm length is worthless. Metrology first, always.
 >    A $30 caliper reads 0.01 mm but may be accurate to ±0.03 mm. Check it against a known dimension (gauge pin, drill bit shank with stamped size) and record the offset.
 >
 > 2. **3D-printed dimensions are not your CAD.** `[HYPOTHESIS]`
->    FDM shrinks ~0.1–0.3% in XY. A 25 mm cube prints at ~24.95 mm. That is a PROCESS error, not a measurement error. Your uncertainty budget covers the measurement; the CAD-to-part gap is a separate, documented thing.
+>    FDM shrinks with material and process (calibrated PLA ~0.1–0.3% in XY; ABS/nylon differ — measure your printer, don't trust a universal number). A 25 mm cube prints at ~24.95 mm. That is a PROCESS error, not a measurement error. Your uncertainty budget covers the measurement; the CAD-to-part gap is a separate, documented thing.
 >
 > 3. **Squeezing the caliper lies.** `[HYPOTHESIS]`
 >    Too much jaw force deforms PLA and reads small. Use the thumb roller gently; same force every reading, which is why you repeat 10×.
@@ -580,7 +574,6 @@ with a sloppy lever-arm length is worthless. Metrology first, always.
 - Measure a part FROM Milestone 0.9 so the two artifacts connect.
 - Finish this BEFORE Phase 1: the VCA's lever arm, the load cell calibration, and every Phase 3 bearing fit inherit this skill.
 
-> Log sessions in Daily/ notes using the unified template.
 
 ---
 

@@ -13,7 +13,7 @@ can't yet explain.
 1. Exploded-View Pedestal — one QDD actuator disassembled and presented in assembly order on laser-cut acrylic, every component labeled
 2. Bench Museum — a single display holding every phase artifact, telling the dependency-tree story
 
-**Fabrication & safety envelope (Phase 5):** laser-cut acrylic/wood via service, hand assembly, LED lighting. Ventilation if sanding acrylic; eye protection. No electronics fabrication. Do NOT disassemble the arm's actuators until the final demo video is recorded.
+**Fabrication & safety envelope (Phase 5):** laser-cut acrylic/wood via service, hand assembly, LED lighting. Ventilation required when sanding acrylic; eye protection. No electronics fabrication. De-energize + discharge + meter-verify before ANY teardown. Do NOT disassemble the arm's actuators until the final demo video is recorded.
 
 ### Assessment Philosophy
 
@@ -202,7 +202,6 @@ can't explain; the video captures what you can.
 - Do the stress inoculation BEFORE writing the report. The results feed into the
 metacognitive reflection.
 
-> Log sessions in Daily/ notes using the unified template.
 
 ---
 
@@ -273,7 +272,6 @@ a QR code to its capture folder. This is the dependency tree from the ROADMAP, m
 - Order laser-cut acrylic BEFORE writing final labels — stand dimensions set label positions.
 - Photograph in good light BEFORE the submission deadline. Bad lighting ruins good hardware.
 
-> Log sessions in Daily/ notes using the unified template.
 
 ---
 

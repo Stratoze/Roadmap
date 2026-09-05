@@ -55,7 +55,7 @@ Exercises:
 
 1. **Look-ahead drill**: Play a simple piece while a partner or metronome forces you to keep going. Eyes must stay ahead.
 2. **Repeated reading**: Play a short unfamiliar piece 3 times. Observe how eye movements change. First reading is decoding; second is pattern recognition; third is anticipation.
-3. **Peripheral awareness**: While playing, try to perceive the next measure without directly looking at it. This trains peripheral vision.
+3. **Peripheral awareness**: While playing, try to anticipate the next measure from harmony and pattern (this trains prediction, not literal peripheral vision — notation is unfocusable outside the fovea).
 4. **Blind intervals**: Play a short passage while looking 2 measures ahead. Trust your hands.
 
 ### Dual-task training for sight-reading
@@ -68,7 +68,7 @@ L2 (note letters) → L3 (chords) → L4 (different subdivision) →
 L5 (conducting) → L6 (harmony analysis) → L7 (listen for a voice) →
 L8 (sing a voice).
 
-Only add dual-task when the base reading is at 80% accuracy.
+Only add dual-task when the base reading is fluent (80% is a pragmatic gate, not a lab finding).
 
 ### Sight-reading weekly minimum
 - 5 minutes, 3–5 times per week
@@ -229,4 +229,4 @@ Core steps live in [[Piano/Resources/Practice Protocols|Practice Protocols]] (me
 
 ### Neuroscience basis
 
-Same motor-cortex activation as physical practice, without physical wear (see Protocols). Especially effective for memorization security, passage planning and fingering decisions, injury recovery, and sleep consolidation.
+Overlapping (partial, weaker) motor-network activation vs physical practice, without physical wear (see Protocols). Especially effective for memorization security, passage planning and fingering decisions, injury recovery, and sleep consolidation.

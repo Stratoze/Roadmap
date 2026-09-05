@@ -70,8 +70,8 @@ No welding. No manual CNC. No mains — ever, in this roadmap.
 |---|---|
 |[1.1 — I2C Sensor + Telemetry](milestones/01_signals_actuators_dynamics.md)|⬜|
 |[1.2 — Noise + Filtering + Frequency Domain](milestones/01_signals_actuators_dynamics.md)|⬜|
-|[1.3 — H-Bridge + BLDC Commutation](milestones/01_signals_actuators_dynamics.md)|⬜|
-|[1.4 — Dynamics Model + Pendulum Rig](milestones/01_signals_actuators_dynamics.md)|⬜|
+|[1.3 — H-Bridge, BLDC Commutation + Characterization](milestones/01_signals_actuators_dynamics.md)|⬜|
+|[1.4 — Pendulum Dynamics Model + Hardware Validation](milestones/01_signals_actuators_dynamics.md)|⬜|
 |[1.5 — Integration + Sensor Fusion + Calibration](milestones/01_signals_actuators_dynamics.md)|⬜|
 |[1.6 — Stepper + Microstepping](milestones/01_signals_actuators_dynamics.md)|⬜|
 |[1.7 — Voice Coil Actuator + Motor Test Rig](milestones/01_signals_actuators_dynamics.md)|⬜|
@@ -80,12 +80,12 @@ No welding. No manual CNC. No mains — ever, in this roadmap.
 
 |**Milestone**|**Status**|
 |---|---|
-|[2.1 — Bare-Metal STM32 + SPI + UART](milestones/02_embedded_realtime_control.md)|⬜|
-|[2.2 — PID Theory + Tuning](milestones/02_embedded_realtime_control.md)|⬜|
+|[2.1 — Bare-Metal STM32 Foundation](milestones/02_embedded_realtime_control.md)|⬜|
+|[2.2 — PID Theory + Tuning in Simulation](milestones/02_embedded_realtime_control.md)|⬜|
 |[2.3 — FOC Closed-Loop](milestones/02_embedded_realtime_control.md)|⬜|
-|[2.4 — FreeRTOS Multi-Task](milestones/02_embedded_realtime_control.md)|⬜|
-|[2.5 — Multi-DOF Dynamics + State-Space](milestones/02_embedded_realtime_control.md)|⬜|
-|[2.6 — Limit Switches + Homing + State Machines](milestones/02_embedded_realtime_control.md)|⬜|
+|[2.4 — FreeRTOS Multi-Task Firmware](milestones/02_embedded_realtime_control.md)|⬜|
+|[2.5 — Multi-DOF Dynamics + State-Space Control](milestones/02_embedded_realtime_control.md)|⬜|
+|[2.6 — Limit Switches, Homing, and State Machine Design](milestones/02_embedded_realtime_control.md)|⬜|
 |[2.7 — Integrated Sub-System: Haptic Knob](milestones/02_embedded_realtime_control.md)|⬜|
 |[2.8 — Inverted Pendulum Cart](milestones/02_embedded_realtime_control.md)|⬜|
 
@@ -94,7 +94,7 @@ No welding. No manual CNC. No mains — ever, in this roadmap.
 |**Milestone**|**Status**|
 |---|---|
 |[3.0 — SIL Verification Gate](milestones/03_mech_pcb_verification.md)|⬜|
-|[3.1 — QDD Actuator: CAD + Machine Elements + FEA](milestones/03_mech_pcb_verification.md)|⬜|
+|[3.1 — QDD Actuator: CAD + Machine Elements + FEA + Drawings](milestones/03_mech_pcb_verification.md)|⬜|
 |[3.2 — The Puck: Custom FOC Driver PCB](milestones/03_mech_pcb_verification.md)|⬜|
 |[3.3 — QDD Actuator Assembly + Characterization](milestones/03_mech_pcb_verification.md)|⬜|
 |[3.4 — HIL Validation Gate](milestones/03_mech_pcb_verification.md)|⬜|
@@ -104,10 +104,10 @@ No welding. No manual CNC. No mains — ever, in this roadmap.
 |**Milestone**|**Status**|
 |---|---|
 |[4.1 — CAN + C++ Messaging](milestones/04_capstone_integration.md)|⬜|
-|[4.2 — Motion + Dynamics-Aware Control](milestones/04_capstone_integration.md)|⬜|
+|[4.2 — Motion Integration + Dynamics-Aware Control](milestones/04_capstone_integration.md)|⬜|
 |[4.3 — Safety PDU + Hardwired E-Stop](milestones/04_capstone_integration.md)|⬜|
-|[4.4 — Workcell Integration + Harness](milestones/04_capstone_integration.md) (example — exit checklist, no new skill)|⬜|
-|[4.5 — Electromechanical Gripper + Tool Changer](milestones/04_capstone_integration.md) (stretch example — optional)|⬜|
+|[4.4 — Workcell Integration + Harness](milestones/04_capstone_integration.md) (split: integration checklist foldable; harness-EMC + operability graded)|⬜|
+|[4.5 — Electromechanical Gripper + Tool Changer](milestones/04_capstone_integration.md) (graded: end-effector + separable interface)|⬜|
 
 ## Phase 5 — Portfolio & Delivery
 
@@ -120,7 +120,7 @@ No welding. No manual CNC. No mains — ever, in this roadmap.
 
 |**Phase**|**Planned**|**Actual**|
 |---|---|---|
-|Phase 0|8–14 wk||
+|Phase 0|8–14 wk|2/10 in ~2.5 wk (partial, Aug 10→27)|
 |Phase 1|12–20 wk||
 |Phase 2|12–26 wk||
 |Phase 3|12–22 wk||
@@ -137,7 +137,7 @@ Learning resources are injected at the top of each milestone file — open the m
 
 - [[Mechatronics/resources/SAFETY_CARD|Safety Card]] — read before any hardware work
 - [[Mechatronics/resources/CONVENTIONS|Conventions]] — units, naming, coordinates
-- [[Mechatronics/resources/FIELD_NOTES|Field Notes]] — career radar, reviewed at 12-week check
+- [[Mechatronics/resources/FIELD_NOTES|Field Notes]] — career radar, reviewed at 12-week review
 - [[Mechatronics/resources/LAB_INFRASTRUCTURE|Lab Infrastructure]] — tools, budget, sourcing
 
 ## Speed Runs
@@ -160,7 +160,7 @@ One per phase. Plus optional "from scratch" builds.
 >
 > The "from scratch" builds are optional but recommended. They make the equations physical. A speaker is a linear motor you can hear. A generator is a motor run backwards. Neither requires a roadmap entry — they're weekend speed runs that change how the theory feels.
 >
-> The mechanism speed run is now folded into Milestone 0.9's physical testbed. Cardboard four-bars take 20 minutes. Seeing the Grashof condition change a crank-rocker into a double-rocker by flipping which link you hold is worth more than a page of derivation.
+> The mechanism speed run is now folded into Milestone 0.9's physical testbed. Cardboard four-bars take 20 minutes. Re-grounding the same four bars flips crank-rocker into double-rocker (the Grashof inequality never changes — only the type does), which is worth more than a page of derivation.
 
 ## Physical Artifact Dependency Tree
 
@@ -193,21 +193,46 @@ without FOC from 2.3 and machine elements from 3.1. The dependency tree IS the c
 The spine is transferable verbs — derive, measure, drive, coordinate,
 power, prove safe-state, calibrate, verify SIL→HIL. Artifacts are reference
 instances that prove the verbs, not the goal. The 2-DOF arm is the reference
-hero; it is not the definition of done.
+hero; it is not the definition of done. Verbs repeat across phases on purpose
+(spiral: intro in 0.10 → reuse at rigor in 1.7/3.3) — each verb lists its
+INTRO owner first, every other occurrence is reuse at a tighter envelope.
+
+| Verb | Intro owner | Reuse (tighter envelope) |
+| --- | --- | --- |
+| derive | 0.2 FK / 0.4 statics | 1.4 EOM, 2.5 Lagrangian, 4.2 IK |
+| measure | 0.10 Type A/B + RSS | 1.7 load-cell, 3.3 Kt/Ke/thermal |
+| drive | 1.3 H-bridge + BLDC | 1.6 stepper, 2.3 FOC |
+| coordinate | 2.4 multi-task + 4.1 CAN (shared-motion owner: 4.2) | 2.6 state machines |
+| power | 0.6 P/I²R/efficiency | Phase-3 budget, 3.2 buck, 4.3 PDU |
+| prove safe-state | 2.6 NC-failsafe + FAULT | Phase-3 HIL, 4.3 contactors + per-axis states |
+| calibrate | 0.10 calipers | 1.3/1.5/1.7/2.7/3.3 offsets (same verb, rising stakes) |
+| verify SIL→HIL | Phase-3 SIL entry + HIL exit | 4.3 automated HIL |
 
 - A project belongs in the graded path only if it teaches a NEW transferable
   skill. Pure integration/polish with no new verb is an example, not a gate:
-  4.4 (harness at scale), 5.2 (display), and conditionally 4.5 (end-effector)
-  are tagged as such above. Do them for the portfolio, or fold 4.4 into the
-  4.2/4.3 exit checklist — zero skill is lost either way.
+  5.2 (display) is tagged as such above. 4.4 splits: the route/secure/label +
+  cold-boot integration checklist is foldable into 4.2/4.3 exit; harness-scale
+  EMC + operability review are graded verbs owned by 4.4. 4.5 is GRADED
+  (end-effector + separable power/signal interface have no alternate owner).
+  Do examples for the portfolio; do gates for the skills.
 - Custom-project rule: when a phase arrives, you or the AI may propose a
-  substitute project that hits the SAME verbs. State the verbs, the evidence
-  plots, and the safety envelope before starting; if it teaches no new verb,
-  it goes in the example pool, not the graded path.
-- Phase-4b (optional, after the hero): a second machine — e.g. a 3-axis CNC —
-  reusing the spine (stepper sizing, homing, fits, PDU, harness, calibration).
-  Gated behind 4.3 safety PLUS a spindle/process addendum (cutting physics,
-  G-code/CAM chain, tramming/squareness, interlocked extraction enclosure).
+  substitute project that hits the SAME verbs. The AI approves against this
+  table (a human overrules) — approval requires: the verbs named against
+  the table above, the evidence plots with uncertainty +
+  sample counts + fault minima, the safety envelope, the preserved
+  downstream feed (what the next phase needs from this artifact), and the
+  interface contract (power/data/mechanical seams). Sim-only substitutes for
+  hardware verbs are rejected. If it teaches no new verb, it goes in the
+  example pool, not the graded path.
+- Phase-4b (optional, after the hero): a second machine — e.g. a 3-axis CNC.
+  Honest split — transferable habits: harness discipline, calibration method,
+  stepper/drive vocabulary, homing state machines. New addenda (not reuse):
+  gantry sizing, multi-axis homing + squareness + work coordinates, linear
+  motion procedures (rail parallelism, screw preload, tramming), spindle/VFD
+  power (mains — never DIY), cutting physics, G-code/CAM chain, interlocked
+  extraction enclosure.
+  Gated behind 4.3 safety PLUS a spindle/process addendum with its own safety
+  case, built at point of need under the AGENT.md proximity trigger.
 - Non-claim: this roadmap alone does not qualify you to build a cutting
   machine, touch mains/VFD power, or run pressure/fluid systems unsupervised.
   Those are post-roadmap addenda with their own safety cases.

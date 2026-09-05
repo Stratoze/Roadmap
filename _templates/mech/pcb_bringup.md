@@ -5,7 +5,7 @@ title: "{{title}}"
 
 # PCB Bring-Up — {{date}} — Board Rev — {{title}}
 
-For the generic pre-power procedure, see `templates/first_power_on.md`.
+For the generic pre-power procedure, see `_templates/mech/first_power_on.md`.
 
 This template adds PCB-specific checks on top of it.
 
@@ -34,9 +34,9 @@ Assembly state:
 ## Functional checks
 
 - [ ] Programming/debug interface connects
-- [ ] Clock/oscillator present if needed
+- [ ] Clock/oscillator running at the expected frequency (scope or firmware readout)
 - [ ] GPIO sanity check
-- [ ] Driver enable disabled by default
+- [ ] Gate-driver enable held OFF by default (pull-down/hardware default — motor must not drive at power-on)
 - [ ] Load test with safe dummy load
 
 ## Issues

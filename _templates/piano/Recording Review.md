@@ -7,13 +7,23 @@ title: "{{title}}"
 
 Listen like an examiner, not like the player. One recording, one rubric pass, one fix for next week.
 
+## Take context
+
+- Piece:
+- Recording link:
+- Take number / tempo / stops (one-take performance mode?):
+
+## Rubric scores (0–2 each, per Maintenance rubric)
+
+- Notes and rhythm:
+- Pulse, continuity, recovery:
+- Tone, voicing, articulation, phrasing, pedaling:
+- Physical ease and control:
+
 ## Checks
 
-- [ ] Tone: even across registers, no banging on accents
-- [ ] Voicing: melody audible above accompaniment
-- [ ] Pedaling: clean changes, no blur on harmonies
-- [ ] Physical ease: no visible tension at tempo (watch hands, not just listen)
-- [ ] Memory: pick one random bar and start there cold
+- [ ] Analytical memory spot-check: describe the harmony/form of one section in words
+- [ ] Cold start: begin at one structural point (development / B section), not always the top
 
 ## Next week
 

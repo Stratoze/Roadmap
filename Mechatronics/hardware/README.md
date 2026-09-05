@@ -23,4 +23,4 @@ hardware/
 
 If it answers "what is physically connected to what?", it probably belongs here.
 
-Key file: [[inventory|Inventory]]
+Key file: [[Mechatronics/hardware/inventory|Inventory]]

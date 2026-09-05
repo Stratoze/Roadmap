@@ -12,8 +12,9 @@ Pieces/Composer/Piece Title/
 ```
 
 Daily session notes go in `Daily/` using the unified template
-(`_system/Daily Template.md`). Put the piece name in the
-**Milestone / Piece / Book** field. Do not create a `daily/`
+(`_system/Daily Template.md`). Put the piece name in the Focus block's
+Current line (there is no separate "Milestone / Piece / Book" field — the old
+schema; use Current). Do not create a `daily/`
 subfolder inside the piece folder.
 
 Piece-specific data lives in the piece's own logs:

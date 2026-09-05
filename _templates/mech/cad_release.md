@@ -29,8 +29,7 @@ Manufacturing method:
 - [ ] Interference check passed
 - [ ] Motor/bearing/datasheet dimensions verified
 - [ ] Hand calc completed
-- [ ] FEA boundary conditions reviewed
-- [ ] Mesh convergence checked if claiming FEA result
+- [ ] FEA: see `fea_check.md` (this template keeps the release fields below; the acceptance verdict lives there)
 - [ ] Drawing has units, material, finish, rev
 - [ ] Critical tolerances called out
 - [ ] Poka-yoke considered

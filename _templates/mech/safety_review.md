@@ -13,7 +13,7 @@ What test or system is being reviewed?
 
 - [ ] Bench supply
 - [ ] Battery
-- [ ] Mains / high voltage
+- [ ] Mains / high voltage — STOP: out of scope for this roadmap (SAFETY_CARD). Do not complete this review; redirect.
 - [ ] Rotating motor
 - [ ] Gravity / falling load
 - [ ] Spring / stored mechanical energy

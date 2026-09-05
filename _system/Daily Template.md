@@ -22,7 +22,7 @@ Frontmatter exactly as above. -->
 - **Log:** (optional ear / fun / misc one-liners)
 
 ## Loop
-- **Predict:** (hard step? time needed? what failed last time?)
+- **Predict:** (hard step? time needed? what failed last time? — "reasonable load" without a mechanism gets flagged `prediction-weak`)
 - **Got:**
 - **Gap:**
 

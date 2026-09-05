@@ -28,7 +28,7 @@ Match the symptom to the file that owns it. Do not look for the answer here.
 
 | Symptom | Go to |
 | --- | --- |
-| Same mistake keeps returning | [Recurring error workflow](Practice%20Protocols.md#recurring-error-workflow), [Q-Spots](Practice%20Protocols.md#q-spots) |
+| Same mistake keeps returning | [Recurring error workflow](Practice%20Protocols.md#recurring-error-workflow), [Q-spots](Practice%20Protocols.md#q-spots) |
 | Slow is clean but fast falls apart | [Speed Work](Practice%20Protocols.md#speed-work) — gait transition, not more reps |
 | Tension, pain, tingling, numbness | [Technique and Health](Practice%20Protocols.md#technique-and-health) — stop now |
 | How much should I practice? | [Practice Volume and Pacing](Progression.md#practice-volume-and-pacing) |

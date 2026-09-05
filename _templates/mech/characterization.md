@@ -33,9 +33,9 @@ Describe sensor frame relative to world/body frame.
 
 ## Measurements
 
-| Quantity | Value | Unit | Method / artifact |
-| --- | ---: | --- | --- |
-| | | | |
+| Quantity | Value | Unit | ±Uncertainty | Design point / pass band | Method / artifact |
+| --- | ---: | --- | ---: | --- | --- |
+| | | | | | |
 
 ## Phase order / wiring, motors
 

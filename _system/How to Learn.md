@@ -11,9 +11,9 @@
 
 The delta between prediction and reality is where the mental model gets corrected. That's the whole game.
 
-**Gap check:** prediction trivially correct → chunk too easy. So wrong you can't name the gap → chunk too hard, shrink it.
+**Gap check:** prediction trivially correct → usually chunk too easy (but can also be a fluency check — don't auto-shrink mastered material). So wrong you can't name the gap → chunk too hard, shrink it.
 
-## Q-Spots (when stuck)
+## Q-spots (when stuck)
 1. **Identify** the exact problem. Not "it doesn't work."
 2. **Isolate** — split in half, binary search.
 3. **Time-box** 20–30 min, then rotate.
@@ -27,22 +27,22 @@ The delta between prediction and reality is where the mental model gets correcte
 3. Lateral move — easier task, same domain, close with a small win.
 
 ## Deload
-- **Triggered:** 2–3 wks no consolidation · same paragraph 3× · rising errors · dread · fab order placed (the wait *is* the deload).
+- **Triggered:** 2–3 wks no consolidation · same paragraph 3× · rising errors · dread. (A fab-order wait is rest, not a deload — don't confuse supply delay with recovery.)
 - **Guaranteed:** every phase gate. Re-derive from memory, red-pen gaps, run it cold.
 - **Avoidance check:** saturated across the phase, or dodging one hard problem? One problem → unblock, don't deload.
-- **Weekly signal check:** scan `Landmine Log.md` once a week. ≥3 entries in the same domain = rising errors → trigger deload or shrink the chunk. Single entries are noise; clusters are signal.
+- **Weekly signal check:** scan `Landmine Log.md` once a week. Clusters in one domain (rule of thumb: ≥3) suggest rising errors → deload or shrink the chunk. Single entries are usually noise; judge, don't count.
 
 ## JIT vs JIC
 - **JIT first**: learn the minimum the current deliverable needs, when it needs it. Momentum beats coverage.
 - **JIC for load-bearing concepts**: anything the next deliverables stand on (e.g. frames for FK) gets the deep pass now.
-- A finished course is not a capability — if you can't say how it helps the next deliverable, the gap is understanding, not completion. `[2026-08-17]`
+- A finished course is not a capability — if you can't say how it helps the next deliverable, check first whether the material is actually relevant before concluding the gap is understanding. `[2026-08-17]`
 
 ## Landmine Tags
 `[HYPOTHESIS]` expected · `[COMMUNITY]` common trap · `[DATASHEET]` from the source · `[VERIFIED]` you hit it (add date) · `[RETIRED]` obsolete. When one fires, promote it: `[VERIFIED — 2026-08-14]`. Landmines feed the FMEA.
 
 ## Memory / SRS Strategy
 - **Engram owns spaced repetition for concepts & procedures.** All learning trees run on its FSRS engine with receipt-based evidence: mechatronics (spine + software/electronics/mechanical/project-safety), piano, data science/AI, math foundations, physics, Japanese grammar + output. Reviews via `/review-loop`.
-- **Anki owns Japanese vocabulary only.** Kaishi 1.5k + mined cards (<20k freq). No topic overlap — one fact lives in exactly one SRS. In particular: piano maintenance and "review this song today" scheduling live in Engram (topic `piano`); Anki holds zero piano cards.
+- **Anki owns Japanese vocabulary only.** Kaishi 1.5k + mined cards (<20k freq). Routing heuristic (not a law — overlap can help; the point is no double-SRS maintenance burden): one fact lives in exactly one SRS. In particular: piano maintenance and "review this song today" scheduling live in Engram (topic `piano`); Anki holds zero piano cards.
 - **Routing rule:** a pattern/procedure you must *reconstruct* → Engram. A word you must recognize/produce *instantly* → Anki.
 
 ## Definitions

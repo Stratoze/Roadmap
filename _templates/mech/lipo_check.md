@@ -5,7 +5,7 @@ title: "{{title}}"
 
 # LiPo Check — {{date}} — Pack — {{title}}
 
-Use only if LiPo enters scope.
+Use only if LiPo enters scope. LiPo NEVER enters scope in this roadmap (no phase authorizes it) — this template exists for supervised/makerspace work only. If in doubt: the answer is no.
 
 ## Pack
 

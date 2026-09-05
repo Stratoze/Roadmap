@@ -31,11 +31,11 @@ Current limit:
 - Measurement points:
 - Steady-state reached? yes/no
 
-## Stop conditions
+## Stop conditions (fill BEFORE power — a blank line is a stop)
 
 - Current above:
 - Temperature above:
-- Smell/heat/smoke:
+- Smell/heat/smoke: stop immediately, power off first
 
 ## Results
 

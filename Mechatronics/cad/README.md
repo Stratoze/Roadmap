@@ -21,7 +21,7 @@ cad/
 └── exports/          ← STEP files live here
 ```
 
-Use _templates/mech/cad_release.md before calling anything release-ready.
+Use [[_templates/mech/cad_release|cad_release]] before calling anything release-ready.
 
 ## Checklists
 - [[_templates/mech/cad_assembly|Assembly Template]] — copy for each new assembly

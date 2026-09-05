@@ -10,7 +10,7 @@ files for depth, don't guess.
 
 1. Read `_system/How to Learn.md` — the method (loop, Q-spots, deload, AI zones).
 2. Read `index.md` — the vault map. Start domain work from its links.
-3. Check due reviews first: `/review-loop` (Engram). Spacing beats new material.
+3. Check due reviews first: `/review-loop` (Engram command — loads the `review` skill). Spacing beats new material.
 4. Open the current milestone/piece file (see "Next step" below) and its
    landmines BEFORE teaching. Landmines are read-before-starting by definition.
 
@@ -36,7 +36,9 @@ files for depth, don't guess.
   premises and say when the requested path is worse.
 - Generation still applies inside probes: predict → attempt → compare →
   explain the gap → integrate. Never lecture what can be derived; never
-  rescue early from struggle.
+  rescue early from struggle. Novice gate: with zero schemas, scaffold first
+  (worked example), then predict — unassisted flailing is not generation.
+  Retrieval needs prompt corrective feedback, or errors consolidate.
 - Reviews run cold recall FIRST (testing effect): probe before any
   rewatch/reread; verify; re-teach lapses only.
 
@@ -64,8 +66,11 @@ piano cards, zero circuits, zero grammar — vocab only. If unsure, ask.
 
 - Mechatronics: open `Mechatronics/ROADMAP.md`, find the earliest phase
   with an incomplete milestone (first ⬜ after the last ✅ within that
-  phase). That is the current milestone. Open its file, find the milestone
-  section. Resources are at the top of its file.
+  phase; all-⬜ phase → its first milestone; graded gates only — 5.2 and
+  the foldable half of 4.4 are example pool unless explicitly elected).
+  That is the current milestone. Open its file, find the milestone
+  section. Resources are per-milestone `> [!info] 📚 Resources` callouts
+  inside its file, not the file top.
 - Piano: current stage/pieces live in the latest `Daily/` Focus + the 12-week
   goal file. If absent, ask — don't infer from repertoire lists.
 - Record the pick in today's `Daily/` Focus line so the next session inherits it.
@@ -85,7 +90,8 @@ piano cards, zero circuits, zero grammar — vocab only. If unsure, ask.
 
 Mains is OUT OF SCOPE for the whole roadmap (certified bricks only) — redirect,
 never engage with caveats. LiPo/high-current/FOC/load ratings: never finalize
-without independent verification. When files conflict, higher wins.
+without independent verification (datasheet + hand calc, checked by a second
+agent or a human — never self-review alone). When files conflict, higher wins.
 
 ## Daily notes (user raw in, AI formats)
 
@@ -97,19 +103,26 @@ Omit empty sections instead of leaving boilerplate. Canonical link style:
 
 ## Evidence discipline
 
-Done = MVM checkbox + git tag (`milestone.sh`), not a finished course.
-Tag MVM and Full Pass separately (`m0.2-mvm`, `m0.2-full`).
+Done = MVM checkbox + git tag (`scripts/milestone.sh`), not a finished course.
+Tag MVM and Full Pass separately (`m0.2-mvm`, `m0.2-full`); phase gates as
+`p0-complete`. Tag format enforced by the script: `m<phase>.<n>-(mvm|full)`.
+Order: flip ROADMAP ⬜→✅ + `./scripts/save.sh` FIRST, then tag (the tag must
+contain the ✅ state); push tags (`git push origin main --tags`). Signing: SSH.
 Log failures in `_system/Landmine Log.md` as `date | domain | landmine [TAG]`.
 Promote fired landmines to `[VERIFIED — date]` and into the owning file.
-Default improvement is deletion — add nothing that removes no friction seen ≥2×.
+Default improvement is deletion — add nothing unless it removes a friction
+seen ≥2×, prevents expensive damage, or improves evidence (per How to Learn).
 
 ### Student evidence vs canonical spec (never mix)
 
 - Milestone files are the ASSIGNMENT (prompts, pass criteria). Worked
   solutions live in `Mechatronics/milestones/evidence/` as `0.x-slug.md`.
 - Every evidence file opens with a personal-evidence title plus a spec
-  pointer line. Every milestone section gains one backlink line as evidence
-  lands (e.g. `> Evidence: [[Mechatronics/milestones/evidence/0.2-3link-fk|personal evidence 0.2]]`).
+  pointer line, follows the Attempt-vs-Correction + units convention
+  (`Mechatronics/milestones/evidence/Index.md`), and is committed in HEAD
+  before its tag. Every milestone section gains one backlink line as evidence
+  lands, carrying the tag names
+  (e.g. `> Evidence: [[Mechatronics/milestones/evidence/0.2-3link-fk|personal evidence 0.2]] (MVM `m0.2-mvm` · Full `m0.2-full`)`).
 - Daily notes link evidence files, never paste solutions into the daily.
 - Never edit canonical pass criteria to match what was produced — failed
   gates stay failed until re-attempted.
