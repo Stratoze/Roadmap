@@ -35,6 +35,7 @@ Photo or sketch path:
 - [ ] Pull-ups/pull-downs accounted for
 - [ ] Current path understood
 - [ ] Cable strain relief considered
+- [ ] Crimps pull-tested: tug every wire (ratchet-crimp tool; ferrules in terminal blocks, never bare strands)
 - [ ] Label both ends if persistent
 
 ## Changes

@@ -356,7 +356,7 @@ Assemble the QDD from 3.1 + 3.2 components and characterize it on the Phase 1 mo
 2. Output shaft through bearings; axial location by shoulder + retaining ring.
 3. Gearbox to motor; couple to output shaft (alignment matters).
 4. Puck mounted on motor rear; AS5048 magnet on output shaft at datasheet gap.
-5. Wire, close housing, torque fasteners to spec.
+5. Wire, close housing, torque fasteners to spec in a star sequence (blue thread-locker on metal threads, never on plastics or near encoder optics; re-torque after the first thermal/vibration cycle).
 6. Verify by hand: smooth rotation, zero axial play, backdrivable.
 
 **Characterization tests (all logged with `_templates/mech/characterization.md`):**

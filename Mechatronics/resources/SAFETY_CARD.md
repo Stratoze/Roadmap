@@ -62,6 +62,10 @@ Use `_templates/mech/pre_motion_check.md` before motor tests.
 - Burn: cool running water 10 minutes. No ice.
 - Unplug when done. The iron stays hot long after.
 
+## ESD (enters Phase 1 — first silicon handling)
+
+- Grounded wrist strap + mat for STM32, encoders, gate drivers. If it's too much trouble to strap on, the board is already dead — you just don't know it yet.
+
 ## 48 V DC bus (enters Phase 3)
 
 - 48 V DC does not electrocute through dry skin, but it ARCS (DC arcs don't self-extinguish) and a short melts copper in milliseconds.
