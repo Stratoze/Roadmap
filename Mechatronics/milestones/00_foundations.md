@@ -27,8 +27,8 @@ If you can, move on. If you can't, find the gap and close it.
 ### MVM
 - [ ] Can re-solve each milestone task with notes open
 - [ ] Can explain each concept aloud, Feynman test — stumble = gap
-- [ ] Git repo + log + Anki deck operational
-- [ ] Can state basic measurement sanity: voltage across, current through, scope ground/probe discipline, current-limited supply default
+- [ ] Git repo + log + Engram topic subscribed (first review done)
+- [ ] Can state basic measurement sanity: voltage across, current through, scope ground/probe discipline, current-limited supply default (state, not perform — scopes and bench supplies are Phase 1 tools)
 - [ ] Can look at a part and name the manufacturing process that made it
 - [ ] Can look at a mechanism and name it, count its DOF, and state its input→output motion
 - [ ] **Physical:** mechanism testbed assembled, ≥ 3 mechanisms, photographed
@@ -56,15 +56,15 @@ If you can, move on. If you can't, find the gap and close it.
 
 ### Deliverable
 
-Working dev environment, local Git repo with first commit, Anki deck, and a problem-solving vocabulary you can use when stuck.
+Working dev environment, local Git repo with first commit, Engram topic subscribed, and a problem-solving vocabulary you can use when stuck.
 
 ## Pass Condition
 
 ### MVM
 - [x] Git repo initialized, first meaningful commit
 - [x] Editor, terminal, toolchain verified
-- [x] Anki deck created
-- [x] Can state: "What is the Input, Output, and Transformation here?"
+- [x] Engram topic subscribed (first review done)
+- [x] Can state: "What is the Input, Output, and Transformation here?" (bar, applied from 0.3 on: one sentence each + one measured number, e.g. flash rate, supply current)
 
 ### Full Pass
 - [x] Flashlight deconstruction: black boxes, energy chain, first principles
@@ -85,6 +85,8 @@ Working dev environment, local Git repo with first commit, Anki deck, and a prob
 ## Dependencies that waste your week if hit backwards
 
 - Don't configure 15 tools before verifying ONE compiles. Blink first, configure later.
+
+> Evidence: [[Mechatronics/milestones/evidence/0.1-toolchain|personal evidence 0.1]]
 
 > Log sessions in Daily/ notes using the unified template.
 
@@ -123,7 +125,8 @@ Hand-calculated forward kinematics for a 2-link planar arm. Given link lengths a
 >    atan returns -90° to 90°. atan2(y, x) returns -180° to 180°. For robotics, always atan2.
 >
 > > Log sessions in Daily/ notes using the unified template.
->
+> >
+> > Evidence: [[Mechatronics/milestones/evidence/0.2-3link-fk|personal evidence 0.2]]
 
 ---
 
@@ -252,7 +255,7 @@ Calculate the current-limiting resistor for an LED, Vf = 2.2V, If = 20mA, from a
 
 ## Deliverable
 
-H-bridge: 2A at 12V, Rds(on) = 0.05Ω, two switches in series. Calculate input power, heat loss, efficiency. Heatsink needed?
+H-bridge: 2A at 12V, Rds(on) = 0.05Ω, two switches in series. Calculate input power, heat loss, efficiency (conduction losses only — switching/gate-drive losses return in Phase 1.3/2.3). Heatsink needed?
 
 ## Pass Condition
 
@@ -303,17 +306,21 @@ H-bridge: 2A at 12V, Rds(on) = 0.05Ω, two switches in series. Calculate input p
 - [ ] Can explain WHY FoS > 1: load uncertainty, material variation, fatigue
 
 ### Full Pass
-- [ ] **Stress-strain curve anatomy:** Can draw and label: elastic region (linear, slope = E), yield point (0.2% offset for metals without sharp yield), strain hardening region, ultimate tensile strength, necking, fracture. Can explain: area under the curve = toughness (energy to fracture). Peak stress = strength. Slope = stiffness. These are three different properties.
+Depth rule: state correctly + apply to one example each. (derive) marks the three derivation gates; the rest are vocabulary with an example.
+**A — mechanical behavior:** stress-strain, crystals, dislocations, hardness, toughness, fatigue.
+- [ ] **Stress-strain curve anatomy (derive):** Can draw and label: elastic region (linear, slope = E), yield point (0.2% offset for metals without sharp yield), strain hardening region, ultimate tensile strength, necking, fracture. Can explain: area under the curve = toughness (energy to fracture). Peak stress = strength. Slope = stiffness. These are three different properties.
 - [ ] **Crystal structure matters:** FCC (aluminum, copper, austenitic stainless) → many slip systems → ductile. BCC (iron at room temp, tungsten) → fewer slip systems → stronger but less ductile, ductile-brittle transition temperature exists. HCP (titanium, magnesium, zinc) → fewest slip systems → anisotropic, limited formability. Can explain: this is WHY aluminum bends and cast iron snaps.
 - [ ] **Dislocations and work hardening:** Metals are 100–1000× weaker than theoretical bond strength because dislocations let planes slide incrementally. Cold working multiplies dislocations → they tangle → harder to move → material gets stronger but less ductile. This is why bending a paperclip back and forth makes it harder to bend, then it breaks.
 - [ ] **Hardness:** Rockwell, Brinell, Vickers — all measure resistance to indentation. Correlates with tensile strength (empirical, not fundamental). Useful because it's a quick, non-destructive proxy. Can explain: harder ≠ tougher. A file is hard and brittle. A spring is tough and moderately hard.
 - [ ] **Toughness vs. strength:** Strength = peak stress. Toughness = energy absorbed before fracture (area under stress-strain). A material can be strong but not tough (ceramic, hardened steel) or tough but not strong (rubber, annealed copper). Impact loading demands toughness. Static loading demands strength. Fatigue demands both.
-- [ ] Fatigue: S-N curve read, endurance limit identified, Goodman diagram sketched for a simple case
+- [ ] Fatigue (derive): S-N curve read, endurance limit identified, Goodman diagram sketched for a simple case
 - [ ] Can explain: cyclic loading fails BELOW yield. Why.
+**B — families + environment:** tempers, polymers, corrosion.
 - [ ] Can explain 6061-T6 vs. 6061-O: precipitation hardening, solution treatment, aging. Not just "different strength."
 - [ ] Polymer awareness: PLA vs. PETG vs. nylon — stiffness, creep, temperature limits. Which 3D-print material for a structural bracket? Why?
 - [ ] Corrosion: galvanic series. Aluminum + steel fastener = problem. What's the fix?
-- [ ] Ashby reasoning: plot E/ρ vs. σ_y/ρ for aluminum, steel, titanium, CFRP, PLA. Which material for a stiff, light arm link? Can explain the trade-off.
+**C — selection + failure analysis:** Ashby, fractography, wear/tribology.
+- [ ] Ashby reasoning (derive): plot E/ρ vs. σ_y/ρ for aluminum, steel, titanium, CFRP, PLA. Which material for a stiff, light arm link? Can explain the trade-off.
 - [ ] Failure analysis: can look at a fracture surface and distinguish ductile (dimpled) from brittle (flat, granular) from fatigue (beach marks).
 - [ ] Can explain wear/tribology, stress concentration/notch sensitivity, fracture toughness, surface finish/coatings, and environment-assisted failure as separate design constraints.
 
@@ -451,13 +458,14 @@ A baseplate (3D-printed or cardboard) with interchangeable mechanism modules tha
 - [ ] **Physical:** modules swap by hand, no tools; testbed photographed
 
 ### Full Pass
+Depth rule: each mechanism below is its own sign-off (diagram + DOF + motion + application); state correctly + one example. This is 4× the MVM — spread across the phase, not one sitting.
 - [ ] All 12 mechanisms below covered (diagram + DOF + motion + application)
 - [ ] **Four-bar linkage:** Can explain Grashof condition (s + l ≤ p + q). Can identify: crank-rocker (shortest link is input), double-crank (shortest link is ground), double-rocker (shortest link is coupler). Can explain: the same four bars behave completely differently depending on which link is grounded.
 - [ ] **Slider-crank:** Can explain: this is a four-bar with one revolute joint replaced by a prismatic joint. Engine piston = slider-crank. Can explain dead-center positions and why a flywheel is needed.
 - [ ] **CAM and follower:** Can explain: the cam profile IS the motion program. Follower displacement, velocity, acceleration are determined by the profile shape. Can explain pressure angle and why > 30° causes jamming/side-loading. Can explain undercutting and why it limits how aggressive the profile can be.
 - [ ] **Geneva mechanism:** Can explain: converts continuous rotation to intermittent rotation (indexing). The driver has a pin that engages slots in the driven wheel. Can explain: the driven wheel dwells (locks) between engagements. Can explain: acceleration is HIGH at pin entry — not suitable for high speed without modification. Application: film projectors, indexing tables, mechanical watches.
 - [ ] **Ratchet and pawl:** Can explain: permits motion in one direction, blocks the other. Can explain: this is NOT a precision indexing mechanism — backlash is inherent. Application: winches, socket wrenches, anti-backdrive on lead screws, bicycle freewheel.
-- [ ] **Scotch yoke:** Can explain: converts rotation to pure sinusoidal linear motion (x = r·sin θ). Simpler than slider-crank but higher peak acceleration. Application: some pumps, valve actuators, vibration testing.
+- [ ] **Scotch yoke:** Can explain: converts rotation to pure sinusoidal linear motion (x = r·sin θ). Simpler than slider-crank AND lower peak acceleration (the crank's rod angularity adds a 2nd harmonic on top of the sine). Application: some pumps, valve actuators, vibration testing.
 - [ ] **Oldham coupling:** Can explain: connects two parallel but offset shafts. Three discs: two attached to shafts, one floating with perpendicular tongues. Accommodates parallel misalignment but NOT angular misalignment. Can explain: the center disc traces a circle. Application: encoders, stepper motor connections where shafts aren't perfectly aligned.
 - [ ] **Universal joint (Hooke's joint):** Can explain: connects two shafts at an angle. Can explain: output velocity is NOT constant even if input is — it oscillates at 2× shaft speed. Can explain: a double Cardan (two U-joints phased correctly) cancels the velocity fluctuation. Application: driveshafts, steering columns.
 - [ ] **Leaf spring / compliant mechanism:** Can explain: a leaf spring is a structural element with DESIGNED compliance. It stores energy, provides suspension, and can act as a flexure (no friction, no wear, no backlash). Can explain: fatigue life is the design constraint — the spring cycles millions of times. Application: vehicle suspension, MEMS flexures, compliant grippers, electrical contacts.

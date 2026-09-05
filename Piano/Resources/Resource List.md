@@ -94,7 +94,7 @@ Modern Japanese music requires licensed sources.
 ## Apps and tools
 
 - **Piano Marvel** — note & rhythm accuracy, mic or MIDI. *Limitation: ignores dynamics/tone/articulation/pedaling; mic mode iOS-only, weak on dense polyphony.*
-- **Anki + FSRS** — rotation & maintenance reminders. *Not validated for procedural decay — treat as heuristic.*
+- **Engram (`piano` topic)** — rotation & maintenance scheduling, receipt-based.
 - **Pro Metronome** — tempo work. *Use as a check tool, then turn it off; overuse flattens expression.*
 - **Phone camera** — performance recording.
 - **Functional Ear Trainer** — ear training, free.

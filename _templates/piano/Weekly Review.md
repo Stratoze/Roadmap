@@ -13,11 +13,11 @@ tags:
 -
 
 ## Error and tempo review
-- [ ] Reviewed [Error Logs](../../Piano/Logs/Error%20Logs.md)
+- [ ] Reviewed each active piece's error log
 - [ ] Moved recurring errors into piece error logs (archetype named for movement errors)
 - [ ] Updated tempo logs for active pieces
 - [ ] Checked whether any piece needs shelving
-- [ ] Scanned [Landmine Log](../../_system/Landmine%20Log.md) for recurring patterns → if ≥3 same-domain entries this week, trigger deload or re-scope
+- [ ] Scanned [[_system/Landmine Log|Landmine Log]] for recurring patterns → if ≥3 same-domain entries this week, trigger deload or re-scope
 
 ## Movement review
 - Archetypes worked this week:

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # The evidence trait. Usage: ./scripts/milestone.sh <tag> "<what proves it>"
-# Example: ./scripts/milestone.sh m0.1-mvm "0.1 MVM: blinky flashed, toolchain ok, Anki deck created"
+# Example: ./scripts/milestone.sh m0.1-mvm "0.1 MVM: blinky flashed, toolchain ok, Engram subscribed"
 set -euo pipefail
 TAG="${1:?usage: milestone.sh <tag> \"<message>\"}"
 MSG="${2:?usage: milestone.sh <tag> \"<message>\"}"

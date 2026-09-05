@@ -40,7 +40,7 @@ Explain after power is off.
 - Know what current you expect before turning on.
 - If current is wrong, power off first.
 
-Use `templates/first_power_on.md` for real bring-up.
+Use `_templates/mech/first_power_on.md` for real bring-up.
 
 ## Motors and motion
 
@@ -51,7 +51,7 @@ Use `templates/first_power_on.md` for real bring-up.
 - E-stop / power removal path known.
 - First motion should be low voltage, low duty, low speed.
 
-Use `templates/pre_motion_check.md` before motor tests.
+Use `_templates/mech/pre_motion_check.md` before motor tests.
 
 ## Soldering (enters Phase 1)
 
@@ -65,9 +65,9 @@ Use `templates/pre_motion_check.md` before motor tests.
 ## 48 V DC bus (enters Phase 3)
 
 - 48 V DC does not electrocute through dry skin, but it ARCS (DC arcs don't self-extinguish) and a short melts copper in milliseconds.
-- Always fused. Fuse rated for stall current, not nominal.
+- Always fused. Fuse protects the *wiring*: sized above nominal draw, below wire ampacity, and verified to blow on a dead short. Motor stall/overload protection is separate — a fuse rated at stall current allows sustained stall.
 - Always current-limited supply during bring-up.
-- Capacitors store energy. After power-off, wait 30 s or bleed with a 1 kΩ resistor on insulated leads. Measure < 1 V before touching.
+- Capacitors store energy. After power-off, wait 30 s or bleed with a 1 kΩ resistor rated 2 W or higher on insulated leads (48 V across 1 kΩ dissipates ~2.3 W — a ¼ W kit resistor will smoke). Brief touch only. Measure < 1 V before touching.
 - One-hand rule when probing live circuits.
 - Never work tired.
 
@@ -86,7 +86,7 @@ supervised work — not self-taught, not in this vault.
 - Isolate damaged packs outdoors if safe to do so.
 - Use correct charger and current limit.
 
-Use `templates/lipo_check.md` only if LiPo enters scope.
+Use `_templates/mech/lipo_check.md` only if LiPo enters scope.
 
 ## Mechanical work
 

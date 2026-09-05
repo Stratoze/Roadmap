@@ -55,7 +55,9 @@ Pick 1–2 archetype targets from [Movement](../../Piano/Resources/Movement.md) 
 -
 
 ## End-of-cycle test
+Date + recording link live here; how to record/score lives in [[Piano/Resources/Maintenance and Performance|Recording and Self-Assessment]].
 - [ ] Record a small recital or mock exam
+- [ ] Score it with the rubric, compare to last cycle's recording
 - [ ] Run the movement diagnostic on the cycle's hardest passages
 - [ ] Review sight-reading level and progress
 - [ ] Review technique requirements

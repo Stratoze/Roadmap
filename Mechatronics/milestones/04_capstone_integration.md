@@ -212,7 +212,7 @@ A panel-mounted Power Distribution Unit: 48 V in → fuse → dual-channel conta
 - [ ] Logic supply independent of E-stop; MCU logs the event
 - [ ] Safe state per axis defined and tested, including the gravity case
 - [ ] Hazard analysis documented: single-point failures, failsafe vs fail-operational, acceptance criteria
-- [ ] HIL: 3+ fault types (encoder dropout, overcurrent, undervoltage), automated, fault log per `templates/fault_injection_test.md`
+- [ ] HIL: 3+ fault types (encoder dropout, overcurrent, undervoltage), automated, fault log per `_templates/mech/fault_injection_test.md`
 - [ ] Recovery procedure documented and rehearsed
 - [ ] **Physical:** panel labeled (every terminal, fuse, connector); photo
 
@@ -347,7 +347,7 @@ Clean, labeled, shielded, industry-grade installation. Everything wired, aligned
 >    Smooth plastic fingertips slip. Rubber pads are cheaper than a bigger motor. Measure, don't guess.
 >
 > 5. **The tool changer is a seam — write its interface contract.** `[HYPOTHESIS]`
->    Which pins carry power, which carry CAN, what happens if it's swapped mid-command. Use `templates/interface_contract.md`. Seams are where bugs live (you learned this in 1.5).
+>    Which pins carry power, which carry CAN, what happens if it's swapped mid-command. Use `_templates/mech/interface_contract.md`. Seams are where bugs live (you learned this in 1.5).
 >
 
 ## Dependencies that waste your week if hit backwards

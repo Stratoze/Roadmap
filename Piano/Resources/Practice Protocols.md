@@ -225,10 +225,9 @@ Return later and test whether the solution survived.
 Results appear later, not immediately. Today's work may surface tomorrow, next week, or in two weeks.
 
 If an error appears across multiple sessions:
-1. Add it to [Error Logs](../Logs/Error%20Logs.md).
-2. If it belongs to one piece, move it into that piece's error log (with its archetype).
-3. Choose one strategy, not five.
-4. Retest next session.
+1. Log it directly in that piece's error log (with its archetype).
+2. Choose one strategy, not five.
+3. Retest next session.
 
 ---
 
@@ -340,6 +339,7 @@ End in control and quality.
 
 ## Problem Solving
 ### Q-Spots
+Piano specialization of [[_system/How to Learn|How to Learn]] Q-spots: archetype naming added, 5–8 min time-box (shorter — motor focus decays faster than study focus).
 For persistent problem areas. From Graham Fitch's Practising the Piano, extended with movement work.
 1. Identify: mark the exact bars. Bracket them in the score. **Name the archetype(s) involved.**
 2. Isolate: work only those bars with the specific tool:
@@ -371,9 +371,8 @@ Use when stuck for 2+ weeks. Pick 1–2, not all.
 
 ### Recurring error workflow
 Use this when the same error keeps returning.
-1. Capture it in [Error Logs](../Logs/Error%20Logs.md).
-2. If it belongs to a specific piece, move it into that piece's error log.
-3. Mark the exact bar(s).
+1. Capture it in the piece's error log.
+2. Mark the exact bar(s).
 4. Name the error type:
 - fingering
 - reading

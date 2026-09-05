@@ -57,5 +57,5 @@ What was the root cause?
 
 ## Integration
 - [ ] Add any new landmines discovered to the relevant milestone file
-- [ ] If a knowledge gap was revealed, add an Anki card or re-derive the concept
+- [ ] If a knowledge gap was revealed, re-derive the concept (Engram if reconstructable, Anki only if Japanese vocab)
 - [ ] Update the relevant FMEA if the fault wasn't predicted

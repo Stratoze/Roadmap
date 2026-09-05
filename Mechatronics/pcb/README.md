@@ -27,4 +27,4 @@ pcb/board_name/
 └── bom/
 ```
 
-Use bom_template.csv, [schematic_review_template.md](schematic_review_template.md), and templates/pcb_bringup.md.
+Use bom_template.csv, [[_templates/mech/schematic_review|schematic_review]], and _templates/mech/pcb_bringup.md.

@@ -61,17 +61,11 @@ Exercises:
 ### Dual-task training for sight-reading
 
 Sight-reading requires managing multiple cognitive streams simultaneously.
-Dual-task training builds this capacity.
+Levels from the [[Piano/Resources/Practice Protocols|dual-task ladder]] (L1–L7 cover this use; higher levels belong to ear/polishing work):
 
-Start simple, increase difficulty:
-
-1. Play a piece while counting aloud
-2. Play while naming the note letters
-3. Play while naming the chord (I, IV, V, vi)
-4. Play while conducting with the free hand
-5. Play while counting a different subdivision
-6. Play while analyzing harmony aloud
-7. Play while listening for a specific voice
+Start simple, increase difficulty: L1 (count aloud) → L2 (note letters) →
+L3 (chords) → L5 (conducting) → L4 (different subdivision) →
+L6 (harmony analysis) → L7 (listen for a voice).
 
 Only add dual-task when the base reading is at 80% accuracy.
 
@@ -97,6 +91,8 @@ Train these patterns until they are instant:
 Rotate rather than doing everything daily.
 
 ### Ear training progression
+
+Stage map lives in [[Piano/Resources/Progression|Ear and Functional Progression]]; F-definitions in [[Piano/Resources/Functional and Jpop Track|Functional stage ladder]]. This table is the exercise rotation only.
 
 | Stage | Focus | Exercises |
 | ---: | --- | --- |
@@ -218,25 +214,13 @@ Mental practice is a legitimate training modality, not a substitute but a comple
 
 ### Protocol
 
-1. **Visualize**: See the keys, feel the movements, hear the sound. Be specific.
-2. **Score study**: Trace the harmony, mark the form, hear it internally.
-3. **Table practice**: "Play" on a table or your lap, feeling finger movements.
-4. **Singing**: Sing or hum a voice from the piece.
-5. **Analytical**: Describe the harmony, form, and structure in words.
+Core steps live in [[Piano/Resources/Practice Protocols|Practice Protocols]] (mental practice protocol) — same modality plus movement quality. Musicianship-specific additions:
 
-### Quality matters
-
-The more sensory detail — exact fingers, dynamics, key feel, sound — the more useful.
-Vague thinking about piano does not count.
-Passive listening while doing dishes does not count.
+1. **Score study**: Trace the harmony, mark the form, hear it internally.
+2. **Singing**: Sing or hum a voice from the piece.
+3. **Analytical**: Describe the harmony, form, and structure in words.
+4. Quality rule: sensory detail (exact fingers, dynamics, key feel, sound) or it doesn't count — vague thinking and passive listening don't.
 
 ### Neuroscience basis
 
-Mental practice activates the same motor cortex regions as physical practice.
-It strengthens neural pathways without physical wear.
-It is especially effective for:
-
-- Memorization security
-- Passage planning and fingering decisions
-- Recovery from injury
-- Consolidation during sleep (practice visualization before bed)
+Same motor-cortex activation as physical practice, without physical wear (see Protocols). Especially effective for memorization security, passage planning and fingering decisions, injury recovery, and sleep consolidation.

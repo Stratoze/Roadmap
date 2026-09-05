@@ -57,7 +57,7 @@ no divergence).
 - [ ] The simulation includes the anti-aliasing filter phase lag from Milestone 1.3
 analog front end. The control loop remains stable with the filter in the loop.
 - [ ] All simulation scripts committed to `simulations/python/` with experiment notes
-using `templates/experiment_note.md`.
+using `_templates/mech/experiment_note.md`.
 - [ ] Results plotted and saved to `docs/captures/`.
 
 ### Why this gate exists
@@ -112,13 +112,13 @@ If the controller winds up or diverges with saturation, fix it NOW, not on hardw
 - [ ] QDD assembled: shaft turns smoothly by hand, zero axial play, backdrivable
 - [ ] QDD characterized on the Phase 1 rig: Kt, Ke, torque-speed, backdrivability, thermal
 - [ ] HIL: 3+ fault types injected, firmware enters safe state for each
-- [ ] Mini-FMEA completed for mechanical and electrical using `templates/fmea.md`
+- [ ] Mini-FMEA completed for mechanical and electrical using `_templates/mech/fmea.md`
 
 ---
 
 ## Pre-Design Requirements
 
-Fill `templates/requirements_brief.md` before opening CAD or KiCad.
+Fill `_templates/mech/requirements_brief.md` before opening CAD or KiCad.
 
 ### Actuator Sizing (required before CAD)
 
@@ -141,7 +141,7 @@ Before opening KiCad, document:
 
 ### Mini-FMEA (required before design, updated after)
 
-Complete `templates/fmea.md` for mechanical and electrical BEFORE design. Every item with
+Complete `_templates/mech/fmea.md` for mechanical and electrical BEFORE design. Every item with
 Severity × Occurrence ≥ 12 or RPN ≥ 48 needs a documented mitigation before proceeding.
 
 ---
@@ -359,7 +359,7 @@ Assemble the QDD from 3.1 + 3.2 components and characterize it on the Phase 1 mo
 5. Wire, close housing, torque fasteners to spec.
 6. Verify by hand: smooth rotation, zero axial play, backdrivable.
 
-**Characterization tests (all logged with `templates/characterization.md`):**
+**Characterization tests (all logged with `_templates/mech/characterization.md`):**
 - Kt: command Iq steps, measure output torque, slope × ratio check
 - Ke: hand-spin output, measure phase voltage vs speed
 - Torque-speed curve: 5+ points
@@ -438,7 +438,7 @@ safe state (de-energize or controlled stop).
 down the drive.
 - Undervoltage: sag the bus voltage below threshold. Firmware detects and enters
 safe state.
-- [ ] Each fault injection uses `templates/fault_injection_test.md`.
+- [ ] Each fault injection uses `_templates/mech/fault_injection_test.md`.
 - [ ] Fault log recorded: what was injected, what the firmware did, what it should have
 done, pass/fail.
 - [ ] Recovery procedure documented for each fault type.

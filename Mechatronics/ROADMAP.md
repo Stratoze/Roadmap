@@ -53,68 +53,68 @@ No welding. No manual CNC. No mains — ever, in this roadmap.
 
 |**Milestone**|**Status**|
 |---|---|
-|[0.1 — Problem-Solving + Toolchain](milestones/00_foundations.md#milestone-01-problem-solving-framework-toolchain)|✅|
-|[0.2 — Vectors + Trig](milestones/00_foundations.md#milestone-02-vectors-trig-frames-of-reference)|✅|
-|[0.3 — Calculus Intuition](milestones/00_foundations.md#milestone-03-calculus-intuition)|⬜|
-|[0.4 — Statics + FBDs + FEM Intuition](milestones/00_foundations.md#milestone-04-statics-free-body-diagrams)|⬜|
-|[0.5 — Circuits Basics](milestones/00_foundations.md#milestone-05-circuits-basics)|⬜|
-|[0.6 — Power + Thermal](milestones/00_foundations.md#milestone-06-power-efficiency-thermal)|⬜|
-|[0.7 — Materials + Failure + Selection](milestones/00_foundations.md#milestone-07-materials-failure-and-selection)|⬜|
-|[0.8 — Manufacturing + DFMA](milestones/00_foundations.md#milestone-08-manufacturing-processes-dfma)|⬜|
-|[0.9 — Mechanisms + Kinematic Elements + Physical Testbed](milestones/00_foundations.md#milestone-09-mechanisms-kinematic-elements-physical-testbed)|⬜|
-|[0.10 — Metrology + Measurement Uncertainty](milestones/00_foundations.md#milestone-010-metrology-measurement-uncertainty)|⬜|
+|[0.1 — Problem-Solving + Toolchain](milestones/00_foundations.md)|✅|
+|[0.2 — Vectors + Trig](milestones/00_foundations.md)|✅|
+|[0.3 — Calculus Intuition](milestones/00_foundations.md)|⬜|
+|[0.4 — Statics + FBDs + FEM Intuition](milestones/00_foundations.md)|⬜|
+|[0.5 — Circuits Basics](milestones/00_foundations.md)|⬜|
+|[0.6 — Power + Thermal](milestones/00_foundations.md)|⬜|
+|[0.7 — Materials + Failure + Selection](milestones/00_foundations.md)|⬜|
+|[0.8 — Manufacturing + DFMA](milestones/00_foundations.md)|⬜|
+|[0.9 — Mechanisms + Kinematic Elements + Physical Testbed](milestones/00_foundations.md)|⬜|
+|[0.10 — Metrology + Measurement Uncertainty](milestones/00_foundations.md)|⬜|
 
 ## Phase 1 — Signals, Actuators, Dynamics
 
 |**Milestone**|**Status**|
 |---|---|
-|[1.1 — I2C Sensor + Telemetry](milestones/01_signals_actuators_dynamics.md#milestone-11-i2c-sensor-telemetry)|⬜|
-|[1.2 — Noise + Filtering + Frequency Domain](milestones/01_signals_actuators_dynamics.md#milestone-12-noise-filtering-and-frequency-domain)|⬜|
-|[1.3 — H-Bridge + BLDC Commutation](milestones/01_signals_actuators_dynamics.md#milestone-13-h-bridge-bldc-commutation-characterization)|⬜|
-|[1.4 — Dynamics Model + Pendulum Rig](milestones/01_signals_actuators_dynamics.md#milestone-14-pendulum-dynamics-model-hardware-validation)|⬜|
-|[1.5 — Integration + Sensor Fusion + Calibration](milestones/01_signals_actuators_dynamics.md#milestone-15-phase-1-integration-sensor-fusion-calibration)|⬜|
-|[1.6 — Stepper + Microstepping](milestones/01_signals_actuators_dynamics.md#milestone-16-stepper-motor-microstepping-driver)|⬜|
-|[1.7 — Voice Coil Actuator + Motor Test Rig](milestones/01_signals_actuators_dynamics.md#milestone-17-voice-coil-actuator-motor-test-rig)|⬜|
+|[1.1 — I2C Sensor + Telemetry](milestones/01_signals_actuators_dynamics.md)|⬜|
+|[1.2 — Noise + Filtering + Frequency Domain](milestones/01_signals_actuators_dynamics.md)|⬜|
+|[1.3 — H-Bridge + BLDC Commutation](milestones/01_signals_actuators_dynamics.md)|⬜|
+|[1.4 — Dynamics Model + Pendulum Rig](milestones/01_signals_actuators_dynamics.md)|⬜|
+|[1.5 — Integration + Sensor Fusion + Calibration](milestones/01_signals_actuators_dynamics.md)|⬜|
+|[1.6 — Stepper + Microstepping](milestones/01_signals_actuators_dynamics.md)|⬜|
+|[1.7 — Voice Coil Actuator + Motor Test Rig](milestones/01_signals_actuators_dynamics.md)|⬜|
 
 ## Phase 2 — Embedded Architecture & Real-Time Control
 
 |**Milestone**|**Status**|
 |---|---|
-|[2.1 — Bare-Metal STM32 + SPI + UART](milestones/02_embedded_realtime_control.md#milestone-21-bare-metal-stm32-foundation)|⬜|
-|[2.2 — PID Theory + Tuning](milestones/02_embedded_realtime_control.md#milestone-22-pid-theory-tuning-in-simulation)|⬜|
-|[2.3 — FOC Closed-Loop](milestones/02_embedded_realtime_control.md#milestone-23-foc-closed-loop-on-hardware)|⬜|
-|[2.4 — FreeRTOS Multi-Task](milestones/02_embedded_realtime_control.md#milestone-24-freertos-multi-task-firmware)|⬜|
-|[2.5 — Multi-DOF Dynamics + State-Space](milestones/02_embedded_realtime_control.md#milestone-25-multi-dof-dynamics-state-space-control)|⬜|
-|[2.6 — Limit Switches + Homing + State Machines](milestones/02_embedded_realtime_control.md#milestone-26-limit-switches-homing-and-state-machine-design)|⬜|
-|[2.7 — Integrated Sub-System: Haptic Knob](milestones/02_embedded_realtime_control.md#milestone-27-integrated-sub-system-haptic-knob)|⬜|
-|[2.8 — Inverted Pendulum Cart](milestones/02_embedded_realtime_control.md#milestone-28-inverted-pendulum-cart)|⬜|
+|[2.1 — Bare-Metal STM32 + SPI + UART](milestones/02_embedded_realtime_control.md)|⬜|
+|[2.2 — PID Theory + Tuning](milestones/02_embedded_realtime_control.md)|⬜|
+|[2.3 — FOC Closed-Loop](milestones/02_embedded_realtime_control.md)|⬜|
+|[2.4 — FreeRTOS Multi-Task](milestones/02_embedded_realtime_control.md)|⬜|
+|[2.5 — Multi-DOF Dynamics + State-Space](milestones/02_embedded_realtime_control.md)|⬜|
+|[2.6 — Limit Switches + Homing + State Machines](milestones/02_embedded_realtime_control.md)|⬜|
+|[2.7 — Integrated Sub-System: Haptic Knob](milestones/02_embedded_realtime_control.md)|⬜|
+|[2.8 — Inverted Pendulum Cart](milestones/02_embedded_realtime_control.md)|⬜|
 
 ## Phase 3 — Model-Based Design & Verification
 
 |**Milestone**|**Status**|
 |---|---|
-|[3.0 — SIL Verification Gate](milestones/03_mech_pcb_verification.md#phase-entry-gate-software-in-the-loop-verification)|⬜|
-|[3.1 — QDD Actuator: CAD + Machine Elements + FEA](milestones/03_mech_pcb_verification.md#milestone-31-qdd-actuator-cad-machine-elements-fea-drawings)|⬜|
-|[3.2 — The Puck: Custom FOC Driver PCB](milestones/03_mech_pcb_verification.md#milestone-32-the-puck-custom-foc-driver-pcb)|⬜|
-|[3.3 — QDD Actuator Assembly + Characterization](milestones/03_mech_pcb_verification.md#milestone-33-qdd-actuator-assembly-characterization)|⬜|
-|[3.4 — HIL Validation Gate](milestones/03_mech_pcb_verification.md#phase-exit-gate-hardware-in-the-loop-validation)|⬜|
+|[3.0 — SIL Verification Gate](milestones/03_mech_pcb_verification.md)|⬜|
+|[3.1 — QDD Actuator: CAD + Machine Elements + FEA](milestones/03_mech_pcb_verification.md)|⬜|
+|[3.2 — The Puck: Custom FOC Driver PCB](milestones/03_mech_pcb_verification.md)|⬜|
+|[3.3 — QDD Actuator Assembly + Characterization](milestones/03_mech_pcb_verification.md)|⬜|
+|[3.4 — HIL Validation Gate](milestones/03_mech_pcb_verification.md)|⬜|
 
 ## Phase 4 — Capstone & Industrial Integration
 
 |**Milestone**|**Status**|
 |---|---|
-|[4.1 — CAN + C++ Messaging](milestones/04_capstone_integration.md#milestone-41-can-c-messaging)|⬜|
-|[4.2 — Motion + Dynamics-Aware Control](milestones/04_capstone_integration.md#milestone-42-motion-integration-dynamics-aware-control)|⬜|
-|[4.3 — Safety PDU + Hardwired E-Stop](milestones/04_capstone_integration.md#milestone-43-safety-pdu-hardwired-e-stop)|⬜|
-|[4.4 — Workcell Integration + Harness](milestones/04_capstone_integration.md#milestone-44-workcell-integration-harness)|⬜|
-|[4.5 — Electromechanical Gripper + Tool Changer](milestones/04_capstone_integration.md#milestone-45-electromechanical-gripper-tool-changer)|⬜|
+|[4.1 — CAN + C++ Messaging](milestones/04_capstone_integration.md)|⬜|
+|[4.2 — Motion + Dynamics-Aware Control](milestones/04_capstone_integration.md)|⬜|
+|[4.3 — Safety PDU + Hardwired E-Stop](milestones/04_capstone_integration.md)|⬜|
+|[4.4 — Workcell Integration + Harness](milestones/04_capstone_integration.md)|⬜|
+|[4.5 — Electromechanical Gripper + Tool Changer](milestones/04_capstone_integration.md)|⬜|
 
 ## Phase 5 — Portfolio & Delivery
 
 |**Milestone**|**Status**|
 |---|---|
-|[5.1 — Portfolio + Documentation](milestones/05_portfolio_delivery.md#milestone-51-portfolio-documentation)|⬜|
-|[5.2 — Exploded-View Pedestal + Bench Museum](milestones/05_portfolio_delivery.md#milestone-52-exploded-view-pedestal-bench-museum)|⬜|
+|[5.1 — Portfolio + Documentation](milestones/05_portfolio_delivery.md)|⬜|
+|[5.2 — Exploded-View Pedestal + Bench Museum](milestones/05_portfolio_delivery.md)|⬜|
 
 ## Calibration
 
@@ -127,7 +127,7 @@ No welding. No manual CNC. No mains — ever, in this roadmap.
 |Phase 4|10–20 wk||
 |Phase 5|4–8 wk||
 
-_Update actuals only at phase completion._
+_Planned = MVM scope (Full Pass runs 2–4× longer; schedule it separately). Update actuals only at phase completion._
 
 ## Resource Map
 

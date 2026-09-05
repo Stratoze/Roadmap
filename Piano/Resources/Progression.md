@@ -96,10 +96,9 @@ Sit down, play, 15 minutes.
 - Add movement check-in to every session.
 
 ### Weeks 3 to 4: Repair repertoire management
-- Establish learning, polishing, and maintenance pool.
-- Convert Anki cards from song titles to specific tasks.
-- Limit Anki review by time, not card count.
-- Add a roughly 2-week safety net.
+- Establish learning, polishing, and maintenance pool (2-week safety net lives in [[Piano/Resources/Maintenance and Performance|Maintenance]], not here).
+- Convert song-title reminders into specific Engram review tasks.
+- Limit review by time, not card count.
 - Lower maintenance entry bar to performance-ready.
 - Add sleep consolidation protocol: visualize before bed.
 
@@ -236,22 +235,19 @@ Musicianship progression lives in [Musicianship](Musicianship.md). Keep sight-re
 ## Sight-Reading Progression
 | Stage | Sight-reading focus | Dual-task level |
 | ---: | --- | --- |
-| 0–1 | Note recognition. Five-finger positions. Simple rhythms. Keep pulse. | Play while counting aloud. |
-| 2–3 | Interval recognition. Pattern recognition: scales, arpeggios. Look ahead 1 beat. | Play while naming note letters. |
-| 4–5 | Chunk reading: 3–5 notes as units. Harmonic recognition. Look ahead 2–4 beats. | Play while naming chords. |
-| 6–7 | Read at tempo with expression. Recognize sequences instantly. Simplify dense textures. | Play while analyzing harmony. |
-| 8–9 | Prima vista professional repertoire. Score reading. Manage page turns. | Play while singing a voice. |
+| 0–1 | Note recognition. Five-finger positions. Simple rhythms. Keep pulse. | L1 (count aloud). |
+| 2–3 | Interval recognition. Pattern recognition: scales, arpeggios. Look ahead 1 beat. | L2 (note letters). |
+| 4–5 | Chunk reading: 3–5 notes as units. Harmonic recognition. Look ahead 2–4 beats. | L3 (chords). |
+| 6–7 | Read at tempo with expression. Recognize sequences instantly. Simplify dense textures. | L6 (harmony analysis). |
+| 8–9 | Prima vista professional repertoire. Score reading. Manage page turns. | L8 (sing a voice). |
 
 ### Sight-reading daily minimum
-- 5 minutes, 3–5 times per week
-- Use material 2 levels below current repertoire
-- No stopping. No going back.
-- One new piece per session. Do not convert to repertoire practice.
-- After playing, identify 1–2 patterns that were slow to recognize.
+Method + minima live in [[Piano/Resources/Musicianship|Sight-Reading]] (5 min, 3–5×/week, 2 levels below, no stopping, one new piece, pattern check). This table maps stages only.
 
 ---
 
 ## Ear and Functional Progression
+F-stage definitions live in [[Piano/Resources/Functional and Jpop Track|Functional stage ladder]]; stage targets below map onto them.
 | Stage | Ear training focus | Functional level |
 | ---: | --- | --- |
 | 0–1 | Intervals: M2, M3, P5. Major vs minor triad. | F0: triads, I-IV-V-I |
@@ -300,11 +296,8 @@ Perfection is asymptotic. It is not the entry requirement.
 ---
 
 ## Shelving Pieces
-Shelve without guilt if:
-- blocked 3+ weeks despite plateau-breaking **and movement decomposition**
-- you no longer feel motivated by it
-- it turns out to be mis-leveled
-- the movement demands exceed your current gate by more than one stage (return when the archetype is owned)
+The decision lives in [[Piano/Resources/Repertoire and 12-Week Goals|Shelving Pieces]] — shelving is data, not failure.
+The movement input to that decision: demands more than one stage above your gate → shelve until the archetype is owned.
 
 Return in three months and it may go quickly. Or never return. Two concurrent pieces must never become two concurrent obligations.
 

@@ -26,7 +26,7 @@ Examples:
 
 ## Record context
 
-For meaningful datasets, use `templates/experiment_note.md`.
+For meaningful datasets, use `_templates/mech/experiment_note.md`.
 
 Minimum context:
 

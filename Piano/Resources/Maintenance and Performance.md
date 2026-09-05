@@ -1,9 +1,10 @@
 # Maintenance and Performance
 
-## Maintenance and Anki
+## Maintenance rotation (Engram)
 
-Anki is a reminder queue, not a motor-memory scheduler.
-Its interval math is tuned for declarative recall, so treat its suggestions as heuristics.
+Engram schedules all piece review, including "review this song today"
+(topic `piano`, via `/review-loop`). Its interval math is receipt-based, so
+treat its suggestions as the schedule, not heuristics.
 
 ### Card types
 
@@ -41,15 +42,15 @@ Performance mode:
 | Good | Complete and musically coherent, minor problems only |
 | Easy | Secure cold performance, good control, successful start points |
 
-FSRS is better calibrated than legacy SM-2. Switch if you are on an old Anki version.
+Reviews are scheduled by Engram; the safety net below still applies on top.
 
 ### Workload
 
 - Limit by time, roughly 5–15 min, not card count.
 - Review long pieces as sections.
 - Archive pieces you no longer intend to keep performance-ready.
-- Safety net: no active piece goes untouched longer than roughly 2 weeks, regardless of Anki interval.
-- Independently of Anki, play every active polishing piece through once each week.
+- Safety net: no active piece goes untouched longer than roughly 2 weeks, regardless of scheduled interval.
+- Independently of reviews, play every active polishing piece through once each week.
 
 ### Interleaving
 

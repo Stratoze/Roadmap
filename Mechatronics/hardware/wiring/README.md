@@ -2,7 +2,7 @@
 
 Use this folder for pin maps, cable notes, connector orientation, and persistent wiring diagrams.
 
-Use `templates/pinout_wiring.md` when a wiring setup will be reused or debugged later.
+Use `_templates/mech/pinout_wiring.md` when a wiring setup will be reused or debugged later.
 
 Naming:
 

@@ -140,4 +140,4 @@ DECISION: Chose star ground over ground pour.
 WHY: High di/dt motor return would modulate ADC reference.
 ```
 
-Use `templates/decision_record.md` only when the decision needs more detail.
+Use `_templates/mech/decision_record.md` only when the decision needs more detail.

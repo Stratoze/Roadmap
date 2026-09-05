@@ -42,7 +42,7 @@ The delta between prediction and reality is where the mental model gets correcte
 
 ## Memory / SRS Strategy
 - **Engram owns spaced repetition for concepts & procedures.** All learning trees run on its FSRS engine with receipt-based evidence: mechatronics (spine + software/electronics/mechanical/project-safety), piano, data science/AI, math foundations, physics, Japanese grammar + output. Reviews via `/review-loop`.
-- **Anki owns Japanese vocabulary only.** Kaishi 1.5k + mined cards (<20k freq). No topic overlap — one fact lives in exactly one SRS.
+- **Anki owns Japanese vocabulary only.** Kaishi 1.5k + mined cards (<20k freq). No topic overlap — one fact lives in exactly one SRS. In particular: piano maintenance and "review this song today" scheduling live in Engram (topic `piano`); Anki holds zero piano cards.
 - **Routing rule:** a pattern/procedure you must *reconstruct* → Engram. A word you must recognize/produce *instantly* → Anki.
 
 ## Definitions
