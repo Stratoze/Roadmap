@@ -67,7 +67,7 @@ Use `_templates/mech/pre_motion_check.md` before motor tests.
 - 48 V DC does not electrocute through dry skin, but it ARCS (DC arcs don't self-extinguish) and a short melts copper in milliseconds.
 - Always fused. Fuse protects the *wiring*: sized above nominal draw, below wire ampacity, and verified to blow on a dead short. Motor stall/overload protection is separate — a fuse rated at stall current allows sustained stall.
 - Always current-limited supply during bring-up.
-- Capacitors store energy. After power-off, wait 30 s or bleed with a 1 kΩ resistor rated 2 W or higher on insulated leads (48 V across 1 kΩ dissipates ~2.3 W — a ¼ W kit resistor will smoke). Brief touch only. Measure < 1 V before touching.
+- Capacitors store energy. After power-off, wait 30 s or bleed by touching a 1 kΩ resistor rated 2 W or higher across the terminals briefly — it dissipates ~2.3 W at 48 V and runs hot, so remove it right after. Measure < 1 V before touching.
 - One-hand rule when probing live circuits.
 - Never work tired.
 

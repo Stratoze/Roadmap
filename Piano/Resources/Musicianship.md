@@ -61,13 +61,19 @@ Exercises:
 ### Dual-task training for sight-reading
 
 Sight-reading requires managing multiple cognitive streams simultaneously.
-Levels from the [[Piano/Resources/Practice Protocols|dual-task ladder]] (L1–L7 cover this use; higher levels belong to ear/polishing work):
+Levels from the [[Piano/Resources/Practice Protocols|dual-task ladder]] (sight-reading uses L1–L8; L9+ belong to ear/polishing work):
 
-Start simple, increase difficulty: L1 (count aloud) → L2 (note letters) →
-L3 (chords) → L5 (conducting) → L4 (different subdivision) →
-L6 (harmony analysis) → L7 (listen for a voice).
+Start simple, increase difficulty in ladder order: L1 (count aloud) →
+L2 (note letters) → L3 (chords) → L4 (different subdivision) →
+L5 (conducting) → L6 (harmony analysis) → L7 (listen for a voice) →
+L8 (sing a voice).
 
 Only add dual-task when the base reading is at 80% accuracy.
+
+### Sight-reading weekly minimum
+- 5 minutes, 3–5 times per week
+- Material 2 levels below current repertoire
+- One new piece per session; do not convert to repertoire practice
 
 ### Pattern recognition curriculum
 

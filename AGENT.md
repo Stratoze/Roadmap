@@ -62,8 +62,10 @@ piano cards, zero circuits, zero grammar — vocab only. If unsure, ask.
 
 ## Next step (no guessing)
 
-- Mechatronics: open `Mechatronics/ROADMAP.md`, find the first ⬜ after the
-  last ✅. That is the current milestone. Resources are at the top of its file.
+- Mechatronics: open `Mechatronics/ROADMAP.md`, find the earliest phase
+  with an incomplete milestone (first ⬜ after the last ✅ within that
+  phase). That is the current milestone. Open its file, find the milestone
+  section. Resources are at the top of its file.
 - Piano: current stage/pieces live in the latest `Daily/` Focus + the 12-week
   goal file. If absent, ask — don't infer from repertoire lists.
 - Record the pick in today's `Daily/` Focus line so the next session inherits it.
@@ -89,6 +91,7 @@ Omit empty sections instead of leaving boilerplate. Canonical link style:
 ## Evidence discipline
 
 Done = MVM checkbox + git tag (`milestone.sh`), not a finished course.
+Tag MVM and Full Pass separately (`m0.2-mvm`, `m0.2-full`).
 Log failures in `_system/Landmine Log.md` as `date | domain | landmine [TAG]`.
 Promote fired landmines to `[VERIFIED — date]` and into the owning file.
 Default improvement is deletion — add nothing that removes no friction seen ≥2×.
@@ -97,9 +100,9 @@ Default improvement is deletion — add nothing that removes no friction seen �
 
 - Milestone files are the ASSIGNMENT (prompts, pass criteria). Worked
   solutions live in `Mechatronics/milestones/evidence/` as `0.x-slug.md`.
-- Every evidence file opens with: `# 0.x <slug> — personal evidence` +
-  spec pointer line. Every milestone section ends with one backlink line
-  (e.g. `> Evidence: [[Mechatronics/milestones/evidence/0.2-3link-fk|personal evidence 0.2]]`).
+- Every evidence file opens with a personal-evidence title plus a spec
+  pointer line. Every milestone section gains one backlink line as evidence
+  lands (e.g. `> Evidence: [[Mechatronics/milestones/evidence/0.2-3link-fk|personal evidence 0.2]]`).
 - Daily notes link evidence files, never paste solutions into the daily.
 - Never edit canonical pass criteria to match what was produced — failed
   gates stay failed until re-attempted.

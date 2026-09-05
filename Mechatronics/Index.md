@@ -4,7 +4,7 @@
 - [[Mechatronics/resources/SAFETY_CARD|Safety card]] — envelopes per phase
 - [[Mechatronics/IDEAS|Ideas]] — parking lot
 - Current milestone + evidence: see today's [[Daily/Index|daily note]] Focus,
-  worked solutions in [[Mechatronics/milestones/evidence/0.2-3link-fk|evidence/]]
+  worked solutions in [[Mechatronics/milestones/evidence/Index|evidence/]]
 
 ## Resources
 - [[Mechatronics/resources/CONVENTIONS|Conventions]]

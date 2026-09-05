@@ -28,7 +28,7 @@ tags:
 - [[Piano/Resources/FAQ|FAQ]]
 
 ## Pieces and logs
-- [Pieces README](Pieces/README.md)
+- [[Piano/Pieces/README|Pieces README]]
 
 ### Piece templates
 - [[_templates/piano/Piece Note|Piece Note]]
@@ -41,11 +41,11 @@ tags:
 - [[Piano/Resources/Functional and Jpop Track|Functional and J-pop Track]]
 
 ## Maintenance and performance
-- [Maintenance rotation](Resources/Maintenance%20and%20Performance.md#maintenance-rotation-engram)
+- [[Piano/Resources/Maintenance and Performance|Maintenance rotation]]
 
 ## Resources
-- [Resource List](Resources/Resource%20List.md)
-- [Editions and Sources](Resources/Editions%20and%20Sources.md)
+- [[Piano/Resources/Resource List|Resource List]]
+- [[Piano/Resources/Editions and Sources|Editions and Sources]]
 
 ## Templates
 - [[_templates/piano/Weekly Review|Weekly Review]]

@@ -63,8 +63,8 @@ Working dev environment, local Git repo with first commit, Engram topic subscrib
 ### MVM
 - [x] Git repo initialized, first meaningful commit
 - [x] Editor, terminal, toolchain verified
-- [x] Engram topic subscribed (first review done)
-- [x] Can state: "What is the Input, Output, and Transformation here?" (bar, applied from 0.3 on: one sentence each + one measured number, e.g. flash rate, supply current)
+- [x] Anki deck created
+- [x] Can state: "What is the Input, Output, and Transformation here?"
 
 ### Full Pass
 - [x] Flashlight deconstruction: black boxes, energy chain, first principles
@@ -458,14 +458,14 @@ A baseplate (3D-printed or cardboard) with interchangeable mechanism modules tha
 - [ ] **Physical:** modules swap by hand, no tools; testbed photographed
 
 ### Full Pass
-Depth rule: each mechanism below is its own sign-off (diagram + DOF + motion + application); state correctly + one example. This is 4× the MVM — spread across the phase, not one sitting.
+Depth rule: each mechanism below is its own sign-off (diagram + DOF + motion + application); state correctly + one example. This is a multiple of the MVM — spread across the phase, not one sitting.
 - [ ] All 12 mechanisms below covered (diagram + DOF + motion + application)
 - [ ] **Four-bar linkage:** Can explain Grashof condition (s + l ≤ p + q). Can identify: crank-rocker (shortest link is input), double-crank (shortest link is ground), double-rocker (shortest link is coupler). Can explain: the same four bars behave completely differently depending on which link is grounded.
 - [ ] **Slider-crank:** Can explain: this is a four-bar with one revolute joint replaced by a prismatic joint. Engine piston = slider-crank. Can explain dead-center positions and why a flywheel is needed.
 - [ ] **CAM and follower:** Can explain: the cam profile IS the motion program. Follower displacement, velocity, acceleration are determined by the profile shape. Can explain pressure angle and why > 30° causes jamming/side-loading. Can explain undercutting and why it limits how aggressive the profile can be.
 - [ ] **Geneva mechanism:** Can explain: converts continuous rotation to intermittent rotation (indexing). The driver has a pin that engages slots in the driven wheel. Can explain: the driven wheel dwells (locks) between engagements. Can explain: acceleration is HIGH at pin entry — not suitable for high speed without modification. Application: film projectors, indexing tables, mechanical watches.
 - [ ] **Ratchet and pawl:** Can explain: permits motion in one direction, blocks the other. Can explain: this is NOT a precision indexing mechanism — backlash is inherent. Application: winches, socket wrenches, anti-backdrive on lead screws, bicycle freewheel.
-- [ ] **Scotch yoke:** Can explain: converts rotation to pure sinusoidal linear motion (x = r·sin θ). Simpler than slider-crank AND lower peak acceleration (the crank's rod angularity adds a 2nd harmonic on top of the sine). Application: some pumps, valve actuators, vibration testing.
+- [ ] **Scotch yoke:** Can explain: converts rotation to pure sinusoidal linear motion (x = r·sin θ). Simpler than slider-crank AND lower peak acceleration at finite rod length (the crank's rod angularity adds a 2nd harmonic on top of the sine). Application: some pumps, valve actuators, vibration testing.
 - [ ] **Oldham coupling:** Can explain: connects two parallel but offset shafts. Three discs: two attached to shafts, one floating with perpendicular tongues. Accommodates parallel misalignment but NOT angular misalignment. Can explain: the center disc traces a circle. Application: encoders, stepper motor connections where shafts aren't perfectly aligned.
 - [ ] **Universal joint (Hooke's joint):** Can explain: connects two shafts at an angle. Can explain: output velocity is NOT constant even if input is — it oscillates at 2× shaft speed. Can explain: a double Cardan (two U-joints phased correctly) cancels the velocity fluctuation. Application: driveshafts, steering columns.
 - [ ] **Leaf spring / compliant mechanism:** Can explain: a leaf spring is a structural element with DESIGNED compliance. It stores energy, provides suspension, and can act as a flexure (no friction, no wear, no backlash). Can explain: fatigue life is the design constraint — the spring cycles millions of times. Application: vehicle suspension, MEMS flexures, compliant grippers, electrical contacts.

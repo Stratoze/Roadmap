@@ -14,7 +14,7 @@ firmware/
     └── project_name/
 ```
 
-For each firmware project, copy `../_templates/mech/module_readme.md` into the project as needed for non-trivial modules.
+For each firmware project, copy `../../_templates/mech/module_readme.md` into the project as needed for non-trivial modules.
 
 ## Firmware rules
 

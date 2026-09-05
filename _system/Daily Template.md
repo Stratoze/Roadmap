@@ -8,8 +8,9 @@ Predict/Got/Gap content, Sticky items, One-liner, Log lines.
 AI FILLS: everything else — normalize into this template, fix links/indent,
 move misplaced content into its field, never invent results.
 RULES: omit any section that is empty (no boilerplate, no placeholders).
-Predict must name a mechanism (hard step / time needed / last failure) —
-reject "reasonable load" tautologies back to the user.
+Predict must name a mechanism (hard step / time needed / last failure).
+Weak predictions ("reasonable load") are accepted but flagged
+`prediction-weak` and fixed tomorrow — never refuse to format the note.
 Links look like [[_system/How to Learn|How to Learn]]. Indent: two spaces.
 Frontmatter exactly as above. -->
 

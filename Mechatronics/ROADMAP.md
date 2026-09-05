@@ -127,7 +127,7 @@ No welding. No manual CNC. No mains — ever, in this roadmap.
 |Phase 4|10–20 wk||
 |Phase 5|4–8 wk||
 
-_Planned = MVM scope (Full Pass runs 2–4× longer; schedule it separately). Update actuals only at phase completion._
+_Planned = MVM scope; Full Pass multiplies the work, so schedule it separately. Update actuals only at phase completion._
 
 ## Resource Map
 
