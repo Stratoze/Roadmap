@@ -206,7 +206,7 @@ metacognitive reflection.
 
 ---
 
-# Milestone 5.2 — Exploded-View Pedestal + Bench Museum
+# Milestone 5.2 — Exploded-View Pedestal + Bench Museum (optional example — presentation, no new skill)
 
 > [!info] 📚 Resources — Display Fabrication
 > **Visual:** iFixit-style teardown displays; museum exhibit labeling.

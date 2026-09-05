@@ -336,6 +336,7 @@ Python simulation of a 1D simple or physical pendulum, `scipy.integrate.solve_iv
 - [ ] Python sim runs, plausible trajectory
 - [ ] Physical pendulum built, dropped, IMU logged
 - [ ] Both curves on same plot
+- [ ] Error estimated and dominant mismatch source identified (promoted from Full — an overlay without attribution does not pass)
 - [ ] **Physical:** rig printed and assembled; pivot low-friction (verified by hand)
 
 ### Full Pass
@@ -392,6 +393,8 @@ Single loop on ESP32: IMU → calibration → complementary filter → motor res
 - [ ] One loop: read IMU, filter, command motor, repeat
 - [ ] Motor visibly responds to tilt
 - [ ] No crashes for 60 seconds
+- [ ] IMU calibrated (6-orientation offset/scale) BEFORE fusion — uncalibrated tilt response does not pass
+- [ ] Filter-vs-raw plot on one timeline showing the improvement (promoted from Full)
 
 ### Full Pass
 - [ ] **IMU calibrated:** offset measured in 6 static orientations (±X, ±Y, ±Z up). For each axis: offset = mean of readings when that axis is aligned with gravity. Scale factor verified: when +Z is up, az should read +1g (±0.05g after calibration). Can explain: offset is the zero-input output. Gain/scale error is the deviation from ideal sensitivity. Linearity is how well the response follows a straight line across the range. Hysteresis is whether the reading depends on the direction you approached from. Temperature drift is how all of these change with temperature.

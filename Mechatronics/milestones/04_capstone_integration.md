@@ -253,7 +253,7 @@ A panel-mounted Power Distribution Unit: 48 V in → fuse → dual-channel conta
 
 ---
 
-# Milestone 4.4 — Workcell Integration + Harness
+# Milestone 4.4 — Workcell Integration + Harness (example — exit checklist, demo-only, no new skill)
 
 > [!info] 📚 Resources — Workcell Integration
 > Mostly self-work: labeling, shielding, cable management, cold-boot testing.
@@ -261,7 +261,7 @@ A panel-mounted Power Distribution Unit: 48 V in → fuse → dual-channel conta
 
 ## Deliverable
 
-Clean, labeled, shielded, industry-grade installation. Everything wired, aligned, tested, documented.
+Clean, labeled, shielded, industry-grade installation. Everything wired, aligned, tested, documented. Graded as example: may be folded into the 4.2/4.3 exit checklist — no new skill is lost either way.
 
 ## Pass Condition
 
@@ -305,7 +305,7 @@ Clean, labeled, shielded, industry-grade installation. Everything wired, aligned
 
 ---
 
-# Milestone 4.5 — Electromechanical Gripper + Tool Changer
+# Milestone 4.5 — Electromechanical Gripper + Tool Changer (stretch example — optional, peripheral)
 
 > [!info] 📚 Resources — Gripper & Tool Changer
 > **Visual:** Robotiq-style gripper teardowns; quick-changer mechanism videos.

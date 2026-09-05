@@ -264,6 +264,7 @@ H-bridge: 2A at 12V, Rds(on) = 0.05Ω, two switches in series. Calculate input p
 - [ ] P_loss = I² × R_total correct
 - [ ] Efficiency as percentage
 - [ ] Knows what thermal resistance means
+- [ ] System power budget sketched (rails, loads, peak vs nominal, fuse margin) — promoted from Full; the paper calc alone is superseded by 1.3 hardware measurement
 
 ### Full Pass
 - [ ] Can find Rth_ja in a datasheet, estimate junction temperature

@@ -106,15 +106,15 @@ No welding. No manual CNC. No mains — ever, in this roadmap.
 |[4.1 — CAN + C++ Messaging](milestones/04_capstone_integration.md)|⬜|
 |[4.2 — Motion + Dynamics-Aware Control](milestones/04_capstone_integration.md)|⬜|
 |[4.3 — Safety PDU + Hardwired E-Stop](milestones/04_capstone_integration.md)|⬜|
-|[4.4 — Workcell Integration + Harness](milestones/04_capstone_integration.md)|⬜|
-|[4.5 — Electromechanical Gripper + Tool Changer](milestones/04_capstone_integration.md)|⬜|
+|[4.4 — Workcell Integration + Harness](milestones/04_capstone_integration.md) (example — exit checklist, no new skill)|⬜|
+|[4.5 — Electromechanical Gripper + Tool Changer](milestones/04_capstone_integration.md) (stretch example — optional)|⬜|
 
 ## Phase 5 — Portfolio & Delivery
 
 |**Milestone**|**Status**|
 |---|---|
 |[5.1 — Portfolio + Documentation](milestones/05_portfolio_delivery.md)|⬜|
-|[5.2 — Exploded-View Pedestal + Bench Museum](milestones/05_portfolio_delivery.md)|⬜|
+|[5.2 — Exploded-View Pedestal + Bench Museum](milestones/05_portfolio_delivery.md) (optional example — presentation, no new skill)|⬜|
 
 ## Calibration
 
@@ -187,3 +187,27 @@ Phase 5: Exploded-View Pedestal + Bench Museum
 Each artifact requires the skills of its phase. You cannot design the Puck PCB
 without the analog front-end knowledge from Phase 1.3. You cannot build the QDD
 without FOC from 2.3 and machine elements from 3.1. The dependency tree IS the curriculum.
+
+## Skill Spine (the roadmap teaches verbs, not machines)
+
+The spine is transferable verbs — derive, measure, drive, coordinate,
+power, prove safe-state, calibrate, verify SIL→HIL. Artifacts are reference
+instances that prove the verbs, not the goal. The 2-DOF arm is the reference
+hero; it is not the definition of done.
+
+- A project belongs in the graded path only if it teaches a NEW transferable
+  skill. Pure integration/polish with no new verb is an example, not a gate:
+  4.4 (harness at scale), 5.2 (display), and conditionally 4.5 (end-effector)
+  are tagged as such above. Do them for the portfolio, or fold 4.4 into the
+  4.2/4.3 exit checklist — zero skill is lost either way.
+- Custom-project rule: when a phase arrives, you or the AI may propose a
+  substitute project that hits the SAME verbs. State the verbs, the evidence
+  plots, and the safety envelope before starting; if it teaches no new verb,
+  it goes in the example pool, not the graded path.
+- Phase-4b (optional, after the hero): a second machine — e.g. a 3-axis CNC —
+  reusing the spine (stepper sizing, homing, fits, PDU, harness, calibration).
+  Gated behind 4.3 safety PLUS a spindle/process addendum (cutting physics,
+  G-code/CAM chain, tramming/squareness, interlocked extraction enclosure).
+- Non-claim: this roadmap alone does not qualify you to build a cutting
+  machine, touch mains/VFD power, or run pressure/fluid systems unsupervised.
+  Those are post-roadmap addenda with their own safety cases.
