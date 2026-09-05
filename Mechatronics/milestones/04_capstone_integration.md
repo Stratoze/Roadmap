@@ -83,6 +83,7 @@ Object-oriented C++ communication layer, error-free packets across physical CAN 
 - [ ] Message design documented: IDs, structs, endianness, versioning, timeout/heartbeat behavior
 - [ ] Message integrity handled: CRC/checksum or equivalent, sequence numbers, timeout, heartbeat, stale-command handling, and safe default on loss of comms.
 - [ ] 1000-packet stress test: zero dropped
+- [ ] Host-side unit tests pass on the laptop (CAN pack/unpack, no hardware): math bugs die in CI, not on the bench
 - [ ] Compiles `-Wall -Wextra`, zero warnings
 
 > [!warning] ⚠️ Landmines

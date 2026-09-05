@@ -220,7 +220,7 @@ Complete QDD actuator mechanical design in Solid Edge CE: housing (two halves or
 - Hand calcs BEFORE FEA.
 - Bearings selected BEFORE bore/shaft dimensions — you design around purchased bearings, never the reverse.
 - Print + assemble the prototype BEFORE ordering CNC.
-- DFM review BEFORE sending STEP files, not after the shop emails you questions.
+- DFM review BEFORE sending STEP files, not after the shop emails you questions. Send the quote package (`_templates/mech/quote_package.md`): STEP + material/temper + finish + qty + tolerance callouts, and answer every line of the shop's DFM reply.
 - Verify the Solid Edge → STEP → PrePoMax pipeline on a 30-minute bracket BEFORE trusting it with the actuator.
 
 > Log sessions in Daily/ notes using the unified template.
