@@ -13,7 +13,7 @@ title: "{{title}}"
 - [ ] Mechanical path clear
 - [ ] Motor/load secured
 - [ ] No loose wires near rotating/moving parts
-- [ ] Current limit set
+- [ ] Current limit set (name the number + the weakest link it protects)
 - [ ] Speed/duty limited for first run (≤10% duty)
 - [ ] E-stop present and tested; power-off path as backup only (never equivalent for a gravity load)
 - [ ] Direction/sign convention expected

@@ -15,7 +15,7 @@ This phase is about hardening, not adding features. The arm is two QDD actuators
 
 **Fabrication & safety envelope (Phase 4):**
 - Assembly, harnessing, crimping, laser-cut panels. No new machining services unless a single bracket is genuinely required.
-- 48 V bus at real current. Lockout discipline: power off, caps discharged, verified with meter before hands go in.
+- 48 V bus at real current. Lockout discipline: power off, caps discharged, verified < 1 V with meter before hands go in.
 - NEW hazard: **gravity-loaded arm.** Define the fall path before first power. If de-energize = fall, the fall zone must be clear, or add a brake/counterbalance.
 - E-stop is tested with MCU power PULLED. If it only works when firmware runs, it is not a safety system.
 - Still no welding, no mains.
@@ -80,7 +80,7 @@ Object-oriented C++ communication layer, error-free packets across physical CAN 
 - [ ] 2+ concrete message types
 - [ ] Bus-off recovery, overrun detection
 - [ ] CAN physical layer verified: termination, common ground, differential waveform, and bit timing/sample point documented
-- [ ] Message design documented: IDs, structs, endianness, versioning, timeout/heartbeat behavior
+- [ ] Message design documented: IDs, structs, endianness, versioning, timeout/heartbeat behavior (as an `_templates/mech/interface_contract.md` seam)
 - [ ] Message integrity handled: CRC/checksum or equivalent, sequence numbers, timeout, heartbeat, stale-command handling, and safe default on loss of comms.
 - [ ] 1000-packet stress test: zero dropped
 - [ ] Host-side unit tests pass on the laptop (CAN pack/unpack, no hardware): math bugs die in CI, not on the bench
@@ -192,14 +192,14 @@ A panel-mounted Power Distribution Unit: 48 V in → fuse → dual-channel conta
 
 **Safe state definition (write it before wiring anything):**
 - E-stop pressed → contactors open → 48 V bus physically disconnected.
-- Arm under gravity: de-energize means fall. If the fall path is not guaranteed clear, document the mitigation — hardware first (counterbalance, brake), procedural envelope only as a documented last resort, never as an equal option.
+- Arm under gravity: de-energize means fall. If the fall path is not guaranteed clear, document the mitigation — hardware first (counterbalance, brake), procedural envelope only as a documented last resort, never as an equal option. ("Procedural envelope" = cleared fall zone + operator exclusion + pose restriction, accepted only via the hazard analysis + safety_review sign-off.)
 - Logic rail stays up → fault logged → CAN broadcasts E_STOP.
 - Recovery: release E-stop → reset → re-home → re-arm.
 
 ## Pass Condition
 
 ### MVM
-- [ ] E-stop physically disconnects the 48 V bus (measured with a meter)
+- [ ] E-stop physically disconnects the 48 V bus (measured with a meter) — test in this order: MCU-pulled kill first, then motion-stop, then single-fault injection
 - [ ] Pressing E-stop during motion stops the motors
 - [ ] Works with MCU power PULLED
 - [ ] HIL: one fault injected, firmware enters safe state
@@ -230,13 +230,13 @@ A panel-mounted Power Distribution Unit: 48 V in → fuse → dual-channel conta
 >    Wire break must LOOK LIKE a press. NO fails silently. (You learned this in 2.6; here it's enforced with contactors.)
 >
 > 5. **HIL must not damage real hardware.** `[HYPOTHESIS]`
->    Simulate sensor signals with a secondary MCU (isolated/shared-ground verified, never hot-plugged into a live 48 V harness). Don't create real overcurrent on the bus. Test the FIRMWARE's response, not hardware survival.
+>    Simulate sensor signals with a secondary MCU (pick ONE per bench: galvanically isolated, OR common ground made first while dead and verified — never hot-plugged into a live 48 V harness). Don't create real overcurrent on the bus. Test the FIRMWARE's response, not hardware survival.
 >
 > 6. **Define the safe state BEFORE building the safety system.** `[HYPOTHESIS]`
 >    "Stop" is not specific. For an arm under gravity, de-energize = fall. Is that safe? Maybe you need a brake or counterbalance.
 >
 > 7. **Bus capacitors stay charged after E-stop.** `[HYPOTHESIS]`
->    Opening the contactors doesn't drain the Puck's input caps. Bleed resistors or a documented discharge wait before anyone touches the bus. Verify < 1 V with a meter.
+>    Opening the contactors doesn't drain the Puck's input caps. Bleed resistors before anyone touches the bus (SAFETY_CARD procedure — waiting alone is not a method). Verify < 1 V with a meter.
 >
 > 8. **Enable lines and watchdogs are control safety, not power safety.** `[HYPOTHESIS]`
 >    Firmware enable/disable and watchdog resets can stop a running controller, but they do not guarantee removal of stored energy or motor power. For a true safe state, define the power path, brakes, counterbalances, and contactor behavior independently of software.
@@ -260,7 +260,7 @@ A panel-mounted Power Distribution Unit: 48 V in → fuse → dual-channel conta
 
 ## Deliverable
 
-Clean, labeled, shielded, industry-grade installation. Everything wired, aligned, tested, documented. Split grading: the route/secure/label + cold-boot checklist may fold into the 4.2/4.3 exit; harness-scale EMC (braided shields, STP CAN both ends, one-end grounding, signal⊥power) + operability review (human-factors Full items) are graded HERE and lost if skipped.
+Clean, labeled, shielded, industry-grade installation. Everything wired, aligned, tested, documented. Split grading: the route/secure/label + cold-boot checklist may fold into the 4.2/4.3 exit (including structural mounting and limit-switch install, which are reuse); harness-scale EMC (braided shields, STP CAN both ends, one-end grounding, signal⊥power) + operability review (human-factors Full items) + bend radius, connector locking, and service access are graded HERE and lost if skipped.
 
 ## Pass Condition
 

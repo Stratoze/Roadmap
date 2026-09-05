@@ -14,7 +14,7 @@ Layout gate BEFORE Gerber order. The schematic can be perfect and the board stil
 - [ ] One solid ground plane; analog/digital separated by placement, never by splits
 - [ ] Switching node short, narrow, plane intact beneath it
 - [ ] Buck input cap placed first, < 5 mm; decoupling 100 nF < 3 mm + 10 uF bulk per rail
-- [ ] Trace widths sized for stall current per IPC-2221, not nominal
+- [ ] Trace widths sized for stall current per IPC-2152, not nominal
 - [ ] Ground return arrows drawn: motor, ADC, MCU returns share no segment before the star point
 - [ ] Programming/debug header reachable with the board mounted
 

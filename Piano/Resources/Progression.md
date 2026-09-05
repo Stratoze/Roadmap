@@ -203,7 +203,7 @@ For the first sitting only. After that, use the daily note (`_system/Daily Templ
 | ---: | --- | --- |
 | 0–1 | M1 intro (knuckle stroke, neutral wrist), M2 (arm drop + release) | Five-finger patterns: knuckle-initiated, zero wrist dipping |
 | 2 | M3 (thumb travel), M4 (rotation arpeggios — never stretch), M6 (pre-shaped triads) | Scale seam inaudible; arpeggio shows rotation, no spread |
-| 3 | M4 fluency + in/out, M5 small leaps, M8 trill awareness, M10 hand-off legato | Invention legato by hand-off; small leap 7/10 eyes-closed |
+| 3 | M4 fluency + in/out, M5 small leaps, M8 trill awareness, M10 hand-off legato | Invention legato by hand-off; small leap 8/10 eyes-closed (Roadmap gate test is normative where tables differ) |
 | 4 | M11 voicing as weight steering, M5 moderate leaps eyes-free, M9 substitution, M12 syncopized pedal | Melody voiced over accompaniment; leaps 8/10 eyes-closed |
 | 5 | M7 octave frame + wrist spring (slow, correct), M5 large leaps, M11 in texture, M4 velocity | 30 s of octaves: wrist spring visible, zero forearm fatigue |
 | 6 | M7 stamina, M8 tremolo, M6 large voiced chords, M12 half-pedal; gait transitions installed | 45 min run, no residual tension; fast passages use smaller motion |

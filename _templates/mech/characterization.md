@@ -18,7 +18,7 @@ Firmware/code commit:
 - [ ] Mechanically secured
 - [ ] Current limit set
 - [ ] Clear rotation path
-- [ ] Power-off path known
+- [ ] Power-off path known and tested
 
 ## Configuration
 

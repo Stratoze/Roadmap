@@ -30,5 +30,4 @@ What the shop needs to price you without emailing back. Send STEP + this sheet t
 ## Checks
 
 - [ ] STEP opens clean on a second machine before sending
-- [ ] Lead time planned into the milestone (fab wait is real time)
 - [ ] Lead time planned into the milestone (fab wait is real time; re-check stock at order time)

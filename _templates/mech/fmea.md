@@ -35,7 +35,7 @@ bearing wear (revolutions), connector fretting (vibration cycles), solder joint
 fatigue (thermal cycles).
 If the failure mode is instantaneous (shoot-through, short circuit), write "t=0".
 
-## Highest risks (RPN ≥ 48 or S ≥ 9)
+## Highest risks (RPN ≥ 48, S×O ≥ 12, or S ≥ 9 — same gate as above)
 
 1.
 2.

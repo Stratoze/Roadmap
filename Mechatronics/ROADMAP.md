@@ -9,9 +9,8 @@ Do not maintain this weekly.
 ## Completion & Evidence — how a milestone becomes "done"
 
 1. Meet every **MVM** checkbox for the milestone.
-2. Commit the evidence: `./scripts/save.sh "phaseN: <what you proved>"`
-3. Tag it (the permanent proof): `./scripts/milestone.sh m<N>.<M>-mvm "<what proves it>"`
-4. Flip its status ⬜→✅ above, then `./scripts/save.sh "roadmap: mark m<N>.<M> complete"`
+2. Flip its status ⬜→✅ above, then commit everything: `./scripts/save.sh "roadmap: mark m<N>.<M> complete"` (Full Pass tags separately per AGENT.md — same flow, `m<N>.<M>-full`).
+3. Tag it (the permanent proof): `./scripts/milestone.sh m<N>.<M>-mvm <evidence-path> "<what proves it>"` (script enforces tag format + evidence-in-HEAD + ✅-in-HEAD).
 
 Tag names: `m0.1-mvm`, `m0.1-full` (Full Pass), phase gates `p0-complete`.
 The **tag** is the durable, timestamped evidence. The **✅** is the at-a-glance state.
@@ -29,7 +28,7 @@ artifacts where each one proves a phase's skills AND feeds the next phase:
 | 2     | Force-Feedback Haptic Knob + Inverted Pendulum Cart                 | FOC + impedance control + state-space on real hardware | QDD firmware in Phase 3 |
 | 3     | Quasi-Direct Drive (QDD) Actuator: CNC housing + Puck PCB + gearbox | CAD, FEA, 4-layer PCB, EMC, machine elements           | the arm's joints        |
 | 4     | 2-DOF Arm (two QDDs) + Safety PDU + Gripper + Tool Changer          | integration, CAN, functional safety, harnessing        | the portfolio hero      |
-| 5     | Exploded-View Pedestal + Bench Museum                               | communication of the whole system                      | the interview           |
+| 5     | Exploded-View Pedestal + Bench Museum (optional — see Skill Spine)  | communication of the whole system                      | the interview           |
 
 Every physical deliverable is judged by: *"Does this look like something a Tier-1
 robotics supplier would ship, or a science fair project?"* Mount it, label it,
@@ -179,9 +178,9 @@ Phase 3: QDD Actuator = CNC housing + Puck PCB + planetary gearbox + dual encode
     │  (the joint for the capstone arm)
     ▼
 Phase 4: 2-DOF Arm (two QDDs) + Safety PDU + Gripper + Tool Changer
-    │  (the portfolio hero)
+    │  (the portfolio hero; 4.4 split-graded — see Skill Spine)
     ▼
-Phase 5: Exploded-View Pedestal + Bench Museum
+Phase 5: Exploded-View Pedestal + Bench Museum (optional — see Skill Spine)
 ```
 
 Each artifact requires the skills of its phase. You cannot design the Puck PCB
@@ -202,17 +201,17 @@ INTRO owner first, every other occurrence is reuse at a tighter envelope.
 | derive | 0.2 FK / 0.4 statics | 1.4 EOM, 2.5 Lagrangian, 4.2 IK |
 | measure | 0.10 Type A/B + RSS | 1.7 load-cell, 3.3 Kt/Ke/thermal |
 | drive | 1.3 H-bridge + BLDC | 1.6 stepper, 2.3 FOC |
-| coordinate | 2.4 multi-task + 4.1 CAN (shared-motion owner: 4.2) | 2.6 state machines |
+| coordinate | 2.4 multi-task (local) → 2.6 state machines (sequence) → 4.1/4.2 CAN+motion (distributed) | — (chain, not intro/reuse) |
 | power | 0.6 P/I²R/efficiency | Phase-3 budget, 3.2 buck, 4.3 PDU |
 | prove safe-state | 2.6 NC-failsafe + FAULT | Phase-3 HIL, 4.3 contactors + per-axis states |
-| calibrate | 0.10 calipers | 1.3/1.5/1.7/2.7/3.3 offsets (same verb, rising stakes) |
+| calibrate | 0.10 zero + instrument uncertainty, 1.3 first offset-subtraction | 1.5/1.7/2.7/3.3 offsets (same verb, rising stakes) |
 | verify SIL→HIL | Phase-3 SIL entry + HIL exit | 4.3 automated HIL |
 
 - A project belongs in the graded path only if it teaches a NEW transferable
   skill. Pure integration/polish with no new verb is an example, not a gate:
   5.2 (display) is tagged as such above. 4.4 splits: the route/secure/label +
-  cold-boot integration checklist is foldable into 4.2/4.3 exit; harness-scale
-  EMC + operability review are graded verbs owned by 4.4. 4.5 is GRADED
+  cold-boot integration checklist is foldable into 4.2/4.3 exit (including structural mounting and limit-switch install-at-scale, which are reuse with no new verb); harness-scale
+  EMC + operability review are graded verbs owned by 4.4 (bend radius, connector locking, and service access grade HERE — labels alone may fold). 4.5 is GRADED
   (end-effector + separable power/signal interface have no alternate owner).
   Do examples for the portfolio; do gates for the skills.
 - Custom-project rule: when a phase arrives, you or the AI may propose a

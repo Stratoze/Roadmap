@@ -49,7 +49,7 @@ Training must address all five levels, not just note recognition.
 ### Eye-hand span training
 
 The eye-hand span is the distance between where your eyes are and where your hands are playing.
-Larger span = more time to process = smoother reading.
+Larger span generally gives more processing time, which usually reads as smoother — up to the limit of working memory and pattern vocabulary.
 
 Exercises:
 
@@ -229,4 +229,4 @@ Core steps live in [[Piano/Resources/Practice Protocols|Practice Protocols]] (me
 
 ### Neuroscience basis
 
-Overlapping (partial, weaker) motor-network activation vs physical practice, without physical wear (see Protocols). Especially effective for memorization security, passage planning and fingering decisions, injury recovery, and sleep consolidation.
+Overlapping (partial, weaker) motor-network activation vs physical practice, without physical wear (see Protocols). Used for memorization security, passage planning and fingering decisions, injury recovery, and sleep consolidation — ranked by practice tradition, not by effect-size evidence.

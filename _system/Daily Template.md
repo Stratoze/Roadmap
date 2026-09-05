@@ -26,6 +26,9 @@ Frontmatter exactly as above. -->
 - **Got:**
 - **Gap:**
 
+## Evidence
+- (links to today's evidence files, if any — never pasted solutions)
+
 ## Sticky *(only if it recurs or needs follow-up — omit section otherwise)*
 
 ## One-liner

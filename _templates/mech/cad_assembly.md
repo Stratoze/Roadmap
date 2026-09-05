@@ -1,3 +1,8 @@
+---
+date: "{{date:YYYY-MM-DD}}"
+title: "{{title}}"
+---
+
 # Assembly Template — Assembly Name
 
 ## Purpose

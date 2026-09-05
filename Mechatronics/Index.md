@@ -3,7 +3,7 @@
 - [[Mechatronics/ROADMAP|Roadmap]] — phase table, gates, evidence discipline
 - [[Mechatronics/resources/SAFETY_CARD|Safety card]] — envelopes per phase
 - [[Mechatronics/IDEAS|Ideas]] — parking lot
-- Current milestone + evidence: see today's [[Daily/Index|daily note]] Focus,
+- Current milestone + evidence: see the Focus block in the latest [[Daily/Index|daily note]],
   worked solutions in [[Mechatronics/milestones/evidence/Index|evidence/]]
 
 ## Resources

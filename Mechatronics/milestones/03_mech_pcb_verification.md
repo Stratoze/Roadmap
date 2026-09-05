@@ -231,7 +231,7 @@ Complete QDD actuator mechanical design in Solid Edge CE: housing (two halves or
 
 > [!info] 📚 Resources — The Puck PCB
 > **Visual:** Phil's Lab STM32 motor driver PCB series — watch before opening KiCad.
-> **Interactive:** KiCad 9 — schematic → footprints → 4-layer layout → DRC → Gerbers → JLCPCB. Built-in PCB Calculator (IPC-2221) for trace widths.
+> **Interactive:** KiCad 9 — schematic → footprints → 4-layer layout → DRC → Gerbers → JLCPCB. Built-in PCB Calculator for trace widths (IPC-2152 for current capacity).
 > **Theory:** TI SLVA404 (buck layout); IPC-2152 for current capacity (IPC-2221 is obsolete for this — KiCad's calculator is still fine for geometry); ground-plane & switching-node EMC; your own Phase 1 analog front-end experience.
 > **Fabrication:** JLCPCB/PCBWay 4-layer + stencil; hotplate or hot-air reflow. NEW soldering territory — budget time to learn it.
 
@@ -356,7 +356,7 @@ Assemble the QDD from 3.1 + 3.2 components and characterize it on the Phase 1 mo
 2. Output shaft through bearings; axial location by shoulder + retaining ring.
 3. Gearbox to motor; couple to output shaft (alignment matters).
 4. Puck mounted on motor rear; AS5048 magnet on output shaft at datasheet gap.
-5. Wire, close housing, torque fasteners to spec in a star sequence (blue thread-locker on metal threads, never on plastics or near encoder optics; re-torque after the first thermal/vibration cycle).
+5. Wire, close housing, torque fasteners to spec in a star sequence (blue thread-locker on metal threads, never on plastics or near encoder optics; re-torque after the first thermal/vibration cycle — de-energize + discharge + cool-down first, and clean + reapply the locker: re-torquing a cured bond fractures it).
 6. Verify by hand: smooth rotation, zero axial play, backdrivable.
 
 **Characterization tests (all logged with `_templates/mech/characterization.md`):**

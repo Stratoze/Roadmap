@@ -52,12 +52,15 @@ Pick 1–2 archetype targets from [Movement](../../Piano/Resources/Movement.md) 
 -
 
 ### Maintenance pool
+- (piece — card types per Maintenance rotation; Engram-scheduled)
 -
 
+### Shelved / archived (return date or reason — nothing shelf-rots without one)
+-
 ## End-of-cycle test
 Date + recording link live here; how to record/score lives in [[Piano/Resources/Maintenance and Performance|Recording and Self-Assessment]].
 - [ ] Record a small recital or mock exam
-- [ ] Score it with the rubric, compare to last cycle's recording
+- [ ] Score it with the rubric via [[_templates/piano/Recording Review|Recording Review]], compare to last cycle's recording
 - [ ] Run the movement diagnostic on the cycle's hardest passages
 - [ ] Review sight-reading level and progress
 - [ ] Review technique requirements
@@ -66,4 +69,4 @@ Date + recording link live here; how to record/score lives in [[Piano/Resources/
 - [ ] Choose next technical goals and repertoire
 - [ ] Update Personal Calibration Log
 - [ ] Consider scheduling RCM remote exam or teacher feedback
-- [ ] Honest health check
+- [ ] Honest health check (red flags → stop + rest + professional eyes per health-injury; routine soreness → deload)

@@ -1,3 +1,8 @@
+---
+date: "{{date:YYYY-MM-DD}}"
+title: "{{title}}"
+---
+
 # Part Template — Part Name
 
 ## Function

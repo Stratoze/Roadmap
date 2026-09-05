@@ -49,7 +49,7 @@ Are decisions documented? Are limitations acknowledged honestly?
 - [ ] One demo video: workcell running
 - [ ] Code repo clean and navigable
 - [ ] Verification matrix completed (`_templates/mech/verification_matrix.md`)
-- [ ] **Physical:** exploded view assembled, ≥ 5 labeled components
+- [ ] **Physical:** exploded view assembled, ≥ 5 labeled components (if 5.2 elected — optional example, see Skill Spine)
 
 ### Full Pass
 - [ ] Report: requirements → design → build → test → results → lessons

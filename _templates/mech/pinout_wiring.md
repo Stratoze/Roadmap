@@ -3,8 +3,7 @@ date: "{{date:YYYY-MM-DD}}"
 title: "{{title}}"
 ---
 
-# Pinout / Wiring — {{date}} — Assembly
- — {{title}}
+# Pinout / Wiring — {{date}} — {{title}} — Assembly
 
 ## Purpose
 

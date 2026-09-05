@@ -4,6 +4,8 @@ composer:
 title: "{{title}}"
 status: active
 stage: 
+# status vocabulary: active | polishing | maintained | shelved | archived. stage: Roadmap stage 0-9.
+# shelved pieces carry a return date below; archived pieces carry a reason.
 learning_piece: false
 polishing_piece: false
 target_tempo: 

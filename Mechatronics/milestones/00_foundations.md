@@ -89,7 +89,7 @@ Working dev environment, local Git repo with first commit, Engram topic subscrib
 > Evidence: [[Mechatronics/milestones/evidence/0.1-toolchain|personal evidence 0.1]] (MVM `m0.1-mvm` · Full `m0.1-fullpass` — see note below)
 
 > [!note] Record note (forward annotation, history intact)
-> The 0.1 evidence file is thin: no Fermi number, no blinky artifact pointer, one wrong LED mechanism in the prose. Boxes stay checked (earned in August); from 0.3 on, every numeric result needs units + tolerance and every physical pass needs an artifact pointer per the evidence convention. Tags keep their names (convention standardized at `m<phase>.<n>-(mvm|full)` going forward).
+> The 0.1 evidence file is thin: no Fermi number, no blinky artifact pointer, one wrong LED mechanism in the prose. Boxes stay checked (earned in August); from 0.3 on, every numeric result needs units + tolerance (analytic-exact results state their exactness instead) and every physical pass needs an artifact pointer per the evidence convention. Tags keep their names (convention standardized at `m<phase>.<n>-(mvm|full)` going forward).
 
 
 ---
@@ -134,24 +134,24 @@ Hand-calculated forward kinematics for a 2-link planar arm. Given link lengths a
 # Milestone 0.3 — Calculus Intuition
 
 > [!info] 📚 Resources — Calculus Intuition
-> **Visual:** 3Blue1Brown *Essence of Calculus* (derivative=rate, integral=accumulation).
-> **Interactive:** Desmos — plot v(t)=2t, shade area to t=3, see it equals position. Confirm with scipy.
-> **Theory:** intuition over symbolic fluency. Ulaby appendix.
+> **Visual:** 3Blue1Brown *Essence of Calculus* ch.1–3 (derivative=rate, integral=accumulation, chain rule idea).
+> **Interactive:** Desmos (desmos.com/calculator) — plot y=2x, shade 0→3 with the integral command; area reads 9. Confirm with `scipy.integrate.quad(lambda t: 2*t, 0, 3)` → (9.0, ~1e-13). Agreement to 6 decimals passes.
+> **Theory:** intuition over symbolic fluency. (No textbook required — video + doing is the whole theory here.)
 
 ## Deliverable
 
-Given v(t) = 2t m/s: derive acceleration, calculate position at t = 3s by integration, explain the physical meaning of the area under the curve.
+Given v(t) = 2t m/s with x(0) = 0: derive acceleration, calculate position at t = 3 s by integration, explain the physical meaning of the area under the curve (in words a peer would accept — the MVM bar; the Full bar below bans the formula).
 
 ## Pass Condition
 
-### MVM
+### MVM (test items: v(t) = 2t, p(t) = t³ − 2t, degree ≤ 3; open notes)
 - [ ] Can take a derivative of a polynomial
 - [ ] Can integrate a polynomial with limits
-- [ ] Can chain: position → velocity → acceleration and back
-- [ ] Can explain: derivative = rate of change, integral = accumulation
+- [ ] Can chain: position → velocity → acceleration and back (on the same two test items)
+- [ ] Can explain: derivative = rate of change, integral = accumulation (formula allowed)
 
-### Full Pass
-- [ ] Power → Energy by integration, same idea, different domain
+### Full Pass (blank page; new items, e.g. v(t) = 4t² + t)
+- [ ] Power → Energy by integration, same idea, different domain (numbers: P(t) = 6t W, 0→2 s → E in joules)
 - [ ] Can explain why area under v(t) is displacement without the formula
 
 > [!warning] ⚠️ Landmines

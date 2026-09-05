@@ -76,7 +76,7 @@ Use `_templates/mech/pre_motion_check.md` before motor tests.
 - 48 V DC does not electrocute through dry intact skin — but sweat, cuts, jewelry, and probe slips erase that margin, and it ARCS (DC arcs don't self-extinguish) while a short melts copper in milliseconds.
 - Always fused. Fuse protects the *wiring*: sized above nominal draw, below wire ampacity, and verified to blow on a dead short. Motor stall/overload protection is separate — a fuse rated at stall current allows sustained stall.
 - Always current-limited supply during bring-up.
-- Capacitors store energy. After power-off, discharge through a ≥5 W-class resistor (e.g. 1 kΩ/5 W, or 2× 2 kΩ/3 W in parallel) on insulated leads for a fixed 10 s, then remove it. Then measure < 1 V before touching anything. Waiting alone is NOT a discharge method for large bus caps; "briefly" is not a time.
+- Capacitors store energy. After power-off, discharge through a ≥5 W-class resistor (e.g. 1 kΩ/5 W, or 2× 2 kΩ/3 W in parallel) on insulated leads for a fixed 10 s — clipped on first, hands clear, let the body cool before touching it — then remove it. Then measure < 1 V before touching anything; if still above 1 V, repeat and investigate (the bus is bigger than assumed). Waiting alone is NOT a discharge method for large bus caps; "briefly" is not a time. (τ = R·C: 10 s covers mF-class buses; scale up for larger.)
 - One-hand rule when probing live circuits.
 - Never work tired.
 

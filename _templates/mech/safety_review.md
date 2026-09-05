@@ -9,11 +9,14 @@ title: "{{title}}"
 
 What test or system is being reviewed?
 
+## Out of scope — STOP, do not review, redirect
+
+- Mains / high voltage: OUT OF SCOPE for this roadmap (SAFETY_CARD). Never a checkbox; never reviewed here.
+
 ## Energy sources
 
 - [ ] Bench supply
 - [ ] Battery
-- [ ] Mains / high voltage — STOP: out of scope for this roadmap (SAFETY_CARD). Do not complete this review; redirect.
 - [ ] Rotating motor
 - [ ] Gravity / falling load
 - [ ] Spring / stored mechanical energy

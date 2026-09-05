@@ -1,6 +1,8 @@
 ---
 date: "{{date:YYYY-MM-DD}}"
 title: "{{title}}"
+type: recording-review
+tags: [piano-review]
 ---
 
 # Recording Review — {{date}} — {{title}}

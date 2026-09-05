@@ -22,7 +22,7 @@ The delta between prediction and reality is where the mental model gets correcte
 6. **Log** problem *and* solution.
 
 ### 3-Tier Unblock
-1. 15 min solo struggle (document attempts).
+1. 15 min solo struggle (document attempts) — skipped for zero-schema novices: scaffold FIRST, then predict.
 2. AI scaffold / targeted query (concept, not full solution).
 3. Lateral move — easier task, same domain, close with a small win.
 
@@ -42,7 +42,7 @@ The delta between prediction and reality is where the mental model gets correcte
 
 ## Memory / SRS Strategy
 - **Engram owns spaced repetition for concepts & procedures.** All learning trees run on its FSRS engine with receipt-based evidence: mechatronics (spine + software/electronics/mechanical/project-safety), piano, data science/AI, math foundations, physics, Japanese grammar + output. Reviews via `/review-loop`.
-- **Anki owns Japanese vocabulary only.** Kaishi 1.5k + mined cards (<20k freq). Routing heuristic (not a law — overlap can help; the point is no double-SRS maintenance burden): one fact lives in exactly one SRS. In particular: piano maintenance and "review this song today" scheduling live in Engram (topic `piano`); Anki holds zero piano cards.
+- **Anki owns Japanese vocabulary only.** Kaishi 1.5k + mined cards (no fixed frequency cutoff — cutoffs are corpus-dependent). Routing heuristic (not a law — overlap can help; the point is no double-SRS maintenance burden): one fact lives in exactly one SRS. In particular: piano maintenance and "review this song today" scheduling live in Engram (topic `piano`); Anki holds zero piano cards.
 - **Routing rule:** a pattern/procedure you must *reconstruct* → Engram. A word you must recognize/produce *instantly* → Anki.
 
 ## Definitions

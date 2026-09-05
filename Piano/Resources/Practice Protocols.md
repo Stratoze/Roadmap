@@ -8,7 +8,7 @@
 > 3. Rule of Almost: leave passages almost secure, then return later.
 > 4. Slow is fast: speed increases only when control is present.
 > 5. End clean: the last repetition should be one you would happily repeat tomorrow.
-> 6. Sleep consolidates: practice timing matters.
+> 6. Sleep supports retention: duration and wind-down matter, not clock timing.
 > 7. Movement first: diagnose the gesture before grinding the notes.
 > [!warning] Health red flags
 > Stop immediately for pain, weakness, tingling, numbness, swelling, loss of dexterity, unusual fatigue, or increasing tension. See [Technique and Health](#technique-and-health).
@@ -83,7 +83,7 @@ These are aims, not obligations.
 - Daily practice plus good sleep beats weekend marathons.
 - Protect sleep duration. Sleep deprivation impairs both encoding and consolidation — no dosage duel implied; a rested short session beats an exhausted long one.
 - Naps or brief rest after practice may also help.
-- Do not practice intensely within 30 minutes of sleep if it causes arousal. Gentle review or mental practice is fine.
+- Do not practice intensely within 30 minutes of sleep if it causes arousal (30 min is a pragmatic buffer, not a studied threshold). Gentle review or mental practice is fine.
 
 ### Sleep consolidation protocol
 1. Identify the 1–2 most important passages from today's session.
@@ -195,7 +195,7 @@ Repeating on autopilot stops producing learning.
 
 #### Rule of Almost
 Do not grind a passage to perfection before moving on.
-- Work a chunk until it is almost secure — roughly 70–80% reliable.
+- Work a chunk until it is almost secure — roughly 70–80% reliable (pragmatic threshold, not a finding).
 - Switch to another chunk, piece, or activity.
 - Return later and attempt it cold before looking.
 - The struggle to recall is part of the learning.
@@ -305,7 +305,7 @@ Do not use on already-musical or rubato passages.
 
 ### Variable Practice
 Once a passage is secure at slow tempo, vary the conditions deliberately.
-This builds a more flexible motor schema than repeating the same version endlessly.
+Varied practice tends to retain better than endless identical repetition (the "flexible schema" mechanism is hypothesis, not established fact).
 Variation menu — pick 2–3 per session, not all:
 - Dynamics: play the passage pp, then ff, then with a crescendo.
 - Articulation: legato → staccato → portato → mixed.
@@ -331,7 +331,7 @@ End in control and quality.
 - Never end a fast passage in a degraded or tense state.
 - Never end a session mid-breakdown.
 - The last repetition should be one you would be happy to repeat tomorrow.
-- After the last repetition, spend 30 seconds visualizing the passage perfectly. This primes sleep consolidation.
+- After the last repetition, spend 30 seconds visualizing the passage perfectly (routine cue, not a consolidation primer with a mechanism).
 
 ---
 
@@ -447,7 +447,7 @@ Apply the same principles as etude work: pick by objective, use the tempo protoc
 9. **Weight for volume.** Louder = more mass, not more force. (P9)
 10. **One chain.** Feet, spine, breath — the finger is the last link. (P10)
 
-Defaults fit ~99% of players. Your documented deviations live in your
+Defaults fit most players (the 99% is rhetoric, not a census). Your documented deviations live in your
 [Personal Calibration Log](Movement.md#individual-calibration).
 
 ---

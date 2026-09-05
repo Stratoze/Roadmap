@@ -15,8 +15,8 @@ with pass conditions, landmines, and dependencies.
 - **Phase 1:** Hand-Wound Voice Coil Actuator + 3D-Printed Motor Test Rig (Milestone 1.7)
 - **Phase 2:** Force-Feedback Haptic Knob + Inverted Pendulum Cart (Milestones 2.7, 2.8)
 - **Phase 3:** Quasi-Direct Drive Actuator — CNC housing + Puck PCB + gearbox (Milestones 3.1–3.3)
-- **Phase 4:** 2-DOF Arm + Safety PDU + Gripper + Tool Changer (Milestones 4.2–4.5)
-- **Phase 5:** Exploded-View Pedestal + Bench Museum (Milestone 5.2)
+- **Phase 4:** 2-DOF Arm + Safety PDU + Gripper + Tool Changer (Milestones 4.2–4.5; 4.4 split — integration checklist foldable, harness-EMC + operability graded — see Skill Spine)
+- **Phase 5:** Exploded-View Pedestal + Bench Museum (Milestone 5.2 — optional example unless elected; see Skill Spine)
 
 ## Maybe later
 

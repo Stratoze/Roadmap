@@ -22,7 +22,7 @@ Expected rails:
 - [ ] Polarity checked
 - [ ] Power-to-ground resistance plausible
 - [ ] Load disconnected unless intentionally testing it
-- [ ] Current limit set
+- [ ] Current limit set (name the number + the weakest link it protects)
 - [ ] DMM connected to first rail
 
 ## Supply setup

@@ -131,7 +131,7 @@ Build all four from day 1.
 
 ### Dual-task performance simulation
 
-Once per month, add a cognitive load to your performance simulation:
+Once per month, add a cognitive load to your performance simulation (log it with [[_templates/piano/Recording Review|Recording Review]]):
 
 - Play the piece while counting aloud
 - Play while naming the chords

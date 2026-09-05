@@ -11,3 +11,4 @@ Canonical specs stay in [[Mechatronics/milestones/00_foundations|00_foundations]
 
 - [[Mechatronics/milestones/evidence/0.1-toolchain|0.1 toolchain]] — env setup, Fermi, flashlight
 - [[Mechatronics/milestones/evidence/0.2-3link-fk|0.2 3-link FK]] — MVM + Full Pass
+- Next slug: `0.3-calculus-intuition.md` (no evidence yet — title form: `# 0.3 calculus-intuition — personal evidence` + spec pointer, per the convention above)

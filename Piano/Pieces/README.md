@@ -73,6 +73,6 @@ Do not create one for:
 3. Create the error log from [Piece Error Log](../../_templates/piano/Piece%20Error%20Log.md).
 4. Create the tempo log from [Piece Tempo Log](../../_templates/piano/Piece%20Tempo%20Log.md).
 5. Log daily sessions in `Daily/` using the unified template.
-   Reference the piece name in the **Milestone / Piece / Book** field.
+   Reference the piece name in the Focus block's Current line (no separate field — the old "Milestone / Piece / Book" schema is retired).
 6. Log tempo changes and recurring errors in the piece's own logs,
    not in the daily note.
