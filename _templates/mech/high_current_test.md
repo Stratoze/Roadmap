@@ -17,9 +17,9 @@ Current limit:
 
 ## Hardware
 
-- Wire gauge:
+- Wire gauge (with bundling/ambient derating + voltage drop at stall over harness length):
 - Fuse/protection:
-- Connector rating:
+- Connector rating (mating cycles + current derating noted):
 - Supply rating:
 - Load:
 

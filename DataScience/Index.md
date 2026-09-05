@@ -3,7 +3,7 @@ title: Data Science & AI
 ---
 # Data Science & AI
 
-Engram topic: `data-science-ai` (30 nodes + capstone).
+Engram topic: `data-science-ai` (34 nodes).
 Next action: `/review-loop` for due nodes; new material via `/learn`.
 Vault-side evidence (practice datasets): `Mechatronics/data/` logs,
 Phase-1 motor telemetry, QDD characterization runs.

@@ -526,7 +526,7 @@ This artifact is the QDD actuator's firmware and sensor stack in miniature. Ever
 
 > [!warning] ⚠️ Landmines
 > 1. **AS5048 needs a DIAMETRICALLY magnetized magnet at 0.5–3 mm.** `[DATASHEET]`
->    Radial magnets read wrong. Distance out of range → weak signal or saturation. Check the AS5048 diagnostic registers. Glue the magnet to the shaft end with a spacer; don't eyeball it.
+>    Radial magnets read wrong. Distance out of range → weak signal or saturation. Check the AS5048 diagnostic registers. Glue the magnet to the shaft end with a spacer; don't eyeball it. Epoxy (degreased, full cure) for the magnet bond — cyanoacrylate creeps under vibration and heat.
 >
 > 2. **SPI timing is strict and silent.** `[DATASHEET]`
 >    CS setup/hold, clock limits — violate them and you get garbage with no error flag. Read the timing diagram before writing the driver (habit from 2.1).

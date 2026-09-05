@@ -213,6 +213,7 @@ A panel-mounted Power Distribution Unit: 48 V in → fuse → dual-channel conta
 - [ ] Logic supply independent of E-stop; MCU logs the event
 - [ ] Safe state per axis defined and tested, including the gravity case
 - [ ] Hazard analysis documented: single-point failures, failsafe vs fail-operational, acceptance criteria
+- [ ] Safety case released per `_templates/mech/safety_review.md` before the workcell is energized
 - [ ] HIL: 3+ fault types (encoder dropout, overcurrent, undervoltage), automated, fault log per `_templates/mech/fault_injection_test.md`
 - [ ] Recovery procedure documented and rehearsed
 - [ ] **Physical:** panel labeled (every terminal, fuse, connector); photo

@@ -69,6 +69,13 @@ piano cards, zero circuits, zero grammar — vocab only. If unsure, ask.
 - Piano: current stage/pieces live in the latest `Daily/` Focus + the 12-week
   goal file. If absent, ask — don't infer from repertoire lists.
 - Record the pick in today's `Daily/` Focus line so the next session inherits it.
+- Proximity trigger (anti-rot rule): when the current step sits within one
+  milestone/level of gated content (48V first-power, Phase-4b spindle/CNC,
+  N4-completion/N3-entry, recital), spawn a verification subagent FIRST to
+  check level-vs-demand and surface missing prerequisites (for Phase-4b that
+  means the 4.3 + spindle-addendum gate in ROADMAP). Deferred work
+  gets built at point of need — never assumed ready.
+- Mech 0.3 (calculus intuition) reviews via `math-foundations`, not a mech topic.
 
 ## Safety hierarchy (precedence order)
 

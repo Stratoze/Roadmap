@@ -97,6 +97,7 @@ Piano Marvel microphone mode is iOS-only and less reliable for complex polyphony
 
 Use app scores as one data point for accuracy.
 Everything else uses your rubric, recordings, and external feedback.
+Log each review with [[_templates/piano/Recording Review|Recording Review]] — one fix carries to next week.
 
 ## Performance Simulation and Memorization
 

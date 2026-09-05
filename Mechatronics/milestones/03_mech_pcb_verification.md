@@ -221,6 +221,7 @@ Complete QDD actuator mechanical design in Solid Edge CE: housing (two halves or
 - Bearings selected BEFORE bore/shaft dimensions — you design around purchased bearings, never the reverse.
 - Print + assemble the prototype BEFORE ordering CNC.
 - DFM review BEFORE sending STEP files, not after the shop emails you questions. Send the quote package (`_templates/mech/quote_package.md`): STEP + material/temper + finish + qty + tolerance callouts, and answer every line of the shop's DFM reply.
+- FEA acceptance logged per `_templates/mech/fea_check.md` BEFORE CNC order — convergence + hand-calc + BC audit, not a screenshot.
 - Verify the Solid Edge → STEP → PrePoMax pipeline on a 30-minute bracket BEFORE trusting it with the actuator.
 
 > Log sessions in Daily/ notes using the unified template.
@@ -292,7 +293,7 @@ Before finalizing schematic:
 - [ ] CAN-FD verified against a second node
 - [ ] Buck efficiency measured > 85%
 - [ ] EMC check: encoder stable while motor runs 50% duty; ADC noise < 5% FS under switching
-- [ ] Thermal check: MOSFET temperature under continuous load (thermocouple), below limit
+- [ ] Thermal check: MOSFET temperature under continuous load (thermocouple), below limit; thermal pad/paste with real mounting pressure — a dry joint throttles and lies
 - [ ] Reverse polarity test: board survives
 - [ ] **Physical:** Puck mounted in the housing from 3.1; fits; connector exit correct; photographed
 
@@ -326,6 +327,7 @@ Before finalizing schematic:
 ## Dependencies that waste your week if hit backwards
 
 - **SIL gate BEFORE schematic** — the sim constrains amplifier bandwidth and filter cutoffs.
+- Layout review per `_templates/mech/pcb_emc_review.md` + BOM check per `_templates/mech/datasheet_bom_check.md` BEFORE Gerber order.
 - Verify ALL footprints BEFORE opening the layout editor.
 - Ground return diagram BEFORE layout.
 - Current-sensing topology decision (from 2.3) BEFORE choosing sense resistors/amplifiers.
@@ -439,6 +441,7 @@ down the drive.
 - Undervoltage: sag the bus voltage below threshold. Firmware detects and enters
 safe state.
 - [ ] Each fault injection uses `_templates/mech/fault_injection_test.md`.
+- [ ] Timing check logged per `_templates/mech/firmware_timing_check.md` (jitter/WCET, ADC-sync, SIL-vs-HIL divergence triage).
 - [ ] Fault log recorded: what was injected, what the firmware did, what it should have
 done, pass/fail.
 - [ ] Recovery procedure documented for each fault type.
