@@ -1,8 +1,16 @@
 # AGENT.md — Operating Contract for AI Sessions in This Vault
 
 Active phase: **Phase 1** (`./.opencode/plan/phase-1-agent-and-rituals.md`).
-Phase 2 file is reference-only until Phase-1 verification passes.
-Plans implement ONLY on explicit user `approve`. This file is the authority on conflict.
+Phase 2 (`./.opencode/plan/phase-2-skill-builder.md`) is reference-only until
+Phase-1 verification passes. This file is the authority on conflict for rituals.
+
+## Operating contract (ask-first, minimal noise)
+
+Ask-first: surface nudges as ONE short message with a question — never act silently
+on reminders, reviews, or notes. User writes nothing by default; agent drafts
+Predict/Got/One-liner, user supplies verbatim quotes. Scope approval before landing
+engram maps; maps-only landings (no pretests/teaching unless asked).
+Evidence via `bash scripts/save.sh` / `bash scripts/milestone.sh` (scripts are NOT +x).
 
 ## Session-start protocol (every session, before other work)
 
@@ -11,11 +19,14 @@ Run verbatim (repo root):
 `python3 ~/engram/scripts/engram.py due --cap 12`
 `test -f "Daily/$(date +%F).md" && echo "note: exists" || echo "note: missing"`
 Quote source: `grep -h -A3 -E "^## (One-liner|Sticky)" Daily/*.md | tail -20`
-If dues need attention OR note missing: ONE chat reply —
+If dues need attention OR note missing: ONE chat reply (chat only — no Telegram, no hooks) —
 `Reviews due: N (topics: …) | unencoded: M. Today's note: missing/exists.`
 + one direct quote (file + date) + one question offering action.
 Else silence. Never repeat after a same-day decline. Never auto-create/auto-start.
-(Fallback if runner errors: inline JSON snippet in Phase-1 §3; then stop and report.)
+Fallback if runner errors (inline, runnable, read-only — retired = node `retired`
+dict present with `restored` None, NEVER `state == 'retired'`):
+`python3 -c "import json,glob; [print(f\"{f.split('/')[-1]}:{k}\") for f in glob.glob('/Users/kohaku/.claude/learning/graphs/*.json') for k,n in json.load(open(f))['nodes'].items() if isinstance(n.get('retired'),dict) and n['retired'].get('restored') is None]"`
+Then stop and report the runner failure. Do not hand-compute dues.
 
 ## Session-end protocol (agent drafts, user quotes)
 
@@ -28,31 +39,44 @@ User quotes pasted verbatim, marked as quotes. Template: `_system/Daily Template
 Loop: Predict → Attempt → Compare → Explain gap → Integrate → Maintain.
 JIT-first (course-finishing is progress theater); gap-check chunk sizing;
 AI Use Zones Green/Yellow/Red (scaffold, never solve — Yellow zone);
+reconstruct-before-using (Yellow-zone rule: rebuild from memory before aids);
 Anti-Bloat Rule (default deletion).
 
 ## Improvement notes (mined 2026-09-07 from Landmine Log + recent Gaps)
 
 - Predict the HARD STEP + failure mode, not the load ("reasonable load" predicts nothing).
 - No empty Got/Gap — session-end draft fills them; blank = session failed to close.
+- Blank-page re-solves (blank-page rule): claim mastery only from memory, not from notes.
 - Verify before claiming: 08-27 slips (12.4→12.60, `(x,-y)` rotation sign) were caught
   by verification, not by feel. Recompute, don't nod.
 - Day-tasks-first (anti-creep); estimate the DAY before the plan.
+- reconstruct-before-using: rebuild from memory before reaching for aids or notes.
+- When a landmine fires, promote it: `[VERIFIED — date]` into the owning file.
 - Radians in code, always. Interface before implementation. Telemetry out of hot paths.
 
-## Toolchain (re-verify per §2 item 4 before toolchain-dependent work)
+## Toolchain (re-verify before toolchain-dependent work)
 
-Apple clang/clangd 21 · cmake 4.4.3 · python 3.14.7 · julia 1.12.7 · nvim 0.12.5.
-VSCode Vim (`jj`→Esc, space leader) + clangd + Ruff + Julia
+Re-verify with: `bash scripts/versions.sh` (covers git/python3/arm-none-eabi-gcc/gcc/
+cmake/make/openocd/kicad-cli) AND `clangd --version; julia --version; nvim --version;
+code --list-extensions | grep -i -e vim -e clangd -e ruff -e julia` — record drift
+from the facts below (full rule: Phase-1 plan §2 item 4,
+`./.opencode/plan/phase-1-agent-and-rituals.md`).
+Facts (2026-09-07): Apple clang/clangd 21 · cmake 4.4.3 · python 3.14.7 ·
+julia 1.12.7 · nvim 0.12.5. VSCode Vim (`jj`→Esc, space leader) + clangd + Ruff + Julia
 (`~/Library/Application Support/Code/User/settings.json`).
 Engram runner: `python3 ~/engram/scripts/engram.py` — never hand-compute scheduling.
-`scripts/*.sh` are NOT +x: run as `bash scripts/<name>.sh`.
+Health: `python3 scripts/diagnose.py` (known-baseline in Phase-1 plan §0; EXEMPT block
+at the top of the script is authoritative for carried failures).
 
 ## Hard Rules (authoritative Forbidden list; interim authority = this section)
 
+- PLAN-marked files implement ONLY on explicit user `approve`.
 - Never auto-create notes/reviews; never invent activity; never pre-fill Gap.
 - Maps-only engram landings (no pretests/teaching unless asked); scope approval first.
 - NEVER AI-generated video (chat directly instead).
-- (Phase-2 forward pointers, NOT enforced in Phase 1: video-pair-per-topic rule,
-  GOAL.md-single-source, skill registry, machine-gated tags.)
+- (Phase-2 forward pointers, NOT enforced in Phase 1 and not yet built — absence is
+  expected, do not "fix" by creating: video-pair-per-topic rule, GOAL.md-single-source
+  (`Mechatronics/GOAL.md`), skill registry (`Mechatronics/skills/registry.md`),
+  machine-gated tags.)
 - Evidence via `bash scripts/save.sh` / `bash scripts/milestone.sh`; status lives ONLY
   in the ROADMAP table — never duplicate ✅.
