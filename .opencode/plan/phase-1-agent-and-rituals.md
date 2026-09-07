@@ -31,7 +31,7 @@ Reference convention in both plan files: §X.Y means §X item Y (sections are nu
 - Toolchain (verified 2026-09-07): Apple clang/clangd 21, cmake 4.4.3, python 3.14.7,
   julia 1.12.7, nvim 0.12.5, VSCode + Vim/clangd/Ruff/Julia extensions
   (`~/Library/Application Support/Code/User/settings.json`, 82 lines; `jj`→Esc, space leader).
-- KNOWN-BASELINE dirt: `bash scripts/diagnose.py` reports 2 broken
+- KNOWN-BASELINE dirt: `python3 scripts/diagnose.py` reports 2 broken
   (`index.md` → `[[Reading/Reading RoadMap]]`, `[[Reading/Reading Progress]]`) + 1 orphan
   (`Mechatronics/milestones/Phase 0/0.2.md`). Treat as known-baseline, not agent failure;
   fix or carry in the `EXEMPT` block (§5).
@@ -120,7 +120,7 @@ Nudge policy (ambient, no nagging):
 
 1. Dues > 0 + note missing → exactly one nudge message with a real quote + a question.
    Nothing due + note exists → silence. Decline → no repeat same day.
-2. `bash scripts/diagnose.py` output recorded; no NEW failures vs §0 known-baseline.
+2. `python3 scripts/diagnose.py` output recorded; no NEW failures vs §0 known-baseline.
    Carried items live in a NEW `EXEMPT` block at the top of `scripts/diagnose.py`
    (format: `# EXEMPT <check>: <target> — <reason> — expires <YYYY-MM-DD>`), which the
    Phase-2 gate reads as authoritative.

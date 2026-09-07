@@ -3,7 +3,7 @@ date: "{{date:YYYY-MM-DD}}"
 tags: [daily]
 ---
 ## Focus
-- **Domain:** mech / piano / reading / japanese
+- **Domain:** mech / piano / reading / japanese / system / software / science / data-science
 - **Milestone / Piece / Book:** 
 - **Target:** 
 
