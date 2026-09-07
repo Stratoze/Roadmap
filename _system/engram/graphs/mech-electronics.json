@@ -1,0 +1,675 @@
+{
+  "nodes": {
+    "circuits-kvl": {
+      "claim": "A circuit is a closed loop: KVL says voltages around any loop sum to zero; KCL says current into a node equals current out. Components each decide their voltage by their I-V law — resistor V = IR, LED roughly 2 V fixed, motor back-EMF. You compute the rest.",
+      "probe": "A 5 V supply drives an LED with a 2 V drop through a series resistor. Choose the resistor so 10 mA flows. Then write the KVL equation and name the law that says current is the same everywhere in the loop.",
+      "rubric": [
+        "resistor voltage = 5 − 2 = 3 V by KVL",
+        "R = V/I = 3/0.01 = 300 Ω",
+        "KVL loop equation written explicitly",
+        "names the law that current is the same everywhere in the loop (KCL)"
+      ],
+      "kind": "procedure",
+      "arbitrary": false,
+      "threshold": false,
+      "viz": null,
+      "edges": {
+        "requires": []
+      },
+      "why_chain": [],
+      "transfer_probe": null,
+      "practice": {
+        "problem_frame": "Given a source voltage and one or two known component drops (LED, resistor, motor), size the series resistor and verify by KVL.",
+        "discriminates_from": "Computing current from the source voltage alone and treating the LED as a resistor.",
+        "verify": "Plug the chosen R back into KVL: V_source − V_LED − I·R must equal zero.",
+        "error_bank": [
+          "assuming the LED drop is proportional to current (it is not)",
+          "using 5 V across the resistor instead of 3 V",
+          "mixing mA and A in Ohm's law"
+        ]
+      },
+      "fsrs": {
+        "s": null,
+        "d": null,
+        "due": null,
+        "last": null,
+        "reps": 0,
+        "lapses": 0
+      },
+      "state": "new",
+      "artifact": null,
+      "arc": 1
+    },
+    "power-thermal": {
+      "claim": "Power is the product of effort and flow: P = V·I. In a resistor it all becomes heat, P = I²R. A motor exchanges electrical P = V·I for mechanical P = τ·ω — the difference is heat. Heat is a current driven by temperature difference through a thermal resistance (RθJA), and a chip's limit is a temperature, not a wattage.",
+      "probe": "A motor draws 2 A at 24 V and delivers 30 W mechanically. What is its efficiency and how much heat does it shed? Then: a regulator has RθJA = 50 °C/W in a 25 °C room; how hot does it get at 1 W? Why would you derate it to 0.5 W?",
+      "rubric": [
+        "P_elec = 48 W, efficiency = 30/48 = 62.5%, heat = 18 W",
+        "ΔT = RθJA·P = 50·1 = 50 °C → junction at 75 °C",
+        "explains derating: margin below the 125–150 °C junction limit over ambient",
+        "P = V·I and P = τ·ω both named as power"
+      ],
+      "kind": "procedure",
+      "arbitrary": false,
+      "threshold": false,
+      "viz": null,
+      "edges": {
+        "requires": [
+          "circuits-kvl"
+        ]
+      },
+      "why_chain": [],
+      "transfer_probe": null,
+      "practice": {
+        "problem_frame": "Given a motor or regulator's electrical numbers and a thermal resistance, compute efficiency, heat, and junction temperature; decide if derating is needed.",
+        "discriminates_from": "Stopping at efficiency without computing the waste heat, or treating the power spec as the limit instead of the temperature.",
+        "verify": "Redo with P_heat = P_elec − P_mech and check ΔT = RθJA·P_heat; compare to the datasheet junction limit.",
+        "error_bank": [
+          "computing heat as I²R with the motor's mechanical watts",
+          "using watts as the chip limit instead of temperature",
+          "forgetting ambient: T_junction = T_ambient + ΔT"
+        ]
+      },
+      "fsrs": {
+        "s": null,
+        "d": null,
+        "due": null,
+        "last": null,
+        "reps": 0,
+        "lapses": 0
+      },
+      "state": "new",
+      "artifact": null,
+      "arc": 1
+    },
+    "h-bridge": {
+      "claim": "An H-bridge drives a motor both ways: four switches, diagonals conduct for forward/reverse. Dead time between the high and low switch of each leg prevents shoot-through (both on = short circuit). Flyback diodes clamp the inductive kick when a switch opens. PWM controls average voltage; the low-side resistor is the usual current-sense point.",
+      "probe": "A motor runs at 50% speed via PWM. Draw the bridge, mark which switches conduct in the on-phase and which diodes clamp in the off-phase, and say why the high and low switch of one leg are never both on.",
+      "rubric": [
+        "diagonal conduction pattern for each direction",
+        "flyback path: inductor current continues through the body/flyback diodes when switches open",
+        "shoot-through explained as the reason for dead time",
+        "PWM sets average voltage; direction by which diagonal conducts"
+      ],
+      "kind": "procedure",
+      "arbitrary": false,
+      "threshold": false,
+      "viz": null,
+      "edges": {
+        "requires": [
+          "circuits-kvl",
+          "power-thermal"
+        ]
+      },
+      "why_chain": [],
+      "transfer_probe": null,
+      "practice": {
+        "problem_frame": "Given a motor, supply, and PWM requirement, produce the switch timing for forward/reverse and identify every component's role (switches, diodes, sense resistor).",
+        "discriminates_from": "Drawing one switch per direction — a single FET cannot interrupt inductive current safely, and four are needed to reverse polarity.",
+        "verify": "Walk each switching phase: current loop must be complete (through switches or diodes) at every instant.",
+        "error_bank": [
+          "both switches of a leg on simultaneously (shoot-through)",
+          "no flyback path when the switch opens",
+          "sensing current on the high side where the signal is noisy"
+        ]
+      },
+      "fsrs": {
+        "s": null,
+        "d": null,
+        "due": null,
+        "last": null,
+        "reps": 0,
+        "lapses": 0
+      },
+      "state": "new",
+      "artifact": null,
+      "arc": 1
+    },
+    "current-sense-front-end": {
+      "claim": "Motor current is read through a shunt resistor, amplified, anti-aliased, then digitized — this chain decides whether the control loop ever sees the truth. A Kelvin (4-wire) connection keeps the sense wires off the current-carrying path so routing resistance adds no error. The amplifier's gain, bandwidth, CMRR, and offset set what you can resolve: gain picks resolution, bandwidth must cover the PWM switching content, CMRR rejects common-mode switching noise. The anti-alias filter must be analog, before the ADC — and a scope check of the conditioned signal comes before any firmware.",
+      "probe": "You are adding current sensing to the H-bridge. Name the four stages in order; explain why the shunt uses a Kelvin connection; say what gain, bandwidth, and CMRR each guarantee about the measurement; and say what the scope verification is supposed to catch before you write any firmware.",
+      "rubric": [
+        "four stages in order: shunt → amplifier → anti-alias filter → ADC (with a scope tap)",
+        "Kelvin: sense leads carry no current, so IR drop in the routing does not pollute the measurement",
+        "gain/bandwidth/CMRR: gain sets resolution, bandwidth covers switching content, CMRR rejects common-mode noise",
+        "scope-first: verify the conditioned waveform at the ADC pin is clean and in range before trusting any code"
+      ],
+      "kind": "procedure",
+      "arbitrary": false,
+      "threshold": false,
+      "viz": {
+        "affordance": "low",
+        "hint": "A four-stage signal chain on a rail — shunt → amp → filter → ADC — with a probe you can drag to any node and watch the waveform corrupt or clean up."
+      },
+      "edges": {
+        "requires": [
+          "h-bridge"
+        ]
+      },
+      "why_chain": [],
+      "transfer_probe": null,
+      "practice": {
+        "problem_frame": "Given a motor phase current to measure, pick the stages and the critical parameters (sense point, gain, bandwidth) and verify the conditioned signal with a scope.",
+        "discriminates_from": "Reading current on the high side without CMRR thinking; skipping the anti-alias filter because 'it's just noise'.",
+        "verify": "Signal at the ADC pin: clean, in range, no aliased PWM residue; current direction readable; gain chosen so peak current does not saturate the amp.",
+        "error_bank": [
+          "single-wire sense with routing resistance inside the measurement loop",
+          "amplifier saturating at peak current",
+          "filter placed after the ADC (digital cannot fix aliasing)",
+          "no scope check before firmware"
+        ]
+      },
+      "fsrs": {
+        "s": null,
+        "d": null,
+        "due": null,
+        "last": null,
+        "reps": 0,
+        "lapses": 0
+      },
+      "state": "new",
+      "artifact": null,
+      "revised": [
+        {
+          "at": "2026-09-05",
+          "fields": [
+            "probe"
+          ],
+          "receipts_under_previous": 0
+        }
+      ],
+      "arc": 1
+    },
+    "bldc-encoder": {
+      "claim": "A BLDC must be told which phases to energize: with an encoder you know rotor position directly (position commutation); without one you guess from back-EMF (sensorless). Electrical angle = mechanical angle × pole pairs. The encoder's electrical offset versus the phases is the one calibration that decides whether the motor spins or twitches. Encoders come in two families: incremental (quadrature, 4× decoding, counts to 4000 from a 1000-line disk — and it forgets everything on power loss) and absolute (AS5048-style, remembers position; a 16-bit counter that overflows needs a wrap detector, homing, or a wider counter).",
+      "probe": "A 7-pole-pair motor spins 10 mechanical revolutions. How many electrical revolutions pass? Why can't you energize the same two phases forever? What does the electrical-offset calibration actually correct? Then: an incremental encoder gives 1000 counts/rev — how do you get 4000 effective steps, and what happens when the counter overflows at 16 bits?",
+      "rubric": [
+        "electrical revolutions = 10 × 7 = 70",
+        "torque needs the current perpendicular to the rotor field — commutation must track position",
+        "offset calibration aligns encoder zero to the phase winding alignment — wrong offset = stall or twitch",
+        "quadrature 4×: both channels plus both edges → 4000 steps from 1000 counts/rev",
+        "incremental vs absolute: incremental loses position on power loss (needs homing); absolute remembers; overflow needs wrap detection/homing/wider counter"
+      ],
+      "kind": "concept",
+      "arbitrary": false,
+      "threshold": false,
+      "viz": null,
+      "edges": {
+        "requires": [
+          "h-bridge"
+        ]
+      },
+      "why_chain": [],
+      "transfer_probe": null,
+      "fsrs": {
+        "s": null,
+        "d": null,
+        "due": null,
+        "last": null,
+        "reps": 0,
+        "lapses": 0
+      },
+      "state": "new",
+      "artifact": null,
+      "arc": 1
+    },
+    "stepper-drive": {
+      "claim": "A stepper is a position loop without a sensor: the driver chops current through coils to hold detent positions, and microstepping interpolates by proportioning currents between phases. Open loop means the controller never learns if steps were lost — torque falls with speed and stall is invisible. Steppers win where load is predictable and speed is low.",
+      "probe": "A stepper loses steps at 3000 steps/s but not at 500. Why does torque collapse at speed, and why does the controller not notice? When would you refuse a stepper in favor of a BLDC + encoder?",
+      "rubric": [
+        "torque falls with speed (back-EMF limits current rise; coil time constant)",
+        "open-loop blindness: no feedback, so slip is undetected",
+        "refusal criteria: unknown/variable load, missed-step criticality, sustained high speed"
+      ],
+      "kind": "concept",
+      "arbitrary": false,
+      "threshold": false,
+      "viz": null,
+      "edges": {
+        "requires": [
+          "h-bridge"
+        ]
+      },
+      "why_chain": [],
+      "transfer_probe": null,
+      "fsrs": {
+        "s": null,
+        "d": null,
+        "due": null,
+        "last": null,
+        "reps": 0,
+        "lapses": 0
+      },
+      "state": "new",
+      "artifact": null,
+      "arc": 1
+    },
+    "voice-coil-rig": {
+      "claim": "A voice coil is a linear motor from first principles: F = B·I·L — field × current × wire length in the gap. The vault's Phase 1 artifact, the hand-wound VCA plus 3D-printed dynamometer, exists to MEASURE Kt = F/I and Ke = V/ω and confirm they match (Kt = Ke in SI). A characterized actuator has measured numbers, not a spec sheet.",
+      "probe": "You wound a coil, slid it into a magnet gap, and can push a known mass against it. Design the measurement: what do you measure, what do you divide, and how do you check Kt = Ke? What uncertainty dominates?",
+      "rubric": [
+        "Kt: measure force with a load cell at known current — Kt = F/I",
+        "Ke: spin/translate at known velocity, measure induced voltage — Ke = V/ω",
+        "checks Kt ≈ Ke in SI units (energy conservation)",
+        "dominant uncertainty: gap field uniformity / wire length / force-measurement accuracy"
+      ],
+      "kind": "concept",
+      "arbitrary": false,
+      "threshold": false,
+      "viz": null,
+      "edges": {
+        "requires": [
+          "h-bridge"
+        ]
+      },
+      "why_chain": [],
+      "transfer_probe": null,
+      "fsrs": {
+        "s": null,
+        "d": null,
+        "due": null,
+        "last": null,
+        "reps": 0,
+        "lapses": 0
+      },
+      "state": "new",
+      "artifact": null,
+      "arc": 1
+    },
+    "puck-pcb": {
+      "claim": "A motor-driver PCB is a power layout puzzle: 4 layers with a solid ground plane, gate-drive bootstrap for the high-side FETs, bulk input caps close to the bridge (loop area = inductance = ringing), a low-side current sense with Kelvin routing, and the MCU's quiet ground kept off the switching return. Layout is a schematic you can touch.",
+      "probe": "List the five layout rules for the Puck board. For the two most critical, explain with loop-area reasoning: what happens if the bulk cap sits far from the bridge?",
+      "rubric": [
+        "solid ground plane / 4-layer stack",
+        "bulk cap close to bridge — small loop = low inductance = less ringing",
+        "bootstrap cap and diode for high-side drive",
+        "Kelvin (4-wire) current sense",
+        "MCU ground separated from switching return"
+      ],
+      "kind": "procedure",
+      "arbitrary": false,
+      "threshold": false,
+      "viz": null,
+      "edges": {
+        "requires": [
+          "h-bridge",
+          "power-thermal"
+        ]
+      },
+      "why_chain": [],
+      "transfer_probe": null,
+      "practice": {
+        "problem_frame": "Given a board sketch, identify the switching loop and fix the layout (cap placement, ground, sense routing).",
+        "discriminates_from": "Treating the PCB as a schematic: the physical loop, not the netlist, decides ringing and noise.",
+        "verify": "Draw the instantaneous current path at each commutation edge; the loop must be minimal and the sense trace must not cross it.",
+        "error_bank": [
+          "bulk cap far from the FETs (big loop → ringing/EMI)",
+          "sense resistor in the switching path with a shared ground trace",
+          "MCU ground riding the power return"
+        ]
+      },
+      "fsrs": {
+        "s": null,
+        "d": null,
+        "due": null,
+        "last": null,
+        "reps": 0,
+        "lapses": 0
+      },
+      "state": "new",
+      "artifact": null,
+      "arc": 1
+    },
+    "qdd-characterization": {
+      "claim": "A quasi-direct-drive actuator earns its name on the bench: backdrivability (push it — what force does it feel like?), reflected inertia at the output, measured Kt with its uncertainty, cogging torque, and friction. Characterization is the Phase 3 deliverable: numbers on a curve, not adjectives. HIL fault injection proves the controller fails safe before the arm carries it.",
+      "probe": "You built the QDD. Give the characterization battery: the five quantities you measure and how, and why HIL fault injection (stuck sensor, command spike) is part of the pass condition.",
+      "rubric": [
+        "Kt measured with uncertainty (not datasheet)",
+        "backdrivability test: push the output, measure felt force/stiffness",
+        "reflected inertia, cogging torque, friction measured",
+        "HIL fault injection: controller must fail safe under sensor loss/command spikes"
+      ],
+      "kind": "concept",
+      "arbitrary": false,
+      "threshold": false,
+      "viz": null,
+      "edges": {
+        "requires": [
+          "puck-pcb",
+          "voice-coil-rig"
+        ]
+      },
+      "why_chain": [],
+      "transfer_probe": null,
+      "fsrs": {
+        "s": null,
+        "d": null,
+        "due": null,
+        "last": null,
+        "reps": 0,
+        "lapses": 0
+      },
+      "state": "new",
+      "artifact": null,
+      "arc": 1,
+      "retired": {
+        "ts": "2026-09-05",
+        "restored": null
+      }
+    },
+    "qdd-backdrivable-inertia": {
+      "arbitrary": false,
+      "claim": "A quasi-direct-drive joint stays backdrivable because its low reduction N reflects only N² times the rotor inertia to the output, so the torque felt pushing the unpowered output is small reflected inertia plus friction rather than gearing.",
+      "edges": {
+        "analogous_to": [
+          "voice-coil-rig"
+        ],
+        "contrasts_with": [
+          "stepper-drive"
+        ],
+        "derives_from": [],
+        "requires": [
+          "bldc-encoder",
+          "puck-pcb"
+        ]
+      },
+      "kind": "concept",
+      "probe": "With the QDD unpowered you push its output back and forth and then repeat the calculation for two candidate reductions. What do you feel and measure in the push test, how does the rotor's inertia appear at the output as N changes, and why does the low-N choice stay pushable while a high-N one does not?",
+      "rubric": [
+        "push test: unpowered output pushed by hand or dynamometer; felt torque is low and motion is smooth if backdrivable",
+        "reflected inertia equals N² times rotor inertia, applied to both candidate reductions",
+        "low N keeps reflected inertia and drag small so the output back-drives the rotor; high N multiplies them until the output feels locked"
+      ],
+      "threshold": false,
+      "transfer_probe": "A bike shop rolls two unpowered e-bikes backwards by hand: a high-reduction mid-drive and a direct-drive hub motor. Which rear wheel turns freely, how does the motor's inertia scale through each reduction, and why does only one stay pushable?",
+      "viz": {
+        "affordance": "some",
+        "hook": "Drag the reduction N from 1 to 100 and feel the output refuse to budge as reflected inertia grows with N².",
+        "kind": "causal-parameter"
+      },
+      "why_chain": [],
+      "fsrs": {
+        "s": null,
+        "d": null,
+        "due": null,
+        "last": null,
+        "reps": 0,
+        "lapses": 0
+      },
+      "state": "new",
+      "artifact": null,
+      "arc": 2
+    },
+    "qdd-cogging-friction": {
+      "arbitrary": false,
+      "claim": "On the QDD bench, cogging is the current-free torque ripple periodic in rotor position measured by slow unpowered rotation, while friction is the speed-dependent drag measured as steady drive current versus speed.",
+      "edges": {
+        "analogous_to": [],
+        "contrasts_with": [
+          "qdd-backdrivable-inertia"
+        ],
+        "derives_from": [
+          "qdd-kt-measure"
+        ],
+        "requires": [
+          "bldc-encoder",
+          "current-sense-front-end",
+          "puck-pcb",
+          "qdd-kt-measure"
+        ]
+      },
+      "kind": "concept",
+      "probe": "You slowly rotate the unpowered QDD through one revolution, then drive it at several steady speeds and log current. Which trace gives cogging and which gives friction, what axis does each plot against, and how do the two signatures differ?",
+      "rubric": [
+        "cogging comes from the unpowered slow rotation: torque ripple versus rotor position, zero mean, repeating per slot and pole",
+        "friction comes from powered steady speed: steady current or torque versus speed, with a Coulomb offset plus a viscous slope",
+        "separation rule: position-periodic ripple is cogging; speed-dependent level and slope is friction"
+      ],
+      "threshold": false,
+      "transfer_probe": "A secondhand direct-drive turntable flutters once per revolution and also drags steadily. Which bench spin separates the once-per-rev ripple from the bearing drag, what does each plot against, and which fault does each implicate?",
+      "viz": {
+        "affordance": "some",
+        "hook": "Spin the rotor slowly by hand and watch the position-locked ripple hold still while the speed-dependent drag line separates out beneath it.",
+        "kind": "comparative"
+      },
+      "why_chain": [
+        "qdd-kt-measure"
+      ],
+      "fsrs": {
+        "s": null,
+        "d": null,
+        "due": null,
+        "last": null,
+        "reps": 0,
+        "lapses": 0
+      },
+      "state": "new",
+      "artifact": null,
+      "arc": 2
+    },
+    "qdd-hil-failsafe": {
+      "arbitrary": false,
+      "claim": "The QDD's HIL fail-safe is a numeric contract: on any injected fault the controller forces zero torque and disables the bridge within a stated millisecond bound with phase current under a stated clamp, proven by the logged traces — never by a slogan.",
+      "edges": {
+        "analogous_to": [],
+        "contrasts_with": [],
+        "derives_from": [
+          "qdd-kt-measure"
+        ],
+        "requires": [
+          "bldc-encoder",
+          "current-sense-front-end",
+          "h-bridge",
+          "puck-pcb",
+          "qdd-kt-measure"
+        ]
+      },
+      "kind": "concept",
+      "probe": "You inject a stuck encoder and a current-command spike into the QDD controller on the bench. What is the exact safe state the controller must enter, which two numbers define whether it got there in time and under limit, and what logged evidence proves it on each fault?",
+      "rubric": [
+        "safe state named explicitly: torque and phase-current command forced to zero with the bridge disabled or coasted",
+        "a time bound in milliseconds from fault flag to safe-state entry, read off the log timestamps",
+        "a current clamp in amps never exceeded during the event, read off the phase-current trace"
+      ],
+      "threshold": false,
+      "transfer_probe": "The vault arm's shoulder joint holds a wrench overhead when its encoder freezes mid-lift and, on another run, the current command spikes. What safe state must it enter, which two numbers bound the entry, and what log traces prove both faults were contained?",
+      "why_chain": [
+        "qdd-kt-measure"
+      ],
+      "viz": null,
+      "fsrs": {
+        "s": null,
+        "d": null,
+        "due": null,
+        "last": null,
+        "reps": 0,
+        "lapses": 0
+      },
+      "state": "new",
+      "artifact": null,
+      "arc": 2
+    },
+    "qdd-kt-measure": {
+      "arbitrary": false,
+      "claim": "A QDD's usable torque constant is the bench-measured stall-torque-per-amp quoted with its uncertainty band, taken only after encoder-offset calibration and against a trusted phase-current reading — never the datasheet number.",
+      "edges": {
+        "analogous_to": [],
+        "contrasts_with": [],
+        "derives_from": [],
+        "requires": [
+          "bldc-encoder",
+          "current-sense-front-end",
+          "puck-pcb",
+          "voice-coil-rig"
+        ]
+      },
+      "kind": "concept",
+      "probe": "You hang a known lever-arm load on the QDD output, calibrate one thing first, then record stall torque at several currents. What must you calibrate before any pull, how do you compute Kt and its spread from the pulls, and which number do you size the joint from afterward, and why?",
+      "rubric": [
+        "calibrate the encoder electrical offset first — wrong commutation alignment corrupts every torque pull",
+        "Kt is the slope of torque versus current across the pulls, quoted as mean with its spread over repeats",
+        "size the joint from the bench band; the printed spec is a sanity check only"
+      ],
+      "threshold": false,
+      "transfer_probe": "A used e-skateboard hub motor wears a printed '0.08 Nm/A' sticker. With a luggage scale, a lever arm, and a bench supply, what do you calibrate first, how do you quote your own per-amp number with its spread, and which number sets the hill-climb current limit?",
+      "why_chain": [],
+      "viz": null,
+      "fsrs": {
+        "s": null,
+        "d": null,
+        "due": null,
+        "last": null,
+        "reps": 0,
+        "lapses": 0
+      },
+      "state": "new",
+      "artifact": null,
+      "arc": 2
+    },
+    "capstone": {
+      "claim": "You can USE Mechatronics — Electronics & Actuators in your own work, not just explain it.",
+      "probe": "Build the thing. In your real repo, your real notes, your real argument — produce something that only works if you actually understand Mechatronics — Electronics & Actuators. Your stated goal: The pcb/ + hardware/wiring side of the vault roadmap: KVL/KCL, power & thermal, H-bridge drive, current-sense front ends, BLDC commutation, steppers, the hand-wound voice-coil rig (Phase 1 artifact), the Puck 4-layer PCB (Phase 3), and QDD bench characterization. Feeds QDD sizing in Phase 3 and the arm's joints in Phase 4. Signals/DSP prerequisites live in mech-software; metrology lives in mech-mechanical.. Ship it, then explain which concept made which decision.",
+      "rubric": [
+        "the artifact exists and works (or the argument stands on its own)",
+        "names at least two concepts from this topic that DECIDED something in it",
+        "identifies where the model broke down or needed more than the topic gave"
+      ],
+      "transfer_probe": null,
+      "why_chain": [],
+      "arbitrary": false,
+      "threshold": false,
+      "viz": null,
+      "capstone": true,
+      "edges": {
+        "requires": [
+          "bldc-encoder",
+          "buck-bootstrap-sequencing",
+          "circuits-kvl",
+          "current-sense-front-end",
+          "h-bridge",
+          "power-thermal",
+          "puck-pcb",
+          "qdd-backdrivable-inertia",
+          "qdd-characterization",
+          "qdd-cogging-friction",
+          "qdd-hil-failsafe",
+          "qdd-kt-measure",
+          "sensing-topology-sizing",
+          "stepper-drive",
+          "voice-coil-rig"
+        ]
+      },
+      "state": "new",
+      "fsrs": {
+        "s": null,
+        "d": null,
+        "due": null,
+        "last": null,
+        "reps": 0,
+        "lapses": 0
+      },
+      "artifact": null
+    },
+    "buck-bootstrap-sequencing": {
+      "claim": "The driver needs power before it can drive: a buck (inductor + feedback per its datasheet, input cap placed first within 5 mm, efficiency measured above 85%) — never an LDO across a tens-of-volts drop. The high-side gate needs its bootstrap: C_boot sized from total gate charge (too small starves the gate into the linear region = dead FETs; too large stalls startup), then sequencing (logic stable before MCU, gate enable only after rails are good), inrush taming (NTC or soft-start), reverse-polarity survival, stall-current trace widths per IPC-2221, and a switching node kept under 5 mm.",
+      "probe": "Logic rail 48->3.3 V at 1 A: kill or keep the LDO with math, then size the buck stage (inductor/feedback per datasheet, input-cap placement, measured efficiency target). Size C_boot from gate charge with both failure directions and the enable order. What tames inrush, survives reverse polarity, sizes traces for stall, and constrains the switching node?",
+      "rubric": [
+        "LDO math first: drop × current as heat → buck mandatory for big drops; inductor/feedback/input-cap per datasheet, η > 85% measured",
+        "C_boot from gate charge with both failure directions (small = linear-region death, large = startup delay) plus enable-after-rails sequencing",
+        "inrush + reverse-polarity + IPC-2221 stall widths + switching node < 5 mm — power stage is layout, not just schematic"
+      ],
+      "kind": "procedure",
+      "viz": {
+        "affordance": "medium",
+        "hint": "Size it for a real rail, phase, or bus; the numbers decide, not the habit."
+      },
+      "edges": {
+        "requires": [
+          "power-thermal",
+          "puck-pcb"
+        ]
+      },
+      "threshold": false,
+      "why_chain": [],
+      "arbitrary": false,
+      "transfer_probe": null,
+      "fsrs": {
+        "s": null,
+        "d": null,
+        "due": null,
+        "last": null,
+        "reps": 0,
+        "lapses": 0
+      },
+      "state": "new",
+      "artifact": null,
+      "arc": 1,
+      "revised": [
+        {
+          "at": "2026-09-06",
+          "fields": [
+            "probe"
+          ],
+          "receipts_under_previous": 0
+        }
+      ]
+    },
+    "sensing-topology-sizing": {
+      "claim": "A current chain is sized, not copied: shunt value trades signal against heat (100 mΩ at 2 A burns 0.4 W; 10 mΩ at 10 A burns 1 W — plus tempco drift), the amp needs gain-bandwidth headroom above the PWM rate (a 14 kHz chain cannot track 20 kHz switching), offset is measured and subtracted — never trimmed by hope — and the anti-alias cutoff buys noise rejection with loop phase lag. Topology follows duty: 3-shunt, dual, or single (single caps duty near 90% and demands sampling at PWM-low).",
+      "probe": "10 A phase, 20 kHz PWM: pick shunt + amp with dissipation and GBW math, choose 1/2/3-shunt with the duty consequence, and state where the offset goes and what the AA filter costs the loop.",
+      "rubric": [
+        "shunt math: I²R heat + tempco vs signal size; amp GBW comfortably above PWM rate with a named part-class",
+        "topology chosen with its price (single-shunt → duty cap + sample-at-PWM-low); offset measured-and-subtracted",
+        "AA cutoff stated with its phase-lag budget in the control loop"
+      ],
+      "kind": "procedure",
+      "viz": {
+        "affordance": "medium",
+        "hint": "Size it for a real rail, phase, or bus; the numbers decide, not the habit."
+      },
+      "edges": {
+        "requires": [
+          "current-sense-front-end"
+        ]
+      },
+      "threshold": false,
+      "why_chain": [],
+      "arbitrary": false,
+      "transfer_probe": null,
+      "fsrs": {
+        "s": null,
+        "d": null,
+        "due": null,
+        "last": null,
+        "reps": 0,
+        "lapses": 0
+      },
+      "state": "new",
+      "artifact": null,
+      "arc": 1
+    }
+  },
+  "order": [
+    "circuits-kvl",
+    "power-thermal",
+    "h-bridge",
+    "current-sense-front-end",
+    "sensing-topology-sizing",
+    "bldc-encoder",
+    "stepper-drive",
+    "voice-coil-rig",
+    "puck-pcb",
+    "buck-bootstrap-sequencing",
+    "qdd-characterization",
+    "qdd-backdrivable-inertia",
+    "qdd-kt-measure",
+    "qdd-cogging-friction",
+    "qdd-hil-failsafe",
+    "capstone"
+  ],
+  "title": "Mechatronics — Electronics & Actuators",
+  "topic": "mech-electronics",
+  "goal": "The pcb/ + hardware/wiring side of the vault roadmap: KVL/KCL, power & thermal, H-bridge drive, current-sense front ends, BLDC commutation, steppers, the hand-wound voice-coil rig (Phase 1 artifact), the Puck 4-layer PCB (Phase 3), and QDD bench characterization. Feeds QDD sizing in Phase 3 and the arm's joints in Phase 4. Signals/DSP prerequisites live in mech-software; metrology lives in mech-mechanical.",
+  "schema": 1,
+  "created": "2026-09-05"
+}

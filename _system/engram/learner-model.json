@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "created": "2026-08-18",
+  "memory": {
+    "fsrs_params": null,
+    "desired_retention": 0.9,
+    "interval_multiplier": 1.0,
+    "last_refit": null
+  },
+  "challenge_band": {
+    "target_success": 0.85,
+    "hint_budget": 2
+  },
+  "interests": [
+    "Japanese immersion",
+    "mechatronics / robotics builds",
+    "philosophy",
+    "piano",
+    "game design",
+    "anime piano covers",
+    "classical piano repertoire"
+  ],
+  "goals": [],
+  "strategy_weights": {
+    "derivation_first": 0.5,
+    "example_first": 0.5
+  },
+  "settings": {
+    "default_mode": "standard",
+    "artifacts": "threshold-only",
+    "ambient": "quiet",
+    "momentum": "on",
+    "profile": null,
+    "commitment": {
+      "cue": "lunch or the afternoon tomorrow",
+      "action": "clear the engram reviews",
+      "set": "2026-08-21",
+      "renewed": []
+    },
+    "decay_notice": "on",
+    "relearning": "on",
+    "srl": "on"
+  },
+  "accessibility": []
+}

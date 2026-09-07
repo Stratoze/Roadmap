@@ -1,0 +1,380 @@
+{
+ "topic": "vector-diagram",
+ "title": "Vector Diagrams, Drawn Not Memorized — the 2-link Arm",
+ "goal": "Can draw the vector diagram, not just plug into a formula — Mechatronics Milestone 0.2 foundation: given link lengths and joint angles, close the notes, draw the 2-link arm as a head-to-tail chain of link-arrows, and read the tip position (X, Y) off the drawing.",
+ "order": [
+  "vector-arrow",
+  "head-to-tail",
+  "components",
+  "link-is-vector",
+  "world-angle-sum",
+  "radians-degrees",
+  "vector-full-extension",
+  "capstone"
+ ],
+ "nodes": {
+  "vector-arrow": {
+   "claim": "A vector is an arrow carrying a magnitude (length) and a direction; it represents a displacement, not a location, so you may redraw it anywhere on the page — same length, same orientation, same vector.",
+   "probe": "What is a vector, as a drawing? What two properties does an arrow carry, and why is it legal to draw the same vector in two different places on the page?",
+   "rubric": [
+    "names magnitude (length) and direction as the two properties an arrow carries",
+    "states a vector is a displacement, not a fixed location, so redrawing it elsewhere with the same length and orientation is the same vector"
+   ],
+   "transfer_probe": "In a piano arrangement you transpose the motif 'C up to G' so it starts on F. Why is 'F up to C' the same motif, and what does that share with moving a vector arrow to a different place on the page?",
+   "why_chain": [],
+   "edges": {
+    "requires": [],
+    "derives_from": [],
+    "contrasts_with": [],
+    "analogous_to": []
+   },
+   "arbitrary": false,
+   "threshold": false,
+   "viz": {
+    "affordance": "some",
+    "kind": "structural",
+    "hook": "Grab the arrow and slide it across the page — a ghost copy trails behind it, showing that length and orientation are the only properties that define it."
+   },
+   "fsrs": {
+    "s": 13.8206,
+    "d": 3.932,
+    "due": "2026-09-04",
+    "last": "2026-08-21",
+    "reps": 1,
+    "lapses": 0,
+    "dose": true
+   },
+   "state": "review",
+   "artifact": null,
+   "arc": 1
+  },
+  "head-to-tail": {
+   "claim": "To add vectors A + B, draw B with its tail at A's head; the sum is the single arrow from A's tail to B's head, and the chain may be drawn in either order — the resultant arrow is the same.",
+   "probe": "A is 3 units long pointing east; B is 4 units long pointing north. Describe the exact drawing steps for A + B, then give the resultant's length and direction. Would drawing B + A instead give a different resultant? Why or why not?",
+   "rubric": [
+    "places B's tail at A's head (not at A's tail, not at a common origin)",
+    "draws the resultant as the single arrow from A's tail to B's head — the arrow that closes the chain",
+    "gives the resultant as 5 units at about 53° above east (the 3-4-5 triangle)",
+    "states the chain may be drawn in either order — B + A closes to the same resultant arrow"
+   ],
+   "transfer_probe": "In a top-down game an NPC walks 3 tiles east, then 2 tiles north. Describe the vector diagram of its total displacement: where does the second arrow start, which single arrow is the total, and what are its length and direction?",
+   "why_chain": [
+    "vector-arrow"
+   ],
+   "edges": {
+    "requires": [
+     "vector-arrow"
+    ],
+    "derives_from": [
+     "vector-arrow"
+    ],
+    "contrasts_with": [],
+    "analogous_to": []
+   },
+   "arbitrary": false,
+   "threshold": true,
+   "kind": "procedure",
+   "practice": {
+    "problem_frame": "Two displacement arrows with stated lengths (2–6 units) and directions (any angle 0°–360°, measured from east, counterclockwise positive). Vary the lengths, vary the second arrow's direction, and vary which arrow is drawn first; include chains whose resultant needs √-arithmetic instead of a 3-4-5 shortcut, and at least one case where the second arrow points back along the first (subtraction). Keep the cover story: two sequential displacements from a common start, asking for the single total-displacement arrow — length and direction.",
+    "discriminates_from": [
+     "components"
+    ],
+    "verify": "Add the arrows' coordinates: A = (ax, ay), B = (bx, by) gives resultant (ax+bx, ay+by); check the length with √(x²+y²) and the direction with atan2(y, x). Or retrace physically: the resultant's head must land exactly on the last arrow's head.",
+    "error_bank": [
+     {
+      "error": "draws B's tail at A's tail (both at the origin) and reports one of the original arrows or the diagonal as the sum",
+      "misconception": "anchors both vectors at a common origin and misplaces the resultant's endpoints — the documented parallelogram-vs-head-to-tail confusion (vector misconception catalog: Nguyen & Meltzer 2003)"
+     },
+     {
+      "error": "reports the resultant length as 3 + 4 = 7 units",
+      "misconception": "adds magnitudes like plain numbers, ignoring direction — the documented vector-as-scalar error from the same catalog"
+     },
+     {
+      "error": "reports the direction as the bisector, e.g. 45° for east + north, without computing",
+      "misconception": "assumes the resultant always bisects the angle between the arrows — overgeneralization from the equal-length case, a documented vector-direction error"
+     }
+    ]
+   },
+   "viz": {
+    "affordance": "high",
+    "kind": "causal-parameter",
+    "hook": "Drag B's head anywhere around A — the resultant pivots to close the chain; swing B until it points exactly opposite A and watch the sum collapse to zero."
+   },
+   "contrast": {
+    "deep_feature": "the order in which the same three arrows are chained — the arrows themselves, and the chain's start and end points, stay fixed across all cases",
+    "cases": [
+     "Three displacement arrows — A: 3 units east, B: 4 units north, C: 2 units west — drawn in the order A, then B, then C.",
+     "The same three arrows drawn in the order B, then A, then C.",
+     "The same three arrows drawn in the order C, then B, then A."
+    ],
+    "invite": "In each picture, which single arrow is the total displacement of the chain? What stays exactly the same in all three pictures, and what does that sameness tell you about what a vector sum depends on?"
+   },
+   "fsrs": {
+    "s": 3.1054,
+    "d": 5.7095,
+    "due": "2026-09-06",
+    "last": "2026-09-03",
+    "reps": 2,
+    "lapses": 1,
+    "dose": true
+   },
+   "state": "learning",
+   "artifact": null,
+   "arc": 1,
+   "revised": [
+    {
+     "at": "2026-09-05",
+     "fields": [
+      "probe",
+      "rubric"
+     ],
+     "receipts_under_previous": 2
+    }
+   ]
+  },
+  "components": {
+   "claim": "Resolving a vector means drawing its right triangle: drop a perpendicular from the arrow's head to the x-axis; the horizontal and vertical legs are the vector's x and y components, and the two legs chain head-to-tail back into the original arrow.",
+   "probe": "An arrow is 5 units long, pointing 37° above the x-axis. Describe the right triangle you draw to resolve it, and state the x and y components. Why do the two components add back to the original arrow?",
+   "rubric": [
+    "describes the triangle: a perpendicular dropped from the head to the x-axis, with the original arrow as the hypotenuse",
+    "components correct: x = 5·cos37° ≈ 4, y = 5·sin37° ≈ 3",
+    "explains the two legs chained head-to-tail return to the arrow's head, so they add back to the original"
+   ],
+   "transfer_probe": "You are animating a bullet fired at 60° above horizontal at 10 units/s. Describe the triangle you draw to resolve its velocity, and give its horizontal and vertical components.",
+   "why_chain": [
+    "vector-arrow",
+    "head-to-tail"
+   ],
+   "edges": {
+    "requires": [
+     "head-to-tail"
+    ],
+    "derives_from": [
+     "head-to-tail"
+    ],
+    "contrasts_with": [],
+    "analogous_to": []
+   },
+   "arbitrary": false,
+   "threshold": false,
+   "viz": {
+    "affordance": "high",
+    "kind": "causal-parameter",
+    "hook": "Drag the arrow's head and watch the perpendicular and both legs stretch live — the two legs always rechain exactly into the hypotenuse."
+   },
+   "fsrs": {
+    "s": 22.8012,
+    "d": 4.8398,
+    "due": "2026-09-06",
+    "last": "2026-09-03",
+    "reps": 2,
+    "lapses": 0,
+    "dose": true
+   },
+   "state": "review",
+   "artifact": null,
+   "arc": 1
+  },
+  "link-is-vector": {
+   "claim": "A link of length L at joint angle θ is a vector: an arrow of magnitude L pointing θ from the world x-axis — so the 2-link arm is two arrows chained head-to-tail, and the tip position is the chain's resultant, exactly as in the frame picture you already hold.",
+   "probe": "A 2-link arm has L1 = 3, L2 = 2, θ1 = 0°, θ2 = 90°. Draw it as a vector diagram: what are the two arrows, how are they arranged, and what single arrow is the tip position?",
+   "rubric": [
+    "link 1 as an arrow of length 3 pointing 0° from the world x-axis",
+    "link 2 as an arrow of length 2 pointing 90° from the world x-axis, drawn head-to-tail after link 1",
+    "tip = the chain's resultant: the arrow from the shoulder to the chain's head, i.e. position (3, 2)"
+   ],
+   "transfer_probe": "A small crane has a 5 m post standing straight up and a 3 m boom at 30° above horizontal. Describe the vector chain you draw for it, and what single arrow gives the hook's position measured from the base.",
+   "why_chain": [
+    "vector-arrow",
+    "head-to-tail"
+   ],
+   "edges": {
+    "requires": [
+     "head-to-tail"
+    ],
+    "derives_from": [
+     "vector-arrow",
+     "head-to-tail"
+    ],
+    "contrasts_with": [],
+    "analogous_to": []
+   },
+   "arbitrary": false,
+   "threshold": true,
+   "viz": {
+    "affordance": "high",
+    "kind": "causal-parameter",
+    "hook": "Rotate the two joint sliders — the two arrows swing and rechain, and the tip arrow (the resultant) is the hand position."
+   },
+   "fsrs": {
+    "s": 13.8206,
+    "d": 3.2532,
+    "due": "2026-09-04",
+    "last": "2026-08-21",
+    "reps": 4,
+    "lapses": 0,
+    "dose": true
+   },
+   "state": "review",
+   "artifact": "artifacts\\vector-diagram\\link-is-vector.html",
+   "arc": 1,
+   "revised": [
+    {
+     "at": "2026-08-21",
+     "fields": [
+      "rubric"
+     ],
+     "receipts_under_previous": 0
+    }
+   ]
+  },
+  "world-angle-sum": {
+   "claim": "Link 2's direction in the world frame is θ1 + θ2, because θ2 is measured in link 1's own (tilted) frame: rotating link 1 carries link 2's whole arrow with it.",
+   "probe": "Link 1 points 40° from the world x-axis, and θ2 = 30° is measured from link 1's axis. In what direction does link 2 point in the world frame, and why is it not simply 30°?",
+   "rubric": [
+    "states the world-frame direction as 70° (40° + 30°)",
+    "explains θ2 is measured from link 1's tilted axis, so link 2 carries link 1's rotation with it"
+   ],
+   "transfer_probe": "You transpose a piece up a major second from the original key, then up a major third from where you now are. Why is the result a perfect fifth above the original key, and what does this share with the second link's world direction?",
+   "why_chain": [
+    "vector-arrow",
+    "head-to-tail",
+    "link-is-vector"
+   ],
+   "edges": {
+    "requires": [
+     "link-is-vector"
+    ],
+    "derives_from": [
+     "link-is-vector"
+    ],
+    "contrasts_with": [],
+    "analogous_to": []
+   },
+   "arbitrary": false,
+   "threshold": false,
+   "interactivity": "high",
+   "viz": {
+    "affordance": "high",
+    "kind": "dynamic-process",
+    "hook": "Rotate θ1 and watch link 2's arrow sweep along with it while its angle to link 1 stays frozen — the world angle reads the sum live."
+   },
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "radians-degrees": {
+   "claim": "Joint angles are handed over in radians and code expects radians: 180° = π rad, so 90° = π/2 — a protractor draws degrees while a calculator in the wrong mode quietly computes a different angle.",
+   "probe": "You drew the arm with a protractor (degrees) but typed the angles into a calculator set to radians. What goes wrong, and how do you convert 90° to radians?",
+   "rubric": [
+    "identifies the unit mismatch: drawing in degrees while computing in radians (or vice versa) silently corrupts the trig values",
+    "converts correctly: 90° = π/2 rad, using π rad = 180°"
+   ],
+   "transfer_probe": null,
+   "why_chain": [],
+   "edges": {
+    "requires": [],
+    "derives_from": [],
+    "contrasts_with": [],
+    "analogous_to": []
+   },
+   "arbitrary": true,
+   "threshold": false,
+   "kind": "fact",
+   "viz": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "capstone": {
+   "claim": "You can USE Vector Diagrams, Drawn Not Memorized — the 2-link Arm in your own work, not just explain it.",
+   "probe": "Build the thing. In your real repo, your real notes, your real argument — produce something that only works if you actually understand Vector Diagrams, Drawn Not Memorized — the 2-link Arm. Your stated goal: Can draw the vector diagram, not just plug into a formula — Mechatronics Milestone 0.2 foundation: given link lengths and joint angles, close the notes, draw the 2-link arm as a head-to-tail chain of link-arrows, and read the tip position (X, Y) off the drawing.. Ship it, then explain which concept made which decision.",
+   "rubric": [
+    "the artifact exists and works (or the argument stands on its own)",
+    "names at least two concepts from this topic that DECIDED something in it",
+    "identifies where the model broke down or needed more than the topic gave"
+   ],
+   "transfer_probe": null,
+   "why_chain": [],
+   "arbitrary": false,
+   "threshold": false,
+   "viz": null,
+   "capstone": true,
+   "edges": {
+    "requires": [
+     "components",
+     "head-to-tail",
+     "link-is-vector",
+     "radians-degrees",
+     "vector-arrow",
+     "vector-full-extension",
+     "world-angle-sum"
+    ]
+   },
+   "state": "new",
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "artifact": null
+  },
+  "vector-full-extension": {
+   "claim": "Two links generalize to N: tip equals chained resultants whatever the count, a rotated base just prepends its angle, projection is the dot product (component from cosine, work as force-dot-displacement falls out free), and code never uses atan — always atan2(y,x), which knows the quadrant.",
+   "probe": "Add a third link (length plus relative angle): write the tip, rotate the whole base by 30 degrees, project link 2 onto world x two ways (components and dot product), and say what atan(y/x) gets wrong that atan2 fixes.",
+   "rubric": [
+    "N-link tip as chained resultants with base rotation prepended correctly",
+    "projection both ways with the dot-product meaning stated",
+    "atan2(y,x) with the quadrant failure of atan(y/x) demonstrated"
+   ],
+   "kind": "concept",
+   "viz": {
+    "affordance": "medium",
+    "hint": "Apply to the QDD joint or the testbed part; the numbers decide the fit, the finish, and the failure reading."
+   },
+   "edges": {
+    "requires": [
+     "link-is-vector",
+     "components",
+     "world-angle-sum"
+    ]
+   },
+   "threshold": false,
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  }
+ },
+ "schema": 1,
+ "created": "2026-08-20"
+}
