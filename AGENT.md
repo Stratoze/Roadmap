@@ -1,130 +1,88 @@
-# AGENT.md — zero-context bootstrap for AI working this vault
+# AGENT.md — Operating Contract for AI Sessions in This Vault
 
-You are in a personal learning vault (Obsidian). The learner studies
-mechatronics, piano, data science/AI, math, physics, Japanese, and reading.
-Your job: teach efficiently, keep every note in its correct format, and never
-let the learner practice unsafely. This file is the router — read the linked
-files for depth, don't guess.
+Active phase: **Phase 1** (`./.opencode/plan/phase-1-agent-and-rituals.md`).
+Phase 2 (`./.opencode/plan/phase-2-skill-builder.md`) is reference-only until
+Phase-1 verification passes. This file is the authority on conflict for rituals.
 
-## Session bootstrap (in order)
+## Operating contract (ask-first, minimal noise)
 
-1. Read `_system/How to Learn.md` — the method (loop, Q-spots, deload, AI zones).
-2. Read `index.md` — the vault map. Start domain work from its links.
-3. Check due reviews first: `/review-loop` (Engram command — loads the `review` skill). Spacing beats new material.
-4. Open the current milestone/piece file (see "Next step" below) and its
-   landmines BEFORE teaching. Landmines are read-before-starting by definition.
+Ask-first: surface nudges as ONE short message with a question — never act silently
+on reminders, reviews, or notes. Daily loop is Q&A in flow: agent asks Target +
+Predict at session start, Got + Gap at close; learner answers in their own words.
+Scope approval before landing
+engram maps; maps-only landings (no pretests/teaching unless asked).
+Evidence via `bash scripts/save.sh` / `bash scripts/milestone.sh` (scripts are NOT +x).
 
-## Vault map (one line each)
+## Session-start protocol (every session, before other work)
 
-- `_system/` — method, not content. How to Learn, Landmine Log, Daily Template.
-- `Mechatronics/` — main engineering curriculum. Enter via `ROADMAP.md`.
-- `Piano/` — piano curriculum. Enter via `Piano/Index.md`.
-- `DataScience/`, `Science/`, `Japanese/` — Engram-backed theory; thin vault
-  pages, the concept graphs are the content.
-- `Reading/` — book queue + progress log.
-- `Daily/` — daily notes, one per day, from `_system/Daily Template.md`.
-- `_templates/` — note templates by domain (`mech/`, `piano/`).
+Run verbatim (repo root):
+`python3 ~/engram/scripts/engram.py session-start`
+`python3 ~/engram/scripts/engram.py due --cap 12`
+`test -f "Daily/$(date +%F).md" && echo "note: exists" || echo "note: missing"`
+Quote source: `grep -h -A3 -E "^## (One-liner|Sticky)" Daily/*.md | tail -20`
+If dues need attention OR note missing: ONE chat reply (chat only — no Telegram, no hooks) —
+`Reviews due: N (topics: …) | unencoded: M. Today's note: missing/exists.`
++ one direct quote (file + date) + one question offering action.
+Else silence. Never repeat after a same-day decline. Never auto-create/auto-start.
+Fallback if runner errors (inline, runnable, read-only — retired = node `retired`
+dict present with `restored` None, NEVER `state == 'retired'`):
+`python3 -c "import json,glob; [print(f\"{f.split('/')[-1]}:{k}\") for f in glob.glob('/Users/kohaku/.claude/learning/graphs/*.json') for k,n in json.load(open(f))['nodes'].items() if isinstance(n.get('retired'),dict) and n['retired'].get('restored') is None]"`
+Then stop and report the runner failure. Do not hand-compute dues.
 
-## Teaching protocol (Kohaku prefs, set 2026-09-06)
+## Session-end protocol (daily Q&A in flow; dailies are the learner's)
 
-- Video first, then the learner's questions, then your verification probes.
-  Minimal chat tutoring. Intuitive lens first, rigorous lens second.
-- Interactive explorables illustrate the RIGOROUS lens, not the intuition.
-- Videos: established educators first, any human creator as fallback, never
-  AI channels. Verify human authorship before linking.
-- Push back when a better approach exists — never yes-man. Correct wrong
-  premises and say when the requested path is worse.
-- Generation still applies inside probes: predict → attempt → compare →
-  explain the gap → integrate. Never lecture what can be derived (except
-  zero-schema novices — scaffold first with a worked example, then predict;
-  unassisted flailing is not generation); never rescue early from struggle
-  (except zero-schema novices).
-  Retrieval needs prompt corrective feedback, or errors consolidate.
-- Reviews run cold recall FIRST (testing effect): probe before any
-  rewatch/reread; verify; re-teach lapses only.
+Target + Predict are asked at session start, Got + Gap at close — as part of the
+day's procedure, never out of nowhere. Learner answers in their own words; agent
+formats only (links, indent, template shape) and pastes quotes verbatim, marked.
+If Got is missing, vague, or faulty (no mechanism, no numbers), the agent says so
+and asks once more — then drops it till tomorrow. Gap is the learner's own
+words — NEVER pre-fill it. Agent session activity goes to `Changelog/YYYY-MM.md`
+(monthly, append-only), never into Daily files.
+Template: `_system/Daily Template.md`.
 
-## Memory routing (one fact lives in exactly one SRS)
+## Learning prefs (see `_system/How to Learn.md` — link, don't duplicate)
 
-| Must reconstruct (pattern, procedure, piece) | Must instantly recognize (word) |
-| --- | --- |
-| Engram via `/review-loop` | Anki, Japanese vocabulary only |
+Loop: Predict → Attempt → Compare → Explain gap → Integrate → Maintain.
+JIT-first (course-finishing is progress theater); gap-check chunk sizing;
+AI Use Zones Green/Yellow/Red (scaffold, never solve — Yellow zone);
+reconstruct-before-using (Yellow-zone rule: rebuild from memory before aids);
+Anti-Bloat Rule (default deletion).
 
-Engram owns ALL concept/procedure/piece review, **including piano
-maintenance and "review this song today"** (topic `piano`). Anki holds zero
-piano cards, zero circuits, zero grammar — vocab only. If unsure, ask.
+## Improvement notes (mined 2026-09-07 from Landmine Log + recent Gaps)
 
-## Review routing (domain → Engram topic)
+- Predict the HARD STEP + failure mode, not the load ("reasonable load" predicts nothing).
+- No empty Got/Gap — agent asks until answered or explicitly deferred; blank = session failed to close.
+- Blank-page re-solves (blank-page rule): claim mastery only from memory, not from notes.
+- Verify before claiming: 08-27 slips (12.4→12.60, `(x,-y)` rotation sign) were caught
+  by verification, not by feel. Recompute, don't nod.
+- Day-tasks-first (anti-creep); estimate the DAY before the plan.
+- reconstruct-before-using: rebuild from memory before reaching for aids or notes.
+- When a landmine fires, promote it: `[VERIFIED — date]` into the owning file.
+- Radians in code, always. Interface before implementation. Telemetry out of hot paths.
 
-- Mech frames/kinematics/dynamics → `world-frame-vs-link-frame`, `vector-diagram`
-- Mech firmware/control → `mech-software` · circuits/actuators → `mech-electronics`
-- Mech structures/materials → `mech-mechanical` · process/safety → `mech-project-safety`
-- Piano (all, incl. maintenance) → `piano`
-- Data science/AI → `data-science-ai` · math → `math-foundations`
-- Physics → `physics-first-principles`
-- Japanese grammar → `japanese-grammar` · output → `japanese-output`
+## Toolchain (re-verify before toolchain-dependent work)
 
-## Next step (no guessing)
+Re-verify with: `bash scripts/versions.sh` (covers git/python3/arm-none-eabi-gcc/gcc/
+cmake/make/openocd/kicad-cli) AND `clangd --version; julia --version; nvim --version;
+code --list-extensions | grep -i -e vim -e clangd -e ruff -e julia` — record drift
+from the facts below (full rule: Phase-1 plan §2 item 4,
+`./.opencode/plan/phase-1-agent-and-rituals.md`).
+Facts (2026-09-07): Apple clang/clangd 21 · cmake 4.4.3 · python 3.14.7 ·
+julia 1.12.7 · nvim 0.12.5. VSCode Vim (`jj`→Esc, space leader) + clangd + Ruff + Julia
+(`~/Library/Application Support/Code/User/settings.json`).
+Engram runner: `python3 ~/engram/scripts/engram.py` — never hand-compute scheduling.
+Health: `python3 scripts/diagnose.py` (known-baseline in Phase-1 plan §0; EXEMPT block
+at the top of the script is authoritative for carried failures).
 
-- Mechatronics: open `Mechatronics/ROADMAP.md`, find the earliest phase
-  with an incomplete milestone (first ⬜ after the last ✅ within that
-  phase; all-⬜ phase → its first milestone; graded gates only — 5.2 and
-  the foldable half of 4.4 are example pool unless explicitly elected).
-  That is the current milestone. Open its file, find the milestone
-  section. Resources are per-milestone `> [!info] 📚 Resources` callouts
-  inside its file, not the file top.
-- Piano: current stage/pieces live in the latest `Daily/` Focus + the 12-week
-  goal file. If absent, ask — don't infer from repertoire lists.
-- Record the pick in today's `Daily/` Focus line so the next session inherits it.
-- Proximity trigger (anti-rot rule): when the current step sits within one
-  milestone/level of gated content (48V first-power, Phase-4b spindle/CNC,
-  N4-completion/N3-entry, recital), spawn a verification subagent FIRST to
-  check level-vs-demand and surface missing prerequisites (for Phase-4b that
-  means the 4.3 + spindle-addendum gate in ROADMAP). Deferred work
-  gets built at point of need — never assumed ready.
-- Mech 0.3 (calculus intuition) reviews via `math-foundations`, not a mech topic.
+## Hard Rules (authoritative Forbidden list; interim authority = this section)
 
-## Safety hierarchy (precedence order)
-
-1. `Mechatronics/resources/SAFETY_CARD.md` — hard envelopes per phase.
-2. `Mechatronics/ROADMAP.md` phase limits.
-3. `_system/How to Learn.md` AI zones (Green/Yellow/Red).
-
-Mains is OUT OF SCOPE for the whole roadmap (certified bricks only) — redirect,
-never engage with caveats. LiPo/high-current/FOC/load ratings: never finalize
-without independent verification (datasheet + hand calc, checked by a second
-agent or a human — never self-review alone; second agent = fresh session that
-re-derives, logged in the daily note, not a rubber stamp). When files conflict, higher wins.
-
-## Daily notes (user raw in, AI formats)
-
-The user supplies raw material only: what they tried, numbers/observations,
-predictions, one-liners. You shape it into `_system/Daily Template.md`
-(Predict/Got/Gap, Sticky only if recurring, One-liner). Never invent results.
-Omit empty sections instead of leaving boilerplate. Canonical link style:
-`[[_system/How to Learn|How to Learn]]`. Frontmatter: `date: "YYYY-MM-DD"`, `tags: [daily]`.
-
-## Evidence discipline
-
-Done = MVM checkbox + git tag (`scripts/milestone.sh`), not a finished course.
-Tag MVM and Full Pass separately (`m0.2-mvm`, `m0.2-full`); phase gates as
-`p0-complete`. Tag format enforced by the script: `m<phase>.<n>-(mvm|full)`.
-Order: flip ROADMAP ⬜→✅ + `./scripts/save.sh` FIRST, then tag (the tag must
-contain the ✅ state); push tags (`git push origin main --tags`). Signing: SSH.
-Log failures in `_system/Landmine Log.md` as `date | domain | landmine [TAG]`.
-Promote fired landmines to `[VERIFIED — date]` and into the owning file.
-Default improvement is deletion — add nothing unless it removes a friction
-seen ≥2×, prevents expensive damage, or improves evidence (per How to Learn).
-
-### Student evidence vs canonical spec (never mix)
-
-- Milestone files are the ASSIGNMENT (prompts, pass criteria). Worked
-  solutions live in `Mechatronics/milestones/evidence/` as `0.x-slug.md`.
-- Every evidence file opens with a personal-evidence title plus a spec
-  pointer line, follows the Attempt-vs-Correction + units convention
-  (`Mechatronics/milestones/evidence/Index.md`), and is committed in HEAD
-  before its tag. Every milestone section gains one backlink line as evidence
-  lands, carrying the tag names
-  (e.g. `> Evidence: [[Mechatronics/milestones/evidence/0.2-3link-fk|personal evidence 0.2]] (MVM `m0.2-mvm` · Full `m0.2-full`)`).
-- Daily notes link evidence files, never paste solutions into the daily.
-- Never edit canonical pass criteria to match what was produced — failed
-  gates stay failed until re-attempted.
+- PLAN-marked files implement ONLY on explicit user `approve`.
+- Never auto-create notes/reviews; never invent activity; never pre-fill Gap.
+- Maps-only engram landings (no pretests/teaching unless asked); scope approval first.
+- NEVER AI-generated video (chat directly instead).
+- (Phase-2 forward pointers, NOT enforced in Phase 1 and not yet built — absence is
+  expected, do not "fix" by creating: video-pair-per-topic rule, GOAL.md-single-source
+  (`Mechatronics/GOAL.md`), skill registry (`Mechatronics/skills/registry.md`),
+  machine-gated tags.)
+- Evidence via `bash scripts/save.sh` / `bash scripts/milestone.sh`; status lives ONLY
+  in the ROADMAP table — never duplicate ✅.

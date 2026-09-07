@@ -15,6 +15,7 @@ Links look like [[_system/How to Learn|How to Learn]]. Indent: two spaces.
 Frontmatter exactly as above. -->
 
 ## Focus
+- **Domain:** mech / piano / reading / japanese / system / software / science / data-science
 - **Cue / when-where:**
 - **Current:** (mech milestone · piano pieces · book — from AGENT.md next-step)
 - **Targets:**

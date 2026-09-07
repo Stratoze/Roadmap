@@ -28,11 +28,14 @@ from pathlib import Path
 
 # ---- config ----------------------------------------------------------------
 # Folders ignored for ORPHAN detection. Templates are plugin-invoked;
-# journals/logs are append-only and not meant to be linked. Add more here
+# journals/logs are append-only and are not meant to be linked. Add more here
 # (e.g. "docs") if you consider folder-READMEs acceptable as orphans.
-ORPHAN_EXCLUDE_DIRS = {"_templates", "journal", "Daily", "Logs"}
+ORPHAN_EXCLUDE_DIRS = {"_templates", "journal", "Daily", "Logs", "Changelog"}
 # Files allowed to have zero incoming links (entry points).
 ENTRY_POINTS = {"index.md", "README.md"}
+# EXEMPT carried failures (Phase-2 gate reads this block as authoritative).
+# Format: # EXEMPT <check>: <target> — <reason> — expires <YYYY-MM-DD>
+# EXEMPT broken: index.md -> [[Reading/Reading RoadMap|Reading tracker]] — Reading/ dir absent post-merge (remote index edit) — expires 2026-10-07
 # ----------------------------------------------------------------------------
 
 WIKILINK = re.compile(r"\[\[([^\[\]]+?)\]\]")
