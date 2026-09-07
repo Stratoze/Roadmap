@@ -35,9 +35,7 @@ ORPHAN_EXCLUDE_DIRS = {"_templates", "journal", "Daily", "Logs"}
 ENTRY_POINTS = {"index.md", "README.md"}
 # EXEMPT carried failures (Phase-2 gate reads this block as authoritative).
 # Format: # EXEMPT <check>: <target> — <reason> — expires <YYYY-MM-DD>
-# EXEMPT broken: index.md -> [[Reading/Reading RoadMap]] — Reading/ dir absent pre-merge — expires 2026-10-07
-# EXEMPT broken: index.md -> [[Reading/Reading Progress]] — Reading/ dir absent pre-merge — expires 2026-10-07
-# EXEMPT orphan: Mechatronics/milestones/Phase 0/0.2.md — evidence migration pending (Phase-2) — expires 2026-10-07
+# EXEMPT broken: index.md -> [[Reading/Reading RoadMap|Reading tracker]] — Reading/ dir absent post-merge (remote index edit) — expires 2026-10-07
 # ----------------------------------------------------------------------------
 
 WIKILINK = re.compile(r"\[\[([^\[\]]+?)\]\]")
