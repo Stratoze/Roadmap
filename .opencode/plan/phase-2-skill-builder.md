@@ -14,8 +14,9 @@ invoke as `bash scripts/<name>.sh`.
 
 ## 0. Verified starting facts (2026-09-07, re-check at build time — counts rot fast)
 
-- `Mechatronics/milestones/00_foundations.md`: 597 lines, milestones 0.1–0.10, mixed
-  `#`/`##` heading levels, ROADMAP anchors don't match GitHub slug rules (Obsidian-only).
+- `Mechatronics/milestones/00_foundations.md`: 599 lines, milestones 0.1–0.10 (0.1 is
+  `##`, 0.2–0.10 are `#` — say exactly that). ROADMAP carries NO `#fragment` links
+  today — the gap is absence, not mismatch (verified: grep `(.*#.*)` empty).
   `scripts/diagnose.py` does NOT validate `#anchors` (extended in §2 item 2).
 - Goal coupling ≈ 60+ hits repo-wide. CANONICAL PATTERN (used by §0 inventory AND §1
   acceptance — single source, no drift):
@@ -23,15 +24,23 @@ invoke as `bash scripts/<name>.sh`.
   plus human semantic pass for generic `arm|actuator` in goal-flavored contexts
   (checklist lives in GOAL.md once created — circularity resolved: the §1 task CREATES
   the checklist as it rewrites). Coupled files include `Science/Index.md:14`,
-  `DataScience/Index.md:10`, `resources/LAB_INFRASTRUCTURE.md`, `IDEAS.md`,
-  `hardware/inventory.md`.
-- Foundations are ALREADY goal-instantiated (0.2 FK arm tip, 0.4 arm FBD + QDD torque
-  constant, 0.7 arm-link material, CONVENTIONS arm frame defaults): §1 parameterization
-  tasks are mandatory, not cosmetic.
-- Engram: 6 topics / 103 nodes, ~100 `new`, 3 receipts, `desired_retention 0.9`.
+  `DataScience/Index.md:9,13`, `Mechatronics/resources/LAB_INFRASTRUCTURE.md`,
+  `Mechatronics/IDEAS.md`, `Mechatronics/hardware/inventory.md`.
+- Foundations are ALREADY goal-instantiated (0.2 FK arm tip, 0.4 arm FBD + holding
+  torque, QDD torque-constant reference at 0.10 `:568`, 0.7 arm-link material,
+  CONVENTIONS arm frame defaults): §1 parameterization tasks are mandatory,
+  not cosmetic (scaffold-first per §1 — mass parameterization deferred to pass 2).
+- Engram (MAC-SIDE-ONLY universe — mark universe wherever counts gate anything):
+  6 topics / 103 nodes, ~100 `new`, 3 receipts, `desired_retention 0.9`.
+  Win store per mailbox (12 topics / 256 nodes) is a SEPARATE universe and TODAY
+  violates the §5 WIP gate — no landings until v4 reconciliation lands + PIN green.
   Known duplicates: `static-equilibrium` ×2, torque pair, Japanese verb clusters.
-  `kind` absent on ~37 nodes (absent ⇒ `concept` per architect — audit content, only true
-  fresh-instance procedures earn `procedure` + `practice` frames). Commitment cue `10am`
+  `kind` absent on ~37 nodes (absent ⇒ `concept` per architect — caveat: absent +
+  `arbitrary:true` ⇒ `fact`; audit content, only true fresh-instance procedures earn
+  `procedure` + `practice` frames with engine-native `problem_frame` + `verify` +
+  `error_bank`, plus `contrasts_with` edges for discrimination — `discriminates_from`
+  appears only in a code comment nothing reads; "execution key" is no field).
+  Commitment cue `10am`
   is a clock cue: OFFER an event anchor once at `/learn` close (`/coach` only if a
   renewal is due, cue age ≥ 28d) and store the verbatim answer (never force-rewrite). `artifact` null everywhere — keep it so; vault
   linkage lives in the registry Evidence-tag + `Goal era` columns and session-log
@@ -40,13 +49,19 @@ invoke as `bash scripts/<name>.sh`.
 - Engine facts this plan respects (NOT negotiable): node kinds are `concept|procedure|fact`
   ONLY (no `kind:transfer` on nodes); capstone = engine-minted `{capstone:true,
   transfer_probe:None}` with receipt `kind:transfer` (metrics never pooled; successful
-  transfer MAY strengthen scheduling); `why_chain` = derives-from id path (never vault
-  checkboxes); cross-topic `requires` is unsupported (prerequisites live in ONE canonical
-  topic + `analogous_to` links); pretests diagnose the frontier (never land over an
+  transfer MAY strengthen scheduling); `why_chain` = derives-from id path by CONVENTION
+  ONLY (engine neither validates nor walks it — say so, never rely on it); cross-topic
+  `requires` is unsupported (prerequisites live in ONE canonical topic +
+  `analogous_to` links — `analogous_to` itself has ZERO engine hits: vault convention,
+  not engine field); pretests diagnose the frontier (never land over an
   undiagnosed frontier); probe↔rubric are one object (3-step self-check per node).
 - Foundation rule after this phase: bare minimum every goal needs. Projects: ≥1 skill each.
 
-## 1. GOAL.md — single goal source (do FIRST)
+## 1. GOAL.md — single goal source (scaffold FIRST, parameterize after confirm)
+
+Two passes (sequencing economics — do NOT front-load the ~118-line rewrite ahead of
+GOAL-confirm): pass 1 scaffolds (`GOAL.md` draft + `goals/parked/` dir + registry
+`Goal era` column); pass 2 (post-confirm) does the mass parameterization below.
 
 - Create `Mechatronics/GOAL.md`: active goal ONLY — name, actuator type, DOF, work
   envelope, success criteria, parked-history pointer, AND the semantic-pass checklist
@@ -87,7 +102,7 @@ otherwise (table Dir column = relative to `Mechatronics/`):
 | `electronics/` | 0.5, 0.6 | circuits, power/thermal |
 | `software/` | 0.1 (+ `Mechatronics/firmware/` → `Mechatronics/software/firmware/<board>/<project>/`,
   `Mechatronics/simulations/` → `Mechatronics/software/simulations/<backend>/`) | toolchain + executable surface |
-| `lab/` | 0.10 + Phase-0 Pass/Deload (lines 25–46 and 578–590 of `Mechatronics/milestones/00_foundations.md` at time of writing) + SAFETY_CARD + CONVENTIONS + inventory refs | metrology + shared discipline |
+| `lab/` | 0.10 + Phase-0 Pass/Deload (lines 25–46 and 578–599 of `Mechatronics/milestones/00_foundations.md` at time of writing — 578–599 covers photo, `versions.sh`, Retro) + SAFETY_CARD + CONVENTIONS + inventory refs | metrology + shared discipline |
 
 Structural fixes (all mandatory, in this order):
 
@@ -98,6 +113,9 @@ Structural fixes (all mandatory, in this order):
    `1. Pass the gate: bash scripts/milestone.sh --dry-run <tag> "<msg>" is green.
    2. Tag: bash scripts/milestone.sh <tag> "<msg>". The tag is the durable evidence.
    3. Mark ✅ in the ROADMAP table only, then bash scripts/save.sh "roadmap: mark <tag>."`
+   STAGED: this rewrite lands ONLY after §4 ships `--dry-run` (until then the
+   documented command fails — build §4 first, swap text second). Doc==script owner:
+   Mac builds §4; the pinned doc text governs, the script implements it.
    Fix `milestone.sh` echo to the same text; add domain commit scopes (`math:`,
    `physics:`, …) to `CONVENTIONS.md` (bare `phaseN:` deprecated for domain work; old tags untouched).
 2. **Anchors:** every milestone gets `<a id="m0-N"></a>`; ROADMAP + all new notes link
@@ -150,8 +168,13 @@ The agent checks curriculum sequence (at every landing + quarterly re-run):
 1. **Requires closure:** every registry row's `Requires` IDs resolve in the registry
    (no dangling prerequisites, no forward references to unconferred skills).
 2. **Date order:** every prerequisite's evidence tag predates (or equals) the
-   claimant's tag — compare with `git log -1 --format=%cI <tag>` (tagger ISO date),
-   machine-checked in §4 item 3.
+   claimant's tag — compare TAGGER dates with `git log -1 --format=%(taggerdate:iso)
+   <tag>` (`%cI` answers committer date, which re-sign preserves by design — wrong
+   clock). Lightweight tags have empty taggerdate → gate REFUSES them (require
+   annotated+signed). `m0.1-fullpass` naming drift grandfathered, never rewritten.
+   Pre-gate tags (`m0.1-fullpass`, `m0.2-mvm`, `m0.2-full`) carry `-unaudited`
+   registry notes until re-earned under the gate (they will flag on day one with
+   zero gate receipts — expected, not a defect). Machine-checked in §4 item 3.
 3. **Use-before-conferred scan:** walk the learner path Phase 0→1→2→3; for each
    milestone MVM checkbox that *uses* a skill (e.g. M1.2 "FFT computed in Python"),
    the conferring milestone/project must come earlier in the walk. Flag inversions
@@ -184,7 +207,7 @@ Tagging REFUSES (non-zero exit + reason) unless ALL pass:
 3. Skills: `## Skills gained` line present with COUNT ≥ 1, plus a `Requires:` line
    (entry-point form allowed, blank forbidden); every ID matches §3 regex AND resolves
    in the registry; every registry row touched has non-null `Goal era` and its tag
-   exists; every prerequisite tag date ≤ claimant tag date (§3 skill-order audit).
+   exists; every prerequisite taggerdate ≤ claimant taggerdate (§3 skill-order audit).
 4. Links+lenses: extended `diagnose.py` (§2 item 2 spec) clean on touched files, INCLUDING
    the lens rule — any `status: proposed` lens in a touched milestone fails the gate
    (checked inside `diagnose.py`, not by hand).
@@ -203,6 +226,12 @@ skill-order violation: prerequisite dated after claimant), run by
 `bash scripts/test-gate.sh` expecting 8/8. 8/8 or red.
 
 ## 5. Engram topics — engine-native WIP, JIT-cut, capstone-only builds
+
+GATE: nothing in this section lands until v4 reconciliation (vault-scope proposal
+landed + ENGINE_PIN green on the merge machine). Until then engram work stays
+read-only or tmp-only (`ENGRAM_HOME=<tmpdir>`). Doctor-gating rule: preconditions
+run on the merge machine with `python3 ~/engram/scripts/engram.py doctor`, and the
+engine sha256 is recorded alongside results — uncompared shas gate nothing.
 
 Preconditions (before ANY landing):
 
@@ -225,7 +254,8 @@ outstanding; this policy trades speed for habit protection, overrideable):
 - Escape hatch (logged, user-signed): JIT-override after reviewing the due list —
   allowed ONLY for scope-approved JIT nodes (§5 landings). Standing override = fail.
 - Backlog-clear pre-step (before first landing): capped review sittings
-  (`due --cap 12`, amnesty-first per engine) until `due ≤ 12` or JIT-override signed.
+  (`due --cap 12`, amnesty-first as session-start sensibility — `RETURN_ABSENCE_DAYS=7`
+  is prose, not a command; cited as sensibility) until `due ≤ 12` or JIT-override signed.
 - Soft alarm at 150 active: ARBITRARY, review-or-retire session due by 2026-12.
 
 Landings (scope approval each, maps-only, pretests included for frontier diagnosis):
@@ -268,9 +298,17 @@ Efficient Engineer caliber; new domains calibrated with the user first). User
 approves/replaces per topic. **No approved pair → topic doesn't land**, with ONE explicit
 escape: `waived` + logged reason (affordance-none content) — a user-signed decision,
 never a default. AI-generated video is NEVER a lens; if proposed, drop it and chat directly.
-Protocol per topic (generation-first — watch NEVER comes before a prediction):
+Protocol per topic (generation-first — predict precedes the first watch turn; watch
+NEVER comes before a prediction):
 predict/commit → watch segment → self-explain aloud → blank-page reconstruction →
 fresh-probe verify (probe → confidence pick → blind assessor → receipt) → project.
+Fallback ladder (when prediction fails twice): scaffolded worked example → predict
+again → verify; never lecture what derivation practice could reach. Authorship-verify
+step: for any lens without an established educator, verify human authorship before
+linking (no-established-educator cases logged). Explorable→rigorous rule: interactive explorables
+illustrate the RIGOROUS lens (manipulables carry the formalism), never the intuition.
+Veto-gate throughput: every JIT batch needs a signed pair-or-waiver — expect approval
+clustering; batch approval per milestone is allowed (one user sign covers the pair list).
 Fluency guard: "makes sense" is zero evidence (AGENT.md). Congruence: verbal quiz for
 verbal claims, execution/build probe for procedures (no incongruent grading).
 (Enforcement of this section activates with Phase 2 — Phase-1 cites it as forward
@@ -278,7 +316,9 @@ pointer only.)
 
 ## 7. Sequencing + acceptance (STOP for user feedback — no further work unapproved)
 
-Order: §1 GOAL.md → §2 split pilot → §3 registry → §4 gate → §5 engram → §6 lenses.
+Order: §1-scaffold (GOAL draft + parked dir + `Goal era` column) → §4 gate build →
+§2 split pilot + Completion-text swap (STAGED on §4) → §3 registry fill →
+§5 landings (GATED on v4 reconciliation + PIN green) → §6 lenses.
 Phase acceptance (ALL must hold): §1 grep-gate + semantic pass clean; anchor-aware
 `diagnose.py` clean (or only `EXEMPT`-block items); gate fixtures 8/8; skill-order
 audit (§3 skill-order audit) clean on the current vault (pre-existing inversions filed as defects, not
