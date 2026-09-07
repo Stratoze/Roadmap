@@ -49,31 +49,31 @@ Training must address all five levels, not just note recognition.
 ### Eye-hand span training
 
 The eye-hand span is the distance between where your eyes are and where your hands are playing.
-Larger span = more time to process = smoother reading.
+Larger span generally gives more processing time, which usually reads as smoother — up to the limit of working memory and pattern vocabulary.
 
 Exercises:
 
 1. **Look-ahead drill**: Play a simple piece while a partner or metronome forces you to keep going. Eyes must stay ahead.
 2. **Repeated reading**: Play a short unfamiliar piece 3 times. Observe how eye movements change. First reading is decoding; second is pattern recognition; third is anticipation.
-3. **Peripheral awareness**: While playing, try to perceive the next measure without directly looking at it. This trains peripheral vision.
+3. **Peripheral awareness**: While playing, try to anticipate the next measure from harmony and pattern (this trains prediction, not literal peripheral vision — notation is unfocusable outside the fovea).
 4. **Blind intervals**: Play a short passage while looking 2 measures ahead. Trust your hands.
 
 ### Dual-task training for sight-reading
 
 Sight-reading requires managing multiple cognitive streams simultaneously.
-Dual-task training builds this capacity.
+Levels from the [[Piano/Resources/Practice Protocols|dual-task ladder]] (sight-reading uses L1–L8; L9+ belong to ear/polishing work):
 
-Start simple, increase difficulty:
+Start simple, increase difficulty in ladder order: L1 (count aloud) →
+L2 (note letters) → L3 (chords) → L4 (different subdivision) →
+L5 (conducting) → L6 (harmony analysis) → L7 (listen for a voice) →
+L8 (sing a voice).
 
-1. Play a piece while counting aloud
-2. Play while naming the note letters
-3. Play while naming the chord (I, IV, V, vi)
-4. Play while conducting with the free hand
-5. Play while counting a different subdivision
-6. Play while analyzing harmony aloud
-7. Play while listening for a specific voice
+Only add dual-task when the base reading is fluent (80% is a pragmatic gate, not a lab finding).
 
-Only add dual-task when the base reading is at 80% accuracy.
+### Sight-reading weekly minimum
+- 5 minutes, 3–5 times per week
+- Material 2 levels below current repertoire
+- One new piece per session; do not convert to repertoire practice
 
 ### Pattern recognition curriculum
 
@@ -97,6 +97,8 @@ Train these patterns until they are instant:
 Rotate rather than doing everything daily.
 
 ### Ear training progression
+
+Stage map lives in [[Piano/Resources/Progression|Ear and Functional Progression]]; F-definitions in [[Piano/Resources/Functional and Jpop Track|Functional stage ladder]]. This table is the exercise rotation only.
 
 | Stage | Focus | Exercises |
 | ---: | --- | --- |
@@ -218,25 +220,13 @@ Mental practice is a legitimate training modality, not a substitute but a comple
 
 ### Protocol
 
-1. **Visualize**: See the keys, feel the movements, hear the sound. Be specific.
-2. **Score study**: Trace the harmony, mark the form, hear it internally.
-3. **Table practice**: "Play" on a table or your lap, feeling finger movements.
-4. **Singing**: Sing or hum a voice from the piece.
-5. **Analytical**: Describe the harmony, form, and structure in words.
+Core steps live in [[Piano/Resources/Practice Protocols|Practice Protocols]] (mental practice protocol) — same modality plus movement quality. Musicianship-specific additions:
 
-### Quality matters
-
-The more sensory detail — exact fingers, dynamics, key feel, sound — the more useful.
-Vague thinking about piano does not count.
-Passive listening while doing dishes does not count.
+1. **Score study**: Trace the harmony, mark the form, hear it internally.
+2. **Singing**: Sing or hum a voice from the piece.
+3. **Analytical**: Describe the harmony, form, and structure in words.
+4. Quality rule: sensory detail (exact fingers, dynamics, key feel, sound) or it doesn't count — vague thinking and passive listening don't.
 
 ### Neuroscience basis
 
-Mental practice activates the same motor cortex regions as physical practice.
-It strengthens neural pathways without physical wear.
-It is especially effective for:
-
-- Memorization security
-- Passage planning and fingering decisions
-- Recovery from injury
-- Consolidation during sleep (practice visualization before bed)
+Overlapping (partial, weaker) motor-network activation vs physical practice, without physical wear (see Protocols). Used for memorization security, passage planning and fingering decisions, injury recovery, and sleep consolidation — ranked by practice tradition, not by effect-size evidence.

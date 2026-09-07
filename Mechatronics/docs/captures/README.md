@@ -18,4 +18,4 @@ Naming:
 YYYY-MM-DD_short_description.ext
 ```
 
-If a capture proves a milestone claim, mention its path in the milestone's After section or in that day's Daily note.
+If a capture proves a milestone claim, mention its path in that day's Daily note (Got line) or beside the milestone's pass checkbox.

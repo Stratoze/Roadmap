@@ -12,8 +12,9 @@ Pieces/Composer/Piece Title/
 ```
 
 Daily session notes go in `Daily/` using the unified template
-(`_system/Daily Template.md`). Put the piece name in the
-**Milestone / Piece / Book** field. Do not create a `daily/`
+(`_system/Daily Template.md`). Put the piece name in the Focus block's
+Current line (there is no separate "Milestone / Piece / Book" field — the old
+schema; use Current). Do not create a `daily/`
 subfolder inside the piece folder.
 
 Piece-specific data lives in the piece's own logs:
@@ -72,6 +73,6 @@ Do not create one for:
 3. Create the error log from [Piece Error Log](../../_templates/piano/Piece%20Error%20Log.md).
 4. Create the tempo log from [Piece Tempo Log](../../_templates/piano/Piece%20Tempo%20Log.md).
 5. Log daily sessions in `Daily/` using the unified template.
-   Reference the piece name in the **Milestone / Piece / Book** field.
+   Reference the piece name in the Focus block's Current line (no separate field — the old "Milestone / Piece / Book" schema is retired).
 6. Log tempo changes and recurring errors in the piece's own logs,
    not in the daily note.

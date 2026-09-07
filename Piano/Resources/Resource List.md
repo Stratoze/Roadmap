@@ -94,7 +94,7 @@ Modern Japanese music requires licensed sources.
 ## Apps and tools
 
 - **Piano Marvel** — note & rhythm accuracy, mic or MIDI. *Limitation: ignores dynamics/tone/articulation/pedaling; mic mode iOS-only, weak on dense polyphony.*
-- **Anki + FSRS** — rotation & maintenance reminders. *Not validated for procedural decay — treat as heuristic.*
+- **Engram (`piano` topic)** — rotation & maintenance scheduling, receipt-based.
 - **Pro Metronome** — tempo work. *Use as a check tool, then turn it off; overuse flattens expression.*
 - **Phone camera** — performance recording.
 - **Functional Ear Trainer** — ear training, free.
@@ -123,11 +123,11 @@ Modern Japanese music requires licensed sources.
 
 ### Neuroscience of practice (for understanding, not daily reading)
 
-- Sleep consolidation: motor skills consolidate during slow-wave sleep. Practice before bed.
-- Interleaving: mixing tasks improves long-term retention vs blocked practice.
-- Retrieval practice: effortful recall (Rule of Almost) builds stronger memory than passive review.
-- Mental practice: activates same motor cortex as physical practice. Use for consolidation.
-- Dual-task training: builds cognitive capacity for sight-reading and performance.
+- Sleep consolidation: sleep supports consolidation (declarative strongly, motor modestly); no bedtime-proximity prescription.
+- Interleaving: mixing confusable tasks improves retention vs blocking similar material; blocking suits new/very different material.
+- Retrieval practice: effortful recall (Rule of Almost) builds stronger memory than passive review — with feedback on errors.
+- Mental practice: overlapping (not identical) motor-network activation. A supplement, not a substitute.
+- Dual-task training: automatizes the trained pairing; no general capacity expansion, narrow transfer.
 
 ## External feedback
 

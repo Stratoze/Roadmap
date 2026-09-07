@@ -4,11 +4,11 @@
 > [!abstract] The rules that matter most
 >
 > 1. It's a marathon, not a sprint.
-> 2. Interleave: rotate material every 5–8 minutes during learning/polishing.
+> 2. Interleave confusable material: rotate similar chunks every 5–8 minutes during learning/polishing (pragmatic dosage, not a lab finding); blocking is fine for Day-1 material and very different pieces.
 > 3. Rule of Almost: leave passages almost secure, then return later.
 > 4. Slow is fast: speed increases only when control is present.
 > 5. End clean: the last repetition should be one you would happily repeat tomorrow.
-> 6. Sleep consolidates: practice timing matters.
+> 6. Sleep supports retention: duration and wind-down matter, not clock timing.
 > 7. Movement first: diagnose the gesture before grinding the notes.
 > [!warning] Health red flags
 > Stop immediately for pain, weakness, tingling, numbness, swelling, loss of dexterity, unusual fatigue, or increasing tension. See [Technique and Health](#technique-and-health).
@@ -57,7 +57,7 @@ Within learning and polishing blocks, alternate between 2–3 chunks or pieces e
 7. Fun or play-by-ear, 2–5 min.
 8. Journal line and log links, 1–2 min.
 
-Interleaving feels worse during the session, but retention is better. Blocking produces fast session-level gains that evaporate.
+Interleaving feels worse during the session, but retention of confusable material is better. Blocking produces fast session-level gains that fade faster on similar material — for brand-new or very different material, blocking is equal or better.
 
 #### Long session
 Divide into two or more blocks with a real break.
@@ -79,21 +79,19 @@ These are aims, not obligations.
 - 1 mental practice or score study session (can replace a physical session)
 
 ### Sleep and timing
-- Your brain consolidates motor skills between sessions, especially during sleep.
+- Your brain consolidates skills between sessions, especially during sleep (declarative strongly; motor modestly and task-specifically — sleep helps, it does not install).
 - Daily practice plus good sleep beats weekend marathons.
-- If you can choose, practicing closer to bedtime gives sleep more material to consolidate.
-- Protect sleep duration. A 45-minute session followed by 8 hours of sleep outperforms a 2-hour session followed by 5 hours.
+- Protect sleep duration. Sleep deprivation impairs both encoding and consolidation — no dosage duel implied; a rested short session beats an exhausted long one.
 - Naps or brief rest after practice may also help.
-- After practice, spend 2–3 minutes visualizing the passage you worked on. This primes consolidation.
-- Do not practice intensely within 30 minutes of sleep if it causes arousal. Gentle review or mental practice is fine.
+- Do not practice intensely within 30 minutes of sleep if it causes arousal (30 min is a pragmatic buffer, not a studied threshold). Gentle review or mental practice is fine.
 
 ### Sleep consolidation protocol
 1. Identify the 1–2 most important passages from today's session.
 2. Before bed, spend 3–5 minutes visualizing playing those passages perfectly.
 3. See the keys, feel the movements, hear the sound. Be specific — include the movement feel (rotation, drop, spring), not just the notes.
 4. Do not physically play. This is mental rehearsal only.
-5. Sleep 7–9 hours. The brain replays and consolidates during slow-wave sleep.
-6. Next morning, test the passage cold. Expect improvement of 10–20%.
+5. Sleep 7–9 hours. Replay during NREM sleep (especially Stage-2 spindles) supports consolidation — motor gains are modest and variable, not guaranteed.
+6. Next morning, test the passage cold. Retention is the expectation; any overnight gain is a bonus, not a promise (the lab ~20% figure comes from controlled finger-tapping, not piano repertoire).
 
 ### Mental practice away from the piano
 Mental practice is not a substitute for physical practice, but it is a legitimate supplement.
@@ -197,7 +195,7 @@ Repeating on autopilot stops producing learning.
 
 #### Rule of Almost
 Do not grind a passage to perfection before moving on.
-- Work a chunk until it is almost secure — roughly 70–80% reliable.
+- Work a chunk until it is almost secure — roughly 70–80% reliable (pragmatic threshold, not a finding).
 - Switch to another chunk, piece, or activity.
 - Return later and attempt it cold before looking.
 - The struggle to recall is part of the learning.
@@ -225,10 +223,9 @@ Return later and test whether the solution survived.
 Results appear later, not immediately. Today's work may surface tomorrow, next week, or in two weeks.
 
 If an error appears across multiple sessions:
-1. Add it to [Error Logs](../Logs/Error%20Logs.md).
-2. If it belongs to one piece, move it into that piece's error log (with its archetype).
-3. Choose one strategy, not five.
-4. Retest next session.
+1. Log it directly in that piece's error log (with its archetype).
+2. Choose one strategy, not five.
+3. Retest next session.
 
 ---
 
@@ -279,7 +276,7 @@ Slow mastery first, then speed work.
 
 #### Why slow practice alone is not enough — the gait transition
 Slow playing uses a different movement organization than fast playing — like walking vs
-running. `[CONVERGED]` You can be accurate at 60 BPM and fall apart at 120 because the
+running. `[HYPOTHESIS — plausible, not converged]` You can be accurate at 60 BPM and fall apart at 120 because the
 fast gait was never installed. Somewhere between your slow tempo and target tempo the
 movement must reorganize: amplitude shrinks, drive moves proximally, preparation moves
 earlier. Speed work is where you build the fast gait on purpose.
@@ -288,7 +285,7 @@ earlier. Speed work is where you build the fast gait on purpose.
 For genuinely fast passages:
 1. Play 1 measure or one beat-group at full tempo. Stop. Reset. Repeat.
 2. Chain: 1 measure → 2 measures → 4 measures at tempo.
-3. Use brief bursts slightly above target initially. Stop if quality deteriorates.
+3. Use brief bursts slightly above target only late-stage, after slow mastery holds. Stop if quality deteriorates (early above-target bursts invite tension).
 4. Build chain length gradually.
 Counterbalance: too much speed-only practice degrades motor control and finesse. Return to slow work periodically.
 
@@ -308,7 +305,7 @@ Do not use on already-musical or rubato passages.
 
 ### Variable Practice
 Once a passage is secure at slow tempo, vary the conditions deliberately.
-This builds a more flexible motor schema than repeating the same version endlessly.
+Varied practice tends to retain better than endless identical repetition (the "flexible schema" mechanism is hypothesis, not established fact).
 Variation menu — pick 2–3 per session, not all:
 - Dynamics: play the passage pp, then ff, then with a crescendo.
 - Articulation: legato → staccato → portato → mixed.
@@ -334,12 +331,13 @@ End in control and quality.
 - Never end a fast passage in a degraded or tense state.
 - Never end a session mid-breakdown.
 - The last repetition should be one you would be happy to repeat tomorrow.
-- After the last repetition, spend 30 seconds visualizing the passage perfectly. This primes sleep consolidation.
+- After the last repetition, spend 30 seconds visualizing the passage perfectly (routine cue, not a consolidation primer with a mechanism).
 
 ---
 
 ## Problem Solving
-### Q-Spots
+### Q-spots
+Piano specialization of [[_system/How to Learn|How to Learn]] Q-spots: archetype naming added, 5–8 min time-box (pragmatic default — no study tests this exact dosage).
 For persistent problem areas. From Graham Fitch's Practising the Piano, extended with movement work.
 1. Identify: mark the exact bars. Bracket them in the score. **Name the archetype(s) involved.**
 2. Isolate: work only those bars with the specific tool:
@@ -371,9 +369,8 @@ Use when stuck for 2+ weeks. Pick 1–2, not all.
 
 ### Recurring error workflow
 Use this when the same error keeps returning.
-1. Capture it in [Error Logs](../Logs/Error%20Logs.md).
-2. If it belongs to a specific piece, move it into that piece's error log.
-3. Mark the exact bar(s).
+1. Capture it in the piece's error log.
+2. Mark the exact bar(s).
 4. Name the error type:
 - fingering
 - reading
@@ -407,7 +404,7 @@ Before and during practice, scan against the [Movement principles](#movement-pri
 - Preparation: chords/leaps pre-shaped, or built on arrival? (P5)
 - Release: tension refunded between groups? (P6)
 - Breathing: continuous, or held? (P10)
-If any answer is wrong, stop and correct before continuing.
+If any answer is wrong, note it and correct on the next repetition — stop fully only for pain or collapse of form; a held breath alone just needs the next exhale cued.
 
 ### Scales, arpeggios, and RCM Technical Requirements
 Two distinct roles:
@@ -450,16 +447,15 @@ Apply the same principles as etude work: pick by objective, use the tempo protoc
 9. **Weight for volume.** Louder = more mass, not more force. (P9)
 10. **One chain.** Feet, spine, breath — the finger is the last link. (P10)
 
-Defaults fit ~99% of players. Your documented deviations live in your
+Defaults fit most players (the 99% is rhetoric, not a census). Your documented deviations live in your
 [Personal Calibration Log](Movement.md#individual-calibration).
 
 ---
 
 ## Mental Practice and Consolidation
 >
-> Mental practice is a legitimate training modality backed by neuroscience.
-> It activates the same motor cortex regions as physical practice.
-> It is especially effective for memorization, passage planning, and consolidation.
+> Mental practice is a legitimate training supplement backed by neuroscience.
+> It activates an overlapping (weaker, partial — not identical) motor network vs physical practice: useful for memorization, passage planning, and consolidation, never a replacement.
 
 ### When to use mental practice
 - Travel days, rest days, injury days
@@ -488,21 +484,20 @@ Defaults fit ~99% of players. Your documented deviations live in your
 ### Sleep consolidation integration
 - After your last physical repetition, spend 2–3 minutes visualizing the passage perfectly.
 - Before bed, do one more 2-minute visualization of the day's most important passage.
-- Sleep 7–9 hours. The brain replays motor sequences during slow-wave sleep.
-- Expect 10–20% improvement overnight on the visualized passage.
-- This is not magic. It is neuroscience.
+- Sleep 7–9 hours. Overnight replay supports consolidation; expect retention, treat gain as a bonus.
+- This is not magic. It is a modest, well-evidenced effect — not a guarantee.
 
 ---
 
 ## Dual-Task Training
 >
-> Dual-task training builds the cognitive capacity to manage multiple streams of information simultaneously.
+> Dual-task training automatizes a base task for a trained pairing (narrow transfer — not general capacity).
 > This is the core demand of sight-reading, ear-playing, and performance.
-> Start simple. Increase difficulty only when the base task is at 80% accuracy.
+> Start simple. Increase difficulty only when the base task is fluent (the 80% accuracy gate below is a pragmatic coaching default, not a lab finding).
 
 ### What it is
 Playing a physical task while performing a cognitive task simultaneously.
-This trains the brain to allocate attention efficiently, reducing interference between motor and cognitive systems.
+This automatizes the base task for that specific pairing, freeing resources within it — it does not expand general cognitive capacity, and transfer beyond the trained pairing is narrow.
 
 ### Progression ladder
 | Level | Physical task | Cognitive task |
@@ -532,10 +527,10 @@ This trains the brain to allocate attention efficiently, reducing interference b
 - When fatigued
 - When the passage is still unclear
 
-### Rules
-- Start at the level where you can maintain both tasks at 80% accuracy.
-- If either task drops below 60%, reduce difficulty.
-- 3–5 minutes per session is enough.
+### Rules (pragmatic defaults — invented dosages, work as starting points, not findings)
+- Start at the level where you can maintain both tasks comfortably (the 80% gate is a coaching heuristic).
+- If either task collapses, reduce difficulty.
+- A few minutes per session is enough.
 - Do not use dual-task for speed work or technical drilling.
 - Use it for reading, ear-playing, and performance preparation.
 

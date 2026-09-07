@@ -13,7 +13,7 @@ What fault is injected?
 
 ## Injection method
 
-Must not damage real hardware.
+Must not damage real hardware. Preconditions: fall path clear, current-limited supply, E-stop tested — then inject on the LIVE bus (discharge method verified separately; discharge AFTER the test, meter-verified < 1 V).
 
 ## Setup
 

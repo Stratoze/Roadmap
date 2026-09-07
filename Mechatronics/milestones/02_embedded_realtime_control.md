@@ -116,7 +116,7 @@ LED blinking via direct register writes, no HAL, compiled from command line, fla
 - [ ] **SPI:** Can explain: SPI is full-duplex (MISO + MOSI simultaneous), master generates clock, each slave has a chip select. Faster than I2C (no address phase, no ACK), but more pins (SCK, MOSI, MISO, CS per slave). Daisy-chain possible but rare.
 - [ ] **UART:** Interrupt-driven RX for telemetry. Configure baud rate, 8N1. Can explain: UART is asynchronous — no clock line. Both sides must agree on baud rate. Start bit → 8 data bits → optional parity → stop bit. Framing error = stop bit not high = baud mismatch or noise.
 - [ ] **UART:** Can explain: baud rate mismatch gives consistent garbage (every byte wrong). Noise gives intermittent garbage. If you see 0x00 or 0xFF repeatedly, check baud rate first, then wiring, then ground.
-- [ ] **Encoder via timer:** Configure a timer in encoder mode (STM32 TIMx_SMCR.SMS = encoder mode). Connect encoder A and B to timer CH1 and CH2. Read TIMx_CNT for position. Can explain: the timer hardware counts both edges of both channels → 4× resolution. No software interrupt needed for counting. The CPU only reads the count when it needs position. Can explain: 16-bit timer overflows at 65535 counts. For a 2000 CPR encoder (8000 counts/rev), that's ~8 revolutions before overflow. Handle overflow in software (track direction, add/subtract 65536) or use a 32-bit timer.
+- [ ] **Encoder via timer:** Configure a timer in encoder mode (STM32 TIMx_SMCR.SMS = encoder mode). Connect encoder A and B to timer CH1 and CH2. Read TIMx_CNT for position. Can explain: the timer hardware counts both edges of both channels → 4× resolution. No software interrupt needed for counting. The CPU only reads the count when it needs position. Can explain: 16-bit timer overflows at 65535 counts. For a 2000 PPR encoder (8000 counts/rev), that's ~8 revolutions before overflow. Handle overflow in software (track direction, add/subtract 65536) or use a 32-bit timer.
 - [ ] **Encoder via timer:** Can explain: velocity = Δcount / Δt. Read the count at a fixed rate (e.g., every 1 ms in the control ISR). Divide by the time step and counts-per-revolution to get rad/s. Low-speed resolution is limited by the count granularity. High-speed is limited by the timer clock. Know both limits.
 
 > [!warning] ⚠️ Landmines
@@ -160,7 +160,6 @@ LED blinking via direct register writes, no HAL, compiled from command line, fla
 - For SPI: read the slave device's timing diagram BEFORE configuring the SPI peripheral. CPOL/CPHA must match.
 - For encoder: verify the encoder waveform on scope BEFORE configuring the timer. If the waveform is noisy or the wrong voltage level, the timer will miscount and you'll debug firmware instead of wiring.
 
-> Log sessions in Daily/ notes using the unified template.
 
 ---
 
@@ -216,7 +215,6 @@ Python PID simulation with step response plots, Bode plots, and a tuning guide i
 - Add P first, then I, then D. Observe each effect in isolation before combining.
 - Simulate the inner loop BEFORE the outer loop. If current/torque tracking is bad, velocity and position tuning will hide the problem.
 
-> Log sessions in Daily/ notes using the unified template.
 
 ---
 
@@ -284,7 +282,6 @@ The goal is not to "copy FOC." The goal is to understand what each transformatio
 - Close Iq BEFORE Id. Torque control first, flux decoupling second.
 - **Verify the analog current-sense front end (from 1.3) is still working correctly BEFORE starting FOC.** Inject a known current (resistor + supply), verify the ADC reading matches. If it doesn't, fix the analog stage first.
 
-> Log sessions in Daily/ notes using the unified template.
 
 ---
 
@@ -349,7 +346,6 @@ hard? Which are soft? What happens if a soft task blocks a hard task?
 - Get the heartbeat LED task working before adding motor control. Verify the scheduler works with the simplest task first.
 - Move non-critical printing OUT of the control path before testing timing. Otherwise you'll debug UART latency instead of control.
 
-> Log sessions in Daily/ notes using the unified template.
 
 ---
 
@@ -411,7 +407,6 @@ This milestone connects Phase 0 statics and Phase 1 pendulum dynamics to the act
 - Verify the Python sim against the Phase 1 pendulum data. Single-link case should match. If it doesn't, the derivation is wrong.
 - Compute natural frequencies BEFORE designing the state-space controller. You need to know what you're controlling.
 
-> Log sessions in Daily/ notes using the unified template.
 
 ---
 
@@ -440,7 +435,7 @@ The homing sequence is also your first real state machine. The pattern — state
 
 ### Full Pass
 - [ ] **Full homing sequence:** fast approach → switch triggers → back off → slow approach → switch triggers → back off small distance → set position zero. Can explain why two passes: the first pass is fast (saves time), the second is slow (precision). The back-off distance ensures the switch is released before the slow approach.
-- [ ] **Debounce verified on scope:** mechanical switch shows 5–50 µs of bouncing. Hardware RC filter (10kΩ + 100nF → ~1ms) cleans the edge. Software timer (ignore edges for 5–10ms after first trigger) catches the rest. Both together. Can explain: hardware debounce protects the interrupt from noise. Software debounce protects the state machine from multiple triggers.
+- [ ] **Debounce verified on scope:** mechanical switch shows 1–5 ms of bouncing (up to 20 ms worst case — verify YOUR switches on scope, never assume microseconds). Size the software lockout above measured bounce + margin. Hardware RC filter (10kΩ + 100nF → ~1ms) cleans the edge. Software timer (ignore edges for 5–10ms after first trigger, more if YOUR switch needs it) catches the rest. Both together. Can explain: hardware debounce protects the interrupt from noise. Software debounce protects the state machine from multiple triggers.
 - [ ] **Hall effect sensor:** verified for BLDC commutation (if using hall-sensored motor). Can explain: hall sensors give 6 states per electrical revolution, ~60° resolution. Enough for trapezoidal commutation. Not enough for FOC (need encoder or observer). Can explain: hall sensors are digital (open-drain or push-pull), need pull-ups, and are sensitive to magnetic orientation.
 - [ ] **Interrupt priority:** limit switch interrupt is higher priority than telemetry but lower than motor control timer ISR. Can explain: if the limit switch ISR preempts the control loop, the loop jitters. If telemetry preempts the limit switch, the switch response is delayed. Priority order matters.
 - [ ] **Failsafe test:** disconnect the limit switch wire during motion. NC → system stops (safe). NO → system does NOT stop (unsafe). Document which type you used and why.
@@ -456,7 +451,7 @@ The homing sequence is also your first real state machine. The pattern — state
 >    A normally-open switch closes when pressed. If the wire breaks, the circuit is open — same as "not pressed." The system never knows the switch is disconnected. A normally-closed switch opens when pressed. If the wire breaks, the circuit is open — same as "pressed." The system stops. This is why every safety-critical limit (E-stop, end-of-travel) uses NC. The failure mode is safe.
 >
 > 2. **Mechanical switches bounce. Every time.** `[COMMUNITY]`
->    A "clean" switch press produces 5–50 µs of contact bouncing. The GPIO sees multiple edges. Without debounce, your homing state machine triggers 3–10 times per press. Hardware RC + software timer. Both. Not one.
+>    A "clean" switch press produces 1–5 ms of contact bouncing (up to 20 ms on some switches). The GPIO sees multiple edges. Without debounce, your homing state machine triggers 3–10 times per press. Hardware RC + software timer. Both. Not one.
 >
 > 3. **Interrupt latency is not zero.** `[HYPOTHESIS]`
 >    From switch edge to ISR entry: GPIO clock sync (2–3 cycles), NVIC priority check, context save. At 168 MHz, this is ~100–200 ns. Negligible for homing. But if you're counting encoder pulses at high speed in an interrupt, it matters. Know your latency budget.
@@ -481,7 +476,6 @@ The homing sequence is also your first real state machine. The pattern — state
 - Test the failsafe (wire disconnect) BEFORE relying on the limit switch for safety. If you wired NO instead of NC, you need to know NOW, not after the axis crashes.
 - **Draw the state diagram on paper BEFORE coding.** If you can't draw it, you can't code it. The diagram is the design. The code is the implementation. Get the design right first.
 
-> Log sessions in Daily/ notes using the unified template.
 
 ---
 
@@ -525,8 +519,8 @@ This artifact is the QDD actuator's firmware and sensor stack in miniature. Ever
 - [ ] **Physical:** wires routed and secured, no dangling jumpers; labeled; hero photo + 30 s demo video
 
 > [!warning] ⚠️ Landmines
-> 1. **AS5048 needs a DIAMETRICALLY magnetized magnet at 0.5–3 mm.** `[DATASHEET]`
->    Radial magnets read wrong. Distance out of range → weak signal or saturation. Check the AS5048 diagnostic registers. Glue the magnet to the shaft end with a spacer; don't eyeball it.
+> 1. **AS5048 needs a DIAMETRICALLY magnetized magnet (ams specifies e.g. Ø6×2.5 mm target — cite your part's datasheet section, and verify with AGC/diagnostic registers, not a ruler).** `[DATASHEET]`
+>    Radial magnets read wrong. Distance out of range → weak signal or saturation. Check the AS5048 diagnostic registers. Glue the magnet to the shaft end with a spacer; don't eyeball it. Epoxy (degreased, full cure) for the magnet bond — cyanoacrylate creeps under vibration and heat.
 >
 > 2. **SPI timing is strict and silent.** `[DATASHEET]`
 >    CS setup/hold, clock limits — violate them and you get garbage with no error flag. Read the timing diagram before writing the driver (habit from 2.1).
@@ -541,7 +535,7 @@ This artifact is the QDD actuator's firmware and sensor stack in miniature. Ever
 >    Layer lines make them slightly oval. Press bearings in slowly with a socket of the right size. If it stays oval, retaining ring or reprint.
 >
 > 6. **Gimbal motors are low-speed parts.** `[COMMUNITY]`
->    14+ pole pairs. Past ~500 RPM back-EMF exceeds your 24 V supply and control degrades. Fine for a knob. Don't try to spin it fast; that's the wrong actuator for speed.
+>    14+ pole pairs. Control degrades with speed (velocity-loop bandwidth, encoder latency) long before bus saturation — a typical 3506-class gimbal (Kv ~80–150 RPM/V) sees only ~3–6 V back-EMF at 500 RPM on a 24 V supply. Fine for a knob. Don't try to spin it fast; that's the wrong actuator for speed.
 >
 > 7. **Keep magnets ≥ 30 mm from the encoder die.** `[HYPOTHESIS]`
 >    Any extra magnets (mounting, decorations) corrupt the AS5048. This same landmine appears on the Phase 4 tool changer.
@@ -555,7 +549,6 @@ This artifact is the QDD actuator's firmware and sensor stack in miniature. Ever
 - Print the housing AFTER measuring the actual motor, bearings, and shaft with calipers (0.10 skills).
 - Test all three gain sets on the bench, motor visible, BEFORE closing the housing. Oscillation you can see is fixable; oscillation you can only hear from inside a box is not.
 
-> Log sessions in Daily/ notes using the unified template.
 
 ---
 
@@ -626,7 +619,6 @@ A cart on a linear rail that balances an inverted pendulum. This is Milestone 2.
 - Assemble the chassis around the physical motor + carriage + bearing stack, measured — not around datasheet drawings.
 - Balance tests only after the mechanical check (rail, arm, cables) passes by hand.
 
-> Log sessions in Daily/ notes using the unified template.
 
 ---
 

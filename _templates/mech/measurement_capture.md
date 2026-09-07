@@ -29,7 +29,7 @@ Timebase:
 
 Trigger:
 
-Grounding note:
+Grounding note (ground spring for fast edges — the 15 cm clip rings at PWM speeds; compensate the probe first):
 
 ## Measurement
 

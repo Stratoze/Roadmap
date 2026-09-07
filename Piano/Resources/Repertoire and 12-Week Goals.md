@@ -5,7 +5,7 @@
 ## Always maintain
 - 1 learning piece — at level, actively teaching the current technical goals
 - 1 polishing piece — mostly learned; musical and performance work
-- Maintenance pool — previously completed, in Anki rotation
+- Maintenance pool — previously completed, in Engram rotation (topic `piano`)
 - Optional: 1 easy or fun piece — below level, no perfection required
 
 Two concurrent pieces must never become two concurrent obligations.
@@ -83,6 +83,7 @@ Shelve without guilt if:
 - blocked 3+ weeks despite plateau-breaking and movement decomposition
 - you no longer feel motivated by it
 - it turns out to be mis-leveled
+- the movement demands exceed your current gate by more than one stage (return when the archetype is owned)
 
 Shelving is data, not failure.
 Return in three months and it may go quickly. Or never return. That is fine too.

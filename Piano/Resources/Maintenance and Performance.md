@@ -1,9 +1,10 @@
 # Maintenance and Performance
 
-## Maintenance and Anki
+## Maintenance rotation (Engram)
 
-Anki is a reminder queue, not a motor-memory scheduler.
-Its interval math is tuned for declarative recall, so treat its suggestions as heuristics.
+Engram schedules all piece review, including "review this song today"
+(topic `piano`, via `/review-loop`). Its interval math is receipt-based, so
+treat its suggestions as the schedule, not heuristics.
 
 ### Card types
 
@@ -41,15 +42,15 @@ Performance mode:
 | Good | Complete and musically coherent, minor problems only |
 | Easy | Secure cold performance, good control, successful start points |
 
-FSRS is better calibrated than legacy SM-2. Switch if you are on an old Anki version.
+Reviews are scheduled by Engram; the safety net below still applies on top.
 
 ### Workload
 
 - Limit by time, roughly 5–15 min, not card count.
 - Review long pieces as sections.
 - Archive pieces you no longer intend to keep performance-ready.
-- Safety net: no active piece goes untouched longer than roughly 2 weeks, regardless of Anki interval.
-- Independently of Anki, play every active polishing piece through once each week.
+- Safety net: no active piece goes untouched longer than roughly 2 weeks, regardless of scheduled interval.
+- Independently of reviews, play every active polishing piece through once each week.
 
 ### Interleaving
 
@@ -96,6 +97,7 @@ Piano Marvel microphone mode is iOS-only and less reliable for complex polyphony
 
 Use app scores as one data point for accuracy.
 Everything else uses your rubric, recordings, and external feedback.
+Log each review with [[_templates/piano/Recording Review|Recording Review]] — one fix carries to next week.
 
 ## Performance Simulation and Memorization
 
@@ -120,7 +122,7 @@ Do not immediately chase a better take.
 - Auditory: can you sing it away from the piano?
 - Visual: can you see key spots in your mind?
 - Analytical: can you describe the harmony and form in words?
-- Sleep consolidation: visualize the piece before bed. The brain replays and strengthens motor sequences during sleep.
+- Sleep consolidation: visualize the piece before bed. Overnight replay supports retention; gain is a bonus, not a promise.
 - Mental practice: rehearse the piece away from the piano. See it, feel it, hear it.
 
 Muscle memory alone is the most likely to collapse under nerves.
@@ -129,12 +131,12 @@ Build all four from day 1.
 
 ### Dual-task performance simulation
 
-Once per month, add a cognitive load to your performance simulation:
+Once per month, add a cognitive load to your performance simulation (log it with [[_templates/piano/Recording Review|Recording Review]]):
 
 - Play the piece while counting aloud
 - Play while naming the chords
 - Play while a metronome plays on off-beats
-- Play while a recording of the piece plays slightly out of sync
+- Play while a recording of the piece plays slightly out of sync (optional experiment, not a standard — pressure inoculation evidence is thin; performance failure is mostly arousal-driven retrieval collapse, not distraction-overload)
 
 This trains recovery and focus under distraction, which is what real performance demands.
 

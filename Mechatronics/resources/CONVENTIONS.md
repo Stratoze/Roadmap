@@ -41,7 +41,8 @@ When documenting a design decision, test, or FMEA entry, state the temporal hori
 - **t=hours:** creep, corrosion, thermal aging, electromigration
 - **t=thermal cycles:** solder joint fatigue, coating delamination
 
-Example:
+Example: a motor-mount bolt gets t=0 (vibration loosening), t=cycles (fatigue at the thread root), and t=hours (galvanic corrosion at the aluminum interface) — three horizons, three different mitigations.
+
 ## Coordinates and frames
 
 Default for 2D arm work unless otherwise stated:
@@ -140,4 +141,4 @@ DECISION: Chose star ground over ground pour.
 WHY: High di/dt motor return would modulate ADC reference.
 ```
 
-Use `templates/decision_record.md` only when the decision needs more detail.
+Use `_templates/mech/decision_record.md` only when the decision needs more detail.

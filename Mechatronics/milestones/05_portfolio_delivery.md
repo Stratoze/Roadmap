@@ -13,7 +13,7 @@ can't yet explain.
 1. Exploded-View Pedestal — one QDD actuator disassembled and presented in assembly order on laser-cut acrylic, every component labeled
 2. Bench Museum — a single display holding every phase artifact, telling the dependency-tree story
 
-**Fabrication & safety envelope (Phase 5):** laser-cut acrylic/wood via service, hand assembly, LED lighting. Ventilation if sanding acrylic; eye protection. No electronics fabrication. Do NOT disassemble the arm's actuators until the final demo video is recorded.
+**Fabrication & safety envelope (Phase 5):** laser-cut acrylic/wood via service, hand assembly, LED lighting. Ventilation required when sanding acrylic; eye protection. No electronics fabrication. De-energize + discharge + meter-verify before ANY teardown. Do NOT disassemble the arm's actuators until the final demo video is recorded.
 
 ### Assessment Philosophy
 
@@ -23,10 +23,10 @@ make decisions under uncertainty, and weigh trade-offs based on incomplete infor
 The portfolio must make that process visible.
 
 The assessment framework is **criterion-referenced**, not pass/fail. Each domain below
-is rated on a rubric (see `templates/portfolio_rubric.md`). The rubric evaluates
+is rated on a rubric (see `_templates/mech/portfolio_rubric.md`). The rubric evaluates
 observable behaviors, not just artifacts.
 
-### Portfolio Domains (from `templates/portfolio_rubric.md`)
+### Portfolio Domains (from `_templates/mech/portfolio_rubric.md`)
 
 1. **Design Process & Requirements Analysis** — Did you elicit, document, and trace
 requirements? Can you justify design choices against them?
@@ -48,8 +48,8 @@ Are decisions documented? Are limitations acknowledged honestly?
 - [ ] 20+ page engineering report exists
 - [ ] One demo video: workcell running
 - [ ] Code repo clean and navigable
-- [ ] Verification matrix completed (`templates/verification_matrix.md`)
-- [ ] **Physical:** exploded view assembled, ≥ 5 labeled components
+- [ ] Verification matrix completed (`_templates/mech/verification_matrix.md`)
+- [ ] **Physical:** exploded view assembled, ≥ 5 labeled components (if 5.2 elected — optional example, see Skill Spine)
 
 ### Full Pass
 - [ ] Report: requirements → design → build → test → results → lessons
@@ -58,12 +58,12 @@ Are decisions documented? Are limitations acknowledged honestly?
 - [ ] Decision records and Verified Landmines compiled
 - [ ] Calibration records, interface contracts, and test evidence paths compiled
 - [ ] **Verification matrix completed:** every requirement → test → evidence → result,
-with calibration/uncertainty records. Use `templates/verification_matrix.md`.
+with calibration/uncertainty records. Use `_templates/mech/verification_matrix.md`.
 - [ ] **Portfolio rubric self-assessed:** rate yourself on all 5 domains using
-`templates/portfolio_rubric.md`. Identify your weakest domain. Write one paragraph
+`_templates/mech/portfolio_rubric.md`. Identify your weakest domain. Write one paragraph
 on what you'd do differently to strengthen it.
 - [ ] **Stress inoculation completed:** at least one timed debugging exercise using
-`templates/stress_inoculation.md`. Document what broke under pressure and what
+`_templates/mech/stress_inoculation.md`. Document what broke under pressure and what
 survived.
 - [ ] Video: well-lit, stable, shows cold-boot → run → shutdown
 - [ ] Code refactored, consistent naming, no dead code, tagged `v1.0-release`
@@ -102,13 +102,13 @@ reflection.
 - [ ] Calibration records, interface contracts, and capture paths compiled into appendix
 - [ ] **Verification matrix complete:** every requirement from Phase 0–4 that fed the
 capstone is traced to a test, evidence artifact, and result. Use
-`templates/verification_matrix.md`.
+`_templates/mech/verification_matrix.md`.
 - [ ] **Rubric self-assessment:** rate all 5 domains. Identify weakest. Write improvement
-paragraph. Use `templates/portfolio_rubric.md`.
+paragraph. Use `_templates/mech/portfolio_rubric.md`.
 - [ ] **Stress inoculation:** at least one timed fault-injection debugging exercise.
 Document: what you expected, what actually happened under time pressure, what
 debugging strategy you defaulted to, whether it worked. Use
-`templates/stress_inoculation.md`.
+`_templates/mech/stress_inoculation.md`.
 - [ ] Video: narrated or captioned
 - [ ] Code: refactored, tagged `v1.0-release`
 - [ ] Resume bullets: specific tools, specific metrics
@@ -202,11 +202,10 @@ can't explain; the video captures what you can.
 - Do the stress inoculation BEFORE writing the report. The results feed into the
 metacognitive reflection.
 
-> Log sessions in Daily/ notes using the unified template.
 
 ---
 
-# Milestone 5.2 — Exploded-View Pedestal + Bench Museum
+# Milestone 5.2 — Exploded-View Pedestal + Bench Museum (optional example — presentation, no new skill)
 
 > [!info] 📚 Resources — Display Fabrication
 > **Visual:** iFixit-style teardown displays; museum exhibit labeling.
@@ -273,7 +272,6 @@ a QR code to its capture folder. This is the dependency tree from the ROADMAP, m
 - Order laser-cut acrylic BEFORE writing final labels — stand dimensions set label positions.
 - Photograph in good light BEFORE the submission deadline. Bad lighting ruins good hardware.
 
-> Log sessions in Daily/ notes using the unified template.
 
 ---
 

@@ -6,7 +6,7 @@ Use for KiCad projects, schematics, layouts, BOMs, fabrication outputs, and brin
 
 - **EDA:** KiCad 9 (free, open source, macOS/Windows/Linux). <https://www.kicad.org/>
 - **Learning:** Phil's Lab (YouTube) for mixed-signal design. DigiKey KiCad series for basics. KiCad forum (forum.kicad.info) for specific errors.
-- **Trace width:** use KiCad's built-in PCB Calculator (Tools → PCB Calculator) with IPC-2221. Don't guess.
+- **Trace width:** use KiCad's built-in PCB Calculator (Tools → PCB Calculator) with IPC-2152 for current capacity. Don't guess.
 
 ## Before schematic
 
@@ -27,4 +27,4 @@ pcb/board_name/
 └── bom/
 ```
 
-Use bom_template.csv, [schematic_review_template.md](schematic_review_template.md), and templates/pcb_bringup.md.
+Use `bom_template.csv` (in this folder), [[_templates/mech/schematic_review|schematic_review]], and [[_templates/mech/pcb_bringup|pcb_bringup]].

@@ -9,9 +9,8 @@ Do not maintain this weekly.
 ## Completion & Evidence — how a milestone becomes "done"
 
 1. Meet every **MVM** checkbox for the milestone.
-2. Commit the evidence: `./scripts/save.sh "phaseN: <what you proved>"`
-3. Tag it (the permanent proof): `./scripts/milestone.sh m<N>.<M>-mvm "<what proves it>"`
-4. Flip its status ⬜→✅ above, then `./scripts/save.sh "roadmap: mark m<N>.<M> complete"`
+2. Flip its status ⬜→✅ above, then commit everything: `./scripts/save.sh "roadmap: mark m<N>.<M> complete"` (Full Pass tags separately per AGENT.md — same flow, `m<N>.<M>-full`).
+3. Tag it (the permanent proof): `./scripts/milestone.sh m<N>.<M>-mvm <evidence-path> "<what proves it>"` (script enforces tag format + evidence-in-HEAD + ✅-in-HEAD).
 
 Tag names: `m0.1-mvm`, `m0.1-full` (Full Pass), phase gates `p0-complete`.
 The **tag** is the durable, timestamped evidence. The **✅** is the at-a-glance state.
@@ -29,7 +28,7 @@ artifacts where each one proves a phase's skills AND feeds the next phase:
 | 2     | Force-Feedback Haptic Knob + Inverted Pendulum Cart                 | FOC + impedance control + state-space on real hardware | QDD firmware in Phase 3 |
 | 3     | Quasi-Direct Drive (QDD) Actuator: CNC housing + Puck PCB + gearbox | CAD, FEA, 4-layer PCB, EMC, machine elements           | the arm's joints        |
 | 4     | 2-DOF Arm (two QDDs) + Safety PDU + Gripper + Tool Changer          | integration, CAN, functional safety, harnessing        | the portfolio hero      |
-| 5     | Exploded-View Pedestal + Bench Museum                               | communication of the whole system                      | the interview           |
+| 5     | Exploded-View Pedestal + Bench Museum (optional — see Skill Spine)  | communication of the whole system                      | the interview           |
 
 Every physical deliverable is judged by: *"Does this look like something a Tier-1
 robotics supplier would ship, or a science fair project?"* Mount it, label it,
@@ -53,81 +52,81 @@ No welding. No manual CNC. No mains — ever, in this roadmap.
 
 |**Milestone**|**Status**|
 |---|---|
-|[0.1 — Problem-Solving + Toolchain](milestones/00_foundations.md#milestone-01-problem-solving-framework-toolchain)|✅|
-|[0.2 — Vectors + Trig](milestones/00_foundations.md#milestone-02-vectors-trig-frames-of-reference)|✅|
-|[0.3 — Calculus Intuition](milestones/00_foundations.md#milestone-03-calculus-intuition)|⬜|
-|[0.4 — Statics + FBDs + FEM Intuition](milestones/00_foundations.md#milestone-04-statics-free-body-diagrams)|⬜|
-|[0.5 — Circuits Basics](milestones/00_foundations.md#milestone-05-circuits-basics)|⬜|
-|[0.6 — Power + Thermal](milestones/00_foundations.md#milestone-06-power-efficiency-thermal)|⬜|
-|[0.7 — Materials + Failure + Selection](milestones/00_foundations.md#milestone-07-materials-failure-and-selection)|⬜|
-|[0.8 — Manufacturing + DFMA](milestones/00_foundations.md#milestone-08-manufacturing-processes-dfma)|⬜|
-|[0.9 — Mechanisms + Kinematic Elements + Physical Testbed](milestones/00_foundations.md#milestone-09-mechanisms-kinematic-elements-physical-testbed)|⬜|
-|[0.10 — Metrology + Measurement Uncertainty](milestones/00_foundations.md#milestone-010-metrology-measurement-uncertainty)|⬜|
+|[0.1 — Problem-Solving + Toolchain](milestones/00_foundations.md)|✅|
+|[0.2 — Vectors + Trig](milestones/00_foundations.md)|✅|
+|[0.3 — Calculus Intuition](milestones/00_foundations.md)|⬜|
+|[0.4 — Statics + FBDs + FEM Intuition](milestones/00_foundations.md)|⬜|
+|[0.5 — Circuits Basics](milestones/00_foundations.md)|⬜|
+|[0.6 — Power + Thermal](milestones/00_foundations.md)|⬜|
+|[0.7 — Materials + Failure + Selection](milestones/00_foundations.md)|⬜|
+|[0.8 — Manufacturing + DFMA](milestones/00_foundations.md)|⬜|
+|[0.9 — Mechanisms + Kinematic Elements + Physical Testbed](milestones/00_foundations.md)|⬜|
+|[0.10 — Metrology + Measurement Uncertainty](milestones/00_foundations.md)|⬜|
 
 ## Phase 1 — Signals, Actuators, Dynamics
 
 |**Milestone**|**Status**|
 |---|---|
-|[1.1 — I2C Sensor + Telemetry](milestones/01_signals_actuators_dynamics.md#milestone-11-i2c-sensor-telemetry)|⬜|
-|[1.2 — Noise + Filtering + Frequency Domain](milestones/01_signals_actuators_dynamics.md#milestone-12-noise-filtering-and-frequency-domain)|⬜|
-|[1.3 — H-Bridge + BLDC Commutation](milestones/01_signals_actuators_dynamics.md#milestone-13-h-bridge-bldc-commutation-characterization)|⬜|
-|[1.4 — Dynamics Model + Pendulum Rig](milestones/01_signals_actuators_dynamics.md#milestone-14-pendulum-dynamics-model-hardware-validation)|⬜|
-|[1.5 — Integration + Sensor Fusion + Calibration](milestones/01_signals_actuators_dynamics.md#milestone-15-phase-1-integration-sensor-fusion-calibration)|⬜|
-|[1.6 — Stepper + Microstepping](milestones/01_signals_actuators_dynamics.md#milestone-16-stepper-motor-microstepping-driver)|⬜|
-|[1.7 — Voice Coil Actuator + Motor Test Rig](milestones/01_signals_actuators_dynamics.md#milestone-17-voice-coil-actuator-motor-test-rig)|⬜|
+|[1.1 — I2C Sensor + Telemetry](milestones/01_signals_actuators_dynamics.md)|⬜|
+|[1.2 — Noise + Filtering + Frequency Domain](milestones/01_signals_actuators_dynamics.md)|⬜|
+|[1.3 — H-Bridge, BLDC Commutation + Characterization](milestones/01_signals_actuators_dynamics.md)|⬜|
+|[1.4 — Pendulum Dynamics Model + Hardware Validation](milestones/01_signals_actuators_dynamics.md)|⬜|
+|[1.5 — Integration + Sensor Fusion + Calibration](milestones/01_signals_actuators_dynamics.md)|⬜|
+|[1.6 — Stepper + Microstepping](milestones/01_signals_actuators_dynamics.md)|⬜|
+|[1.7 — Voice Coil Actuator + Motor Test Rig](milestones/01_signals_actuators_dynamics.md)|⬜|
 
 ## Phase 2 — Embedded Architecture & Real-Time Control
 
 |**Milestone**|**Status**|
 |---|---|
-|[2.1 — Bare-Metal STM32 + SPI + UART](milestones/02_embedded_realtime_control.md#milestone-21-bare-metal-stm32-foundation)|⬜|
-|[2.2 — PID Theory + Tuning](milestones/02_embedded_realtime_control.md#milestone-22-pid-theory-tuning-in-simulation)|⬜|
-|[2.3 — FOC Closed-Loop](milestones/02_embedded_realtime_control.md#milestone-23-foc-closed-loop-on-hardware)|⬜|
-|[2.4 — FreeRTOS Multi-Task](milestones/02_embedded_realtime_control.md#milestone-24-freertos-multi-task-firmware)|⬜|
-|[2.5 — Multi-DOF Dynamics + State-Space](milestones/02_embedded_realtime_control.md#milestone-25-multi-dof-dynamics-state-space-control)|⬜|
-|[2.6 — Limit Switches + Homing + State Machines](milestones/02_embedded_realtime_control.md#milestone-26-limit-switches-homing-and-state-machine-design)|⬜|
-|[2.7 — Integrated Sub-System: Haptic Knob](milestones/02_embedded_realtime_control.md#milestone-27-integrated-sub-system-haptic-knob)|⬜|
-|[2.8 — Inverted Pendulum Cart](milestones/02_embedded_realtime_control.md#milestone-28-inverted-pendulum-cart)|⬜|
+|[2.1 — Bare-Metal STM32 Foundation](milestones/02_embedded_realtime_control.md)|⬜|
+|[2.2 — PID Theory + Tuning in Simulation](milestones/02_embedded_realtime_control.md)|⬜|
+|[2.3 — FOC Closed-Loop](milestones/02_embedded_realtime_control.md)|⬜|
+|[2.4 — FreeRTOS Multi-Task Firmware](milestones/02_embedded_realtime_control.md)|⬜|
+|[2.5 — Multi-DOF Dynamics + State-Space Control](milestones/02_embedded_realtime_control.md)|⬜|
+|[2.6 — Limit Switches, Homing, and State Machine Design](milestones/02_embedded_realtime_control.md)|⬜|
+|[2.7 — Integrated Sub-System: Haptic Knob](milestones/02_embedded_realtime_control.md)|⬜|
+|[2.8 — Inverted Pendulum Cart](milestones/02_embedded_realtime_control.md)|⬜|
 
 ## Phase 3 — Model-Based Design & Verification
 
 |**Milestone**|**Status**|
 |---|---|
-|[3.0 — SIL Verification Gate](milestones/03_mech_pcb_verification.md#phase-entry-gate-software-in-the-loop-verification)|⬜|
-|[3.1 — QDD Actuator: CAD + Machine Elements + FEA](milestones/03_mech_pcb_verification.md#milestone-31-qdd-actuator-cad-machine-elements-fea-drawings)|⬜|
-|[3.2 — The Puck: Custom FOC Driver PCB](milestones/03_mech_pcb_verification.md#milestone-32-the-puck-custom-foc-driver-pcb)|⬜|
-|[3.3 — QDD Actuator Assembly + Characterization](milestones/03_mech_pcb_verification.md#milestone-33-qdd-actuator-assembly-characterization)|⬜|
-|[3.4 — HIL Validation Gate](milestones/03_mech_pcb_verification.md#phase-exit-gate-hardware-in-the-loop-validation)|⬜|
+|[3.0 — SIL Verification Gate](milestones/03_mech_pcb_verification.md)|⬜|
+|[3.1 — QDD Actuator: CAD + Machine Elements + FEA + Drawings](milestones/03_mech_pcb_verification.md)|⬜|
+|[3.2 — The Puck: Custom FOC Driver PCB](milestones/03_mech_pcb_verification.md)|⬜|
+|[3.3 — QDD Actuator Assembly + Characterization](milestones/03_mech_pcb_verification.md)|⬜|
+|[3.4 — HIL Validation Gate](milestones/03_mech_pcb_verification.md)|⬜|
 
 ## Phase 4 — Capstone & Industrial Integration
 
 |**Milestone**|**Status**|
 |---|---|
-|[4.1 — CAN + C++ Messaging](milestones/04_capstone_integration.md#milestone-41-can-c-messaging)|⬜|
-|[4.2 — Motion + Dynamics-Aware Control](milestones/04_capstone_integration.md#milestone-42-motion-integration-dynamics-aware-control)|⬜|
-|[4.3 — Safety PDU + Hardwired E-Stop](milestones/04_capstone_integration.md#milestone-43-safety-pdu-hardwired-e-stop)|⬜|
-|[4.4 — Workcell Integration + Harness](milestones/04_capstone_integration.md#milestone-44-workcell-integration-harness)|⬜|
-|[4.5 — Electromechanical Gripper + Tool Changer](milestones/04_capstone_integration.md#milestone-45-electromechanical-gripper-tool-changer)|⬜|
+|[4.1 — CAN + C++ Messaging](milestones/04_capstone_integration.md)|⬜|
+|[4.2 — Motion Integration + Dynamics-Aware Control](milestones/04_capstone_integration.md)|⬜|
+|[4.3 — Safety PDU + Hardwired E-Stop](milestones/04_capstone_integration.md)|⬜|
+|[4.4 — Workcell Integration + Harness](milestones/04_capstone_integration.md) (split: integration checklist foldable; harness-EMC + operability graded)|⬜|
+|[4.5 — Electromechanical Gripper + Tool Changer](milestones/04_capstone_integration.md) (graded: end-effector + separable interface)|⬜|
 
 ## Phase 5 — Portfolio & Delivery
 
 |**Milestone**|**Status**|
 |---|---|
-|[5.1 — Portfolio + Documentation](milestones/05_portfolio_delivery.md#milestone-51-portfolio-documentation)|⬜|
-|[5.2 — Exploded-View Pedestal + Bench Museum](milestones/05_portfolio_delivery.md#milestone-52-exploded-view-pedestal-bench-museum)|⬜|
+|[5.1 — Portfolio + Documentation](milestones/05_portfolio_delivery.md)|⬜|
+|[5.2 — Exploded-View Pedestal + Bench Museum](milestones/05_portfolio_delivery.md) (optional example — presentation, no new skill)|⬜|
 
 ## Calibration
 
 |**Phase**|**Planned**|**Actual**|
 |---|---|---|
-|Phase 0|8–14 wk||
+|Phase 0|8–14 wk|2/10 in ~2.5 wk (partial, Aug 10→27)|
 |Phase 1|12–20 wk||
 |Phase 2|12–26 wk||
 |Phase 3|12–22 wk||
 |Phase 4|10–20 wk||
 |Phase 5|4–8 wk||
 
-_Update actuals only at phase completion._
+_Planned = MVM scope; Full Pass multiplies the work, so schedule it separately. Update actuals only at phase completion._
 
 ## Resource Map
 
@@ -137,7 +136,7 @@ Learning resources are injected at the top of each milestone file — open the m
 
 - [[Mechatronics/resources/SAFETY_CARD|Safety Card]] — read before any hardware work
 - [[Mechatronics/resources/CONVENTIONS|Conventions]] — units, naming, coordinates
-- [[Mechatronics/resources/FIELD_NOTES|Field Notes]] — career radar, reviewed at 12-week check
+- [[Mechatronics/resources/FIELD_NOTES|Field Notes]] — career radar, reviewed at 12-week review
 - [[Mechatronics/resources/LAB_INFRASTRUCTURE|Lab Infrastructure]] — tools, budget, sourcing
 
 ## Speed Runs
@@ -160,7 +159,7 @@ One per phase. Plus optional "from scratch" builds.
 >
 > The "from scratch" builds are optional but recommended. They make the equations physical. A speaker is a linear motor you can hear. A generator is a motor run backwards. Neither requires a roadmap entry — they're weekend speed runs that change how the theory feels.
 >
-> The mechanism speed run is now folded into Milestone 0.9's physical testbed. Cardboard four-bars take 20 minutes. Seeing the Grashof condition change a crank-rocker into a double-rocker by flipping which link you hold is worth more than a page of derivation.
+> The mechanism speed run is now folded into Milestone 0.9's physical testbed. Cardboard four-bars take 20 minutes. Re-grounding the same four bars flips crank-rocker into double-rocker (the Grashof inequality never changes — only the type does), which is worth more than a page of derivation.
 
 ## Physical Artifact Dependency Tree
 
@@ -179,11 +178,60 @@ Phase 3: QDD Actuator = CNC housing + Puck PCB + planetary gearbox + dual encode
     │  (the joint for the capstone arm)
     ▼
 Phase 4: 2-DOF Arm (two QDDs) + Safety PDU + Gripper + Tool Changer
-    │  (the portfolio hero)
+    │  (the portfolio hero; 4.4 split-graded — see Skill Spine)
     ▼
-Phase 5: Exploded-View Pedestal + Bench Museum
+Phase 5: Exploded-View Pedestal + Bench Museum (optional — see Skill Spine)
 ```
 
 Each artifact requires the skills of its phase. You cannot design the Puck PCB
 without the analog front-end knowledge from Phase 1.3. You cannot build the QDD
 without FOC from 2.3 and machine elements from 3.1. The dependency tree IS the curriculum.
+
+## Skill Spine (the roadmap teaches verbs, not machines)
+
+The spine is transferable verbs — derive, measure, drive, coordinate,
+power, prove safe-state, calibrate, verify SIL→HIL. Artifacts are reference
+instances that prove the verbs, not the goal. The 2-DOF arm is the reference
+hero; it is not the definition of done. Verbs repeat across phases on purpose
+(spiral: intro in 0.10 → reuse at rigor in 1.7/3.3) — each verb lists its
+INTRO owner first, every other occurrence is reuse at a tighter envelope.
+
+| Verb | Intro owner | Reuse (tighter envelope) |
+| --- | --- | --- |
+| derive | 0.2 FK / 0.4 statics | 1.4 EOM, 2.5 Lagrangian, 4.2 IK |
+| measure | 0.10 Type A/B + RSS | 1.7 load-cell, 3.3 Kt/Ke/thermal |
+| drive | 1.3 H-bridge + BLDC | 1.6 stepper, 2.3 FOC |
+| coordinate | 2.4 multi-task (local) → 2.6 state machines (sequence) → 4.1/4.2 CAN+motion (distributed) | — (chain, not intro/reuse) |
+| power | 0.6 P/I²R/efficiency | Phase-3 budget, 3.2 buck, 4.3 PDU |
+| prove safe-state | 2.6 NC-failsafe + FAULT | Phase-3 HIL, 4.3 contactors + per-axis states |
+| calibrate | 0.10 zero + instrument uncertainty, 1.3 first offset-subtraction | 1.5/1.7/2.7/3.3 offsets (same verb, rising stakes) |
+| verify SIL→HIL | Phase-3 SIL entry + HIL exit | 4.3 automated HIL |
+
+- A project belongs in the graded path only if it teaches a NEW transferable
+  skill. Pure integration/polish with no new verb is an example, not a gate:
+  5.2 (display) is tagged as such above. 4.4 splits: the route/secure/label +
+  cold-boot integration checklist is foldable into 4.2/4.3 exit (including structural mounting and limit-switch install-at-scale, which are reuse with no new verb); harness-scale
+  EMC + operability review are graded verbs owned by 4.4 (bend radius, connector locking, and service access grade HERE — labels alone may fold). 4.5 is GRADED
+  (end-effector + separable power/signal interface have no alternate owner).
+  Do examples for the portfolio; do gates for the skills.
+- Custom-project rule: when a phase arrives, you or the AI may propose a
+  substitute project that hits the SAME verbs. The AI approves against this
+  table (a human overrules) — approval requires: the verbs named against
+  the table above, the evidence plots with uncertainty +
+  sample counts + fault minima, the safety envelope, the preserved
+  downstream feed (what the next phase needs from this artifact), and the
+  interface contract (power/data/mechanical seams). Sim-only substitutes for
+  hardware verbs are rejected. If it teaches no new verb, it goes in the
+  example pool, not the graded path.
+- Phase-4b (optional, after the hero): a second machine — e.g. a 3-axis CNC.
+  Honest split — transferable habits: harness discipline, calibration method,
+  stepper/drive vocabulary, homing state machines. New addenda (not reuse):
+  gantry sizing, multi-axis homing + squareness + work coordinates, linear
+  motion procedures (rail parallelism, screw preload, tramming), spindle/VFD
+  power (mains — never DIY), cutting physics, G-code/CAM chain, interlocked
+  extraction enclosure.
+  Gated behind 4.3 safety PLUS a spindle/process addendum with its own safety
+  case, built at point of need under the AGENT.md proximity trigger.
+- Non-claim: this roadmap alone does not qualify you to build a cutting
+  machine, touch mains/VFD power, or run pressure/fluid systems unsupervised.
+  Those are post-roadmap addenda with their own safety cases.

@@ -18,7 +18,7 @@ Firmware/code commit:
 - [ ] Mechanically secured
 - [ ] Current limit set
 - [ ] Clear rotation path
-- [ ] Power-off path known
+- [ ] Power-off path known and tested
 
 ## Configuration
 
@@ -33,9 +33,9 @@ Describe sensor frame relative to world/body frame.
 
 ## Measurements
 
-| Quantity | Value | Unit | Method / artifact |
-| --- | ---: | --- | --- |
-| | | | |
+| Quantity | Value | Unit | ±Uncertainty | Design point / pass band | Method / artifact |
+| --- | ---: | --- | ---: | --- | --- |
+| | | | | | |
 
 ## Phase order / wiring, motors
 

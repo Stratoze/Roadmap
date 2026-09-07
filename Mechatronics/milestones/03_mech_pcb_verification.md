@@ -33,7 +33,7 @@ This is the joint your Phase 4 arm is built from. Two of them.
 
 ---
 
-## Phase Entry Gate: Software-in-the-Loop Verification
+## Phase Entry Gate (Milestone 3.0): Software-in-the-Loop Verification
 
 Before opening CAD or KiCad, prove that your Phase 2 control stack works against a
 simulated plant. This is the left side of the V: you verify the software against the model
@@ -57,7 +57,7 @@ no divergence).
 - [ ] The simulation includes the anti-aliasing filter phase lag from Milestone 1.3
 analog front end. The control loop remains stable with the filter in the loop.
 - [ ] All simulation scripts committed to `simulations/python/` with experiment notes
-using `templates/experiment_note.md`.
+using `_templates/mech/experiment_note.md`.
 - [ ] Results plotted and saved to `docs/captures/`.
 
 ### Why this gate exists
@@ -104,7 +104,7 @@ If the controller winds up or diverges with saturation, fix it NOW, not on hardw
 - [ ] Fastener selection: bolt grade, preload, torque spec
 - [ ] Fits documented: bearing-to-shaft, bearing-to-housing, with tolerance classes
 - [ ] DFM review completed against Phase 0 rules before sending to fab
-- [ ] Star grounding verified
+- [ ] Star grounding verified (power-feed topology on one solid plane — never a plane split)
 - [ ] Trace widths sized for stall current
 - [ ] Power stage: buck designed with computed values, not copied blindly
 - [ ] EMC: can explain why the layout passes or fails
@@ -112,13 +112,13 @@ If the controller winds up or diverges with saturation, fix it NOW, not on hardw
 - [ ] QDD assembled: shaft turns smoothly by hand, zero axial play, backdrivable
 - [ ] QDD characterized on the Phase 1 rig: Kt, Ke, torque-speed, backdrivability, thermal
 - [ ] HIL: 3+ fault types injected, firmware enters safe state for each
-- [ ] Mini-FMEA completed for mechanical and electrical using `templates/fmea.md`
+- [ ] Mini-FMEA completed for mechanical and electrical using `_templates/mech/fmea.md`
 
 ---
 
 ## Pre-Design Requirements
 
-Fill `templates/requirements_brief.md` before opening CAD or KiCad.
+Fill `_templates/mech/requirements_brief.md` before opening CAD or KiCad.
 
 ### Actuator Sizing (required before CAD)
 
@@ -136,12 +136,12 @@ Before opening KiCad, document:
 - [ ] **Every rail:** 3.3 V logic, gate-drive rail, 48 V motor bus.
 - [ ] **Every load per rail per mode:** idle, active, peak (stalled).
 - [ ] **Regulator sizing** with 30% margin; LDO vs buck justified by dissipation.
-- [ ] **Fuse sizing:** stall current + inrush. Slow-blow documented.
+- [ ] **Fuse sizing:** above nominal, below wire ampacity, verified to blow on a dead short (SAFETY_CARD rule — a fuse rated at stall current allows sustained stall). Stall/overload protection is separate: driver OCP + thermal + firmware limit. Slow-blow documented.
 - [ ] **Supply sizing:** peak deliverable without current-limiting in normal operation.
 
 ### Mini-FMEA (required before design, updated after)
 
-Complete `templates/fmea.md` for mechanical and electrical BEFORE design. Every item with
+Complete `_templates/mech/fmea.md` for mechanical and electrical BEFORE design. Every item with
 Severity × Occurrence ≥ 12 or RPN ≥ 48 needs a documented mitigation before proceeding.
 
 ---
@@ -179,11 +179,11 @@ Complete QDD actuator mechanical design in Solid Edge CE: housing (two halves or
 ### Full Pass
 - [ ] All parts fully parametric
 - [ ] **Bearing fits:** interference on the rotating ring, clearance on the stationary, per manufacturer tables; can explain why
-- [ ] **Bearing life:** L10 = (C/P)³ × 10⁶ rev calculated at worst-case load
+- [ ] **Bearing life:** L10 = (C/P)^p × 10⁶ rev at worst-case load (p = 3 ball, 10/3 roller); convert to L10h hours at operating speed vs target
 - [ ] **Shaft:** diameter from combined torsion + bending; axial location by shoulders/retaining rings
 - [ ] **Fasteners:** grade, preload, torque spec; can explain joint stiffness vs fatigue
 - [ ] Hand calcs for bending/shear/torsion on the critical feature
-- [ ] FEA within 20% of hand calc; mesh convergence (3 densities, < 5% change between finest two)
+- [ ] FEA within 20% of hand calc at matched nominal locations (stress concentrations excluded — Kt handled explicitly, never fudged via BCs); mesh convergence (3 densities, < 5% change between finest two); FoS vs yield with worst-case load stated
 - [ ] GD&T: concentricity of bearing bores, flatness of mating faces, perpendicularity
 - [ ] Tolerance stack-up: worst-case AND RSS for the bearing→gearbox→shaft chain
 - [ ] DFM review documented against Phase 0 rules; every part checked for 3-axis manufacturability
@@ -220,10 +220,10 @@ Complete QDD actuator mechanical design in Solid Edge CE: housing (two halves or
 - Hand calcs BEFORE FEA.
 - Bearings selected BEFORE bore/shaft dimensions — you design around purchased bearings, never the reverse.
 - Print + assemble the prototype BEFORE ordering CNC.
-- DFM review BEFORE sending STEP files, not after the shop emails you questions.
+- DFM review BEFORE sending STEP files, not after the shop emails you questions. Send the quote package (`_templates/mech/quote_package.md`): STEP + material/temper + finish + qty + tolerance callouts, and answer every line of the shop's DFM reply.
+- FEA acceptance logged per `_templates/mech/fea_check.md` BEFORE CNC order — convergence + hand-calc + BC audit, not a screenshot.
 - Verify the Solid Edge → STEP → PrePoMax pipeline on a 30-minute bracket BEFORE trusting it with the actuator.
 
-> Log sessions in Daily/ notes using the unified template.
 
 ---
 
@@ -231,8 +231,8 @@ Complete QDD actuator mechanical design in Solid Edge CE: housing (two halves or
 
 > [!info] 📚 Resources — The Puck PCB
 > **Visual:** Phil's Lab STM32 motor driver PCB series — watch before opening KiCad.
-> **Interactive:** KiCad 9 — schematic → footprints → 4-layer layout → DRC → Gerbers → JLCPCB. Built-in PCB Calculator (IPC-2221) for trace widths.
-> **Theory:** TI SLVA404 (buck layout); IPC-2221; ground-plane & switching-node EMC; your own Phase 1 analog front-end experience.
+> **Interactive:** KiCad 9 — schematic → footprints → 4-layer layout → DRC → Gerbers → JLCPCB. Built-in PCB Calculator for trace widths (IPC-2152 for current capacity).
+> **Theory:** TI SLVA404 (buck layout); IPC-2152 for current capacity (IPC-2221 is obsolete for this — KiCad's calculator is still fine for geometry); ground-plane & switching-node EMC; your own Phase 1 analog front-end experience.
 > **Fabrication:** JLCPCB/PCBWay 4-layer + stencil; hotplate or hot-air reflow. NEW soldering territory — budget time to learn it.
 
 ## Deliverable
@@ -259,7 +259,7 @@ Before finalizing schematic:
 
 - [ ] **Logic rail:** buck from 48 V to 3.3 V (an LDO at 48 V input is a heater — justify any LDO by dissipation math)
 - [ ] **Gate drive supply** derived and sequenced
-- [ ] **Bootstrap capacitor** computed: C_boot ≥ Q_g × V_gs / ΔV
+- [ ] **Bootstrap capacitor** computed: C_boot ≥ Q_total / ΔV_allowed (gate charge over allowable droop, plus margin per the driver datasheet, e.g. TI SLUA618 — NOT × V_gs, which oversizes ~10×)
 - [ ] **Inrush:** NTC or soft-start; without it the supply current-limits and the MCU brown-outs
 - [ ] **Reverse polarity protection:** the board survives a backwards plug
 - [ ] **Test points** on rails, sense outputs, PWM, CAN
@@ -292,7 +292,7 @@ Before finalizing schematic:
 - [ ] CAN-FD verified against a second node
 - [ ] Buck efficiency measured > 85%
 - [ ] EMC check: encoder stable while motor runs 50% duty; ADC noise < 5% FS under switching
-- [ ] Thermal check: MOSFET temperature under continuous load (thermocouple), below limit
+- [ ] Thermal check: MOSFET temperature under continuous load (thermocouple), below limit; thermal pad/paste with real mounting pressure — a dry joint throttles and lies
 - [ ] Reverse polarity test: board survives
 - [ ] **Physical:** Puck mounted in the housing from 3.1; fits; connector exit correct; photographed
 
@@ -301,8 +301,8 @@ Before finalizing schematic:
 >    For every non-trivial IC: datasheet → "Recommended PCB Land Pattern." Cross-reference pad count, pin 1, courtyard. SOT-23-5 vs SOT-23-6, SOIC-8 vs SOIC-8-EP, flipped pin 1. 5 min per IC. Missing it costs a 3-week fab cycle. **#1 because it ends the milestone.**
 > 2. **Draw ground return paths as arrows BEFORE layout.** `[COMMUNITY]`
 >    Motor return, ADC return, MCU return. If two arrows share a trace segment before the star point, that's noise injection.
-> 3. **Trace width for stall current, not nominal.** `[COMMUNITY — IPC-2221]`
->    Stall is 3–5× running. Size for stall.
+> 3. **Trace width for stall current, not nominal.** `[COMMUNITY — IPC-2152]`
+>    Stall is 3–5× running. Size for stall, with temperature-rise target and derating (IPC-2221 is obsolete for current capacity).
 > 4. **Decoupling: < 3 mm means < 3 mm.** `[COMMUNITY]`
 >    100 nF ceramic 2 cm away is decoration. Place decoupling first, then route.
 > 5. **Fab wait IS the deload.** `[HYPOTHESIS]`
@@ -320,12 +320,13 @@ Before finalizing schematic:
 > 11. **The switching node is an antenna.** `[COMMUNITY]`
 >     Short, narrow, and the ground plane under it is the shield — don't clear it away.
 > 12. **48 V changes the fuse math.** `[HYPOTHESIS]`
->     Phase 1 habits (24 V, small currents) underestimate fault energy. Fuse for stall + inrush, and use a DC-rated fuse/holder.
+>     Phase 1 habits (24 V, small currents) underestimate fault energy. Size per the SAFETY_CARD rule (above nominal, below ampacity, blows on dead short — never at stall), and use a DC-rated fuse/holder.
 >
 
 ## Dependencies that waste your week if hit backwards
 
 - **SIL gate BEFORE schematic** — the sim constrains amplifier bandwidth and filter cutoffs.
+- Layout review per `_templates/mech/pcb_emc_review.md` + BOM check per `_templates/mech/datasheet_bom_check.md` BEFORE Gerber order.
 - Verify ALL footprints BEFORE opening the layout editor.
 - Ground return diagram BEFORE layout.
 - Current-sensing topology decision (from 2.3) BEFORE choosing sense resistors/amplifiers.
@@ -335,7 +336,6 @@ Before finalizing schematic:
 - Order the stencil WITH the boards.
 - Bench-test the Puck with the motor BEFORE mounting it in the housing — once it's inside, you can't probe.
 
-> Log sessions in Daily/ notes using the unified template.
 
 ---
 
@@ -344,7 +344,7 @@ Before finalizing schematic:
 > [!info] 📚 Resources — QDD Assembly & Characterization
 > **Visual:** actuator assembly videos (Mini Cheetah class); your own Phase 1 characterization captures as the template.
 > **Interactive:** assemble → FOC on the Puck → characterize on the Phase 1 test rig.
-> **Theory:** reflected inertia J_ref = J_motor × N² + J_gearbox; backdrivability as the QDD's defining property; encoder offset calibration (1.3); bearing preload.
+> **Theory:** reflected inertia (motor side: J_m + J_gb,m + J_load/N²; output side: J_load + (J_m+J_gb,m)×N² — state the frame, a 10:1 REDUCES motor-side inertia ~100×); backdrivability as the QDD's defining property; encoder offset calibration (1.3); bearing preload.
 > **Fabrication:** assembly only. Hand tools + press fits. 48 V bus — follow SAFETY_CARD.
 
 ## Deliverable
@@ -356,10 +356,10 @@ Assemble the QDD from 3.1 + 3.2 components and characterize it on the Phase 1 mo
 2. Output shaft through bearings; axial location by shoulder + retaining ring.
 3. Gearbox to motor; couple to output shaft (alignment matters).
 4. Puck mounted on motor rear; AS5048 magnet on output shaft at datasheet gap.
-5. Wire, close housing, torque fasteners to spec.
+5. Wire, close housing, torque fasteners to spec in a star sequence (blue thread-locker on metal threads, never on plastics or near encoder optics; re-torque after the first thermal/vibration cycle — de-energize + discharge + cool-down first, and clean + reapply the locker: re-torquing a cured bond fractures it).
 6. Verify by hand: smooth rotation, zero axial play, backdrivable.
 
-**Characterization tests (all logged with `templates/characterization.md`):**
+**Characterization tests (all logged with `_templates/mech/characterization.md`):**
 - Kt: command Iq steps, measure output torque, slope × ratio check
 - Ke: hand-spin output, measure phase voltage vs speed
 - Torque-speed curve: 5+ points
@@ -406,11 +406,10 @@ Assemble the QDD from 3.1 + 3.2 components and characterize it on the Phase 1 mo
 - Encoder offset calibrated BEFORE final assembly.
 - Characterize on the rig BEFORE the actuator ever goes near the arm (Phase 4).
 
-> Log sessions in Daily/ notes using the unified template.
 
 ---
 
-## Phase Exit Gate: Hardware-in-the-Loop Validation
+## Phase Exit Gate (Milestone 3.4): Hardware-in-the-Loop Validation
 
 After the PCB is fabricated, assembled, and powered up, and after the mechanical arm is
 assembled, you validate the INTEGRATED system using HIL testing. This is the right side of
@@ -419,13 +418,11 @@ informed its design.
 
 ### Deliverable
 
-Connect the custom PCB (running Phase 2 FOC firmware) to the physical arm. Run the same
-trajectory commands that were validated in the SIL gate. Compare hardware behavior to
-simulation predictions. Then inject faults and verify safe responses.
+Connect the custom PCB (running Phase 2 FOC firmware) to the single QDD actuator (no 2-DOF arm exists yet — that is Phase 4). Run the same trajectory commands that were validated in the SIL gate, plus a coupled-load emulation for the missing second joint. Compare hardware behavior to simulation predictions. Then inject faults and verify safe responses.
 
 ### Pass Condition
 
-- [ ] The arm tracks the same multi-waypoint trajectory used in SIL. Tracking error
+- [ ] The QDD tracks the same trajectory used in SIL. Tracking error
 compared to SIL prediction. Discrepancy documented and explained (friction, backlash,
 unmodeled dynamics, sensor noise).
 - [ ] FOC current loop bandwidth measured on hardware. Compared to simulation prediction.
@@ -438,7 +435,8 @@ safe state (de-energize or controlled stop).
 down the drive.
 - Undervoltage: sag the bus voltage below threshold. Firmware detects and enters
 safe state.
-- [ ] Each fault injection uses `templates/fault_injection_test.md`.
+- [ ] Each fault injection uses `_templates/mech/fault_injection_test.md`.
+- [ ] Timing check logged per `_templates/mech/firmware_timing_check.md` (jitter/WCET, ADC-sync, SIL-vs-HIL divergence triage).
 - [ ] Fault log recorded: what was injected, what the firmware did, what it should have
 done, pass/fail.
 - [ ] Recovery procedure documented for each fault type.

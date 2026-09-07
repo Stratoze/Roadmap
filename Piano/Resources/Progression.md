@@ -38,20 +38,18 @@ Consistency beats intensity.
 A plan you can run for 15 years beats a plan you burn out on in 15 months.
 
 ### Sleep and recovery
-- Sleep is not optional. It is when motor skills consolidate.
+- Sleep is not optional. It supports consolidation and next-day encoding.
 - 7–9 hours per night is the target.
-- Practice timing matters: practicing closer to bedtime gives sleep more material to consolidate.
-- A 45-minute session followed by 8 hours of sleep outperforms a 2-hour session followed by 5 hours.
 - Naps or brief rest after practice may also help.
 
-### Deload Weeks
-Every 4th or 5th week, or whenever fatigue accumulates, take a deload:
+### Deload Weeks (pragmatic coaching habit — borrowed from strength periodization, no RCT license; run it for fatigue management, not as a consolidation mechanism)
+Every 4th or 5th week, or whenever fatigue accumulates, take a deload (percentages are starting points, not findings):
 - Cut practice time by 40–50%.
 - Drop tempo on everything by 20–30%.
 - No new material. Play only things you already know and enjoy.
 - Extra sleep, extra listening, extra score study away from the piano.
 - Extra mental practice and visualization.
-- No guilt. This is not a missed week. It is a consolidation week.
+- No guilt. This is fatigue management that preserves the daily habit — not a missed week.
 
 Signs you need a deload:
 - Practice feels like a chore for 4+ days straight.
@@ -96,10 +94,9 @@ Sit down, play, 15 minutes.
 - Add movement check-in to every session.
 
 ### Weeks 3 to 4: Repair repertoire management
-- Establish learning, polishing, and maintenance pool.
-- Convert Anki cards from song titles to specific tasks.
-- Limit Anki review by time, not card count.
-- Add a roughly 2-week safety net.
+- Establish learning, polishing, and maintenance pool (2-week safety net lives in [[Piano/Resources/Maintenance and Performance|Maintenance]], not here).
+- Convert song-title reminders into specific Engram review tasks.
+- Limit review by time, not card count.
 - Lower maintenance entry bar to performance-ready.
 - Add sleep consolidation protocol: visualize before bed.
 
@@ -206,7 +203,7 @@ For the first sitting only. After that, use the daily note (`_system/Daily Templ
 | ---: | --- | --- |
 | 0–1 | M1 intro (knuckle stroke, neutral wrist), M2 (arm drop + release) | Five-finger patterns: knuckle-initiated, zero wrist dipping |
 | 2 | M3 (thumb travel), M4 (rotation arpeggios — never stretch), M6 (pre-shaped triads) | Scale seam inaudible; arpeggio shows rotation, no spread |
-| 3 | M4 fluency + in/out, M5 small leaps, M8 trill awareness, M10 hand-off legato | Invention legato by hand-off; small leap 7/10 eyes-closed |
+| 3 | M4 fluency + in/out, M5 small leaps, M8 trill awareness, M10 hand-off legato | Invention legato by hand-off; small leap 8/10 eyes-closed (Roadmap gate test is normative where tables differ) |
 | 4 | M11 voicing as weight steering, M5 moderate leaps eyes-free, M9 substitution, M12 syncopized pedal | Melody voiced over accompaniment; leaps 8/10 eyes-closed |
 | 5 | M7 octave frame + wrist spring (slow, correct), M5 large leaps, M11 in texture, M4 velocity | 30 s of octaves: wrist spring visible, zero forearm fatigue |
 | 6 | M7 stamina, M8 tremolo, M6 large voiced chords, M12 half-pedal; gait transitions installed | 45 min run, no residual tension; fast passages use smaller motion |
@@ -236,22 +233,19 @@ Musicianship progression lives in [Musicianship](Musicianship.md). Keep sight-re
 ## Sight-Reading Progression
 | Stage | Sight-reading focus | Dual-task level |
 | ---: | --- | --- |
-| 0–1 | Note recognition. Five-finger positions. Simple rhythms. Keep pulse. | Play while counting aloud. |
-| 2–3 | Interval recognition. Pattern recognition: scales, arpeggios. Look ahead 1 beat. | Play while naming note letters. |
-| 4–5 | Chunk reading: 3–5 notes as units. Harmonic recognition. Look ahead 2–4 beats. | Play while naming chords. |
-| 6–7 | Read at tempo with expression. Recognize sequences instantly. Simplify dense textures. | Play while analyzing harmony. |
-| 8–9 | Prima vista professional repertoire. Score reading. Manage page turns. | Play while singing a voice. |
+| 0–1 | Note recognition. Five-finger positions. Simple rhythms. Keep pulse. | L1 (count aloud). |
+| 2–3 | Interval recognition. Pattern recognition: scales, arpeggios. Look ahead 1 beat. | L2 (note letters). |
+| 4–5 | Chunk reading: 3–5 notes as units. Harmonic recognition. Look ahead 2–4 beats. | L3 (chords). |
+| 6–7 | Read at tempo with expression. Recognize sequences instantly. Simplify dense textures. | L6 (harmony analysis). |
+| 8–9 | Prima vista professional repertoire. Score reading. Manage page turns. | L8 (sing a voice). |
 
 ### Sight-reading daily minimum
-- 5 minutes, 3–5 times per week
-- Use material 2 levels below current repertoire
-- No stopping. No going back.
-- One new piece per session. Do not convert to repertoire practice.
-- After playing, identify 1–2 patterns that were slow to recognize.
+Method + minima live in [[Piano/Resources/Musicianship|Sight-Reading]] (5 min, 3–5×/week, 2 levels below, no stopping, one new piece, pattern check). This table maps stages only.
 
 ---
 
 ## Ear and Functional Progression
+F-stage definitions live in [[Piano/Resources/Functional and Jpop Track|Functional stage ladder]]; stage targets below map onto them.
 | Stage | Ear training focus | Functional level |
 | ---: | --- | --- |
 | 0–1 | Intervals: M2, M3, P5. Major vs minor triad. | F0: triads, I-IV-V-I |
@@ -300,11 +294,8 @@ Perfection is asymptotic. It is not the entry requirement.
 ---
 
 ## Shelving Pieces
-Shelve without guilt if:
-- blocked 3+ weeks despite plateau-breaking **and movement decomposition**
-- you no longer feel motivated by it
-- it turns out to be mis-leveled
-- the movement demands exceed your current gate by more than one stage (return when the archetype is owned)
+The decision lives in [[Piano/Resources/Repertoire and 12-Week Goals|Shelving Pieces]] — shelving is data, not failure.
+The movement input to that decision: demands more than one stage above your gate → shelve until the archetype is owned.
 
 Return in three months and it may go quickly. Or never return. Two concurrent pieces must never become two concurrent obligations.
 

@@ -17,9 +17,9 @@ Current limit:
 
 ## Hardware
 
-- Wire gauge:
+- Wire gauge (with bundling/ambient derating + voltage drop at stall over harness length):
 - Fuse/protection:
-- Connector rating:
+- Connector rating (mating cycles + current derating noted):
 - Supply rating:
 - Load:
 
@@ -31,11 +31,11 @@ Current limit:
 - Measurement points:
 - Steady-state reached? yes/no
 
-## Stop conditions
+## Stop conditions (fill BEFORE power — a blank line is a stop)
 
 - Current above:
 - Temperature above:
-- Smell/heat/smoke:
+- Smell/heat/smoke: stop immediately, power off first
 
 ## Results
 

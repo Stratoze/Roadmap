@@ -8,10 +8,9 @@
 
 ## Vocabulary / SRS
 
-- [Kaishi 1.5k](https://ankiweb.net/shared/byauthor/...) — Core deck (use with FSRS)
-- Mining - do on cards with freq less than 20,000
-- [JSchoreels/Anki](https://github.com/JSchoreels/anki) — Fork: FSRS 7 + RWKV
-- **Scope note:** Anki = vocabulary ONLY. Grammar and output practice run in Engram (`japanese-grammar`, `japanese-output`) — don't double-SRS either side. See [[_system/How to Learn|Memory / SRS Strategy]].
+- [Kaishi 1.5k](https://ankiweb.net/shared/decks/japanese) — Core deck (use with FSRS; search AnkiWeb for "Kaishi 1.5k" — verify uploader before downloading)
+- Mining: add words you meet in immersion, roughly while the core deck is still growing — no fixed frequency cutoff (cutoffs like "20k" are corpus-dependent and arbitrary)
+- **Scope note:** Anki = vocabulary first. Grammar and output practice run in Engram (`japanese-grammar`, `japanese-output`) — sentence/grammar cards in Anki help some learners, but don't maintain the same fact in both systems. Worked split: mined 食べさせられた → Anki holds reading/meaning recognition, Engram owns causative-passive production, output journal must use it within a week. See [[_system/How to Learn#Memory / SRS Strategy|Memory / SRS Strategy]].
 
 ## Grammar
 
@@ -25,7 +24,7 @@
 
 ## Reading / Bottom-Up Analytical
 
-- [Novel reader](https://app.yatsu.moe/) — Lookup / parse support for simple novels / manga
+- [Novel reader](https://app.yatsu.moe/) — Lookup / parse support for simple novels / manga (parsers routinely missegment Japanese — verify against grammar you know, never trust auto-parse blindly)
 - Simple novels: `GJ` / `Yotsuba` level. Approach: parse sentences, note recurring patterns, don't just scroll.
 
 ---

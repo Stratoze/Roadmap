@@ -2,7 +2,7 @@
 
 Use for topology sanity, switching behavior, filters, and power-stage intuition.
 
-For each meaningful `.asc`, create a short note using `templates/experiment_note.md`, Model setup block.
+For each meaningful `.asc`, create a short note using `_templates/mech/experiment_note.md`, Model setup block.
 
 ## Minimum note
 

@@ -15,7 +15,7 @@ This phase is about hardening, not adding features. The arm is two QDD actuators
 
 **Fabrication & safety envelope (Phase 4):**
 - Assembly, harnessing, crimping, laser-cut panels. No new machining services unless a single bracket is genuinely required.
-- 48 V bus at real current. Lockout discipline: power off, caps discharged, verified with meter before hands go in.
+- 48 V bus at real current. Lockout discipline: power off, caps discharged, verified < 1 V with meter before hands go in.
 - NEW hazard: **gravity-loaded arm.** Define the fall path before first power. If de-energize = fall, the fall zone must be clear, or add a brake/counterbalance.
 - E-stop is tested with MCU power PULLED. If it only works when firmware runs, it is not a safety system.
 - Still no welding, no mains.
@@ -80,9 +80,10 @@ Object-oriented C++ communication layer, error-free packets across physical CAN 
 - [ ] 2+ concrete message types
 - [ ] Bus-off recovery, overrun detection
 - [ ] CAN physical layer verified: termination, common ground, differential waveform, and bit timing/sample point documented
-- [ ] Message design documented: IDs, structs, endianness, versioning, timeout/heartbeat behavior
+- [ ] Message design documented: IDs, structs, endianness, versioning, timeout/heartbeat behavior (as an `_templates/mech/interface_contract.md` seam)
 - [ ] Message integrity handled: CRC/checksum or equivalent, sequence numbers, timeout, heartbeat, stale-command handling, and safe default on loss of comms.
 - [ ] 1000-packet stress test: zero dropped
+- [ ] Host-side unit tests pass on the laptop (CAN pack/unpack, no hardware): math bugs die in CI, not on the bench
 - [ ] Compiles `-Wall -Wextra`, zero warnings
 
 > [!warning] ⚠️ Landmines
@@ -108,7 +109,6 @@ Object-oriented C++ communication layer, error-free packets across physical CAN 
 - Get a basic frame round-tripping BEFORE designing the packet structure or class hierarchy.
 - Run CAN between the two Pucks on the bench BEFORE the arm is assembled. Debugging a bus inside a harness is misery.
 
-> Log sessions in Daily/ notes using the unified template.
 
 ---
 
@@ -176,7 +176,6 @@ The 2-DOF arm — two QDD actuators — tracking coordinated trajectories. IK on
 - Verify the dynamics model (Milestone 2.5 sim) against real arm behavior BEFORE putting it in firmware. If the sim doesn't match the real arm, the feedforward will fight the PID.
 - Both QDDs characterized on the rig (3.3) BEFORE trusting them in the arm.
 
-> Log sessions in Daily/ notes using the unified template.
 
 ---
 
@@ -193,14 +192,14 @@ A panel-mounted Power Distribution Unit: 48 V in → fuse → dual-channel conta
 
 **Safe state definition (write it before wiring anything):**
 - E-stop pressed → contactors open → 48 V bus physically disconnected.
-- Arm under gravity: de-energize means fall. If the fall path is not guaranteed clear, document the mitigation (counterbalance, brake, or restricted pose envelope).
+- Arm under gravity: de-energize means fall. If the fall path is not guaranteed clear, document the mitigation — hardware first (counterbalance, brake), procedural envelope only as a documented last resort, never as an equal option. ("Procedural envelope" = cleared fall zone + operator exclusion + pose restriction, accepted only via the hazard analysis + safety_review sign-off.)
 - Logic rail stays up → fault logged → CAN broadcasts E_STOP.
 - Recovery: release E-stop → reset → re-home → re-arm.
 
 ## Pass Condition
 
 ### MVM
-- [ ] E-stop physically disconnects the 48 V bus (measured with a meter)
+- [ ] E-stop physically disconnects the 48 V bus (measured with a meter) — test in this order: MCU-pulled kill first, then motion-stop, then single-fault injection
 - [ ] Pressing E-stop during motion stops the motors
 - [ ] Works with MCU power PULLED
 - [ ] HIL: one fault injected, firmware enters safe state
@@ -208,11 +207,12 @@ A panel-mounted Power Distribution Unit: 48 V in → fuse → dual-channel conta
 ### Full Pass
 - [ ] Dual-channel: two contactors in series; can explain why one is not enough (contact weld)
 - [ ] Contactors are DC-rated at bus voltage/current; datasheet DC rating cited
-- [ ] Fuses sized per actuator stall + inrush; documented
+- [ ] Fuses sized above nominal, below wire ampacity, verified to blow on a dead short; stall/overload handled by driver OCP + thermal + firmware (never by the wiring fuse); documented
 - [ ] Logic supply independent of E-stop; MCU logs the event
 - [ ] Safe state per axis defined and tested, including the gravity case
 - [ ] Hazard analysis documented: single-point failures, failsafe vs fail-operational, acceptance criteria
-- [ ] HIL: 3+ fault types (encoder dropout, overcurrent, undervoltage), automated, fault log per `templates/fault_injection_test.md`
+- [ ] Safety case released per `_templates/mech/safety_review.md` before the workcell is energized
+- [ ] HIL: 3+ fault types (encoder dropout, overcurrent, undervoltage), automated, fault log per `_templates/mech/fault_injection_test.md`, timing check per `_templates/mech/firmware_timing_check.md` (jitter/sync hold at 2-axis system scale)
 - [ ] Recovery procedure documented and rehearsed
 - [ ] **Physical:** panel labeled (every terminal, fuse, connector); photo
 
@@ -230,13 +230,13 @@ A panel-mounted Power Distribution Unit: 48 V in → fuse → dual-channel conta
 >    Wire break must LOOK LIKE a press. NO fails silently. (You learned this in 2.6; here it's enforced with contactors.)
 >
 > 5. **HIL must not damage real hardware.** `[HYPOTHESIS]`
->    Simulate sensor signals with a secondary MCU. Don't create real overcurrent on the bus. Test the FIRMWARE's response, not hardware survival.
+>    Simulate sensor signals with a secondary MCU (pick ONE per bench: galvanically isolated, OR common ground made first while dead and verified — never hot-plugged into a live 48 V harness). Don't create real overcurrent on the bus. Test the FIRMWARE's response, not hardware survival.
 >
 > 6. **Define the safe state BEFORE building the safety system.** `[HYPOTHESIS]`
 >    "Stop" is not specific. For an arm under gravity, de-energize = fall. Is that safe? Maybe you need a brake or counterbalance.
 >
 > 7. **Bus capacitors stay charged after E-stop.** `[HYPOTHESIS]`
->    Opening the contactors doesn't drain the Puck's input caps. Bleed resistors or a documented discharge wait before anyone touches the bus. Verify < 1 V with a meter.
+>    Opening the contactors doesn't drain the Puck's input caps. Bleed resistors before anyone touches the bus (SAFETY_CARD procedure — waiting alone is not a method). Verify < 1 V with a meter.
 >
 > 8. **Enable lines and watchdogs are control safety, not power safety.** `[HYPOTHESIS]`
 >    Firmware enable/disable and watchdog resets can stop a running controller, but they do not guarantee removal of stored energy or motor power. For a true safe state, define the power path, brakes, counterbalances, and contactor behavior independently of software.
@@ -249,11 +249,10 @@ A panel-mounted Power Distribution Unit: 48 V in → fuse → dual-channel conta
 - Build HIL fault injection on a secondary MCU BEFORE connecting it to the production system.
 - Wire and cold-test the PDU with a resistive load BEFORE connecting the actuators.
 
-> Log sessions in Daily/ notes using the unified template.
 
 ---
 
-# Milestone 4.4 — Workcell Integration + Harness
+# Milestone 4.4 — Workcell Integration + Harness (split: integration checklist foldable into 4.2/4.3 exit; harness-scale EMC + operability review graded here)
 
 > [!info] 📚 Resources — Workcell Integration
 > Mostly self-work: labeling, shielding, cable management, cold-boot testing.
@@ -261,7 +260,7 @@ A panel-mounted Power Distribution Unit: 48 V in → fuse → dual-channel conta
 
 ## Deliverable
 
-Clean, labeled, shielded, industry-grade installation. Everything wired, aligned, tested, documented.
+Clean, labeled, shielded, industry-grade installation. Everything wired, aligned, tested, documented. Split grading: the route/secure/label + cold-boot checklist may fold into the 4.2/4.3 exit (including structural mounting and limit-switch install, which are reuse); harness-scale EMC (braided shields, STP CAN both ends, one-end grounding, signal⊥power) + operability review (human-factors Full items) + bend radius, connector locking, and service access are graded HERE and lost if skipped.
 
 ## Pass Condition
 
@@ -272,7 +271,7 @@ Clean, labeled, shielded, industry-grade installation. Everything wired, aligned
 
 ### Full Pass
 - [ ] Braided shielding on motor cables near signal lines; CAN is shielded twisted pair, 120 Ω at both ends
-- [ ] Shield grounded at ONE end only (your Phase 3 EMC rule, now at system scale)
+- [ ] Shield grounded at ONE end only for low-frequency ground-loop avoidance (your Phase 3 EMC rule, now at system scale — HF/RF or manufacturer-specified exceptions follow the transceiver/EMC plan, not this line)
 - [ ] Structural mounting verified, no wobble under load
 - [ ] Limit switches installed and tested
 - [ ] Cold-boot-to-shutdown repeatable 3×
@@ -283,7 +282,7 @@ Clean, labeled, shielded, industry-grade installation. Everything wired, aligned
 
 > [!warning] ⚠️ Landmines
 > 1. **EMI is the reason your encoder glitches.** `[COMMUNITY]`
->    Motor PWM → broadband noise. Route signal lines perpendicular to power lines. Braided shield on motor cables, grounded at ONE end.
+>    Motor PWM → broadband noise. Route signal lines perpendicular to power lines. Braided shield on motor cables, grounded at ONE end (LF rule — check the transceiver/app-note for HF exceptions).
 >
 > 2. **Labels are not optional documentation.** `[HYPOTHESIS]`
 >    In 3 months you won't remember which connector is which. Label both ends of every cable. Every board. Every rail.
@@ -301,11 +300,10 @@ Clean, labeled, shielded, industry-grade installation. Everything wired, aligned
 - Test limit switches with software limits DISABLED to verify the hardware path independently.
 - Verify CAN + power on the bench (4.1) BEFORE harnessing the arm.
 
-> Log sessions in Daily/ notes using the unified template.
 
 ---
 
-# Milestone 4.5 — Electromechanical Gripper + Tool Changer
+# Milestone 4.5 — Electromechanical Gripper + Tool Changer (graded: end-effector + separable power/signal interface — no alternate owner)
 
 > [!info] 📚 Resources — Gripper & Tool Changer
 > **Visual:** Robotiq-style gripper teardowns; quick-changer mechanism videos.
@@ -337,17 +335,17 @@ Clean, labeled, shielded, industry-grade installation. Everything wired, aligned
 > 1. **Printed joints wear.** `[COMMUNITY]`
 >    A printed pin joint loosens after hundreds of cycles. Nylon resists wear better than PETG; metal pins in printed holes last longer than printed pins. This is a prototype — know its life, don't pretend otherwise.
 >
-> 2. **Pogo pins need their working stroke respected.** `[DATASHEET]`
+> 2. **Pogo pins need their working stroke respected.** `[DATASHEET — cite your series, e.g. Mill-Max/Harwin: working stroke ≠ max travel]`
 >    Compress to ~70–80% of max travel. Less → intermittent contact. More → pin damage. Design the mating surface depth from the datasheet, not from feel.
 >
-> 3. **Magnets near the changer corrupt the encoders.** `[HYPOTHESIS]`
+> 3. **Magnets near the changer corrupt the encoders — verify with the AS5048 AGC/diagnostic registers, not just a ruler.** `[HYPOTHESIS]`
 >    The QDD's AS5048 sits millimeters away across the wrist. Keep alignment magnets > 30 mm from any encoder, or use dowels instead. You hit the same class of problem on the haptic knob (2.7).
 >
 > 4. **Grip force is friction × linkage × motor torque.** `[HYPOTHESIS]`
 >    Smooth plastic fingertips slip. Rubber pads are cheaper than a bigger motor. Measure, don't guess.
 >
 > 5. **The tool changer is a seam — write its interface contract.** `[HYPOTHESIS]`
->    Which pins carry power, which carry CAN, what happens if it's swapped mid-command. Use `templates/interface_contract.md`. Seams are where bugs live (you learned this in 1.5).
+>    Which pins carry power, which carry CAN, what happens if it's swapped mid-command. Use `_templates/mech/interface_contract.md`. Seams are where bugs live (you learned this in 1.5).
 >
 
 ## Dependencies that waste your week if hit backwards
@@ -357,7 +355,6 @@ Clean, labeled, shielded, industry-grade installation. Everything wired, aligned
 - Bench-test pogo contact continuity BEFORE mounting the changer on the arm.
 - Print and test the linkage standalone BEFORE integrating it with the arm.
 
-> Log sessions in Daily/ notes using the unified template.
 
 ---
 
