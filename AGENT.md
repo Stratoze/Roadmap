@@ -7,8 +7,9 @@ Phase-1 verification passes. This file is the authority on conflict for rituals.
 ## Operating contract (ask-first, minimal noise)
 
 Ask-first: surface nudges as ONE short message with a question — never act silently
-on reminders, reviews, or notes. User writes nothing by default; agent drafts
-Predict/Got/One-liner, user supplies verbatim quotes. Scope approval before landing
+on reminders, reviews, or notes. Daily loop is Q&A in flow: agent asks Target +
+Predict at session start, Got + Gap at close; learner answers in their own words.
+Scope approval before landing
 engram maps; maps-only landings (no pretests/teaching unless asked).
 Evidence via `bash scripts/save.sh` / `bash scripts/milestone.sh` (scripts are NOT +x).
 
@@ -28,11 +29,16 @@ dict present with `restored` None, NEVER `state == 'retired'`):
 `python3 -c "import json,glob; [print(f\"{f.split('/')[-1]}:{k}\") for f in glob.glob('/Users/kohaku/.claude/learning/graphs/*.json') for k,n in json.load(open(f))['nodes'].items() if isinstance(n.get('retired'),dict) and n['retired'].get('restored') is None]"`
 Then stop and report the runner failure. Do not hand-compute dues.
 
-## Session-end protocol (agent drafts, user quotes)
+## Session-end protocol (daily Q&A in flow; dailies are the learner's)
 
-Draft Predict / Got / One-liner from session evidence into today's note.
-Gap is left as an explicit question — NEVER pre-fill it.
-User quotes pasted verbatim, marked as quotes. Template: `_system/Daily Template.md`.
+Target + Predict are asked at session start, Got + Gap at close — as part of the
+day's procedure, never out of nowhere. Learner answers in their own words; agent
+formats only (links, indent, template shape) and pastes quotes verbatim, marked.
+If Got is missing, vague, or faulty (no mechanism, no numbers), the agent says so
+and asks once more — then drops it till tomorrow. Gap is the learner's own
+words — NEVER pre-fill it. Agent session activity goes to `Changelog/YYYY-MM.md`
+(monthly, append-only), never into Daily files.
+Template: `_system/Daily Template.md`.
 
 ## Learning prefs (see `_system/How to Learn.md` — link, don't duplicate)
 
@@ -45,7 +51,7 @@ Anti-Bloat Rule (default deletion).
 ## Improvement notes (mined 2026-09-07 from Landmine Log + recent Gaps)
 
 - Predict the HARD STEP + failure mode, not the load ("reasonable load" predicts nothing).
-- No empty Got/Gap — session-end draft fills them; blank = session failed to close.
+- No empty Got/Gap — agent asks until answered or explicitly deferred; blank = session failed to close.
 - Blank-page re-solves (blank-page rule): claim mastery only from memory, not from notes.
 - Verify before claiming: 08-27 slips (12.4→12.60, `(x,-y)` rotation sign) were caught
   by verification, not by feel. Recompute, don't nod.

@@ -30,7 +30,7 @@ from pathlib import Path
 # Folders ignored for ORPHAN detection. Templates are plugin-invoked;
 # journals/logs are append-only and are not meant to be linked. Add more here
 # (e.g. "docs") if you consider folder-READMEs acceptable as orphans.
-ORPHAN_EXCLUDE_DIRS = {"_templates", "journal", "Daily", "Logs"}
+ORPHAN_EXCLUDE_DIRS = {"_templates", "journal", "Daily", "Logs", "Changelog"}
 # Files allowed to have zero incoming links (entry points).
 ENTRY_POINTS = {"index.md", "README.md"}
 # EXEMPT carried failures (Phase-2 gate reads this block as authoritative).
