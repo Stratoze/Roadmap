@@ -675,8 +675,9 @@ verbatim with zero errors AND `due --cap 12` returns the same `n` as the pre-tes
 day — time-varying quantities compared same-day only (same-day window = ARBITRARY; pre-require `due --cap 12` n<12 before the test so equality is meaningful (n=12 is ambiguous); no reviews
 may land between the two runs — a landed review invalidates the comparison); both invocations logged in the test note
 `.opencode/plan/cold-start-<date>.md`, pinned path); FRESH reviewer agents on the same three briefs (alignment,
-neuroscience, extensibility+onboarding) report zero blocking verdicts, max 2 rounds (VAULT POLICY
-bound) — leftovers go to the user for adjudication, the loop terminates. Judgment items (semantic
+neuroscience, extensibility+onboarding) report zero blocking verdicts, max 4 rounds (user-set
+2026-09-08: replaces the old max-2 cap; reconciles the standing review-flow rule — rounds run
+full until clean OR until round 4, whichever first) — leftovers go to the user for adjudication, the loop terminates. Judgment items (semantic
 pass dispositions, reviewer verdicts, uses-walk output) complete via recorded verdicts, never exit
 codes — the claim "mechanically checkable" means "every item has a pinned procedure + recorded
 artifact", listed per-item above. User adjudication = waiver RECORDED
