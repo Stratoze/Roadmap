@@ -44,7 +44,7 @@ verified crash without it; see `_system/engram/env.example.sh`).
   FULL match both sides, verified 2026-09-08). WIP caps below evaluate against THIS store
   and THIS store only (no separate-universe gating — the pre-landing split is over).
   Pre-landing state: the 12-topic Win source had 244 `new` and TODAY violates the §5 WIP
-  gate — no landings until the backlog burn-down (above) brings the
+  gate — no landings until the backlog burn-down (below) brings the
   landing topic ≤20 or a per-batch JIT-override is signed.
   Dedupe targets (claim-overlap, verified): `fbd-statics`/`static-equilibrium`/`fbd-draw`
   (statics equilibrium phrasing across mech topics — ONE `static-equilibrium` node exists,
@@ -88,7 +88,9 @@ rows — owned by THIS task, so §3 fills an existing file); pass 2 (post-confir
   envelope, success criteria, parked-history pointer, AND the semantic-pass checklist
   (seed = the canonical pattern list in §0 plus generic `arm|actuator` review; the §1
   task finalizes it as it rewrites). Today: QDD 2-DOF arm.
-- Parked goals: `Mechatronics/goals/parked/<kebab-goal-slug>.md`, verbatim + superseded date.
+- Parked goals: `Mechatronics/goals/parked/<kebab-goal-slug>.md` (ABSENT — created here):
+  file = old `GOAL.md` content verbatim + frontmatter `superseded: <YYYY-MM-DD>`; the date
+  lives in frontmatter (body untouched).
 - Goal change = replace GOAL.md + park old + re-derive Phase 3–5 artifacts AND flagged
   upstream goal-flavored examples (`Mechatronics/milestones/01_signals_actuators_dynamics.md:518`
   rig reuse, `Mechatronics/milestones/02_embedded_realtime_control.md:60,77,356-368` 2-DOF model,
@@ -98,7 +100,8 @@ rows — owned by THIS task, so §3 fills an existing file); pass 2 (post-confir
   Tag grammar (PINNED — one dialect everywhere): evidence tags match
   `^([a-z0-9]+(-[a-z0-9]+)*-)?m[0-9]+\.[0-9]+-(mvm|full)$` (post-swap tags carry the `<goal>-` prefix,
   e.g. `cnc-m3.1-mvm`, `qdd-arm-m3.1-mvm`; `m0.1-fullpass` grandfathered, never rewritten). `Goal era` format
-  (gate-checked): `pre-GOAL`, or `<slug> (<YYYY-MM>[–<YYYY-MM>])` with `<slug>` pinned in GOAL.md
+  (gate-checked): `pre-GOAL`, or `<slug> (<YYYY-MM>[–<YYYY-MM>]?)` — trailing-dash open ranges
+  (`qdd-arm (2026-08–)`) are legal; with `<slug>` pinned in GOAL.md
   (today `qdd-arm (2026-08–)`); the dash may be hyphen-minus or en-dash U+2013 (gate normalizes
   U+2013 → `-` first — Win keyboards type hyphen). No tag retire rule.
 - Parameterization tasks (mandatory): `Mechatronics/resources/CONVENTIONS.md` arm frame defaults → goal parameters;
@@ -122,15 +125,17 @@ title+Outcome+Pass Condition 1–49 EXCEPT lines 25–46 (owned by `lab/`, point
 0.4 → 168–208; 0.5 → 209–246; 0.6 → 247–285; 0.7 → 286–359; 0.8 → 360–424;
 0.9 → 425–515; 0.10 → 516–577 (body ends 577, `---` at 578); Deload 578–599. Output filenames follow the scheme
 `<dir>/0.N-<kebab-from-section-heading>.md` (slugs derived at build from the section
-headings above — no invented names); each new dir gets a `README.md` index.
+headings above by PINNED algorithm — lowercase, `[^a-z0-9]+` → single hyphen, strip
+leading/trailing hyphens, e.g. "Vectors, Trig, Frames of Reference" →
+`vectors-trig-frames-of-reference` — no invented names, two executors emit identical paths); each new dir gets a `README.md` index.
 `00_foundations.md` itself becomes a redirect index (no checkboxes — evidence backlinks
 keep resolving). Pre-move READMEs (exact list — `Mechatronics/firmware/README.md`,
-`firmware/esp32/README.md`, `firmware/stm32/README.md`,
+`Mechatronics/firmware/esp32/README.md`, `Mechatronics/firmware/stm32/README.md`,
 `Mechatronics/simulations/python/README.md`, `Mechatronics/simulations/ltspice/README.md`;
 NO top-level `Mechatronics/simulations/README.md` exists),
 `requirements.txt` (`Mechatronics/simulations/python/requirements.txt` — the only one),
 `template_*.py` (`Mechatronics/simulations/python/template_plot_csv.py`,
-`template_simulation.py`) — each gets: merge as dir
+`Mechatronics/simulations/python/template_simulation.py`) — each gets: merge as dir
 index / move with redirect header / delete-with-log-line, per-file choice listed in the
 build commit. Redirect header format (PINNED): `# Moved → [[<target>]] (<date>, <reason>)`.
 Log destination for every deletion/move: `Changelog/` entry + build commit message.
@@ -232,7 +237,7 @@ Structural fixes (all mandatory, in this order):
   `- sw-py-csv-plot — CSV→PlotJuggler (tag m1.1-mvm, Goal era qdd-arm (2026-08–))`
   (`Evidence tag` column holds TAGS matching the pinned tag regex; `Evidence:` lines hold
   PATHS — different grammars, both required where specified.)
-  `Requires:` line (ONE per `Skills gained` block, immediately-next non-blank line after the
+  `Requires:` line (ONE per `Skills gained` block — VAULT POLICY cardinality — immediately-next non-blank line after the
   block's LAST skill line — per-block, not per-skill) directly below (same heading, gate-parseable):
   `Requires: sw-py-venv, sw-py-uncertainty-mean` (or `Requires: — (entry point)`).
 - Foundation milestones declare their bare-minimum skill sets in the same registry
@@ -240,12 +245,14 @@ Structural fixes (all mandatory, in this order):
 
 ### Skill-order audit — the vault must confer skills in a reasonable order (§3, part 2)
 
-The agent checks curriculum sequence (at every landing + quarterly re-run):
+The agent checks curriculum sequence (at every landing + quarterly re-run — VAULT POLICY cadence):
 
 1. **Requires closure:** every registry row's `Requires` IDs resolve in the registry
    (no dangling prerequisites, no forward references to unconferred skills).
 2. **Date order:** every prerequisite's evidence tag predates (or equals) the
-   claimant's tag — compare TAGGER dates with `git for-each-ref
+   claimant's evidence date — pre-mint, the claimant's date is its attest-note date (the tag
+   doesn't exist yet); post-mint, `audit-tags.sh` re-verifies against taggerdates.
+   Compare TAGGER dates with `git for-each-ref
    --format='%(taggerdate:iso)' refs/tags/<tag>` (`git log --format=%cI` answers committer
    date, which re-sign preserves by design — wrong clock; `%(taggerdate:…)` is a
    for-each-ref field, NOT a `git log` pretty-format — the literal never varies, so a
@@ -260,9 +267,10 @@ The agent checks curriculum sequence (at every landing + quarterly re-run):
    (e.g. a Phase-1 checkbox needing a Phase-2 skill) as blocking defects.
 4. **Foundation-first rule:** no project may require a skill conferred only by a LATER
    phase; cross-phase requirements must be satisfied by foundation (§2) or an earlier
-   project. Quarterly audit re-runs the full walk (exit rule: exit 0 = zero UNRECORDED
+   project. Quarterly audit (VAULT POLICY cadence) re-runs the full walk with cold free recall first
+   (never rewatch/reread before the probe — same rule as dues); exit rule: exit 0 = zero UNRECORDED
    inversions — every finding has a `Changelog/` + build-commit defect entry; unrecorded
-   finding = fail); a new milestone/project with an order violation fails the gate even if all other checks pass.
+   finding = fail; a new milestone/project with an order violation fails the gate even if all other checks pass.
 
 ## 4. Machine-gated `milestone.sh` (foolproof — refusal + audit, no silent bypass)
 
@@ -274,7 +282,8 @@ On success the script MUST write `scripts/tests/receipts/<tag>.json`
 — the file `audit-tags.sh` consumes (match rule: receipt exists + `result == "pass"`;
 exit 0 lists clean, exit 1 prints missing/failing tags, one per line).
 Touched files = staged + unstaged working-tree files for `--dry-run`
-(`git status --short`); for audits, the tag's commit range = commits reachable from the tag
+(`git status --short`); the mint run checks the SAME set (working tree as it stands pre-tag).
+For audits, the tag's commit range = commits reachable from the tag
 excluding those reachable from the previous taggerdate-ordered tag. Pinned procedure
 (the check runs BEFORE the tag is minted, so the range ends at HEAD): list
 `git for-each-ref --sort=-taggerdate --format='%(refname:short)' refs/tags` (newest first),
@@ -295,7 +304,8 @@ Tagging REFUSES (non-zero exit + reason) unless ALL pass:
    (`json|csv|png|svg|step|toml|txt|…`) get existence-checks only; anything else
    (incl. `js|ts`) MUST add its row before its first tag — gate FAILS CLOSED on unlisted extensions):
    `jl` → `JuliaFormatter` if `.JuliaFormatter.toml` (or `[JuliaFormatter]` in
-   `Project.toml`) exists in the project, else syntax-parse:
+   `Project.toml`) exists in the project root (the touched file's `software/<project>/`
+   dir, else repo root) else syntax-parse:
    `julia -e 'for f in ARGS; Meta.parse(read(f,String)); end' <files>`.
    A 5th language MUST add its row before its first tag.
 2. Artifacts: `Evidence:` lines (dash form `- Evidence: <path>`, one per line, repo-relative path, living under the
@@ -303,7 +313,8 @@ Tagging REFUSES (non-zero exit + reason) unless ALL pass:
    `##` heading or EOF), e.g.
    `Evidence: Mechatronics/docs/captures/2026-09-07_hbridge-loss.png`
    Every listed path exists on disk. Freeform checkboxes are NOT parsed.
-3. Skills: `## Skills gained` line present with COUNT ≥ 1, plus a `Requires:` line
+3. Skills: `## Skills gained` line present with COUNT ≥ 1 (VAULT POLICY coverage gate — same
+   rule as §1, enforced here), plus a `Requires:` line
    (entry-point form allowed, blank forbidden); every ID matches §3 regex AND resolves
    in the registry; every registry row touched has non-null `Goal era` matching the era
    format (`pre-GOAL` or the pinned `<slug> (<range>)` — format-checked, not just non-null)
@@ -322,7 +333,8 @@ Tagging REFUSES (non-zero exit + reason) unless ALL pass:
    re-solve from memory with NO reread/rewatch before solving (cold-recall-first);
    gaps red-penned; Full Pass note MUST cite a PRIOR attempt date (VAULT POLICY: same-day
    echo fails the gate — enforces spacing; compared via taggerdate where tags exist,
-   note dates otherwise — dates compared as YYYY-MM-DD strings); red-pen gaps appended to
+   note dates otherwise — all dates compared as YYYY-MM-DD strings (taggerdates truncated
+   to first 10 chars); red-pen gaps appended to
    `_system/Landmine Log.md`, or linked from the attest note to an existing vault file
    (endpoint pinned: Landmine Log or vault-file link — no bare text).
 6. Direct-`git-tag` bypass is detectable, not preventable: monthly (VAULT POLICY cadence)
@@ -369,9 +381,10 @@ Preconditions (before ANY landing):
 WIP policy (VAULT POLICY, not engine law — the engine permits new work with dues
 outstanding; this policy trades speed for habit protection, overrideable):
 
-- Default refuse landing while `due --cap 12` shows `due > 12`, or the landing topic's own
-  `states.new` > 20 (`12` = engine STANDARD_CAP; `20` = VAULT POLICY, ARBITRARY cap per landing
-  topic; capstones count inside `new` — no exclusion arithmetic). No global-`new` gate (the
+- Default refuse landing while `due --cap 12` returns a full page (`n` = 12 means "12 or
+  more" — the capped query cannot distinguish; proceed only on `n` < 12, strictly fewer),
+  or the landing topic's own `states.new` > 20 (`12` = engine STANDARD_CAP; `20` = VAULT POLICY,
+  ARBITRARY cap per landing topic; capstones count inside `new` — no exclusion arithmetic). No global-`new` gate (the
   258-`new` backlog burns down via the pre-step below, not via landing refusal).
 - Escape hatch (logged in the scope note's `Override:` field + user-sign line, per batch —
   no standing overrides): JIT-override after reviewing the due list —
@@ -379,7 +392,7 @@ outstanding; this policy trades speed for habit protection, overrideable):
 - Backlog-clear pre-step (before first landing): capped review sittings
   (`due --cap 12`, cold free recall first — never rewatch/reread before the probe;
   amnesty-first as session-start sensibility — `RETURN_ABSENCE_DAYS=7`
-  is prose, not a command; cited as sensibility) until `due ≤ 12` or JIT-override signed.
+  is engine prose, not a command; the plan treats the `7` as ARBITRARY) until `due ≤ 12` or JIT-override signed.
   Burn-down for `new`: dedupe via `analogous_to`-convention/`retire` + `doctor`
   (remediation step, counts toward the landing-topic ≤20 cap above) — 258 `new` across
   13 topics as of 2026-09-08, tracked per-topic in the build note.
@@ -394,11 +407,11 @@ exception and land ONLY as topic capstones, never as parallel vault structure):
   topic, node list with target checkboxes, pretest plan, WIP counts — `due --cap 12` n +
   per-topic `new` from `topics` — at approval; `Override:` field + user-sign line when used), NOT in `why_chain`, which stays
   an id-path; per-item kind: procedures land as NODES, builds land as CAPSTONES):** py CSV→PlotJuggler plot (M1.1, nodes),
-  FFT+windowing (M1.2), `solve_ivp` pendulum (M1.4); C ring buffer + versioned telemetry
+  FFT+windowing (M1.2, nodes), `solve_ivp` pendulum (M1.4, nodes); C ring buffer + versioned telemetry
   framing (M1.5/M1.1, capstones). Parked until the demanding milestone is ACTIVE (ACTIVE =
-  the milestone named by the AGENT.md next-step rule / current Daily Focus; ✅✅ = MVM tag +
-  Full tag both minted): packaging, OOP,
-  CMake lore, FK-visualizer rebuild (M0.2 already ✅✅).
+  the milestone named in the latest Daily note's Target line, fallback = earliest ⬜ in the
+  ROADMAP table; ✅✅ = MVM tag + Full tag both minted): packaging, OOP,
+  CMake lore, FK-visualizer rebuild (M0.2 already ✅✅ = MVM+Full both minted, tags exist).
 - **Atomicity policy (VAULT POLICY, ARBITRARY — dosage, not finding):** one claim per node,
   5–15 min per node. Builds land ONLY as topic capstones
   (engine capstone semantics, receipt `kind:transfer`). Vault linkage = registry
@@ -412,8 +425,9 @@ exception and land ONLY as topic capstones, never as parallel vault structure):
   topic's milestone file for piano/japanese) with distinct evidence tags; the AI review
   note is filed as evidence and linked from `## Pass`.
 - Later:** `cpp-foundations`, `julia-viz` (post-stabilization = `due ≤ 12` at two
-  consecutive weekly checks — weekly cadence AND the count of two are both ARBITRARY; first stabilization review 2026-12,
-  jointly with the 150-alarm review and quarterly audit), then
+  consecutive weekly checks — weekly cadence AND the count of two are both ARBITRARY;
+  stabilization reviews run cold free recall first, same rule as dues; first stabilization review 2026-12,
+  jointly with the 150-alarm review and quarterly audit — VAULT POLICY cadences), then
   `mech-software/electronics/mechanical` with `analogous_to` cross-links (cross-topic
   `requires` admitted unsupported).
 
@@ -421,7 +435,9 @@ exception and land ONLY as topic capstones, never as parallel vault structure):
 
 Resource-block format per milestone (pilot: Phase-0 files only; plain-text lines directly
 under the per-milestone Resources callout — NOT a separate callout; `<milestone id>` dialect
-PINNED to the anchor scheme `m0-N`, first line `Lenses — m0-2`):
+PINNED to the anchor scheme `m0-N`, first line `Lenses — m0-2`; gate normalizes em-dash
+U+2014 → `-` first AND accepts the hyphen form `Lenses - m0-N` (same typing rule as the
+Goal-era dash):
 
 ```
 Lenses — <milestone id>
@@ -435,7 +451,8 @@ Efficient Engineer caliber; new domains calibrated with the user first — title
 are USER inputs at approval time, the agent drafts candidates). User
 approves/replaces per topic. **No approved pair → topic doesn't land**, with ONE explicit
 escape: `waived` + reason logged in the lens block + `Changelog/` (affordance-none content) — a user-signed decision,
-never a default. AI-generated video is NEVER a lens; if proposed, drop it and chat directly.
+never a default. AI-generated video is NEVER a lens (VAULT POLICY sourcing rule — no AI-channel
+lenses, period); if proposed, drop it and chat directly.
 Protocol per topic (generation-first — predict precedes the first watch turn; watch
 NEVER comes before a prediction):
 predict/commit → watch segment → self-explain aloud → blank-page reconstruction →
@@ -465,7 +482,8 @@ diagnose-extension (anchors + skill-ID regex checks; registry-MEMBERSHIP check s
 Completion-text swap (STAGED on §4; verbatim moves are EXEMPT from the lens-presence check —
 content unchanged — new/edited content requires lens blocks once §6 grammar exists) →
 §3 registry fill → §6 lens pairs (per-landing approval) → §5 landings.
-Phase acceptance (ALL must hold, each mechanically checkable): §1 grep-gate
+Phase acceptance (ALL must hold, each mechanically checkable — shell pinned: git-bash/POSIX
+for all greps below, PowerShell never): §1 grep-gate
 (exact commands — counts: `grep -rEoh 'QDD|2-DOF|2DOF|2 DOF|2-link|Puck|backdrivab|quasi-direct|SendCutSend|gripper|lever-arm' Mechatronics/ Science/ DataScience/ | sort | uniq -c`;
 files: `grep -rEl 'QDD|2-DOF|2DOF|2 DOF|2-link|Puck|backdrivab|quasi-direct|SendCutSend|gripper|lever-arm' Mechatronics/ Science/ DataScience/ | sort`
 — the ONLY-files claim is checked against the filename output, never the `-h` counts) + GOAL.md `## Checklist` section
@@ -475,8 +493,8 @@ recorded as per-item dispositions in that section; anchor-aware
 the top of `scripts/diagnose.py`, authoritative for carried failures); gate fixtures 9/9;
 skill-order audit (§3 skill-order audit) clean on the current vault (pre-existing inversions
 RECORDED in `Changelog/` + the build commit message — "filed as defects" means exactly that,
-not waived); cold-start test (step 0: export `ENGRAM_RUNNER` + `ENGRAM_HOME` per
-`_system/engram/env.example.sh`; step 1: fresh session runs the AGENT.md session-start block
+not waived); cold-start test (step 0: export `ENGRAM_RUNNER` + `ENGRAM_HOME` +
+`PYTHONIOENCODING=utf-8` per `_system/engram/env.example.sh`; step 1: fresh session runs the AGENT.md session-start block
 verbatim with zero errors AND `due --cap 12` returns the same `n` as the pre-test run the same
 day — time-varying quantities compared same-day only; both invocations logged in the test note
 `.opencode/plan/cold-start-<date>.md`, pinned path); FRESH reviewer agents on the same three briefs (alignment,
