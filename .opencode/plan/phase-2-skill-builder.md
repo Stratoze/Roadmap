@@ -30,9 +30,12 @@ verified crash without it; see `_system/engram/env.example.sh`).
   (checklist lives in GOAL.md once created — circularity resolved: the §1 task CREATES
   the checklist as it rewrites). Coupled files (pattern-confirmed hits — every line below
   matches the canonical pattern; the semantic pass covers generic `arm|actuator` contexts
-  the pattern misses): `Science/Index.md:14` (Puck + QDD Lorentz feed),
-  `DataScience/Index.md:9,13` (QDD telemetry pipeline), `Mechatronics/resources/LAB_INFRASTRUCTURE.md`,
-  `Mechatronics/IDEAS.md`, `Mechatronics/hardware/inventory.md`.
+  the pattern misses): `Science/Index.md:14` (Puck PCB thermal + QDD gear hits; Lorentz on that
+  line attaches to the voice-coil rig, not to Puck/QDD — attributed exactly),
+  `DataScience/Index.md:9,13` (QDD telemetry pipeline), `Mechatronics/resources/LAB_INFRASTRUCTURE.md`
+  (`:51-52,55-56,74,87-88` SendCutSend/Puck/QDD/gripper lines), `Mechatronics/IDEAS.md`
+  (`:17-18,28,33,36` Puck/2-DOF/Gripper/backdrivab/QDD/SendCutSend lines),
+  `Mechatronics/hardware/inventory.md` (`:12` BLDC/QDD line).
 - Foundations are ALREADY goal-instantiated (0.2 FK arm tip, 0.4 arm FBD + holding
   torque, QDD torque-constant reference at 0.10 `:568`, 0.7 arm-link material,
   CONVENTIONS arm frame defaults (`Mechatronics/resources/CONVENTIONS.md:46-55`): §1 parameterization tasks are mandatory,
@@ -59,7 +62,8 @@ verified crash without it; see `_system/engram/env.example.sh`).
   but only individually unvalidated — sole presence-check is `problem_frame`; prefer
   `contrasts_with` edges for confusable pairs, which carry hygiene filtering).
   Commitment cue (per `learner-model.json`: cue "lunch or the afternoon tomorrow",
-  action "clear the engram reviews"): OFFER an event anchor once at `/learn` close
+  action "clear the engram reviews"): OFFER an event anchor once (VAULT POLICY frequency — exactly
+  one offer per close, never repeated unasked) at `/learn` close
   (`/coach` only if a renewal is due — interval ARBITRARY) and store the verbatim answer
   (never force-rewrite). `artifact` null except the two landed explorables — keep it so; vault
   linkage lives in the registry Evidence-tag + `Goal era` columns and session-log
@@ -99,8 +103,8 @@ rows — owned by THIS task, so §3 fills an existing file); pass 2 (post-confir
   rig reuse, `Mechatronics/milestones/02_embedded_realtime_control.md:60,77,356-368` 2-DOF model,
   `Mechatronics/milestones/05_portfolio_delivery.md:13` QDD pedestal, ROADMAP Feeds-into claims).
 - Skills persist: registry rows keep `Evidence tag` + `Goal era` column (§3); pre-swap rows
-  BACKFILLED (acceptance audit: `grep -c 'Goal era.*|[[:space:]]*$' Mechatronics/skills/registry.md`
-  returns 0 empty cells — zero null `Goal era`; acceptance: zero null); tags minted pre-swap stay valid history.
+  BACKFILLED (acceptance audit: `awk -F'|' 'NR>2 && $5 ~ /^[[:space:]]*$/ {c++} END {print c+0}' Mechatronics/skills/registry.md`
+  returns 0 empty cells — NR>2 skips header+separator, `$5` is the `Goal era` column; zero null `Goal era`); tags minted pre-swap stay valid history.
   Tag grammar (PINNED — one dialect everywhere): evidence tags match
   `^([a-z0-9]+(-[a-z0-9]+)*-)?m[0-9]+\.[0-9]+-(mvm|full)$` (post-swap tags carry the `<goal>-` prefix,
   e.g. `cnc-m3.1-mvm`, `qdd-arm-m3.1-mvm`; `m0.1-fullpass` grandfathered, never rewritten). `Goal era` format
@@ -132,7 +136,8 @@ title+Outcome+Pass Condition 1–49 EXCEPT lines 25–46 (owned by `lab/`, point
 0.1 → 50–96; 0.2 → 97–133; 0.3 → 134–167;
 0.4 → 168–208; 0.5 → 209–246; 0.6 → 247–285; 0.7 → 286–359; 0.8 → 360–424;
 0.9 → 425–515; 0.10 → 516–577 (body ends 577; separators 578–579; Deload header at 580); Deload 578–599.
-Split rule: builder re-runs `grep -n "^# " on the file pre-split and aborts on ANY span
+Split rule: builder re-runs `grep -n "^#\\+ "` and expects exactly 12 hits (eleven `#` +
+0.1's `##`; bare `^# ` misses 0.1 — never use it), aborting on ANY span
 mismatch (spans re-verified, never trusted from this map). Output filenames follow the scheme
 `<dir>/0.N-<kebab-from-section-heading>.md` (slugs derived at build from the section
 headings above by PINNED algorithm — FIRST strip everything through the first ` — `
@@ -222,7 +227,8 @@ Structural fixes (all mandatory; numbered for reference — execution follows §
    Narrative sources live in the SPLIT files (0.2 body in `math/0.2-*.md`); 0.1's checkbox
    duplication is MERGED into its split body with a redirect header (per §2 redirect format).
    Daily notes reference status, never restate it.
-4. **Mechatronics/software/ bounds:** one folder per PROJECT at `Mechatronics/software/<kebab-project>/`
+4. **Mechatronics/software/ bounds:** one folder per PROJECT (VAULT POLICY cardinality — exactly one
+   dir per project, no splits, no merges) at `Mechatronics/software/<kebab-project>/`
    (a PROJECT = work with its own README carrying the 6 headings + its own MVM/Full Pass pair;
    anything smaller is a snippet, no exceptions)
    with `README.md` carrying EXACTLY these 6 headings (VAULT POLICY fixed shape): `## Question`,
@@ -246,7 +252,9 @@ Structural fixes (all mandatory; numbered for reference — execution follows §
 (ABSENT — `Mechatronics/skills/` does not exist; created by this section.)
 
 - Location: `Mechatronics/skills/registry.md` (mech+software skills; piano/japanese/data
-  skills explicitly deferred, not homeless-by-accident). Phase rows may carry `pN-complete`
+  skills explicitly deferred — conferred via their domains' milestone files (MVM/Full pairs
+  there), never the registry, until those domains onboard; item 3 resolves registry IDs only,
+  milestone-file skill lines get format-checks only). Phase rows may carry `pN-complete`
   tags in `Evidence tag` (the column accepts EITHER tag form — existence check tries both
   regexes); milestone/project rows carry m-form tags.
 - Schema: `| Skill ID | Name | Evidence tag | Goal era | Project | Requires |`
@@ -265,10 +273,11 @@ Structural fixes (all mandatory; numbered for reference — execution follows §
   {`sw`, `ee`, `mech`, `lab`} (one shard per prefix); `registry.md` becomes the index
   (schema + shard list), rows move to shards, IDs never change on sharding.
 - `Skills gained` format (gate-parseable — exact heading `## Skills gained`, case-sensitive —
-  skill lines in dash form `- <id> - <name> (tag <tag>, Goal era <era>)` (ASCII hyphens only —
-  the old `—`/`→` example form is forbidden; gate normalizes em-dash U+2014 → `-` first for
-  legacy lines, then matches extraction regex
-  `^- ([a-z0-9]+(-[a-z0-9]+)*) - .*\(tag ([^,]+), Goal era ([^)]+)\)$` — one skill per line under the heading):
+  skill lines in dash form `- <id> - <name> (tag <tag>, Goal era <era>)` (ASCII hyphens —
+  legacy `—`/`→` lines are normalized (em-dash U+2014 → `-`, `→` → `->`) then matched, never
+  rejected for dashes alone; then matches extraction regex
+  `^- ([a-z0-9]+(-[a-z0-9]+)*) - .*\(tag ([^,]+), Goal era ([^)]+)\)$` — one skill per line
+  under the heading (VAULT POLICY cardinality)):
   `- sw-py-csv-plot - CSV to PlotJuggler (tag m1.1-mvm, Goal era qdd-arm (2026-08-))`
   (`Evidence tag` column holds TAGS matching the pinned tag regex; `Evidence:` lines hold
   PATHS — different grammars, both required where specified.)
@@ -481,10 +490,10 @@ exception and land ONLY as topic capstones, never as parallel vault structure):
   framing (M1.5/M1.1, capstones). Parked until the demanding milestone is ACTIVE (ACTIVE =
   the milestone named in the latest Daily note's `- **Target:**` line (exact field spelling —
   singular `Target`, not the template's plural `Targets:`; newest Daily FILE by date, never
-  `Daily/Index.md`; value names the milestone by id or title; ✅✅-complete milestones are
-  never ACTIVE — FK-visualizer (M0.2 ✅✅) is DONE, removed from this parked list),
+  `Daily/Index.md`; value names the milestone by id or title),
   fallback = earliest ⬜ in the ROADMAP table; ✅✅ = MVM tag + Full tag both minted): packaging, OOP,
-  CMake lore (FK-visualizer already shipped under M0.2 ✅✅ — not parked, done).
+  CMake lore, FK-visualizer rebuild (M0.2 tags minted; the rebuild itself is parked work, NOT done —
+  no shipped-build claim: no file, Daily, or tag evidences a visualizer artifact).
 - **Atomicity policy (VAULT POLICY, ARBITRARY — dosage, not finding):** one claim per node,
   5–15 min per node. Builds land ONLY as topic capstones
   (engine capstone semantics, receipt `kind:transfer`). Vault linkage = registry
@@ -527,7 +536,8 @@ are USER inputs at approval time, the agent drafts candidates). Lens lifecycle (
 propose (`proposed`) → user approves/replaces per topic (`approved`) or `waived` + reason →
 ONLY then may a tag minting that topic's work pass the gate. User
 approves/replaces per topic. **No approved pair → topic doesn't land**, with ONE explicit
-escape: `waived` + reason logged in the lens block + `Changelog/` (affordance-none content) — a user-signed decision,
+escape: `waived` + reason logged in the lens block + `Changelog/` (affordance-none content — the
+sole escape path, exactly ONE (VAULT POLICY count — no second waiver form exists)) — a user-signed decision,
 never a default. AI-generated video is NEVER a lens (VAULT POLICY sourcing rule — no AI-channel
 lenses, period); if proposed, drop it and chat directly.
 Protocol per topic (generation-first — predict precedes the first watch turn; watch
@@ -568,7 +578,9 @@ Phase acceptance (ALL must hold, each mechanically checkable — shell pinned: g
 for all greps below, PowerShell never): §1 grep-gate
 (exact commands — counts: `grep -rEoh 'QDD|2-DOF|2DOF|2 DOF|2-link|Puck|backdrivab|quasi-direct|SendCutSend|gripper|lever-arm' Mechatronics/ Science/ DataScience/ | sort | uniq -c`;
 files: `grep -rEl 'QDD|2-DOF|2DOF|2 DOF|2-link|Puck|backdrivab|quasi-direct|SendCutSend|gripper|lever-arm' Mechatronics/ Science/ DataScience/ | sort`
-— the ONLY-files claim is checked against the filename output, never the `-h` counts) + GOAL.md `## Checklist` section
+— the ONLY-files claim is checked against the filename output, never the `-h` counts;
+  closure rule: any other hitting file not listed above gets a disposition task added to §1
+  pass 2 before acceptance (no hitting file left homeless)) + GOAL.md `## Checklist` section
 (exact heading spelling) exists and is filled — the section IS the record, no separate file — + semantic pass
 recorded as per-item dispositions in that section (schema PINNED: `- [ ] <coupling> -> <disposition>`
 (ASCII `->` accepted equally with `→` U+2192 — gate normalizes `→` to `->` first, same typing rule)
