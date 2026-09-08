@@ -194,8 +194,10 @@ Structural fixes (all mandatory; numbered for reference — execution follows §
 2. **Anchors:** every milestone gets `<a id="m0-N"></a>` (`m0-1`…`m0-10` — resolvers match
    full IDs, never prefixes, since `m0-1` prefixes `m0-10`; scope = Phase-0 pilot milestones only); ROADMAP + all new notes link
    `#m0-N` only. Numbered for reference only — execution follows §7, NOT this item order.
-   EXEMPT entries (format PINNED): `# EXEMPT <check>: <target> — <reason> — expires <YYYY-MM-DD>`
-   at the top of `scripts/diagnose.py`; the builder creates entries with expiry (never open-ended;
+   EXEMPT entries (format PINNED: `# EXEMPT <check>: <target> - <reason> - expires <YYYY-MM-DD>`
+   — HYPHEN form (split rule: split on ` - expires ` last for the date, then on the first `: `
+   after `# EXEMPT ` for check vs rest); pre-existing em-dash entries grandfathered until expiry,
+   then rewritten in hyphen form; the builder creates entries with expiry (never open-ended;
    the gate FAILS on expired EXEMPT entries — expiry is enforcement, not decoration)
    and verifies with `grep -n '^# EXEMPT' scripts/diagnose.py`.
    Migration script rewrites the 37 ROADMAP milestone rows, records old targets as
@@ -244,7 +246,9 @@ Structural fixes (all mandatory; numbered for reference — execution follows §
 (ABSENT — `Mechatronics/skills/` does not exist; created by this section.)
 
 - Location: `Mechatronics/skills/registry.md` (mech+software skills; piano/japanese/data
-  skills explicitly deferred, not homeless-by-accident).
+  skills explicitly deferred, not homeless-by-accident). Phase rows may carry `pN-complete`
+  tags in `Evidence tag` (the column accepts EITHER tag form — existence check tries both
+  regexes); milestone/project rows carry m-form tags.
 - Schema: `| Skill ID | Name | Evidence tag | Goal era | Project | Requires |`
   (`Requires` = comma-separated prerequisite skill IDs, empty ONLY for true entry
   points — 0.1-level — with `Requires: — (entry point)` written explicitly (gate normalizes
@@ -261,11 +265,14 @@ Structural fixes (all mandatory; numbered for reference — execution follows §
   {`sw`, `ee`, `mech`, `lab`} (one shard per prefix); `registry.md` becomes the index
   (schema + shard list), rows move to shards, IDs never change on sharding.
 - `Skills gained` format (gate-parseable — exact heading `## Skills gained`, case-sensitive —
-  skill lines in dash form `- <id> — <name>` (gate normalizes em-dash U+2014 → `-` first, same
-  typing rule — typists use hyphen); one skill per line under the heading):
-  `- sw-py-csv-plot — CSV→PlotJuggler (tag m1.1-mvm, Goal era qdd-arm (2026-08–))`
+  skill lines in dash form `- <id> - <name> (tag <tag>, Goal era <era>)` (ASCII hyphens only —
+  the old `—`/`→` example form is forbidden; gate normalizes em-dash U+2014 → `-` first for
+  legacy lines, then matches extraction regex
+  `^- ([a-z0-9]+(-[a-z0-9]+)*) - .*\(tag ([^,]+), Goal era ([^)]+)\)$` — one skill per line under the heading):
+  `- sw-py-csv-plot - CSV to PlotJuggler (tag m1.1-mvm, Goal era qdd-arm (2026-08-))`
   (`Evidence tag` column holds TAGS matching the pinned tag regex; `Evidence:` lines hold
   PATHS — different grammars, both required where specified.)
+  File-level rule (registry CELLS are separate: comma-separated IDs, or empty for entry points only):
   `Requires:` line (ONE per `Skills gained` block — VAULT POLICY cardinality — immediately-next non-blank line after the
   block's LAST skill line — per-block, not per-skill) directly below (same heading, gate-parseable):
   `Requires: sw-py-venv, sw-py-uncertainty-mean` (or `Requires: — (entry point)`).
@@ -317,7 +324,11 @@ excluding those reachable from the previous taggerdate-ordered tag. Pinned proce
 (the check runs BEFORE the tag is minted, so the range ends at HEAD): list
 `git for-each-ref --sort=-taggerdate --format='%(refname:short)' refs/tags` (newest first),
 keep ONLY tags with `git merge-base --is-ancestor <tag> HEAD` true (topology guard — tags from
-other lineages never enter the range), take the line AFTER `<tag>`'s would-be position — i.e. the newest tag older than HEAD —
+other lineages never enter the range), take the FIRST such tag (newest HEAD-ancestor by taggerdate)
+as `<prev>` — no "would-be position" for the unminted tag is ever consulted — then
+`git log <prev>..HEAD --oneline` is the range (no previous tag =
+range is HEAD's full history); after green, mint the tag, then re-run the range command
+with `<tag>` for the audit record.
 then `git log <prev>..HEAD --oneline` is the range (no previous tag =
 range is HEAD's full history); after green, mint the tag, then re-run the range command
 with `<tag>` for the audit record.
@@ -327,26 +338,30 @@ item 6 is the monthly detective audit, not a mint gate — it runs on schedule r
 0. Tag format: `<tag>` matches the pinned tag regex `^([a-z0-9]+(-[a-z0-9]+)*-)?m[0-9]+\.[0-9]+-(mvm|full)$`
    OR `^p[0-9]+-complete$` (phase gates, e.g. `p0-complete`; multi-digit phases covered), OR is on the pinned grandfather list
    (`m0.1-fullpass` — the only entry; never extended without a registry-header-style amendment).
-   Signing: `git tag -v <tag>` must verify (annotated+signed — lightweight tags fail here too).
+   Order: mint annotated+signed FIRST (`git tag -s -a`), THEN `git tag -v <tag>` must verify
+   (lightweight tags fail here too) — on verify-fail, delete the tag and refuse the receipt
+   (mint-then-verify; pre-mint `tag -v` is impossible since the tag doesn't exist yet).
 
 1. Build+lint table (pinned in the script; CODE extensions = `py|c|h|cpp|hpp|jl|sh` with rows:
    `py` → `ruff check` + `ruff format --check`; `c/h/cpp/hpp` → `clang-tidy`; `sh` → `bash -n`;
    `jl` → JuliaFormatter-or-parse (rule below);
    `.md` handled by the diagnose check in item 4 — NOT by this table; data/binary formats
-   (`json|csv|png|svg|step|toml|txt|…`) get existence-checks only; anything else
+   (`json|csv|png|svg|step|toml|txt|…`) get existence-checks only; extensionless files and
+   dotfiles (`.gitignore`, `.JuliaFormatter.toml`) get existence-checks only, same class; anything else
    (incl. `js|ts`) MUST add its row before its first tag — gate FAILS CLOSED on unlisted extensions):
    `jl` → `JuliaFormatter` if `.JuliaFormatter.toml` (or `[JuliaFormatter]` in
    `Project.toml`) exists in the project root (the touched file's `software/<project>/`
-   dir, else repo root), else syntax-parse (single-expression caveat: `Meta.parse` reads the
-   FIRST expression only — multi-expression files need full-file parse; the gate implementer
-   pins the exact julia one-liner at build):
-   `julia -e 'for f in ARGS; Meta.parse(read(f,String)); end' <files>`.
+   dir, else repo root), else FULL-FILE syntax parse (requirement: every expression must parse;
+   `Meta.parse`-first-expression-only is a KNOWN false-green, never the gate; the implementer
+   pins whatever passes (candidate one-liner `julia -e 'for f in ARGS; Meta.parseall(read(f,String)); end' <files>` — implementer proves multi-expression behavior on a fixture file with a trailing syntax error at build).
    A 5th language MUST add its row before its first tag.
 2. Artifacts: `Evidence:` lines (dash form `- Evidence: <path>` — migration rewrites the
-   legacy `> Evidence: [[wikilink]]` form to dash form; zero `Evidence:` lines under a Pass
+   legacy `> Evidence: [[wikilink]]` form to dash form; worked example (dash form, copy-pasteable):
+   `- Evidence: Mechatronics/docs/captures/2026-09-07_hbridge-loss.png`;
+   scope ends at the next `##` heading or EOF (`###` subsections do NOT terminate — they belong
+   to their parent `## Pass` section); zero `Evidence:` lines under a Pass
    heading = FAIL (vacuous never passes); one per line, repo-relative path, living under the
-   README `## Pass` heading or milestone `## Pass Condition`, scope ending at the next
-   `##` heading or EOF), e.g.
+   README `## Pass` heading or milestone `## Pass Condition`), e.g.
    `Evidence: Mechatronics/docs/captures/2026-09-07_hbridge-loss.png`
    Every listed path exists on disk. Freeform checkboxes are NOT parsed.
 3. Skills: `## Skills gained` line present with COUNT ≥ 1 (VAULT POLICY coverage gate — same
@@ -400,8 +415,8 @@ then deletes the clone); refusal-7 → item-3 sub-check, skill-order violation w
 taggerdate after claimant, backdated via `GIT_AUTHOR_DATE`/`GIT_COMMITTER_DATE` env in a temp
 CLONE (same isolation — shared worktrees share refs), run by
 `bash scripts/test-gate.sh` (ABSENT — created here) expecting 9/9. 9/9 or red. Fixture layout:
-each `refusal-N/` holds input files + `expected-exit` + `expected-stderr-fragment`; `clean/`
-holds passing inputs + a fixture `registry.md` so skill checks evaluate self-contained.
+each `refusal-N/` holds input files + `expected-exit` (single int) + `expected-stderr-fragment` (substring match); `clean/`
+holds passing inputs. Skill-checking fixtures share one `fixtures/registry.md` (single shared fixture registry, no per-fixture copies); the harness selects registries via env `SKILL_REGISTRY=<path>` (default: the real registry). Harness isolation (pinned pseudo-code — implementer writes the trap): make temp dir, `git clone` the vault `file://` URL into it, run the gate there, delete the dir even on failure.
 
 ## 5. Engram topics — engine-native WIP, JIT-cut, capstone-only builds
 
@@ -499,11 +514,12 @@ gate normalizes em-dash U+2014 → `-` first, then matches; typists use hyphen, 
 
 ```
 Lenses - <milestone id>
-Rigorous: <title> - <creator> - <url> - <status: proposed|approved|waived>
-Intuitive: <title> - <creator> - <url> - <status: proposed|approved|waived>
+Rigorous: <title> | <creator> | <url> | <status: proposed|approved|waived>
+Intuitive: <title> | <creator> | <url> | <status: proposed|approved|waived>
 Interactive: <sim/bench>   Theory: <scoped book ch>   (existing content kept)
 ```
-(copy-paste SAFE — hyphen-minus only, no em/en-dashes anywhere in this block).
+(copy-paste SAFE — hyphen-minus and pipes only, no em/en-dashes anywhere in this block;
+fields split on ` | ` — titles containing pipes are forbidden, use ` - ` inside titles).
 
 Rules: agent proposes exactly 2 (VAULT POLICY dosage: 1 rigorous + 1 intuitive, Veritasium/3Blue1Brown/
 Efficient Engineer caliber; new domains calibrated with the user first — titles/creators/URLs
@@ -554,9 +570,10 @@ for all greps below, PowerShell never): §1 grep-gate
 files: `grep -rEl 'QDD|2-DOF|2DOF|2 DOF|2-link|Puck|backdrivab|quasi-direct|SendCutSend|gripper|lever-arm' Mechatronics/ Science/ DataScience/ | sort`
 — the ONLY-files claim is checked against the filename output, never the `-h` counts) + GOAL.md `## Checklist` section
 (exact heading spelling) exists and is filled — the section IS the record, no separate file — + semantic pass
-recorded as per-item dispositions in that section (schema PINNED: `- [ ] <coupling> → <disposition>`
+recorded as per-item dispositions in that section (schema PINNED: `- [ ] <coupling> -> <disposition>`
+(ASCII `->` accepted equally with `→` U+2192 — gate normalizes `→` to `->` first, same typing rule)
 where disposition = `keep:<location>` | `parameterize` | `park:<slug>` | `delete+log`); anchor-aware
-`diagnose.py` clean (or only `EXEMPT`-block items — `EXEMPT` = the `EXEMPT:` comment block at
+`diagnose.py` clean (or only `# EXEMPT`-block items — `# EXEMPT` = the pinned entry format at
 the top of `scripts/diagnose.py`, authoritative for carried failures); gate fixtures 9/9;
 skill-order audit (§3 skill-order audit) clean on the current vault (pre-existing inversions
 RECORDED in `Changelog/` + the build commit message — "filed as defects" means exactly that:
