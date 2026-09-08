@@ -43,6 +43,12 @@ Template: `_system/Daily Template.md`.
 
 ## Learning prefs (see `_system/How to Learn.md` — link, don't duplicate)
 
+## Review-loop format (learner-pinned: readability over brevity)
+
+Reveals in plain sentences that explain the blindspot — never dense one-liners or
+buzzword summaries. After each reveal STOP and invite questions; next probe only
+when the learner moves on (unless a hard reason not to, stated aloud).
+
 ## Improvement notes (mined 2026-09-07 from Landmine Log + recent Gaps)
 
 - Predict the HARD STEP + failure mode, not the load ("reasonable load" predicts nothing).
