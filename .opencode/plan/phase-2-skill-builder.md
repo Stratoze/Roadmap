@@ -33,7 +33,7 @@ verified crash without it; see `_system/engram/env.example.sh`).
   the pattern misses): `Science/Index.md:14` (Puck PCB thermal + QDD gear hits; Lorentz on that
   line attaches to the voice-coil rig, not to Puck/QDD — attributed exactly),
   `DataScience/Index.md:9,13` (QDD telemetry pipeline), `Mechatronics/resources/LAB_INFRASTRUCTURE.md`
-  (`:51-52,55-56,74,87-88` SendCutSend/Puck/QDD/gripper lines), `Mechatronics/IDEAS.md`
+  (`:51-53,55-56,59,74,87-88` SendCutSend/Puck/QDD/gripper/hotplate/bench-supply lines), `Mechatronics/IDEAS.md`
   (`:17-18,28,33,36` Puck/2-DOF/Gripper/backdrivab/QDD/SendCutSend lines),
   `Mechatronics/hardware/inventory.md` (`:12` BLDC/QDD line).
 - Foundations are ALREADY goal-instantiated (0.2 FK arm tip, 0.4 arm FBD + holding
@@ -146,7 +146,7 @@ hyphen, strip leading/trailing hyphens; e.g. `# Milestone 0.2 — Vectors, Trig,
 Reference` → `vectors-trig-frames-of-reference` — no invented names, two executors emit
 identical paths); each new dir gets a `README.md` index.
 `00_foundations.md` itself becomes a redirect index (no checkboxes — evidence backlinks
-keep resolving). Pre-move READMEs (exact list — `Mechatronics/firmware/README.md`,
+keep resolving; retains lines 1–24 + 47–49 plus pointers to every split file; lab owns 25–46). Pre-move READMEs (exact list — `Mechatronics/firmware/README.md`,
 `Mechatronics/firmware/esp32/README.md`, `Mechatronics/firmware/stm32/README.md`,
 `Mechatronics/simulations/python/README.md`, `Mechatronics/simulations/ltspice/README.md`;
 NO top-level `Mechatronics/simulations/README.md` exists),
@@ -258,10 +258,11 @@ Structural fixes (all mandatory; numbered for reference — execution follows §
   tags in `Evidence tag` (the column accepts EITHER tag form — existence check tries both
   regexes); milestone/project rows carry m-form tags.
 - Schema: `| Skill ID | Name | Evidence tag | Goal era | Project | Requires |`
-  (`Requires` = comma-separated prerequisite skill IDs, empty ONLY for true entry
-  points — 0.1-level — with `Requires: — (entry point)` written explicitly (gate normalizes
-  em-dash U+2014 → `-` first, same typing rule — `Requires: - (entry point)` also passes);
-  blank = fail.)
+  (registry CELLS: comma-separated prerequisite skill IDs, or EMPTY for true entry
+  points — 0.1-level — only; a missing file-level `Requires:` line = blank = fail. The explicit
+  literal `Requires: — (entry point)` lives in milestone/project FILES (gate normalizes
+  em-dash U+2014 → `-` first, same typing rule — `Requires: - (entry point)` also passes),
+  never in registry cells.)
 - ID regex (gate-enforced): `^(sw|ee|mech|lab)-[a-z0-9-]+$`, PLUS the `sw-` language token
   is MANDATORY and gate-checked against the pinned token list (`c`, `py`, `cpp`, `jl`):
   every `sw-` ID matches `^sw-(c|py|cpp|jl)-[a-z0-9-]+$` (so `sw-foo` FAILS; language-agnostic
@@ -334,13 +335,10 @@ excluding those reachable from the previous taggerdate-ordered tag. Pinned proce
 `git for-each-ref --sort=-taggerdate --format='%(refname:short)' refs/tags` (newest first),
 keep ONLY tags with `git merge-base --is-ancestor <tag> HEAD` true (topology guard — tags from
 other lineages never enter the range), take the FIRST such tag (newest HEAD-ancestor by taggerdate)
-as `<prev>` — no "would-be position" for the unminted tag is ever consulted — then
-`git log <prev>..HEAD --oneline` is the range (no previous tag =
-range is HEAD's full history); after green, mint the tag, then re-run the range command
-with `<tag>` for the audit record.
-then `git log <prev>..HEAD --oneline` is the range (no previous tag =
-range is HEAD's full history); after green, mint the tag, then re-run the range command
-with `<tag>` for the audit record.
+as `<prev>`; then `git log <prev>..HEAD --oneline` is the range (no previous tag =
+range is HEAD's full history). Post-mint audit form (tags exist by then, pinned separately):
+`git log <prev-tag>..<tag> --oneline` with both tags resolved via `for-each-ref`. After green,
+mint the tag, then record the post-mint form for the audit record.
 Tagging REFUSES (non-zero exit + reason) unless ALL pass (items 0–5 refuse AT MINT time;
 item 6 is the monthly detective audit, not a mint gate — it runs on schedule regardless):
 
@@ -371,7 +369,7 @@ item 6 is the monthly detective audit, not a mint gate — it runs on schedule r
    to their parent `## Pass` section); zero `Evidence:` lines under a Pass
    heading = FAIL (vacuous never passes); one per line, repo-relative path, living under the
    README `## Pass` heading or milestone `## Pass Condition`), e.g.
-   `Evidence: Mechatronics/docs/captures/2026-09-07_hbridge-loss.png`
+   `- Evidence: Mechatronics/docs/captures/2026-09-07_hbridge-loss.png`
    Every listed path exists on disk. Freeform checkboxes are NOT parsed.
 3. Skills: `## Skills gained` line present with COUNT ≥ 1 (VAULT POLICY coverage gate — same
    rule as §1, enforced here), plus a `Requires:` line
@@ -585,7 +583,9 @@ files: `grep -rEl 'QDD|2-DOF|2DOF|2 DOF|2-link|Puck|backdrivab|quasi-direct|Send
 recorded as per-item dispositions in that section (schema PINNED: `- [ ] <coupling> -> <disposition>`
 (ASCII `->` accepted equally with `→` U+2192 — gate normalizes `→` to `->` first, same typing rule)
 where disposition = `keep:<location>` | `parameterize` | `park:<slug>` | `delete+log`); anchor-aware
-`diagnose.py` clean (or only `# EXEMPT`-block items — `# EXEMPT` = the pinned entry format at
+`diagnose.py` clean (or only `# EXEMPT`-block items — single authority: the plan format above
+governs, the code block mirrors it; on ANY drift the code is updated same-commit, never the reverse;
+pinned at
 the top of `scripts/diagnose.py`, authoritative for carried failures); gate fixtures 9/9;
 skill-order audit (§3 skill-order audit) clean on the current vault (pre-existing inversions
 RECORDED in `Changelog/` + the build commit message — "filed as defects" means exactly that:
