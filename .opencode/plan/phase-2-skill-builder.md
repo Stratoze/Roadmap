@@ -21,7 +21,7 @@ verified crash without it; see `_system/engram/env.example.sh`).
 
 - `Mechatronics/milestones/00_foundations.md`: 599 lines, milestones 0.1–0.10 (0.1 is
   `##`, 0.2–0.10 are `#` — say exactly that). ROADMAP carries NO `#fragment` links
-  today — the gap is absence, not mismatch (verified: grep `(.*#.*)` empty).
+  today (2026-09-08 — dated, re-check at build) — the gap is absence, not mismatch (verified: grep `(.*#.*)` empty).
   `scripts/diagnose.py` does NOT validate `#anchors` (extended in §2 item 2).
 - Goal coupling ≈ 60+ hits repo-wide. CANONICAL PATTERN (used by §0 inventory AND §1
   acceptance — single source, no drift):
@@ -29,7 +29,7 @@ verified crash without it; see `_system/engram/env.example.sh`).
   plus human semantic pass for generic `arm|actuator` in goal-flavored contexts
   (checklist lives in GOAL.md once created — circularity resolved: the §1 task CREATES
   the checklist as it rewrites). Coupled files (pattern-confirmed hits — every line below
-  matches the canonical pattern; scope: NON-MILESTONE files only — milestone/ROADMAP hits live
+  matches the canonical pattern (as of 2026-09-08 — dated, re-check at build); scope: NON-MILESTONE files only — milestone/ROADMAP hits live
   in the §1 goal-change clause, not here; the semantic pass covers generic `arm|actuator` contexts
   the pattern misses): `Science/Index.md:14` (Puck PCB thermal + QDD gear hits; Lorentz on that
   line attaches to the voice-coil rig, not to Puck/QDD — attributed exactly),
@@ -125,7 +125,9 @@ rows — owned by THIS task, so §3 fills an existing file); pass 2 (post-confir
   `qdd-arm (2026-08-2026-12)`; must reject: `QDD (2026-08)`). No tag retire rule.
 - Parameterization tasks (mandatory): `Mechatronics/resources/CONVENTIONS.md` arm frame defaults → goal parameters;
   0.2/0.4/0.7 arm-flavored procedures + 0.9 backdrivab pedagogy + 0.10 lever-arm metrology
-  reworded goal-neutral OR GOAL.md-listed appendices;
+  reworded goal-neutral OR GOAL.md-listed appendices (appendix format PINNED: `## Appendices`
+  section in `GOAL.md`, one `- [title](path)` line per moved chunk — the acceptance allowlist
+  reads this section);
   `Science/` + `DataScience/` arm assumptions → `See [[Mechatronics/GOAL]]` pointers;
   `LAB_INFRASTRUCTURE.md` + `IDEAS.md` + `hardware/inventory.md` goal mentions get per-file
   disposition (parameterize / move to parked-goal appendix / delete with log line).
@@ -208,7 +210,7 @@ Structural fixes (all mandatory; numbered for reference — execution follows §
    (≤7 link-target entries — VAULT POLICY cap, tables included (an ownership table's links count) — no status, no checkboxes). "Domain" = the three
    hub Indexes carrying navigation (`Mechatronics/Index.md`, `Science/Index.md`,
    `DataScience/Index.md`); counting unit = `[[link targets]]`. Includes trimming `Mechatronics/Index.md`
-   (19 link targets today) with per-line dispositions in the build commit. Build-start template task:
+   (19 link targets as of 2026-09-08 — dated, re-count at build) with per-line dispositions in the build commit. Build-start template task:
    `_system/Daily Template.md` plural `Targets:` → singular `Target:` (ACTIVE lookup is singular).
    Milestone bodies keep checkboxes with header:
    `Status lives in [[Mechatronics/ROADMAP|Roadmap]] — do not duplicate.`
@@ -482,12 +484,14 @@ then deletes the clone); refusal-7 → item-3 sub-check, skill-order violation w
 taggerdate after claimant, backdated via `GIT_AUTHOR_DATE`/`GIT_COMMITTER_DATE` env in a temp
 CLONE (same isolation — shared worktrees share refs; fixture tags named `fixture/order-a` +
 `fixture/order-b` with fixed dates `2026-01-02`/`2026-01-03`; the `fixture/*` namespace is
-carved OUT of the tag regex for fixtures only — production tags never match it; refusal-7
+carved OUT of the tag regex exactly when `SKILL_REGISTRY` points at `scripts/tests/fixtures/registry.md`
+(test runs only — production runs with the real registry reject `fixture/*`; the harness always
+pins the registry env, so the carve-out can never leak into production); refusal-7
 invokes the mint path so the order sub-check actually runs), run by
 `bash scripts/test-gate.sh` (ABSENT — created here) expecting 9/9 (exit 0 on 9/9, else 1). 9/9 or red. Fixture layout:
 each `refusal-N/` holds input files + `expected-exit` (single int) + `expected-stdout-fragment`
 + `expected-stderr-fragment` (both substring matches); `clean/`
-holds passing inputs. Skill-checking fixtures share one `fixtures/registry.md` (single shared fixture registry, no per-fixture copies); the harness selects registries via env `SKILL_REGISTRY=<path>` (default: the real registry). Harness isolation (pinned pseudo-code — implementer writes the trap): make temp dir, `git clone` the vault `file://` URL into it, run the gate there, delete the dir even on failure.
+holds passing inputs. Skill-checking fixtures share one `scripts/tests/fixtures/registry.md` (single shared fixture registry, no per-fixture copies); the harness selects registries via env `SKILL_REGISTRY=<path>` (default: the real registry). Harness isolation (pinned pseudo-code — implementer writes the trap): make temp dir, `git clone` the vault `file://` URL into it, run the gate there, delete the dir even on failure.
 
 ## 5. Engram topics — engine-native WIP, JIT-cut, capstone-only builds
 
