@@ -16,6 +16,10 @@ Do not maintain this weekly.
 Tag names: `m0.1-mvm`, `m0.1-full` (Full Pass), phase gates `p0-complete`.
 The **tag** is the durable, timestamped evidence. The **✅** is the at-a-glance state.
 No daily pushing, no new repo per milestone.
+> Order dispute parked (2026-09-08): this text (commit → tag → flip) vs the
+> flip-first discipline (flip+save FIRST, tag must contain ✅). NEITHER is canonical
+> yet — Phase-2 §4 machine gate decides mechanically and rewrites this section.
+> Do not follow either order for new tags until the gate lands; ask the learner.
 
 ## The Masterpiece Standard
 
