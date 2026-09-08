@@ -43,12 +43,6 @@ Template: `_system/Daily Template.md`.
 
 ## Learning prefs (see `_system/How to Learn.md` — link, don't duplicate)
 
-Loop: Predict → Attempt → Compare → Explain gap → Integrate → Maintain.
-JIT-first (course-finishing is progress theater); gap-check chunk sizing;
-AI Use Zones Green/Yellow/Red (scaffold, never solve — Yellow zone);
-reconstruct-before-using (Yellow-zone rule: rebuild from memory before aids);
-Anti-Bloat Rule (default deletion).
-
 ## Improvement notes (mined 2026-09-07 from Landmine Log + recent Gaps)
 
 - Predict the HARD STEP + failure mode, not the load ("reasonable load" predicts nothing).

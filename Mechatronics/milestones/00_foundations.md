@@ -8,9 +8,6 @@ Vectors, calculus intuition, statics, circuits, power, materials, manufacturing,
 
 You don't need to master these before building. You need them at "Applied" level — you've solved a real problem with each one, not just followed a derivation.
 
-The test: close the notes and solve a new version of the problem.
-If you can, move on. If you can't, find the gap and close it.
-
 **Physical artifacts of this phase:**
 1. Parametric Mechanism Testbed — 3D-printed (or cardboard) baseplate with 5+ interchangeable mechanisms
 2. Metrology Kit — calipers + dial indicator + documented measurement uncertainty

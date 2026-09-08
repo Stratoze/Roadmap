@@ -5,10 +5,6 @@
 Documentation, media, and presentation that make the engineering process visible.
 Not marketing — a technical record that proves you can think, build, debug, and explain.
 
-This phase is deload-shaped. The learning is in the doing: refactoring reveals what you
-didn't understand, documentation reveals what you skipped, presentation reveals what you
-can't yet explain.
-
 **Physical artifacts of this phase:**
 1. Exploded-View Pedestal — one QDD actuator disassembled and presented in assembly order on laser-cut acrylic, every component labeled
 2. Bench Museum — a single display holding every phase artifact, telling the dependency-tree story
@@ -16,11 +12,6 @@ can't yet explain.
 **Fabrication & safety envelope (Phase 5):** laser-cut acrylic/wood via service, hand assembly, LED lighting. Ventilation required when sanding acrylic; eye protection. No electronics fabrication. De-energize + discharge + meter-verify before ANY teardown. Do NOT disassemble the arm's actuators until the final demo video is recorded.
 
 ### Assessment Philosophy
-
-The portfolio is not evaluated on "did it work." It is evaluated on the **process of
-arriving at the solution**. Engineering judgment is the ability to draw conclusions,
-make decisions under uncertainty, and weigh trade-offs based on incomplete information.
-The portfolio must make that process visible.
 
 The assessment framework is **criterion-referenced**, not pass/fail. Each domain below
 is rated on a rubric (see `_templates/mech/portfolio_rubric.md`). The rubric evaluates

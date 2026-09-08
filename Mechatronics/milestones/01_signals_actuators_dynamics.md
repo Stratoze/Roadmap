@@ -6,8 +6,6 @@ Real sensors, real motors, real noise. The bridge between paper physics and hard
 
 By the end: you've read a sensor at the register level, understood noise in the frequency domain, built an H-bridge from discrete parts with a proper analog current-sense front end, spun a BLDC with sinusoidal commutation and encoder feedback, driven a stepper with microstepping, fused gyro and accelerometer into a stable calibrated angle, compared a simulation to reality, **wound your own voice coil actuator, and built the 3D-printed test rig you will characterize motors on for the rest of the roadmap.**
 
-This phase is where the analog world meets the digital one. Every sensor produces an analog signal. Every actuator is driven by analog power. The MCU sits in the middle, and the quality of everything downstream depends on the analog stages on both sides.
-
 **Physical artifacts of this phase:**
 1. Hand-Wound Voice Coil Actuator (Milestone 1.7)
 2. 3D-Printed Motor Test Rig (Milestone 1.7)
@@ -37,10 +35,6 @@ Where does the power go? What stores it? What dissipates it?" This is the bond g
 question, even if you never draw the graph. It prevents the component-catalog thinking
 where a motor is "a thing that spins" instead of "an electromechanical energy transducer
 with coupling coefficient Ke = Kt (in SI units: V·s/rad = N·m/A — in V/kRPM or oz·in/A they differ, convert explicitly)."
-
-The speaker-as-microphone insight from your IDEAS.md is exactly this: same bond graph,
-reversed causality. When you build the speaker in Phase 0 speed runs, you're building a
-bond graph in physical form. The VCA in Milestone 1.7 is the same bond graph built to spec.
 
 ---
 

@@ -10,7 +10,7 @@ Incorporates: vault-structure + load/sustainability evaluations (2026-09-07) AND
 plan-review rounds. Where this file contradicts those evaluations, this file governs
 and says why. Reference convention: §X item N = the check numbered N (gate items are
 0-based: §4 item 0 is the first check, tag format).
-File:line citations are repo-root-relative paths + current line numbers (re-check: rot fast). Typing scope pinned once, globally: ASCII-only + normalization rules in this file apply to SPEC LITERALS (formats, commands, regexes, headers/lines the gate parses or the executor types verbatim). Prose punctuation (em-dashes in sentences like this one) is unrestricted English — never gate-parsed, never typed verbatim. Runner for all engram operations: `$ENGRAM_RUNNER` (per-machine env — Mac `python3 $HOME/engram/scripts/engram.py`, Win `python3 $HOME/.config/opencode/scripts/engram.py` — `$HOME` form, NEVER `~` (tilde never expands after parameter expansion or inside quotes — verified crash); see `_system/engram/env.example.sh`. NEVER hardcode either path)
+File:line citations are repo-root-relative paths + current line numbers (re-check: rot fast). Typing scope pinned once, globally: ASCII-only + normalization rules in this file apply to SPEC LITERALS (formats, commands, regexes, headers/lines the gate parses or the executor types verbatim). Prose punctuation (em-dashes in sentences like this one) is unrestricted English — never gate-parsed, never typed verbatim. Runner for all engram operations: `$ENGRAM_RUNNER` (per-machine env — Mac `python3 $HOME/engram/scripts/engram.py`, Win `python3 $HOME/.config/opencode/scripts/engram.py` — `$HOME` form, NEVER `~`; see `_system/engram/env.example.sh`. NEVER hardcode either path)
 (subcommands `due`, `topics`, `session-start`, `doctor`, `add-topic`,
 `edit-node`, `retire`, `rate`, `receipt`, `selftest`). Invoke scripts as
 `bash scripts/<name>.sh` (works regardless of the +x bit). Windows runners MUST export
@@ -132,8 +132,6 @@ rows — owned by THIS task, so §3 fills an existing file); pass 2 (post-confir
   `Science/` + `DataScience/` arm assumptions → `See [[Mechatronics/GOAL]]` pointers;
   `LAB_INFRASTRUCTURE.md` + `IDEAS.md` + `hardware/inventory.md` goal mentions get per-file
   disposition (parameterize / move to parked-goal appendix / delete with log line).
-- Goal-era vocabulary: `pre-GOAL` (before GOAL.md existed) or `<goal-slug> (<date range>)`
-  per the pinned grammar above (slug + range pinned in GOAL.md itself).
 - Acceptance: canonical pattern over `Mechatronics/ Science/ DataScience/` returns ONLY
   `GOAL.md`, `Mechatronics/goals/parked/*`, the Phase 1–5 milestone files (`01`–`05` — literal
   executor note: `01`/`02` are Phases 1–2, not Phase 3; the old "Phase 3–5" label was wrong),
@@ -161,9 +159,7 @@ lab per the cut map, nothing stays put except the redirect index):
 `247:# Milestone 0.6 — Power, Efficiency, Thermal`, `286:# Milestone 0.7 — Materials, Failure, and Selection`,
 `360:# Milestone 0.8 — Manufacturing Processes + DFMA`, `425:# Milestone 0.9 — Mechanisms & Kinematic Elements + Physical Testbed`,
 `516:# Milestone 0.10 — Metrology + Measurement Uncertainty`, `580:# Phase 0 Deload / Synthesis`,
-`594:## Phase 0 Retro`. ANY mismatch (lines, numbers, or titles) aborts the split. Rationale pinned (verified 2026-09-08 — re-run at build): bare `^# ` yields 11 (misses 0.1's `##`);
-bare `^#+ ` yields 62 (all subheads) — both wrong, hence expected-output diff (spans re-verified
-at build, never trusted from this map). Output filenames follow the scheme
+`594:## Phase 0 Retro`. ANY mismatch (lines, numbers, or titles) aborts the split. Output filenames follow the scheme
 `<dir>/0.N-<kebab-from-section-heading>.md` (slugs derived at build from the section
 headings above by PINNED algorithm — FIRST strip everything through the first ` — ` (delimiter read FROM the heading file text — copy it, never retype; the ASCII-only typing rule covers typed literals, not characters read from files)
 (em-dash), i.e. drop the `Milestone 0.N` prefix; THEN lowercase, `[^a-z0-9]+` → single
@@ -171,10 +167,7 @@ hyphen, strip leading/trailing hyphens; e.g. `# Milestone 0.2 — Vectors, Trig,
 Reference` → `vectors-trig-frames-of-reference` — no invented names, two executors emit
 identical paths; emitted paths must match `^[a-z0-9-]+$` per path segment (builder asserts,
 aborts otherwise); each new dir gets a `README.md` index.
-`00_foundations.md` itself becomes a redirect index (no checkboxes — evidence backlinks
-keep resolving; retains lines 1–24 + 47–49 plus pointers to every split file; lab owns 25–46
-and 578–599 INCLUDING Retro :594–599 — Retro moves with the Deload block, nothing stays put
-except the redirect index). Pre-move READMEs (exact list — `Mechatronics/firmware/README.md`,
+`00_foundations.md` itself becomes a redirect index (no checkboxes; retains 1–24 + 47–49 plus pointers; lab spans per cut map above). Pre-move READMEs (exact list — `Mechatronics/firmware/README.md`,
 `Mechatronics/firmware/esp32/README.md`, `Mechatronics/firmware/stm32/README.md`,
 `Mechatronics/simulations/python/README.md`, `Mechatronics/simulations/ltspice/README.md`;
 NO top-level `Mechatronics/simulations/README.md` exists),
@@ -241,10 +234,7 @@ Structural fixes (all mandatory; numbered for reference — execution follows §
    (targets never contain ` - ` — builder rejects targets that do); pre-existing em-dash entries grandfathered until expiry,
    then rewritten in hyphen form; the builder creates entries with expiry (never open-ended;
    the gate FAILS on expired EXEMPT entries — expiry is enforcement, not decoration)
-   and verifies with `grep -nE '^# EXEMPT [a-z]+:' scripts/diagnose.py` (`-E` REQUIRED — BRE `+`
-   is literal; lowercase-check-name + colon anchor matches entries like `# EXEMPT broken: …`
-   and skips the prose header `# EXEMPT carried failures (…)` — verified live: entry matches,
-   header doesn't; negative pinned: header must NOT match).
+   and verifies with `grep -nE '^# EXEMPT [a-z]+:' scripts/diagnose.py`.
    Migration script rewrites the 37 ROADMAP milestone rows, records old targets as
    HTML comments `<!-- was: <old-link-target> -->` (whole-file sources are fine — as of 2026-09-08
    rows carry no `#fragment`, so `<old-link-target>` = the previous link target string;
@@ -314,8 +304,6 @@ Structural fixes (all mandatory; numbered for reference — execution follows §
   is MANDATORY and gate-checked against the pinned token list (`c`, `py`, `cpp`, `jl`):
   every `sw-` ID matches `^sw-(c|py|cpp|jl)-[a-z0-9-]+$` (so `sw-foo` FAILS; language-agnostic
   skills take the closest token or propose a new token — new `sw-` language token needs
-  NO amendment; new PREFIX needs a one-line registry-header amendment).
-  `sw-c-…`, `sw-py-…`, `sw-cpp-…`, `sw-jl-…` (new `sw-` language token needs
   NO amendment; new PREFIX needs a one-line registry-header amendment). Shard to
   `Mechatronics/skills/<domain>.md` when data rows exceed 100 (VAULT POLICY scale rule) — `<domain>` ∈
   {`sw`, `ee`, `mech`, `lab`} (one shard per prefix); `registry.md` becomes the index
@@ -349,9 +337,7 @@ The agent checks curriculum sequence (at every landing + quarterly re-run — VA
    doesn't exist yet); post-mint, `audit-tags.sh` re-verifies against taggerdates.
    Compare TAGGER dates with `git for-each-ref
    --format='%(taggerdate:iso)' refs/tags/<tag>` (`git log --format=%cI` answers committer
-   date, which re-sign preserves by design — wrong clock; `%(taggerdate:…)` is a
-   for-each-ref field, NOT a `git log` pretty-format — the literal never varies, so a
-   `git log` spelling can never trigger refusal). Lightweight tags have empty taggerdate → gate REFUSES them (require
+   date, which re-sign preserves by design — wrong clock). Lightweight tags have empty taggerdate → gate REFUSES them (require
    annotated+signed). `m0.1-fullpass` naming drift grandfathered, never rewritten.
    Pre-gate tags (`m0.1-fullpass`, `m0.2-mvm`, `m0.2-full`) carry `-unaudited`
    registry notes until re-earned under the gate. Re-earn = mint a NEW tag under the gate
@@ -406,8 +392,7 @@ item 6 is the monthly detective audit, not a mint gate — it runs on schedule r
    (lightweight tags fail here too) — on verify-fail, delete the tag and refuse the receipt, so no
    stray tag survives a failed mint (mint-then-verify; pre-mint `tag -v` is impossible since the tag
    doesn't exist yet).
-   Split rule (resolves the PRE-mint vs mint-FIRST readings — both hold, different halves): the FORMAT
-   half of item 0 (regex/grandfather on the arg string) runs PRE-mint alongside items 1–5, all refusing
+   Split rule: the FORMAT half of item 0 (regex/grandfather on the arg string) runs PRE-mint alongside items 1–5, all refusing
    before anything is minted; the EXISTENCE half (`tag -v`) runs POST-mint; NOTHING else runs post-mint.
 
 1. Build+lint table (pinned in the script; CODE extensions = `py|c|h|cpp|hpp|jl|sh` with rows:
@@ -543,11 +528,11 @@ outstanding; this policy trades speed for habit protection, overrideable):
   reads the wrong store),
   or the landing topic's own `states.new` > 20 (`12` = engine STANDARD_CAP
   (`engram.py:1241` — source-cited engine constant, not vault dosage); `20` = VAULT POLICY,
-  ARBITRARY cap per landing topic; capstones count inside `new` — no exclusion arithmetic). No global-`new` gate (the
+  ARBITRARY cap per landing topic). No global-`new` gate (the
   258-`new` backlog burns down via the pre-step below, not via landing refusal).
 - Escape hatch (logged in the scope note's `Override:` field + user-sign line, per batch —
   no standing overrides): JIT-override after reviewing the due list —
-  allowed ONLY for scope-approved JIT nodes (§5 landings). Standing override = fail.
+  allowed ONLY for scope-approved JIT nodes (§5 landings).
 - Backlog-clear pre-step (before first landing): capped review sittings
   (`due --cap 12`, cold free recall first — never rewatch/reread before the probe;
   amnesty-first as session-start sensibility — `RETURN_ABSENCE_DAYS=7`
@@ -575,20 +560,15 @@ exception and land ONLY as topic capstones, never as parallel vault structure):
   FFT+windowing (M1.2, nodes), `solve_ivp` pendulum (M1.4, nodes); C ring buffer + versioned telemetry
   framing (M1.5/M1.1, capstones). Parked until the demanding milestone is ACTIVE (ACTIVE =
   the milestone named in the latest Daily note's `- **Target:**` line (exact field spelling —
-  singular `Target`; the template's plural `Targets:` is unified to singular by the split-pilot
-  template task below — until then the lookup matches `/^- \*\*Targets?:\*\*/`; newest Daily FILE
+  singular `Target`; newest Daily FILE
   by filename date (`Daily/20[0-9][0-9]-*.md` glob — never `Daily/Index.md`); value names the
   milestone by id (`m0-2`, `0.2`) or title substring (case-insensitive); EMPTY or missing Target →
   fall through to the fallback (no stuck state);
   fallback = earliest ⬜ in the ROADMAP table; ✅✅ = MVM tag + Full tag both minted): packaging, OOP,
-  CMake lore, FK-visualizer rebuild (M0.2 tags minted; the rebuild itself is parked work, NOT done —
-  no shipped-build claim: no file, Daily, or tag evidences a visualizer artifact).
+  CMake lore, FK-visualizer rebuild (parked until M0.2 ACTIVE).
 - **Atomicity policy (VAULT POLICY, ARBITRARY — dosage, not finding):** one claim per node,
   5–15 min per node. Builds land ONLY as topic capstones
-  (engine capstone semantics, receipt `kind:transfer`). Vault linkage = registry
-  Evidence-tag + `Goal era` columns and session-log lines — NEVER `transfer_probe` text
-  (VAULT POLICY linkage rule — transfer linkage lives in registry columns + logs only)
-  (stays None) or parallel checkboxes. Any node reviewable only by opening a README
+  (engine capstone semantics, receipt `kind:transfer`). Vault linkage per §0 (registry columns + logs; `transfer_probe` stays None) or parallel checkboxes. Any node reviewable only by opening a README
   is malformed.
 - **Language-project loop (§3 carve-out — VAULT POLICY: generation-first practice; applies to EVERY topic with builds, incl.
   future piano/japanese projects):** user writes the code/piece/text; AI reviews errors +
@@ -628,8 +608,7 @@ are USER inputs at approval time, the agent drafts candidates). Lens lifecycle (
 propose (`proposed`) → user approves/replaces per topic (`approved`) or `waived` + reason →
 ONLY then may a tag minting that topic's work pass the gate. User
 approves/replaces per topic. **No approved pair → topic doesn't land**, with ONE explicit
-escape: `waived` + reason logged in the lens block + `Changelog/` (affordance-none content — the
-sole escape path, exactly ONE (VAULT POLICY count — no second waiver form exists)) — a user-signed decision,
+escape: `waived` + reason logged in the lens block + `Changelog/` — a user-signed decision,
 never a default. AI-generated video is NEVER a lens (VAULT POLICY sourcing rule — no AI-channel
 lenses, period); if proposed, drop it and chat directly.
 Protocol per topic (generation-first — VAULT POLICY order: predict precedes the first watch turn; watch
@@ -658,8 +637,7 @@ pass 2 stays deferred until after the split, operating on split paths) → §2-i
 diagnose-extension (anchors + skill-ID regex checks; registry-MEMBERSHIP check staged on
 §3 fill) → §4 gate build (fixtures are SELF-CONTAINED — fixture registry ships in
 `fixtures/`, so 9/9 evaluates without the real §3 fill) → §2 split pilot +
-Completion-text swap (STAGED on §4; verbatim moves are EXEMPT from the lens-presence check —
-content unchanged — new/edited content requires lens blocks once §6 grammar exists) →
+Completion-text swap (STAGED on §4; lens-exemption per §4 item 4) →
 §3 registry fill → §6-pilot-pairs (ONE batch approval covering Phase-0 + all pass-2-remainder
 topics — pairs must exist BEFORE any milestone edit touches those files, else the reword's own
 mint refuses; no reword lands un-paired) → skill-line authoring (pinned task: author `## Skills gained`

@@ -18,16 +18,6 @@ tags:
 - [[Piano/Resources/Repertoire and 12-Week Goals|Repertoire and 12-Week Goals]]
 - [[Piano/Resources/FAQ|FAQ]]
 
-## Practice engine
-- [[Piano/Resources/Practice Protocols|Practice Protocols]] — session engine, learning protocol, tempo, Q-spots
-- [[Piano/Resources/Movement|Movement]] — technique library (M1–M12), diagnostics, calibration
-
-## Planning and progression
-- [[Piano/Resources/Progression|Progression]] — volume, stages, ladders, cycles
-- [[Piano/Resources/Roadmap|Roadmap]] — stage map
-- [[Piano/Resources/Repertoire and 12-Week Goals|Repertoire and 12-Week Goals]]
-- [[Piano/Resources/FAQ|FAQ]]
-
 ## Pieces and logs
 - [[Piano/Pieces/README|Pieces README]]
 

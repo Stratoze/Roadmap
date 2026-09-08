@@ -10,11 +10,6 @@ Phase 2 control algorithms work against a simulated plant, you DESIGN the mechan
 electrical hardware informed by that proof, and you EXIT with a hardware-in-the-loop
 validation that the physical controller behaves correctly against the real plant model.
 
-The CAD is not the engineering. The PCB layout is not the engineering. The engineering is
-knowing what the CAD is telling the machine shop to do, what the PCB layout is telling the
-electromagnetic field to do, and having simulation evidence that the system will behave
-correctly BEFORE you commit to fabrication.
-
 **Physical artifact of this phase: the Quasi-Direct Drive (QDD) Actuator.**
 - CNC-machined 6061-T6 housing (service-made)
 - The Puck: custom circular 4-layer FOC driver PCB (JLCPCB/PCBWay)

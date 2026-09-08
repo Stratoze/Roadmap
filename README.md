@@ -10,7 +10,6 @@ learning loop. Every milestone is verified via Git tags (`git tag -l`).
 - **Method:** [_system/How to Learn.md](_system/How%20to%20Learn.md)
 - **Agent:** [AGENT.md](AGENT.md) — operating contract for AI sessions (read first)
 - **Memory:** Engram (FSRS) runs all concept/procedure reviews; Anki stays Japanese-vocab-only — see the SRS strategy section in How to Learn
-- **AI bootstrap:** [AGENT.md](AGENT.md) — start here in a fresh session
 - **Obsidian entry:** [index.md](index.md) — the vault map (this README is the GitHub face)
 - **Status:** Active, in progress, always incomplete
 

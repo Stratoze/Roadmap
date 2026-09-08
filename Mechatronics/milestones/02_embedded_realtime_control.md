@@ -5,8 +5,6 @@
 Move from "code that runs" to deterministic embedded control.
 By the end: bring up STM32 at register level with GPIO, timers, SPI, UART, and hardware encoder decoding; create a deterministic timer-driven loop; simulate PID; attempt FOC from understanding; use FreeRTOS without destroying timing guarantees; model the coupled dynamics of the 2-DOF arm with state-space tools; implement a homing sequence with limit switches; design state machines as a general firmware pattern; **and integrate everything into two real sub-systems — a force-feedback haptic knob and an inverted pendulum cart.**
 
-This phase is about control over time, hardware, and failure.
-
 **Physical artifacts of this phase:**
 1. Force-Feedback Haptic Knob (Milestone 2.7) — BLDC + AS5048 + printed housing + impedance control firmware. This is the QDD control stack in miniature.
 2. Inverted Pendulum Cart (Milestone 2.8) — MGN12 rail + printed chassis + state-space control. This is Milestone 2.5 made physical.

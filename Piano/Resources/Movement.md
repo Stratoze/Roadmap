@@ -29,12 +29,6 @@ tags:
 | `[SCHOOL: X]` | One pedagogical tradition's claim. Useful, but not independently converged. |
 | `[HYPOTHESIS]` | Reasonable, not yet verified. Test it. Promote to `[VERIFIED — date]` when confirmed in your own playing. |
 
-Traditional schools were refined over ~150 years of observation. Modern biomechanics
-(motion capture, joint-force modeling, EMG) now explains *why* much of what survived works.
-Where studies and tradition agree, trust the convergence. Where only tradition speaks,
-keep it but tag it. Where your body disagrees with the default, **document the deviation**
-in your Personal Calibration (below) — don't silently drift.
-
 ---
 
 ## How to use this file
@@ -104,9 +98,7 @@ copy relevant lines into piece notes.
 | Forearm length / bench distance | Affects in/out geometry at black keys and lateral alignment. Re-check bench distance when anything feels like reaching. |
 | Injury history | Any archetype that reproduces symptoms → stop, diagnose form, consider teacher/health professional. See [Technique and Health](Practice%20Protocols.md#technique-and-health). |
 
-**Personal Calibration Log** (update when a deviation is confirmed):
-- (example) `2026-08-12 — M3: thumb-over works better than deep thumb-under for my thumb angle [VERIFIED]`
-- (example) `2026-08-12 — M7: octave span at edge of fallboard, wrist stays higher [VERIFIED]`
+**Personal Calibration Log** (update when a deviation is confirmed — see table above for format):
 
 ---
 

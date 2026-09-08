@@ -4,7 +4,7 @@
 
 Complete, tested, documented workcell. Distributed architecture, safety systems, automated testing, industrial-grade integration.
 
-This phase is about hardening, not adding features. The arm is two QDD actuators from Phase 3, a CAN bus, a hardwired Safety PDU, a gripper, a tool changer, and a harness that a technician could service.
+The arm is two QDD actuators from Phase 3, a CAN bus, a hardwired Safety PDU, a gripper, a tool changer, and a harness that a technician could service.
 
 **Physical artifacts of this phase:**
 1. 2-DOF Arm — two Phase 3 QDD actuators on the machined base

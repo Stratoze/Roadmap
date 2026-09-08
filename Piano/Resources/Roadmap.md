@@ -46,8 +46,6 @@ See [Source priority](Editions%20and%20Sources.md#source-priority) in Editions a
 | 8 | 15–18 | diploma recital, Liszt showpieces | La Campanella gate passed | major Liszt | 6–7 | F4–F5 |
 | 9 | 18–22 | concert repertoire, specialization | personal movement signature, self-diagnosis | Liszt core | 7+ | F5 |
 
-Approx years are flexible. Consistency and health matter more than speed.
-
 ## Movement integration by stage
 Movement gates replace and extend the old biomechanical focus list. Each gate item is
 "owned" when it passes the [Movement diagnostic](Movement.md#movement-diagnostics)

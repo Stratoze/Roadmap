@@ -34,14 +34,6 @@
 | 90 to 120 min advanced | diploma-track if sustainable |
 | 2 hours plus | concert-track, requires breaks and health monitoring |
 
-Consistency beats intensity.
-A plan you can run for 15 years beats a plan you burn out on in 15 months.
-
-### Sleep and recovery
-- Sleep is not optional. It supports consolidation and next-day encoding.
-- 7–9 hours per night is the target.
-- Naps or brief rest after practice may also help.
-
 ### Deload Weeks (pragmatic coaching habit — borrowed from strength periodization, no RCT license; run it for fatigue management, not as a consolidation mechanism)
 Every 4th or 5th week, or whenever fatigue accumulates, take a deload (percentages are starting points, not findings):
 - Cut practice time by 40–50%.
@@ -61,17 +53,6 @@ Signs you need a deload:
 - **Movement regression:** form you own degrades (wrist twists return, stretch replaces rotation). Form regression is a fatigue signal, not a skill loss.
 
 A deload week is not quitting. You sit down every day. You just play less, slower, and for pleasure.
-
-### Deload week structure
-| Day | Activity |
-| --- | --- |
-| Mon | Play 3 favorite pieces slowly. No new material. 20 min. |
-| Tue | Sight-read easy material. Ear training. 20 min. |
-| Wed | Rest or mental practice only. Score study. |
-| Thu | Play 3 favorite pieces slowly. Improvise. 20 min. |
-| Fri | Rest or gentle movement. Listen to recordings. |
-| Sat | Play something fun. No goals. 15 min. |
-| Sun | Rest. Visualize next week's goals. |
 
 ---
 
@@ -122,13 +103,7 @@ Sit down, play, 15 minutes.
 
 ## Starting from Zero
 For the first sitting only. After that, use the daily note (`_system/Daily Template.md`).
-
-### Setup
-- Bench height: sit tall, drop hands to the keys; forearms roughly parallel to the floor, wrists level with keys.
-- Distance: elbows slightly forward of the ribs, not tucked in.
-- Score at eye level, well lit.
-- Metronome nearby. Pencil in reach.
-- Phone in another room, or set up to record.
+See [Practice Protocols](Practice%20Protocols.md) Before-playing checklist for setup.
 
 ### Movement setup
 - Check wrist alignment: forearm, wrist, and fingertip in a straight line (P3).
@@ -136,16 +111,6 @@ For the first sitting only. After that, use the daily note (`_system/Daily Templ
 - Feet flat on the floor.
 - Spine tall but not rigid.
 - Breathe normally.
-
-### The first practice day
-1. Sit down. Play a scale slowly, twice. Notice how your body feels.
-2. Check wrist alignment. Is it neutral? Correct if needed.
-3. Open your method book or current piece to where you are.
-4. Pick one short section, 2 to 4 measures.
-5. Play it slowly: hands separately if hard, together if easy.
-6. Clean? Move on. Not clean? Use error triage in [Practice Protocols](Practice%20Protocols.md#learning-protocol).
-7. Stop after 15 minutes. Write one journal line.
-8. Before bed, visualize the passage you played. 2 minutes.
 
 ---
 

@@ -57,8 +57,6 @@ Within learning and polishing blocks, alternate between 2–3 chunks or pieces e
 7. Fun or play-by-ear, 2–5 min.
 8. Journal line and log links, 1–2 min.
 
-Interleaving feels worse during the session, but retention of confusable material is better. Blocking produces fast session-level gains that fade faster on similar material — for brand-new or very different material, blocking is equal or better.
-
 #### Long session
 Divide into two or more blocks with a real break.
 Never grind one passage for 30 minutes.
@@ -103,9 +101,6 @@ What counts:
 - "Play" on a table or your lap, feeling finger movements without sound.
 - Sing or hum a voice from the piece.
 - Listen to a recording while following the score with a specific question.
-What does not count:
-- Passive listening while doing dishes.
-- Vague anxious thinking about piano.
 Quality matters. The more sensory detail — exact fingers, dynamics, key feel, movement feel, sound — the more useful it is.
 
 ---
@@ -331,7 +326,6 @@ End in control and quality.
 - Never end a fast passage in a degraded or tense state.
 - Never end a session mid-breakdown.
 - The last repetition should be one you would be happy to repeat tomorrow.
-- After the last repetition, spend 30 seconds visualizing the passage perfectly (routine cue, not a consolidation primer with a mechanism).
 
 ---
 
@@ -480,12 +474,6 @@ Defaults fit most players (the 99% is rhetoric, not a census). Your documented d
 - Sing each voice separately.
 - Describe the piece in words: "This section moves from I to vi to IV to V."
 - This builds analytical memory, which is the safety net when muscle memory fails.
-
-### Sleep consolidation integration
-- After your last physical repetition, spend 2–3 minutes visualizing the passage perfectly.
-- Before bed, do one more 2-minute visualization of the day's most important passage.
-- Sleep 7–9 hours. Overnight replay supports consolidation; expect retention, treat gain as a bonus.
-- This is not magic. It is a modest, well-evidenced effect — not a guarantee.
 
 ---
 

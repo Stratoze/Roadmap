@@ -35,9 +35,7 @@ artifacts where each one proves a phase's skills AND feeds the next phase:
 | 4     | 2-DOF Arm (two QDDs) + Safety PDU + Gripper + Tool Changer          | integration, CAN, functional safety, harnessing        | the portfolio hero      |
 | 5     | Exploded-View Pedestal + Bench Museum (optional — see Skill Spine)  | communication of the whole system                      | the interview           |
 
-Every physical deliverable is judged by: *"Does this look like something a Tier-1
-robotics supplier would ship, or a science fair project?"* Mount it, label it,
-photograph it, characterize it. An uncharacterized artifact is a claim, not evidence.
+An uncharacterized artifact is a claim, not evidence.
 
 ## Fabrication & Safety Progression
 
@@ -156,12 +154,6 @@ One per phase. Plus optional "from scratch" builds.
 - **Phase 3** — Order a PCB from JLCPCB, modify one thing; FEA one bracket (~2 wk)
 - **Phase 4** — Contribute a bug-fix/doc upstream (~1 wk of your time)
 
-> **Note:** "Your time" = hours you spend, not calendar days.
->
-> Speed Runs produce something explainable to someone outside your head.
->
-> That's the Hypothesis Loop aimed outward. Free byproduct, not extra task.
->
 > The "from scratch" builds are optional but recommended. They make the equations physical. A speaker is a linear motor you can hear. A generator is a motor run backwards. Neither requires a roadmap entry — they're weekend speed runs that change how the theory feels.
 >
 > The mechanism speed run is now folded into Milestone 0.9's physical testbed. Cardboard four-bars take 20 minutes. Re-grounding the same four bars flips crank-rocker into double-rocker (the Grashof inequality never changes — only the type does), which is worth more than a page of derivation.
