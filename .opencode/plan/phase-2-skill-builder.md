@@ -154,7 +154,7 @@ lab per the cut map, nothing stays put except the redirect index):
 `247:# Milestone 0.6 — Power, Efficiency, Thermal`, `286:# Milestone 0.7 — Materials, Failure, and Selection`,
 `360:# Milestone 0.8 — Manufacturing Processes + DFMA`, `425:# Milestone 0.9 — Mechanisms & Kinematic Elements + Physical Testbed`,
 `516:# Milestone 0.10 — Metrology + Measurement Uncertainty`, `580:# Phase 0 Deload / Synthesis`,
-`594:## Phase 0 Retro`. Rationale pinned: bare `^# ` yields 11 (misses 0.1's `##`);
+`594:## Phase 0 Retro`. ANY mismatch (lines, numbers, or titles) aborts the split. Rationale pinned: bare `^# ` yields 11 (misses 0.1's `##`);
 bare `^#+ ` yields 62 (all subheads) — both wrong, hence expected-output diff (spans re-verified
 at build, never trusted from this map). Output filenames follow the scheme
 `<dir>/0.N-<kebab-from-section-heading>.md` (slugs derived at build from the section
@@ -291,8 +291,8 @@ Structural fixes (all mandatory; numbered for reference — execution follows §
   every `skills/<domain>.md` shard (membership search spans all files — never index-only).
   Phase rows may carry `pN-complete`
   tags in `Evidence tag` (phase rows are EXEMPT from skill-ID/era checks — they aggregate milestones, confer nothing; the column accepts EITHER tag form — existence check tries both
-   regexes; project rows list BOTH tags comma-separated `mvm-tag, full-tag`, each checked)
-  regexes); milestone/project rows carry m-form tags. Deferred-domain (piano/japanese/data) milestone skill lines get format-checks ONLY until those domains onboard (resolution-against-registry deferred with the domains — never a mint-blocker for mech/software).
+   regexes; project rows list BOTH tags comma-separated `mvm-tag, full-tag`, each checked).
+  Deferred-domain (piano/japanese/data) milestone skill lines get format-checks ONLY until those domains onboard (resolution-against-registry deferred with the domains — never a mint-blocker for mech/software).
 - Schema: `| Skill ID | Name | Evidence tag | Goal era | Project | Requires |`
   (registry CELLS: comma-separated prerequisite skill IDs, or EMPTY for true entry
   points — 0.1-level — only; a missing file-level `Requires:` line = blank = fail. The explicit
@@ -358,7 +358,8 @@ The agent checks curriculum sequence (at every landing + quarterly re-run — VA
 
 ## 4. Machine-gated `milestone.sh` (foolproof — refusal + audit, no silent bypass)
 
-Invocation: `bash scripts/milestone.sh <tag> "<msg>"`; dry run:
+Invocation: `bash scripts/milestone.sh <tag> "<msg>"` (with `ENGRAM_HOME` exported per
+`_system/engram/env.example.sh` — every gate command below inherits it); dry run:
 `bash scripts/milestone.sh --dry-run <tag> "<msg>"` (flag first, tags nothing).
 On success the script MUST write `scripts/tests/receipts/<tag>.json`
 (checks run + versions + result — schema PINNED: `{"tag": str, "range": "<prev>..<tag>", "checks": [{"name": str,
@@ -414,7 +415,7 @@ item 6 is the monthly detective audit, not a mint gate — it runs on schedule r
    `- Evidence: Mechatronics/docs/captures/2026-09-07_hbridge-loss.png`
    Every listed path exists on disk. Freeform checkboxes are NOT parsed.
 3. Skills: every tagged MARKDOWN milestone/project file carries a `## Skills gained` line with COUNT ≥ 1 (VAULT POLICY coverage gate — same
-   rule as §1, enforced here — per-FILE scope: each markdown milestone/project file under tag must contain ≥1 skill line; non-markdown files (code, captures, data) and non-milestone files (indexes, redirect, GOAL, registry itself, attest notes) are EXEMPT from this item), plus a `Requires:` line
+   rule as §1, enforced here — positive file-set PINNED: `Mechatronics/milestones/*.md` + split `math|physics|mechanical|electronics|software|lab/*.md` + `software/*/README.md`; every other `.md` is out-of-scope for this item (no EXEMPT line needed); per-FILE scope: each in-scope file under tag must contain ≥1 skill line), plus a `Requires:` line
    (entry-point form allowed, blank forbidden); every ID matches §3 regex AND resolves
    in the registry; every registry row touched has non-null `Goal era` matching the era
    format (`pre-GOAL` or the pinned `<slug> (<range>)` — format-checked, not just non-null)
@@ -469,7 +470,9 @@ in a temp CLONE — never a shared worktree — runs the audit, expects exit 1 l
 then deletes the clone); refusal-7 → item-3 sub-check, skill-order violation with prerequisite
 taggerdate after claimant, backdated via `GIT_AUTHOR_DATE`/`GIT_COMMITTER_DATE` env in a temp
 CLONE (same isolation — shared worktrees share refs; fixture tags named `fixture/order-a` +
-`fixture/order-b` with fixed dates `2026-01-02`/`2026-01-03`), run by
+`fixture/order-b` with fixed dates `2026-01-02`/`2026-01-03`; the `fixture/*` namespace is
+carved OUT of the tag regex for fixtures only — production tags never match it; refusal-7
+invokes the mint path so the order sub-check actually runs), run by
 `bash scripts/test-gate.sh` (ABSENT — created here) expecting 9/9 (exit 0 on 9/9, else 1). 9/9 or red. Fixture layout:
 each `refusal-N/` holds input files + `expected-exit` (single int) + `expected-stdout-fragment`
 + `expected-stderr-fragment` (both substring matches); `clean/`
@@ -487,7 +490,8 @@ review sittings (`due --cap 12`); whatever remains above cap needs per-batch JIT
 
 Preconditions (before ANY landing):
 
-1. `doctor` JSON `probe_gaps` field empty on touched topics (`doctor` takes no subcommand —
+1. `doctor` JSON `probe_gaps` field empty on touched topics (`$ENGRAM_RUNNER doctor` with
+   `ENGRAM_HOME` set — `doctor` takes no subcommand, read the field from its JSON output;
    read the field from its JSON output); scope approval covers pretest plan, node
    kinds, `practice` frames, contrast/viz/interactivity needs.
 2. Dedupe via `analogous_to`-convention/`retire` + `doctor` (NOT keyword diff): the §0
@@ -507,7 +511,9 @@ WIP policy (VAULT POLICY, not engine law — the engine permits new work with du
 outstanding; this policy trades speed for habit protection, overrideable):
 
 - Default refuse landing while `due --cap 12` returns a full page (`n` = 12 means "12 or
-  more" — the capped query cannot distinguish; proceed only on `n` < 12, strictly fewer),
+  more" — the capped query cannot distinguish; proceed only on `n` < 12, strictly fewer;
+  all invocations as `$ENGRAM_RUNNER due --cap 12` with `ENGRAM_HOME` set — bare `due`
+  reads the wrong store),
   or the landing topic's own `states.new` > 20 (`12` = engine STANDARD_CAP
   (`engram.py:1241` — source-cited engine constant, not vault dosage); `20` = VAULT POLICY,
   ARBITRARY cap per landing topic; capstones count inside `new` — no exclusion arithmetic). No global-`new` gate (the
@@ -534,7 +540,8 @@ exception and land ONLY as topic capstones, never as parallel vault structure):
 - **Now (JIT, each node tied to a NAMED MVM checkbox — recorded in the scope-approval
   note `.opencode/plan/scope-<topic>-<date>.md` (`<date>` = YYYY-MM-DD; pinned path/format:
   topic, node list with target checkboxes, pretest plan, WIP counts — `due --cap 12` n +
-  per-topic `new` from `topics` — at approval, `base-sha:` (store HEAD) + `doctor:` (ok + node count)
+  per-topic `new` from `$ENGRAM_RUNNER topics` (ENGRAM_HOME set — bare `topics` reads the wrong
+  store) — at approval, `base-sha:` (store HEAD) + `doctor:` (ok + node count)
   at approval, `Override:` field + user-sign line when used), NOT in `why_chain`, which stays
   an id-path; per-item kind: procedures land as NODES, builds land as CAPSTONES):** py CSV→PlotJuggler plot (M1.1, nodes),
   FFT+windowing (M1.2, nodes), `solve_ivp` pendulum (M1.4, nodes); C ring buffer + versioned telemetry
