@@ -1,14 +1,16 @@
 # Phase 2 — Skill Builder (decouple vault + foolproof gates + nodes + lenses)
 
 Status: PLAN — do not implement until user approves this file + reviewer sign-off.
+(Win-adapted 2026-09-08 for reviewer blockers: ordering, checkability, tag grammar,
+staleness vs landed 13-topic store. Still unapproved — this edit changes no vault content.)
 Active-phase rule: AGENT.md §Hard Rules names the active phase; on conflict the active
 phase's file governs. Depends on: Phase 1 complete (AGENT.md live, vault caught up,
 diagnose at known-baseline).
 Incorporates: vault-structure + load/sustainability evaluations (2026-09-07) AND all
 plan-review rounds. Where this file contradicts those evaluations, this file governs
-and says why. Reference convention: §X.Y means §X item Y (sections are numbered lists).
-File:line citations are repo-root-relative paths + current line numbers (re-check: rot fast). Runner for all engram operations: `python3 ~/engram/scripts/engram.py`
-(verified 2026-09-07; subcommands `due`, `topics`, `session-start`, `doctor`, `add-topic`,
+and says why. Reference convention: §X item Y (e.g. §4 item 3 = §4's third numbered check).
+File:line citations are repo-root-relative paths + current line numbers (re-check: rot fast). Runner for all engram operations: `$ENGRAM_RUNNER` (per-machine env — Mac `python3 ~/engram/scripts/engram.py`, Win `python3 ~/.config/opencode/scripts/engram.py`; see `_system/engram/env.example.sh`. NEVER hardcode either path)
+(subcommands `due`, `topics`, `session-start`, `doctor`, `add-topic`,
 `edit-node`, `retire`, `rate`, `receipt`, `selftest`). `scripts/*.sh` are NOT +x:
 invoke as `bash scripts/<name>.sh`.
 
@@ -23,15 +25,19 @@ invoke as `bash scripts/<name>.sh`.
   `QDD|2-DOF|2DOF|2 DOF|2-link|Puck|backdrivab|quasi-direct|SendCutSend|gripper|lever-arm`
   plus human semantic pass for generic `arm|actuator` in goal-flavored contexts
   (checklist lives in GOAL.md once created — circularity resolved: the §1 task CREATES
-  the checklist as it rewrites). Coupled files include `Science/Index.md:14`,
-  `DataScience/Index.md:9,13`, `Mechatronics/resources/LAB_INFRASTRUCTURE.md`,
+  the checklist as it rewrites). Coupled files include pattern hits AND semantic-feed lines
+  (not pattern matches — labeled as such): `Science/Index.md:14` (Lorentz feed, semantic),
+  `DataScience/Index.md:9,13` (telemetry pipeline, semantic), `Mechatronics/resources/LAB_INFRASTRUCTURE.md`,
   `Mechatronics/IDEAS.md`, `Mechatronics/hardware/inventory.md`.
 - Foundations are ALREADY goal-instantiated (0.2 FK arm tip, 0.4 arm FBD + holding
   torque, QDD torque-constant reference at 0.10 `:568`, 0.7 arm-link material,
   CONVENTIONS arm frame defaults): §1 parameterization tasks are mandatory,
   not cosmetic (scaffold-first per §1 — mass parameterization deferred to pass 2).
-- Engram (MAC-SIDE-ONLY universe — mark universe wherever counts gate anything):
-  6 topics / 103 nodes, ~100 `new`, 3 receipts, `desired_retention 0.9`.
+- Engram (LANDED vault store — `_system/engram/`, 13 topics / 270 nodes / 258 `new` /
+  0 repo receipts as of 2026-09-08; mark universe wherever counts gate anything):
+  reconciled 340 HOLD / 14 PORT (`mech-spine`, Mac) / 0 DROP; resits ~zero (all Win
+  receipts pre-divergence, Win nodes adopted in place). ENGINE_PIN green (engine sha
+  FULL match both sides, verified 2026-09-08). WIP caps below evaluate against THIS store.
   Win store per mailbox (12 topics / 256 nodes) is a SEPARATE universe and TODAY
   violates the §5 WIP gate — no landings until v4 reconciliation lands + PIN green.
   Known duplicates: `static-equilibrium` ×2, torque pair, Japanese verb clusters.
@@ -63,33 +69,50 @@ Two passes (sequencing economics — do NOT front-load the ~118-line rewrite ahe
 GOAL-confirm): pass 1 scaffolds (`GOAL.md` draft + `goals/parked/` dir + registry
 `Goal era` column); pass 2 (post-confirm) does the mass parameterization below.
 
-- Create `Mechatronics/GOAL.md`: active goal ONLY — name, actuator type, DOF, work
+- Create `Mechatronics/GOAL.md` (ABSENT — created here): active goal ONLY — name, actuator type, DOF, work
   envelope, success criteria, parked-history pointer, AND the semantic-pass checklist
   (seed = the canonical pattern list in §0 plus generic `arm|actuator` review; the §1
   task finalizes it as it rewrites). Today: QDD 2-DOF arm.
 - Parked goals: `Mechatronics/goals/parked/<kebab-goal-slug>.md`, verbatim + superseded date.
 - Goal change = replace GOAL.md + park old + re-derive Phase 3–5 artifacts AND flagged
-  upstream goal-flavored examples (`Mechatronics/milestones/01_signals_actuators_dynamics.md:521`
-  rig reuse, `Mechatronics/milestones/02_embedded_realtime_control.md:60,77,365` 2-DOF model,
+  upstream goal-flavored examples (`Mechatronics/milestones/01_signals_actuators_dynamics.md:518`
+  rig reuse, `Mechatronics/milestones/02_embedded_realtime_control.md:60,77,356-368` 2-DOF model,
   `Mechatronics/milestones/05_portfolio_delivery.md:13` QDD pedestal, ROADMAP Feeds-into claims).
 - Skills persist: registry rows keep `Evidence tag` + `Goal era` column (§3); pre-swap rows
-  BACKFILLED (acceptance: zero null `Goal era`); tags minted pre-swap stay valid history;
-  post-swap tags get `<goal>-` prefix (e.g. `cnc-m3.1-mvm`). No tag retire rule.
+  BACKFILLED (acceptance: zero null `Goal era`); tags minted pre-swap stay valid history.
+  Tag grammar (PINNED — one dialect everywhere): evidence tags match
+  `^([a-z0-9]+-)?m[0-9]+\.[0-9]+-(mvm|full)$` (post-swap tags carry the `<goal>-` prefix,
+  e.g. `cnc-m3.1-mvm`; `m0.1-fullpass` grandfathered, never rewritten). `Goal era` format:
+  `pre-GOAL`, or `<slug> (<YYYY-MM>[–<YYYY-MM>])` with `<slug>` pinned in GOAL.md
+  (today `qdd-arm (2026-08–)`). No tag retire rule.
 - Parameterization tasks (mandatory): CONVENTIONS arm frame defaults → goal parameters;
   0.2/0.4/0.7 arm-flavored procedures reworded goal-neutral OR GOAL.md-listed appendices;
   `Science/` + `DataScience/` arm assumptions → `See [[Mechatronics/GOAL]]` pointers;
   `LAB_INFRASTRUCTURE.md` + `IDEAS.md` + `hardware/inventory.md` goal mentions get per-file
   disposition (parameterize / move to parked-goal appendix / delete with log line).
-- Goal-era vocabulary: `pre-GOAL` (before GOAL.md existed) or `<goal-slug> (<date range>)`.
+- Goal-era vocabulary: `pre-GOAL` (before GOAL.md existed) or `<goal-slug> (<date range>)`
+  per the pinned grammar above (slug + range pinned in GOAL.md itself).
 - Acceptance: canonical pattern over `Mechatronics/ Science/ DataScience/` returns ONLY
   `GOAL.md`, `Mechatronics/goals/parked/*`, Phase 3–5 milestone files, and GOAL.md-listed appendices —
   PLUS the semantic pass completed per the GOAL.md checklist.
 
 ## 2. Foundation split — Phase-0 pilot ONLY (phases 1–3 stay unsplit)
 
-Target (verbatim bodies via `git mv` + explicit link-migration per moved file, incl.
-pre-move `Mechatronics/firmware/` + `Mechatronics/simulations/` READMEs, `requirements.txt`, `template_*.py` — each gets: merge as dir
-index / move with redirect header / delete-with-log-line, listed in the build commit).
+Target (verbatim bodies via `git mv` + explicit link-migration per moved file — cut map
+with VERIFIED line spans of `Mechatronics/milestones/00_foundations.md` (599 lines):
+title+Outcome+Pass Condition 1–49; 0.1 → 50–96; 0.2 → 97–133; 0.3 → 134–167;
+0.4 → 168–208; 0.5 → 209–246; 0.6 → 247–285; 0.7 → 286–359; 0.8 → 360–424;
+0.9 → 425–515; 0.10 → 516–579; Deload 580–599. Output filenames follow the scheme
+`<dir>/0.N-<kebab-from-section-heading>.md` (slugs derived at build from the section
+headings above — no invented names); each new dir gets a `README.md` index.
+`00_foundations.md` itself becomes a redirect index (no checkboxes — evidence backlinks
+keep resolving). Pre-move `Mechatronics/firmware/` + `Mechatronics/simulations/` READMEs,
+`requirements.txt` (`simulations/python/requirements.txt` — the only one),
+`template_*.py` (both under `simulations/python/`) — each gets: merge as dir
+index / move with redirect header / delete-with-log-line, per-file choice listed in the
+build commit. Redirect header format (PINNED): `# Moved → [[<target>]] (<date>, <reason>)`.
+Log destination for every deletion/move: `Changelog/` entry + build commit message.
+Single exception: Daily history links rot by design (immutable Daily files, no redirects).
 Dir column is relative to `Mechatronics/` (e.g. `software/` = `Mechatronics/software/`).
 File-wide: all vault paths in this file are repo-root-relative unless the sentence says
 otherwise (table Dir column = relative to `Mechatronics/`):
@@ -102,12 +125,16 @@ otherwise (table Dir column = relative to `Mechatronics/`):
 | `electronics/` | 0.5, 0.6 | circuits, power/thermal |
 | `software/` | 0.1 (+ `Mechatronics/firmware/` → `Mechatronics/software/firmware/<board>/<project>/`,
   `Mechatronics/simulations/` → `Mechatronics/software/simulations/<backend>/`) | toolchain + executable surface |
+  Firmware-parent rule (decided — the two schemes above collide otherwise): board-specific code
+  lives at `software/firmware/<board>/<project>/`; board-agnostic projects live directly at
+  `software/<kebab-project>/`. One rule, no per-board top-level dirs.
 | `lab/` | 0.10 + Phase-0 Pass/Deload (lines 25–46 and 578–599 of `Mechatronics/milestones/00_foundations.md` at time of writing — 578–599 covers photo, `versions.sh`, Retro) + SAFETY_CARD + CONVENTIONS + inventory refs | metrology + shared discipline |
 
 Structural fixes (all mandatory, in this order):
 
 1. **Primacy:** ROADMAP table is the ONLY ✅. Domain `Index.md` files are links-only
-   (≤7 entries, no status, no checkboxes). Milestone bodies keep checkboxes with header:
+   (≤7 entries, no status, no checkboxes) — includes trimming `Mechatronics/Index.md`
+   (14 link targets today) with per-line dispositions in the build commit. Milestone bodies keep checkboxes with header:
    `Status lives in [[Mechatronics/ROADMAP|Roadmap]] — do not duplicate.`
    Rewrite `ROADMAP.md:9-17` Completion & Evidence text (pinned replacement):
    `1. Pass the gate: bash scripts/milestone.sh --dry-run <tag> "<msg>" is green.
@@ -118,17 +145,19 @@ Structural fixes (all mandatory, in this order):
    Mac builds §4; the pinned doc text governs, the script implements it.
    Fix `milestone.sh` echo to the same text; add domain commit scopes (`math:`,
    `physics:`, …) to `CONVENTIONS.md` (bare `phaseN:` deprecated for domain work; old tags untouched).
-2. **Anchors:** every milestone gets `<a id="m0-N"></a>`; ROADMAP + all new notes link
-   `#m0-N` only. Migration script rewrites the ~40 ROADMAP rows, records old slugs as
-   HTML comments (Daily history immutable — old links rot by design).
+2. **Anchors:** every milestone gets `<a id="m0-N"></a>` (`m0-1`…`m0-10` — resolvers match
+   full IDs, never prefixes, since `m0-1` prefixes `m0-10`); ROADMAP + all new notes link
+   `#m0-N` only. Migration script rewrites the 37 ROADMAP milestone rows, records old slugs as
+   HTML comments `<!-- was: <old> -->` (Daily history immutable — old links rot by design).
    `diagnose.py` extension spec: resolve `<a id="X">` definitions; accept link forms
-   `[[File#X]]`, `(file.md#X)`, `#X` (same-file); skip code fences; skill IDs validated
+   `[[File#X]]`, `(file.md#X)`, `#X` (same-file — definition-side lookup, not a skip);
+   skip code fences; skill IDs (scanned on `Skills gained` + `Requires:` lines) validated
    against §3 regex + registry membership. Must pass clean. Timing rule: full rescan per
    tag accepted; add incremental mode only if a run exceeds 60s (record timing).
 3. **Evidence 2-home rule:** canonical = milestone-body checkboxes + git tag.
-   `milestones/Phase 0/0.2.md` keeps narrative, drops nothing; `0.1.md` checkbox
-   duplication is MERGED into the body with a redirect header (per-file action listed
-   in the build commit). Daily notes reference status, never restate it.
+   Narrative sources live in the SPLIT files (0.2 body in `math/0.2-*.md`); 0.1's checkbox
+   duplication is MERGED into its split body with a redirect header (per §2 redirect format).
+   Daily notes reference status, never restate it.
 4. **Mechatronics/software/ bounds:** one folder per PROJECT at `Mechatronics/software/<kebab-project>/`
    with `README.md` carrying EXACTLY these 6 headings: `## Question`,
    `## Inputs/Outputs`, `## How to run`, `## Pinned commit`, `## Skills gained`,
@@ -144,6 +173,7 @@ Structural fixes (all mandatory, in this order):
 6. **Keep** `Mechatronics/ROADMAP.md` at its path; `resources/` untouched.
 
 ## 3. Skill registry — ≥1 skill per project, machine-checkable, scalable
+(ABSENT — `Mechatronics/skills/` does not exist; created by this section.)
 
 - Location: `Mechatronics/skills/registry.md` (mech+software skills; piano/japanese/data
   skills explicitly deferred, not homeless-by-accident).
@@ -151,11 +181,16 @@ Structural fixes (all mandatory, in this order):
   (`Requires` = comma-separated prerequisite skill IDs, empty ONLY for true entry
   points — 0.1-level — with `Requires: — (entry point)` written explicitly; blank = fail.)
 - ID regex (gate-enforced): `^(sw|ee|mech|lab)-[a-z0-9-]+$`. Language token applies to
-  `sw-` ONLY: `sw-c-…`, `sw-py-…`, `sw-cpp-…`, `sw-jl-…` (new `sw-` language token needs
+  `sw-` ONLY and is gate-checked against the pinned token list (`c`, `py`, `cpp`, `jl`):
+  `sw-c-…`, `sw-py-…`, `sw-cpp-…`, `sw-jl-…` (new `sw-` language token needs
   NO amendment; new PREFIX needs a one-line registry-header amendment). Shard to
-  `Mechatronics/skills/<domain>.md` when data rows exceed 100.
+  `Mechatronics/skills/<domain>.md` when data rows exceed 100 — `<domain>` ∈
+  {`sw`, `ee`, `mech`, `lab`} (one shard per prefix); `registry.md` becomes the index
+  (schema + shard list), rows move to shards, IDs never change on sharding.
 - `Skills gained` format (gate-parseable, one per line under the heading):
   `- sw-py-csv-plot — CSV→PlotJuggler (tag m1.1-mvm, Goal era qdd-arm (2026-08–))`
+  (`Evidence tag` column holds TAGS matching the pinned tag regex; `Evidence:` lines hold
+  PATHS — different grammars, both required where specified.)
   `Requires:` line directly below (same heading, gate-parseable):
   `Requires: sw-py-venv, sw-py-uncertainty-mean` (or `Requires: — (entry point)`).
 - Foundation milestones declare their bare-minimum skill sets in the same registry
@@ -189,12 +224,16 @@ The agent checks curriculum sequence (at every landing + quarterly re-run):
 Invocation: `bash scripts/milestone.sh <tag> "<msg>"`; dry run:
 `bash scripts/milestone.sh --dry-run <tag> "<msg>"` (flag first, tags nothing).
 On success the script MUST write `scripts/tests/receipts/<tag>.json`
-(checks run + versions + result) — the file `audit-tags.sh` consumes.
+(checks run + versions + result — schema PINNED: `{"tag": str, "checks": [{"name": str,
+"result": "pass"|"fail", "detail": str}], "versions": {tool: version}, "result": "pass"|"fail"}`)
+— the file `audit-tags.sh` consumes (match rule: receipt exists + `result == "pass"`;
+exit 0 lists clean, exit 1 prints missing/failing tags, one per line).
 Touched files = staged + unstaged working-tree files for `--dry-run`
 (`git status --short`); for audits, the tag's commit range.
 Tagging REFUSES (non-zero exit + reason) unless ALL pass:
 
-1. Build+lint table (pinned in the script; gate FAILS CLOSED on unlisted extensions):
+1. Build+lint table (pinned in the script; code extensions mapped, `.md` handled by the
+   diagnose check in item 4 — NOT by this table; gate FAILS CLOSED on unlisted CODE extensions):
    `py` → `ruff check` + `ruff format --check`; `c/h` → `clang-tidy`;
    `jl` → `JuliaFormatter` if `.JuliaFormatter.toml` (or `[JuliaFormatter]` in
    `Project.toml`) exists in the project, else syntax-parse:
@@ -206,32 +245,39 @@ Tagging REFUSES (non-zero exit + reason) unless ALL pass:
    Every listed path exists on disk. Freeform checkboxes are NOT parsed.
 3. Skills: `## Skills gained` line present with COUNT ≥ 1, plus a `Requires:` line
    (entry-point form allowed, blank forbidden); every ID matches §3 regex AND resolves
-   in the registry; every registry row touched has non-null `Goal era` and its tag
-   exists; every prerequisite taggerdate ≤ claimant taggerdate (§3 skill-order audit).
+   in the registry; every registry row touched has non-null `Goal era` and its Evidence-tag
+   value exists as a minted tag; every prerequisite taggerdate ≤ claimant taggerdate (§3 skill-order audit).
 4. Links+lenses: extended `diagnose.py` (§2 item 2 spec) clean on touched files, INCLUDING
-   the lens rule — any `status: proposed` lens in a touched milestone fails the gate
-   (checked inside `diagnose.py`, not by hand).
+   the lens rule — any touched milestone MISSING its lens block, or any `status: proposed`
+   lens in one, fails the gate (checked inside `diagnose.py`, not by hand; skill IDs are
+   scanned on `Skills gained` + `Requires:` lines; lens blocks parsed on the exact header
+   `Lenses — <milestone id>` at per-milestone placement).
 5. Attestation: dated blank-page test note, e.g.
-   `Mechatronics/milestones/Phase 0/0.2-attest-2026-09-07.md`
-   (`<m>` = milestone number as in domain filename, `<date>` = YYYY-MM-DD):
+   `Mechatronics/math/0.2-attest-2026-09-07.md`
+   (`<domain>/0.N-attest-<date>.md`, domain = split dir owning the milestone, `<date>` = YYYY-MM-DD):
    re-solve from memory, gaps red-penned; Full Pass note MUST cite a PRIOR attempt date
-   (same-day echo fails); red-pen gaps appended to Landmine Log or linked.
+   (same-day echo fails — compared via taggerdate where tags exist, note dates otherwise);
+   red-pen gaps appended to Landmine Log or linked.
 6. Direct-`git-tag` bypass is detectable, not preventable: monthly
    `bash scripts/audit-tags.sh` (new: lists tags lacking gate receipts in
    `scripts/tests/receipts/<tag>.json`) + agent rule — never attest a bypassed tag;
    bypassed tags get `-unaudited` registry note until re-earned.
 
-Gate ships with fixtures at `scripts/tests/fixtures/{refusal-1..7,clean}/` (the 7th =
-skill-order violation: prerequisite dated after claimant), run by
-`bash scripts/test-gate.sh` expecting 8/8. 8/8 or red.
+Gate ships with fixtures at `scripts/tests/fixtures/{refusal-1..7,clean}/` (ABSENT —
+created by this section; refusal-N maps to gate item N: 1 lint-fail, 2 missing-artifact-path,
+3 bad-skill-ID, 4 broken-link-or-proposed-lens, 5 same-day-attest, 6 forced-tag-without-receipt,
+7 skill-order violation with prerequisite taggerdate after claimant), run by
+`bash scripts/test-gate.sh` (ABSENT — created here) expecting 8/8. 8/8 or red.
 
 ## 5. Engram topics — engine-native WIP, JIT-cut, capstone-only builds
 
-GATE: nothing in this section lands until v4 reconciliation (vault-scope proposal
-landed + ENGINE_PIN green on the merge machine). Until then engram work stays
-read-only or tmp-only (`ENGRAM_HOME=<tmpdir>`). Doctor-gating rule: preconditions
-run on the merge machine with `python3 ~/engram/scripts/engram.py doctor`, and the
-engine sha256 is recorded alongside results — uncompared shas gate nothing.
+GATE (satisfied 2026-09-08 — proposal landed to main + ENGINE_PIN green, engine sha FULL
+match both sides): landings proceed under the WIP caps below, evaluated against the LANDED
+13-topic store. Pre-landing backlog burn-down (remediation, NOT a landing — no approval needed):
+dedupe via `analogous_to`-convention/`retire` + `doctor` until `new` approaches cap, plus capped
+review sittings (`due --cap 12`); whatever remains above cap needs per-batch JIT-override
+(logged, user-signed) — no standing overrides. Doctor-gating rule: preconditions run with
+`$ENGRAM_RUNNER doctor` on the machine doing the landing, sha recorded alongside results.
 
 Preconditions (before ANY landing):
 
@@ -241,8 +287,10 @@ Preconditions (before ANY landing):
    torque pair, Japanese verb clusters. Overlap check (exact-id + claim read) joins every
    scope approval.
 3. Kind audit: absent ⇒ concept (no blind backfill); true fresh-instance procedures earn
-   `procedure` + `practice` frame + `discriminates_from` + execution key + error bank.
-   Counts include capstones (6 of today's 100 `new` are capstones — say so in reports).
+   `procedure` + `practice` frame with engine-native `problem_frame` + `verify` +
+   `error_bank` (+ `contrasts_with` edges for discrimination — NEVER `discriminates_from`
+   or "execution key", which §0 establishes as non-fields).
+   Counts include capstones (say capstone count in reports).
 
 WIP policy (VAULT POLICY, not engine law — the engine permits new work with dues
 outstanding; this policy trades speed for habit protection, overrideable):
@@ -258,14 +306,16 @@ outstanding; this policy trades speed for habit protection, overrideable):
   is prose, not a command; cited as sensibility) until `due ≤ 12` or JIT-override signed.
 - Soft alarm at 150 active: ARBITRARY, review-or-retire session due by 2026-12.
 
-Landings (scope approval each, maps-only, pretests included for frontier diagnosis):
+Landings (scope approval each; pretests/maps land maps-only — builds are the STATED
+exception and land ONLY as topic capstones, never as parallel vault structure):
 
 - **Now (JIT, each node tied to a NAMED MVM checkbox — recorded in the scope-approval
   note, NOT in `why_chain`, which stays an id-path):** py CSV→PlotJuggler plot (M1.1),
   FFT+windowing (M1.2), `solve_ivp` pendulum (M1.4); C ring buffer + versioned telemetry
   framing (M1.5/M1.1). Parked until the demanding milestone is ACTIVE: packaging, OOP,
   CMake lore, FK-visualizer rebuild (M0.2 already ✅✅).
-- **Atomicity law:** one claim per node, 5–15 min. Builds land ONLY as topic capstones
+- **Atomicity policy (VAULT POLICY, ARBITRARY — dosage, not finding):** one claim per node,
+  5–15 min per node. Builds land ONLY as topic capstones
   (engine capstone semantics, receipt `kind:transfer`). Vault linkage = registry
   Evidence-tag + `Goal era` columns and session-log lines — NEVER `transfer_probe` text
   (stays None) or parallel checkboxes. Any node reviewable only by opening a README
@@ -316,13 +366,23 @@ pointer only.)
 
 ## 7. Sequencing + acceptance (STOP for user feedback — no further work unapproved)
 
-Order: §1-scaffold (GOAL draft + parked dir + `Goal era` column) → §4 gate build →
-§2 split pilot + Completion-text swap (STAGED on §4) → §3 registry fill →
-§5 landings (GATED on v4 reconciliation + PIN green) → §6 lenses.
-Phase acceptance (ALL must hold): §1 grep-gate + semantic pass clean; anchor-aware
-`diagnose.py` clean (or only `EXEMPT`-block items); gate fixtures 8/8; skill-order
-audit (§3 skill-order audit) clean on the current vault (pre-existing inversions filed as defects, not
-waived); cold-start test
-(Phase-1 §5) still passes; FRESH reviewer agents on the same three briefs (alignment,
-neuroscience, extensibility+onboarding) report zero blocking verdicts.
-Re-verify loop: any failure → fix → re-run the failing brief(s) until clean.
+Order (dependency-sorted — each step's inputs exist when it runs): §1-scaffold (GOAL draft
++ parked dir + `Goal era` column) → §2-item-2 diagnose-extension (anchors + skill-ID checks;
+the §4 gate CONSUMES this, so it builds before §4) → §4 gate build (fixtures are
+SELF-CONTAINED — fixture registry ships in `fixtures/`, so 8/8 evaluates without the real
+§3 fill) → §2 split pilot + Completion-text swap (STAGED on §4) → §3 registry fill →
+§1-pass-2a (CONVENTIONS arm defaults → GOAL parameters ONLY — feeds the §2 ownership table;
+rest of pass 2 stays deferred) → §6 lens pairs (per-landing approval; the §4 lens-presence
+check is STAGED on this grammar — until pairs exist, §4 fails any touched milestone lacking
+a lens block, and `status: proposed` fails once blocks exist) → §5 landings.
+Phase acceptance (ALL must hold, each mechanically checkable): §1 grep-gate
+(exact command: `grep -rEoh 'QDD|2-DOF|2DOF|2 DOF|2-link|Puck|backdrivab|quasi-direct|SendCutSend|gripper|lever-arm' Mechatronics/ Science/ DataScience/ | sort | uniq -c`)
++ GOAL.md checklist file exists + semantic pass recorded in GOAL.md; anchor-aware
+`diagnose.py` clean (or only `EXEMPT`-block items — `EXEMPT` = the `EXEMPT:` comment block at
+the top of `scripts/diagnose.py`, authoritative for carried failures); gate fixtures 8/8;
+skill-order audit (§3 skill-order audit) clean on the current vault (pre-existing inversions
+RECORDED in `Changelog/` + the build commit message — "filed as defects" means exactly that,
+not waived); cold-start test (fresh session runs the AGENT.md session-start block verbatim
+and reaches the same due counts); FRESH reviewer agents on the same three briefs (alignment,
+neuroscience, extensibility+onboarding) report zero blocking verdicts, max 2 rounds — leftovers
+go to the user for adjudication, the loop terminates.
