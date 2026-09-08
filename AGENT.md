@@ -16,8 +16,9 @@ Evidence via `bash scripts/save.sh` / `bash scripts/milestone.sh` (scripts are N
 ## Session-start protocol (every session, before other work)
 
 Run verbatim (repo root):
-`python3 ~/engram/scripts/engram.py session-start`
-`python3 ~/engram/scripts/engram.py due --cap 12`
+`[ -n "$ENGRAM_RUNNER" ] || { echo 'ENGRAM_RUNNER unset — see _system/engram/README.md'; exit 1; }`
+`$ENGRAM_RUNNER session-start`
+`$ENGRAM_RUNNER due --cap 12`
 `test -f "Daily/$(date +%F).md" && echo "note: exists" || echo "note: missing"`
 Quote source: `grep -h -A3 -E "^## (One-liner|Sticky)" Daily/*.md | tail -20`
 If dues need attention OR note missing: ONE chat reply (chat only — no Telegram, no hooks) —
@@ -26,7 +27,7 @@ If dues need attention OR note missing: ONE chat reply (chat only — no Telegra
 Else silence. Never repeat after a same-day decline. Never auto-create/auto-start.
 Fallback if runner errors (inline, runnable, read-only — retired = node `retired`
 dict present with `restored` None, NEVER `state == 'retired'`):
-`python3 -c "import json,glob; [print(f\"{f.split('/')[-1]}:{k}\") for f in glob.glob('/Users/kohaku/.claude/learning/graphs/*.json') for k,n in json.load(open(f))['nodes'].items() if isinstance(n.get('retired'),dict) and n['retired'].get('restored') is None]"`
+`python3 -c "import json,glob,os; [print(f\"{f.split('/')[-1]}:{k}\") for f in glob.glob(os.environ['ENGRAM_HOME']+'/graphs/*.json') for k,n in json.load(open(f))['nodes'].items() if isinstance(n.get('retired'),dict) and n['retired'].get('restored') is None]"`
 Then stop and report the runner failure. Do not hand-compute dues.
 
 ## Session-end protocol (daily Q&A in flow; dailies are the learner's)
@@ -70,7 +71,7 @@ from the facts below (full rule: Phase-1 plan §2 item 4,
 Facts (2026-09-07): Apple clang/clangd 21 · cmake 4.4.3 · python 3.14.7 ·
 julia 1.12.7 · nvim 0.12.5. VSCode Vim (`jj`→Esc, space leader) + clangd + Ruff + Julia
 (`~/Library/Application Support/Code/User/settings.json`).
-Engram runner: `python3 ~/engram/scripts/engram.py` — never hand-compute scheduling.
+Engram runner: `$ENGRAM_RUNNER` (see `_system/engram/README.md`) — never hand-compute scheduling.
 Health: `python3 scripts/diagnose.py` (known-baseline in Phase-1 plan §0; EXEMPT block
 at the top of the script is authoritative for carried failures).
 

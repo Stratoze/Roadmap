@@ -1,0 +1,11 @@
+# Engine pin (no shared plugin — behavior-compare, not version-compare)
+# Upgrade = one side bumps, both re-verify doctor shape, single PIN commit.
+
+# Win: opencode-engram-learning plugin v1.15.1 (npm), file:
+#   C:/Users/Kohaku/.config/opencode/scripts/engram.py
+win_engram_py_sha256: 8c750572dcf095503ad90f5b9b5cfa7f2efa8a3afa39a7537d75ff2ec40aa546
+# Mac: standalone ~/engram/scripts/engram.py, reported prefix 8c750572… (UNVERIFIED —
+# Mac confirms full sha on the proposal branch; 8-hex prefix match is suggestive, not proof).
+
+# Doctor-shape check (both sides): `doctor` reports ok + per-topic states {review, learning, new};
+# node kinds concept|procedure|fact; STANDARD_CAP=12. Any shape drift blocks review.

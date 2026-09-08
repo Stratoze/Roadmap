@@ -1,0 +1,570 @@
+{
+ "_totals": {
+  "nodes": 103,
+  "receipts": 0,
+  "topics": 6
+ },
+ "japanese-grammar": {
+  "count": 15,
+  "file": "japanese-grammar.json",
+  "file_sha256": "899200bbd7520861ebf8be968e33a0151d1ec80a9f0d7730b8ba3b8c240f3102",
+  "nodes": {
+   "capstone": {
+    "claim_hash": "f63e96e6e441588491a7d035ccdc68b3304a6c07a8c848993d7366e5c7725d67",
+    "kind": null,
+    "state": "new"
+   },
+   "connective-particles-no-to-mo": {
+    "claim_hash": "b06d8d037fa0c03bf597b1e16914cb72d6c996d9ab04e2a065d4c23b3d43406c",
+    "kind": "concept",
+    "state": "new"
+   },
+   "copula-da-desu": {
+    "claim_hash": "1bd6b6e9633d03ce1b487a2ff12ede8893156967989b2343df033a869c1d4108",
+    "kind": "concept",
+    "state": "new"
+   },
+   "core-particles-wo-ni-de": {
+    "claim_hash": "3e8df3df14fdd70ee3ce7f08ba54a72bd0d3772a54de59e0308878323289fb34",
+    "kind": "procedure",
+    "state": "new"
+   },
+   "desire-tai-hoshii": {
+    "claim_hash": "4026788cf319cd547e2fbee274471599449d696eb94acb1a4d857a546e8a91a4",
+    "kind": "concept",
+    "state": "new"
+   },
+   "giving-receiving": {
+    "claim_hash": "289dd9f1e40675e443e426788da3c7f6632d01c2e91ac9eaa208e9b7b0113d49",
+    "kind": "concept",
+    "state": "new"
+   },
+   "i-na-adjectives": {
+    "claim_hash": "5621baebe759319eba25b79e008ab2cf7400e1479df175d018e53a0b32719181",
+    "kind": "procedure",
+    "state": "new"
+   },
+   "masu-politeness": {
+    "claim_hash": "bdaee204198114ee06841601f83a699cafa7bd11e7207ab226073b7865d25583",
+    "kind": "procedure",
+    "state": "new"
+   },
+   "negation-polarity-answers": {
+    "claim_hash": "bec419e5e3c0d54b7a5455ea052a66309d5e75e87409587b94e9d1133e53190b",
+    "kind": "concept",
+    "state": "new"
+   },
+   "nominalizer-no-koto": {
+    "claim_hash": "48ba40904d422aff17008d17400845c5ea13475bc4aace830e3dd170c029b94e",
+    "kind": "concept",
+    "state": "new"
+   },
+   "past-nai-te-conjugation": {
+    "claim_hash": "73df9b4fe99c72b6cbfed245dc8dac97f9979fe3607f1d06335a043032c852d0",
+    "kind": "procedure",
+    "state": "new"
+   },
+   "question-ka-interrogatives": {
+    "claim_hash": "554b364afe0d8a3e18e151b052606a491e73bced5e139897269aef2a616af762",
+    "kind": "concept",
+    "state": "new"
+   },
+   "sov-topic-comment": {
+    "claim_hash": "86e27ce8cb4bcd535b00577d1db5386e6eebe1bded374beac01cde6002db9b1e",
+    "kind": "concept",
+    "state": "new"
+   },
+   "te-chain-requests": {
+    "claim_hash": "2b887dd02036c1b8a5ef5d8330e8b0c4cc039fd49a8f0baee0974d42d083d45a",
+    "kind": "concept",
+    "state": "new"
+   },
+   "verb-groups-dictionary": {
+    "claim_hash": "b74a3dd04e97d4a8ac1e14407a02f0114339f1633606c95213fbad364240f7ef",
+    "kind": "fact",
+    "state": "new"
+   }
+  },
+  "receipts": 0
+ },
+ "japanese-output": {
+  "count": 15,
+  "file": "japanese-output.json",
+  "file_sha256": "74b8defe2f3a9fa7e2cb80f22582bb2cff16bc55f3bdfb4ccee40699e63ed535",
+  "nodes": {
+   "adjectives-predication": {
+    "claim_hash": "8da0e49df2048df7230256f2e4069ab6d51993da68affe5a2047a0aa15d419ab",
+    "kind": "procedure",
+    "state": "new"
+   },
+   "basic-sentence-frame": {
+    "claim_hash": "8c506f7d041aeef278afcfc3b37cad426ae7c1fd1dd3fb916e7df193229a8b26",
+    "kind": "concept",
+    "state": "new"
+   },
+   "capstone": {
+    "claim_hash": "8d222ff41ff7ac4a80fcdcfd492685cee020fff7961f07a9e533e3dfb0822263",
+    "kind": null,
+    "state": "new"
+   },
+   "connecting-clauses": {
+    "claim_hash": "9677094a4b12a834ecd29b87c6038d5c927b03bfcae8627866a96ddccb3e346c",
+    "kind": "procedure",
+    "state": "new"
+   },
+   "counters-time-quantity": {
+    "claim_hash": "9902921bbdd2183727e2fe7346cdb85972566f28f04a0d8f3d58f0c01d6aaeda",
+    "kind": "procedure",
+    "state": "new"
+   },
+   "daily-conversation-arc": {
+    "claim_hash": "bd0fa73eaf75d18d93a572de107e18b33939faea0824f428a7f371a7c363df8f",
+    "kind": "procedure",
+    "state": "new"
+   },
+   "desu-masu-politeness": {
+    "claim_hash": "2e866d7ff08e38f798c9bb8faf6725a10d3b1bda3ce12632c587091c28c24d96",
+    "kind": "procedure",
+    "state": "new"
+   },
+   "kana-sound-production": {
+    "claim_hash": "292d5926556c8cbe830e983d20fbe8aeaf14ef99585d8f8dfdefda3454974c1f",
+    "kind": "procedure",
+    "state": "learning"
+   },
+   "mora-rhythm-pitch": {
+    "claim_hash": "dab7b78367a1089a3c8e0a4c704b53425e0996ffa519deb58b694270d07ba056",
+    "kind": "concept",
+    "state": "new"
+   },
+   "particles-ni-de-e-to": {
+    "claim_hash": "d2665bb1130d84f325a8479da250d3f18d19076806468a2f69cfe7c8fd30643b",
+    "kind": "procedure",
+    "state": "new"
+   },
+   "particles-wa-ga-o": {
+    "claim_hash": "ecd505098864cae40ed3055a4751547db0ded5e0e4ad2f2ef60547c3369a55eb",
+    "kind": "procedure",
+    "state": "new"
+   },
+   "questions-ka-words": {
+    "claim_hash": "79483111d684e7afa2f5527f9a0088d0b074ebb426aae457cb1318e9c695bc48",
+    "kind": "procedure",
+    "state": "new"
+   },
+   "te-form-requests": {
+    "claim_hash": "cc19308161c5d8859d285c7647f079db5a6996e10f1310c1a9af20e3fd0fe706",
+    "kind": "procedure",
+    "state": "new"
+   },
+   "tense-past-negative": {
+    "claim_hash": "54388600d21743a0802e4413c5d7c93325887d921e47955729996523f22c5a44",
+    "kind": "procedure",
+    "state": "new"
+   },
+   "verb-groups-conjugation": {
+    "claim_hash": "59f71ef9329338462bb5121cc646703797f8b0b0856f227acd19feff850061dc",
+    "kind": "procedure",
+    "state": "new"
+   }
+  },
+  "receipts": 0
+ },
+ "math-foundations": {
+  "count": 21,
+  "file": "math-foundations.json",
+  "file_sha256": "58e05c741e5e0506a4120b453bba218ed7c6be8212e2c85a9ad4cbc84b4f544e",
+  "nodes": {
+   "calc-derivative-rate": {
+    "claim_hash": "78f006d530b851dea3bd7230a89997ba99a7a869f910c9ae283965b970086192",
+    "kind": null,
+    "state": "review"
+   },
+   "calc-integral-accumulation": {
+    "claim_hash": "e86b6d2426910b969e79cf38653bad5a4c31e6c5fa55c13473d772454e801584",
+    "kind": null,
+    "state": "new"
+   },
+   "capstone": {
+    "claim_hash": "b85a4b132996a442188150438a20eb140fea6fe7b3bfbbb352ce06ace3a05908",
+    "kind": null,
+    "state": "new"
+   },
+   "fusion-weighted-average": {
+    "claim_hash": "c2726dde3e21be91317421d1db36254932430ce7a13d2392b4dfb10f368bae30",
+    "kind": null,
+    "state": "new"
+   },
+   "laplace-transfer-preview": {
+    "claim_hash": "f94f251698f92015b29ea63ae0295a78f26d56148b3fde097602fcbe7d593f3b",
+    "kind": null,
+    "state": "new"
+   },
+   "linalg-clarke-park": {
+    "claim_hash": "4e4b1632624fdc1caacfc7e43a595ab9cb280d67a1b78bde2594e48f133a4551",
+    "kind": "procedure",
+    "state": "new"
+   },
+   "linalg-eigen-modes": {
+    "claim_hash": "7c432cb14340bcac315ede5ab68937568502969e70ddca28ef105c6253a71a0c",
+    "kind": null,
+    "state": "new"
+   },
+   "linalg-least-squares": {
+    "claim_hash": "14fdad16d56a0f7b357f25fc53d454048778ec6515ba1fe228f09446a16b6126",
+    "kind": "procedure",
+    "state": "new"
+   },
+   "linalg-matrix-multiply": {
+    "claim_hash": "aad9e21e171def06a9b9163c172254c5c048ba75ffaf0e5c5c76ed7477c04214",
+    "kind": "procedure",
+    "state": "new"
+   },
+   "linalg-matrix-transform": {
+    "claim_hash": "1eba1054acaf8f7d2508b72bed544587428d8cd08c8c983272b87389d8c23404",
+    "kind": null,
+    "state": "new"
+   },
+   "linalg-projection-dot": {
+    "claim_hash": "a1951485ed2abd9eeba8e769f525f747cf60cd02ad0fff26b38fed99f7805677",
+    "kind": null,
+    "state": "new"
+   },
+   "linalg-vector-basis": {
+    "claim_hash": "fca7378c7e02007d6eee3b498191fa87f04524671e729c7fdb45dae10f106b3c",
+    "kind": null,
+    "state": "new"
+   },
+   "ode-first-order-step": {
+    "claim_hash": "11212b301461fcbb59de47fe39eb771cd14a50a47bbca0ba1ca536d3ec01f876",
+    "kind": "procedure",
+    "state": "new"
+   },
+   "ode-oscillator-freq": {
+    "claim_hash": "d4b91a0164835ce091689a2db5d0601fe9c349bfc912b8c54761bec3a026f62f",
+    "kind": null,
+    "state": "new"
+   },
+   "ode-stability-equilibrium": {
+    "claim_hash": "2effd0614e3dcafae3502553d5c58a45c6753d6a0b9d902beee0905de8b26013",
+    "kind": null,
+    "state": "new"
+   },
+   "ode-state-flow": {
+    "claim_hash": "ae385e410e404ff7b63e4f25d31965a9df73be5632a334ea84e243523f8f9b78",
+    "kind": null,
+    "state": "new"
+   },
+   "prob-bayes-numeric": {
+    "claim_hash": "7dc0840df445f7314e99a2fd2efa8972993621988c4c6e567cb86a40a785f9a1",
+    "kind": "procedure",
+    "state": "new"
+   },
+   "prob-bayes-update": {
+    "claim_hash": "986381a50e884854865ea2be406a51252420089f87e09c1ffdb93da6344653fc",
+    "kind": null,
+    "state": "new"
+   },
+   "prob-clt-average": {
+    "claim_hash": "faa3e749dcad257aee0a8b51ad4d07dc61b1ec5a67034b49bfeae599242ad840",
+    "kind": null,
+    "state": "new"
+   },
+   "prob-random-variance": {
+    "claim_hash": "803c167a726d83eb4081e8752da0504892a74fd4b995805f4af19bb11ca17557",
+    "kind": null,
+    "state": "new"
+   },
+   "statespace-abc-preview": {
+    "claim_hash": "30d000563a0175f733d23f42e4553b09218865c8140bd39606a00e19617197fa",
+    "kind": null,
+    "state": "new"
+   }
+  },
+  "receipts": 0
+ },
+ "mech-spine": {
+  "count": 14,
+  "file": "mech-spine.json",
+  "file_sha256": "fbf9c94e07afeed9bb1cb3be42ef05a115e0c2eeb4c4190bcaed983471bd8ab6",
+  "nodes": {
+   "capstone": {
+    "claim_hash": "3409900ecae378380762b1022546f065956715af632e502bfd03b317a0d1a1ca",
+    "kind": null,
+    "state": "new"
+   },
+   "fbd-draw": {
+    "claim_hash": "8c0fa1d5c195d21a36b9fd9d6049de9d7b2c0bb680e55a789f769728aea33fc2",
+    "kind": "procedure",
+    "state": "new"
+   },
+   "frame-reference": {
+    "claim_hash": "6f37cf96f3a4ef6edfa6ab4f6f0adbcf98be60d9715df5da6b12dd14182901ed",
+    "kind": "concept",
+    "state": "new"
+   },
+   "measure-report-uncertainty": {
+    "claim_hash": "23d248621ae9a059f06a34ee6e30dc639455c9bc147c8e2de038243ec6e9d818",
+    "kind": "procedure",
+    "state": "new"
+   },
+   "phase0-envelope": {
+    "claim_hash": "086927d3cf456815f9cc5ec075d1bb38b0902fff3490fc9a9464eca8e558622c",
+    "kind": "fact",
+    "state": "new"
+   },
+   "print-vs-cad-gap": {
+    "claim_hash": "75bbd0a6261aecaf18486857a2f4302b73f191da60ae277a2181e5d0bca84999",
+    "kind": "concept",
+    "state": "new"
+   },
+   "resolution-accuracy-precision": {
+    "claim_hash": "e7048726259e05804a7e3f1da95d1d5abc7d4e0a8f62d84febb9930d4417a091",
+    "kind": "concept",
+    "state": "new"
+   },
+   "sign-discipline": {
+    "claim_hash": "4478c26c13f1a2ddb30e551306db973e724804f865bb884d671145e002bce077",
+    "kind": "fact",
+    "state": "new"
+   },
+   "static-equilibrium": {
+    "claim_hash": "b516502fc9eda163432d951e5273fd27a473aaf243c23999fa6825662336dcaf",
+    "kind": "concept",
+    "state": "new"
+   },
+   "stop-firstpower-discipline": {
+    "claim_hash": "c1fab411c81bb40d6211504af5ab8e80099fc88bbf64a9a5703fc42ac975b903",
+    "kind": "concept",
+    "state": "new"
+   },
+   "support-reactions": {
+    "claim_hash": "183619d8712c297cc9f6412a498306a08f331d23b19265150db42d3f12e750d2",
+    "kind": "concept",
+    "state": "new"
+   },
+   "systematic-random-error": {
+    "claim_hash": "a418d63715da0c099a59522101451a44f9911291ae0aeb1759573fec8801b273",
+    "kind": "concept",
+    "state": "new"
+   },
+   "torque-moment-arm": {
+    "claim_hash": "585d0854a50a2cf6798844c517fb71fa70eb741dc4e073a5894691731801351e",
+    "kind": "concept",
+    "state": "new"
+   },
+   "vector-add-tip": {
+    "claim_hash": "3fe6bf6fb7b18a503818353a9d60b56728da4a3eb72f1c1a6f8d53774a4fbdc6",
+    "kind": "concept",
+    "state": "new"
+   }
+  },
+  "receipts": 0
+ },
+ "physics-first-principles": {
+  "count": 19,
+  "file": "physics-first-principles.json",
+  "file_sha256": "5004e99a6da9e4e46879949ecbc34c42b28fc0ba16b248738b5fe0555bd2cb92",
+  "nodes": {
+   "action-reaction": {
+    "claim_hash": "4414af41fd28c802fc45c9b2c4c8f32c89581c71606830da90b02f4b80c5d85e",
+    "kind": null,
+    "state": "new"
+   },
+   "capstone": {
+    "claim_hash": "bbb375837c77593906f71ea461170697acabc2c9ac347850d3b9d4dbffbac688",
+    "kind": null,
+    "state": "new"
+   },
+   "charge-field-potential": {
+    "claim_hash": "b7d02eb0069ed75bb6fabccfa3e44c17be1209e3e4575c6f2bac4c4362a5af79",
+    "kind": null,
+    "state": "new"
+   },
+   "energy-conservation": {
+    "claim_hash": "3a860aa5dc7d601f4cfde59f205006a039c954f48710e173c416522b1088087d",
+    "kind": null,
+    "state": "new"
+   },
+   "faraday-back-emf": {
+    "claim_hash": "770cb5b2c6ef18de34ab9811473fe920fad21eecc62115e7cd47fafe2486ff75",
+    "kind": null,
+    "state": "new"
+   },
+   "force-acceleration": {
+    "claim_hash": "56dcda4dc18639b84d90172a2bf1c408f2322d52c7284a782e34623caebe2130",
+    "kind": null,
+    "state": "review"
+   },
+   "friction-contact": {
+    "claim_hash": "7787edf4887047b0fd9135ca67f637e9118b6f4f20a8240d194209bce09251a6",
+    "kind": null,
+    "state": "new"
+   },
+   "gear-power-tradeoff": {
+    "claim_hash": "c8ee8bae9fd95d22e13c9034b97795d705a2037b123dbab860fed0e6b1064530",
+    "kind": "procedure",
+    "state": "new"
+   },
+   "heat-flow-temp-limit": {
+    "claim_hash": "d15cb036ddb972508dbf29a2dd512139757bb860705539622c7a3e879a3f4e60",
+    "kind": null,
+    "state": "new"
+   },
+   "inertia-newton-rotation": {
+    "claim_hash": "2310921ad495901fb17d1f8847af8b90d0119f08f085129336236f16e5bdaeba",
+    "kind": null,
+    "state": "new"
+   },
+   "joule-heating-loss": {
+    "claim_hash": "90fe31d6d203f911b46c38ba66721da6e1990fe0338c47c8ede2a7b91ab337f4",
+    "kind": null,
+    "state": "new"
+   },
+   "lorentz-motor-force": {
+    "claim_hash": "721d1681ab2c84b48d751be1348deac0441f5a3ae10f59d60f9804738519478e",
+    "kind": null,
+    "state": "new"
+   },
+   "momentum-impulse": {
+    "claim_hash": "0650d724c3710533575383a5f4d2e98e0701a311438a3979ab07f87e0a6cf398",
+    "kind": null,
+    "state": "new"
+   },
+   "ohm-circuit-solve": {
+    "claim_hash": "87fcc6b6216c97dd68ae84978494ee7866139340b11dd136d3f7f776d96a1df5",
+    "kind": "procedure",
+    "state": "new"
+   },
+   "oscillation-resonance": {
+    "claim_hash": "edceec06f478c7fd96e9832aef8dad34202e8461980c66482df8f2c9d518ed94",
+    "kind": null,
+    "state": "new"
+   },
+   "power-flow": {
+    "claim_hash": "c3814536703367108a72f9a431375676a646e62124fd794264a6c1126dc4af8d",
+    "kind": null,
+    "state": "new"
+   },
+   "static-equilibrium": {
+    "claim_hash": "a775b70c512ee75a5f46894f7ed867a709ef7edb6cf7f755d4591c4b5fc069d5",
+    "kind": null,
+    "state": "new"
+   },
+   "torque-lever-arm": {
+    "claim_hash": "e903f5db2905850d5d59a9d1d8593a80eefc57badfba9cf7a4a7432bd2cac2c0",
+    "kind": null,
+    "state": "new"
+   },
+   "work-energy-theorem": {
+    "claim_hash": "e460478c8e52f946fb15523a32cca8512f2cf5dec479e938f3ba581d7a357003",
+    "kind": null,
+    "state": "new"
+   }
+  },
+  "receipts": 0
+ },
+ "piano": {
+  "count": 19,
+  "file": "piano.json",
+  "file_sha256": "c4912f6d08a5297b5470a30de33889459a71af2887ada200436792983637abad",
+  "nodes": {
+   "arpeggio-rotation-m4": {
+    "claim_hash": "e871e1999c95c5e87d941ac08c1a5857733c3e1b651394071345e86ddfa0372d",
+    "kind": "concept",
+    "state": "new"
+   },
+   "capstone": {
+    "claim_hash": "5ae9091d0b573536e84f55d17e3096b6763aa5c7ef7e38208caa299f861a2ba0",
+    "kind": null,
+    "state": "new"
+   },
+   "chord-grasp-m6": {
+    "claim_hash": "a3fff26e215e13a38ade73882f34a0d687ae51092d45f4ff22ced92c8e3ab12c",
+    "kind": "concept",
+    "state": "new"
+   },
+   "finger-keystroke-m1m2": {
+    "claim_hash": "e7227bb79454dec57eef829127be4606e57427d026512e74d99353edc491b3b4",
+    "kind": "concept",
+    "state": "new"
+   },
+   "hear-intervals-triads": {
+    "claim_hash": "13d6301e075d2321745e1cf569380d5433f3e4e3e66f64cb26ee5a95b59eb8bd",
+    "kind": "procedure",
+    "state": "new"
+   },
+   "hear-progressions": {
+    "claim_hash": "49c72fde0b98f0690f6933f4f56f0b523b1b0c5624ef70c52f68879009ac1058",
+    "kind": "procedure",
+    "state": "new"
+   },
+   "interval-chunks": {
+    "claim_hash": "c7b81c0d025c6382a06dc55e7fbbcdb118e8a1f84d3a5104d9cbfbd7ee25ed08",
+    "kind": "concept",
+    "state": "new"
+   },
+   "lead-sheet-realization": {
+    "claim_hash": "695004a8224147d2a5ca45e5b9182f78b8fb75d30498b82b4378221f9d5bd6da",
+    "kind": "procedure",
+    "state": "new"
+   },
+   "legato-handoff-m10": {
+    "claim_hash": "9f282bc66e287b711ce1c0a2b9ed9cb6b9397d19e0cc6a495d53a86eeb1fa5b4",
+    "kind": "concept",
+    "state": "new"
+   },
+   "major-key-harmony": {
+    "claim_hash": "29eadc907790825ed534781993df4ee787004e4e4512d3aa2f115176dda57447",
+    "kind": "concept",
+    "state": "new"
+   },
+   "pedal-syncopated-m12": {
+    "claim_hash": "ec8318589459baa90a8490184ed1184a0d14b23fc1f8ef782fb7e0f1782ef047",
+    "kind": "concept",
+    "state": "new"
+   },
+   "release-budget": {
+    "claim_hash": "73a2b6b80644d2c9a2863ccfda2e22db2e6165f18af48aff1f80686d87782abe",
+    "kind": "concept",
+    "state": "new"
+   },
+   "repertoire-performance": {
+    "claim_hash": "99471bb7860935d257e80165b5bad95b7ea179451da02cc9d0ca4ef5ff922473",
+    "kind": "concept",
+    "state": "new"
+   },
+   "rhythm-pulse-grid": {
+    "claim_hash": "df8dba411a3f78e54e205d21ec759671e0226c60468c44ed210ff19e0ac60215",
+    "kind": "concept",
+    "state": "new"
+   },
+   "scale-travel-m3": {
+    "claim_hash": "a6884266bd1cafc6762a4ff10b048ee8984996674cfefcaf8f6215dafe8c5087",
+    "kind": "concept",
+    "state": "new"
+   },
+   "sight-read-flow": {
+    "claim_hash": "15ef9ddb236786c2f1e24e85dce2c08d857ef34dabf29d02982e84728849f2ea",
+    "kind": "procedure",
+    "state": "new"
+   },
+   "staff-keyboard-map": {
+    "claim_hash": "3e67b3d7ca05b8dacb99025150451f01acc01e4bbb58f1b28f4c718461ddc06c",
+    "kind": "fact",
+    "state": "new"
+   },
+   "transcribe-melody-bass": {
+    "claim_hash": "43840347b6517a7c1871a0beb2d6a20d0052c81f4307ec822cfa52a878c72b28",
+    "kind": "procedure",
+    "state": "new"
+   },
+   "voicing-weight-m11": {
+    "claim_hash": "891101bf4b9d05b4384baf8dbeed44ae7dca36bd7fdb542b02ffbcbab3d8b2f4",
+    "kind": "concept",
+    "state": "new"
+   }
+  },
+  "receipts": 0
+ }
+}

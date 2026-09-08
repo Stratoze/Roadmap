@@ -1,0 +1,1393 @@
+{
+ "goal": "Own the full path from raw measurement to deployed model, grounded in the vault's own data: Mechatronics/data/ telemetry, Phase-1 motor characterization runs, and QDD bench logs are the practice datasets. Arc 1 builds statistical honesty (distributions, uncertainty, correlation vs causation — the sibling of mech-mechanical's metrology-uncertainty), then wrangling (pandas/tidy data), then the ML core (regression, generalization, bias-variance, validation), then deep learning intuition (gradients, backprop, CNNs, attention), then big-data shape (SQL, columnar storage, sharding/streaming). The vault's evidence discipline applies: an uncharacterized model is a claim, not evidence.",
+ "nodes": {
+  "data-as-evidence": {
+   "claim": "A dataset is a set of measurements taken under recorded conditions — every column needs units, provenance (who/what/when/how measured), and a known missingness story. Data without that context is not evidence, it is numbers.",
+   "probe": "A teammate hands you a CSV of motor test runs and says 'just load it and fit a model.' Before touching it, what three things do you check about the data itself, and why does each one change what conclusions the data can support?",
+   "rubric": [
+    "units and scale per column (a torque in N·m vs mN·m silently changes every result by 1000×)",
+    "provenance: which rig, which sensor, which conditions — so results can be traced and repeated",
+    "missingness: which values are absent and why (sensor dropout vs true zero) decides whether rows can be dropped or must be modeled"
+   ],
+   "kind": "concept",
+   "viz": null,
+   "edges": {
+    "requires": []
+   },
+   "threshold": false,
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "descriptive-stats": {
+   "claim": "Mean, median, and variance compress a distribution into a few numbers — and each lies under the wrong conditions: the mean is dragged by outliers and skew, the median ignores magnitude, variance conflates spread with structure. Choose the summary after looking at the distribution, not before.",
+   "probe": "Your motor-current log has mean 2.1 A but median 1.4 A. A friend says 'report the mean, it uses all the data.' Explain when the mean misleads, what the mean-vs-median gap is telling you here, and what you'd plot before choosing either.",
+   "rubric": [
+    "the mean is sensitive to outliers/skew; a heavy tail of current spikes drags it above the typical value",
+    "mean >> median signals right-skew (spikes) — report median for 'typical', mean only with the tail explained",
+    "plot the distribution first (histogram); summaries are chosen after seeing shape"
+   ],
+   "kind": "concept",
+   "viz": {
+    "affordance": "medium",
+    "hint": "Drag outliers into a dot plot and watch the mean slide while the median barely moves."
+   },
+   "edges": {
+    "requires": [
+     "data-as-evidence"
+    ]
+   },
+   "threshold": false,
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": "A startup reports average salary ¥8M, but most engineers you meet earn around ¥5M while two founders hold huge equity. Which summary is lying and how? What do you demand to see before picking mean, median, or variance?",
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "revised": [
+    {
+     "at": "2026-09-05",
+     "fields": [
+      "transfer_probe"
+     ],
+     "receipts_under_previous": 0
+    }
+   ],
+   "arc": 1
+  },
+  "distributions": {
+   "claim": "The distribution is the data's real shape; single-number summaries are its shadow. Many measurement errors look bell-shaped because small independent effects add up (CLT intuition) — but real data also shows skewed, heavy-tailed, and multimodal shapes, and each demands different treatment.",
+   "probe": "Explain to a friend why measurement noise often looks like a bell curve even though nothing in the physics 'chose' a bell. Then give one example of real data where assuming a bell curve would be actively wrong, and state one concrete consequence of that wrong assumption.",
+   "rubric": [
+    "CLT intuition: many small independent perturbations summing tend toward a bell shape",
+    "valid wrong-shape examples: vibration amplitudes (skewed), financial/rare-event data (heavy tails), mixed populations (multimodal)",
+    "consequence: bell assumptions underestimate extreme events under heavy tails — tolerances, safety margins, outlier handling all inherit the error"
+   ],
+   "kind": "concept",
+   "viz": {
+    "affordance": "high",
+    "hint": "Drop random 'small error' darts onto a line and watch their sum pile into a bell."
+   },
+   "edges": {
+    "requires": [
+     "descriptive-stats"
+    ]
+   },
+   "threshold": false,
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "correlation-causation": {
+   "claim": "Correlation is co-movement, causation is mechanism — a third variable driving both (a confounder) produces correlations with no causal link, and no amount of correlation strength upgrades it. Causal claims need intervention, mechanism, or explicit design against confounders.",
+   "probe": "Your telemetry shows motor temperature strongly correlates with ambient humidity. A friend concludes 'humidity heats the motor.' Give the counter-explanation pattern this fits, name what kind of variable could produce this, and list what evidence WOULD license the causal claim.",
+   "rubric": [
+    "names the confounder pattern: a third variable (e.g. summer heat raising both ambient humidity and motor temperature) can drive both",
+    "correlation strength never settles direction or mechanism",
+    "causal evidence requires intervention/experiment (control conditions) or a demonstrated physical mechanism plus confounders ruled out"
+   ],
+   "kind": "concept",
+   "viz": {
+    "affordance": "medium",
+    "hint": "Two gauges both driven by one hidden dial — wiggle the hidden dial and watch the 'correlation' appear with no direct link."
+   },
+   "edges": {
+    "requires": [
+     "descriptive-stats"
+    ]
+   },
+   "threshold": true,
+   "transfer_probe": "In your own domain: pick two quantities in a robot system that would correlate but where believing the causal link would lead to a wrong engineering fix. Explain the confounder and the correct experiment.",
+   "why_chain": [],
+   "arbitrary": false,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "sampling-bias": {
+   "claim": "How you sample decides what population your conclusions cover: selection bias and survivorship quietly restrict the sample, so the model describes the sampled world, not the real one. No analysis technique downstream can repair a biased sample.",
+   "probe": "You characterize your QDD actuator using only bench runs at room temperature because those are the logs you have. A friend says 'more data will fix any bias.' Correct them: what population does your characterization actually describe, what real-world condition is missing, and why does adding more of the same kind of data not help?",
+   "rubric": [
+    "the sample covers room-temperature bench conditions only — conclusions are licensed there, not across thermal environments",
+    "missing populations: cold start, sustained-load heating, duty cycles the bench never ran",
+    "more same-kind data shrinks variance, not bias — the blind spot stays exactly as wide"
+   ],
+   "kind": "concept",
+   "viz": null,
+   "edges": {
+    "requires": [
+     "data-as-evidence"
+    ]
+   },
+   "threshold": false,
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "uncertainty-ci": {
+   "claim": "A confidence interval turns a point estimate into an honest range: it says how much the estimate would wobble if you re-sampled, and it widens with spread and narrows with √n. Reporting a number without its uncertainty repeats the sin metrology already outlawed — a measurement without uncertainty is a guess.",
+   "probe": "You measure mean motor efficiency as 78% from n=12 runs. A friend asks 'so it IS 78%?' Explain what the point estimate actually is, what a 95% confidence interval claims (and does NOT claim), and the two levers that control its width.",
+   "rubric": [
+    "78% is one draw from a sampling distribution — the estimate behind it varies run-set to run-set",
+    "a 95% CI is built so the procedure captures the true value 95% of the time; it is NOT '95% probability this interval contains it' for this one interval",
+    "width grows with data spread (SD) and shrinks with √n — more samples help sublinearly"
+   ],
+   "kind": "concept",
+   "viz": {
+    "affordance": "medium",
+    "hint": "Re-draw samples of size n from a population; watch the CI bars dance around the true mean and capture it ~95% of runs."
+   },
+   "edges": {
+    "requires": [
+     "distributions"
+    ]
+   },
+   "threshold": false,
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "hypothesis-testing": {
+   "claim": "A p-value answers exactly one question: 'if there were truly no effect, how surprising is this data?' It is not the probability the hypothesis is true, and statistical significance is not practical importance — effect size and cost come first, the p-value only guards against fooling yourself on noise.",
+   "probe": "A new firmware tweak gives p = 0.03 on loop-jitter reduction. Your friend announces 'p < 0.05, so the tweak works, ship it.' Untangle the two separate questions being conflated, say what p = 0.03 actually means, and name the number you'd want alongside it before shipping.",
+   "rubric": [
+    "p = 0.03 means: IF the tweak did nothing, data this extreme would appear ~3% of the time — it is not '97% chance the tweak works'",
+    "significance ≠ magnitude: the jitter drop could be statistically solid yet practically irrelevant (e.g. 0.2 µs)",
+    "want the effect size with its CI (and the cost of the change) before deciding"
+   ],
+   "kind": "concept",
+   "viz": null,
+   "edges": {
+    "requires": [
+     "uncertainty-ci"
+    ]
+   },
+   "threshold": false,
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "pandas-dataframe": {
+   "claim": "The DataFrame is a table with labeled columns you transform through verbs — filter rows, select columns, group-then-aggregate, join tables — instead of loops. Thinking in verbs (what transformation, applied to what) replaces index-chasing code and makes analyses readable and reusable.",
+   "probe": "You have a DataFrame of motor runs (rpm, torque, temp, timestamp). Say out loud the verb chain that computes average efficiency per 100-rpm bin, then explain why 'groupby then aggregate' expresses the intent better than a hand-written loop accumulating into a dict.",
+   "rubric": [
+    "verb chain: bin/cut rpm → groupby(bin) → aggregate(mean of efficiency)",
+    "groupby-aggregate states WHAT (split, apply per group, combine) without bookkeeping",
+    "loop version buries intent in index management, invites off-by-one and state bugs, and doesn't generalize to other aggregations"
+   ],
+   "kind": "procedure",
+   "viz": null,
+   "edges": {
+    "requires": [
+     "data-as-evidence"
+    ]
+   },
+   "threshold": false,
+   "practice": {
+    "problem_frame": "Given a raw DataFrame (motor runs: rpm/torque/temp), produce an aggregate such as mean efficiency per rpm bin using filter/groupby/aggregate verbs.",
+    "discriminates_from": "Hand-rolled loops accumulating into dicts; aggregating before binning continuous columns.",
+    "verify": "Cross-check one bin's mean by manually filtering rows and averaging.",
+    "error_bank": [
+     "grouping without binning continuous columns first",
+     "aggregating the wrong column",
+     "forgetting reset_index and misaligning output"
+    ]
+   },
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "tidy-data": {
+   "claim": "Tidy data puts variables in columns and observations in rows, one table per meaning — most 'messy data' problems are layout problems solved by pivoting/melting into tidy form, and missing values get an explicit policy (drop, fill, or flag) chosen for the reason, not by convenience.",
+   "probe": "A spreadsheet logs sensors wide-style: one row per timestamp, columns temp_1, temp_2, temp_3 for three motors. Explain why this fights analysis, what the tidy layout looks like, and give one situation where dropping rows with missing values silently corrupts the result.",
+   "rubric": [
+    "wide layout hardcodes motor count into column names — grouping/comparing across motors requires fighting the layout; tidy = (timestamp, motor_id, temp)",
+    "melting/pivoting converts between layouts mechanically",
+    "dropping missing rows biases the sample when missingness isn't random (e.g. sensor drops out exactly during high-vibration runs)"
+   ],
+   "kind": "procedure",
+   "viz": null,
+   "edges": {
+    "requires": [
+     "pandas-dataframe"
+    ]
+   },
+   "threshold": false,
+   "practice": {
+    "problem_frame": "Given a wide table (one column per sensor/motor), reshape to long/tidy form and choose a missing-value policy with justification.",
+    "discriminates_from": "Melting without id_vars; dropping rows whose missingness is not random.",
+    "verify": "Row count after melt = original rows x number of value columns.",
+    "error_bank": [
+     "forgetting id_vars so timestamps vanish",
+     "treating structural zeros as data",
+     "dropping rows whose gaps correlate with the phenomenon"
+    ]
+   },
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "plotting-grammar": {
+   "claim": "Match the chart to the question: distribution → histogram/violin, relationship → scatter, comparison → bar/box, trend over time → line. Then defend the encodings — truncated axes exaggerate deltas, dual axes invite fake correlations, and color must survive grayscale.",
+   "probe": "For each question, name the chart and one way to lie with it: (a) 'how is loop jitter distributed?', (b) 'does efficiency fall as temperature rises?', (c) 'which of five firmware builds has the lowest median latency?' Then state the axis rule that keeps bar charts honest.",
+   "rubric": [
+    "(a) histogram/violin — bin width choice can hide or manufacture bumps; (b) scatter — dual y-axes can fake alignment; (c) box/bar per build — sorted by value, not alphabetically",
+    "bar charts start at zero (length encodes value); truncated axes on bars turn tiny deltas into visual cliffs",
+    "line charts may zoom axes legitimately since position-on-scale encodes, but must be labeled"
+   ],
+   "kind": "procedure",
+   "viz": null,
+   "edges": {
+    "requires": [
+     "tidy-data",
+     "descriptive-stats"
+    ]
+   },
+   "threshold": false,
+   "practice": {
+    "problem_frame": "Given an analysis question (distribution/relationship/comparison/trend), name the correct chart type and one way that chart could lie.",
+    "discriminates_from": "Defaulting to bar charts for relationships; truncated bar axes.",
+    "verify": "State the encoding used (position/length/color) and check it matches the question's grammar.",
+    "error_bank": [
+     "bar chart not starting at zero",
+     "dual y-axes implying causation",
+     "histogram bin width hiding structure"
+    ]
+   },
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "regression-linear": {
+   "claim": "Linear regression fits the line minimizing squared residuals — slope = predicted change in y per unit x, intercept = anchor. The fit is only as good as its assumptions, and the residuals are where violations confess: curvature means missed nonlinearity, funnel shapes mean changing variance.",
+   "probe": "You regress motor efficiency on temperature and get slope −0.15 %/°C. Interpret the slope in plain words, then explain what you plot afterward to check the model, and what a U-shaped residual pattern would tell you.",
+   "rubric": [
+    "each +1 °C predicts −0.15 percentage points of efficiency, within the fitted range",
+    "plot residuals vs fitted (or vs temperature): they should look like structureless noise",
+    "U-shaped residuals = the true relationship is curved (e.g. efficiency peaks mid-range) — a straight line is the wrong functional form, add a quadratic term"
+   ],
+   "kind": "procedure",
+   "viz": {
+    "affordance": "high",
+    "hint": "Drag the line through a scatter cloud; watch squared-residual areas shrink and the residual plot below go flat when the fit is right."
+   },
+   "edges": {
+    "requires": [
+     "plotting-grammar",
+     "descriptive-stats"
+    ]
+   },
+   "threshold": false,
+   "practice": {
+    "problem_frame": "Given paired data, fit a least-squares line, interpret slope/intercept in domain units, and diagnose the residuals plot.",
+    "discriminates_from": "Reading correlation as slope; ignoring curvature in residuals.",
+    "verify": "Slope x dx predicts dy within the fitted range; residuals show no pattern.",
+    "error_bank": [
+     "extrapolating outside the fitted range",
+     "reading r as slope",
+     "fitting a line to curved data because R^2 looks acceptable"
+    ]
+   },
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": "A cafe plots ice-cream sales against temperature, fits a line, and the residuals curve upward at high heat. What does that residual shape confess, and what breaks if they extrapolate the line to 45°C?",
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "revised": [
+    {
+     "at": "2026-09-05",
+     "fields": [
+      "transfer_probe"
+     ],
+     "receipts_under_previous": 0
+    }
+   ],
+   "arc": 1
+  },
+  "train-test-split": {
+   "claim": "Generalization is the whole game: a model evaluated on the data it was fit to measures memory, not capability. Hold-out data simulates the future — and once you peek at it to make choices, it is spent and no longer an honest estimate.",
+   "probe": "A friend fits a 50-parameter model and reports 99.9% accuracy on its own training data, concluding it's ready. Diagnose the exact confusion, explain what a held-out set changes about the claim, and why repeatedly tuning against the test set quietly destroys it.",
+   "rubric": [
+    "training accuracy measures memorization capacity, not prediction of unseen cases — the two diverge exactly when the model is flexible enough to fit noise",
+    "held-out data answers 'how does it do on cases it never saw' — the question that matters",
+    "every tuning decision made while looking at test data leaks information into the model; the score becomes optimistic and the set is burned"
+   ],
+   "kind": "concept",
+   "viz": {
+    "affordance": "medium",
+    "hint": "Slider for polynomial degree: watch training error fall forever while held-out error falls then climbs."
+   },
+   "edges": {
+    "requires": [
+     "regression-linear"
+    ]
+   },
+   "threshold": true,
+   "transfer_probe": "Name a non-ML situation in your mechatronics work where evaluating on the thing you tuned against gave a falsely good result, and how a held-out equivalent would have exposed it.",
+   "why_chain": [],
+   "arbitrary": false,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "bias-variance": {
+   "claim": "Model error splits into bias (wrong-shaped model, too rigid — underfitting) and variance (chasing sample-specific noise, too flexible — overfitting). Capacity is the dial: increasing it lowers bias and raises variance, and the sweet spot sits where total error bottoms out — which is why 'most powerful model' is not a strategy.",
+   "probe": "With a degree-1 fit your errors are large everywhere; with degree-15 they're near-zero on your data but wild on new points. Name both failure modes, connect each to bias or variance, and predict what happens to training and test error as you sweep degree from 1 upward.",
+   "rubric": [
+    "degree-1: high bias / underfit — the line cannot bend to the true curve; degree-15: high variance / overfit — it threads the noise",
+    "sweeping capacity: training error decreases monotonically; test error is U-shaped",
+    "the minimum of test error picks the capacity; beyond it you're fitting noise specific to the sample"
+   ],
+   "kind": "concept",
+   "viz": {
+    "affordance": "high",
+    "hint": "Capacity slider deforms a fit curve between rigid line and noodle; two meters show bias falling, variance rising."
+   },
+   "edges": {
+    "requires": [
+     "train-test-split"
+    ]
+   },
+   "threshold": true,
+   "transfer_probe": "Pick a control-systems analogy: where in tuning a controller (gains, model order) have you seen the same too-rigid/too-flexible tradeoff? Map the terms.",
+   "why_chain": [],
+   "arbitrary": false,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "cross-validation": {
+   "claim": "K-fold cross-validation rotates the hold-out: split data into k folds, train k times holding out a different fold each time, average the scores. It turns one lucky/unlucky split into a distribution of performance estimates — you get a mean AND a spread, which a single split hides.",
+   "probe": "Your single train/test split shows 84% accuracy. A friend says 'great, done.' Explain what 5-fold CV adds, what the standard deviation across folds tells you that the single number can't, and when CV scores would still be optimistic.",
+   "rubric": [
+    "CV averages performance over 5 different hold-outs — less hostage to one particular split",
+    "fold-to-fold spread estimates stability: ±1% means solid, ±15% means the estimate (or the data) is inconsistent",
+    "still optimistic if leakage exists (transforms fit on all data) or if folds share near-duplicate rows"
+   ],
+   "kind": "procedure",
+   "viz": null,
+   "edges": {
+    "requires": [
+     "train-test-split"
+    ]
+   },
+   "threshold": false,
+   "practice": {
+    "problem_frame": "Given dataset size and model family, set up k-fold CV and report mean plus spread honestly.",
+    "discriminates_from": "Trusting a single split; fitting transforms outside the fold loop.",
+    "verify": "All k fold scores reported before averaging; spread quoted alongside the mean.",
+    "error_bank": [
+     "scaling before splitting (leakage)",
+     "reporting only the best fold",
+     "k too large for a small dataset"
+    ]
+   },
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": "A teacher judges a class by a single final exam versus rotating weekly quizzes that each skip a different topic. Map folds, the lucky/unlucky split, and mean-plus-spread onto the two grading schemes — what does the single exam hide?",
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "revised": [
+    {
+     "at": "2026-09-05",
+     "fields": [
+      "transfer_probe"
+     ],
+     "receipts_under_previous": 0
+    }
+   ],
+   "arc": 1
+  },
+  "regularization": {
+   "claim": "Regularization buys variance down with a little bias up: penalizing coefficient size (L2) or count (L1) keeps the model from leaning hard on any one feature of the noise. The penalty strength λ is itself a hyperparameter — chosen by cross-validation, never by eyeballing test performance.",
+   "probe": "Explain to a friend why adding a penalty for large coefficients REDUCES overfitting even though it makes training error worse. What does L1 do that L2 doesn't, and how do you pick λ honestly?",
+   "rubric": [
+    "large coefficients usually mean the fit is exploiting noise directions; capping them forces smoother, more transferable solutions — slight bias traded for much less variance",
+    "L1 drives some coefficients to exactly zero (feature selection); L2 shrinks all smoothly",
+    "λ picked via cross-validation grid/search — never tuned against the final test set"
+   ],
+   "kind": "concept",
+   "viz": {
+    "affordance": "medium",
+    "hint": "λ slider bends a wiggly fit toward smooth; coefficient bars shrink as you increase it."
+   },
+   "edges": {
+    "requires": [
+     "bias-variance",
+     "cross-validation"
+    ]
+   },
+   "threshold": false,
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "logistic-regression": {
+   "claim": "Logistic regression classifies by fitting a linear boundary and squashing it through a sigmoid into a probability — it outputs calibrated confidence, not just a label, and the coefficients stay interpretable as log-odds shifts. It remains the strongest baseline for tabular classification.",
+   "probe": "Why does a classifier that outputs P(fault | sensor readings) beat one that outputs only FAULT/OK, especially on an assembly line? What does the sigmoid buy you — what happens to extreme scores without it? And what does a coefficient of +0.8 on 'vibration' mean in odds language?",
+   "rubric": [
+    "probability output lets you choose the operating threshold by cost (missed fault vs false alarm) instead of accepting the model's default cut",
+    "+0.8 means each unit of vibration multiplies the odds of fault by e^0.8 ≈ 2.2×, holding other features fixed (accept 2.1–2.4×)",
+    "sigmoid maps any linear score into (0,1) so extreme inputs saturate rather than explode"
+   ],
+   "kind": "concept",
+   "viz": {
+    "affordance": "medium",
+    "hint": "Slide the decision boundary through two clouds; watch probability surface and threshold cut move together."
+   },
+   "edges": {
+    "requires": [
+     "regression-linear"
+    ]
+   },
+   "threshold": false,
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "revised": [
+    {
+     "at": "2026-09-05",
+     "fields": [
+      "probe",
+      "rubric"
+     ],
+     "receipts_under_previous": 0
+    }
+   ],
+   "arc": 1
+  },
+  "classification-metrics": {
+   "claim": "Accuracy collapses four outcomes into one number and lies under class imbalance: with 1% fault rate, 'always OK' scores 99%. Precision (when I alarm, am I right?) and recall (of real faults, how many did I catch?) expose the tradeoff, and the operating point is a business/safety decision, not a model property.",
+   "probe": "On a line with 1-in-100 faulty units, a model scores 99% accuracy. Compute what 'always say OK' scores, then explain precision vs recall in the fault-detection context, and argue which side you'd push for a safety-critical fault detector.",
+   "rubric": [
+    "'always OK' achieves 99% accuracy while catching zero faults — accuracy is meaningless under imbalance",
+    "precision = of flagged units, fraction actually faulty; recall = of faulty units, fraction flagged",
+    "safety-critical → favor recall (miss fewer real faults), accepting more false alarms — the threshold shift IS the decision"
+   ],
+   "kind": "concept",
+   "viz": null,
+   "edges": {
+    "requires": [
+     "logistic-regression",
+     "train-test-split"
+    ]
+   },
+   "threshold": false,
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "trees-ensembles": {
+   "claim": "Decision trees ask nested yes/no questions — interpretable but unstable; ensembles tame them: bagging (random forests) averages many trees grown on bootstrap samples to cancel variance, boosting trains trees sequentially on each other's errors to attack bias. Ensembles are the default winner on tabular data.",
+   "probe": "A single decision tree changes drastically when you remove 5 rows; a random forest barely moves. Explain the instability, then why averaging many deliberately-perturbed trees helps, and what gradient boosting does differently from a forest.",
+   "rubric": [
+    "a tree greedily optimizes splits, so small data changes flip early splits and reshape everything below — high variance",
+    "forest: each tree sees noisy resampled data/features; their errors partially cancel in the vote/average",
+    "boosting fits trees to current residuals sequentially — each new tree attacks remaining bias, at higher overfit risk managed by learning rate"
+   ],
+   "kind": "concept",
+   "viz": null,
+   "edges": {
+    "requires": [
+     "bias-variance"
+    ]
+   },
+   "threshold": false,
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1,
+   "retired": {
+    "ts": "2026-09-05",
+    "restored": null
+   }
+  },
+  "feature-engineering": {
+   "claim": "Features are where domain knowledge enters the model: ratios, differences, frequencies, and interactions often carry the signal that raw channels hide, and scaling puts features on comparable footing for distance/gradient-based methods. A dumb model with great features beats a clever model on raw garbage.",
+   "probe": "Raw accelerometer data won't predict bearing failure well. Give three engineered features from vibration physics you'd try first — including at least one interaction or ratio feature and the mechanism it expresses — and explain why model scaling (standardization) matters for some models but not others.",
+   "rubric": [
+    "physics-driven features: RMS amplitude, dominant frequency peak (FFT), kurtosis (impulsiveness) — each maps to a known failure signature",
+    "interactions/ratios (e.g. vibration-per-rpm) express mechanisms the raw channels don't",
+    "scaling matters for anything distance- or gradient-based (kNN, linear with regularization, NNs); tree models split per-feature and are scale-blind"
+   ],
+   "kind": "procedure",
+   "viz": null,
+   "edges": {
+    "requires": [
+     "regression-linear"
+    ]
+   },
+   "threshold": false,
+   "practice": {
+    "problem_frame": "Given raw sensor channels and a target, propose three physics-driven features and justify scaling choices per model family.",
+    "discriminates_from": "Throwing raw channels at models; scaling tree models unnecessarily.",
+    "verify": "Each feature maps to a stated mechanism; ablation shows its contribution.",
+    "error_bank": [
+     "features leaking the target via full-run statistics",
+     "unit-inconsistent ratios",
+     "scaling pointlessly for trees"
+    ]
+   },
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "revised": [
+    {
+     "at": "2026-09-05",
+     "fields": [
+      "probe"
+     ],
+     "receipts_under_previous": 0
+    }
+   ],
+   "arc": 1
+  },
+  "gradient-descent": {
+   "claim": "Training most modern models is iterative optimization: compute the loss gradient (which direction increases error), step the opposite way, repeat. Learning rate is the stride — too small crawls, too large overshoots and diverges — and loss surfaces' valleys/local minima make the trajectory matter, not just the destination.",
+   "probe": "Your neural network's loss curve oscillates wildly then explodes to NaN. Diagnose the likely knob and why, describe what a healthy loss curve looks like, and explain why we can't just 'jump straight to the best parameters'.",
+   "rubric": [
+    "learning rate too high: steps overshoot the valley walls, oscillate, then diverge — lower it (and/or schedule decay)",
+    "healthy: steady descent flattening into a plateau; spikes suggest instability or bad batches",
+    "no closed-form jump exists for most nonlinear losses — gradients only tell local direction, so progress is necessarily iterative"
+   ],
+   "kind": "concept",
+   "viz": {
+    "affordance": "high",
+    "hint": "Ball rolling on a loss landscape; slider for learning rate — watch crawl, clean descent, or bounce out of the valley."
+   },
+   "edges": {
+    "requires": [
+     "regression-linear"
+    ]
+   },
+   "threshold": false,
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "backprop-chain-rule": {
+   "claim": "Backpropagation is the chain rule applied backwards through the network graph: each layer receives 'how does loss change if my output changes' and forwards 'how does loss change if my input changes' — gradients flow to every parameter in one backward pass, making training deep models computationally feasible.",
+   "probe": "Without writing formulas, explain backprop as a message-passing story: what does each layer receive from the layer above, what does it send down, and why does this cost roughly the same as one forward pass instead of millions of separate experiments?",
+   "rubric": [
+    "each layer receives upstream gradient (dLoss/dOutput), combines with its local derivative, passes dLoss/dInput onward",
+    "local derivatives are cheap because the layer knows its own function; composition handled entirely by the chain rule",
+    "naive alternative — perturb each parameter separately — costs one forward pass PER parameter; backprop shares work across the graph"
+   ],
+   "kind": "procedure",
+   "viz": {
+    "affordance": "medium",
+    "hint": "Forward pulse lights the network left→right; backward pulse carries gradient tokens right→left, each node multiplying."
+   },
+   "edges": {
+    "requires": [
+     "gradient-descent"
+    ]
+   },
+   "threshold": false,
+   "practice": {
+    "problem_frame": "Trace gradient flow through a two-layer network verbally: what each layer receives, computes locally, passes down.",
+    "discriminates_from": "Confusing the forward activation pass with the backward gradient pass.",
+    "verify": "Numerical check: perturb one weight, compare finite difference to backprop value.",
+    "error_bank": [
+     "reusing forward activations without caching",
+     "sign flip in the chain rule",
+     "summing where per-sample accumulation is required"
+    ]
+   },
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "neural-nets-intuition": {
+   "claim": "A neural network stacks simple units (weighted sum → nonlinearity) into layers whose composition can approximate very complicated functions; depth builds features from features. That flexibility is power and danger — the bias-variance dial now includes width, depth, and training time, so regularization and data volume carry the load.",
+   "probe": "Why does a single neuron fail at XOR but a hidden layer handles it? Connect your answer to what depth buys in general, then name two things that keep a flexible network from just memorizing the training set.",
+   "rubric": [
+    "one neuron draws one straight line; XOR's classes aren't linearly separable — a hidden layer bends the space so they become separable",
+    "depth composes transformations: early layers detect primitives, later layers combine them into high-level concepts",
+    "anti-memorization: weight penalties/dropout, more data, early stopping — capacity alone doesn't force overfitting if regularized"
+   ],
+   "kind": "concept",
+   "viz": {
+    "affordance": "high",
+    "hint": "Toggle neurons in a tiny net drawing its decision region; watch a straight line become a bent region as the hidden layer activates."
+   },
+   "edges": {
+    "requires": [
+     "gradient-descent",
+     "bias-variance"
+    ]
+   },
+   "threshold": false,
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "cnn-perception": {
+   "claim": "Convolution encodes the prior that local patterns matter anywhere in the image: small filters slide across the whole frame sharing weights, detecting edges/textures regardless of position — slashing parameter counts versus dense layers and building translation-tolerant recognition layer by layer (edges → motifs → parts → objects).",
+   "probe": "A dense network needs millions of parameters for a 256×256 image; a CNN gets away with thousands per layer. Name the two structural ideas that buy this, and explain why 'cat detected at top-left' transfers to 'cat detected at bottom-right'. What do pooling/striding add on top, and what do stacked layers build?",
+   "rubric": [
+    "local connectivity (each output watches a small patch) + weight sharing (same filter reused everywhere)",
+    "shared filters mean a pattern learned in one location is detected in all locations — translation tolerance is baked into the architecture",
+    "pooling/striding adds coarse-position invariance on top, stacking layers builds compound features"
+   ],
+   "kind": "concept",
+   "viz": {
+    "affordance": "medium",
+    "hint": "Slide an edge around an image; one shared filter lights up wherever it appears."
+   },
+   "edges": {
+    "requires": [
+     "neural-nets-intuition"
+    ]
+   },
+   "threshold": false,
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "revised": [
+    {
+     "at": "2026-09-05",
+     "fields": [
+      "probe"
+     ],
+     "receipts_under_previous": 0
+    }
+   ],
+   "arc": 1
+  },
+  "sequences-attention": {
+   "claim": "Sequence models must handle context and long-range dependencies: recurrence chains information step-by-step but forgets and forbids parallelism; attention replaces the chain with direct weighted lookups — every position queries all others, weights learned — which is what transformers are made of and why they scale.",
+   "probe": "In 'the robot that dropped the bolt picked IT up', what must a language model resolve, why does a fixed-size recurrent memory struggle as sentences grow, and how does attention sidestep the bottleneck?",
+   "rubric": [
+    "'it' resolves to 'bolt', not 'robot' — requires linking distant words by content",
+    "RNNs squeeze history through one hidden state per step — long-range signal decays (vanishing gradients) and steps can't parallelize",
+    "attention compares every position against every other directly (learned relevance weights), so distance costs ~nothing and computation parallelizes"
+   ],
+   "kind": "concept",
+   "viz": {
+    "affordance": "high",
+    "hint": "Click a word; lines thicken to the words it attends to when resolving reference."
+   },
+   "edges": {
+    "requires": [
+     "neural-nets-intuition"
+    ]
+   },
+   "threshold": false,
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "sql-basics": {
+   "claim": "SQL declares WHAT you want (filter, group, join) and the engine decides HOW — declarative queries on relational tables scale past what in-memory pandas can touch, and thinking in joins/keys is the native grammar of multi-table operational data.",
+   "probe": "You have tables `runs(run_id, motor_id, date)` and `telemetry(run_id, t, current, rpm)`. Write (in words or SQL) the query for average current per motor in March, and explain why this belongs in SQL rather than exporting everything to pandas.",
+   "rubric": [
+    "join runs↔telemetry on run_id, filter date range, group by motor_id, average current",
+    "keys/joins express the relationship; the engine optimizes execution",
+    "SQL pushes computation to the data (possibly a server/warehouse) — avoids dragging gigabytes into laptop memory"
+   ],
+   "kind": "procedure",
+   "viz": null,
+   "edges": {
+    "requires": [
+     "tidy-data"
+    ]
+   },
+   "threshold": false,
+   "practice": {
+    "problem_frame": "Given two related tables, write the query joining them, filtering by date range, grouping, and aggregating.",
+    "discriminates_from": "Filtering after aggregation; joining on the wrong key.",
+    "verify": "Sanity-check row counts pre/post join; spot-check one group's aggregate manually.",
+    "error_bank": [
+     "WHERE vs HAVING confusion",
+     "join fan-out multiplying rows",
+     "NULL handling inside aggregates"
+    ]
+   },
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "columnar-parquet": {
+   "claim": "Analytics reads few columns across many rows — columnar storage (Parquet) exploits that by laying values column-wise: scans read only needed columns, compression exploits per-column similarity, and predicate pushdown skips row groups entirely. Row-oriented formats pay full-row cost for narrow questions.",
+   "probe": "Querying 'average current' over 10 billion telemetry rows touches 3 of 40 columns. Compare the disk-read story for row-oriented vs columnar storage, and name the further wins columnar gets from storing each column contiguously.",
+   "rubric": [
+    "row store reads every row's full record including the 37 unused columns; columnar reads only the 3 needed column chunks",
+    "contiguous same-type values compress far better (run-length, dictionary encoding) and enable vectorized scans",
+    "statistics per row-group let the engine skip blocks that can't match the predicate (pushdown)"
+   ],
+   "kind": "concept",
+   "viz": null,
+   "edges": {
+    "requires": [
+     "sql-basics"
+    ]
+   },
+   "threshold": false,
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "revised": [
+    {
+     "at": "2026-09-05",
+     "fields": [
+      "probe"
+     ],
+     "receipts_under_previous": 0
+    }
+   ],
+   "arc": 1
+  },
+  "bigdata-shards-streams": {
+   "claim": "Past one machine's limits, the moves are partitioning (shard data by key across machines so work parallelizes), the map-reduce shape (scatter partial aggregates, merge results), and choosing batch vs stream by latency need — daily reports batch, live monitoring streams. Correctness adds exactly-once/idempotency concerns batch never had.",
+   "probe": "Telemetry ingest grows to 50k messages/second and your single-node pipeline falls behind. Lay out the decision space: what partitions by, why partial aggregation travels better than raw rows, and when streaming becomes necessary instead of hourly batches.",
+   "rubric": [
+    "partition by a key (motor_id / time window) so each machine owns a slice and work parallelizes cleanly",
+    "map-side pre-aggregation shrinks data before shuffle — send sums/counts, not millions of raw events",
+    "streaming earns its complexity when alerting/reacting must happen within seconds-minutes; otherwise scheduled batches are simpler and reproducible"
+   ],
+   "kind": "concept",
+   "viz": null,
+   "edges": {
+    "requires": [
+     "columnar-parquet"
+    ]
+   },
+   "threshold": false,
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "ml-pipeline-leakage": {
+   "claim": "Data leakage is test-set information sneaking into training — through scalers fit on all data, features computed over the full timeline, or duplicates spanning splits. The defense is pipeline discipline: wrap transforms with the model so everything refits inside each training fold, and design features as if the future doesn't exist yet.",
+   "probe": "Your CV score is suspiciously beautiful (99%) but the deployed model flops. List three concrete leakage routes, explain why wrapping scaler+model in one pipeline object fixes the scaling route automatically — and what is the 99% actually measuring?",
+   "rubric": [
+    "routes: scaler/imputer fit on full data before splitting; features using future/aggregate info (e.g. normalizing by the whole-run mean); duplicate or near-duplicate rows landing in both train and test",
+    "pipeline object treats transforms as part of the model: within each fold, transforms fit on train-fold only, applied to val-fold",
+    "the 99% is measuring leakage, not skill — the deployed model lacks the leaked channel and collapses"
+   ],
+   "kind": "concept",
+   "viz": null,
+   "edges": {
+    "requires": [
+     "cross-validation"
+    ]
+   },
+   "threshold": true,
+   "transfer_probe": "Design the leakage trap you'd MOST plausibly fall into with time-series motor telemetry, and state the pipeline rule that prevents it.",
+   "why_chain": [],
+   "arbitrary": false,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "revised": [
+    {
+     "at": "2026-09-05",
+     "fields": [
+      "probe"
+     ],
+     "receipts_under_previous": 0
+    }
+   ],
+   "arc": 1
+  },
+  "experiment-tracking": {
+   "claim": "Model development is experiments, and untracked experiments are unrepeatable claims: version data snapshots, code commits, hyperparameters, metrics, and artifacts together so any result can be traced to its exact inputs — the vault's tagged-milestone discipline, ported to ML. If you can't re-run it, you didn't prove it.",
+   "probe": "Three weeks ago a config hit 91%; nobody wrote down the exact data snapshot or seeds. Make the case that this result is scientifically worthless as-is, then sketch the minimal tracking habit that would have saved it — mapping each item to the vault's evidence doctrine.",
+   "rubric": [
+    "without pinned data version + code commit + params/seeds, the 91% cannot be reproduced or audited — it's an anecdote",
+    "minimal habit: log dataset hash/version, git commit, hyperparameters, seed, metric — one entry per run (any tracker or structured log)",
+    "mapping: dataset hash ↔ milestone evidence, commit tag ↔ git tag, logged metric ↔ MVM checkbox — same doctrine, new domain"
+   ],
+   "kind": "procedure",
+   "viz": null,
+   "edges": {
+    "requires": [
+     "ml-pipeline-leakage"
+    ]
+   },
+   "threshold": false,
+   "practice": {
+    "problem_frame": "Set up minimal tracking for one model experiment: data version, code commit, params, seed, metric — one entry per run.",
+    "discriminates_from": "Ad-hoc notebook state; metrics living in chat messages.",
+    "verify": "Re-run any logged entry and reproduce its metric within noise.",
+    "error_bank": [
+     "unpinned data paths",
+     "seeds unset",
+     "metrics recorded without config"
+    ]
+   },
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "trees-bagging-forest": {
+   "arbitrary": false,
+   "claim": "Bagging grows many trees on bootstrap resamples with random feature subsets at each split and averages their predictions by mean or majority vote, so uncorrelated single-tree errors cancel and variance drops while bias stays roughly the same.",
+   "edges": {
+    "analogous_to": [],
+    "contrasts_with": [
+     "trees-boosting"
+    ],
+    "derives_from": [
+     "bias-variance",
+     "trees-single"
+    ],
+    "requires": [
+     "bias-variance",
+     "trees-single"
+    ]
+   },
+   "kind": "concept",
+   "probe": "One tree swings wildly when you resample your training data. You grow hundreds of trees, each on its own resampled training set with extra randomization at each split, and merge them into one prediction. How do you build each tree's training set, what is the extra split randomization, how do you merge the outputs, and which error component shrinks versus which stays roughly the same?",
+   "rubric": [
+    "each tree trained on a bootstrap resample: n draws with replacement, same size as the original",
+    "each split considers only a random subset of features so trees decorrelate",
+    "combines via mean for regression or majority vote for classification",
+    "variance drops by averaging uncorrelated errors while bias stays roughly unchanged, stabilizing predictions"
+   ],
+   "threshold": false,
+   "transfer_probe": "You fit single trees predicting QDD actuator efficiency from bench logs (phase current, winding temperature, load torque) and the curve jumps whenever you drop one day of logs. You instead average 500 such trees built as above. Describe what you build and combine, and why the averaged curve stops jumping while its average level barely moves.",
+   "viz": {
+    "affordance": "some",
+    "hook": "overlay the predictions of 5 versus 200 resampled trees and watch the spread collapse while the center holds",
+    "kind": "distributional"
+   },
+   "why_chain": [
+    "bias-variance",
+    "trees-single"
+   ],
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 2
+  },
+  "trees-boosting": {
+   "arbitrary": false,
+   "claim": "Boosting grows trees sequentially with each new tree fitting the current ensemble's residual errors and added with a small learning rate, so bias falls across rounds but overfitting risk rises and the number of rounds must be chosen by validation.",
+   "edges": {
+    "analogous_to": [],
+    "contrasts_with": [
+     "trees-bagging-forest"
+    ],
+    "derives_from": [
+     "bias-variance",
+     "trees-single",
+     "cross-validation"
+    ],
+    "requires": [
+     "bias-variance",
+     "cross-validation",
+     "trees-single"
+    ]
+   },
+   "kind": "concept",
+   "probe": "Instead of independent resampled trees, you grow trees in sequence, letting each new tree see what the ensemble so far still gets wrong. What does each new tree fit, how large a contribution is each tree allowed to make and why, and as you keep adding rounds what happens to bias and to overfitting and how do you decide when to stop?",
+   "rubric": [
+    "each new tree fits the current ensemble's residuals (loss gradients / upweighted mis-predicted points)",
+    "each tree contributes only a small shrunken step via a learning rate below one so corrections stay partial and stable",
+    "bias falls while overfitting risk rises with more rounds, so round count is chosen by held-out or cross-validation error with early stopping"
+   ],
+   "threshold": false,
+   "transfer_probe": "Your averaged forest on QDD bench logs gets average efficiency right but systematically underpredicts high-torque points; you switch to sequential fitting where each new tree sees the leftover errors. Explain what the next tree targets, why you keep its weight small, and how you decide how many trees to add without just memorizing the bench.",
+   "why_chain": [
+    "bias-variance",
+    "trees-single",
+    "cross-validation"
+   ],
+   "viz": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 2
+  },
+  "trees-single": {
+   "arbitrary": false,
+   "claim": "A decision tree predicts by routing each input down nested yes/no threshold splits to a leaf value, a path that is readable step by step but unstable because a small training-data change can flip a split and reroute whole groups of inputs.",
+   "edges": {
+    "analogous_to": [],
+    "contrasts_with": [
+     "logistic-regression"
+    ],
+    "derives_from": [
+     "bias-variance"
+    ],
+    "requires": [
+     "bias-variance"
+    ]
+   },
+   "kind": "concept",
+   "probe": "A colleague calls decision trees 'readable' yet you get noticeably different predictions from the same query point after retraining on nearly identical data. How does a tree turn an input into a prediction, what makes that process readable to a human, and what mechanism lets a tiny training-data change swing its outputs?",
+   "rubric": [
+    "describes routing through nested yes/no threshold tests to a leaf prediction",
+    "explains readability as following or stating the single root-to-leaf rule path",
+    "explains instability as a small data change flipping a split, especially an early one, rerouting inputs to different leaves"
+   ],
+   "threshold": false,
+   "transfer_probe": "You fit a shallow tree mapping Phase-1 motor bench settings (supply voltage, load inertia) to steady-state RPM, then add three more characterization runs and the RPM it predicts for an untested setting jumps. Explain why the prediction jumped and why you can still walk a technician through the model's reasoning step by step.",
+   "viz": {
+    "affordance": "some",
+    "hook": "trace one operating point down two competing splits and watch which leaf claims it",
+    "kind": "structural"
+   },
+   "why_chain": [
+    "bias-variance"
+   ],
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 2
+  },
+  "capstone": {
+   "claim": "You can USE Data Science, Big Data & AI — from honest measurements to learned models in your own work, not just explain it.",
+   "probe": "Build the thing. In your real repo, your real notes, your real argument — produce something that only works if you actually understand Data Science, Big Data & AI — from honest measurements to learned models. Your stated goal: Own the full path from raw measurement to deployed model, grounded in the vault's own data: Mechatronics/data/ telemetry, Phase-1 motor characterization runs, and QDD bench logs are the practice datasets. Arc 1 builds statistical honesty (distributions, uncertainty, correlation vs causation — the sibling of mech-mechanical's metrology-uncertainty), then wrangling (pandas/tidy data), then the ML core (regression, generalization, bias-variance, validation), then deep learning intuition (gradients, backprop, CNNs, attention), then big-data shape (SQL, columnar storage, sharding/streaming). The vault's evidence discipline applies: an uncharacterized model is a claim, not evidence.. Ship it, then explain which concept made which decision.",
+   "rubric": [
+    "the artifact exists and works (or the argument stands on its own)",
+    "names at least two concepts from this topic that DECIDED something in it",
+    "identifies where the model broke down or needed more than the topic gave"
+   ],
+   "transfer_probe": null,
+   "why_chain": [],
+   "arbitrary": false,
+   "threshold": false,
+   "viz": null,
+   "capstone": true,
+   "edges": {
+    "requires": [
+     "backprop-chain-rule",
+     "bias-variance",
+     "bigdata-shards-streams",
+     "classification-metrics",
+     "cnn-perception",
+     "columnar-parquet",
+     "correlation-causation",
+     "cross-validation",
+     "data-as-evidence",
+     "descriptive-stats",
+     "distributions",
+     "experiment-tracking",
+     "feature-engineering",
+     "gradient-descent",
+     "hypothesis-testing",
+     "logistic-regression",
+     "ml-pipeline-leakage",
+     "neural-nets-intuition",
+     "pandas-dataframe",
+     "plotting-grammar",
+     "regression-linear",
+     "regularization",
+     "sampling-bias",
+     "sequences-attention",
+     "sql-basics",
+     "tidy-data",
+     "time-series-telemetry",
+     "train-test-split",
+     "trees-bagging-forest",
+     "trees-boosting",
+     "trees-ensembles",
+     "trees-single",
+     "uncertainty-ci"
+    ]
+   },
+   "state": "new",
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "artifact": null
+  },
+  "time-series-telemetry": {
+   "claim": "Time has an arrow: never shuffle it. Split series into trend plus seasonality plus residual, read vibration in frequency (a growing 200 Hz peak is a bearing, not a mood), flag anomalies against a running baseline — not a global mean — and validate walk-forward (train on the past, test on the future) because shuffled splits leak tomorrow into today. Motor telemetry is the running example: current, temperature, and vibration against operating hours.",
+   "probe": "Motor current log shows a 200 Hz peak tripling over 50 run-hours. Diagnose it, name the baseline an anomaly detector must use (and the one it must not), and design the validation split — then say why k-fold shuffle is disqualiful here.",
+   "rubric": [
+    "200 Hz growth read as emerging mechanical fault (bearing/imbalance class) with the trend-plus-residual framing",
+    "baseline = running/adaptive (global mean rejected — drift makes it alarm on weather)",
+    "walk-forward validation designed; shuffled k-fold named as leakage and refused"
+   ],
+   "kind": "concept",
+   "viz": {
+    "affordance": "medium",
+    "hint": "Apply to a real dataset, piece, or utterance; the artifact decides."
+   },
+   "edges": {
+    "requires": [
+     "train-test-split",
+     "descriptive-stats",
+     "cross-validation",
+     "ml-pipeline-leakage"
+    ]
+   },
+   "threshold": false,
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  }
+ },
+ "order": [
+  "data-as-evidence",
+  "descriptive-stats",
+  "distributions",
+  "correlation-causation",
+  "sampling-bias",
+  "uncertainty-ci",
+  "hypothesis-testing",
+  "pandas-dataframe",
+  "tidy-data",
+  "plotting-grammar",
+  "regression-linear",
+  "train-test-split",
+  "bias-variance",
+  "cross-validation",
+  "regularization",
+  "logistic-regression",
+  "classification-metrics",
+  "trees-ensembles",
+  "feature-engineering",
+  "gradient-descent",
+  "backprop-chain-rule",
+  "neural-nets-intuition",
+  "cnn-perception",
+  "sequences-attention",
+  "sql-basics",
+  "columnar-parquet",
+  "bigdata-shards-streams",
+  "ml-pipeline-leakage",
+  "experiment-tracking",
+  "trees-single",
+  "trees-bagging-forest",
+  "trees-boosting",
+  "time-series-telemetry",
+  "capstone"
+ ],
+ "title": "Data Science, Big Data & AI — from honest measurements to learned models",
+ "topic": "data-science-ai",
+ "schema": 1,
+ "created": "2026-09-05"
+}

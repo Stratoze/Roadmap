@@ -1,0 +1,908 @@
+{
+  "topic": "physics-first-principles",
+  "title": "Physics from First Principles — mechanics, E&M, and thermodynamics for builders",
+  "goal": "The derivation layer beneath the mechatronics trees: WHY F=ma, where motor torque comes from, why back-EMF exists, why every actuator needs a heatsink. mech-mechanical owns statics/engineering practice (FBD procedure, stress, materials); this tree owns the physical LAW layer — Newtonian dynamics, energy/momentum bookkeeping, rotational motion, oscillation, electromagnetism from charge to induction, and thermodynamic limits. Every node lands on vault hardware: voice-coil rig (Lorentz), BLDC (commutation + back-EMF), Puck PCB (I²R thermal), QDD (gear tradeoffs).",
+  "nodes": {
+    "phy-frames-reference": {
+      "claim": "Motion is only defined RELATIVE to a reference frame: velocity measured from a moving train differs from the platform's, and neither is 'the true one'. Inertial frames (non-accelerating) are where Newton's laws hold plainly; in accelerating frames you feel fictitious forces (centrifugal, coriolis) that are really frame effects.",
+      "probe": "A ball dropped in an accelerating bus rolls backward. A friend says 'a mysterious force pushed it.' Explain what each observer sees, which observer's description needs no extra force, and why robot kinematics cares deeply about WHICH frame a measurement is expressed in.",
+      "rubric": [
+        "bus-frame: ball accelerates backward without contact force → invent 'fictitious force'; ground-frame: bus accelerates forward under the ball — no mystery",
+        "inertial (ground) frame keeps Newton's laws clean; accelerating frames require pseudo-force patches",
+        "robotics: sensor readings are frame-bound — IMU vs base vs link frames must be transformed before combining (spine tree's whole premise)"
+      ],
+      "kind": "concept",
+      "edges": {
+        "requires": []
+      },
+      "threshold": false,
+      "why_chain": [],
+      "arbitrary": false,
+      "transfer_probe": null,
+      "viz": null,
+      "fsrs": {
+        "s": 0.4872,
+        "d": 7.6214,
+        "due": "2026-09-04",
+        "last": "2026-09-03",
+        "reps": 1,
+        "lapses": 0,
+        "dose": true
+      },
+      "state": "learning",
+      "artifact": null,
+      "arc": 1
+    },
+    "phy-newton-laws": {
+      "claim": "Newton's three laws are one story about interactions: (1) objects keep constant velocity unless NET force acts (inertia — mass measures stubbornness), (2) net force = mass × acceleration, (3) forces come in equal-opposite PAIRS on DIFFERENT bodies. The third law kills perpetual-motion intuitions: you can never push on yourself.",
+      "probe": "A friend asks: 'if action = reaction, why does anything ever move — don't forces always cancel?' Untangle the pair-confusion precisely, then use law 1 to explain why a crate sliding to a stop is NOT evidence of 'motion needing force'.",
+      "rubric": [
+        "action/reaction pairs act on DIFFERENT bodies — they never cancel within one body's force budget; the cart moves because ground pushes cart forward harder than drag resists",
+        "law 1: no net force → constant VELOCITY (including zero); stopping requires a net force (friction)",
+        "friction is what stops the crate; absence of force means absence of CHANGE, not absence of motion"
+      ],
+      "kind": "concept",
+      "edges": {
+        "requires": [
+          "phy-frames-reference"
+        ]
+      },
+      "threshold": false,
+      "why_chain": [],
+      "arbitrary": false,
+      "transfer_probe": null,
+      "viz": null,
+      "fsrs": {
+        "s": null,
+        "d": null,
+        "due": null,
+        "last": null,
+        "reps": 0,
+        "lapses": 0
+      },
+      "state": "new",
+      "artifact": null,
+      "arc": 1
+    },
+    "phy-fbd-dynamics": {
+      "claim": "The free-body diagram converts a scenario into solvable algebra: isolate ONE body, draw every contact and field force as an arrow at its point of application, label magnitudes, then write ΣF = ma per axis. Choosing axes along the motion (or along inclines) minimizes algebra; missing a force (normal! friction! tension!) is the canonical failure.",
+      "probe": "A block slides down a 30° incline with friction. Set up the full FBD verbally: list every force with direction, choose smart axes, and write the two component equations whose solution gives acceleration. Which force do beginners most often forget?",
+      "rubric": [
+        "forces: weight mg down, normal N perpendicular to surface, friction μN opposing slide direction (up-slope)",
+        "axes tilted parallel/perpendicular to incline: mg splits into mg·sin30 (along) and mg·cos30 (into)",
+        "along-axis: ma = mg·sin30 − μmg·cos30; forgotten force is usually the normal or its role in setting friction"
+      ],
+      "kind": "procedure",
+      "viz": {
+        "affordance": "high",
+        "hint": "Tap a body to add force arrows; tilt the incline and watch components project onto chosen axes."
+      },
+      "edges": {
+        "requires": [
+          "phy-newton-laws"
+        ]
+      },
+      "threshold": false,
+      "practice": {
+        "problem_frame": "Construct the free-body diagram for a given scenario verbally: forces, smart axes, component equations.",
+        "discriminates_from": "Treating FBDs as statics-only bookkeeping; drawing ma as a force.",
+        "verify": "Equations reduce correctly along chosen axes; units balance.",
+        "error_bank": [
+          "missing normal or friction force",
+          "ma drawn as an arrow on the body",
+          "axes chosen against the motion"
+        ]
+      },
+      "why_chain": [],
+      "arbitrary": false,
+      "transfer_probe": null,
+      "fsrs": {
+        "s": null,
+        "d": null,
+        "due": null,
+        "last": null,
+        "reps": 0,
+        "lapses": 0
+      },
+      "state": "new",
+      "artifact": null,
+      "arc": 1
+    },
+    "phy-energy-conservation": {
+      "claim": "Energy bookkeeping sidesteps force details: work = force × displacement-along-force stores/releases energy; KE = ½mv², PE = mgh (or ½kx² for springs). In a closed system the total never changes — only converts. When a problem asks 'how fast at the bottom', energy answers in one line where forces would need path integration.",
+      "probe": "A 2 kg block slides from 3 m height down a frictionless curve of ANY shape. Find its speed at the bottom in one line. Then explain why the curve's shape doesn't matter here but WOULD matter if asked about time taken.",
+      "rubric": [
+        "mgh = ½mv² → v = √(2gh) = √(2·9.8·3) ≈ 7.7 m/s — mass cancels",
+        "energy depends only on endpoints (conservative field); shape-independence is its superpower",
+        "time depends on the PATH (speed profile along the way) — energy alone can't answer it, forces/kinematics needed"
+      ],
+      "kind": "concept",
+      "edges": {
+        "requires": [
+          "phy-fbd-dynamics"
+        ]
+      },
+      "threshold": false,
+      "why_chain": [],
+      "arbitrary": false,
+      "transfer_probe": null,
+      "viz": null,
+      "fsrs": {
+        "s": null,
+        "d": null,
+        "due": null,
+        "last": null,
+        "reps": 0,
+        "lapses": 0
+      },
+      "state": "new",
+      "artifact": null,
+      "arc": 1
+    },
+    "phy-momentum-collisions": {
+      "claim": "Momentum p = mv is conserved in EVERY collision — elastic ones also conserve kinetic energy, inelastic ones convert some KE into heat/deformation (sticking together being maximal). Momentum conservation is why rockets work in vacuum and why crumple zones save lives: same impulse, longer time, smaller force.",
+      "probe": "A 1000 kg cart at 4 m/s hits a stationary 1000 kg cart and they lock together. Find the final speed via momentum, compute KE before and after, and account for the missing joules. Then explain the crumple-zone principle using impulse = FΔt.",
+      "rubric": [
+        "momentum: 4000 = 2000v → v = 2 m/s",
+        "KE before 8000 J, after 4000 J — half lost",
+        "missing KE became heat/permanent deformation; crumple zones stretch collision TIME so fixed impulse arrives as smaller peak force"
+      ],
+      "kind": "concept",
+      "edges": {
+        "requires": [
+          "phy-newton-laws"
+        ]
+      },
+      "threshold": false,
+      "why_chain": [],
+      "arbitrary": false,
+      "transfer_probe": null,
+      "viz": null,
+      "fsrs": {
+        "s": null,
+        "d": null,
+        "due": null,
+        "last": null,
+        "reps": 0,
+        "lapses": 0
+      },
+      "state": "new",
+      "artifact": null,
+      "arc": 1
+    },
+    "phy-rotational-dynamics": {
+      "claim": "Rotation mirrors linear physics with moment of inertia I playing mass: τ = Iα, KE_rot = ½Iω², L = Iω conserved when no external torque. But I depends on mass DISTRIBUTION (I = Σmr²) — a ring beats a disk of the same mass, which is why flywheels rim-load and figure skaters spin up pulling arms in.",
+      "probe": "Two wheels, same mass and radius: one a ring, one solid disk, released down the same slope. Predict the order of arrival and justify via energy split. Then explain the skater trick with angular-momentum conservation.",
+      "rubric": [
+        "disk wins: ring has larger I (all mass at r) → larger share of PE goes into rotation → less into translation",
+        "mgh = ½mv² + ½Iω²: bigger I steals more from v",
+        "skater pulls arms in: I drops, L = Iω conserved → ω rises — no external torque needed"
+      ],
+      "kind": "concept",
+      "viz": {
+        "affordance": "medium",
+        "hint": "Race ring vs disk down identical ramps; slider redistributes mass radially."
+      },
+      "edges": {
+        "requires": [
+          "phy-energy-conservation"
+        ]
+      },
+      "threshold": false,
+      "why_chain": [],
+      "arbitrary": false,
+      "transfer_probe": null,
+      "fsrs": {
+        "s": null,
+        "d": null,
+        "due": null,
+        "last": null,
+        "reps": 0,
+        "lapses": 0
+      },
+      "state": "new",
+      "artifact": null,
+      "arc": 1
+    },
+    "phy-shm-oscillation": {
+      "claim": "Any system pulled back by a restoring force proportional to displacement (F = −kx) oscillates sinusoidally with ω = √(k/m) — independent of amplitude. This simple-harmonic template covers springs, pendulums (small-angle), vibrating beams, and RLC circuits; linearity is the shared ingredient, which is why big swings break the pattern.",
+      "probe": "Why does a pendulum's period NOT depend on how far you pull it (small swings) but DOES depend on its length? Show the small-angle step that makes it SHM, and state what breaks at large amplitudes.",
+      "rubric": [
+        "small-angle: sinθ ≈ θ makes restoring torque ∝ −θ → linear restoring law → SHM with ω=√(g/L)",
+        "mass cancels: heavier bob gets proportionally more force — period stays 2π√(L/g)",
+        "large amplitudes: sinθ ≠ θ, restoring becomes sub-linear → period stretches beyond the SHM prediction"
+      ],
+      "kind": "concept",
+      "edges": {
+        "requires": [
+          "phy-fbd-dynamics"
+        ]
+      },
+      "threshold": false,
+      "why_chain": [],
+      "arbitrary": false,
+      "transfer_probe": null,
+      "viz": null,
+      "fsrs": {
+        "s": null,
+        "d": null,
+        "due": null,
+        "last": null,
+        "reps": 0,
+        "lapses": 0
+      },
+      "state": "new",
+      "artifact": null,
+      "arc": 1
+    },
+    "phy-simple-machines": {
+      "claim": "Levers, gears, ramps, and screws trade distance for force while conserving work (ideal): F_in·d_in = F_out·d_out. Mechanical advantage is the trade ratio. Nothing is amplified for free — a 10× force gain costs 10× travel, plus real friction losses. Gears are rotary levers: torque × speed conserved across the mesh.",
+      "probe": "A gearbox steps 3000 rpm at 0.5 N·m down to 150 rpm. Compute output torque ideally, state the conservation law behind it, and explain why the QDD philosophy (minimal gearing) accepts low torque as the price of something else — name what.",
+      "rubric": [
+        "ratio 20:1 → ideal torque 10 N·m (torque×speed conserved through the mesh)",
+        "work/energy conservation: power in = power out minus losses",
+        "QDD trades torque multiplication for backdrivability, transparency, and impact robustness — gear trains add friction, backlash, and reflected inertia"
+      ],
+      "kind": "concept",
+      "edges": {
+        "requires": [
+          "phy-energy-conservation",
+          "phy-rotational-dynamics"
+        ]
+      },
+      "threshold": false,
+      "why_chain": [],
+      "arbitrary": false,
+      "transfer_probe": null,
+      "viz": null,
+      "fsrs": {
+        "s": null,
+        "d": null,
+        "due": null,
+        "last": null,
+        "reps": 0,
+        "lapses": 0
+      },
+      "state": "new",
+      "artifact": null,
+      "arc": 1
+    },
+    "phy-power-efficiency": {
+      "claim": "Power is the RATE of energy transfer (P = F·v linear, τ·ω rotary) — a strong-but-slow push can beat a weak-fast one. Efficiency chains multiply: three 90%-efficient stages deliver 73%, and every lost watt becomes heat exactly where the loss happened, which is why loss-stages need heatsinks.",
+      "probe": "Your actuator draws 100 W electrical and delivers 7 N·m at 100 rpm. Compute output power and efficiency. If the driver, motor, and gearbox are each 92% efficient, verify the chain and say WHERE the roughly 27 lost watts physically went.",
+      "rubric": [
+        "output: τ·ω = 7 × (100·2π/60) ≈ 73 W → η ≈ 73% (accept 72–74 W)",
+        "chain: 0.92³ ≈ 0.78 predicts ≈ 78 W, within ~5 W of measured 73 W; remainder is controller quiescent draw plus unmodeled loss",
+        "losses localize: copper I²R in windings, iron/hysteresis in core, viscous/friction in gearbox — each heats its own component (Puck PCB thermal design concern)"
+      ],
+      "kind": "procedure",
+      "edges": {
+        "requires": [
+          "phy-simple-machines"
+        ]
+      },
+      "threshold": false,
+      "practice": {
+        "problem_frame": "Compute output power, efficiency, and loss localization for a given actuator operating point.",
+        "discriminates_from": "Conflating energy and power; averaging efficiencies additively instead of multiplicatively.",
+        "verify": "P = tau*omega arithmetic checked against the efficiency chain product.",
+        "error_bank": [
+          "rpm not converted to rad/s",
+          "efficiency chain added instead of multiplied",
+          "losses assumed locationless"
+        ]
+      },
+      "why_chain": [],
+      "arbitrary": false,
+      "transfer_probe": null,
+      "viz": null,
+      "fsrs": {
+        "s": null,
+        "d": null,
+        "due": null,
+        "last": null,
+        "reps": 0,
+        "lapses": 0
+      },
+      "state": "new",
+      "artifact": null,
+      "arc": 1,
+      "revised": [
+        {
+          "at": "2026-09-05",
+          "fields": [
+            "probe",
+            "rubric"
+          ],
+          "receipts_under_previous": 0
+        }
+      ]
+    },
+    "phy-gravity-fields": {
+      "claim": "Gravity acts through fields: every mass fills space with an attraction g = GM/r² — inverse-square because field lines spread over sphere area. Weight is your local interaction with Earth's field; orbit is perpetual free-fall with sideways speed. The field concept generalizes: replace mass with charge and you have electrostatics' skeleton.",
+      "probe": "Explain why doubling distance quarters gravitational pull, using the spreading-over-a-sphere picture. Then preview the analogy: which electrostatics quantities map from G, M, and g?",
+      "rubric": [
+        "field lines from a point spread over 4πr² — twice the radius, four times the area, quarter the density",
+        "inverse-square follows geometrically, not from a special property of gravity",
+        "mapping: G→Coulomb constant k, M→charge q, g-field→E-field — same mathematical skeleton, repulsion added for like charges"
+      ],
+      "kind": "concept",
+      "edges": {
+        "requires": []
+      },
+      "threshold": false,
+      "why_chain": [],
+      "arbitrary": false,
+      "transfer_probe": null,
+      "viz": null,
+      "fsrs": {
+        "s": null,
+        "d": null,
+        "due": null,
+        "last": null,
+        "reps": 0,
+        "lapses": 0
+      },
+      "state": "new",
+      "artifact": null,
+      "arc": 1
+    },
+    "phy-charge-field": {
+      "claim": "Charge is the source of electric fields: like charges repel, opposites attract with Coulomb's inverse-square law. The E-field (force per unit test charge) lets you describe influence WITHOUT a second charge present — field lines point where a positive test would be pushed. Conductors let charges rearrange until their interior field cancels.",
+      "probe": "Why do we define the E-field using a vanishingly small TEST charge rather than a real one? Why does all excess charge on a conductor end up on its surface? What does that imply for a metal enclosure around sensitive electronics?",
+      "rubric": [
+        "a finite test charge would disturb the very arrangement it's measuring — limit → probe without perturbing",
+        "free charges inside a conductor move until mutual repulsion balances: any interior field would keep driving them → equilibrium = zero interior field, charge expelled to surface",
+        "this is why Faraday cages and enclosure shielding work (EMC relevance for the Puck)"
+      ],
+      "kind": "concept",
+      "edges": {
+        "requires": [
+          "phy-gravity-fields"
+        ]
+      },
+      "threshold": false,
+      "why_chain": [],
+      "arbitrary": false,
+      "transfer_probe": null,
+      "viz": null,
+      "fsrs": {
+        "s": null,
+        "d": null,
+        "due": null,
+        "last": null,
+        "reps": 0,
+        "lapses": 0
+      },
+      "state": "new",
+      "artifact": null,
+      "arc": 1,
+      "revised": [
+        {
+          "at": "2026-09-05",
+          "fields": [
+            "probe"
+          ],
+          "receipts_under_previous": 0
+        }
+      ]
+    },
+    "phy-potential-voltage": {
+      "claim": "Voltage is potential ENERGY PER CHARGE (joules/coulomb) — the electrical 'height' of a hill. Charges roll downhill through resistances; batteries are pumps lifting charge back up; voltage DIVIDES across series elements proportional to resistance. Grounding just names the reference height — absolute zero potential is meaningless, differences drive everything.",
+      "probe": "A 12 V battery drives two series resistors, 4 Ω and 8 Ω. Compute each drop and explain the hill metaphor mapping. Then answer: why does touching ONE terminal of a car battery not shock you?",
+      "rubric": [
+        "same current 1 A: drops 4 V and 8 V (V=IR), summing to 12 — divider rule R/(R₁+R₂)",
+        "hill map: battery = pump raising potential 12 V; resistors = descents sized by resistance; current = flow rate everywhere equal in series",
+        "shock needs POTENTIAL DIFFERENCE across you: one terminal + insulated body = single height, no downhill path"
+      ],
+      "kind": "concept",
+      "edges": {
+        "requires": [
+          "phy-charge-field"
+        ]
+      },
+      "threshold": false,
+      "why_chain": [],
+      "arbitrary": false,
+      "transfer_probe": null,
+      "viz": null,
+      "fsrs": {
+        "s": null,
+        "d": null,
+        "due": null,
+        "last": null,
+        "reps": 0,
+        "lapses": 0
+      },
+      "state": "new",
+      "artifact": null,
+      "arc": 1
+    },
+    "phy-current-resistance": {
+      "claim": "Current is charge flow rate (amperes = coulombs/second); resistance measures how strongly a material scatters drifting charge, with Ohm's law V = IR as the linear regime's bookkeeping. Resistivity is material-deep (copper vs rubber), resistance adds geometry (R = ρL/A). Power dissipated is I²R — the reason wire gauge and trace width are thermal decisions.",
+      "probe": "You double the current through a motor lead by upgrading the supply. What happens to heat in the SAME wire, exactly? Then explain why doubling a trace's WIDTH (not thickness) halves its resistance.",
+      "rubric": [
+        "P = I²R: doubled current quadruples heating — the quadratic is why overcurrent protection matters",
+        "R = ρL/A: width doubles cross-section A → halves R (thickness would too)",
+        "resistivity ρ is the material constant; geometry scales it — PCB trace sizing is applied ρL/A"
+      ],
+      "kind": "concept",
+      "edges": {
+        "requires": [
+          "phy-potential-voltage"
+        ]
+      },
+      "threshold": false,
+      "why_chain": [],
+      "arbitrary": false,
+      "transfer_probe": null,
+      "viz": null,
+      "fsrs": {
+        "s": null,
+        "d": null,
+        "due": null,
+        "last": null,
+        "reps": 0,
+        "lapses": 0
+      },
+      "state": "new",
+      "artifact": null,
+      "arc": 1
+    },
+    "phy-capacitance-inductance": {
+      "claim": "Capacitors store energy in ELECTRIC fields (½CV², opposes voltage change); inductors store it in MAGNETIC fields (½LI², opposes CURRENT change). These inertias shape every transient: RC and RL time constants set decay speeds, and the two together resonate. Decoupling caps exist precisely because supply rails must not sag when logic steps demand sudden current.",
+      "probe": "Explain in inertia language: why does an inductor generate a voltage spike when you try to OPEN its switch? Why do PCBs scatter 100 nF caps next to every IC's power pin? What does each element 'refuse' to do suddenly?",
+      "rubric": [
+        "inductor current cannot jump (would need infinite voltage): opening the circuit forces L·di/dt arc/spike — flyback diodes exist for this",
+        "capacitor voltage cannot jump: local caps supply the sudden current demand so the rail doesn't dip (decoupling)",
+        "energy locations differ: C in E-field, L in B-field — hence opposite impedances vs frequency"
+      ],
+      "kind": "concept",
+      "edges": {
+        "requires": [
+          "phy-current-resistance"
+        ]
+      },
+      "threshold": false,
+      "why_chain": [],
+      "arbitrary": false,
+      "transfer_probe": null,
+      "viz": null,
+      "fsrs": {
+        "s": null,
+        "d": null,
+        "due": null,
+        "last": null,
+        "reps": 0,
+        "lapses": 0
+      },
+      "state": "new",
+      "artifact": null,
+      "arc": 1
+    },
+    "phy-magnetic-force": {
+      "claim": "Moving charges feel magnetic force F = qv×B — perpendicular to BOTH velocity and field, so magnets bend paths but never do work directly (force ⊥ motion). Current-carrying wires feel F = BIL; the Lorentz force on wire electrons IS the motor principle and the voice-coil equation F = BIL verbatim.",
+      "probe": "Explain the paradox: magnetic forces do no work (⊥ velocity), yet motors deliver mechanical power. Resolve it via the voice-coil: where does F = BIL come from, and what actually supplies the energy?",
+      "rubric": [
+        "on individual charges, F ⊥ v → no direct work; the GEOMETRY of constrained conductors converts this into useful lateral force",
+        "wire electrons drifting in field B feel sideways Lorentz push, transferred to the lattice: F = BIL on the wire — the voice-coil claim verbatim",
+        "energy comes from the POWER SUPPLY maintaining current against back-EMF — not from the magnet (permanent magnets are guides, not fuel)"
+      ],
+      "kind": "concept",
+      "viz": {
+        "affordance": "medium",
+        "hint": "Current arrow through field arrows; force vector pops out perpendicular both ways (right-hand rule drill)."
+      },
+      "edges": {
+        "requires": [
+          "phy-current-resistance"
+        ]
+      },
+      "threshold": false,
+      "why_chain": [],
+      "arbitrary": false,
+      "transfer_probe": "A banked bobsled turn bends the sled's path without speeding it along its direction of travel. Map F-perpendicular-to-v, magnets-do-no-work, and F = BIL onto the turn — then say what actually supplies the energy in a voice-coil motor if the magnet cannot.",
+      "fsrs": {
+        "s": null,
+        "d": null,
+        "due": null,
+        "last": null,
+        "reps": 0,
+        "lapses": 0
+      },
+      "state": "new",
+      "artifact": null,
+      "arc": 1,
+      "revised": [
+        {
+          "at": "2026-09-05",
+          "fields": [
+            "transfer_probe"
+          ],
+          "receipts_under_previous": 0
+        }
+      ]
+    },
+    "phy-motors-from-principles": {
+      "claim": "Every electromagnetic motor is one idea: energized coils in a field get pushed (F=BIL torque), and commutation keeps the push pointed forward as the rotor turns — mechanically (brushes) or electronically (BLDC/FOC switching phases by rotor position). Torque ∝ current and back-EMF ∝ speed are THE SAME constant: the motor is simultaneously a motor and a generator.",
+      "probe": "Spin an unpowered BLDC by hand and measure its leads — what do you see and why? Then derive why a spinning motor draws LESS current at no load than when stalled, using back-EMF, and connect K_t = K_e to the motor-generator duality.",
+      "rubric": [
+        "hand-spinning generates three-phase back-EMF on the leads — it's a generator: same machine, reversed energy flow",
+        "stall: no back-EMF opposing supply → only winding resistance limits current (huge stall current); spinning: back-EMF ∝ speed subtracts from effective voltage",
+        "Kt = Ke because both express the same energy-conversion coefficient — torque-per-amp equals volts-per-rad/s (SI units make them numerically identical)"
+      ],
+      "kind": "concept",
+      "edges": {
+        "requires": [
+          "phy-magnetic-force"
+        ]
+      },
+      "threshold": true,
+      "transfer_probe": "Take your planned Phase-1 voice coil: given your magnet's gap field estimate, wire length, and available current, predict force; then predict open-circuit voltage when moving it at 0.5 m/s.",
+      "why_chain": [],
+      "arbitrary": false,
+      "viz": null,
+      "fsrs": {
+        "s": null,
+        "d": null,
+        "due": null,
+        "last": null,
+        "reps": 0,
+        "lapses": 0
+      },
+      "state": "new",
+      "artifact": null,
+      "arc": 1
+    },
+    "phy-induction-faraday": {
+      "claim": "Faraday's law: CHANGING magnetic flux through a loop induces EMF (∮E around the loop) — relative motion OR field change works. Lenz's sign rule: induced currents oppose the change causing them (nature resisting flux edits). This is generators, transformers, eddy brakes, and the reason motor datasheets list back-EMF constants.",
+      "probe": "Drop a magnet down a copper tube and it falls in slow motion. Explain with Faraday + Lenz, then connect: why does the same physics make a spinning BLDC harder to turn with leads shorted than open?",
+      "rubric": [
+        "falling magnet changes flux in tube walls → induced circulating currents → by Lenz they oppose the magnet's motion (brake)",
+        "shorted leads let large counter-currents flow: generated EMF drives currents whose Lorentz reaction resists rotation (dynamic braking)",
+        "open leads: EMF appears but no current flows → no opposing force — flux-change opposition REQUIRES a closed circuit"
+      ],
+      "kind": "concept",
+      "viz": {
+        "affordance": "medium",
+        "hint": "Drag magnet through a coil; watch induced current needle flip sign with direction and speed."
+      },
+      "edges": {
+        "requires": [
+          "phy-magnetic-force"
+        ]
+      },
+      "threshold": false,
+      "why_chain": [],
+      "arbitrary": false,
+      "transfer_probe": null,
+      "fsrs": {
+        "s": null,
+        "d": null,
+        "due": null,
+        "last": null,
+        "reps": 0,
+        "lapses": 0
+      },
+      "state": "new",
+      "artifact": null,
+      "arc": 1
+    },
+    "phy-em-circuits-lrc": {
+      "claim": "Series LRC circuits are electrical mass-spring-dampers: L is mass, 1/C is spring, R is damping — same ODE, same resonance at ω₀ = 1/√(LC). At resonance impedance collapses (series) and voltages across L and C individually EXCEED the supply. Filters, tank circuits, and EMI snubbers all tune this one behavior.",
+      "probe": "Map each LRC element to its mechanical twin and give the resonance condition. Then explain the spooky fact that at resonance, VL and VC can each read larger than the source voltage — without violating energy conservation.",
+      "rubric": [
+        "map: L↔mass, 1/C↔spring constant k, R↔damper c; resonance ω₀ = 1/√(LC) ↔ √(k/m)",
+        "at resonance XL = XC cancel: only R limits current; L and C swap energy 90° out of phase, each locally building large drops",
+        "no violation: L and C exchanges are internal — energy sloshes between fields; the source only feeds R's dissipation"
+      ],
+      "kind": "concept",
+      "edges": {
+        "requires": [
+          "phy-capacitance-inductance"
+        ]
+      },
+      "threshold": false,
+      "why_chain": [],
+      "arbitrary": false,
+      "transfer_probe": null,
+      "viz": null,
+      "fsrs": {
+        "s": null,
+        "d": null,
+        "due": null,
+        "last": null,
+        "reps": 0,
+        "lapses": 0
+      },
+      "state": "new",
+      "artifact": null,
+      "arc": 1
+    },
+    "phy-temperature-heat": {
+      "claim": "Temperature measures average molecular kinetic energy; heat is energy IN TRANSIT due to temperature difference — flowing by conduction (contact), convection (bulk motion), radiation (photons). Thermal mass resists temperature change like inertia; thermal resistance limits flow like ohms. The RC thermal model of a device-on-heatsink is literal, not analogy.",
+      "probe": "Your motor winding runs hot. Name the three heat-out paths available and rank likely dominance for a bolted-to-bracket motor in still air. Then explain why the SAME power dissipation gives different steady-state temperatures on different mounts.",
+      "rubric": [
+        "paths: conduction into bracket/shaft, convection off surfaces, radiation (minor at these temps)",
+        "still air convection is weak → conduction into the mount dominates → mount quality sets the temperature",
+        "steady-state ΔT = P·R_thermal: different mounts = different R_th = different temperatures for identical dissipation"
+      ],
+      "kind": "concept",
+      "edges": {
+        "requires": []
+      },
+      "threshold": false,
+      "why_chain": [],
+      "arbitrary": false,
+      "transfer_probe": null,
+      "viz": null,
+      "fsrs": {
+        "s": null,
+        "d": null,
+        "due": null,
+        "last": null,
+        "reps": 0,
+        "lapses": 0
+      },
+      "state": "new",
+      "artifact": null,
+      "arc": 1
+    },
+    "phy-thermo-first-law": {
+      "claim": "The first law is energy conservation including thermal: ΔU = Q − W. You cannot win — every joule delivered as work was joules of energy input, and inefficiencies don't vanish, they degrade to heat. For machines this closes the audit trail: electrical in = mechanical out + heat out, always, which is the datasheet's hidden contract.",
+      "probe": "An actuator takes 100 J electrical, delivers 70 J mechanical. A friend says '30 J disappeared.' Correct the ledger: where did it go, and why does 'disappeared' violate the first law? What measurement would verify your accounting?",
+      "rubric": [
+        "30 J degraded to heat inside windings/gearbox/driver — energy changed FORM, not existence",
+        "first law forbids disappearance: U change = heat in − work out, books must balance",
+        "verify: calorimetry-ish check — log winding temperature rise × thermal mass, or airflow ΔT across the housing"
+      ],
+      "kind": "concept",
+      "edges": {
+        "requires": [
+          "phy-temperature-heat",
+          "phy-power-efficiency"
+        ]
+      },
+      "threshold": false,
+      "why_chain": [],
+      "arbitrary": false,
+      "transfer_probe": null,
+      "viz": null,
+      "fsrs": {
+        "s": null,
+        "d": null,
+        "due": null,
+        "last": null,
+        "reps": 0,
+        "lapses": 0
+      },
+      "state": "new",
+      "artifact": null,
+      "arc": 1
+    },
+    "phy-entropy-second-law": {
+      "claim": "The second law gives time its direction: isolated systems evolve toward more probable (higher-entropy) arrangements — heat flows hot→cold, gases spread, and NO cyclic engine converts heat to work with 100% efficiency (Carnot bound 1 − T_cold/T_hot). Friction's heat can't spontaneously reassemble. Engineering lives inside this tax.",
+      "probe": "Why can't a ship's engine use seawater's thermal energy to propel for free — the ocean holds absurd joules? State the Carnot argument, compute max efficiency for Th=500 K, Tc=300 K, and state the design consequence this bound imposes on real engines.",
+      "rubric": [
+        "extracting work from heat requires a TEMPERATURE DIFFERENCE to flow across; single-reservoir conversion violates entropy accounting",
+        "Carnot: η ≤ 1 − 300/500 = 40% — even ideal",
+        "consequence: every real engine MUST dump heat somewhere colder — thermal design is not optional polish, it's the second law's invoice"
+      ],
+      "kind": "concept",
+      "edges": {
+        "requires": [
+          "phy-thermo-first-law"
+        ]
+      },
+      "threshold": false,
+      "why_chain": [],
+      "arbitrary": false,
+      "transfer_probe": null,
+      "viz": null,
+      "fsrs": {
+        "s": null,
+        "d": null,
+        "due": null,
+        "last": null,
+        "reps": 0,
+        "lapses": 0
+      },
+      "state": "new",
+      "artifact": null,
+      "arc": 1
+    },
+    "phy-waves-superposition": {
+      "claim": "Waves carry energy without transporting matter; overlapping waves ADD point-by-point (superposition) — constructive/destructive interference, standing waves, beats. Frequency, wavelength, and speed bind by v = fλ. Fourier's insight rides on this: any signal decomposes into sine components, which is the entire foundation of the FFT/noise node in mech-software.",
+      "probe": "Two speakers emit 340 Hz and 342 Hz. Describe what a listener walking past hears and why (beats). Then explain why superposition is the property that makes Fourier decomposition possible at all.",
+      "rubric": [
+        "beats at |f₂−f₁| = 2 Hz: loud-soft pulsing as phase relationship cycles",
+        "superposition: total displacement = sum of individuals — linear systems keep components independent",
+        "linearity lets any signal be treated AS a sum of sines, analyzed per-frequency, recombined — FFT's license to operate"
+      ],
+      "kind": "concept",
+      "viz": {
+        "affordance": "high",
+        "hint": "Two draggable sine sources sum live; slide frequencies apart and watch beats appear."
+      },
+      "edges": {
+        "requires": []
+      },
+      "threshold": false,
+      "why_chain": [],
+      "arbitrary": false,
+      "transfer_probe": null,
+      "fsrs": {
+        "s": null,
+        "d": null,
+        "due": null,
+        "last": null,
+        "reps": 0,
+        "lapses": 0
+      },
+      "state": "new",
+      "artifact": null,
+      "arc": 1
+    },
+    "phy-measurement-error": {
+      "claim": "No measurement is exact: systematic errors bias consistently (calibration offset — fixable by correction), random errors scatter (averaging helps, √n). Uncertainty propagates through calculations: adding quantities adds ABSOLUTE uncertainties; multiplying adds RELATIVE ones. Reporting 3.14159 from a ruler is a lie about knowledge, not precision.",
+      "probe": "You measure a resistor as 99.8 Ω ± 0.3 Ω and a current as 20.0 mA ± 0.2 mA. Compute the voltage and ITS uncertainty properly. Classify: a miscalibrated caliper showing +0.05 mm always — systematic or random, and what's the fix?",
+      "rubric": [
+        "V = IR ≈ 1.996 V; linear worst-case adds relative uncertainties: 0.3% + 1% ≈ 1.3% → V ≈ 2.00 V ± 0.03 V (accept ±0.02–0.03 V with a stated method; RSS ≈ ±0.022 V accepted if the method is named)",
+        "constant-offset error is SYSTEMATIC — averaging never fixes it; recalibration/reference standard does",
+        "significant figures are uncertainty reporting: digits beyond the error bar claim unheld knowledge"
+      ],
+      "kind": "procedure",
+      "edges": {
+        "requires": []
+      },
+      "threshold": false,
+      "practice": {
+        "problem_frame": "Propagate uncertainties through a computed quantity and classify an error as systematic vs random.",
+        "discriminates_from": "Adding percentage and absolute uncertainties interchangeably; assuming averaging fixes bias.",
+        "verify": "Worst-case bounds bracket the propagated value; classification justified by error's behavior across repeats.",
+        "error_bank": [
+          "relative/absolute mixing",
+          "quadratic combination used where worst-case requested",
+          "systematic offset 'averaged away'"
+        ]
+      },
+      "why_chain": [],
+      "arbitrary": false,
+      "transfer_probe": null,
+      "viz": null,
+      "fsrs": {
+        "s": null,
+        "d": null,
+        "due": null,
+        "last": null,
+        "reps": 0,
+        "lapses": 0
+      },
+      "state": "new",
+      "artifact": null,
+      "arc": 1,
+      "revised": [
+        {
+          "at": "2026-09-05",
+          "fields": [
+            "rubric"
+          ],
+          "receipts_under_previous": 0
+        }
+      ]
+    },
+    "phy-quantum-lite": {
+      "claim": "At small scales energy comes in quanta: light delivers energy in photons E = hf (photoelectric effect — brighter light won't eject electrons below threshold frequency, only higher frequency will), and matter itself waves (electron diffraction). Quantum effects stay invisible at macro scales because h is tiny — but they run the semiconductors every PCB depends on.",
+      "probe": "Dim red light and bright red light hit a metal: neither ejects electrons; faint UV does. Explain what this proves about light's nature and why wave-intensity reasoning fails. Then name one place quantum behavior is load-bearing in your own electronics.",
+      "rubric": [
+        "ejection depends on photon ENERGY (frequency), not beam intensity — light arrives as quanta, not continuous wash",
+        "wave theory predicts enough accumulated intensity should eventually eject — falsified; threshold is sharp in frequency",
+        "load-bearing example: band structure/doping making transistors possible, LED photon emission, photodiode operation"
+      ],
+      "kind": "concept",
+      "edges": {
+        "requires": [
+          "phy-waves-superposition"
+        ]
+      },
+      "threshold": false,
+      "why_chain": [],
+      "arbitrary": false,
+      "transfer_probe": null,
+      "viz": null,
+      "fsrs": {
+        "s": null,
+        "d": null,
+        "due": null,
+        "last": null,
+        "reps": 0,
+        "lapses": 0
+      },
+      "state": "new",
+      "artifact": null,
+      "arc": 1
+    },
+    "capstone": {
+      "claim": "You can USE Physics from First Principles — mechanics, E&M, and thermodynamics for builders in your own work, not just explain it.",
+      "probe": "Build the thing. In your real repo, your real notes, your real argument — produce something that only works if you actually understand Physics from First Principles — mechanics, E&M, and thermodynamics for builders. Your stated goal: The derivation layer beneath the mechatronics trees: WHY F=ma, where motor torque comes from, why back-EMF exists, why every actuator needs a heatsink. mech-mechanical owns statics/engineering practice (FBD procedure, stress, materials); this tree owns the physical LAW layer — Newtonian dynamics, energy/momentum bookkeeping, rotational motion, oscillation, electromagnetism from charge to induction, and thermodynamic limits. Every node lands on vault hardware: voice-coil rig (Lorentz), BLDC (commutation + back-EMF), Puck PCB (I²R thermal), QDD (gear tradeoffs).. Ship it, then explain which concept made which decision.",
+      "rubric": [
+        "the artifact exists and works (or the argument stands on its own)",
+        "names at least two concepts from this topic that DECIDED something in it",
+        "identifies where the model broke down or needed more than the topic gave"
+      ],
+      "transfer_probe": null,
+      "why_chain": [],
+      "arbitrary": false,
+      "threshold": false,
+      "viz": null,
+      "capstone": true,
+      "edges": {
+        "requires": [
+          "phy-capacitance-inductance",
+          "phy-charge-field",
+          "phy-current-resistance",
+          "phy-em-circuits-lrc",
+          "phy-energy-conservation",
+          "phy-entropy-second-law",
+          "phy-fbd-dynamics",
+          "phy-frames-reference",
+          "phy-gravity-fields",
+          "phy-induction-faraday",
+          "phy-magnetic-force",
+          "phy-measurement-error",
+          "phy-momentum-collisions",
+          "phy-motors-from-principles",
+          "phy-newton-laws",
+          "phy-potential-voltage",
+          "phy-power-efficiency",
+          "phy-quantum-lite",
+          "phy-rotational-dynamics",
+          "phy-shm-oscillation",
+          "phy-simple-machines",
+          "phy-temperature-heat",
+          "phy-thermo-first-law",
+          "phy-waves-superposition"
+        ]
+      },
+      "state": "new",
+      "fsrs": {
+        "s": null,
+        "d": null,
+        "due": null,
+        "last": null,
+        "reps": 0,
+        "lapses": 0
+      },
+      "artifact": null
+    }
+  },
+  "order": [
+    "phy-frames-reference",
+    "phy-newton-laws",
+    "phy-fbd-dynamics",
+    "phy-energy-conservation",
+    "phy-momentum-collisions",
+    "phy-rotational-dynamics",
+    "phy-shm-oscillation",
+    "phy-simple-machines",
+    "phy-power-efficiency",
+    "phy-gravity-fields",
+    "phy-charge-field",
+    "phy-potential-voltage",
+    "phy-current-resistance",
+    "phy-capacitance-inductance",
+    "phy-magnetic-force",
+    "phy-motors-from-principles",
+    "phy-induction-faraday",
+    "phy-em-circuits-lrc",
+    "phy-temperature-heat",
+    "phy-thermo-first-law",
+    "phy-entropy-second-law",
+    "phy-waves-superposition",
+    "phy-measurement-error",
+    "phy-quantum-lite",
+    "capstone"
+  ],
+  "schema": 1,
+  "created": "2026-08-21"
+}

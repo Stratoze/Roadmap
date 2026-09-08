@@ -1,0 +1,665 @@
+{
+ "topic": "japanese-output",
+ "title": "Japanese Output — text production as a trained skill",
+ "goal": "Close the immersion loop: input (anime + jimaku subs, novel parser per Japanese/Resources.md) only becomes ability when forced back OUT through your fingers. This tree trains written production: daily micro-journaling, sentence-building from English thought, rephrasing, self-error-triage in Landmine-Log style, description, opinion patterns, and activating mined sentences. Grammar mechanics live in japanese-grammar; vocabulary lives in Anki Kaishi/mining — this tree is the OUTPUT layer that makes both stick. Probes demand actual Japanese text; the blind assessor checks rubric lines against what you produced.",
+ "nodes": {
+  "out-self-intro": {
+   "claim": "The 自己紹介 is a fixed skeleton you personalize, not improvise: 名前／出身／趣味／よろしくお願いします slots filled with your facts. Having one polished paragraph memorized gives every new conversation a launchpad and a low-stakes place to test new grammar.",
+   "probe": "Write your self-introduction in Japanese: name, where you're from, two hobbies or interests, and a closing line. Then swap ONE slot's content live (different hobby) to prove it's a template, not a script.",
+   "rubric": [
+    "produces a complete intro: 初めまして／name です／出身＋趣味 sentences／よろしくお願いします",
+    "particles and copula correct at N5 level (〜から来ました、〜が好きです)",
+    "swaps one slot fluently without restarting the whole paragraph"
+   ],
+   "kind": "procedure",
+   "edges": {
+    "requires": []
+   },
+   "threshold": false,
+   "practice": {
+    "problem_frame": "Deliver a complete self-introduction in Japanese, then swap one content slot live.",
+    "discriminates_from": "Reciting a memorized script frozen in every slot.",
+    "verify": "Swap test passes with particles intact after the change.",
+    "error_bank": [
+     "よろしくお願いします omitted",
+     "出身 particle errors (〜から来ました vs 〜出身です)",
+     "hobby sentence missing the が好きです structure"
+    ]
+   },
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": null,
+   "viz": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "out-daily-journal-procedure": {
+   "claim": "The output engine is the daily micro-journal: 3+ sentences about your day, written BEFORE looking anything up, then gaps looked up and noted (look-up-then-note, not note-then-copy). The struggle-first attempt is the whole point — it exposes exactly which patterns you don't own yet.",
+   "probe": "Describe your journaling loop step by step: what you write first, when lookups happen, what gets recorded after, and why writing 'I want to say X but couldn't' counts as a successful entry. What failure mode does copy-from-reference-first create?",
+   "rubric": [
+    "attempt first from own head → lookup gaps → log the gap pattern (word/grammar missing) for review",
+    "'couldn't say X' entries are wins: they map tomorrow's study targets precisely",
+    "copy-first creates illusion of competence — no retrieval struggle means no encoding of the gap"
+   ],
+   "kind": "procedure",
+   "edges": {
+    "requires": []
+   },
+   "threshold": true,
+   "practice": {
+    "problem_frame": "Execute the journal loop: attempt-first writing, gap lookup, gap logging.",
+    "discriminates_from": "Copy-from-reference-first writing.",
+    "verify": "Entry contains at least one honest gap note.",
+    "error_bank": [
+     "lookup before attempt",
+     "gaps unlogged",
+     "entries restricted to already-safe patterns"
+    ]
+   },
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": null,
+   "viz": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "out-sentence-building": {
+   "claim": "Building from English thought is a pipeline, not translation: extract WHO/WHAT/WHEN/WHERE roles, order them Japanese-style (time → topic → context → object → verb), attach particles to each role, THEN conjugate the verb last. Translating word-by-word produces English-with-Japanese-words; role-mapping produces Japanese. (The self-intro template is this node's first application — build a sentence about yourself here.)",
+   "probe": "Build 'Yesterday I bought an interesting book at the station bookstore with my friend' in Japanese via the pipeline: list the roles, order them, assign particles, conjugate. Show the intermediate steps, not just the final sentence.",
+   "rubric": [
+    "roles extracted: time=昨日, agent=私, companion=友達と, location=駅の本屋で, object=面白い本, verb=買う",
+    "Japanese order assembled: 昨日、友達と駅の本屋で面白い本を買いました",
+    "verb conjugated LAST after all roles placed; particles match roles (と companion, で venue, を object)"
+   ],
+   "kind": "procedure",
+   "viz": {
+    "affordance": "medium",
+    "hint": "Role cards (who/when/where/what) drag into a Japanese-order frame; particle stickers snap onto each card."
+   },
+   "edges": {
+    "requires": [
+     "out-daily-journal-procedure"
+    ]
+   },
+   "threshold": false,
+   "practice": {
+    "problem_frame": "Build Japanese sentences from English prompts via the role-extraction pipeline, showing intermediate steps.",
+    "discriminates_from": "Word-by-word translation preserving English order.",
+    "verify": "Verb last; every noun carries a justified particle.",
+    "error_bank": [
+     "time expression misplaced",
+     "companion と vs target に confusion",
+     "adjective placement unchecked"
+    ]
+   },
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1,
+   "revised": [
+    {
+     "at": "2026-09-05",
+     "fields": [
+      "probe"
+     ],
+     "receipts_under_previous": 0
+    }
+   ]
+  },
+  "out-rephrase": {
+   "claim": "Rephrasing — saying the same meaning 2-3 ways — converts passive knowledge into active options: 雨が降った→雨だった→雨が降っていた. It builds paraphrase flexibility that survives when one word won't come, which is the real-world definition of fluency under pressure.",
+   "probe": "Express 'I was tired' three different ways in Japanese (vary verb/adjective/nominal structure). Then do the same for 'this is difficult'. Which variant would you reach for in casual chat vs writing, and why?",
+   "rubric": [
+    "疲れていた / 疲れた / とても疲れを感じていた — genuinely different structures with the same tired meaning, not synonym swaps and not sleepy (眠かった is wrong meaning)",
+    "難しい / 難易度が高い / 難しいと感じた (or equivalent difficulty-meaning paraphrase — なかなかできない drifts to ability and does not count)",
+    "casual chat prefers short plain forms; writing tolerates nominal/complex variants"
+   ],
+   "kind": "procedure",
+   "edges": {
+    "requires": [
+     "out-sentence-building"
+    ]
+   },
+   "threshold": false,
+   "practice": {
+    "problem_frame": "Express a given meaning in two-to-three structurally different Japanese renderings.",
+    "discriminates_from": "Synonym swaps keeping identical structure.",
+    "verify": "Structures genuinely differ (verb vs adjective vs nominal).",
+    "error_bank": [
+     "register mismatch between variants",
+     "particle drift when restructuring",
+     "nuance shift unnoticed"
+    ]
+   },
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": null,
+   "viz": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1,
+   "revised": [
+    {
+     "at": "2026-09-05",
+     "fields": [
+      "rubric"
+     ],
+     "receipts_under_previous": 0
+    }
+   ]
+  },
+  "out-error-triage": {
+   "claim": "Errors are data: triage each corrected sentence into particle / verb-form / word-choice / word-order buckets, count the clusters weekly, and drill the top bucket — the vault's Landmine doctrine (clusters are signal, single entries are noise) applied to your own production. Fixing systems beats fixing sentences.",
+   "probe": "Take this wrong sentence — 昨日図書館で本を借りりました — diagnose ALL its errors, classify each into a bucket, and state which bucket-pattern (if repeated weekly) deserves a targeted drill vs one-off correction.",
+   "rubric": [
+    "借りりました → 借りました: 借りる is ichidan (る-verb), so polite past is stem 借り + ました = 借りました; the extra り over-applies a godan-style conjugation (bucket: verb-form)",
+    "no other hard error, but 図書館で placement before 本を is fine — distinguishing real errors from style is part of triage",
+    "repeated verb-form misses across weeks = systematic gap → drill the conjugation family, not this sentence"
+   ],
+   "kind": "procedure",
+   "edges": {
+    "requires": [
+     "out-daily-journal-procedure"
+    ]
+   },
+   "threshold": false,
+   "practice": {
+    "problem_frame": "Diagnose and bucket errors in a given wrong Japanese sentence, then recommend drill vs one-off fix.",
+    "discriminates_from": "Fixing the surface without classifying the pattern.",
+    "verify": "Correction itself is grammatical; bucket assignment justified.",
+    "error_bank": [
+     "lexical gaps misclassified as grammar gaps",
+     "stylistic choices over-corrected",
+     "multiple errors missed in one sentence"
+    ]
+   },
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": null,
+   "viz": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1,
+   "revised": [
+    {
+     "at": "2026-09-05",
+     "fields": [
+      "rubric"
+     ],
+     "receipts_under_previous": 0
+    }
+   ]
+  },
+  "out-question-asking": {
+   "claim": "Asking questions is output's force multiplier: each question you produce recruits a native-generated sentence as input. Master the full question toolkit — yes/no (か), wh-questions (何/どこ/いつ/誰/どうやって), confirmation (んですか), choice questions (AそれともB) — because conversations die when you can only answer.",
+   "probe": "You just met someone who likes anime. Produce four different questions you'd ask them next, using four DIFFERENT question structures. Mark which particle each question word carries.",
+   "rubric": [
+    "four distinct structures, e.g.: 何のアニメが好きですか (wh+が) / この間も見ましたか (yes-no) / どうやってアニメを見ますか (method) / アニメと漫画、どちらのほうが好きですか (choice)",
+    "question words carry correct particles (何を/が, どこで/へ, 誰と)",
+    "at least one question invites elaboration rather than yes/no — keeps conversation alive"
+   ],
+   "kind": "procedure",
+   "edges": {
+    "requires": [
+     "out-sentence-building"
+    ]
+   },
+   "threshold": false,
+   "practice": {
+    "problem_frame": "Produce four structurally distinct Japanese questions for a given conversational context.",
+    "discriminates_from": "Four yes/no questions in a row.",
+    "verify": "Particles on question words verified; at least one elaboration-inviter present.",
+    "error_bank": [
+     "question word + は",
+     "missing particle drift onto question words",
+     "all questions same structure"
+    ]
+   },
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": null,
+   "viz": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "out-description": {
+   "claim": "Description trains locative structure and existence patterns under pressure: [location に] [thing が] ある/いる stacked with size/color/count modifiers (机の上に黒いペンが二本ある). Describing rooms, photos, and scenes daily automates the に/で/が triangle that reading never forces.",
+   "probe": "Describe your current desk/table in three Japanese sentences: one existence statement with a counter, one with an i-adjective modifier, one stating where something ISN'T. Mark every particle and justify に vs で in each.",
+   "rubric": [
+    "existence with counter: 机の上に本が三冊あります (に = existence location)",
+    "adjective-modified: 白いマグカップの隣にスマホがあります (or similar)",
+    "negative existence: 引き出しには何もありません — は adds contrastive frame; に justified over で throughout"
+   ],
+   "kind": "procedure",
+   "edges": {
+    "requires": [
+     "out-sentence-building"
+    ]
+   },
+   "threshold": false,
+   "practice": {
+    "problem_frame": "Describe a scene in three Japanese sentences using existence patterns, counters, and modifiers.",
+    "discriminates_from": "Action verbs where existence is meant (ある/いる skipped).",
+    "verify": "に vs で justified per sentence; counter matches shape class.",
+    "error_bank": [
+     "ある/いる animacy mixup",
+     "counter mismatch (本 for flat things)",
+     "existence location marked with で"
+    ]
+   },
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": null,
+   "viz": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "out-opinion-simple": {
+   "claim": "Opinions have a trainable scaffold: [topic]は[evaluation]と思います / 一番〜は…です / 〜より〜のほうが好きです (comparatives). The と思う wrapper softens assertions culturally; the より/ほうが comparative machinery lets you rank anything — together they cover 90% of casual opinion exchange.",
+   "probe": "Give your opinion on two anime/pieces of media you know: one plain と思います statement with a reason (から), one AよりBのほうが comparison. Then soften the first the way a polite speaker would.",
+   "rubric": [
+    "opinion + reason: 〇〇が一番好きです、〜から (or と思います attached)",
+    "comparative: AよりBのほうが面白いです — より marks the loser, ほうが the winner",
+    "softening: 〜んじゃないかと思います / 〜気がします shifts assertion to impression"
+   ],
+   "kind": "procedure",
+   "edges": {
+    "requires": [
+     "out-rephrase"
+    ]
+   },
+   "threshold": false,
+   "practice": {
+    "problem_frame": "State opinions with reasons and comparisons using と思います / より / ほうが scaffolds.",
+    "discriminates_from": "Bare assertions without opinion wrapper or reason.",
+    "verify": "より marks the loser, ほうが the winner, consistently.",
+    "error_bank": [
+     "より/ほうが direction flipped",
+     "から reason clause tense mismatch",
+     "overly direct assertion in polite context"
+    ]
+   },
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": null,
+   "viz": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "out-mining-to-output": {
+   "claim": "Mined sentences (words mined from immersion per the vault method, no fixed cutoff) activate through forced reproduction: read the sentence, hide it, rebuild it from meaning, compare against original. One direction (meaning→Japanese) is output training; the reverse is just recognition. Each mined pattern should end up usable in your journal within a week or it's dead inventory.",
+   "probe": "Walk the activation loop for a sentence you mined recently: original, your blind rebuild, the diff, and what the diff taught you. What distinguishes a sentence worth mining from one worth skipping?",
+   "rubric": [
+    "loop shown: meaning-only prompt → own reconstruction → line-by-line diff against original → gap noted",
+    "mining bar: comprehensible context, reusable pattern (not proper-noun-bound), frequency-viable — mined per Resources.md, no fixed cutoff",
+    "activation deadline: pattern appears in own production within ~a week, else dropped"
+   ],
+   "kind": "procedure",
+   "edges": {
+    "requires": [
+     "out-daily-journal-procedure"
+    ]
+   },
+   "threshold": false,
+   "practice": {
+    "problem_frame": "Run the activation loop on a mined sentence: blind rebuild, diff, gap note.",
+    "discriminates_from": "Rereading only (a recognition pass).",
+    "verify": "Diff produces a specific takeaway, not 'mostly right'.",
+    "error_bank": [
+     "peeking mid-rebuild",
+     "diff not converted into a journal target",
+     "mining unreusable proper-noun-bound sentences"
+    ]
+   },
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": null,
+   "viz": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "out-connectors-flow": {
+   "claim": "Text flows through connectives: だから (so), でも (but), それに (moreover), そのため (therefore — formal), ところが (however, twist). Paragraph-level Japanese needs these joints between sentences — without them, journal entries read as disconnected telegrams. Casual vs written registers pick different joint sets.",
+   "probe": "Take these three facts and write a flowing mini-paragraph in Japanese: 'It rained. I stayed home. I watched a movie.' Use at least two different connectives, then rewrite swapping one connective and explain how the logical feel changes.",
+   "rubric": [
+    "雨が降っていました。だから、家にいました。それに、映画も見ました。— joints present, tense consistent",
+    "connective variety beyond だから/でも (それに, そして, でもの variant register)",
+    "swap analysis: e.g. ところが would imply contradiction/twist — changing the logical relationship claimed"
+   ],
+   "kind": "procedure",
+   "edges": {
+    "requires": [
+     "out-rephrase"
+    ]
+   },
+   "threshold": false,
+   "practice": {
+    "problem_frame": "Write flowing mini-paragraphs joining given facts with varied connectives.",
+    "discriminates_from": "Telegraphic disconnected sentences.",
+    "verify": "Connective choice matches intended logic; tense consistent throughout.",
+    "error_bank": [
+     "だから overuse",
+     "connective contradicting intended relation",
+     "polite/plain mixing mid-paragraph"
+    ]
+   },
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": null,
+   "viz": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "out-past-narrative": {
+   "claim": "Narrating past events tests tense control across clause types: main events in plain past, background states in ていた, quotes in と言った/と思った. The narrative arc (setting → event → reaction) is a fixed template — filling it daily about small events builds the muscle for bigger stories.",
+   "probe": "Narrate something that happened this week in 4-5 Japanese sentences: setting (was doing/state), main event (past), your reaction or quote (thought/said). Mark where you used ていた vs plain past and why the split matters.",
+   "rubric": [
+    "background/state clauses use ていた (progressive-past); punctual events use plain past — distinction consciously made",
+    "reported speech/thought uses と言った/と思った with plain-form quote inside",
+    "arc present: setting → event → reaction, connected by te-forms or connectives, not isolated sentences"
+   ],
+   "kind": "procedure",
+   "edges": {
+    "requires": [
+     "out-connectors-flow"
+    ]
+   },
+   "threshold": false,
+   "practice": {
+    "problem_frame": "Narrate a past event in four-to-five sentences with setting/event/reaction arc and controlled ていた vs plain-past split.",
+    "discriminates_from": "Flat all-past narration without background states.",
+    "verify": "Background states use ていた; punctual events use plain past; quotes use と言った.",
+    "error_bank": [
+     "ていた overused for punctual events",
+     "quotes in polite form inside narrative",
+     "arc missing the reaction beat"
+    ]
+   },
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": null,
+   "viz": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "out-register-switch": {
+   "claim": "Register switching is deliberate gear-changing: same content in です/ます politeness, plain casual (with ね/よ/な sentence-final flavor), and rough-casual (omitted particles, じゃね? style) — chosen by audience. Journal entries are the safe lab: write one entry, then re-render it in all three gears and feel what changes.",
+   "probe": "Write 'I'm going to the store, want anything?' three times: polite, friendly-casual, rough-casual. Identify what changed besides verb endings (particle drops, final particles, contractions), and state which gear fits a work email vs a close friend LINE message.",
+   "rubric": [
+    "polite: ストアに行きますが、何か要りますか；casual: ストア行くけど、何か欲しいものある？；rough: ストア行くけど何か要る？",
+    "register moves beyond -masu: particle drop (に行く→行く), けど contraction, final-particle flavor (よ/ね)",
+    "work email = polite (+ keigo-lite greetings); close friend LINE = plain casual — mismatched gear reads cold or rude respectively"
+   ],
+   "kind": "procedure",
+   "edges": {
+    "requires": [
+     "out-past-narrative"
+    ]
+   },
+   "threshold": false,
+   "practice": {
+    "problem_frame": "Re-render the same content across polite/casual/rough registers.",
+    "discriminates_from": "Only changing ます endings while keeping formal vocabulary.",
+    "verify": "Particle drops and final particles change appropriately per gear.",
+    "error_bank": [
+     "casual register still using stiff vocabulary",
+     "rough register in inappropriate context",
+     "ね/よ sprinkled randomly"
+    ]
+   },
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": null,
+   "viz": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "out-weekly-review-capstone-prep": {
+   "claim": "Output compounds only under review: weekly, reread all entries, re-triage recurring errors into your landmine list, pick ONE pattern to deliberately use next week (targeted activation), and measure growth by what you could say THIS week that was impossible LAST week. Volume without review plateaus; reviewed volume compounds.",
+   "probe": "Design your weekly output review: what you reread, how errors get clustered, how next week's target pattern gets chosen, and the metric that shows progress better than 'number of entries written'. Why is entry-count a vanity metric?",
+   "rubric": [
+    "reread + re-cluster errors into buckets; top cluster becomes next week's deliberate-use target",
+    "deliberate activation: chosen pattern must appear in next week's entries on purpose",
+    "progress metric = newly-ownable expressions/patterns (could-say-then vs can-say-now), not entry count — volume without consolidation inflates"
+   ],
+   "kind": "procedure",
+   "edges": {
+    "requires": [
+     "out-error-triage",
+     "out-register-switch",
+     "out-speaking-shadowing"
+    ]
+   },
+   "threshold": false,
+   "practice": {
+    "problem_frame": "Run the weekly review: cluster errors, pick one deliberate-use target, define the progress metric.",
+    "discriminates_from": "Counting entries as progress.",
+    "verify": "Next week's entries contain the chosen pattern deliberately.",
+    "error_bank": [
+     "no clustering step",
+     "target pattern never activated",
+     "vanity metric trusted"
+    ]
+   },
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": null,
+   "viz": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "capstone": {
+   "claim": "You can USE Japanese Output — text production as a trained skill in your own work, not just explain it.",
+   "probe": "Build the thing. In your real repo, your real notes, your real argument — produce something that only works if you actually understand Japanese Output — text production as a trained skill. Your stated goal: Close the immersion loop: input (anime + jimaku subs, novel parser per Japanese/Resources.md) only becomes ability when forced back OUT through your fingers. This tree trains written production: daily micro-journaling, sentence-building from English thought, rephrasing, self-error-triage in Landmine-Log style, description, opinion patterns, and activating mined sentences. Grammar mechanics live in japanese-grammar; vocabulary lives in Anki Kaishi/mining — this tree is the OUTPUT layer that makes both stick. Probes demand actual Japanese text; the blind assessor checks rubric lines against what you produced.. Ship it, then explain which concept made which decision.",
+   "rubric": [
+    "the artifact exists and works (or the argument stands on its own)",
+    "names at least two concepts from this topic that DECIDED something in it",
+    "identifies where the model broke down or needed more than the topic gave"
+   ],
+   "transfer_probe": null,
+   "why_chain": [],
+   "arbitrary": false,
+   "threshold": false,
+   "viz": null,
+   "capstone": true,
+   "edges": {
+    "requires": [
+     "out-connectors-flow",
+     "out-daily-journal-procedure",
+     "out-description",
+     "out-error-triage",
+     "out-mining-to-output",
+     "out-opinion-simple",
+     "out-past-narrative",
+     "out-question-asking",
+     "out-register-switch",
+     "out-rephrase",
+     "out-self-intro",
+     "out-sentence-building",
+     "out-speaking-shadowing",
+     "out-weekly-review-capstone-prep"
+    ]
+   },
+   "state": "new",
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "artifact": null
+  },
+  "out-speaking-shadowing": {
+   "claim": "Speaking is trained mouth, not勇気: the shadowing ladder (chorus with the audio, overlap at full speed, solo from memory), pitch-accent awareness (hashi as chopsticks vs bridge decides the pattern, not the volume), weekly record-and-compare against the model, and one real conversation task where communication — not correctness — is the pass criterion.",
+   "probe": "Pick a 30-second anime line. Walk the ladder for one week: what each rung demands, how pitch accent is checked, and what the Friday recording is compared against — then define the conversation task and its pass line.",
+   "rubric": [
+    "ladder run chorus-overlap-solo with the demand of each rung stated",
+    "pitch pattern marked and drilled (accent position, not loudness) with a minimal pair",
+    "recording compared to the model on named features; conversation task passes on communication, not correctness"
+   ],
+   "kind": "procedure",
+   "viz": {
+    "affordance": "medium",
+    "hint": "Apply to a real dataset, piece, or utterance; the artifact decides."
+   },
+   "edges": {
+    "requires": [
+     "out-sentence-building",
+     "out-connectors-flow"
+    ]
+   },
+   "threshold": false,
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  }
+ },
+ "order": [
+  "out-self-intro",
+  "out-daily-journal-procedure",
+  "out-sentence-building",
+  "out-rephrase",
+  "out-error-triage",
+  "out-question-asking",
+  "out-description",
+  "out-opinion-simple",
+  "out-mining-to-output",
+  "out-connectors-flow",
+  "out-past-narrative",
+  "out-register-switch",
+  "out-speaking-shadowing",
+  "out-weekly-review-capstone-prep",
+  "capstone"
+ ],
+ "schema": 1,
+ "created": "2026-08-21"
+}

@@ -1,0 +1,975 @@
+{
+ "topic": "piano",
+ "title": "Piano, The Vault Way: Four Pillars, Movement, and the Practice Engine",
+ "goal": "Balanced long-game: follow the vault's classical roadmap (Liszt well in 15-20 years, four pillars growing together) while keeping anime/J-pop covers (Animenz pathway, Ghibli, Hisaishi) as the motivating fun lane. Mid-Faber Book 1 now; the vault's own system is the operating manual.",
+ "order": [
+  "four-pillars",
+  "archetype",
+  "m1-m12-vocab",
+  "session-engine",
+  "adaptive-tempo",
+  "stage0-milestone",
+  "error-triage",
+  "sleep-consolidation",
+  "variable-practice",
+  "gait-transition",
+  "sightreading-cascade",
+  "look-ahead",
+  "ear-first",
+  "f-ladder-royal-road",
+  "method-book",
+  "twelve-week-cycle",
+  "deload",
+  "maintenance-rotation",
+  "performance-stack",
+  "health-injury",
+  "repertoire-management",
+  "capstone"
+ ],
+ "nodes": {
+  "four-pillars": {
+   "claim": "Piano development runs on four co-equal pillars — Reading, Technique (Movement), Ear/Functional, Musicianship — that must grow together; the ceiling of your playing at any moment is set by the weakest pillar, so the gap, not the strongest pillar, is where work goes.",
+   "probe": "The vault says piano development runs on four pillars that must grow together. Name all four, and state the rule that connects the pillars' individual levels to your overall progress.",
+   "rubric": [
+    "names all four pillars: reading, technique/movement, ear/functional, musicianship",
+    "states the weakest-link rule: overall progress is capped by the lowest pillar, so work targets the gap"
+   ],
+   "transfer_probe": "You're building a competition robot: drive motors, sensor suite, chassis, and control code all need to work for it to finish the course. Where does the same weakest-link logic show up, and what does it predict about how you should allocate your build time?",
+   "why_chain": [],
+   "edges": {
+    "requires": [],
+    "derives_from": [],
+    "contrasts_with": [],
+    "analogous_to": []
+   },
+   "arbitrary": false,
+   "threshold": true,
+   "viz": {
+    "affordance": "high",
+    "kind": "causal-parameter",
+    "hook": "Drag each pillar's level up and down: the overall ceiling tracks the LOWEST one, never the average — the gap is what you attack."
+   },
+   "fsrs": {
+    "s": 0.4872,
+    "d": 7.6214,
+    "due": "2026-09-04",
+    "last": "2026-09-03",
+    "reps": 1,
+    "lapses": 0,
+    "dose": true
+   },
+   "state": "learning",
+   "artifact": null,
+   "arc": 1
+  },
+  "archetype": {
+   "claim": "A piece is a composition of movements: every passage decomposes into one of twelve named movement archetypes, and when a passage fails you diagnose the movement first — name the archetype, check its landmines, fix the form, then retest — because repeating bad form just automates the flaw, and pressing harder, stretching wider, or forcing through is never the answer.",
+   "probe": "A passage has failed the same way five times tonight. What does the vault's movement-first idea say to do instead of another repetition, and what two or three things does it forbid when a passage is hard?",
+   "rubric": [
+    "says to diagnose the movement first: name the archetype, check its landmines, fix the form, then retest",
+    "names the forbidden responses: forcing/pressing harder, stretching, and repeating bad form on autopilot"
+   ],
+   "transfer_probe": "Your game's jump physics feels wrong and you've tuned the numbers five times with no change. What would movement-first logic tell you to do first, and why is 'tweak the number again' the wrong reflex?",
+   "why_chain": [
+    "four-pillars"
+   ],
+   "edges": {
+    "requires": [
+     "four-pillars"
+    ],
+    "derives_from": [
+     "four-pillars"
+    ],
+    "contrasts_with": [],
+    "analogous_to": []
+   },
+   "arbitrary": false,
+   "threshold": true,
+   "viz": {
+    "affordance": "high",
+    "kind": "dynamic-process",
+    "hook": "Replay the same failing passage under three responses — repeat it, push harder, or stop and name the movement — and watch which one changes the outcome tomorrow."
+   },
+   "contrast": {
+    "deep_feature": "the response chosen once a passage is stuck: stop-and-diagnose, grind more repetition, or apply more force",
+    "cases": [
+     "You miss the same three notes in a run for the fifth time, so you stop, lift your hand, watch the gesture in the air, adjust it once, and try once.",
+     "You miss the same three notes for the fifth time, so you play the run ten more times slowly, hoping it sticks.",
+     "You miss the same three notes for the fifth time, so you press harder and spread your fingers wider to make sure you hit them."
+    ],
+    "invite": "All three players are stuck on the same three notes of the same run, and all want it fixed tomorrow. Which one do you predict still fails tomorrow, and what single difference separates the strategies?"
+   },
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "m1-m12-vocab": {
+   "claim": "Twelve movement archetypes in five families — keystrokes (M1–M2), travel (M3–M5), simultaneities (M6–M7), oscillation/repetition (M8–M9), control/color (M10–M12) — form the alphabet under all repertoire: learn it once and only the composition changes, which is why Bach, Liszt, and an Animenz arrangement share one technique layer; Stage 0–1 owns M1 (knuckle-initiated stroke) and M2 (arm drop with release).",
+   "probe": "Name the five movement families, and give the archetype number for each of these: a scale run crossing the thumb, a chord that lands as one unit, a trill, an octave passage, a leap. Which two archetypes does a Stage 0–1 player own first, and what is the one-sentence principle that lets beginner repertoire share a technique layer with Animenz?",
+   "rubric": [
+    "names the five families: keystrokes, travel, simultaneities, oscillation/repetition, control/color",
+    "matches the examples: M3 (scale/thumb pass), M6 (chord grasp), M8 (trill), M7 (octave), M5 (leap)",
+    "names M1/M2 as the Stage 0–1 gate and states the alphabet principle (same movements, different compositions)"
+   ],
+   "transfer_probe": "You're studying Japanese and keep meeting new sentence patterns built from the same fixed set of particles. What does the movement-alphabet idea say about how to study them, and why would memorizing particles beat memorizing whole sentences?",
+   "why_chain": [
+    "four-pillars",
+    "archetype"
+   ],
+   "edges": {
+    "requires": [
+     "archetype"
+    ],
+    "derives_from": [
+     "archetype"
+    ],
+    "contrasts_with": [],
+    "analogous_to": []
+   },
+   "arbitrary": true,
+   "threshold": false,
+   "kind": "fact",
+   "viz": {
+    "affordance": "some",
+    "kind": "structural",
+    "hook": "One page: five families, twelve slots, your Stage 0–1 gates highlighted — the whole vocabulary in a single glance."
+   },
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "session-engine": {
+   "claim": "Practice is interleaved, chunked, and stopped early on purpose: rotate material every 5–8 minutes, define the smallest musically useful chunk, and leave each chunk about 70–80% secure to return cold later — effortful recall builds the skill, while easy recall is only reviewing.",
+   "probe": "A friend grinds one tricky passage for 25 straight minutes until it is perfect. The vault's session engine says to do three things differently. Name them, and say what the Rule of Almost expects to happen when you return to a chunk cold.",
+   "rubric": [
+    "names all three: rotate/interleave every 5–8 min, work the smallest musically useful chunk, stop before perfect",
+    "explains the cold return: the effortful struggle to recall is the point — easy recall means you're only reviewing"
+   ],
+   "transfer_probe": "You're learning a new CAD workflow and get a filter operation working about 80% of the time, then keep redoing it until it's flawless before moving on. What does the Rule of Almost predict about your retention, and what should you do instead?",
+   "why_chain": [
+    "four-pillars"
+   ],
+   "edges": {
+    "requires": [
+     "four-pillars"
+    ],
+    "derives_from": [
+     "four-pillars"
+    ],
+    "contrasts_with": [],
+    "analogous_to": []
+   },
+   "arbitrary": false,
+   "threshold": false,
+   "viz": {
+    "affordance": "some",
+    "kind": "structural",
+    "hook": "A session timeline: chunks rotating every 5–8 minutes with the ~75% stop line marked — see where 'almost' sits before it feels done."
+   },
+   "contrast": {
+    "deep_feature": "what happens once a chunk is almost secure: stop and return cold, push to perfect, or coast on easy extra reps",
+    "cases": [
+     "The chunk is about 75% secure, so you stop, switch to sight-reading for 5 minutes, and return to it cold tomorrow.",
+     "The chunk is about 75% secure, so you keep playing it until it comes out perfect three times in a row, then move on and never revisit it.",
+     "The chunk is about 75% secure, so you play it a few more times since it's going well, then move on."
+    ],
+    "invite": "All three players are at the same point — the chunk is almost there — and all three spent similar time. Which one's command of the chunk survives a week, and what single difference explains it?"
+   },
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "adaptive-tempo": {
+   "claim": "Tempo is a controllable range, not a sacred number: start at the fastest tempo you can still control (notes, rhythm, fingering, sound, physical ease), play 2–3 controlled repetitions and then increase slightly, and on a repeated error, a major hesitation, or tension, reduce meaningfully and change the method — never grind at a tempo you don't control.",
+   "probe": "Your 4-bar phrase targets a 95–105 BPM window. First: do you set a single sacred number or a range, and why? At 70 BPM you play it twice cleanly, then once with one small slip. At 75 BPM the same note slips twice and your wrist feels tight. Walk through the protocol: what do you do at each of these three moments, and what is the one rule you never break?",
+   "rubric": [
+    "setup: sets a target RANGE, not a sacred single number",
+    "method: starts at the fastest controllable tempo, not a default slow number",
+    "execution: advances after 2–3 controlled reps; retreats meaningfully on a repeated error or tension",
+    "verification: states the never-break rule — advance on control, retreat on loss of control"
+   ],
+   "transfer_probe": "You're tuning a robot arm's motor speed: at 40% power it tracks smoothly, at 45% it starts overshooting twice in a row and one joint runs hot. Apply the same logic — what's the 'range' here, when do you nudge up, and what does the retreat rule say?",
+   "why_chain": [],
+   "edges": {
+    "requires": [
+     "session-engine"
+    ],
+    "derives_from": [],
+    "contrasts_with": [],
+    "analogous_to": []
+   },
+   "arbitrary": false,
+   "threshold": false,
+   "kind": "procedure",
+   "practice": {
+    "problem_frame": "A 1–4 bar passage, a stated target BPM range (60–120), and a sequence of outcomes: {2–3 controlled reps | one isolated slip | same error twice | hesitation | tension}. Vary the passage and the outcome order; the learner's job is always to state the next tempo action and the trigger that justifies it.",
+    "discriminates_from": [
+     "error-triage",
+     "gait-transition"
+    ],
+    "verify": "Check each stated action against the rule: control → advance slightly; repeated error or hesitation → reduce meaningfully; tension → stop. The BPM arithmetic is irrelevant; only the trigger-to-action mapping counts.",
+    "error_bank": [
+     {
+      "error": "defaults to a slow safe tempo like 50 BPM for everything",
+      "misconception": "slow is always right — the protocol says start at the FASTEST controllable tempo"
+     },
+     {
+      "error": "stays at the same tempo after the same error twice, hoping reps fix it",
+      "misconception": "repetition at a failing tempo helps — the protocol says reduce meaningfully and change method"
+     },
+     {
+      "error": "treats the composer's marking as a sacred number to hit",
+      "misconception": "the target is a RANGE; the marking is one reference among several"
+     }
+    ]
+   },
+   "viz": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1,
+   "revised": [
+    {
+     "at": "2026-09-05",
+     "fields": [
+      "probe"
+     ],
+     "receipts_under_previous": 0
+    }
+   ]
+  },
+  "stage0-milestone": {
+   "claim": "Stage 0 is complete when five checkable outcomes hold: two short pieces at a steady pulse, one scale hands separately, the M1/M2 movement gate — a relaxed hand with neutral wrist, knuckle-initiated stroke, no pressing after key-bottom — passing in repertoire rather than drills, a five-finger sight-read without stopping, and a simple melody played by ear in one key.",
+   "probe": "Someone asks you 'when is Stage 0 done?' List the five milestone outcomes, then say which one is a movement gate and what passing it looks like in real playing.",
+   "rubric": [
+    "lists all five outcomes: two short pieces with steady pulse, one scale HS, relaxed hand with neutral wrist, sight-read a five-finger pattern without stopping, play a simple melody by ear in one key",
+    "identifies the M1/M2 gate and describes the pass test: knuckle-initiated stroke with zero wrist dipping, checked in repertoire, not just drills"
+   ],
+   "transfer_probe": "You're learning your first programming language. Translate 'milestone checked in repertoire, not just drills' — what would the equivalent of the M1/M2 gate be for your first working program, and why is the context the test?",
+   "why_chain": [],
+   "edges": {
+    "requires": [
+     "archetype",
+     "m1-m12-vocab",
+     "session-engine"
+    ],
+    "derives_from": [],
+    "contrasts_with": [],
+    "analogous_to": []
+   },
+   "arbitrary": true,
+   "threshold": false,
+   "kind": "fact",
+   "viz": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "error-triage": {
+   "claim": "Every repetition gets a named response: an isolated slip is noted and repeated once; the same mistake twice means stop and change the method — movement problems get form fixes, not repetition; a hesitation means start one beat earlier; tension is a hard stop; persistent spots become Q-spots — identify the exact bars and name the archetype, isolate with the right tool, time-box 5–8 minutes, revisit next days, reintegrate through the seams — and an error that recurs across three sessions means the strategy is wrong, not you.",
+   "probe": "In one session: (a) one note slips once; (b) the same two notes slip a second time right after; (c) you hesitate at the same bar; (d) your wrist feels tight on a chord. Give the triage response for each. Then: the same bar has failed for a week — walk through the Q-spot workflow, and what does three sessions of the same error mean?",
+   "rubric": [
+    "execution: responds to each situation — isolated slip = note it and repeat once; same mistake twice = stop and change method; hesitation = start earlier; tension = stop",
+    "method: Q-spot workflow — identify exact bars + name the archetype, isolate with the right tool, time-box 5–8 min, revisit next days, reintegrate",
+    "judgment: three sessions of the same error means the strategy is wrong, not the learner; log it, choose ONE strategy, retest next session"
+   ],
+   "transfer_probe": "Your game build fails the same unit test every night. Apply the triage logic: what's the 'same mistake twice' response, and what would the three-session rule tell you after a week of the same failing test?",
+   "why_chain": [
+    "archetype"
+   ],
+   "edges": {
+    "requires": [
+     "archetype",
+     "session-engine"
+    ],
+    "derives_from": [
+     "archetype"
+    ],
+    "contrasts_with": [],
+    "analogous_to": []
+   },
+   "arbitrary": false,
+   "threshold": false,
+   "kind": "procedure",
+   "practice": {
+    "problem_frame": "A 1–4 bar passage with a stated outcome on each repetition, drawn from {isolated slip, same mistake twice, hesitation, tension, major breakdown, error persisting across sessions}. Vary the piece, the error type (fingering/reading/rhythm/coordination/movement/anticipation), and the outcome order; the learner states the triage response and exactly ONE chosen strategy per outcome.",
+    "discriminates_from": [
+     "adaptive-tempo"
+    ],
+    "verify": "Match each response to the vault table: slip → note + repeat once; twice → stop + change method; hesitation → start earlier; tension → stop and diagnose. The strategy must be one, named, and retested next session — never 'ten more tries now'.",
+    "error_bank": [
+     {
+      "error": "plays the spot ten more times after the same mistake twice",
+      "misconception": "repetition fixes errors — the protocol says stop and change the method"
+     },
+     {
+      "error": "keeps going through tension or mild pain",
+      "misconception": "tension is normal effort — the vault makes it a hard stop plus a movement diagnostic"
+     },
+     {
+      "error": "tries five strategies at once on a recurring error",
+      "misconception": "more strategies stack — the protocol says choose ONE and retest next session"
+     }
+    ]
+   },
+   "viz": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "sleep-consolidation": {
+   "claim": "Motor skills consolidate during sleep, so practice timing matters: visualize the day's passage 2–3 minutes after the last repetition and 2–4 minutes before bed with full sensory detail — see the keys, feel the movements, hear the sound — sleep 7–9 hours, and expect a 10–20% gain on a cold test next morning; a 45-minute session with 8 hours of sleep beats a 2-hour session with 5.",
+   "probe": "Explain why 45 minutes of practice followed by a full night's sleep can beat 2 hours followed by 5 hours of sleep. Describe the complete before-bed protocol, what makes mental rehearsal count and what doesn't, and what you should expect at the next morning's cold test.",
+   "rubric": [
+    "explains the mechanism: sleep is where motor skills consolidate, so sleep after practice is part of the training",
+    "describes the protocol: visualize 2–3 min after the last rep and 2–4 min before bed, sensory detail (see/feel/hear), no physical playing, 7–9 h sleep",
+    "states the quality bar and expectation: passive listening and vague thinking don't count; ~10–20% improvement on the cold test"
+   ],
+   "transfer_probe": "You're memorizing Japanese kanji and vocabulary. Design a study schedule using the same logic: what do you do right after studying and right before bed, and what does the cold-test idea predict about how you should test yourself the next morning?",
+   "why_chain": [
+    "session-engine"
+   ],
+   "edges": {
+    "requires": [
+     "session-engine"
+    ],
+    "derives_from": [
+     "session-engine"
+    ],
+    "contrasts_with": [],
+    "analogous_to": []
+   },
+   "arbitrary": false,
+   "threshold": false,
+   "viz": {
+    "affordance": "some",
+    "kind": "structural",
+    "hook": "The night timeline: last rep → 2-minute visualization → sleep → cold test, with the expected 10–20% gain marked at the end."
+   },
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "variable-practice": {
+   "claim": "Once a passage is secure at slow tempo, deliberately vary 2–3 conditions per session — dynamics, articulation, tempo, starting point, hands, rhythm, character — because varied conditions build a flexible motor schema that survives real performance, while repeating one version endlessly builds a fragile one; never use it on day one of a passage, when fatigued, or while the passage is still unclear.",
+   "probe": "A passage is finally secure at slow tempo, so you keep playing it exactly the same way to lock it in. The vault says to do something different. What, why, how many variations per session, and under what three conditions must you NOT do it?",
+   "rubric": [
+    "names the practice: deliberately vary 2–3 conditions per session (dynamics/articulation/tempo/start point/hands/rhythm/character)",
+    "explains why: variations build a flexible motor schema that holds under real conditions, unlike endless identical reps",
+    "states the exclusions: not on day one, not when fatigued, not while the passage is still unclear"
+   ],
+   "transfer_probe": "You're practicing a fighting-game combo for an online match. What would the same variation logic tell you to do once the combo is consistent, and what conditions would forbid varying it?",
+   "why_chain": [
+    "session-engine"
+   ],
+   "edges": {
+    "requires": [
+     "adaptive-tempo",
+     "session-engine"
+    ],
+    "derives_from": [
+     "session-engine"
+    ],
+    "contrasts_with": [],
+    "analogous_to": []
+   },
+   "arbitrary": false,
+   "threshold": false,
+   "viz": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "gait-transition": {
+   "claim": "Clean slow playing that collapses at tempo is an uninstalled gait transition: slow and fast playing are different movement organizations — like walking versus running — so somewhere between your slow tempo and target tempo the movement must reorganize, with amplitude shrinking, drive moving proximal, and preparation moving earlier; only deliberate speed work — chaining one measure at full tempo, then two, then four, with brief bursts above target — installs the fast gait, and neither more slow repetitions nor brute-force fast repetitions will.",
+   "probe": "A passage is clean at 60 BPM and falls apart at 120. The vault says this is not a repetition problem. What is it, what exactly must change in the movement between the two tempos, what installs the fast gait, and what two common responses will NOT fix it?",
+   "rubric": [
+    "names the diagnosis: an uninstalled gait transition — slow and fast use different movement organizations (walk vs run)",
+    "names the reorganization: amplitude shrinks, drive moves proximal, preparation earlier",
+    "names the fix and the non-fixes: speed work + chaining (1→2→4 measures at tempo, bursts above target); not more slow reps, not brute fast reps"
+   ],
+   "transfer_probe": "Your robot arm tracks a path smoothly at low speed and stalls into overshoot at high speed, and you've run the slow-tuned profile a hundred times. What is this the robotics equivalent of, and what does the fix have in common with chaining?",
+   "why_chain": [
+    "adaptive-tempo"
+   ],
+   "edges": {
+    "requires": [
+     "adaptive-tempo",
+     "session-engine"
+    ],
+    "derives_from": [
+     "adaptive-tempo"
+    ],
+    "contrasts_with": [],
+    "analogous_to": []
+   },
+   "arbitrary": false,
+   "threshold": true,
+   "viz": {
+    "affordance": "high",
+    "kind": "dynamic-process",
+    "hook": "Drag the tempo slider from 60 to 120 and watch the gesture reorganize — amplitude shrinks, the drive moves up the arm, preparation starts earlier. The movement does not just get faster; it changes kind."
+   },
+   "contrast": {
+    "deep_feature": "the response to clean-at-slow collapsing at target tempo: install a new fast gait deliberately, keep practicing slow, or brute-force fast reps",
+    "cases": [
+     "The passage is clean at 60 and falls at 120, so you play one measure at full tempo, stop, reset, repeat, then chain one measure into two into four, with short bursts above target.",
+     "The passage is clean at 60 and falls at 120, so you keep practicing it at 60, confident the accuracy will transfer upward.",
+     "The passage is clean at 60 and falls at 120, so you play the whole passage at 120 over and over, hoping it eventually holds."
+    ],
+    "invite": "All three players have the same passage, clean at 60, collapsing at 120. Which one gets to 120, and what single difference separates that approach from the other two?"
+   },
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1,
+   "revised": [
+    {
+     "at": "2026-09-05",
+     "fields": [
+      "probe"
+     ],
+     "receipts_under_previous": 0
+    }
+   ]
+  },
+  "sightreading-cascade": {
+   "claim": "Sight-reading is a five-stage cascade — visual recognition, auditory prediction, motor execution, error monitoring, recovery — and it is trained whole: never stop, never go back, keep the pulse, simplify a dense chord rather than stall, and never convert a sight-read piece into repertoire practice.",
+   "probe": "Sight-reading is called a cascade, not a single skill. List its five stages in order, and state the two hard rules about stopping and about what happens to a sight-read piece after you've played it once.",
+   "rubric": [
+    "lists the five stages in order: visual recognition → auditory prediction → motor execution → error monitoring → recovery",
+    "states the never-rules: no stopping and no going back — keep the pulse, simplify rather than stall",
+    "states the after-rule: never convert the sight-read piece into repertoire practice"
+   ],
+   "transfer_probe": "You're cooking a dish you've never made, with a timer running and guests arriving. What does the cascade idea predict about where a beginner fails, and what is the cooking equivalent of 'never stop, never go back'?",
+   "why_chain": [
+    "four-pillars"
+   ],
+   "edges": {
+    "requires": [
+     "four-pillars",
+     "session-engine"
+    ],
+    "derives_from": [
+     "four-pillars"
+    ],
+    "contrasts_with": [],
+    "analogous_to": []
+   },
+   "arbitrary": false,
+   "threshold": false,
+   "viz": {
+    "affordance": "some",
+    "kind": "structural",
+    "hook": "Five boxes in order — see where prediction sits between recognition and execution, and where recovery hangs off the end."
+   },
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "look-ahead": {
+   "claim": "The eyes lead the hands: while sight-reading, the eyes sit 2–4 beats ahead of the fingers and read in chunks, not note by note — the eye-hand span is the skill you actually train, and repeated reading of one easy piece shows the progression from decoding to pattern recognition to anticipation.",
+   "probe": "Where do your eyes live while sight-reading, and in what units does the eye read? What changes across three readings of the same easy piece, and why is the eye-hand span the thing being trained?",
+   "rubric": [
+    "places the eyes 2–4 beats ahead of the hands and names the eye-hand span as the trained skill",
+    "says the eye reads in chunks/groups, not individual notes",
+    "describes the repeated-reading arc: first pass decodes, second sees patterns, third anticipates"
+   ],
+   "transfer_probe": "Driving instructors say to look where you want the car to go, not at the hood. What is the eye-hand span here, what happens to beginners who look at the hood, and how would you train the span deliberately?",
+   "why_chain": [
+    "sightreading-cascade"
+   ],
+   "edges": {
+    "requires": [
+     "sightreading-cascade"
+    ],
+    "derives_from": [
+     "sightreading-cascade"
+    ],
+    "contrasts_with": [],
+    "analogous_to": []
+   },
+   "arbitrary": false,
+   "threshold": false,
+   "viz": {
+    "affordance": "some",
+    "kind": "structural",
+    "hook": "A staff with an eye marker two beats ahead of a hand marker — the gap itself is the skill, not the notes."
+   },
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "ear-first": {
+   "claim": "Sing before you play, always: the voice is the bridge between hearing and the fingers, so every ear task starts by singing the phrase; transcription climbs a ladder — melody, then melody plus bass, then melody plus chords, then full arrangement — and you don't look at the sheet music until you have tried by ear first.",
+   "probe": "The vault's ear rule has three parts: an always-rule about your voice, a ladder for transcription, and a rule about sheet music. State all three, in order, and say why the voice is the bridge.",
+   "rubric": [
+    "states the always-rule: sing the phrase before playing it",
+    "names the transcription ladder in order: melody → melody+bass → melody+chords → full arrangement",
+    "states the sheet-music rule: don't look at the score until you've tried by ear — and says the voice bridges hearing and fingers"
+   ],
+   "transfer_probe": "You're learning a new board game and your friend offers to walk you through one round before you read the rulebook. What is the 'sing before you play' equivalent, what would the ladder of understanding look like, and why does reading rules first hurt?",
+   "why_chain": [
+    "four-pillars"
+   ],
+   "edges": {
+    "requires": [
+     "four-pillars"
+    ],
+    "derives_from": [
+     "four-pillars"
+    ],
+    "contrasts_with": [],
+    "analogous_to": []
+   },
+   "arbitrary": false,
+   "threshold": false,
+   "viz": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "f-ladder-royal-road": {
+   "claim": "Functional fluency is an independent ladder F0–F5 graded by harmonic and comping fluency, not repertoire difficulty — F0 triads and I–IV–V–I, F1 inversions and the axis I–V–vi–IV, F2 seventh chords and the royal road IV–V–iii–vi (in C: F–G–Em–Am), the signature J-pop sound that never settles on I and often starts on IV; F3 adds extended chords and arranging, F4 color and city-pop, F5 reharmonization and improvisation — and the ladder converges with the classical track at the Animenz level, because full anime arrangements need classical arpeggios, octaves, and voicing plus functional harmony plus rhythmic drive.",
+   "probe": "Functional fluency is graded on its own ladder. What does the ladder measure, and what distinguishes a stage from the one above? Then: name the progression the vault calls the signature J-pop/anime sound, give it in C, and say why it feels like longing and where songs often begin instead. Finally, why do the functional ladder and the classical track converge at the Animenz level?",
+   "rubric": [
+    "names the grading axis: harmonic/comping fluency, not repertoire difficulty, and that advancement is by fluency",
+    "gives the royal road IV–V–iii–vi in C (F–G–Em–Am) and explains the longing: it never settles on I, and songs often begin on IV",
+    "explains the convergence: Animenz-level playing needs classical technique (arpeggios, octaves, voicing) plus functional harmony plus rhythmic drive"
+   ],
+   "transfer_probe": "In bouldering, strength and route-reading are two separate axes that both have to exist before hard problems fall. What is the climbing version of 'classical technique meets functional harmony', and what does 'graded by fluency, not by difficulty' mean for how you should train each axis?",
+   "why_chain": [
+    "ear-first"
+   ],
+   "edges": {
+    "requires": [
+     "ear-first"
+    ],
+    "derives_from": [
+     "ear-first"
+    ],
+    "contrasts_with": [],
+    "analogous_to": []
+   },
+   "arbitrary": false,
+   "threshold": false,
+   "viz": {
+    "affordance": "some",
+    "kind": "structural",
+    "hook": "A ladder F0–F5 with the royal road flagged at F2 and Animenz at the top — the two tracks visibly converging."
+   },
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "method-book": {
+   "claim": "Method books are worked by outcome, not page count: a section is complete when the new concept is understood and applied, the piece plays through with control, and musical intent has been addressed — and the book is retired when standard repertoire at your stage is no harder than the book, without restarting a higher book from page one.",
+   "probe": "You open your method book to the next section. What makes that section COMPLETE, what would make you retire the book entirely, and when you do retire it, what should you NOT do next?",
+   "rubric": [
+    "names the three completion criteria: concept understood AND applied, piece plays through with control, musical intent addressed",
+    "states the retirement test: standard repertoire at your stage is no harder than the book's material",
+    "states the transition rule: don't restart a higher method book from page one — move into standard repertoire"
+   ],
+   "transfer_probe": "You're working through a game-engine tutorial series. When is a tutorial 'completed' rather than just 'watched', and what is the equivalent of retiring the book — moving to real projects instead of starting a longer course?",
+   "why_chain": [],
+   "edges": {
+    "requires": [
+     "four-pillars",
+     "session-engine"
+    ],
+    "derives_from": [],
+    "contrasts_with": [],
+    "analogous_to": []
+   },
+   "arbitrary": false,
+   "threshold": false,
+   "viz": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "twelve-week-cycle": {
+   "claim": "Time runs on 12-week cycles: each cycle names one movement focus — one archetype target with its gate test — ends in a mock recital, and is followed by a deload week; repertoire always holds at least two concurrent pieces — one learning at level, one polishing at or slightly below — plus a maintenance pool and an optional fun piece below level as the pressure valve, because two concurrent pieces must never become two concurrent obligations, and shelving a stuck piece is data, not failure.",
+   "probe": "Describe the skeleton of a 12-week cycle: what gets named at the start, what happens at the end, and what sits between cycles. Then state the permanent repertoire rule — how many pieces, in which slots, and why — and what shelving a stuck piece means.",
+   "rubric": [
+    "names the cycle skeleton: one movement focus (a single archetype + its gate test), a mock recital at the end, a deload week between cycles",
+    "names the repertoire slots: learning (at level) + polishing (at/slightly below) + maintenance pool + optional fun piece below level",
+    "states the protection rules: two pieces never become two obligations; shelving is data, not failure"
+   ],
+   "transfer_probe": "You're planning your next 12 weeks of Japanese study. What is the 'movement focus' equivalent (one named skill with a test), what plays the mock recital, and what is your 'fun piece below level' so the system never becomes two obligations?",
+   "why_chain": [],
+   "edges": {
+    "requires": [
+     "stage0-milestone",
+     "method-book",
+     "error-triage",
+     "sleep-consolidation",
+     "variable-practice",
+     "gait-transition"
+    ],
+    "derives_from": [],
+    "contrasts_with": [],
+    "analogous_to": []
+   },
+   "arbitrary": false,
+   "threshold": false,
+   "viz": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "deload": {
+   "claim": "Every 4th or 5th week is a deload: cut practice time by 40–50%, drop tempo on everything by 20–30%, take on no new material, play only known and enjoyed things, and add sleep, listening, and score study — a consolidation week, not a missed week, carrying no guilt; its warning signs include practice feeling like a chore for days, more errors on familiar material, dread of sitting down, and movement regression — form you already own degrading is a fatigue signal, not a skill loss.",
+   "probe": "It's been five weeks of steady practice and your wrists feel fine, but familiar pieces are suddenly full of errors and form you owned last month looks shaky. What is this week, what exactly do you cut, and what is the movement sign that feels like skill loss but isn't?",
+   "rubric": [
+    "names the week: a scheduled deload every 4th–5th week, a consolidation week, not a missed week, no guilt",
+    "names the cuts: time −40–50%, tempo −20–30%, no new material, only known/enjoyed pieces, extra sleep/listening/score study",
+    "identifies movement regression as a fatigue signal, not skill loss, and names the other warning signs (chore-like dread, errors on familiar material)"
+   ],
+   "transfer_probe": "Your robot project has had five intense build weeks and the last two days every solder joint you make is worse than usual. What is this a signal of, what does the deload equivalent look like for a build week, and why is it not 'slacking'?",
+   "why_chain": [],
+   "edges": {
+    "requires": [
+     "twelve-week-cycle",
+     "archetype"
+    ],
+    "derives_from": [],
+    "contrasts_with": [],
+    "analogous_to": []
+   },
+   "arbitrary": false,
+   "threshold": false,
+   "viz": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "capstone": {
+   "claim": "You can USE Piano, The Vault Way: Four Pillars, Movement, and the Practice Engine in your own work, not just explain it.",
+   "probe": "Build the thing. In your real repo, your real notes, your real argument — produce something that only works if you actually understand Piano, The Vault Way: Four Pillars, Movement, and the Practice Engine. Your stated goal: Balanced long-game: follow the vault's classical roadmap (Liszt well in 15-20 years, four pillars growing together) while keeping anime/J-pop covers (Animenz pathway, Ghibli, Hisaishi) as the motivating fun lane. Mid-Faber Book 1 now; the vault's own system is the operating manual.. Ship it, then explain which concept made which decision.",
+   "rubric": [
+    "the artifact exists and works (or the argument stands on its own)",
+    "names at least two concepts from this topic that DECIDED something in it",
+    "identifies where the model broke down or needed more than the topic gave"
+   ],
+   "transfer_probe": null,
+   "why_chain": [],
+   "arbitrary": false,
+   "threshold": false,
+   "viz": null,
+   "capstone": true,
+   "edges": {
+    "requires": [
+     "adaptive-tempo",
+     "archetype",
+     "deload",
+     "ear-first",
+     "error-triage",
+     "f-ladder-royal-road",
+     "four-pillars",
+     "gait-transition",
+     "health-injury",
+     "look-ahead",
+     "m1-m12-vocab",
+     "maintenance-rotation",
+     "method-book",
+     "performance-stack",
+     "repertoire-management",
+     "session-engine",
+     "sightreading-cascade",
+     "sleep-consolidation",
+     "stage0-milestone",
+     "twelve-week-cycle",
+     "variable-practice"
+    ]
+   },
+   "state": "new",
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "artifact": null
+  },
+  "maintenance-rotation": {
+   "claim": "Finished pieces rot unless scheduled: the pool holds them as card types (whole-piece, section, start-point, musical, memory), each graded, each time-boxed to 5–15 minutes, with a two-week safety net so nothing goes unplayed past fourteen days. Engram owns the schedule — the rotation is review, not practice, and never steals time from the current pieces.",
+   "probe": "Three finished pieces, twenty minutes of maintenance budget. Build the rotation: card types, grades, time-boxes — and say what happens on day fifteen to an unplayed card.",
+   "rubric": [
+    "pool typed as cards (whole/section/start-point/musical/memory) with honest grades",
+    "total fits the 5–15-minute-per-card budget inside twenty minutes",
+    "two-week safety net stated with the day-fifteen consequence (forced recall session, not guilt)"
+   ],
+   "kind": null,
+   "viz": {
+    "affordance": "medium",
+    "hint": "Apply to a real dataset, piece, or utterance; the artifact decides."
+   },
+   "edges": {
+    "requires": [
+     "twelve-week-cycle",
+     "session-engine"
+    ]
+   },
+   "threshold": false,
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "performance-stack": {
+   "claim": "The stage is a different instrument: weekly simulations under lights-and-audience conditions, a self-review rubric (tone, voicing, pedaling, physical ease), four-type memory security (aural, visual, kinesthetic, analytical — any solo type is a single point of failure), dual-task sims for pressure inoculation, and a written pre-performance routine that starts an hour before, not five minutes.",
+   "probe": "Recital in seven days, memory slips in the development section. Prescribe the week: sim count, rubric use, which memory types get fortified and how each is tested alone - and write the pre-performance routine with its start time and final-day rule.",
+   "rubric": [
+    "simulations scheduled (at least two) with conditions named (audience, recording, no-stops rule)",
+    "weak memory type identified and drilled in isolation (sing it / visualize it / start mid-section / analyze it)",
+    "pre-performance routine written with the one-hour start and no new repertoire in the final day"
+   ],
+   "kind": null,
+   "viz": {
+    "affordance": "medium",
+    "hint": "Apply to a real dataset, piece, or utterance; the artifact decides."
+   },
+   "edges": {
+    "requires": [
+     "twelve-week-cycle",
+     "session-engine"
+    ]
+   },
+   "threshold": false,
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1,
+   "revised": [
+    {
+     "at": "2026-09-06",
+     "fields": [
+      "probe"
+     ],
+     "receipts_under_previous": 0
+    }
+   ]
+  },
+  "health-injury": {
+   "claim": "Pain is information, not weakness: sharp, localized, or persistent pain stops the session — always. The movement check-in (wrists neutral, shoulders down, bench height letting forearms slope gently, no static gripping) runs before practice, not after injury. Deload handles fatigue; red flags (numbness, clicking with pain, pain past 24 hours) mean rest plus professional eyes, never playing through.",
+   "probe": "Mid-week: a dull forearm ache appears in fast passage work and fades overnight, then a sharp wrist twinge on octaves. Run the protocol: which continues, which stops, what the check-in changes, and where each lands (fatigue vs red flag).",
+   "rubric": [
+    "dull-fading ache routed to deload/fatigue management, sharp/persistent/numbness routed to stop-plus-rest",
+    "movement check-in performed with the named items (wrists, shoulders, bench, grip)",
+    "red-flag list stated with the never-play-through rule and the professional-eyes escalation"
+   ],
+   "kind": null,
+   "viz": {
+    "affordance": "medium",
+    "hint": "Apply to your current pieces and practice load; the body keeps the score."
+   },
+   "edges": {
+    "requires": [
+     "deload",
+     "session-engine"
+    ]
+   },
+   "threshold": false,
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  },
+  "repertoire-management": {
+   "claim": "Pieces are a portfolio, not a pile: select movement-aware (one slot per technical demand, difficulty matched to the slot), shelve decisively (a piece past its learning rate goes back to maintenance or out — shelf rot is worse than a hard goodbye), and keep piece folders with logs so a shelved piece resurrects in days, not months.",
+   "probe": "You hold three pieces: one fluent, one stuck for three weeks, one new and exciting. Assign slots, make the shelving call with the learning-rate argument, and say what the folder of the shelved piece must contain.",
+   "rubric": [
+    "slots assigned by technical demand with difficulty matched per slot",
+    "shelving decision made on learning rate with maintenance-or-out stated (no limbo)",
+    "folder contents named (score markings, tempo log, error log, recording baseline) for fast resurrection"
+   ],
+   "kind": null,
+   "viz": {
+    "affordance": "medium",
+    "hint": "Apply to your current pieces and practice load; the body keeps the score."
+   },
+   "edges": {
+    "requires": [
+     "twelve-week-cycle",
+     "method-book"
+    ]
+   },
+   "threshold": false,
+   "why_chain": [],
+   "arbitrary": false,
+   "transfer_probe": null,
+   "fsrs": {
+    "s": null,
+    "d": null,
+    "due": null,
+    "last": null,
+    "reps": 0,
+    "lapses": 0
+   },
+   "state": "new",
+   "artifact": null,
+   "arc": 1
+  }
+ },
+ "schema": 1,
+ "created": "2026-08-18"
+}

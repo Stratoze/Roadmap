@@ -1,1 +1,2 @@
 * text=auto eol=lf
+_system/engram/graphs/*.json -merge
