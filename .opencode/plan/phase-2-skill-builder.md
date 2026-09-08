@@ -135,24 +135,30 @@ with VERIFIED line spans of `Mechatronics/milestones/00_foundations.md` (599 lin
 title+Outcome+Pass Condition 1–49 EXCEPT lines 25–46 (owned by `lab/`, pointer left behind);
 0.1 → 50–96; 0.2 → 97–133; 0.3 → 134–167;
 0.4 → 168–208; 0.5 → 209–246; 0.6 → 247–285; 0.7 → 286–359; 0.8 → 360–424;
-0.9 → 425–515; 0.10 → 516–577 (body ends 577; separators 578–579; Deload header at 580); Deload 578–599.
+0.9 → 425–515; 0.10 → 516–577 (content ends 575, blanks 576–577; separator 578, header at 580); Deload 578–599.
 Split rule: builder runs `grep -nE "^#+ (Phase 0|Milestone 0)"` and diffs FULL output against
-this pinned expectation (13 lines — title + 10 milestones + Deload + Retro; Retro stays put,
-everything else moves):
-`2:# Phase 0`, `50:## Milestone 0.1`, `97:# Milestone 0.2`, `134:# Milestone 0.3`,
-`168:# Milestone 0.4`, `209:# Milestone 0.5`, `247:# Milestone 0.6`, `286:# Milestone 0.7`,
-`360:# Milestone 0.8`, `425:# Milestone 0.9`, `516:# Milestone 0.10`, `580:# Phase 0 Deload`,
-`594:## Phase 0 Retro`. ANY mismatch (lines or numbers) aborts the split (spans re-verified,
-never trusted from this map). Rationale pinned: bare `^# ` yields 11 (misses 0.1's `##`);
-bare `^#+ ` yields 62 (all subheads) — both wrong, hence expected-output diff. Output filenames follow the scheme
+this pinned expectation (13 lines — title + 10 milestones + Deload + Retro; Retro moves with
+lab per the cut map, nothing stays put except the redirect index):
+`2:# Phase 0 — Foundations & Vocabulary`, `50:## Milestone 0.1 — Problem-Solving Framework + Toolchain`,
+`97:# Milestone 0.2 — Vectors, Trig, Frames of Reference`, `134:# Milestone 0.3 — Calculus Intuition`,
+`168:# Milestone 0.4 — Statics + Free Body Diagrams`, `209:# Milestone 0.5 — Circuits Basics`,
+`247:# Milestone 0.6 — Power, Efficiency, Thermal`, `286:# Milestone 0.7 — Materials, Failure, and Selection`,
+`360:# Milestone 0.8 — Manufacturing Processes + DFMA`, `425:# Milestone 0.9 — Mechanisms & Kinematic Elements + Physical Testbed`,
+`516:# Milestone 0.10 — Metrology + Measurement Uncertainty`, `580:# Phase 0 Deload / Synthesis`,
+`594:## Phase 0 Retro`. Rationale pinned: bare `^# ` yields 11 (misses 0.1's `##`);
+bare `^#+ ` yields 62 (all subheads) — both wrong, hence expected-output diff (spans re-verified
+at build, never trusted from this map). Output filenames follow the scheme
 `<dir>/0.N-<kebab-from-section-heading>.md` (slugs derived at build from the section
 headings above by PINNED algorithm — FIRST strip everything through the first ` — `
 (em-dash), i.e. drop the `Milestone 0.N` prefix; THEN lowercase, `[^a-z0-9]+` → single
 hyphen, strip leading/trailing hyphens; e.g. `# Milestone 0.2 — Vectors, Trig, Frames of
 Reference` → `vectors-trig-frames-of-reference` — no invented names, two executors emit
-identical paths); each new dir gets a `README.md` index.
+identical paths; emitted paths must match `^[a-z0-9-]+$` per path segment (builder asserts,
+aborts otherwise); each new dir gets a `README.md` index.
 `00_foundations.md` itself becomes a redirect index (no checkboxes — evidence backlinks
-keep resolving; retains lines 1–24 + 47–49 plus pointers to every split file; lab owns 25–46). Pre-move READMEs (exact list — `Mechatronics/firmware/README.md`,
+keep resolving; retains lines 1–24 + 47–49 plus pointers to every split file; lab owns 25–46
+and 578–599 INCLUDING Retro :594–599 — Retro moves with the Deload block, nothing stays put
+except the redirect index). Pre-move READMEs (exact list — `Mechatronics/firmware/README.md`,
 `Mechatronics/firmware/esp32/README.md`, `Mechatronics/firmware/stm32/README.md`,
 `Mechatronics/simulations/python/README.md`, `Mechatronics/simulations/ltspice/README.md`;
 NO top-level `Mechatronics/simulations/README.md` exists),
@@ -210,7 +216,10 @@ Structural fixes (all mandatory; numbered for reference — execution follows §
    after `# EXEMPT ` for check vs rest); pre-existing em-dash entries grandfathered until expiry,
    then rewritten in hyphen form; the builder creates entries with expiry (never open-ended;
    the gate FAILS on expired EXEMPT entries — expiry is enforcement, not decoration)
-   and verifies with `grep -n '^# EXEMPT [a-z]' scripts/diagnose.py` (lowercase-check-name anchor skips the prose header line; the live Reading-tracker entry is grandfathered verbatim until its expiry, then rewritten in hyphen form).
+   and verifies with `grep -nE '^# EXEMPT [a-z]+:' scripts/diagnose.py` (`-E` REQUIRED — BRE `+`
+   is literal; lowercase-check-name + colon anchor matches entries like `# EXEMPT broken: …`
+   and skips the prose header `# EXEMPT carried failures (…)` — verified live: entry matches,
+   header doesn't; negative pinned: header must NOT match).
    Migration script rewrites the 37 ROADMAP milestone rows, records old targets as
    HTML comments `<!-- was: <old-link-target> -->` (whole-file sources are fine — today
    rows carry no `#fragment`, so `<old-link-target>` = the previous link target string;
@@ -341,7 +350,8 @@ excluding those reachable from the previous taggerdate-ordered tag. Pinned proce
 (the check runs BEFORE the tag is minted, so the range ends at HEAD): list
 `git for-each-ref --sort=-taggerdate --format='%(refname:short)' refs/tags` (newest first),
 keep ONLY tags with `git merge-base --is-ancestor <tag> HEAD` true (topology guard — tags from
-other lineages never enter the range), take the FIRST such tag (newest HEAD-ancestor by taggerdate)
+other lineages never enter the range) AND non-empty taggerdate (lightweight tags excluded —
+empty dates sort undefined, never silently become `<prev>`), take the FIRST such tag (newest HEAD-ancestor by taggerdate)
 as `<prev>`; then `git log <prev>..HEAD --oneline` is the range (no previous tag =
 range is HEAD's full history). Post-mint audit form (tags exist by then, pinned separately):
 `git log <prev-tag>..<tag> --oneline` with both tags resolved via `for-each-ref`. After green,
@@ -392,7 +402,9 @@ item 6 is the monthly detective audit, not a mint gate — it runs on schedule r
    the lens rule — any touched milestone MISSING its lens block, or any `status: proposed`
    lens in one, fails the gate (checked inside `diagnose.py`, not by hand; skill IDs are
    scanned on `Skills gained` + `Requires:` lines; lens blocks parsed on the exact header
-   `Lenses - m0-N`); verbatim MOVES (content unchanged — verified mechanically: builder diffs
+   `Lenses - m0-N` — N = the milestone number of the enclosing section (matches its `<a id>` anchor);
+   lens blocks THEMSELVES are exempt from lens-presence (they ARE the lens — no bootstrap paradox);
+   verbatim MOVES (content unchanged — verified mechanically: builder diffs
    each moved file against its source span IGNORING redirect-header lines,
    `diff <(sed '/^# Moved -> /d' newfile) <(sed -n '<start>,<end>p' oldfile)` must be empty (spans from the cut map above))
    are EXEMPT from lens-presence
@@ -414,6 +426,8 @@ item 6 is the monthly detective audit, not a mint gate — it runs on schedule r
 6. Direct-`git-tag` bypass is detectable, not preventable: monthly (VAULT POLICY cadence)
    `bash scripts/audit-tags.sh` (ABSENT — created here: lists tags lacking gate receipts in
    `scripts/tests/receipts/<tag>.json`, exit 1 printing one per line, exit 0 when clean;
+   gate-ship date (pinned at §4 landing in `Changelog/` as `Gate shipped: <YYYY-MM-DD>`) divides
+   pre-gate tags (expected `-unaudited`, not defects) from post-gate tags (must have receipts);
    on each run it ALSO re-runs the §3 taggerdate comparison for all registry rows)
    + agent rule — never attest a bypassed tag;
    bypassed tags get `-unaudited` registry note until re-earned.
@@ -427,9 +441,11 @@ control `audit-tags.sh` (harness creates an annotated fixture tag named `fixture
 in a temp CLONE — never a shared worktree — runs the audit, expects exit 1 listing it,
 then deletes the clone); refusal-7 → item-3 sub-check, skill-order violation with prerequisite
 taggerdate after claimant, backdated via `GIT_AUTHOR_DATE`/`GIT_COMMITTER_DATE` env in a temp
-CLONE (same isolation — shared worktrees share refs), run by
-`bash scripts/test-gate.sh` (ABSENT — created here) expecting 9/9. 9/9 or red. Fixture layout:
-each `refusal-N/` holds input files + `expected-exit` (single int) + `expected-stderr-fragment` (substring match); `clean/`
+CLONE (same isolation — shared worktrees share refs; fixture tags named `fixture/order-a` +
+`fixture/order-b` with fixed dates `2026-01-02`/`2026-01-03`), run by
+`bash scripts/test-gate.sh` (ABSENT — created here) expecting 9/9 (exit 0 on 9/9, else 1). 9/9 or red. Fixture layout:
+each `refusal-N/` holds input files + `expected-exit` (single int) + `expected-stdout-fragment`
++ `expected-stderr-fragment` (both substring matches); `clean/`
 holds passing inputs. Skill-checking fixtures share one `fixtures/registry.md` (single shared fixture registry, no per-fixture copies); the harness selects registries via env `SKILL_REGISTRY=<path>` (default: the real registry). Harness isolation (pinned pseudo-code — implementer writes the trap): make temp dir, `git clone` the vault `file://` URL into it, run the gate there, delete the dir even on failure.
 
 ## 5. Engram topics — engine-native WIP, JIT-cut, capstone-only builds
