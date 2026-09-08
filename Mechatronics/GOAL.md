@@ -1,4 +1,4 @@
-# GOAL — QDD 2-DOF arm (DRAFT — pass-1 scaffold, unconfirmed)
+# GOAL — QDD 2-DOF arm (CONFIRMED 2026-09-08 — user-confirmed; parameterization authorized)
 
 - **Name:** QDD 2-DOF arm
 - **Actuator type:** quasi-direct-drive (BLDC + low-ratio planetary gearbox + dual encoders — see Phase-3 QDD artifact in [[Mechatronics/milestones/03_mech_pcb_verification|03 ⁠— Model-Based Design & Verification]])
