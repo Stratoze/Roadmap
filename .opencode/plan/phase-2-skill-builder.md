@@ -103,7 +103,7 @@ rows — owned by THIS task, so §3 fills an existing file); pass 2 (post-confir
   rig reuse, `Mechatronics/milestones/02_embedded_realtime_control.md:60,77,356-368` 2-DOF model,
   `Mechatronics/milestones/05_portfolio_delivery.md:13` QDD pedestal, ROADMAP Feeds-into claims).
 - Skills persist: registry rows keep `Evidence tag` + `Goal era` column (§3); pre-swap rows
-  BACKFILLED (acceptance audit: `awk -F'|' 'NR>2 && $5 ~ /^[[:space:]]*$/ {c++} END {print c+0}' Mechatronics/skills/registry.md`
+  BACKFILLED (acceptance audit: `awk -F'|' 'NR>4 && $5 ~ /^[[:space:]]*$/ {c++} END {print c+0}' Mechatronics/skills/registry.md` (NR>4 skips title/header/separator/blank — header itself matches the empty-cell pattern)
   returns 0 empty cells — NR>2 skips header+separator, `$5` is the `Goal era` column; zero null `Goal era`); tags minted pre-swap stay valid history.
   Tag grammar (PINNED — one dialect everywhere): evidence tags match
   `^([a-z0-9]+(-[a-z0-9]+)*-)?m[0-9]+\.[0-9]+-(mvm|full)$` (post-swap tags carry the `<goal>-` prefix,
@@ -136,9 +136,15 @@ title+Outcome+Pass Condition 1–49 EXCEPT lines 25–46 (owned by `lab/`, point
 0.1 → 50–96; 0.2 → 97–133; 0.3 → 134–167;
 0.4 → 168–208; 0.5 → 209–246; 0.6 → 247–285; 0.7 → 286–359; 0.8 → 360–424;
 0.9 → 425–515; 0.10 → 516–577 (body ends 577; separators 578–579; Deload header at 580); Deload 578–599.
-Split rule: builder re-runs `grep -n "^#\\+ "` and expects exactly 12 hits (eleven `#` +
-0.1's `##`; bare `^# ` misses 0.1 — never use it), aborting on ANY span
-mismatch (spans re-verified, never trusted from this map). Output filenames follow the scheme
+Split rule: builder runs `grep -nE "^#+ (Phase 0|Milestone 0)"` and diffs FULL output against
+this pinned expectation (13 lines — title + 10 milestones + Deload + Retro; Retro stays put,
+everything else moves):
+`2:# Phase 0`, `50:## Milestone 0.1`, `97:# Milestone 0.2`, `134:# Milestone 0.3`,
+`168:# Milestone 0.4`, `209:# Milestone 0.5`, `247:# Milestone 0.6`, `286:# Milestone 0.7`,
+`360:# Milestone 0.8`, `425:# Milestone 0.9`, `516:# Milestone 0.10`, `580:# Phase 0 Deload`,
+`594:## Phase 0 Retro`. ANY mismatch (lines or numbers) aborts the split (spans re-verified,
+never trusted from this map). Rationale pinned: bare `^# ` yields 11 (misses 0.1's `##`);
+bare `^#+ ` yields 62 (all subheads) — both wrong, hence expected-output diff. Output filenames follow the scheme
 `<dir>/0.N-<kebab-from-section-heading>.md` (slugs derived at build from the section
 headings above by PINNED algorithm — FIRST strip everything through the first ` — `
 (em-dash), i.e. drop the `Milestone 0.N` prefix; THEN lowercase, `[^a-z0-9]+` → single
@@ -154,7 +160,7 @@ NO top-level `Mechatronics/simulations/README.md` exists),
 `template_*.py` (`Mechatronics/simulations/python/template_plot_csv.py`,
 `Mechatronics/simulations/python/template_simulation.py`) — each gets: merge as dir
 index / move with redirect header / delete-with-log-line, per-file choice listed in the
-build commit. Redirect header format (PINNED): `# Moved → [[<target>]] (<date>, <reason>)`.
+build commit. Redirect header format (PINNED): `# Moved -> [[<target>]] (<date>, <reason>)` (ASCII hyphens-minus only — never U+2192).
 Log destination for every deletion/move: `Changelog/` entry + build commit message.
 Single exception: Daily history links rot by design (immutable Daily files, no redirects).
 Dir column is relative to `Mechatronics/` (e.g. `software/` = `Mechatronics/software/`).
@@ -177,7 +183,7 @@ otherwise (table Dir column = relative to `Mechatronics/`):
 Structural fixes (all mandatory; numbered for reference — execution follows §7):
 
 1. **Primacy:** ROADMAP table is the ONLY ✅. Domain `Index.md` files are links-only
-   (≤7 link-target entries — VAULT POLICY cap — no status, no checkboxes). "Domain" = the three
+   (≤7 link-target entries — VAULT POLICY cap, tables included (an ownership table's links count) — no status, no checkboxes). "Domain" = the three
    hub Indexes carrying navigation (`Mechatronics/Index.md`, `Science/Index.md`,
    `DataScience/Index.md`); counting unit = `[[link targets]]`. Includes trimming `Mechatronics/Index.md`
    (19 link targets today) with per-line dispositions in the build commit. Milestone bodies keep checkboxes with header:
@@ -204,7 +210,7 @@ Structural fixes (all mandatory; numbered for reference — execution follows §
    after `# EXEMPT ` for check vs rest); pre-existing em-dash entries grandfathered until expiry,
    then rewritten in hyphen form; the builder creates entries with expiry (never open-ended;
    the gate FAILS on expired EXEMPT entries — expiry is enforcement, not decoration)
-   and verifies with `grep -n '^# EXEMPT' scripts/diagnose.py`.
+   and verifies with `grep -n '^# EXEMPT [a-z]' scripts/diagnose.py` (lowercase-check-name anchor skips the prose header line; the live Reading-tracker entry is grandfathered verbatim until its expiry, then rewritten in hyphen form).
    Migration script rewrites the 37 ROADMAP milestone rows, records old targets as
    HTML comments `<!-- was: <old-link-target> -->` (whole-file sources are fine — today
    rows carry no `#fragment`, so `<old-link-target>` = the previous link target string;
@@ -255,8 +261,9 @@ Structural fixes (all mandatory; numbered for reference — execution follows §
   skills explicitly deferred — conferred via their domains' milestone files (MVM/Full pairs
   there), never the registry, until those domains onboard; item 3 resolves registry IDs only,
   milestone-file skill lines get format-checks only). Phase rows may carry `pN-complete`
-  tags in `Evidence tag` (the column accepts EITHER tag form — existence check tries both
-  regexes); milestone/project rows carry m-form tags.
+  tags in `Evidence tag` (phase rows are EXEMPT from skill-ID/era checks — they aggregate milestones, confer nothing; the column accepts EITHER tag form — existence check tries both
+   regexes; project rows list BOTH tags comma-separated `mvm-tag, full-tag`, each checked)
+  regexes); milestone/project rows carry m-form tags. Deferred-domain (piano/japanese/data) milestone skill lines get format-checks ONLY until those domains onboard (resolution-against-registry deferred with the domains — never a mint-blocker for mech/software).
 - Schema: `| Skill ID | Name | Evidence tag | Goal era | Project | Requires |`
   (registry CELLS: comma-separated prerequisite skill IDs, or EMPTY for true entry
   points — 0.1-level — only; a missing file-level `Requires:` line = blank = fail. The explicit
@@ -277,7 +284,7 @@ Structural fixes (all mandatory; numbered for reference — execution follows §
   skill lines in dash form `- <id> - <name> (tag <tag>, Goal era <era>)` (ASCII hyphens —
   legacy `—`/`→` lines are normalized (em-dash U+2014 → `-`, `→` → `->`) then matched, never
   rejected for dashes alone; then matches extraction regex
-  `^- ([a-z0-9]+(-[a-z0-9]+)*) - .*\(tag ([^,]+), Goal era ([^)]+)\)$` — one skill per line
+  `^- ([a-z0-9]+(-[a-z0-9]+)*) - .*\(tag ([^,]+), Goal era (.+)\)$` — one skill per line
   under the heading (VAULT POLICY cardinality)):
   `- sw-py-csv-plot - CSV to PlotJuggler (tag m1.1-mvm, Goal era qdd-arm (2026-08-))`
   (`Evidence tag` column holds TAGS matching the pinned tag regex; `Evidence:` lines hold
@@ -347,7 +354,7 @@ item 6 is the monthly detective audit, not a mint gate — it runs on schedule r
    (`m0.1-fullpass` — the only entry; never extended without a registry-header-style amendment).
    Order: mint annotated+signed FIRST (`git tag -s -a`), THEN `git tag -v <tag>` must verify
    (lightweight tags fail here too) — on verify-fail, delete the tag and refuse the receipt
-   (mint-then-verify; pre-mint `tag -v` is impossible since the tag doesn't exist yet).
+   (mint-then-verify; pre-mint `tag -v` is impossible since the tag doesn't exist yet; on ANY item 0-5 failure post-mint, delete the tag and refuse the receipt — no stray tags ever).
 
 1. Build+lint table (pinned in the script; CODE extensions = `py|c|h|cpp|hpp|jl|sh` with rows:
    `py` → `ruff check` + `ruff format --check`; `c/h/cpp/hpp` → `clang-tidy`; `sh` → `bash -n`;
@@ -371,8 +378,8 @@ item 6 is the monthly detective audit, not a mint gate — it runs on schedule r
    README `## Pass` heading or milestone `## Pass Condition`), e.g.
    `- Evidence: Mechatronics/docs/captures/2026-09-07_hbridge-loss.png`
    Every listed path exists on disk. Freeform checkboxes are NOT parsed.
-3. Skills: `## Skills gained` line present with COUNT ≥ 1 (VAULT POLICY coverage gate — same
-   rule as §1, enforced here), plus a `Requires:` line
+3. Skills: every tagged file carries a `## Skills gained` line with COUNT ≥ 1 (VAULT POLICY coverage gate — same
+   rule as §1, enforced here — per-FILE scope: each file under tag must contain ≥1 skill line), plus a `Requires:` line
    (entry-point form allowed, blank forbidden); every ID matches §3 regex AND resolves
    in the registry; every registry row touched has non-null `Goal era` matching the era
    format (`pre-GOAL` or the pinned `<slug> (<range>)` — format-checked, not just non-null)
@@ -387,7 +394,7 @@ item 6 is the monthly detective audit, not a mint gate — it runs on schedule r
    scanned on `Skills gained` + `Requires:` lines; lens blocks parsed on the exact header
    `Lenses - m0-N`); verbatim MOVES (content unchanged — verified mechanically: builder diffs
    each moved file against its source span IGNORING redirect-header lines,
-   `diff <(sed '/^# Moved → /d' newfile) <(sed -n '<start>,<end>p' oldfile)` must be empty)
+   `diff <(sed '/^# Moved -> /d' newfile) <(sed -n '<start>,<end>p' oldfile)` must be empty (spans from the cut map above))
    are EXEMPT from lens-presence
    (new/edited content is not).
 5. Attestation: dated blank-page test note, e.g.
