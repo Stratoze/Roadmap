@@ -225,7 +225,7 @@ Structural fixes (all mandatory; numbered for reference — execution follows §
    Pinned scope vocabulary: `math:`, `physics:`, `mechanical:`, `electronics:`, `software:`, `lab:`
    for domain work, `vault:` for cross-cutting changes (no other scopes without amendment).
 2. **Anchors:** every milestone gets `<a id="m0-N"></a>` (`m0-1`…`m0-10` — resolvers match
-   full IDs, never prefixes, since `m0-1` prefixes `m0-10`; scope = Phase-0 pilot milestones only); ROADMAP + all new notes link
+   full IDs, never prefixes, since `m0-1` prefixes `m0-10`; scope = Phase-0 pilot milestones only — Phase-1+ anchors (`m1-N`) are minted going forward with lens blocks per §4 item 4, not here); ROADMAP + all new notes link
    `#m0-N` only (Phase-0 rows only — the other 27 ROADMAP rows keep whole-file links (count as of 2026-09-08 — re-count pre-migration); migration
    touches Phase-0's 10 rows). Numbered for reference only — execution follows §7, NOT this item order.
    EXEMPT entries (format PINNED: `# EXEMPT <check>: <target> - <reason> - expires <YYYY-MM-DD>`
@@ -363,12 +363,12 @@ Invocation: `bash scripts/milestone.sh <tag> "<msg>"` (with `ENGRAM_HOME` export
 `_system/engram/env.example.sh` — every gate command below inherits it); dry run:
 `bash scripts/milestone.sh --dry-run <tag> "<msg>"` (flag first, tags nothing).
 On success the script MUST write `scripts/tests/receipts/<tag>.json`
-(checks run + versions + result — schema PINNED: `{"tag": str, "range": "<prev>..<tag>", "checks": [{"name": str,
+(checks run + versions + result — schema PINNED: `{"tag": str, "range": "<prev>..<tag>" | "HEAD", "checks": [{"name": str,
 "result": "pass"|"fail", "detail": str}], "versions": {tool: version}, "result": "pass"|"fail"}`)
 — the file `audit-tags.sh` consumes (match rule: receipt exists + `result == "pass"`;
 exit 0 lists clean, exit 1 prints missing/failing tags, one per line).
-Touched files for `--dry-run` = staged + unstaged + untracked working-tree files; for MINT runs, evidence must be committed first (save.sh), so touched = files in `<prev>..HEAD` (range-committed join) + staged (must be empty post-save); untracked non-ignored files at mint = refuse. Touched files = staged + unstaged + untracked working-tree files for `--dry-run` only:
-(`git status --short --untracked-files=all` — `??` lines count as touched); the mint run checks the SAME set (working tree as it stands pre-tag).
+Touched files for `--dry-run` = staged + unstaged + untracked working-tree files
+(`git status --short --untracked-files=all` — `??` lines count as touched). For MINT runs, evidence must be committed first (save.sh), so touched = files in `<prev>..HEAD` (range-committed join) + staged (must be empty post-save); untracked non-ignored files at mint = refuse.
 For audits, the tag's commit range = commits reachable from the tag
 excluding those reachable from the previous taggerdate-ordered tag. Pinned procedure
 (the check runs BEFORE the tag is minted, so the range ends at HEAD): list
