@@ -321,7 +321,8 @@ Structural fixes (all mandatory; numbered for reference — execution follows §
   {`sw`, `ee`, `mech`, `lab`} (one shard per prefix); `registry.md` becomes the index
   (schema + shard list), rows move to shards, IDs never change on sharding.
 - `Skills gained` format (gate-parseable — exact heading `## Skills gained`, case-sensitive —
-  skill lines in dash form `- <id> - <name> (tag <tag>, Goal era <era>)` (ASCII hyphens —
+  skill lines in dash form `- <id> - <name> (tag <ONE-tag>, Goal era <era>)` — file lines carry a
+  SINGLE current tag (registry project rows may list both post-Full; file lines never do); (ASCII hyphens —
   legacy `—`/`→` lines are normalized (em-dash U+2014 → `-`, `→` → `->`) then matched, never
   rejected for dashes alone; then matches extraction regex
   `^- ([a-z0-9]+(-[a-z0-9]+)*) - .*\(tag ([^,]+), Goal era (.+)\)$` — one skill per line
@@ -331,7 +332,8 @@ Structural fixes (all mandatory; numbered for reference — execution follows §
   PATHS — different grammars, both required where specified.)
   File-level rule (registry CELLS are separate: comma-separated IDs, or empty for entry points only):
   `Requires:` line (ONE per `Skills gained` block — VAULT POLICY cardinality — immediately-next non-blank line after the
-  block's LAST skill line — per-block, not per-skill) directly below (same heading, gate-parseable):
+  block's LAST skill line — per-block, not per-skill; TOUCHED-ROW rule: a registry row counts as touched iff its Skill ID appears
+  in a touched file's `Skills gained` block (whole-file scan when `registry.md` itself is touched)) directly below (same heading, gate-parseable):
   `Requires: sw-py-venv, sw-py-uncertainty-mean` (or `Requires: — (entry point)`).
 - Foundation milestones declare their bare-minimum skill sets in the same registry
   (evidence = milestone tags). Registry answers "what can I do, proven by what".
@@ -433,7 +435,8 @@ item 6 is the monthly detective audit, not a mint gate — it runs on schedule r
    rule as §1, enforced here — positive file-set PINNED: `Mechatronics/milestones/*.md` + split `math|physics|mechanical|electronics|software|lab/*.md` + `software/*/README.md`; every other `.md` is out-of-scope for this item (no EXEMPT line needed); per-FILE scope: each in-scope file under tag must contain ≥1 skill line), plus a `Requires:` line
    (entry-point form allowed, blank forbidden); every ID matches §3 regex AND resolves
    in the registry; every registry row touched has non-null `Goal era` matching the era
-   format (`pre-GOAL` or the pinned `<slug> (<range>)` — format-checked, not just non-null)
+   format (`pre-GOAL` or the pinned `<slug> (<range>)` — format-checked, not just non-null;
+   except phase rows, which are EXEMPT from skill-ID/era checks per §3)
    and its Evidence-tag value exists as a minted tag (ancestry-checked: `git merge-base
    --is-ancestor <evidence-tag> HEAD` must pass — orphan-history tags prove nothing about HEAD),
    OR equals the tag being minted
@@ -448,6 +451,8 @@ item 6 is the monthly detective audit, not a mint gate — it runs on schedule r
    lens in one, fails the gate (checked inside `diagnose.py`, not by hand; skill IDs are
    scanned on `Skills gained` + `Requires:` lines; lens blocks parsed on the exact header
    `Lenses - m0-N` — N = the milestone number of the enclosing section (matches its `<a id>` anchor);
+   for unsplit Phase 1+ milestones the anchor is minted WITH the lens block (`<a id="m1-N">` on the
+   line directly above it — same commit, no dangling refs);
    lens blocks THEMSELVES are exempt from lens-presence (they ARE the lens — no bootstrap paradox);
    verbatim MOVES (content unchanged — verified mechanically: builder diffs
    each moved file against its source span IGNORING redirect-header lines,
@@ -456,10 +461,11 @@ item 6 is the monthly detective audit, not a mint gate — it runs on schedule r
    (new/edited content is not).
 5. Attestation: dated blank-page test note, e.g.
    `Mechatronics/math/0.2-attest-2026-09-07.md`
-   (`<domain>/0.N-attest-<date>.md`, domain = split dir owning the milestone (Phase 0);
+   (`<domain>/0.N-attest-<date>.md`, domain = split dir owning the milestone (Phase 0) —
+   full form `Mechatronics/<dir>/0.N-attest-<date>.md`;
    for unsplit Phases 1–3: `Mechatronics/milestones/<file-stem>-attest-<date>.md`, e.g.
    `01_signals_actuators_dynamics-attest-2026-09-07.md`; for software projects:
-   `<project>/attest-<date>.md`; `<date>` = YYYY-MM-DD):
+   `Mechatronics/software/<project>/attest-<date>.md`; `<date>` = YYYY-MM-DD):
    re-solve from memory with NO reread/rewatch before solving (cold-recall-first);
    gaps red-penned; Full Pass note MUST carry the pinned line `Prior attempt: <YYYY-MM-DD|tag>`
    (VAULT POLICY: same-day echo fails the gate — enforces spacing; the gate parses exactly this
@@ -579,11 +585,12 @@ exception and land ONLY as topic capstones, never as parallel vault structure):
   5–15 min per node. Builds land ONLY as topic capstones
   (engine capstone semantics, receipt `kind:transfer`). Vault linkage = registry
   Evidence-tag + `Goal era` columns and session-log lines — NEVER `transfer_probe` text
+  (VAULT POLICY linkage rule — transfer linkage lives in registry columns + logs only)
   (stays None) or parallel checkboxes. Any node reviewable only by opening a README
   is malformed.
 - **Language-project loop (§3 carve-out — VAULT POLICY: generation-first practice; applies to EVERY topic with builds, incl.
   future piano/japanese projects):** user writes the code/piece/text; AI reviews errors +
-  best practices and NEVER writes the solution (scaffolds only — How-to-Learn Yellow zone).
+  best practices and NEVER writes the solution (VAULT POLICY generation-first rule: scaffolds only — How-to-Learn Yellow zone).
   Each project carries its own MVM/Full Pass pair (in README `## Pass` for code, in the
   topic's milestone file for piano/japanese) with distinct evidence tags; the AI review
   note is filed as evidence and linked from `## Pass`.
@@ -599,7 +606,8 @@ rule, not an empirical claim; authoritative, veto-gated, generation-first)
 
 Resource-block format per milestone (pilot: Phase-0 files only; plain-text lines directly
 under the per-milestone Resources callout — NOT a separate callout; `<milestone id>` dialect
-PINNED to the anchor scheme `m0-N`, canonical first line `Lenses - m0-2` (HYPHEN form —
+PINNED to the anchor scheme `m0-N` (Phase 0) / `m1-N` (Phase 1+, minted with the block — see item 4),
+canonical first line `Lenses - m0-2` (HYPHEN form —
 gate normalizes em-dash U+2014 → `-` first, then matches; typists use hyphen, never em-dash):
 
 ```
@@ -622,7 +630,7 @@ escape: `waived` + reason logged in the lens block + `Changelog/` (affordance-no
 sole escape path, exactly ONE (VAULT POLICY count — no second waiver form exists)) — a user-signed decision,
 never a default. AI-generated video is NEVER a lens (VAULT POLICY sourcing rule — no AI-channel
 lenses, period); if proposed, drop it and chat directly.
-Protocol per topic (generation-first — predict precedes the first watch turn; watch
+Protocol per topic (generation-first — VAULT POLICY order: predict precedes the first watch turn; watch
 NEVER comes before a prediction):
 predict/commit → watch segment → self-explain aloud → blank-page reconstruction →
 fresh-probe verify (probe → confidence pick → blind assessor → receipt) → project.
