@@ -10,7 +10,7 @@ Incorporates: vault-structure + load/sustainability evaluations (2026-09-07) AND
 plan-review rounds. Where this file contradicts those evaluations, this file governs
 and says why. Reference convention: §X item N = the check numbered N (gate items are
 0-based: §4 item 0 is the first check, tag format).
-File:line citations are repo-root-relative paths + current line numbers (re-check: rot fast). Runner for all engram operations: `$ENGRAM_RUNNER` (per-machine env — Mac `python3 ~/engram/scripts/engram.py`, Win `python3 ~/.config/opencode/scripts/engram.py`; see `_system/engram/env.example.sh`. NEVER hardcode either path)
+File:line citations are repo-root-relative paths + current line numbers (re-check: rot fast). Runner for all engram operations: `$ENGRAM_RUNNER` (per-machine env — Mac `python3 $HOME/engram/scripts/engram.py`, Win `python3 $HOME/.config/opencode/scripts/engram.py` — `$HOME` form, NEVER `~` (tilde never expands after parameter expansion or inside quotes — verified crash); see `_system/engram/env.example.sh`. NEVER hardcode either path)
 (subcommands `due`, `topics`, `session-start`, `doctor`, `add-topic`,
 `edit-node`, `retire`, `rate`, `receipt`, `selftest`). Invoke scripts as
 `bash scripts/<name>.sh` (works regardless of the +x bit). Windows runners MUST export
@@ -38,14 +38,14 @@ verified crash without it; see `_system/engram/env.example.sh`).
   CONVENTIONS arm frame defaults (`Mechatronics/resources/CONVENTIONS.md:46-55`): §1 parameterization tasks are mandatory,
   not cosmetic (scaffold-first per §1 — mass parameterization deferred to pass 2).
 - Engram (LANDED vault store — `_system/engram/`, 13 topics / 270 nodes / 258 `new` /
-  0 repo receipts as of 2026-09-08; mark universe wherever counts gate anything):
+  0 repo receipts as of 2026-09-08 — counts re-verified at build, never trusted from here;
   reconciled 340 HOLD / 14 PORT (`mech-spine`, Mac) / 0 DROP; resits ~zero (all Win
   receipts pre-divergence, Win nodes adopted in place). ENGINE_PIN green (engine sha
   FULL match both sides, verified 2026-09-08). WIP caps below evaluate against THIS store
   and THIS store only (no separate-universe gating — the pre-landing split is over).
   Pre-landing state: the 12-topic Win source had 244 `new` and TODAY violates the §5 WIP
   gate — no landings until the backlog burn-down (below) brings the
-  landing topic ≤20 or a per-batch JIT-override is signed.
+  landing topic ≤20 (the VAULT POLICY per-topic cap) or a per-batch JIT-override is signed.
   Dedupe targets (claim-overlap, verified): `fbd-statics`/`static-equilibrium`/`fbd-draw`
   (statics equilibrium phrasing across mech topics — ONE `static-equilibrium` node exists,
   no literal ×2) + Japanese verb cluster (7 nodes: `jp-verb-groups`, `jp-masu-polite`,
@@ -53,8 +53,9 @@ verified crash without it; see `_system/engram/env.example.sh`).
   `kind` absent on 34 nodes (absent ⇒ `concept` per architect — caveat: absent +
   `arbitrary:true` ⇒ `fact`; audit content, only true fresh-instance procedures earn
   `procedure` + `practice` frames with engine-native `problem_frame` + `verify` +
-  `error_bank`, plus `contrasts_with` edges for discrimination — `discriminates_from`
-  appears only in a code comment nothing reads; "execution key" is no field).
+  `error_bank` (+ `discriminates_from`, which IS engine-documented/preserved/due-carried
+  but only individually unvalidated — sole presence-check is `problem_frame`; prefer
+  `contrasts_with` edges for confusable pairs, which carry hygiene filtering).
   Commitment cue (per `learner-model.json`: cue "lunch or the afternoon tomorrow",
   action "clear the engram reviews"): OFFER an event anchor once at `/learn` close
   (`/coach` only if a renewal is due — interval ARBITRARY) and store the verbatim answer
@@ -100,7 +101,8 @@ rows — owned by THIS task, so §3 fills an existing file); pass 2 (post-confir
   Tag grammar (PINNED — one dialect everywhere): evidence tags match
   `^([a-z0-9]+(-[a-z0-9]+)*-)?m[0-9]+\.[0-9]+-(mvm|full)$` (post-swap tags carry the `<goal>-` prefix,
   e.g. `cnc-m3.1-mvm`, `qdd-arm-m3.1-mvm`; `m0.1-fullpass` grandfathered, never rewritten). `Goal era` format
-  (gate-checked): `pre-GOAL`, or `<slug> (<YYYY-MM>[–<YYYY-MM>]?)` — trailing-dash open ranges
+  (gate-checked against the pinned era regex
+  `^(pre-GOAL|[a-z0-9]+(-[a-z0-9]+)* \([0-9]{4}-[0-9]{2}(–[0-9]{4}-[0-9]{2}|–)?\))$`): `pre-GOAL`, or `<slug> (<YYYY-MM>[–[<YYYY-MM>]])` — trailing-dash open ranges
   (`qdd-arm (2026-08–)`) are legal; with `<slug>` pinned in GOAL.md
   (today `qdd-arm (2026-08–)`); the dash may be hyphen-minus or en-dash U+2013 (gate normalizes
   U+2013 → `-` first — Win keyboards type hyphen). No tag retire rule.
@@ -123,7 +125,9 @@ with VERIFIED line spans of `Mechatronics/milestones/00_foundations.md` (599 lin
 title+Outcome+Pass Condition 1–49 EXCEPT lines 25–46 (owned by `lab/`, pointer left behind);
 0.1 → 50–96; 0.2 → 97–133; 0.3 → 134–167;
 0.4 → 168–208; 0.5 → 209–246; 0.6 → 247–285; 0.7 → 286–359; 0.8 → 360–424;
-0.9 → 425–515; 0.10 → 516–577 (body ends 577, `---` at 578); Deload 578–599. Output filenames follow the scheme
+0.9 → 425–515; 0.10 → 516–577 (body ends 577; separators 578–579; Deload header at 580); Deload 578–599.
+Split rule: builder re-runs `grep -n "^# " on the file pre-split and aborts on ANY span
+mismatch (spans re-verified, never trusted from this map). Output filenames follow the scheme
 `<dir>/0.N-<kebab-from-section-heading>.md` (slugs derived at build from the section
 headings above by PINNED algorithm — lowercase, `[^a-z0-9]+` → single hyphen, strip
 leading/trailing hyphens, e.g. "Vectors, Trig, Frames of Reference" →
@@ -157,7 +161,7 @@ otherwise (table Dir column = relative to `Mechatronics/`):
   `software/<kebab-project>/`. One rule, no per-board top-level dirs.
 | `lab/` | 0.10 (516–577) + Phase-0 Pass/Deload (lines 25–46 and 578–599 of `Mechatronics/milestones/00_foundations.md` at time of writing — 578–599 covers photo, `versions.sh`, Retro) + SAFETY_CARD + CONVENTIONS + inventory refs | metrology + shared discipline |
 
-Structural fixes (all mandatory, in this order):
+Structural fixes (all mandatory; numbered for reference — execution follows §7):
 
 1. **Primacy:** ROADMAP table is the ONLY ✅. Domain `Index.md` files are links-only
    (≤7 link-target entries — VAULT POLICY cap — no status, no checkboxes). "Domain" = the three
@@ -180,8 +184,14 @@ Structural fixes (all mandatory, in this order):
    for domain work, `vault:` for cross-cutting changes (no other scopes without amendment).
 2. **Anchors:** every milestone gets `<a id="m0-N"></a>` (`m0-1`…`m0-10` — resolvers match
    full IDs, never prefixes, since `m0-1` prefixes `m0-10`); ROADMAP + all new notes link
-   `#m0-N` only. Migration script rewrites the 37 ROADMAP milestone rows, records old slugs as
-   HTML comments `<!-- was: <old> -->` (Daily history immutable — old links rot by design).
+   `#m0-N` only. Numbered for reference only — execution follows §7, NOT this item order.
+   EXEMPT entries (format PINNED): `# EXEMPT <check>: <target> — <reason> — expires <YYYY-MM-DD>`
+   at the top of `scripts/diagnose.py`; the builder creates entries with expiry (never open-ended)
+   and verifies with `grep -n '^# EXEMPT' scripts/diagnose.py`.
+   Migration script rewrites the 37 ROADMAP milestone rows, records old targets as
+   HTML comments `<!-- was: <old-link-target> -->` (whole-file sources are fine — today
+   rows carry no `#fragment`, so `<old-link-target>` = the previous link target string;
+   Daily history immutable — old links rot by design).
    `diagnose.py` extension spec: resolve `<a id="X">` definitions; accept link forms
    `[[File#X]]`, `(file.md#X)`, `#X` (same-file — definition-side lookup, not a skip);
    skip code fences; skill IDs (scanned on `Skills gained` lines — exact heading spelling,
@@ -296,6 +306,7 @@ Tagging REFUSES (non-zero exit + reason) unless ALL pass:
 0. Tag format: `<tag>` matches the pinned tag regex `^([a-z0-9]+(-[a-z0-9]+)*-)?m[0-9]+\.[0-9]+-(mvm|full)$`
    OR `^p[0-9]-complete$` (phase gates, e.g. `p0-complete`), OR is on the pinned grandfather list
    (`m0.1-fullpass` — the only entry; never extended without a registry-header-style amendment).
+   Signing: `git tag -v <tag>` must verify (annotated+signed — lightweight tags fail here too).
 
 1. Build+lint table (pinned in the script; CODE extensions = `py|c|h|cpp|hpp|jl|sh` with rows:
    `py` → `ruff check` + `ruff format --check`; `c/h/cpp/hpp` → `clang-tidy`; `sh` → `bash -n`;
@@ -374,16 +385,19 @@ Preconditions (before ANY landing):
    scope approval.
 3. Kind audit: absent ⇒ concept (no blind backfill); true fresh-instance procedures earn
    `procedure` + `practice` frame with engine-native `problem_frame` + `verify` +
-   `error_bank` (+ `contrasts_with` edges for discrimination — NEVER `discriminates_from`
-   or "execution key", which §0 establishes as non-fields).
-   Counts include capstones (say capstone count in reports).
+   `error_bank` (+ `discriminates_from` allowed — engine-documented and due-carried, only
+   individually unvalidated; `contrasts_with` preferred for confusable pairs; gate WARNS
+   on missing discrimination info, never fails — "execution key" is no field, never require it).
+   Counts include capstones (this VAULT POLICY coverage rule counts capstones inside `new` —
+   say capstone count in reports).
 
 WIP policy (VAULT POLICY, not engine law — the engine permits new work with dues
 outstanding; this policy trades speed for habit protection, overrideable):
 
 - Default refuse landing while `due --cap 12` returns a full page (`n` = 12 means "12 or
   more" — the capped query cannot distinguish; proceed only on `n` < 12, strictly fewer),
-  or the landing topic's own `states.new` > 20 (`12` = engine STANDARD_CAP; `20` = VAULT POLICY,
+  or the landing topic's own `states.new` > 20 (`12` = engine STANDARD_CAP
+  (`engram.py:1241` — source-cited engine constant, not vault dosage); `20` = VAULT POLICY,
   ARBITRARY cap per landing topic; capstones count inside `new` — no exclusion arithmetic). No global-`new` gate (the
   258-`new` backlog burns down via the pre-step below, not via landing refusal).
 - Escape hatch (logged in the scope note's `Override:` field + user-sign line, per batch —
@@ -392,7 +406,8 @@ outstanding; this policy trades speed for habit protection, overrideable):
 - Backlog-clear pre-step (before first landing): capped review sittings
   (`due --cap 12`, cold free recall first — never rewatch/reread before the probe;
   amnesty-first as session-start sensibility — `RETURN_ABSENCE_DAYS=7`
-  is engine prose, not a command; the plan treats the `7` as ARBITRARY) until `due ≤ 12` or JIT-override signed.
+  is engine prose, not a command; the plan treats the `7` as ARBITRARY) until `due --cap 12`
+  returns `n` < 12 (strictly fewer — same rule as the landing gate) or JIT-override signed.
   Burn-down for `new`: dedupe via `analogous_to`-convention/`retire` + `doctor`
   (remediation step, counts toward the landing-topic ≤20 cap above) — 258 `new` across
   13 topics as of 2026-09-08, tracked per-topic in the build note.
@@ -424,14 +439,15 @@ exception and land ONLY as topic capstones, never as parallel vault structure):
   Each project carries its own MVM/Full Pass pair (in README `## Pass` for code, in the
   topic's milestone file for piano/japanese) with distinct evidence tags; the AI review
   note is filed as evidence and linked from `## Pass`.
-- Later:** `cpp-foundations`, `julia-viz` (post-stabilization = `due ≤ 12` at two
+- Later:** `cpp-foundations`, `julia-viz` (post-stabilization = `due --cap 12` returning `n` < 12 at two
   consecutive weekly checks — weekly cadence AND the count of two are both ARBITRARY;
   stabilization reviews run cold free recall first, same rule as dues; first stabilization review 2026-12,
   jointly with the 150-alarm review and quarterly audit — VAULT POLICY cadences), then
   `mech-software/electronics/mechanical` with `analogous_to` cross-links (cross-topic
   `requires` admitted unsupported).
 
-## 6. Video-first lenses (VAULT POLICY, authoritative, veto-gated, generation-first)
+## 6. Video-first lenses (VAULT POLICY section — every MUST/NEVER below is a vault sourcing
+rule, not an empirical claim; authoritative, veto-gated, generation-first)
 
 Resource-block format per milestone (pilot: Phase-0 files only; plain-text lines directly
 under the per-milestone Resources callout — NOT a separate callout; `<milestone id>` dialect
@@ -464,7 +480,7 @@ linking (no-established-educator cases logged). Explorable→rigorous rule: inte
 illustrate the RIGOROUS lens (manipulables carry the formalism), never the intuition.
 Veto-gate throughput: every JIT batch needs a signed pair-or-waiver — expect approval
 clustering; batch approval per milestone is allowed (one user sign covers the pair list).
-Fluency guard: "makes sense" counts as zero evidence (VAULT POLICY counting rule — we score it zero; no claim about mechanism). Congruence: verbal quiz for
+Fluency guard: "makes sense" counts as zero evidence (VAULT POLICY counting rule — we score it zero; no claim about mechanism). Congruence (VAULT POLICY grading rule — match probe modality to claim modality): verbal quiz for
 verbal claims, execution/build probe for procedures (no incongruent grading).
 (Enforcement of this section activates with Phase 2 — Phase-1 cites it as forward
 pointer only.)
@@ -492,11 +508,12 @@ recorded as per-item dispositions in that section; anchor-aware
 `diagnose.py` clean (or only `EXEMPT`-block items — `EXEMPT` = the `EXEMPT:` comment block at
 the top of `scripts/diagnose.py`, authoritative for carried failures); gate fixtures 9/9;
 skill-order audit (§3 skill-order audit) clean on the current vault (pre-existing inversions
-RECORDED in `Changelog/` + the build commit message — "filed as defects" means exactly that,
-not waived); cold-start test (step 0: export `ENGRAM_RUNNER` + `ENGRAM_HOME` +
+RECORDED in `Changelog/` + the build commit message — "filed as defects" means exactly that:
+defect entries carry IDs `F-<nnn>` as `### F-<nnn> <title>` + a `Status:` line (open/fixed),
+never bare prose — the audit matches findings to IDs, not waived); cold-start test (step 0: export `ENGRAM_RUNNER` + `ENGRAM_HOME` +
 `PYTHONIOENCODING=utf-8` per `_system/engram/env.example.sh`; step 1: fresh session runs the AGENT.md session-start block
 verbatim with zero errors AND `due --cap 12` returns the same `n` as the pre-test run the same
-day — time-varying quantities compared same-day only; both invocations logged in the test note
+day — time-varying quantities compared same-day only (same-day window = ARBITRARY); both invocations logged in the test note
 `.opencode/plan/cold-start-<date>.md`, pinned path); FRESH reviewer agents on the same three briefs (alignment,
 neuroscience, extensibility+onboarding) report zero blocking verdicts, max 2 rounds (VAULT POLICY
 bound) — leftovers go to the user for adjudication, the loop terminates. Reviewer briefs = the three names above
