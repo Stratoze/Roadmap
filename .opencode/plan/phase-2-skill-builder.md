@@ -39,8 +39,8 @@ verified crash without it; see `_system/engram/env.example.sh`).
   not cosmetic (scaffold-first per §1 — mass parameterization deferred to pass 2).
 - Engram (LANDED vault store — `_system/engram/`, 13 topics / 270 nodes / 258 `new` /
   0 repo receipts as of 2026-09-08 — counts re-verified at build, never trusted from here;
-  reconciled 340 HOLD / 14 PORT (`mech-spine`, Mac) / 0 DROP; resits ~zero (all Win
-  receipts pre-divergence, Win nodes adopted in place). ENGINE_PIN green (engine sha
+  reconciled 340 HOLD / 14 PORT (`mech-spine`, Mac) / 0 DROP; re-sits ~zero (all Win
+  receipts pre-divergence, Win nodes adopted in place — "re-sit" = re-answer a moved node). ENGINE_PIN green (engine sha
   FULL match both sides, verified 2026-09-08). WIP caps below evaluate against THIS store
   and THIS store only (no separate-universe gating — the pre-landing split is over).
   Pre-landing state: the 12-topic Win source had 244 `new` and TODAY violates the §5 WIP
@@ -50,7 +50,7 @@ verified crash without it; see `_system/engram/env.example.sh`).
   (statics equilibrium phrasing across mech topics — ONE `static-equilibrium` node exists,
   no literal ×2) + Japanese verb cluster (7 nodes: `jp-verb-groups`, `jp-masu-polite`,
   `jp-plain-past`, `jp-te-form`, `jp-te-progressive`, `jp-te-requests`, `jp-te-linking`).
-  `kind` absent on 34 nodes (absent ⇒ `concept` per architect — caveat: absent +
+  `kind` absent on 30 nodes (recounted 2026-09-08 — re-count at build; absent ⇒ `concept` per architect — caveat: absent +
   `arbitrary:true` ⇒ `fact`; audit content, only true fresh-instance procedures earn
   `procedure` + `practice` frames with engine-native `problem_frame` + `verify` +
   `error_bank` (+ `discriminates_from`, which IS engine-documented/preserved/due-carried
@@ -97,15 +97,17 @@ rows — owned by THIS task, so §3 fills an existing file); pass 2 (post-confir
   rig reuse, `Mechatronics/milestones/02_embedded_realtime_control.md:60,77,356-368` 2-DOF model,
   `Mechatronics/milestones/05_portfolio_delivery.md:13` QDD pedestal, ROADMAP Feeds-into claims).
 - Skills persist: registry rows keep `Evidence tag` + `Goal era` column (§3); pre-swap rows
-  BACKFILLED (acceptance: zero null `Goal era`); tags minted pre-swap stay valid history.
+  BACKFILLED (acceptance audit: `grep -c 'Goal era.*|[[:space:]]*$' Mechatronics/skills/registry.md`
+  returns 0 empty cells — zero null `Goal era`; acceptance: zero null); tags minted pre-swap stay valid history.
   Tag grammar (PINNED — one dialect everywhere): evidence tags match
   `^([a-z0-9]+(-[a-z0-9]+)*-)?m[0-9]+\.[0-9]+-(mvm|full)$` (post-swap tags carry the `<goal>-` prefix,
   e.g. `cnc-m3.1-mvm`, `qdd-arm-m3.1-mvm`; `m0.1-fullpass` grandfathered, never rewritten). `Goal era` format
   (gate-checked against the pinned era regex
-  `^(pre-GOAL|[a-z0-9]+(-[a-z0-9]+)* \([0-9]{4}-[0-9]{2}(–[0-9]{4}-[0-9]{2}|–)?\))$`): `pre-GOAL`, or `<slug> (<YYYY-MM>[–[<YYYY-MM>]])` — trailing-dash open ranges
-  (`qdd-arm (2026-08–)`) are legal; with `<slug>` pinned in GOAL.md
-  (today `qdd-arm (2026-08–)`); the dash may be hyphen-minus or en-dash U+2013 (gate normalizes
-  U+2013 → `-` first — Win keyboards type hyphen). No tag retire rule.
+  `^(pre-GOAL|[a-z0-9]+(-[a-z0-9]+)* \([0-9]{4}-[0-9]{2}(-[0-9]{4}-[0-9]{2}|-)?\))$` — HYPHEN form only,
+  post-normalization (gate normalizes U+2013 → `-` FIRST, then matches; the regex itself never
+  contains en-dashes): `pre-GOAL`, or `<slug> (<YYYY-MM>[-<YYYY-MM>]?[-]?)` — trailing-dash open ranges
+  (`qdd-arm (2026-08-)`, Win-keyboard form) are legal; with `<slug>` pinned in GOAL.md
+  (today `qdd-arm (2026-08-)`); typists use hyphen-minus, never en-dash U+2013. No tag retire rule.
 - Parameterization tasks (mandatory): `Mechatronics/resources/CONVENTIONS.md` arm frame defaults → goal parameters;
   0.2/0.4/0.7 arm-flavored procedures reworded goal-neutral OR GOAL.md-listed appendices;
   `Science/` + `DataScience/` arm assumptions → `See [[Mechatronics/GOAL]]` pointers;
@@ -175,7 +177,8 @@ Structural fixes (all mandatory; numbered for reference — execution follows §
    3. Mark ✅ in the ROADMAP table only, then bash scripts/save.sh "roadmap: mark <tag>."`
    STAGED: this rewrite lands ONLY after §4 ships `--dry-run` (until then the
    documented command fails — build §4 first, swap text second). Doc==script owner:
-   Mac builds §4 (preconditions: `ruff`, `clang-tidy`, `julia` present on the build machine
+   the §4 BUILDER (default whoever implements — reassigned from Mac-only by the Win
+   authority transfer; preconditions: `ruff`, `clang-tidy`, `julia` present on the build machine
    + SSH signing key for `git tag -s` — verify before starting); the pinned doc text governs,
    the script implements it.
    Fix `scripts/milestone.sh` echo to the same text; add domain commit scopes (`math:`,
@@ -222,7 +225,8 @@ Structural fixes (all mandatory; numbered for reference — execution follows §
    reciprocal links — ~5 lines): Science wins proofs; `math/`/`physics/`
    win worked procedures; `Mechatronics/resources/CONVENTIONS.md` wins frames/units — until §1 parameterizes the
    arm defaults into GOAL.md (tracked task). Reciprocal `[[links]]`.
-6. **Keep** `Mechatronics/ROADMAP.md` at its path; `resources/` untouched.
+6. **Keep** `Mechatronics/ROADMAP.md` at its path; `resources/` untouched EXCEPT
+   `CONVENTIONS.md` (explicit tasks above — scopes + parameterization).
 
 ## 3. Skill registry — ≥1 skill per project, machine-checkable, scalable
 (ABSENT — `Mechatronics/skills/` does not exist; created by this section.)
@@ -243,7 +247,8 @@ Structural fixes (all mandatory; numbered for reference — execution follows §
   {`sw`, `ee`, `mech`, `lab`} (one shard per prefix); `registry.md` becomes the index
   (schema + shard list), rows move to shards, IDs never change on sharding.
 - `Skills gained` format (gate-parseable — exact heading `## Skills gained`, case-sensitive —
-  one skill per line under the heading):
+  skill lines in dash form `- <id> — <name>` (gate normalizes em-dash U+2014 → `-` first, same
+  typing rule — typists use hyphen); one skill per line under the heading):
   `- sw-py-csv-plot — CSV→PlotJuggler (tag m1.1-mvm, Goal era qdd-arm (2026-08–))`
   (`Evidence tag` column holds TAGS matching the pinned tag regex; `Evidence:` lines hold
   PATHS — different grammars, both required where specified.)
@@ -301,7 +306,8 @@ take the line AFTER `<tag>`'s would-be position — i.e. the newest tag older th
 then `git log <prev>..HEAD --oneline` is the range (no previous tag =
 range is HEAD's full history); after green, mint the tag, then re-run the range command
 with `<tag>` for the audit record.
-Tagging REFUSES (non-zero exit + reason) unless ALL pass:
+Tagging REFUSES (non-zero exit + reason) unless ALL pass (items 0–5 refuse AT MINT time;
+item 6 is the monthly detective audit, not a mint gate — it runs on schedule regardless):
 
 0. Tag format: `<tag>` matches the pinned tag regex `^([a-z0-9]+(-[a-z0-9]+)*-)?m[0-9]+\.[0-9]+-(mvm|full)$`
    OR `^p[0-9]-complete$` (phase gates, e.g. `p0-complete`), OR is on the pinned grandfather list
@@ -319,7 +325,9 @@ Tagging REFUSES (non-zero exit + reason) unless ALL pass:
    dir, else repo root) else syntax-parse:
    `julia -e 'for f in ARGS; Meta.parse(read(f,String)); end' <files>`.
    A 5th language MUST add its row before its first tag.
-2. Artifacts: `Evidence:` lines (dash form `- Evidence: <path>`, one per line, repo-relative path, living under the
+2. Artifacts: `Evidence:` lines (dash form `- Evidence: <path>` — migration rewrites the
+   legacy `> Evidence: [[wikilink]]` form to dash form; zero `Evidence:` lines under a Pass
+   heading = FAIL (vacuous never passes); one per line, repo-relative path, living under the
    README `## Pass` heading or milestone `## Pass Condition`, scope ending at the next
    `##` heading or EOF), e.g.
    `Evidence: Mechatronics/docs/captures/2026-09-07_hbridge-loss.png`
@@ -329,21 +337,25 @@ Tagging REFUSES (non-zero exit + reason) unless ALL pass:
    (entry-point form allowed, blank forbidden); every ID matches §3 regex AND resolves
    in the registry; every registry row touched has non-null `Goal era` matching the era
    format (`pre-GOAL` or the pinned `<slug> (<range>)` — format-checked, not just non-null)
-   and its Evidence-tag value exists as a minted tag; every prerequisite taggerdate ≤ claimant taggerdate (§3 skill-order audit).
+   and its Evidence-tag value exists as a minted tag, OR equals the tag being minted
+   (first-mint carve-out — a row's Evidence tag may be the tag under mint; post-mint,
+   `audit-tags.sh` re-verifies existence); every prerequisite taggerdate ≤ claimant taggerdate (§3 skill-order audit).
 4. Links+lenses: extended `diagnose.py` (§2 item 2 spec) clean on touched files, INCLUDING
    the lens rule — any touched milestone MISSING its lens block, or any `status: proposed`
    lens in one, fails the gate (checked inside `diagnose.py`, not by hand; skill IDs are
    scanned on `Skills gained` + `Requires:` lines; lens blocks parsed on the exact header
-   `Lenses — m0-N`); verbatim MOVES (content unchanged) are EXEMPT from lens-presence
+   `Lenses - m0-N`); verbatim MOVES (content unchanged) are EXEMPT from lens-presence
    (new/edited content is not).
 5. Attestation: dated blank-page test note, e.g.
    `Mechatronics/math/0.2-attest-2026-09-07.md`
    (`<domain>/0.N-attest-<date>.md`, domain = split dir owning the milestone (Phase 0);
    for unsplit Phases 1–3: `Mechatronics/milestones/<file-stem>-attest-<date>.md`, e.g.
-   `01_signals_actuators_dynamics-attest-2026-09-07.md`; `<date>` = YYYY-MM-DD):
+   `01_signals_actuators_dynamics-attest-2026-09-07.md`; for software projects:
+   `<project>/attest-<date>.md`; `<date>` = YYYY-MM-DD):
    re-solve from memory with NO reread/rewatch before solving (cold-recall-first);
-   gaps red-penned; Full Pass note MUST cite a PRIOR attempt date (VAULT POLICY: same-day
-   echo fails the gate — enforces spacing; compared via taggerdate where tags exist,
+   gaps red-penned; Full Pass note MUST carry the pinned line `Prior attempt: <YYYY-MM-DD|tag>`
+   (VAULT POLICY: same-day echo fails the gate — enforces spacing; the gate parses exactly this
+   line; compared via taggerdate where tags exist,
    note dates otherwise — all dates compared as YYYY-MM-DD strings (taggerdates truncated
    to first 10 chars); red-pen gaps appended to
    `_system/Landmine Log.md`, or linked from the attest note to an existing vault file
@@ -354,13 +366,15 @@ Tagging REFUSES (non-zero exit + reason) unless ALL pass:
    + agent rule — never attest a bypassed tag;
    bypassed tags get `-unaudited` registry note until re-earned.
 
-Gate ships with fixtures at `scripts/tests/fixtures/{refusal-0..7,clean}/` (ABSENT —
-created by this section; refusal-N maps to gate item N for N=0..5 (direct refusals:
-0 tag-format, 1 lint, 2 artifacts, 3 skills, 4 links+lenses, 5 attest); refusal-6 exercises
-the DETECTIVE control `audit-tags.sh` (harness creates an annotated fixture tag in a temp
-worktree, runs the audit, expects exit 1 listing it); refusal-7 = skill-order violation
-(item-3 sub-check) with prerequisite taggerdate after claimant, backdated via
-`GIT_AUTHOR_DATE`/`GIT_COMMITTER_DATE` env), run by
+Gate ships with fixtures at `scripts/tests/fixtures/refusal-{0..7}/` + `scripts/tests/fixtures/clean/`
+(brace form PINNED — `{refusal-0..7,clean}` expands wrong; ABSENT — created by this section).
+Mapping (explicit table — 8 refusals + clean = 9/9): refusal-0 → item 0 (tag-format);
+refusal-1 → item 1 (lint); refusal-2 → item 2 (artifacts); refusal-3 → item 3 (skills);
+refusal-4 → item 4 (links+lenses); refusal-5 → item 5 (attest); refusal-6 → item 6 DETECTIVE
+control `audit-tags.sh` (harness creates an annotated fixture tag named `fixture/bypass-N`
+in a temp CLONE — never a shared worktree — runs the audit, expects exit 1 listing it,
+then deletes the clone); refusal-7 → item-3 sub-check, skill-order violation with prerequisite
+taggerdate after claimant, backdated via `GIT_AUTHOR_DATE`/`GIT_COMMITTER_DATE` env), run by
 `bash scripts/test-gate.sh` (ABSENT — created here) expecting 9/9. 9/9 or red. Fixture layout:
 each `refusal-N/` holds input files + `expected-exit` + `expected-stderr-fragment`; `clean/`
 holds passing inputs + a fixture `registry.md` so skill checks evaluate self-contained.
@@ -424,9 +438,12 @@ exception and land ONLY as topic capstones, never as parallel vault structure):
   an id-path; per-item kind: procedures land as NODES, builds land as CAPSTONES):** py CSV→PlotJuggler plot (M1.1, nodes),
   FFT+windowing (M1.2, nodes), `solve_ivp` pendulum (M1.4, nodes); C ring buffer + versioned telemetry
   framing (M1.5/M1.1, capstones). Parked until the demanding milestone is ACTIVE (ACTIVE =
-  the milestone named in the latest Daily note's Target line, fallback = earliest ⬜ in the
-  ROADMAP table; ✅✅ = MVM tag + Full tag both minted): packaging, OOP,
-  CMake lore, FK-visualizer rebuild (M0.2 already ✅✅ = MVM+Full both minted, tags exist).
+  the milestone named in the latest Daily note's `- **Target:**` line (exact field spelling —
+  singular `Target`, not the template's plural `Targets:`; newest Daily FILE by date, never
+  `Daily/Index.md`; value names the milestone by id or title; ✅✅-complete milestones are
+  never ACTIVE — FK-visualizer (M0.2 ✅✅) is DONE, removed from this parked list),
+  fallback = earliest ⬜ in the ROADMAP table; ✅✅ = MVM tag + Full tag both minted): packaging, OOP,
+  CMake lore (FK-visualizer already shipped under M0.2 ✅✅ — not parked, done).
 - **Atomicity policy (VAULT POLICY, ARBITRARY — dosage, not finding):** one claim per node,
   5–15 min per node. Builds land ONLY as topic capstones
   (engine capstone semantics, receipt `kind:transfer`). Vault linkage = registry
@@ -451,9 +468,8 @@ rule, not an empirical claim; authoritative, veto-gated, generation-first)
 
 Resource-block format per milestone (pilot: Phase-0 files only; plain-text lines directly
 under the per-milestone Resources callout — NOT a separate callout; `<milestone id>` dialect
-PINNED to the anchor scheme `m0-N`, first line `Lenses — m0-2`; gate normalizes em-dash
-U+2014 → `-` first AND accepts the hyphen form `Lenses - m0-N` (same typing rule as the
-Goal-era dash):
+PINNED to the anchor scheme `m0-N`, canonical first line `Lenses - m0-2` (HYPHEN form —
+gate normalizes em-dash U+2014 → `-` first, then matches; typists use hyphen, never em-dash):
 
 ```
 Lenses — <milestone id>
@@ -504,7 +520,8 @@ for all greps below, PowerShell never): §1 grep-gate
 files: `grep -rEl 'QDD|2-DOF|2DOF|2 DOF|2-link|Puck|backdrivab|quasi-direct|SendCutSend|gripper|lever-arm' Mechatronics/ Science/ DataScience/ | sort`
 — the ONLY-files claim is checked against the filename output, never the `-h` counts) + GOAL.md `## Checklist` section
 (exact heading spelling) exists and is filled — the section IS the record, no separate file — + semantic pass
-recorded as per-item dispositions in that section; anchor-aware
+recorded as per-item dispositions in that section (schema PINNED: `- [ ] <coupling> → <disposition>`
+where disposition = `keep:<location>` | `parameterize` | `park:<slug>` | `delete+log`); anchor-aware
 `diagnose.py` clean (or only `EXEMPT`-block items — `EXEMPT` = the `EXEMPT:` comment block at
 the top of `scripts/diagnose.py`, authoritative for carried failures); gate fixtures 9/9;
 skill-order audit (§3 skill-order audit) clean on the current vault (pre-existing inversions
