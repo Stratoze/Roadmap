@@ -9,8 +9,9 @@ Do not maintain this weekly.
 ## Completion & Evidence — how a milestone becomes "done"
 
 1. Meet every **MVM** checkbox for the milestone.
-2. Flip its status ⬜→✅ above, then commit everything: `./scripts/save.sh "roadmap: mark m<N>.<M> complete"` (Full Pass tags separately per AGENT.md — same flow, `m<N>.<M>-full`).
-3. Tag it (the permanent proof): `./scripts/milestone.sh m<N>.<M>-mvm <evidence-path> "<what proves it>"` (script enforces tag format + evidence-in-HEAD + ✅-in-HEAD).
+2. Commit the evidence: `bash scripts/save.sh "phaseN: <what you proved>"`.
+3. Tag it (the permanent proof): `bash scripts/milestone.sh m<N>.<M>-mvm "<what proves it>"` (script checks a clean tree only — tag format, evidence paths, and ✅-in-HEAD enforcement arrive with the Phase-2 §4 machine gate, which rewrites this section).
+4. Flip its status ⬜→✅ above, then `bash scripts/save.sh "roadmap: mark m<N>.<M> complete"` (Full Pass tags separately: `m<N>.<M>-full`).
 
 Tag names: `m0.1-mvm`, `m0.1-full` (Full Pass), phase gates `p0-complete`.
 The **tag** is the durable, timestamped evidence. The **✅** is the at-a-glance state.
