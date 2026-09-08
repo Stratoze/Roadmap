@@ -245,7 +245,7 @@ Structural fixes (all mandatory; numbered for reference — execution follows §
    and skips the prose header `# EXEMPT carried failures (…)` — verified live: entry matches,
    header doesn't; negative pinned: header must NOT match).
    Migration script rewrites the 37 ROADMAP milestone rows, records old targets as
-   HTML comments `<!-- was: <old-link-target> -->` (whole-file sources are fine — today
+   HTML comments `<!-- was: <old-link-target> -->` (whole-file sources are fine — as of 2026-09-08
    rows carry no `#fragment`, so `<old-link-target>` = the previous link target string;
    the 37-row count is re-verified pre-migration, never trusted from here;
    Daily history immutable — old links rot by design).
