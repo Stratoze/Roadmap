@@ -10,7 +10,7 @@ Incorporates: vault-structure + load/sustainability evaluations (2026-09-07) AND
 plan-review rounds. Where this file contradicts those evaluations, this file governs
 and says why. Reference convention: §X item N = the check numbered N (gate items are
 0-based: §4 item 0 is the first check, tag format).
-File:line citations are repo-root-relative paths + current line numbers (re-check: rot fast). Runner for all engram operations: `$ENGRAM_RUNNER` (per-machine env — Mac `python3 $HOME/engram/scripts/engram.py`, Win `python3 $HOME/.config/opencode/scripts/engram.py` — `$HOME` form, NEVER `~` (tilde never expands after parameter expansion or inside quotes — verified crash); see `_system/engram/env.example.sh`. NEVER hardcode either path)
+File:line citations are repo-root-relative paths + current line numbers (re-check: rot fast). Typing scope pinned once, globally: ASCII-only + normalization rules in this file apply to SPEC LITERALS (formats, commands, regexes, headers/lines the gate parses or the executor types verbatim). Prose punctuation (em-dashes in sentences like this one) is unrestricted English — never gate-parsed, never typed verbatim. Runner for all engram operations: `$ENGRAM_RUNNER` (per-machine env — Mac `python3 $HOME/engram/scripts/engram.py`, Win `python3 $HOME/.config/opencode/scripts/engram.py` — `$HOME` form, NEVER `~` (tilde never expands after parameter expansion or inside quotes — verified crash); see `_system/engram/env.example.sh`. NEVER hardcode either path)
 (subcommands `due`, `topics`, `session-start`, `doctor`, `add-topic`,
 `edit-node`, `retire`, `rate`, `receipt`, `selftest`). Invoke scripts as
 `bash scripts/<name>.sh` (works regardless of the +x bit). Windows runners MUST export
@@ -46,7 +46,7 @@ verified crash without it; see `_system/engram/env.example.sh`).
   receipts pre-divergence, Win nodes adopted in place — "re-sit" = re-answer a moved node). ENGINE_PIN green (engine sha
   FULL match both sides, verified 2026-09-08). WIP caps below evaluate against THIS store
   and THIS store only (no separate-universe gating — the pre-landing split is over).
-  Pre-landing state: the 12-topic Win source had 244 `new` and TODAY violates the §5 WIP
+  Pre-landing state (2026-09-08 — dated, re-check at build): the 12-topic Win source had 244 `new` and TODAY violates the §5 WIP
   gate — no landings until the backlog burn-down (below) brings the
   landing topic ≤20 (the VAULT POLICY per-topic cap) or a per-batch JIT-override is signed.
   Dedupe targets (claim-overlap, verified): `fbd-statics`/`static-equilibrium`/`fbd-draw`
@@ -58,9 +58,10 @@ verified crash without it; see `_system/engram/env.example.sh`).
   re-count at build, never trust this number; absent ⇒ `concept` per architect — caveat: absent +
   `arbitrary:true` ⇒ `fact`; audit content, only true fresh-instance procedures earn
   `procedure` + `practice` frames with engine-native `problem_frame` + `verify` +
-  `error_bank` (+ `discriminates_from`, which IS engine-documented/preserved/due-carried
-  but only individually unvalidated — sole presence-check is `problem_frame`; prefer
-  `contrasts_with` edges for confusable pairs, which carry hygiene filtering).
+  `error_bank` (+ `discriminates_from`, engine-named `:966`, preserved + due-carried as whole
+  `practice` dict (`:1517-1518`) but only individually unvalidated — sole presence-check is
+  `problem_frame` (`:972-974`); prefer `contrasts_with` edges for confusable pairs, which carry
+  hygiene filtering (`:1527-1539`)).
   Commitment cue (per `learner-model.json`: cue "lunch or the afternoon tomorrow",
   action "clear the engram reviews"): OFFER an event anchor once (VAULT POLICY frequency — exactly
   one offer per close, never repeated unasked) at `/learn` close
@@ -69,16 +70,18 @@ verified crash without it; see `_system/engram/env.example.sh`).
   linkage lives in the registry Evidence-tag + `Goal era` columns and session-log
   lines (see the §3 `Requires:` format paragraph and the §5 "Language-project loop"
   paragraph).
-- Engine facts this plan respects (NOT negotiable): node kinds are `concept|procedure|fact`
-  ONLY (no `kind:transfer` on nodes); capstone = engine-minted `{capstone:true,
-  transfer_probe:None}` with receipt `kind:transfer` (metrics never pooled; successful
-  transfer MAY strengthen scheduling); `why_chain` = derives-from id path by CONVENTION
-  ONLY (engine neither validates nor walks it — say so, never rely on it; no step-count
+- Engine facts this plan respects (NOT negotiable; every mechanism below carries an
+  `engram.py:NNN` source pin against the Win machine-local file whose sha256 = ENGINE_PIN —
+  re-verify line numbers at build, they rot on engine upgrade): node kinds are `concept|procedure|fact`
+  ONLY (`:75`) (no `kind:transfer` on nodes); capstone = engine-minted `{capstone:true,
+  transfer_probe:None}` (`:4689-4691`) with receipt `kind:transfer` (metrics never pooled `:4935`;
+  successful transfer MAY strengthen scheduling `:1997`); `why_chain` = derives-from id path by CONVENTION
+  ONLY (engine only `setdefault`s it `:928` — never validates, never walks it; no step-count
   or shape claims about it); cross-topic
-  `requires` is unsupported (prerequisites live in ONE canonical topic +
-  `analogous_to` links — `analogous_to` itself has ZERO engine hits: vault convention,
-  not engine field); pretests diagnose the frontier (never land over an
-  undiagnosed frontier); probe↔rubric are one object (co-located claim + check — no structural
+  `requires` is unsupported (intra-topic resolution only — `analogous_to` has ZERO engine hits
+  (verified `grep -c` = 0 on 2026-09-08): vault convention, not engine field); pretests diagnose
+  the frontier (frontier walk credits nothing — the refusal to land over undiagnosed frontiers is
+  vault law, not engine law); probe↔rubric are one object (co-located claim + check — no structural
   claims beyond co-location).
 - Foundation rule after this phase: bare minimum every goal needs. Projects: ≥1 skill each
   (VAULT POLICY coverage rule — every project confers at least one registry skill).
@@ -103,7 +106,8 @@ rows — owned by THIS task, so §3 fills an existing file); pass 2 (post-confir
   rig reuse, `Mechatronics/milestones/02_embedded_realtime_control.md:60,77,356-368` 2-DOF model,
   `Mechatronics/milestones/05_portfolio_delivery.md:13` QDD pedestal, ROADMAP Feeds-into claims).
 - Skills persist: registry rows keep `Evidence tag` + `Goal era` column (§3); pre-swap rows
-  BACKFILLED (acceptance audit: `awk -F'|' 'NR>4 && $5 ~ /^[[:space:]]*$/ {c++} END {print c+0}' Mechatronics/skills/registry.md` (NR>4 skips title/header/separator/blank — header itself matches the empty-cell pattern)
+  BACKFILLED (acceptance audit: `awk -F'|' 'NR>4 && $5 ~ /^[[:space:]]*$/ {c++} END {print c+0}' Mechatronics/skills/registry.md`
+  (NR>4 skips title/header/separator/first-blank lines of the skeleton; header `$5` is ` Goal era ` — never empty, so no false match)
   returns 0 empty cells — NR>2 skips header+separator, `$5` is the `Goal era` column; zero null `Goal era`); tags minted pre-swap stay valid history.
   Tag grammar (PINNED — one dialect everywhere): evidence tags match
   `^([a-z0-9]+(-[a-z0-9]+)*-)?m[0-9]+\.[0-9]+-(mvm|full)$` (post-swap tags carry the `<goal>-` prefix,
@@ -117,7 +121,8 @@ rows — owned by THIS task, so §3 fills an existing file); pass 2 (post-confir
   Conformance examples (gate must accept: `pre-GOAL`, `qdd-arm (2026-08)`, `qdd-arm (2026-08-)`,
   `qdd-arm (2026-08-2026-12)`; must reject: `QDD (2026-08)`). No tag retire rule.
 - Parameterization tasks (mandatory): `Mechatronics/resources/CONVENTIONS.md` arm frame defaults → goal parameters;
-  0.2/0.4/0.7 arm-flavored procedures reworded goal-neutral OR GOAL.md-listed appendices;
+  0.2/0.4/0.7 arm-flavored procedures + 0.9 backdrivab pedagogy + 0.10 lever-arm metrology
+  reworded goal-neutral OR GOAL.md-listed appendices;
   `Science/` + `DataScience/` arm assumptions → `See [[Mechatronics/GOAL]]` pointers;
   `LAB_INFRASTRUCTURE.md` + `IDEAS.md` + `hardware/inventory.md` goal mentions get per-file
   disposition (parameterize / move to parked-goal appendix / delete with log line).
@@ -166,7 +171,7 @@ NO top-level `Mechatronics/simulations/README.md` exists),
 `template_*.py` (`Mechatronics/simulations/python/template_plot_csv.py`,
 `Mechatronics/simulations/python/template_simulation.py`) — each gets: merge as dir
 index / move with redirect header / delete-with-log-line, per-file choice listed in the
-build commit. Redirect header format (PINNED): `# Moved -> [[<target>]] (<date>, <reason>)` (ASCII hyphens-minus only — never U+2192).
+build commit. Redirect header format (PINNED): `# Moved -> [[<target>]] (<date>, <reason>)` (ASCII hyphens-minus only).
 Log destination for every deletion/move: `Changelog/` entry + build commit message.
 Single exception: Daily history links rot by design (immutable Daily files, no redirects).
 Dir column is relative to `Mechatronics/` (e.g. `software/` = `Mechatronics/software/`).
@@ -181,6 +186,9 @@ otherwise (table Dir column = relative to `Mechatronics/`):
 | `electronics/` | 0.5, 0.6 | circuits, power/thermal |
 | `software/` | 0.1 (+ `Mechatronics/firmware/` → `Mechatronics/software/firmware/<board>/<project>/`,
   `Mechatronics/simulations/` → `Mechatronics/software/simulations/<backend>/`) | toolchain + executable surface |
+  Reading pinned: `firmware/<board>/<project>/` and `simulations/<backend>/` are SYSTEM dirs
+  (owned by this move); each project — including nested firmware projects — has exactly ONE dir
+  (its `<project>/` leaf); the one-folder rule forbids splitting/merging projects, not nesting.
   Firmware-parent rule (decided — the two schemes above collide otherwise): board-specific code
   lives at `software/firmware/<board>/<project>/`; board-agnostic projects live directly at
   `software/<kebab-project>/`. One rule, no per-board top-level dirs.
@@ -192,7 +200,9 @@ Structural fixes (all mandatory; numbered for reference — execution follows §
    (≤7 link-target entries — VAULT POLICY cap, tables included (an ownership table's links count) — no status, no checkboxes). "Domain" = the three
    hub Indexes carrying navigation (`Mechatronics/Index.md`, `Science/Index.md`,
    `DataScience/Index.md`); counting unit = `[[link targets]]`. Includes trimming `Mechatronics/Index.md`
-   (19 link targets today) with per-line dispositions in the build commit. Milestone bodies keep checkboxes with header:
+   (19 link targets today) with per-line dispositions in the build commit. Build-start template task:
+   `_system/Daily Template.md` plural `Targets:` → singular `Target:` (ACTIVE lookup is singular).
+   Milestone bodies keep checkboxes with header:
    `Status lives in [[Mechatronics/ROADMAP|Roadmap]] — do not duplicate.`
    Rewrite `Mechatronics/ROADMAP.md:9-17` Completion & Evidence text (pinned replacement):
    `1. Pass the gate: bash scripts/milestone.sh --dry-run <tag> "<msg>" is green.
@@ -210,10 +220,12 @@ Structural fixes (all mandatory; numbered for reference — execution follows §
    for domain work, `vault:` for cross-cutting changes (no other scopes without amendment).
 2. **Anchors:** every milestone gets `<a id="m0-N"></a>` (`m0-1`…`m0-10` — resolvers match
    full IDs, never prefixes, since `m0-1` prefixes `m0-10`; scope = Phase-0 pilot milestones only); ROADMAP + all new notes link
-   `#m0-N` only. Numbered for reference only — execution follows §7, NOT this item order.
+   `#m0-N` only (Phase-0 rows only — the other 27 ROADMAP rows keep whole-file links; migration
+   touches Phase-0's 10 rows). Numbered for reference only — execution follows §7, NOT this item order.
    EXEMPT entries (format PINNED: `# EXEMPT <check>: <target> - <reason> - expires <YYYY-MM-DD>`
    — HYPHEN form (split rule: split on ` - expires ` last for the date, then on the first `: `
-   after `# EXEMPT ` for check vs rest); pre-existing em-dash entries grandfathered until expiry,
+   after `# EXEMPT ` for check vs rest, then target = up to the first ` - ` and reason = the rest
+   (targets never contain ` - ` — builder rejects targets that do); pre-existing em-dash entries grandfathered until expiry,
    then rewritten in hyphen form; the builder creates entries with expiry (never open-ended;
    the gate FAILS on expired EXEMPT entries — expiry is enforcement, not decoration)
    and verifies with `grep -nE '^# EXEMPT [a-z]+:' scripts/diagnose.py` (`-E` REQUIRED — BRE `+`
@@ -226,7 +238,7 @@ Structural fixes (all mandatory; numbered for reference — execution follows §
    the 37-row count is re-verified pre-migration, never trusted from here;
    Daily history immutable — old links rot by design).
    `diagnose.py` extension spec: resolve `<a id="X">` definitions; accept link forms
-   `[[File#X]]`, `(file.md#X)`, `#X` (same-file — definition-side lookup, not a skip);
+   `[[File#X]]`, `[[File#X|alias]]`, `[[File|alias]]`, `(file.md#X)`, `#X` (same-file — definition-side lookup, not a skip);
    skip code fences AND HTML comments (migration `<!-- was: -->` old-links must not trip
    the checker); skill IDs (scanned on `Skills gained` lines — exact heading spelling,
    case-sensitive — plus `Requires:` lines, which must be the immediately-next non-blank
@@ -235,7 +247,7 @@ Structural fixes (all mandatory; numbered for reference — execution follows §
    pinned format. Must pass clean. Checks covered by this extension (no item lands unverified):
    anchors, skill IDs + Requires adjacency, membership (staged), redirect format, Index link-cap
    (≤7 targets on the three hub Indexes), project README 6-heading shape, snippet-only-home
-   (no sim dirs outside `software/simulations/`). Timing rule: the builder's own `diagnose.py` run is the
+   (no sim dirs outside `software/simulations/`), GOAL checklist schema + dispositions. Timing rule: the builder's own `diagnose.py` run is the
    check — full rescan per tag accepted; add incremental mode only if a run exceeds 60s
    (ARBITRARY threshold) and record timing.
 3. **Evidence 2-home rule:** canonical = milestone-body checkboxes + git tag.
@@ -257,7 +269,8 @@ Structural fixes (all mandatory; numbered for reference — execution follows §
    plus language-standard ignores — extend by amendment, never ad hoc). `Mechatronics/software/`
    is created by this task (it does not exist yet).
 5. **Ownership table** (in `Science/Index.md` AND `DataScience/Index.md` — identical table,
-   reciprocal links — ~5 lines): Science wins proofs; `math/`/`physics/`
+   reciprocal links — ~5 lines (VAULT POLICY fixed shape, hard cap ≤10 rows); link counts taken at build,
+   tables count toward the ≤7 cap): Science wins proofs; `math/`/`physics/`
    win worked procedures; `Mechatronics/resources/CONVENTIONS.md` wins frames/units — until §1 parameterizes the
    arm defaults into GOAL.md (tracked task). Reciprocal `[[links]]`.
 6. **Keep** `Mechatronics/ROADMAP.md` at its path; `resources/` untouched EXCEPT
@@ -269,7 +282,9 @@ Structural fixes (all mandatory; numbered for reference — execution follows §
 - Location: `Mechatronics/skills/registry.md` (mech+software skills; piano/japanese/data
   skills explicitly deferred — conferred via their domains' milestone files (MVM/Full pairs
   there), never the registry, until those domains onboard; item 3 resolves registry IDs only,
-  milestone-file skill lines get format-checks only). Phase rows may carry `pN-complete`
+  milestone-file skill lines get format-checks only). Shard audit loops `registry.md` PLUS
+  every `skills/<domain>.md` shard (membership search spans all files — never index-only).
+  Phase rows may carry `pN-complete`
   tags in `Evidence tag` (phase rows are EXEMPT from skill-ID/era checks — they aggregate milestones, confer nothing; the column accepts EITHER tag form — existence check tries both
    regexes; project rows list BOTH tags comma-separated `mvm-tag, full-tag`, each checked)
   regexes); milestone/project rows carry m-form tags. Deferred-domain (piano/japanese/data) milestone skill lines get format-checks ONLY until those domains onboard (resolution-against-registry deferred with the domains — never a mint-blocker for mech/software).
@@ -323,9 +338,10 @@ The agent checks curriculum sequence (at every landing + quarterly re-run — VA
    Pre-gate tags (`m0.1-fullpass`, `m0.2-mvm`, `m0.2-full`) carry `-unaudited`
    registry notes until re-earned under the gate (they will flag on day one with
    zero gate receipts — expected, not a defect). Machine-checked in §4 item 3.
-3. **Use-before-conferred scan:** walk the learner path Phase 0→1→2→3; for each
-   milestone MVM checkbox that *uses* a skill (e.g. M1.2 "FFT computed in Python"),
-   the conferring milestone/project must come earlier in the walk. Flag inversions
+3. **Use-before-conferred scan:** walk the learner path Phase 0→1→2→3 in file order
+   (milestone files, then project READMEs); a checkbox *uses* a skill iff it names the skill ID
+   in backticks; for each such checkbox the conferring milestone/project must come earlier in
+   the walk. Output = dated audit note listing every inversion (`F-<nnn>` IDs). Flag inversions
    (e.g. a Phase-1 checkbox needing a Phase-2 skill) as blocking defects.
 4. **Foundation-first rule:** no project may require a skill conferred only by a LATER
    phase; cross-phase requirements must be satisfied by foundation (§2) or an earlier
@@ -397,7 +413,9 @@ item 6 is the monthly detective audit, not a mint gate — it runs on schedule r
    (first-mint carve-out — a row's Evidence tag may be the tag under mint; post-mint,
    the monthly audit re-verifies existence via receipts AND re-runs the §3 taggerdate comparison
    with `git for-each-ref` (dates exist by then); item 3 invokes the §3 rule by reference
-   rather than restating); every prerequisite taggerdate ≤ claimant taggerdate (§3 skill-order audit).
+   rather than restating); every prerequisite taggerdate ≤ claimant taggerdate (§3 skill-order audit —
+   pre-mint, the claimant side is the attest-note date per §3 item 2, NOT a taggerdate; deferred-domain
+   rows are carved out here too — format-checks only, never mint-blockers).
 4. Links+lenses: extended `diagnose.py` (§2 item 2 spec) clean on touched files, INCLUDING
    the lens rule — any touched milestone MISSING its lens block, or any `status: proposed`
    lens in one, fails the gate (checked inside `diagnose.py`, not by hand; skill IDs are
@@ -468,8 +486,10 @@ Preconditions (before ANY landing):
    scope approval.
 3. Kind audit: absent ⇒ concept (no blind backfill); true fresh-instance procedures earn
    `procedure` + `practice` frame with engine-native `problem_frame` + `verify` +
-   `error_bank` (+ `discriminates_from` allowed — engine-documented and due-carried, only
-   individually unvalidated; `contrasts_with` preferred for confusable pairs; gate WARNS
+   `error_bank` (+ `discriminates_from` allowed — engine-named `:966`, whole-`practice`-dict
+   preserved and due-carried (`:1517-1518`), only individually unvalidated (sole presence-check
+   is `problem_frame` `:972-974`); `contrasts_with` preferred for confusable pairs (hygiene
+   filtering `:1527-1539`); gate WARNS
    on missing discrimination info, never fails — "execution key" is no field, never require it).
    Counts include capstones (this VAULT POLICY coverage rule counts capstones inside `new` —
    say capstone count in reports).
@@ -510,8 +530,11 @@ exception and land ONLY as topic capstones, never as parallel vault structure):
   FFT+windowing (M1.2, nodes), `solve_ivp` pendulum (M1.4, nodes); C ring buffer + versioned telemetry
   framing (M1.5/M1.1, capstones). Parked until the demanding milestone is ACTIVE (ACTIVE =
   the milestone named in the latest Daily note's `- **Target:**` line (exact field spelling —
-  singular `Target`, not the template's plural `Targets:`; newest Daily FILE by date, never
-  `Daily/Index.md`; value names the milestone by id or title),
+  singular `Target`; the template's plural `Targets:` is unified to singular by the split-pilot
+  template task below — until then the lookup matches `/^- \*\*Targets?:\*\*/`; newest Daily FILE
+  by filename date (`Daily/20[0-9][0-9]-*.md` glob — never `Daily/Index.md`); value names the
+  milestone by id (`m0-2`, `0.2`) or title substring (case-insensitive); EMPTY or missing Target →
+  fall through to the fallback (no stuck state);
   fallback = earliest ⬜ in the ROADMAP table; ✅✅ = MVM tag + Full tag both minted): packaging, OOP,
   CMake lore, FK-visualizer rebuild (M0.2 tags minted; the rebuild itself is parked work, NOT done —
   no shipped-build claim: no file, Daily, or tag evidences a visualizer artifact).
@@ -547,6 +570,7 @@ Lenses - <milestone id>
 Rigorous: <title> | <creator> | <url> | <status: proposed|approved|waived>
 Intuitive: <title> | <creator> | <url> | <status: proposed|approved|waived>
 Interactive: <sim/bench>   Theory: <scoped book ch>   (existing content kept)
+Waived: <reason> (5th line — REQUIRED iff any status above is `waived`, FORBIDDEN otherwise)
 ```
 (copy-paste SAFE — hyphen-minus and pipes only, no em/en-dashes anywhere in this block;
 fields split on ` | ` — titles containing pipes are forbidden, use ` - ` inside titles).
@@ -620,8 +644,13 @@ day — time-varying quantities compared same-day only (same-day window = ARBITR
 `.opencode/plan/cold-start-<date>.md`, pinned path); FRESH reviewer agents on the same three briefs (alignment,
 neuroscience, extensibility+onboarding) report zero blocking verdicts, max 2 rounds (VAULT POLICY
 bound) — leftovers go to the user for adjudication, the loop terminates. User adjudication = waiver RECORDED
-in `Changelog/` as `Waiver: <finding-ID> — <reason> — <date>`; a waived finding satisfies its
+in `Changelog/` as `Waiver: F-<nnn> - <reason> - <date>` (hyphens-minus only, same typing rule);
+a waived finding satisfies its
 gate item (waiver semantics pinned — adjudication is a verdict, not an open loop).
-Reviewer briefs = the three names above
-(alignment, neuroscience, extensibility+onboarding); verdicts recorded in `Changelog/` + the
-build commit message.
+Reviewer briefs (pinned text — spawn one subagent per brief): (1) alignment — "every §7 step's
+inputs exist when it runs; every acceptance item has a command/file/number; exactly one
+tag/era grammar enforced where claimed"; (2) neuroscience/honesty — "every number carries
+VAULT POLICY/ARBITRARY/citation, every mechanism carries license, no guaranteed gains";
+(3) extensibility+onboarding — "zero-context execution: every path exists or is ABSENT-flagged,
+every command runs as written, every spec reproducible without guessing"; verdicts recorded
+in `Changelog/` + the build commit message.
