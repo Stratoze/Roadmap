@@ -129,7 +129,11 @@ rows — owned by THIS task, so §3 fills an existing file); pass 2 (post-confir
 - Goal-era vocabulary: `pre-GOAL` (before GOAL.md existed) or `<goal-slug> (<date range>)`
   per the pinned grammar above (slug + range pinned in GOAL.md itself).
 - Acceptance: canonical pattern over `Mechatronics/ Science/ DataScience/` returns ONLY
-  `GOAL.md`, `Mechatronics/goals/parked/*`, Phase 3–5 milestone files, and GOAL.md-listed appendices —
+  `GOAL.md`, `Mechatronics/goals/parked/*`, the Phase 3–5 milestone files
+  (`01_signals_actuators_dynamics.md`, `02_embedded_realtime_control.md`,
+  `03_mech_pcb_verification.md`, `04_capstone_integration.md`, `05_portfolio_delivery.md`),
+  `Mechatronics/ROADMAP.md` (active-goal roadmap stays goal-flavored by design — its goal lines
+  are live content re-derived on goal change per §1, NOT a violation), and GOAL.md-listed appendices —
   PLUS the semantic pass completed per the GOAL.md checklist.
 
 ## 2. Foundation split — Phase-0 pilot ONLY (phases 1–3 stay unsplit)
@@ -268,8 +272,9 @@ Structural fixes (all mandatory; numbered for reference — execution follows §
    (pinned patterns: `__pycache__/`, `*.pyc`, `target/`, `node_modules/`, `*.o`, `*.class`,
    plus language-standard ignores — extend by amendment, never ad hoc). `Mechatronics/software/`
    is created by this task (it does not exist yet).
-5. **Ownership table** (in `Science/Index.md` AND `DataScience/Index.md` — identical table,
-   reciprocal links — ~5 lines (VAULT POLICY fixed shape, hard cap ≤10 rows); link counts taken at build,
+5. **Ownership table** (in `Science/Index.md` AND `DataScience/Index.md` — mirrored tables
+   (same rows; each file's links point outward reciprocally — byte-identical impossible by
+   construction; VAULT POLICY fixed shape, hard cap ≤10 rows); link counts taken at build,
    tables count toward the ≤7 cap): Science wins proofs; `math/`/`physics/`
    win worked procedures; `Mechatronics/resources/CONVENTIONS.md` wins frames/units — until §1 parameterizes the
    arm defaults into GOAL.md (tracked task). Reciprocal `[[links]]`.
@@ -336,8 +341,9 @@ The agent checks curriculum sequence (at every landing + quarterly re-run — VA
    `git log` spelling can never trigger refusal). Lightweight tags have empty taggerdate → gate REFUSES them (require
    annotated+signed). `m0.1-fullpass` naming drift grandfathered, never rewritten.
    Pre-gate tags (`m0.1-fullpass`, `m0.2-mvm`, `m0.2-full`) carry `-unaudited`
-   registry notes until re-earned under the gate (they will flag on day one with
-   zero gate receipts — expected, not a defect). Machine-checked in §4 item 3.
+   registry notes until re-earned under the gate. Re-earn = mint a NEW tag under the gate
+   (old tags stay forever — history preserved, grandfathered names never reused). They will flag on day one with
+   zero gate receipts — expected, not a defect. Machine-checked in §4 item 3.
 3. **Use-before-conferred scan:** walk the learner path Phase 0→1→2→3 in file order
    (milestone files, then project READMEs); a checkbox *uses* a skill iff it names the skill ID
    in backticks; for each such checkbox the conferring milestone/project must come earlier in
@@ -355,7 +361,7 @@ The agent checks curriculum sequence (at every landing + quarterly re-run — VA
 Invocation: `bash scripts/milestone.sh <tag> "<msg>"`; dry run:
 `bash scripts/milestone.sh --dry-run <tag> "<msg>"` (flag first, tags nothing).
 On success the script MUST write `scripts/tests/receipts/<tag>.json`
-(checks run + versions + result — schema PINNED: `{"tag": str, "checks": [{"name": str,
+(checks run + versions + result — schema PINNED: `{"tag": str, "range": "<prev>..<tag>", "checks": [{"name": str,
 "result": "pass"|"fail", "detail": str}], "versions": {tool: version}, "result": "pass"|"fail"}`)
 — the file `audit-tags.sh` consumes (match rule: receipt exists + `result == "pass"`;
 exit 0 lists clean, exit 1 prints missing/failing tags, one per line).
@@ -372,7 +378,9 @@ as `<prev>`; then `git log <prev>..HEAD --oneline` is the range (no previous tag
 range is HEAD's full history). Post-mint audit form (tags exist by then, pinned separately):
 `git log <prev-tag>..<tag> --oneline` with both tags resolved via `for-each-ref`. After green,
 mint the tag, then record the post-mint form for the audit record.
-Tagging REFUSES (non-zero exit + reason) unless ALL pass (items 0–5 refuse AT MINT time;
+Tagging REFUSES (non-zero exit + reason) unless ALL pass. ORDER PINNED: items 0–5 run
+PRE-mint (format/lint/artifacts/skills/links/attest on the working tree); then mint annotated+signed;
+then `git tag -v` + receipt write; audit form recorded in receipt (items 0–5 refuse AT MINT time;
 item 6 is the monthly detective audit, not a mint gate — it runs on schedule regardless):
 
 0. Tag format: `<tag>` matches the pinned tag regex `^([a-z0-9]+(-[a-z0-9]+)*-)?m[0-9]+\.[0-9]+-(mvm|full)$`
@@ -399,13 +407,14 @@ item 6 is the monthly detective audit, not a mint gate — it runs on schedule r
    legacy `> Evidence: [[wikilink]]` form to dash form; worked example (dash form, copy-pasteable):
    `- Evidence: Mechatronics/docs/captures/2026-09-07_hbridge-loss.png`;
    scope ends at the next `##` heading or EOF (`###` subsections do NOT terminate — they belong
-   to their parent `## Pass` section); zero `Evidence:` lines under a Pass
+   to their parent `## Pass` section; same non-markdown carve-out as item 3 — code/captures/data
+   files never need `Evidence:` lines); zero `Evidence:` lines under a Pass
    heading = FAIL (vacuous never passes); one per line, repo-relative path, living under the
    README `## Pass` heading or milestone `## Pass Condition`), e.g.
    `- Evidence: Mechatronics/docs/captures/2026-09-07_hbridge-loss.png`
    Every listed path exists on disk. Freeform checkboxes are NOT parsed.
-3. Skills: every tagged file carries a `## Skills gained` line with COUNT ≥ 1 (VAULT POLICY coverage gate — same
-   rule as §1, enforced here — per-FILE scope: each file under tag must contain ≥1 skill line), plus a `Requires:` line
+3. Skills: every tagged MARKDOWN milestone/project file carries a `## Skills gained` line with COUNT ≥ 1 (VAULT POLICY coverage gate — same
+   rule as §1, enforced here — per-FILE scope: each markdown milestone/project file under tag must contain ≥1 skill line; non-markdown files (code, captures, data) and non-milestone files (indexes, redirect, GOAL, registry itself, attest notes) are EXEMPT from this item), plus a `Requires:` line
    (entry-point form allowed, blank forbidden); every ID matches §3 regex AND resolves
    in the registry; every registry row touched has non-null `Goal era` matching the era
    format (`pre-GOAL` or the pinned `<slug> (<range>)` — format-checked, not just non-null)
@@ -525,7 +534,8 @@ exception and land ONLY as topic capstones, never as parallel vault structure):
 - **Now (JIT, each node tied to a NAMED MVM checkbox — recorded in the scope-approval
   note `.opencode/plan/scope-<topic>-<date>.md` (`<date>` = YYYY-MM-DD; pinned path/format:
   topic, node list with target checkboxes, pretest plan, WIP counts — `due --cap 12` n +
-  per-topic `new` from `topics` — at approval; `Override:` field + user-sign line when used), NOT in `why_chain`, which stays
+  per-topic `new` from `topics` — at approval, `base-sha:` (store HEAD) + `doctor:` (ok + node count)
+  at approval, `Override:` field + user-sign line when used), NOT in `why_chain`, which stays
   an id-path; per-item kind: procedures land as NODES, builds land as CAPSTONES):** py CSV→PlotJuggler plot (M1.1, nodes),
   FFT+windowing (M1.2, nodes), `solve_ivp` pendulum (M1.4, nodes); C ring buffer + versioned telemetry
   framing (M1.5/M1.1, capstones). Parked until the demanding milestone is ACTIVE (ACTIVE =
@@ -613,9 +623,11 @@ diagnose-extension (anchors + skill-ID regex checks; registry-MEMBERSHIP check s
 `fixtures/`, so 9/9 evaluates without the real §3 fill) → §2 split pilot +
 Completion-text swap (STAGED on §4; verbatim moves are EXEMPT from the lens-presence check —
 content unchanged — new/edited content requires lens blocks once §6 grammar exists) →
-§3 registry fill → §1-pass-2 remainder (Science/DataScience pointers, LAB/IDEAS/inventory
-dispositions, 0.2/0.4/0.7 reword — full mass parameterization, on split paths) →
-§6 lens pairs (per-landing approval) → §5 landings. Item coverage: §2 items 1 (Primacy caps),
+§3 registry fill → §6-pilot-pairs (ONE batch approval covering Phase-0 + all pass-2-remainder
+topics — pairs must exist BEFORE any milestone edit touches those files, else the reword's own
+mint refuses; no reword lands un-paired) → §1-pass-2 remainder (Science/DataScience pointers, LAB/IDEAS/inventory
+dispositions, 0.2/0.4/0.7/0.9/0.10 reword-or-appendix — full mass parameterization, on split paths) →
+§6-rest (JIT per-landing pairs) → §5 landings. Item coverage: §2 items 1 (Primacy caps),
 3 (evidence 2-home), 4 (software bounds), 5 (ownership table) all land inside the split pilot
 (the pilot IS items 1–6); diagnose spec covers link caps + 6-heading shape + snippet-only-home
 alongside anchors/IDs (extend §2 item 2 — no unverified landings).
@@ -640,10 +652,14 @@ defect entries carry IDs `F-<nnn>` as `### F-<nnn> <title>` + a `Status:` line (
 never bare prose — the audit matches findings to IDs, not waived); cold-start test (step 0: export `ENGRAM_RUNNER` + `ENGRAM_HOME` +
 `PYTHONIOENCODING=utf-8` per `_system/engram/env.example.sh`; step 1: fresh session runs the AGENT.md session-start block
 verbatim with zero errors AND `due --cap 12` returns the same `n` as the pre-test run the same
-day — time-varying quantities compared same-day only (same-day window = ARBITRARY); both invocations logged in the test note
+day — time-varying quantities compared same-day only (same-day window = ARBITRARY; no reviews
+may land between the two runs — a landed review invalidates the comparison); both invocations logged in the test note
 `.opencode/plan/cold-start-<date>.md`, pinned path); FRESH reviewer agents on the same three briefs (alignment,
 neuroscience, extensibility+onboarding) report zero blocking verdicts, max 2 rounds (VAULT POLICY
-bound) — leftovers go to the user for adjudication, the loop terminates. User adjudication = waiver RECORDED
+bound) — leftovers go to the user for adjudication, the loop terminates. Judgment items (semantic
+pass dispositions, reviewer verdicts, uses-walk output) complete via recorded verdicts, never exit
+codes — the claim "mechanically checkable" means "every item has a pinned procedure + recorded
+artifact", listed per-item above. User adjudication = waiver RECORDED
 in `Changelog/` as `Waiver: F-<nnn> - <reason> - <date>` (hyphens-minus only, same typing rule);
 a waived finding satisfies its
 gate item (waiver semantics pinned — adjudication is a verdict, not an open loop).
