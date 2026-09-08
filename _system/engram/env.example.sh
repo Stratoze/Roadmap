@@ -7,6 +7,7 @@
 #   export ENGRAM_HOME="$HOME/Documents/Obsidian/_system/engram"
 # Adjust ENGRAM_HOME to your actual vault path. AGENT.md session-start refuses
 # to run when ENGRAM_RUNNER is unset (verbatim-safe guard).
-# Windows console encoding (engram emits UTF-8; Win codepage crashes it):
+# Windows console encoding (engram emits UTF-8; the Win cp932 codepage crashes on it —
+# verified `UnicodeEncodeError: cp932` without this export):
 #   export PYTHONIOENCODING=utf-8
 # (Prefix every runner invocation with it if exports don't stick.)

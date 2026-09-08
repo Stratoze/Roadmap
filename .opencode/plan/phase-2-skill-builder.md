@@ -14,7 +14,7 @@ File:line citations are repo-root-relative paths + current line numbers (re-chec
 (subcommands `due`, `topics`, `session-start`, `doctor`, `add-topic`,
 `edit-node`, `retire`, `rate`, `receipt`, `selftest`). Invoke scripts as
 `bash scripts/<name>.sh` (works regardless of the +x bit). Windows runners MUST export
-`PYTHONIOENCODING=utf-8` first (engine emits UTF-8 the Win codepage cannot encode —
+`PYTHONIOENCODING=utf-8` first (engine emits UTF-8 the Win cp932 codepage cannot encode —
 verified crash without it; see `_system/engram/env.example.sh`).
 
 ## 0. Verified starting facts (2026-09-07, re-check at build time — counts rot fast)
@@ -42,7 +42,9 @@ verified crash without it; see `_system/engram/env.example.sh`).
   not cosmetic (scaffold-first per §1 — mass parameterization deferred to pass 2).
 - Engram (LANDED vault store — `_system/engram/`, 13 topics / 270 nodes / 258 `new` /
   0 repo receipts as of 2026-09-08 — counts re-verified at build, never trusted from here;
-  reconciled 340 HOLD / 14 PORT (`mech-spine`, Mac) / 0 DROP; re-sits ~zero (all Win
+  reconciled 340 HOLD / 14 PORT (`mech-spine`, Mac) / 0 DROP (provenance: `_system/engram/MAC_DISPOSITIONS.jsonl`
+  354-row count; Win source `_system/engram/WIN_INVENTORY.json` 12 topics / 256 nodes / 244 new; Mac rebuild
+  `_system/engram/MAC_INVENTORY.json` 6 topics / 103 nodes); re-sits ~zero (all Win
   receipts pre-divergence, Win nodes adopted in place — "re-sit" = re-answer a moved node). ENGINE_PIN green (engine sha
   FULL match both sides, verified 2026-09-08). WIP caps below evaluate against THIS store
   and THIS store only (no separate-universe gating — the pre-landing split is over).
@@ -144,7 +146,7 @@ with VERIFIED line spans of `Mechatronics/milestones/00_foundations.md` (599 lin
 title+Outcome+Pass Condition 1–49 EXCEPT lines 25–46 (owned by `lab/`, pointer left behind);
 0.1 → 50–96; 0.2 → 97–133; 0.3 → 134–167;
 0.4 → 168–208; 0.5 → 209–246; 0.6 → 247–285; 0.7 → 286–359; 0.8 → 360–424;
-0.9 → 425–515; 0.10 → 516–577 (content ends 575, blanks 576–577; separator 578, header at 580); Deload 578–599.
+0.9 → 425–515; 0.10 → 516–577 (content ends 575, blanks 576–577; separator 578, header at 580); Deload 578–599 into `lab/0-deload-synthesis.md` (Deload+Retro one file — the `0.N` scheme covers milestones only).
 Split rule: builder runs `grep -nE "^#+ (Phase 0|Milestone 0)"` and diffs FULL output against
 this pinned expectation (13 lines — title + 10 milestones + Deload + Retro; Retro moves with
 lab per the cut map, nothing stays put except the redirect index):
@@ -158,7 +160,7 @@ lab per the cut map, nothing stays put except the redirect index):
 bare `^#+ ` yields 62 (all subheads) — both wrong, hence expected-output diff (spans re-verified
 at build, never trusted from this map). Output filenames follow the scheme
 `<dir>/0.N-<kebab-from-section-heading>.md` (slugs derived at build from the section
-headings above by PINNED algorithm — FIRST strip everything through the first ` — `
+headings above by PINNED algorithm — FIRST strip everything through the first ` — ` (delimiter read FROM the heading file text — copy it, never retype; the ASCII-only typing rule covers typed literals, not characters read from files)
 (em-dash), i.e. drop the `Milestone 0.N` prefix; THEN lowercase, `[^a-z0-9]+` → single
 hyphen, strip leading/trailing hyphens; e.g. `# Milestone 0.2 — Vectors, Trig, Frames of
 Reference` → `vectors-trig-frames-of-reference` — no invented names, two executors emit
@@ -213,7 +215,9 @@ Structural fixes (all mandatory; numbered for reference — execution follows §
    2. Tag: bash scripts/milestone.sh <tag> "<msg>". The tag is the durable evidence.
    3. Mark ✅ in the ROADMAP table only, then bash scripts/save.sh "roadmap: mark <tag>."`
    STAGED: this rewrite lands ONLY after §4 ships `--dry-run` (until then the
-   documented command fails — build §4 first, swap text second). Doc==script owner:
+   documented command fails — build §4 first, swap text second). All three scripts
+   (`milestone.sh`, `test-gate.sh`, `audit-tags.sh`) self-export `PYTHONIOENCODING=utf-8`
+   at the top (substring-matched gate output must survive Win cp932 — caller env is not enough). Doc==script owner:
    the §4 BUILDER (default whoever implements — reassigned from Mac-only by the Win
    authority transfer; preconditions: `ruff`, `clang-tidy`, `julia` present on the build machine
    + SSH signing key for `git tag -s` — verify before starting); the pinned doc text governs,
@@ -291,7 +295,8 @@ Structural fixes (all mandatory; numbered for reference — execution follows §
   every `skills/<domain>.md` shard (membership search spans all files — never index-only).
   Phase rows may carry `pN-complete`
   tags in `Evidence tag` (phase rows are EXEMPT from skill-ID/era checks — they aggregate milestones, confer nothing; the column accepts EITHER tag form — existence check tries both
-   regexes; project rows list BOTH tags comma-separated `mvm-tag, full-tag`, each checked).
+   regexes; project rows list BOTH tags comma-separated `mvm-tag, full-tag` (existence check
+   splits on comma, checks each).
   Deferred-domain (piano/japanese/data) milestone skill lines get format-checks ONLY until those domains onboard (resolution-against-registry deferred with the domains — never a mint-blocker for mech/software).
 - Schema: `| Skill ID | Name | Evidence tag | Goal era | Project | Requires |`
   (registry CELLS: comma-separated prerequisite skill IDs, or EMPTY for true entry
@@ -375,8 +380,8 @@ excluding those reachable from the previous taggerdate-ordered tag. Pinned proce
 keep ONLY tags with `git merge-base --is-ancestor <tag> HEAD` true (topology guard — tags from
 other lineages never enter the range) AND non-empty taggerdate (lightweight tags excluded —
 empty dates sort undefined, never silently become `<prev>`), take the FIRST such tag (newest HEAD-ancestor by taggerdate)
-as `<prev>`; then `git log <prev>..HEAD --oneline` is the range (no previous tag =
-range is HEAD's full history). Post-mint audit form (tags exist by then, pinned separately):
+as `<prev>`; then `git log <prev>..HEAD --oneline` is the range (no previous tag, or no HEAD-ancestor tag at all =
+range is HEAD's full history; receipt `"range"` in that case is the literal string `"HEAD"` (full-history marker)). Post-mint audit form (tags exist by then, pinned separately):
 `git log <prev-tag>..<tag> --oneline` with both tags resolved via `for-each-ref`. After green,
 mint the tag, then record the post-mint form for the audit record.
 Tagging REFUSES (non-zero exit + reason) unless ALL pass. ORDER PINNED: items 0–5 run
@@ -387,7 +392,7 @@ item 6 is the monthly detective audit, not a mint gate — it runs on schedule r
 0. Tag format: `<tag>` matches the pinned tag regex `^([a-z0-9]+(-[a-z0-9]+)*-)?m[0-9]+\.[0-9]+-(mvm|full)$`
    OR `^p[0-9]+-complete$` (phase gates, e.g. `p0-complete`; multi-digit phases covered), OR is on the pinned grandfather list
    (`m0.1-fullpass` — the only entry; never extended without a registry-header-style amendment).
-   Order: mint annotated+signed FIRST (`git tag -s -a`), THEN `git tag -v <tag>` must verify
+   Order: mint annotated+signed FIRST (`git tag -s -a -m "<msg>"`), THEN `git tag -v <tag>` must verify
    (lightweight tags fail here too) — on verify-fail, delete the tag and refuse the receipt
    (mint-then-verify; pre-mint `tag -v` is impossible since the tag doesn't exist yet; on ANY item 0-5 failure post-mint, delete the tag and refuse the receipt — no stray tags ever).
 
@@ -404,7 +409,7 @@ item 6 is the monthly detective audit, not a mint gate — it runs on schedule r
    `Meta.parse`-first-expression-only is a KNOWN false-green, never the gate; the implementer
    pins whatever passes (candidate one-liner `julia -e 'for f in ARGS; Meta.parseall(read(f,String)); end' <files>` — implementer proves multi-expression behavior on a fixture file with a trailing syntax error at build).
    A 5th language MUST add its row before its first tag.
-2. Artifacts: `Evidence:` lines (dash form `- Evidence: <path>` — migration rewrites the
+2. Artifacts (same positive file-set as item 3 — milestones/*.md + split dirs + software/*/README.md; all other `.md` out-of-scope): `Evidence:` lines (dash form `- Evidence: <path>` — migration rewrites the
    legacy `> Evidence: [[wikilink]]` form to dash form; worked example (dash form, copy-pasteable):
    `- Evidence: Mechatronics/docs/captures/2026-09-07_hbridge-loss.png`;
    scope ends at the next `##` heading or EOF (`###` subsections do NOT terminate — they belong
@@ -541,7 +546,7 @@ exception and land ONLY as topic capstones, never as parallel vault structure):
   note `.opencode/plan/scope-<topic>-<date>.md` (`<date>` = YYYY-MM-DD; pinned path/format:
   topic, node list with target checkboxes, pretest plan, WIP counts — `due --cap 12` n +
   per-topic `new` from `$ENGRAM_RUNNER topics` (ENGRAM_HOME set — bare `topics` reads the wrong
-  store) — at approval, `base-sha:` (store HEAD) + `doctor:` (ok + node count)
+  store) — at approval, `base-sha:` (`git rev-parse HEAD` of the vault) + `doctor:` (ok + node count)
   at approval, `Override:` field + user-sign line when used), NOT in `why_chain`, which stays
   an id-path; per-item kind: procedures land as NODES, builds land as CAPSTONES):** py CSV→PlotJuggler plot (M1.1, nodes),
   FFT+windowing (M1.2, nodes), `solve_ivp` pendulum (M1.4, nodes); C ring buffer + versioned telemetry
