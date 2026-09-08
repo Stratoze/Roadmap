@@ -50,7 +50,9 @@ verified crash without it; see `_system/engram/env.example.sh`).
   (statics equilibrium phrasing across mech topics — ONE `static-equilibrium` node exists,
   no literal ×2) + Japanese verb cluster (7 nodes: `jp-verb-groups`, `jp-masu-polite`,
   `jp-plain-past`, `jp-te-form`, `jp-te-progressive`, `jp-te-requests`, `jp-te-linking`).
-  `kind` absent on 30 nodes (recounted 2026-09-08 — re-count at build; absent ⇒ `concept` per architect — caveat: absent +
+  `kind` absent on 34 nodes (recounted 2026-09-08: 13 per-topic `capstone`s with null kind +
+  21 others — recount method PINNED: count of nodes where the `kind` key is missing or null;
+  re-count at build, never trust this number; absent ⇒ `concept` per architect — caveat: absent +
   `arbitrary:true` ⇒ `fact`; audit content, only true fresh-instance procedures earn
   `procedure` + `practice` frames with engine-native `problem_frame` + `verify` +
   `error_bank` (+ `discriminates_from`, which IS engine-documented/preserved/due-carried
@@ -107,7 +109,9 @@ rows — owned by THIS task, so §3 fills an existing file); pass 2 (post-confir
   post-normalization (gate normalizes U+2013 → `-` FIRST, then matches; the regex itself never
   contains en-dashes): `pre-GOAL`, or `<slug> (<YYYY-MM>[-<YYYY-MM>]?[-]?)` — trailing-dash open ranges
   (`qdd-arm (2026-08-)`, Win-keyboard form) are legal; with `<slug>` pinned in GOAL.md
-  (today `qdd-arm (2026-08-)`); typists use hyphen-minus, never en-dash U+2013. No tag retire rule.
+  (today `qdd-arm (2026-08-)`); typists use hyphen-minus, never en-dash U+2013.
+  Conformance examples (gate must accept: `pre-GOAL`, `qdd-arm (2026-08)`, `qdd-arm (2026-08-)`,
+  `qdd-arm (2026-08-2026-12)`; must reject: `QDD (2026-08)`). No tag retire rule.
 - Parameterization tasks (mandatory): `Mechatronics/resources/CONVENTIONS.md` arm frame defaults → goal parameters;
   0.2/0.4/0.7 arm-flavored procedures reworded goal-neutral OR GOAL.md-listed appendices;
   `Science/` + `DataScience/` arm assumptions → `See [[Mechatronics/GOAL]]` pointers;
@@ -131,9 +135,11 @@ title+Outcome+Pass Condition 1–49 EXCEPT lines 25–46 (owned by `lab/`, point
 Split rule: builder re-runs `grep -n "^# " on the file pre-split and aborts on ANY span
 mismatch (spans re-verified, never trusted from this map). Output filenames follow the scheme
 `<dir>/0.N-<kebab-from-section-heading>.md` (slugs derived at build from the section
-headings above by PINNED algorithm — lowercase, `[^a-z0-9]+` → single hyphen, strip
-leading/trailing hyphens, e.g. "Vectors, Trig, Frames of Reference" →
-`vectors-trig-frames-of-reference` — no invented names, two executors emit identical paths); each new dir gets a `README.md` index.
+headings above by PINNED algorithm — FIRST strip everything through the first ` — `
+(em-dash), i.e. drop the `Milestone 0.N` prefix; THEN lowercase, `[^a-z0-9]+` → single
+hyphen, strip leading/trailing hyphens; e.g. `# Milestone 0.2 — Vectors, Trig, Frames of
+Reference` → `vectors-trig-frames-of-reference` — no invented names, two executors emit
+identical paths); each new dir gets a `README.md` index.
 `00_foundations.md` itself becomes a redirect index (no checkboxes — evidence backlinks
 keep resolving). Pre-move READMEs (exact list — `Mechatronics/firmware/README.md`,
 `Mechatronics/firmware/esp32/README.md`, `Mechatronics/firmware/stm32/README.md`,
@@ -186,22 +192,28 @@ Structural fixes (all mandatory; numbered for reference — execution follows §
    Pinned scope vocabulary: `math:`, `physics:`, `mechanical:`, `electronics:`, `software:`, `lab:`
    for domain work, `vault:` for cross-cutting changes (no other scopes without amendment).
 2. **Anchors:** every milestone gets `<a id="m0-N"></a>` (`m0-1`…`m0-10` — resolvers match
-   full IDs, never prefixes, since `m0-1` prefixes `m0-10`); ROADMAP + all new notes link
+   full IDs, never prefixes, since `m0-1` prefixes `m0-10`; scope = Phase-0 pilot milestones only); ROADMAP + all new notes link
    `#m0-N` only. Numbered for reference only — execution follows §7, NOT this item order.
    EXEMPT entries (format PINNED): `# EXEMPT <check>: <target> — <reason> — expires <YYYY-MM-DD>`
-   at the top of `scripts/diagnose.py`; the builder creates entries with expiry (never open-ended)
+   at the top of `scripts/diagnose.py`; the builder creates entries with expiry (never open-ended;
+   the gate FAILS on expired EXEMPT entries — expiry is enforcement, not decoration)
    and verifies with `grep -n '^# EXEMPT' scripts/diagnose.py`.
    Migration script rewrites the 37 ROADMAP milestone rows, records old targets as
    HTML comments `<!-- was: <old-link-target> -->` (whole-file sources are fine — today
    rows carry no `#fragment`, so `<old-link-target>` = the previous link target string;
+   the 37-row count is re-verified pre-migration, never trusted from here;
    Daily history immutable — old links rot by design).
    `diagnose.py` extension spec: resolve `<a id="X">` definitions; accept link forms
    `[[File#X]]`, `(file.md#X)`, `#X` (same-file — definition-side lookup, not a skip);
-   skip code fences; skill IDs (scanned on `Skills gained` lines — exact heading spelling,
+   skip code fences AND HTML comments (migration `<!-- was: -->` old-links must not trip
+   the checker); skill IDs (scanned on `Skills gained` lines — exact heading spelling,
    case-sensitive — plus `Requires:` lines, which must be the immediately-next non-blank
    line) validated against §3 regex immediately, PLUS registry membership once §3 is filled
    (membership check staged — pre-fill runs skip it with a warning, never fail); redirect headers matching the
-   pinned format. Must pass clean. Timing rule: the builder's own `diagnose.py` run is the
+   pinned format. Must pass clean. Checks covered by this extension (no item lands unverified):
+   anchors, skill IDs + Requires adjacency, membership (staged), redirect format, Index link-cap
+   (≤7 targets on the three hub Indexes), project README 6-heading shape, snippet-only-home
+   (no sim dirs outside `software/simulations/`). Timing rule: the builder's own `diagnose.py` run is the
    check — full rescan per tag accepted; add incremental mode only if a run exceeds 60s
    (ARBITRARY threshold) and record timing.
 3. **Evidence 2-home rule:** canonical = milestone-body checkboxes + git tag.
@@ -235,7 +247,9 @@ Structural fixes (all mandatory; numbered for reference — execution follows §
   skills explicitly deferred, not homeless-by-accident).
 - Schema: `| Skill ID | Name | Evidence tag | Goal era | Project | Requires |`
   (`Requires` = comma-separated prerequisite skill IDs, empty ONLY for true entry
-  points — 0.1-level — with `Requires: — (entry point)` written explicitly; blank = fail.)
+  points — 0.1-level — with `Requires: — (entry point)` written explicitly (gate normalizes
+  em-dash U+2014 → `-` first, same typing rule — `Requires: - (entry point)` also passes);
+  blank = fail.)
 - ID regex (gate-enforced): `^(sw|ee|mech|lab)-[a-z0-9-]+$`, PLUS the `sw-` language token
   is MANDATORY and gate-checked against the pinned token list (`c`, `py`, `cpp`, `jl`):
   every `sw-` ID matches `^sw-(c|py|cpp|jl)-[a-z0-9-]+$` (so `sw-foo` FAILS; language-agnostic
@@ -296,13 +310,14 @@ On success the script MUST write `scripts/tests/receipts/<tag>.json`
 "result": "pass"|"fail", "detail": str}], "versions": {tool: version}, "result": "pass"|"fail"}`)
 — the file `audit-tags.sh` consumes (match rule: receipt exists + `result == "pass"`;
 exit 0 lists clean, exit 1 prints missing/failing tags, one per line).
-Touched files = staged + unstaged working-tree files for `--dry-run`
-(`git status --short`); the mint run checks the SAME set (working tree as it stands pre-tag).
+Touched files = staged + unstaged + untracked working-tree files for `--dry-run`
+(`git status --short --untracked-files=all` — `??` lines count as touched); the mint run checks the SAME set (working tree as it stands pre-tag).
 For audits, the tag's commit range = commits reachable from the tag
 excluding those reachable from the previous taggerdate-ordered tag. Pinned procedure
 (the check runs BEFORE the tag is minted, so the range ends at HEAD): list
 `git for-each-ref --sort=-taggerdate --format='%(refname:short)' refs/tags` (newest first),
-take the line AFTER `<tag>`'s would-be position — i.e. the newest tag older than HEAD —
+keep ONLY tags with `git merge-base --is-ancestor <tag> HEAD` true (topology guard — tags from
+other lineages never enter the range), take the line AFTER `<tag>`'s would-be position — i.e. the newest tag older than HEAD —
 then `git log <prev>..HEAD --oneline` is the range (no previous tag =
 range is HEAD's full history); after green, mint the tag, then re-run the range command
 with `<tag>` for the audit record.
@@ -310,7 +325,7 @@ Tagging REFUSES (non-zero exit + reason) unless ALL pass (items 0–5 refuse AT 
 item 6 is the monthly detective audit, not a mint gate — it runs on schedule regardless):
 
 0. Tag format: `<tag>` matches the pinned tag regex `^([a-z0-9]+(-[a-z0-9]+)*-)?m[0-9]+\.[0-9]+-(mvm|full)$`
-   OR `^p[0-9]-complete$` (phase gates, e.g. `p0-complete`), OR is on the pinned grandfather list
+   OR `^p[0-9]+-complete$` (phase gates, e.g. `p0-complete`; multi-digit phases covered), OR is on the pinned grandfather list
    (`m0.1-fullpass` — the only entry; never extended without a registry-header-style amendment).
    Signing: `git tag -v <tag>` must verify (annotated+signed — lightweight tags fail here too).
 
@@ -322,7 +337,9 @@ item 6 is the monthly detective audit, not a mint gate — it runs on schedule r
    (incl. `js|ts`) MUST add its row before its first tag — gate FAILS CLOSED on unlisted extensions):
    `jl` → `JuliaFormatter` if `.JuliaFormatter.toml` (or `[JuliaFormatter]` in
    `Project.toml`) exists in the project root (the touched file's `software/<project>/`
-   dir, else repo root) else syntax-parse:
+   dir, else repo root), else syntax-parse (single-expression caveat: `Meta.parse` reads the
+   FIRST expression only — multi-expression files need full-file parse; the gate implementer
+   pins the exact julia one-liner at build):
    `julia -e 'for f in ARGS; Meta.parse(read(f,String)); end' <files>`.
    A 5th language MUST add its row before its first tag.
 2. Artifacts: `Evidence:` lines (dash form `- Evidence: <path>` — migration rewrites the
@@ -339,12 +356,17 @@ item 6 is the monthly detective audit, not a mint gate — it runs on schedule r
    format (`pre-GOAL` or the pinned `<slug> (<range>)` — format-checked, not just non-null)
    and its Evidence-tag value exists as a minted tag, OR equals the tag being minted
    (first-mint carve-out — a row's Evidence tag may be the tag under mint; post-mint,
-   `audit-tags.sh` re-verifies existence); every prerequisite taggerdate ≤ claimant taggerdate (§3 skill-order audit).
+   the monthly audit re-verifies existence via receipts AND re-runs the §3 taggerdate comparison
+   with `git for-each-ref` (dates exist by then); item 3 invokes the §3 rule by reference
+   rather than restating); every prerequisite taggerdate ≤ claimant taggerdate (§3 skill-order audit).
 4. Links+lenses: extended `diagnose.py` (§2 item 2 spec) clean on touched files, INCLUDING
    the lens rule — any touched milestone MISSING its lens block, or any `status: proposed`
    lens in one, fails the gate (checked inside `diagnose.py`, not by hand; skill IDs are
    scanned on `Skills gained` + `Requires:` lines; lens blocks parsed on the exact header
-   `Lenses - m0-N`); verbatim MOVES (content unchanged) are EXEMPT from lens-presence
+   `Lenses - m0-N`); verbatim MOVES (content unchanged — verified mechanically: builder diffs
+   each moved file against its source span IGNORING redirect-header lines,
+   `diff <(sed '/^# Moved → /d' newfile) <(sed -n '<start>,<end>p' oldfile)` must be empty)
+   are EXEMPT from lens-presence
    (new/edited content is not).
 5. Attestation: dated blank-page test note, e.g.
    `Mechatronics/math/0.2-attest-2026-09-07.md`
@@ -362,7 +384,8 @@ item 6 is the monthly detective audit, not a mint gate — it runs on schedule r
    (endpoint pinned: Landmine Log or vault-file link — no bare text).
 6. Direct-`git-tag` bypass is detectable, not preventable: monthly (VAULT POLICY cadence)
    `bash scripts/audit-tags.sh` (ABSENT — created here: lists tags lacking gate receipts in
-   `scripts/tests/receipts/<tag>.json`, exit 1 printing one per line, exit 0 when clean)
+   `scripts/tests/receipts/<tag>.json`, exit 1 printing one per line, exit 0 when clean;
+   on each run it ALSO re-runs the §3 taggerdate comparison for all registry rows)
    + agent rule — never attest a bypassed tag;
    bypassed tags get `-unaudited` registry note until re-earned.
 
@@ -374,7 +397,8 @@ refusal-4 → item 4 (links+lenses); refusal-5 → item 5 (attest); refusal-6 �
 control `audit-tags.sh` (harness creates an annotated fixture tag named `fixture/bypass-N`
 in a temp CLONE — never a shared worktree — runs the audit, expects exit 1 listing it,
 then deletes the clone); refusal-7 → item-3 sub-check, skill-order violation with prerequisite
-taggerdate after claimant, backdated via `GIT_AUTHOR_DATE`/`GIT_COMMITTER_DATE` env), run by
+taggerdate after claimant, backdated via `GIT_AUTHOR_DATE`/`GIT_COMMITTER_DATE` env in a temp
+CLONE (same isolation — shared worktrees share refs), run by
 `bash scripts/test-gate.sh` (ABSENT — created here) expecting 9/9. 9/9 or red. Fixture layout:
 each `refusal-N/` holds input files + `expected-exit` + `expected-stderr-fragment`; `clean/`
 holds passing inputs + a fixture `registry.md` so skill checks evaluate self-contained.
@@ -423,8 +447,10 @@ outstanding; this policy trades speed for habit protection, overrideable):
   is engine prose, not a command; the plan treats the `7` as ARBITRARY) until `due --cap 12`
   returns `n` < 12 (strictly fewer — same rule as the landing gate) or JIT-override signed.
   Burn-down for `new`: dedupe via `analogous_to`-convention/`retire` + `doctor`
-  (remediation step, counts toward the landing-topic ≤20 cap above) — 258 `new` across
-  13 topics as of 2026-09-08, tracked per-topic in the build note.
+  (remediation step — every retire logged in `Changelog/` + commit; counts toward the landing-topic ≤20 cap above) — 258 `new` across
+  13 topics as of 2026-09-08, tracked per-topic in the build note. Burn-down EXITS (all required
+  for first landing): landing topic ≤20 AND `due --cap 12` returns `n` < 12, OR a per-batch
+  JIT-override is signed (same override form as landings).
 - Soft alarm at 150 active (`active` = `topics` states review+learning+`new` summed, all topics):
   ARBITRARY, review-or-retire session due by 2026-12.
 
@@ -472,15 +498,18 @@ PINNED to the anchor scheme `m0-N`, canonical first line `Lenses - m0-2` (HYPHEN
 gate normalizes em-dash U+2014 → `-` first, then matches; typists use hyphen, never em-dash):
 
 ```
-Lenses — <milestone id>
-Rigorous: <title> — <creator> — <url> — <status: proposed|approved|waived>
-Intuitive: <title> — <creator> — <url> — <status: proposed|approved|waived>
+Lenses - <milestone id>
+Rigorous: <title> - <creator> - <url> - <status: proposed|approved|waived>
+Intuitive: <title> - <creator> - <url> - <status: proposed|approved|waived>
 Interactive: <sim/bench>   Theory: <scoped book ch>   (existing content kept)
 ```
+(copy-paste SAFE — hyphen-minus only, no em/en-dashes anywhere in this block).
 
 Rules: agent proposes exactly 2 (VAULT POLICY dosage: 1 rigorous + 1 intuitive, Veritasium/3Blue1Brown/
 Efficient Engineer caliber; new domains calibrated with the user first — titles/creators/URLs
-are USER inputs at approval time, the agent drafts candidates). User
+are USER inputs at approval time, the agent drafts candidates). Lens lifecycle (no deadlock):
+propose (`proposed`) → user approves/replaces per topic (`approved`) or `waived` + reason →
+ONLY then may a tag minting that topic's work pass the gate. User
 approves/replaces per topic. **No approved pair → topic doesn't land**, with ONE explicit
 escape: `waived` + reason logged in the lens block + `Changelog/` (affordance-none content) — a user-signed decision,
 never a default. AI-generated video is NEVER a lens (VAULT POLICY sourcing rule — no AI-channel
@@ -513,7 +542,12 @@ diagnose-extension (anchors + skill-ID regex checks; registry-MEMBERSHIP check s
 `fixtures/`, so 9/9 evaluates without the real §3 fill) → §2 split pilot +
 Completion-text swap (STAGED on §4; verbatim moves are EXEMPT from the lens-presence check —
 content unchanged — new/edited content requires lens blocks once §6 grammar exists) →
-§3 registry fill → §6 lens pairs (per-landing approval) → §5 landings.
+§3 registry fill → §1-pass-2 remainder (Science/DataScience pointers, LAB/IDEAS/inventory
+dispositions, 0.2/0.4/0.7 reword — full mass parameterization, on split paths) →
+§6 lens pairs (per-landing approval) → §5 landings. Item coverage: §2 items 1 (Primacy caps),
+3 (evidence 2-home), 4 (software bounds), 5 (ownership table) all land inside the split pilot
+(the pilot IS items 1–6); diagnose spec covers link caps + 6-heading shape + snippet-only-home
+alongside anchors/IDs (extend §2 item 2 — no unverified landings).
 Phase acceptance (ALL must hold, each mechanically checkable — shell pinned: git-bash/POSIX
 for all greps below, PowerShell never): §1 grep-gate
 (exact commands — counts: `grep -rEoh 'QDD|2-DOF|2DOF|2 DOF|2-link|Puck|backdrivab|quasi-direct|SendCutSend|gripper|lever-arm' Mechatronics/ Science/ DataScience/ | sort | uniq -c`;
@@ -533,6 +567,9 @@ verbatim with zero errors AND `due --cap 12` returns the same `n` as the pre-tes
 day — time-varying quantities compared same-day only (same-day window = ARBITRARY); both invocations logged in the test note
 `.opencode/plan/cold-start-<date>.md`, pinned path); FRESH reviewer agents on the same three briefs (alignment,
 neuroscience, extensibility+onboarding) report zero blocking verdicts, max 2 rounds (VAULT POLICY
-bound) — leftovers go to the user for adjudication, the loop terminates. Reviewer briefs = the three names above
+bound) — leftovers go to the user for adjudication, the loop terminates. User adjudication = waiver RECORDED
+in `Changelog/` as `Waiver: <finding-ID> — <reason> — <date>`; a waived finding satisfies its
+gate item (waiver semantics pinned — adjudication is a verdict, not an open loop).
+Reviewer briefs = the three names above
 (alignment, neuroscience, extensibility+onboarding); verdicts recorded in `Changelog/` + the
 build commit message.
