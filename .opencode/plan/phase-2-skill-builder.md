@@ -29,7 +29,8 @@ verified crash without it; see `_system/engram/env.example.sh`).
   plus human semantic pass for generic `arm|actuator` in goal-flavored contexts
   (checklist lives in GOAL.md once created — circularity resolved: the §1 task CREATES
   the checklist as it rewrites). Coupled files (pattern-confirmed hits — every line below
-  matches the canonical pattern; the semantic pass covers generic `arm|actuator` contexts
+  matches the canonical pattern; scope: NON-MILESTONE files only — milestone/ROADMAP hits live
+  in the §1 goal-change clause, not here; the semantic pass covers generic `arm|actuator` contexts
   the pattern misses): `Science/Index.md:14` (Puck PCB thermal + QDD gear hits; Lorentz on that
   line attaches to the voice-coil rig, not to Puck/QDD — attributed exactly),
   `DataScience/Index.md:9,13` (QDD telemetry pipeline), `Mechatronics/resources/LAB_INFRASTRUCTURE.md`
@@ -109,8 +110,8 @@ rows — owned by THIS task, so §3 fills an existing file); pass 2 (post-confir
   `Mechatronics/milestones/05_portfolio_delivery.md:13` QDD pedestal, ROADMAP Feeds-into claims).
 - Skills persist: registry rows keep `Evidence tag` + `Goal era` column (§3); pre-swap rows
   BACKFILLED (acceptance audit: `awk -F'|' 'NR>4 && $5 ~ /^[[:space:]]*$/ {c++} END {print c+0}' Mechatronics/skills/registry.md`
-  (NR>4 skips title/header/separator/first-blank lines of the skeleton; header `$5` is ` Goal era ` — never empty, so no false match)
-  returns 0 empty cells — NR>2 skips header+separator, `$5` is the `Goal era` column; zero null `Goal era`); tags minted pre-swap stay valid history.
+  (NR>4 skips the 4-line skeleton head — title/blank/header/separator; header `$5` is ` Goal era ` — never empty, so no false match);
+  returns 0 empty cells — `$5` is the `Goal era` column; zero null `Goal era`); tags minted pre-swap stay valid history.
   Tag grammar (PINNED — one dialect everywhere): evidence tags match
   `^([a-z0-9]+(-[a-z0-9]+)*-)?m[0-9]+\.[0-9]+-(mvm|full)$` (post-swap tags carry the `<goal>-` prefix,
   e.g. `cnc-m3.1-mvm`, `qdd-arm-m3.1-mvm`; `m0.1-fullpass` grandfathered, never rewritten). `Goal era` format
@@ -131,7 +132,8 @@ rows — owned by THIS task, so §3 fills an existing file); pass 2 (post-confir
 - Goal-era vocabulary: `pre-GOAL` (before GOAL.md existed) or `<goal-slug> (<date range>)`
   per the pinned grammar above (slug + range pinned in GOAL.md itself).
 - Acceptance: canonical pattern over `Mechatronics/ Science/ DataScience/` returns ONLY
-  `GOAL.md`, `Mechatronics/goals/parked/*`, the Phase 3–5 milestone files
+  `GOAL.md`, `Mechatronics/goals/parked/*`, the Phase 1–5 milestone files (`01`–`05` — literal
+  executor note: `01`/`02` are Phases 1–2, not Phase 3; the old "Phase 3–5" label was wrong),
   (`01_signals_actuators_dynamics.md`, `02_embedded_realtime_control.md`,
   `03_mech_pcb_verification.md`, `04_capstone_integration.md`, `05_portfolio_delivery.md`),
   `Mechatronics/ROADMAP.md` (active-goal roadmap stays goal-flavored by design — its goal lines
@@ -393,8 +395,12 @@ item 6 is the monthly detective audit, not a mint gate — it runs on schedule r
    OR `^p[0-9]+-complete$` (phase gates, e.g. `p0-complete`; multi-digit phases covered), OR is on the pinned grandfather list
    (`m0.1-fullpass` — the only entry; never extended without a registry-header-style amendment).
    Order: mint annotated+signed FIRST (`git tag -s -a -m "<msg>"`), THEN `git tag -v <tag>` must verify
-   (lightweight tags fail here too) — on verify-fail, delete the tag and refuse the receipt
-   (mint-then-verify; pre-mint `tag -v` is impossible since the tag doesn't exist yet; on ANY item 0-5 failure post-mint, delete the tag and refuse the receipt — no stray tags ever).
+   (lightweight tags fail here too) — on verify-fail, delete the tag and refuse the receipt, so no
+   stray tag survives a failed mint (mint-then-verify; pre-mint `tag -v` is impossible since the tag
+   doesn't exist yet).
+   Split rule (resolves the PRE-mint vs mint-FIRST readings — both hold, different halves): the FORMAT
+   half of item 0 (regex/grandfather on the arg string) runs PRE-mint alongside items 1–5, all refusing
+   before anything is minted; the EXISTENCE half (`tag -v`) runs POST-mint; NOTHING else runs post-mint.
 
 1. Build+lint table (pinned in the script; CODE extensions = `py|c|h|cpp|hpp|jl|sh` with rows:
    `py` → `ruff check` + `ruff format --check`; `c/h/cpp/hpp` → `clang-tidy`; `sh` → `bash -n`;
@@ -547,6 +553,7 @@ exception and land ONLY as topic capstones, never as parallel vault structure):
   topic, node list with target checkboxes, pretest plan, WIP counts — `due --cap 12` n +
   per-topic `new` from `$ENGRAM_RUNNER topics` (ENGRAM_HOME set — bare `topics` reads the wrong
   store) — at approval, `base-sha:` (`git rev-parse HEAD` of the vault) + `doctor:` (ok + node count)
+  + `landing-topic:` (repeats the filename `<topic>` — the topic of record for this batch),
   at approval, `Override:` field + user-sign line when used), NOT in `why_chain`, which stays
   an id-path; per-item kind: procedures land as NODES, builds land as CAPSTONES):** py CSV→PlotJuggler plot (M1.1, nodes),
   FFT+windowing (M1.2, nodes), `solve_ivp` pendulum (M1.4, nodes); C ring buffer + versioned telemetry
