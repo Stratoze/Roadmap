@@ -51,6 +51,11 @@ You don't need to master these before building. You need them at "Applied" level
 > **Interactive:** set up the toolchain and flash a blinky. That *is* the milestone — stop when it blinks.
 > **Theory:** none. This is an environment milestone, not a theory one.
 
+Lenses - m0-1
+Rigorous: Learning How to Learn | Barbara Oakley | https://www.youtube.com/watch?v=O96fE1E-rf8 | approved
+Intuitive: The Science of Thinking | Veritasium | https://www.youtube.com/watch?v=UBVV8pch1dM | approved
+Interactive: set up the toolchain and flash a blinky. That *is* the milestone - stop when it blinks.   Theory: none. This is an environment milestone, not a theory one.
+
 ### Deliverable
 
 Working dev environment, local Git repo with first commit, Engram topic subscribed, and a problem-solving vocabulary you can use when stuck.
@@ -98,6 +103,11 @@ Working dev environment, local Git repo with first commit, Engram topic subscrib
 > **Interactive:** plot the 2-link arm tip in Python for a few (θ1,θ2); see the vector add.
 > **Theory:** Craig *Introduction to Robotics* Ch 2 (frames & transformations) / Khan Academy — only what forward kinematics needs.
 
+Lenses - m0-2
+Rigorous: Vectors | Chapter 1, Essence of linear algebra | 3Blue1Brown | https://www.youtube.com/watch?v=fNk_zzaMoSs | approved
+Intuitive: Vectors | Precalculus | Khan Academy | https://www.youtube.com/playlist?list=PLSQl0a2vh4HCmCL_bFUJSuCAV4P_D18oi | approved
+Interactive: plot the 2-link arm tip in Python for a few (th1,th2); see the vector add.   Theory: Craig Introduction to Robotics Ch 2 (frames and transformations) / Khan Academy - only what forward kinematics needs.
+
 ## Deliverable
 
 Hand-calculated forward kinematics for a 2-link planar arm. Given link lengths and joint angles, find the tip position, X, Y.
@@ -135,6 +145,11 @@ Hand-calculated forward kinematics for a 2-link planar arm. Given link lengths a
 > **Interactive:** Desmos (desmos.com/calculator) — plot y=2x, shade 0→3 with the integral command; area reads 9. Confirm with `scipy.integrate.quad(lambda t: 2*t, 0, 3)` → (9.0, ~1e-13). Agreement to 6 decimals passes.
 > **Theory:** intuition over symbolic fluency. (No textbook required — video + doing is the whole theory here.)
 
+Lenses - m0-3
+Rigorous: The essence of calculus | 3Blue1Brown | https://www.youtube.com/watch?v=WUvTyaaNkzM | approved
+Intuitive: Calculus 1 Lecture 1.1: An Introduction to Limits | Professor Leonard | https://www.youtube.com/watch?v=54_XRjHhZzI | approved
+Interactive: Desmos - plot y=2x, shade 0 to 3 with the integral command; area reads 9.   Theory: intuition over symbolic fluency. (No textbook required - video + doing is the whole theory here.)
+
 ## Deliverable
 
 Given v(t) = 2t m/s with x(0) = 0: derive acceleration, calculate position at t = 3 s by integration, explain the physical meaning of the area under the curve (in words a peer would accept — the MVM bar; the Full bar below bans the formula).
@@ -168,6 +183,11 @@ Given v(t) = 2t m/s with x(0) = 0: derive acceleration, calculate position at t 
 > **Visual:** The Efficient Engineer *Understanding Statics*; Jeffrey Hanson statics playlist (FBD gold standard).
 > **Interactive:** PhET *Balancing Act* — 15 min for torque intuition before the math.
 > **Theory:** Shigley Ch 3 (equilibrium & FBDs). Skip the rest until Phase 3.
+
+Lenses - m0-4
+Rigorous: Online Statics Course | Jeff Hanson | https://www.youtube.com/playlist?list=PLRqDfxcafc23LXGoItpkYMKtUdHaQwSDC | approved
+Intuitive: Forces and free-body diagrams | AP Physics | Khan Academy | https://www.youtube.com/watch?v=i447NWNpScM | approved
+Interactive: PhET Balancing Act - 15 min for torque intuition before the math.   Theory: Shigley Ch 3 (equilibrium and FBDs). Skip the rest until Phase 3.
 
 ## Deliverable
 
@@ -210,6 +230,11 @@ FBD of the 2-link arm holding 0.5 kg at full horizontal extension. Calculate hol
 > **Interactive:** Falstad — build LED+resistor, watch current, then measure it.
 > **Theory:** Rizzoni Ch 1–2 / Horowitz & Hill intro. KVL + Ohm only.
 
+Lenses - m0-5
+Rigorous: Electronic Basics #16: Resistors | GreatScott! | https://www.youtube.com/watch?v=7w5I-KbJ1Sg | approved
+Intuitive: Electronic Basics #8: Everything about LEDs and current limiting resistors | GreatScott! | https://www.youtube.com/watch?v=Qlayua3yjuE | approved
+Interactive: Falstad - build LED+resistor, watch current, then measure it.   Theory: Rizzoni Ch 1-2 / Horowitz and Hill intro. KVL + Ohm only.
+
 ## Deliverable
 
 Calculate the current-limiting resistor for an LED, Vf = 2.2V, If = 20mA, from a 5V pin. Simulate in Falstad. Verify with multimeter on real hardware.
@@ -247,6 +272,11 @@ Calculate the current-limiting resistor for an LED, Vf = 2.2V, If = 20mA, from a
 > **Visual:** Efficient Engineer heat-transfer videos.
 > **Interactive:** hand-calc the H-bridge loss, confirm with a SPICE power readout.
 > **Theory:** Horowitz & Hill power/thermal; reading RθJA in a datasheet.
+
+Lenses - m0-6
+Rigorous: DIY Buck Converter || How to step down DC voltage efficiently | GreatScott! | https://www.youtube.com/watch?v=m8rK9gU30v4 | approved
+Intuitive: Inductors Explained - The basics how inductors work working principle | The Engineering Mindset | https://www.youtube.com/watch?v=KSylo01n5FY | approved
+Interactive: hand-calc the H-bridge loss, confirm with a SPICE power readout.   Theory: Horowitz and Hill power/thermal; reading RthJA in a datasheet.
 
 ## Deliverable
 
@@ -286,6 +316,11 @@ H-bridge: 2A at 12V, Rds(on) = 0.05Ω, two switches in series. Calculate input p
 > **Visual:** Efficient Engineer fatigue / stress-strain / ductile-vs-brittle.
 > **Interactive:** MatWeb or Ansys Granta edu — look up 6061-T6, plot E/ρ vs σy/ρ.
 > **Theory:** Ashby *Materials Selection* (indices chapter); Callister for crystal/fatigue.
+
+Lenses - m0-7
+Rigorous: Mechanics of Materials: Lesson 1 - Intro to Solids, Statics Review Example Problem | Jeff Hanson | https://www.youtube.com/watch?v=Y8tXHk3irqE | approved
+Intuitive: An Introduction to Stress and Strain | The Efficient Engineer | https://www.youtube.com/watch?v=aQf6Q8t1FQE | approved
+Interactive: MatWeb or Ansys Granta edu - look up 6061-T6, plot E/rho vs sigma-y/rho.   Theory: Ashby Materials Selection (indices chapter); Callister for crystal/fatigue.
 
 ## Deliverable
 
@@ -361,6 +396,11 @@ Depth rule: state correctly + apply to one example each. (derive) marks the thre
 > **Interactive:** 3D-print a bracket, then redesign it for a mill; note what changed.
 > **Theory:** Boothroyd-Dewhurst DFA; GD&T only for fits you'll use.
 
+Lenses - m0-8
+Rigorous: G and M Code - Titan Teaches Manual Programming on a CNC Machine | TITANS of CNC | https://www.youtube.com/watch?v=5XihF05K4yM | approved
+Intuitive: Vertical Mill Tutorial 1: The Basics | Blondihacks | https://www.youtube.com/watch?v=FyuG-B95PQs | approved
+Interactive: 3D-print a bracket, then redesign it for a mill; note what changed.   Theory: Boothroyd-Dewhurst DFA; GD and T only for fits you will use.
+
 ## Deliverable
 
 Take a simple L-bracket: design it for CNC milling, then redesign the same function for sheet metal bending. Document what changed, what became impossible, what became free. Then: redesign it for minimum part count and fastest assembly. Write 5 DFM rules and 3 DFA rules you'll follow in Phase 3.
@@ -426,6 +466,11 @@ Take a simple L-bracket: design it for CNC milling, then redesign the same funct
 > **Interactive:** GeoGebra/linkage sim — build a four-bar, flip the grounded link, watch the TYPE change (the Grashof inequality never changes — only which link is grounded does).
 > **Theory:** Norton *Design of Machinery* Ch 1–5; Gruebler's equation.
 > **Fabrication:** 3D printer (FDM, PLA). No printer yet → cardboard + brass split pins. Same kinematics.
+
+Lenses - m0-9
+Rigorous: Clockmaking - How To Make A Clock In The Home Machine Shop - Part 4 | Clickspring | https://www.youtube.com/watch?v=ZSXDIraHz3k | approved
+Intuitive: Mechanical Models (playlist) | thang010146 | https://www.youtube.com/playlist?list=PLHGVjZ_tV_gwDwoV_0CX7QguS_Vkx2yzV | approved
+Interactive: GeoGebra/linkage sim - build a four-bar, flip the grounded link, watch the TYPE change.   Theory: Norton Design of Machinery Ch 1-5; Gruebler's equation.
 
 ## Deliverable
 
@@ -516,6 +561,11 @@ Depth rule: each mechanism below is its own sign-off (diagram + DOF + motion + a
 > **Visual:** Mitutoyo/Starrett "how to read calipers and dial indicators" videos.
 > **Interactive:** measure the same printed cube 10×; compute mean, std dev, uncertainty in a spreadsheet or Python.
 > **Theory:** GUM basics — resolution vs accuracy, repeatability, systematic vs random error.
+
+Lenses - m0-10
+Rigorous: Precision in measurement | Science toolkit | Khan Academy | https://www.youtube.com/watch?v=ClW4x6OPDPQ | approved
+Intuitive: Measuring with English and Metric Dial Calipers | Starrett | https://www.youtube.com/watch?v=dgmNBEEN3gM | approved
+Interactive: measure the same printed cube 10x; compute mean, std dev, uncertainty in a spreadsheet or Python.   Theory: GUM basics - resolution vs accuracy, repeatability, systematic vs random error.
 
 ## Deliverable
 
