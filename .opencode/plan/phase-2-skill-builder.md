@@ -92,7 +92,8 @@ verified crash without it; see `_system/engram/env.example.sh`).
 ## 1. GOAL.md — single goal source (scaffold FIRST, parameterize after confirm)
 (ABSENT — `Mechatronics/GOAL.md` + `Mechatronics/goals/parked/` do not exist; created here.)
 
-Two passes (sequencing economics — do NOT front-load the ~118-line rewrite ahead of
+Two passes (sequencing economics — do NOT front-load the ~118-line rewrite (VAULT POLICY scope
+note: size estimate as of 2026-09-08, re-count at build) ahead of
 GOAL-confirm): pass 1 scaffolds (`GOAL.md` draft + `goals/parked/` dir + registry
 SKELETON — `Mechatronics/skills/registry.md` with schema header + `Goal era` column, zero
 rows — owned by THIS task, so §3 fills an existing file); pass 2 (post-confirm) does the mass parameterization below.
@@ -100,7 +101,7 @@ rows — owned by THIS task, so §3 fills an existing file); pass 2 (post-confir
 - Create `Mechatronics/GOAL.md` (ABSENT — created here): active goal ONLY — name, actuator type, DOF, work
   envelope, success criteria, parked-history pointer, AND the semantic-pass checklist
   (seed = the canonical pattern list in §0 plus generic `arm|actuator` review; the §1
-  task finalizes it as it rewrites). Today: QDD 2-DOF arm.
+  task finalizes it as it rewrites). Today (2026-09-08 — dated, re-confirm at build): QDD 2-DOF arm.
 - Parked goals: `Mechatronics/goals/parked/<kebab-goal-slug>.md` (ABSENT — created here):
   file = old `GOAL.md` content verbatim + frontmatter `superseded: <YYYY-MM-DD>`; the date
   lives in frontmatter (body untouched).
@@ -160,7 +161,7 @@ lab per the cut map, nothing stays put except the redirect index):
 `247:# Milestone 0.6 — Power, Efficiency, Thermal`, `286:# Milestone 0.7 — Materials, Failure, and Selection`,
 `360:# Milestone 0.8 — Manufacturing Processes + DFMA`, `425:# Milestone 0.9 — Mechanisms & Kinematic Elements + Physical Testbed`,
 `516:# Milestone 0.10 — Metrology + Measurement Uncertainty`, `580:# Phase 0 Deload / Synthesis`,
-`594:## Phase 0 Retro`. ANY mismatch (lines, numbers, or titles) aborts the split. Rationale pinned: bare `^# ` yields 11 (misses 0.1's `##`);
+`594:## Phase 0 Retro`. ANY mismatch (lines, numbers, or titles) aborts the split. Rationale pinned (verified 2026-09-08 — re-run at build): bare `^# ` yields 11 (misses 0.1's `##`);
 bare `^#+ ` yields 62 (all subheads) — both wrong, hence expected-output diff (spans re-verified
 at build, never trusted from this map). Output filenames follow the scheme
 `<dir>/0.N-<kebab-from-section-heading>.md` (slugs derived at build from the section
@@ -232,7 +233,7 @@ Structural fixes (all mandatory; numbered for reference — execution follows §
    for domain work, `vault:` for cross-cutting changes (no other scopes without amendment).
 2. **Anchors:** every milestone gets `<a id="m0-N"></a>` (`m0-1`…`m0-10` — resolvers match
    full IDs, never prefixes, since `m0-1` prefixes `m0-10`; scope = Phase-0 pilot milestones only); ROADMAP + all new notes link
-   `#m0-N` only (Phase-0 rows only — the other 27 ROADMAP rows keep whole-file links; migration
+   `#m0-N` only (Phase-0 rows only — the other 27 ROADMAP rows keep whole-file links (count as of 2026-09-08 — re-count pre-migration); migration
    touches Phase-0's 10 rows). Numbered for reference only — execution follows §7, NOT this item order.
    EXEMPT entries (format PINNED: `# EXEMPT <check>: <target> - <reason> - expires <YYYY-MM-DD>`
    — HYPHEN form (split rule: split on ` - expires ` last for the date, then on the first `: `
@@ -300,7 +301,8 @@ Structural fixes (all mandatory; numbered for reference — execution follows §
   Phase rows may carry `pN-complete`
   tags in `Evidence tag` (phase rows are EXEMPT from skill-ID/era checks — they aggregate milestones, confer nothing; the column accepts EITHER tag form — existence check tries both
    regexes; project rows list BOTH tags comma-separated `mvm-tag, full-tag` (existence check
-   splits on comma, checks each).
+   splits on comma, checks each; staging pinned: row carries mvm-tag at MVM mint, full-tag APPENDED
+   at Full mint — pre-filling both refuses the MVM mint, so pre-fill is forbidden).
   Deferred-domain (piano/japanese/data) milestone skill lines get format-checks ONLY until those domains onboard (resolution-against-registry deferred with the domains — never a mint-blocker for mech/software).
 - Schema: `| Skill ID | Name | Evidence tag | Goal era | Project | Requires |`
   (registry CELLS: comma-separated prerequisite skill IDs, or EMPTY for true entry
@@ -432,7 +434,9 @@ item 6 is the monthly detective audit, not a mint gate — it runs on schedule r
    (entry-point form allowed, blank forbidden); every ID matches §3 regex AND resolves
    in the registry; every registry row touched has non-null `Goal era` matching the era
    format (`pre-GOAL` or the pinned `<slug> (<range>)` — format-checked, not just non-null)
-   and its Evidence-tag value exists as a minted tag, OR equals the tag being minted
+   and its Evidence-tag value exists as a minted tag (ancestry-checked: `git merge-base
+   --is-ancestor <evidence-tag> HEAD` must pass — orphan-history tags prove nothing about HEAD),
+   OR equals the tag being minted
    (first-mint carve-out — a row's Evidence tag may be the tag under mint; post-mint,
    the monthly audit re-verifies existence via receipts AND re-runs the §3 taggerdate comparison
    with `git for-each-ref` (dates exist by then); item 3 invokes the §3 rule by reference
@@ -469,7 +473,7 @@ item 6 is the monthly detective audit, not a mint gate — it runs on schedule r
    `scripts/tests/receipts/<tag>.json`, exit 1 printing one per line, exit 0 when clean;
    gate-ship date (pinned at §4 landing in `Changelog/` as `Gate shipped: <YYYY-MM-DD>`) divides
    pre-gate tags (expected `-unaudited`, not defects) from post-gate tags (must have receipts);
-   on each run it ALSO re-runs the §3 taggerdate comparison for all registry rows)
+   on each run it ALSO re-runs the §3 taggerdate comparison AND the ancestry check for all registry rows)
    + agent rule — never attest a bypassed tag;
    bypassed tags get `-unaudited` registry note until re-earned.
 
@@ -648,7 +652,10 @@ Completion-text swap (STAGED on §4; verbatim moves are EXEMPT from the lens-pre
 content unchanged — new/edited content requires lens blocks once §6 grammar exists) →
 §3 registry fill → §6-pilot-pairs (ONE batch approval covering Phase-0 + all pass-2-remainder
 topics — pairs must exist BEFORE any milestone edit touches those files, else the reword's own
-mint refuses; no reword lands un-paired) → §1-pass-2 remainder (Science/DataScience pointers, LAB/IDEAS/inventory
+mint refuses; no reword lands un-paired) → skill-line authoring (pinned task: author `## Skills gained`
++ `Requires:` blocks into every in-scope file lacking them — split outputs, 01–05, redirect-exempt
+files excluded by name; gate items 2–3 cannot pass on block-less files, so this task precedes the
+first gated mint) → §1-pass-2 remainder (Science/DataScience pointers, LAB/IDEAS/inventory
 dispositions, 0.2/0.4/0.7/0.9/0.10 reword-or-appendix — full mass parameterization, on split paths) →
 §6-rest (JIT per-landing pairs) → §5 landings. Item coverage: §2 items 1 (Primacy caps),
 3 (evidence 2-home), 4 (software bounds), 5 (ownership table) all land inside the split pilot
