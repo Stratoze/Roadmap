@@ -1,6 +1,7 @@
 # Phase 2 — Skill Builder (decouple vault + foolproof gates + nodes + lenses)
 
-Status: PLAN — do not implement until user approves this file + reviewer sign-off.
+Status: APPROVED 2026-09-08 — user approved; implementable. (Reviewer basis: debloat-round
+verifiers CLEAN ×2 + mechanical re-verify; no full 4-brief round on the final one-liners — see Changelog.)
 (Win-adapted 2026-09-08 for reviewer blockers: ordering, checkability, tag grammar,
 staleness vs landed 13-topic store. Still unapproved — this edit changes no vault content.)
 Active-phase rule: AGENT.md §Hard Rules names the active phase; on conflict the active
