@@ -355,8 +355,10 @@ The agent checks curriculum sequence (at every landing + quarterly re-run — VA
    annotated+signed). `m0.1-fullpass` naming drift grandfathered, never rewritten.
    Pre-gate tags (`m0.1-fullpass`, `m0.2-mvm`, `m0.2-full`) carry `-unaudited`
    registry notes until re-earned under the gate. Re-earn = mint a NEW tag under the gate
-   (old tags stay forever — history preserved, grandfathered names never reused). They will flag on day one with
-   zero gate receipts — expected, not a defect. Machine-checked in §4 item 3.
+   (old tags stay barring force-push/deletion — history preserved by convention plus the branch
+   ruleset; any deletion would be VISIBLE in the log, never silent; grandfathered names never reused).
+   They will flag on day one with
+   zero gate receipts (direct consequence of the match rule above, not a prediction) — expected, not a defect. Machine-checked in §4 item 3.
 3. **Use-before-conferred scan:** walk the learner path Phase 0→1→2→3 in file order
    (milestone files, then project READMEs); a checkbox *uses* a skill iff it names the skill ID
    in backticks; for each such checkbox the conferring milestone/project must come earlier in
@@ -379,7 +381,7 @@ On success the script MUST write `scripts/tests/receipts/<tag>.json`
 "result": "pass"|"fail", "detail": str}], "versions": {tool: version}, "result": "pass"|"fail"}`)
 — the file `audit-tags.sh` consumes (match rule: receipt exists + `result == "pass"`;
 exit 0 lists clean, exit 1 prints missing/failing tags, one per line).
-Touched files = staged + unstaged + untracked working-tree files for `--dry-run`
+Touched files for `--dry-run` = staged + unstaged + untracked working-tree files; for MINT runs, evidence must be committed first (save.sh), so touched = files in `<prev>..HEAD` (range-committed join) + staged (must be empty post-save); untracked non-ignored files at mint = refuse. Touched files = staged + unstaged + untracked working-tree files for `--dry-run` only:
 (`git status --short --untracked-files=all` — `??` lines count as touched); the mint run checks the SAME set (working tree as it stands pre-tag).
 For audits, the tag's commit range = commits reachable from the tag
 excluding those reachable from the previous taggerdate-ordered tag. Pinned procedure
@@ -387,7 +389,7 @@ excluding those reachable from the previous taggerdate-ordered tag. Pinned proce
 `git for-each-ref --sort=-taggerdate --format='%(refname:short)' refs/tags` (newest first),
 keep ONLY tags with `git merge-base --is-ancestor <tag> HEAD` true (topology guard — tags from
 other lineages never enter the range) AND non-empty taggerdate (lightweight tags excluded —
-empty dates sort undefined, never silently become `<prev>`), take the FIRST such tag (newest HEAD-ancestor by taggerdate)
+empty dates sort undefined, never silently become `<prev>`), take the FIRST such tag (newest HEAD-ancestor by taggerdate) as `<prev-tag>`; the tag being minted is `<new-tag>` throughout (never bare `<tag>` in this procedure)
 as `<prev>`; then `git log <prev>..HEAD --oneline` is the range (no previous tag, or no HEAD-ancestor tag at all =
 range is HEAD's full history; receipt `"range"` in that case is the literal string `"HEAD"` (full-history marker)). Post-mint audit form (tags exist by then, pinned separately):
 `git log <prev-tag>..<tag> --oneline` with both tags resolved via `for-each-ref`. After green,
@@ -485,7 +487,7 @@ item 6 is the monthly detective audit, not a mint gate — it runs on schedule r
 
 Gate ships with fixtures at `scripts/tests/fixtures/refusal-{0..7}/` + `scripts/tests/fixtures/clean/`
 (brace form PINNED — `{refusal-0..7,clean}` expands wrong; ABSENT — created by this section).
-Mapping (explicit table — 8 refusals + clean = 9/9): refusal-0 → item 0 (tag-format);
+Mapping (explicit table — 8 refusals + clean = 9/9): refusal-0 → item 0 (tag-format incl. an unsigned-annotated-tag case, which must fail `tag -v`);
 refusal-1 → item 1 (lint); refusal-2 → item 2 (artifacts); refusal-3 → item 3 (skills);
 refusal-4 → item 4 (links+lenses); refusal-5 → item 5 (attest); refusal-6 → item 6 DETECTIVE
 control `audit-tags.sh` (harness creates an annotated fixture tag named `fixture/bypass-N`
@@ -494,7 +496,7 @@ then deletes the clone); refusal-7 → item-3 sub-check, skill-order violation w
 taggerdate after claimant, backdated via `GIT_AUTHOR_DATE`/`GIT_COMMITTER_DATE` env in a temp
 CLONE (same isolation — shared worktrees share refs; fixture tags named `fixture/order-a` +
 `fixture/order-b` with fixed dates `2026-01-02`/`2026-01-03`; the `fixture/*` namespace is
-carved OUT of the tag regex exactly when `SKILL_REGISTRY` points at `scripts/tests/fixtures/registry.md`
+carved OUT of the tag regex exactly when the harness sets `FIXTURE_MODE=1` AND `SKILL_REGISTRY` points at `scripts/tests/fixtures/registry.md`
 (test runs only — production runs with the real registry reject `fixture/*`; the harness always
 pins the registry env, so the carve-out can never leak into production); refusal-7
 invokes the mint path so the order sub-check actually runs), run by
@@ -563,7 +565,7 @@ Landings (scope approval each; pretests/maps land maps-only — builds are the S
 exception and land ONLY as topic capstones, never as parallel vault structure):
 
 - **Now (JIT, each node tied to a NAMED MVM checkbox — recorded in the scope-approval
-  note `.opencode/plan/scope-<topic>-<date>.md` (`<date>` = YYYY-MM-DD; pinned path/format:
+  note `.opencode/plan/scope-<date>-<topic>.md` (`<date>` = YYYY-MM-DD; pinned path/format:
   topic, node list with target checkboxes, pretest plan, WIP counts — `due --cap 12` n +
   per-topic `new` from `$ENGRAM_RUNNER topics` (ENGRAM_HOME set — bare `topics` reads the wrong
   store) — at approval, `base-sha:` (`git rev-parse HEAD` of the vault) + `doctor:` (ok + node count)
@@ -690,7 +692,7 @@ defect entries carry IDs `F-<nnn>` as `### F-<nnn> <title>` + a `Status:` line (
 never bare prose — the audit matches findings to IDs, not waived); cold-start test (step 0: export `ENGRAM_RUNNER` + `ENGRAM_HOME` +
 `PYTHONIOENCODING=utf-8` per `_system/engram/env.example.sh`; step 1: fresh session runs the AGENT.md session-start block
 verbatim with zero errors AND `due --cap 12` returns the same `n` as the pre-test run the same
-day — time-varying quantities compared same-day only (same-day window = ARBITRARY; no reviews
+day — time-varying quantities compared same-day only (same-day window = ARBITRARY; pre-require `due --cap 12` n<12 before the test so equality is meaningful (n=12 is ambiguous); no reviews
 may land between the two runs — a landed review invalidates the comparison); both invocations logged in the test note
 `.opencode/plan/cold-start-<date>.md`, pinned path); FRESH reviewer agents on the same three briefs (alignment,
 neuroscience, extensibility+onboarding) report zero blocking verdicts, max 2 rounds (VAULT POLICY
