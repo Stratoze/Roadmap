@@ -3,6 +3,9 @@
 Active phase: **Phase 1** (`./.opencode/plan/phase-1-agent-and-rituals.md`).
 Phase 2 (`./.opencode/plan/phase-2-skill-builder.md`) is reference-only until
 Phase-1 verification passes. This file is the authority on conflict for rituals.
+Waiver 2026-09-08 (user-ordered): Phase-2 plan APPROVED and under implementation
+(GOAL/registry/lenses landed) with Phase-1 verification still pending — the user's
+explicit orders override the reference-only gate per item, not as a blanket repeal.
 
 ## Operating contract (ask-first, minimal noise)
 

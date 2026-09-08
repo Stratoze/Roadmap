@@ -52,6 +52,7 @@ The delta between prediction and reality is where the mental model gets correcte
 
 ## Anti-Bloat Rule
 Add nothing unless it removes a friction seen ≥2×, prevents expensive damage, or improves evidence. Default improvement is **deletion**. The system isn't the work; the loop is.
+Deletion test (learner-pinned): cut whatever confers no skill and changes no project pick — if a text changes neither what you can provably do nor which project you'd pick, cut it. Tutorial hand-holding is the target; skill content and selection rationale survive.
 
 ## AI Use Zones
 - **Green:** typos, formatting, compiler errors, datasheet navigation, harsh review of your own work.
@@ -63,7 +64,9 @@ Boundary (studying vs building): studying unmastered material may use Yellow;
 building — anything entering the vault/hardware as your work — is mastery-gated
 (AI formats/links/runs checks you specify, never designs). Test: will this output
 stand as your work? If yes, it's building. No lazy asking: questions must serve
-studying; the build is yours.
+studying; the build is yours. AI is a privilege for mastered ground — never the
+first resort on unmastered ground, and chat/scratch study still ends in a blank-page
+pass before anything counts as known.
 
 ## Templates
 Use one only when it removes friction. Smallest template that prevents future confusion. If you wouldn't search for it later, don't write it.

@@ -195,7 +195,8 @@ INTRO owner first, every other occurrence is reuse at a tighter envelope.
 Phases 0–2 carry every critical skill doable at that stage or in simulation;
 Phase 3+ projects each add ≥1 new verb. Final builds target ~20% unknown
 (VAULT POLICY dosage, not measured) whatever the [[Mechatronics/GOAL|GOAL]] instance — arm today,
-car/drone/CNC tomorrow.
+car/drone/CNC tomorrow — and never ~90%: a final build that unknown is a missing
+foundation, not a hard project.
 
 | Verb | Intro owner | Reuse (tighter envelope) |
 | --- | --- | --- |
