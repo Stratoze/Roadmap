@@ -59,6 +59,11 @@ Add nothing unless it removes a friction seen ≥2×, prevents expensive damage,
 - **Red (never without independent verification):** safety design, final values, FOC, control gains, load ratings, mains/high-current/LiPo/machinery.
 
 Scaffold prompt: *"Don't give me the code. Give me the 5 registers in order. I'll write it. Review mine when done."*
+Boundary (studying vs building): studying unmastered material may use Yellow;
+building — anything entering the vault/hardware as your work — is mastery-gated
+(AI formats/links/runs checks you specify, never designs). Test: will this output
+stand as your work? If yes, it's building. No lazy asking: questions must serve
+studying; the build is yours.
 
 ## Templates
 Use one only when it removes friction. Smallest template that prevents future confusion. If you wouldn't search for it later, don't write it.

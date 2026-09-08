@@ -556,7 +556,8 @@ exception and land ONLY as topic capstones, never as parallel vault structure):
   store) — at approval, `base-sha:` (`git rev-parse HEAD` of the vault) + `doctor:` (ok + node count)
   + `landing-topic:` (repeats the filename `<topic>` — the topic of record for this batch),
   at approval, `Override:` field + user-sign line when used), NOT in `why_chain`, which stays
-  an id-path; per-item kind: procedures land as NODES, builds land as CAPSTONES):** py CSV→PlotJuggler plot (M1.1, nodes),
+  an id-path; per-item kind: procedures land as NODES, builds land as CAPSTONES; every project
+  adds ≥1 new verb (ROADMAP Skill Spine governs) and final builds target ~20% unknown (VAULT POLICY dosage):** py CSV→PlotJuggler plot (M1.1, nodes),
   FFT+windowing (M1.2, nodes), `solve_ivp` pendulum (M1.4, nodes); C ring buffer + versioned telemetry
   framing (M1.5/M1.1, capstones). Parked until the demanding milestone is ACTIVE (ACTIVE =
   the milestone named in the latest Daily note's `- **Target:**` line (exact field spelling —

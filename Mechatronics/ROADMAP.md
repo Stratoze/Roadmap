@@ -192,6 +192,10 @@ instances that prove the verbs, not the goal. The 2-DOF arm is the reference
 hero; it is not the definition of done. Verbs repeat across phases on purpose
 (spiral: intro in 0.10 → reuse at rigor in 1.7/3.3) — each verb lists its
 INTRO owner first, every other occurrence is reuse at a tighter envelope.
+Phases 0–2 carry every critical skill doable at that stage or in simulation;
+Phase 3+ projects each add ≥1 new verb. Final builds target ~20% unknown
+(VAULT POLICY dosage, not measured) whatever the GOAL instance — arm today,
+car/drone/CNC tomorrow.
 
 | Verb | Intro owner | Reuse (tighter envelope) |
 | --- | --- | --- |
@@ -220,6 +224,9 @@ INTRO owner first, every other occurrence is reuse at a tighter envelope.
   interface contract (power/data/mechanical seams). Sim-only substitutes for
   hardware verbs are rejected. If it teaches no new verb, it goes in the
   example pool, not the graded path.
+- Wild proposals (dam): keep as GOAL only with learner-led component breakdown
+  (dam → what does a dam need) or stepper projects first. The breakdown IS the
+  skill: research/think, then present, then ask — never AI-first asking.
 - Phase-4b (optional, after the hero): a second machine — e.g. a 3-axis CNC.
   Honest split — transferable habits: harness discipline, calibration method,
   stepper/drive vocabulary, homing state machines. New addenda (not reuse):
