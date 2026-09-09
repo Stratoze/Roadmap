@@ -5,7 +5,7 @@
   "nodes": {
     "phy-frames-reference": {
       "claim": "Motion is only defined RELATIVE to a reference frame: velocity measured from a moving train differs from the platform's, and neither is 'the true one'. Inertial frames (non-accelerating) are where Newton's laws hold plainly; in accelerating frames you feel fictitious forces (centrifugal, coriolis) that are really frame effects.",
-      "probe": "A ball dropped in an accelerating bus rolls backward. A friend says 'a mysterious force pushed it.' Explain what each observer sees, which observer's description needs no extra force, and why robot kinematics cares deeply about WHICH frame a measurement is expressed in.",
+      "probe": "A ball dropped in an accelerating bus rolls backward. A friend says a force pushed it backward. Explain what each observer sees, which observer description needs no additional force term, and why robot kinematics cares deeply about WHICH frame a measurement is expressed in.",
       "rubric": [
         "bus-frame: ball accelerates backward without contact force → invent 'fictitious force'; ground-frame: bus accelerates forward under the ball — no mystery",
         "inertial (ground) frame keeps Newton's laws clean; accelerating frames require pseudo-force patches",
@@ -21,17 +21,26 @@
       "transfer_probe": null,
       "viz": null,
       "fsrs": {
-        "s": 0.4872,
-        "d": 7.6214,
-        "due": "2026-09-04",
-        "last": "2026-09-03",
-        "reps": 1,
+        "s": 6.2884,
+        "d": 7.5452,
+        "due": "2026-09-11",
+        "last": "2026-09-08",
+        "reps": 2,
         "lapses": 0,
         "dose": true
       },
-      "state": "learning",
+      "state": "review",
       "artifact": null,
-      "arc": 1
+      "arc": 1,
+      "revised": [
+        {
+          "at": "2026-09-08",
+          "fields": [
+            "probe"
+          ],
+          "receipts_under_previous": 1
+        }
+      ]
     },
     "phy-newton-laws": {
       "claim": "Newton's three laws are one story about interactions: (1) objects keep constant velocity unless NET force acts (inertia — mass measures stubbornness), (2) net force = mass × acceleration, (3) forces come in equal-opposite PAIRS on DIFFERENT bodies. The third law kills perpetual-motion intuitions: you can never push on yourself.",
