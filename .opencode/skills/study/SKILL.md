@@ -47,12 +47,17 @@ Read first: `_system/How to Learn.md` (the Loop and the rules),
 - **Establish**: Socratic where they can reason it; motivated exposition
   otherwise. Multi-lens: intuitive first, then rigorous. The rigorous lens
   must be sourced (dossier or verifier) - never stated from memory if unsure.
-- **Connect**: link to prereqs and to the goal.
+- **Connect**: link to the prereqs, to the theory it rests on (see the
+  topic-tree link map), and to the goal. Links are the point. State the
+  mechanism for each link ("why does this follow?"); label conventions as
+  conventions; never manufacture a link.
 - **Check**: ONE compressed verify (standing order 3) - quiz via the question
   tool where gradable, free recall otherwise. No quiz before schema.
 - **Record**: update the concept row; schedule with
   `python3 scripts/review.py schedule <topic> <id>`. First contact sets rung 0
-  and state `review`. Confidence goes to `_private/learning/receipts/`.
+  and state `review`. Confidence goes to `_private/learning/receipts/`. Add or
+  update the problem row and write the links both ways (lesson <-> topic <->
+  theory <-> problems; theory files get an `Applied in:` line).
 
 Checks routinely above `target_success` (0.85): escalate difficulty or advance.
 Far below: shrink the chunk or scaffold before proceeding.
@@ -74,8 +79,10 @@ Far below: shrink the chunk or scaffold before proceeding.
 
 Write `_system/learning/lessons/<topic>/<YYYY-MM-DD>-<slug>.md` with sections:
 Target / Predict (summary) / Orientation / Attempts / Feedback / Reflection
-(summary) / Confidence (recorded privately; note the path) / Next.
-Raw text goes to `_private/learning/verbatim/<YYYY-MM-DD>-<topic>.md`.
+(summary) / Confidence (recorded privately; note the path) / Links / Next.
+`## Links` names: the topic, the theory it rested on, the problem ids, and the
+previous lesson. Raw text goes to
+`_private/learning/verbatim/<YYYY-MM-DD>-<topic>.md`.
 
 ## Close
 

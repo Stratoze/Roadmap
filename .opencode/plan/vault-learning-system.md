@@ -1,8 +1,9 @@
 # Plan: Vault Learning System - Engram Retirement + Phase-2 §5 Amendment
 
-Status: APPROVED 2026-09-11 (user: "go"); implementation in progress. Reviewed
-in three rounds by three reviewers (execution, pedagogy, retirement ops; round 3
-CLEAN). All vault paths are vault-root-relative.
+Status: IMPLEMENTED 2026-09-11 (steps A-D). Reviewed in three rounds by three
+reviewers (execution, pedagogy, retirement ops; round 3 CLEAN). Remaining: the
+two learner runs (first lesson, first due review). All vault paths are
+vault-root-relative.
 
 ## 0. Decisions locked (user, 2026-09-11)
 
@@ -142,7 +143,8 @@ the Loop; fixed here.
   `## Target`, `## Predict` (summary; verbatim in `_private/`), `## Orientation`,
   `## Attempts` (what happened; where the verbatim lives), `## Feedback`
   (the gap), `## Reflection` (summary; verbatim in `_private/`), `## Confidence`
-  (recorded privately; note the receipt path, no numbers public), `## Next`
+  (recorded privately; note the receipt path, no numbers public), `## Links`
+  (topic, theory, problem ids, previous lesson), `## Next`
   (concept id + `next_review`). No scores, XP, or streaks.
 - `_private/learning/verbatim/<YYYY-MM-DD>-<topic>.md` - raw learner text.
 - `_private/learning/receipts/<YYYY-MM-DD>-<topic>.jsonl` - confidence picks,
@@ -169,7 +171,8 @@ the Loop; fixed here.
      immediate feedback (confidence picked before it) -> establish/derive
      (Socratic where reachable, expository otherwise; intuitive lens then
      rigorous lens) -> connect -> check (one compressed verify) -> record
-     (state, rung 0 via `review.py schedule`, confidence to private receipts).
+     (state, rung 0 via `review.py schedule`, confidence to private receipts;
+     problem row and reciprocal links updated).
      Zero-schema concepts get orientation before predict; no quiz before schema.
      Checks routinely above target_success (0.85) -> escalate difficulty or
      advance; far below -> shrink the chunk or scaffold before proceeding.
@@ -357,8 +360,8 @@ the Loop; fixed here.
    (`grep -ri engram ~/.config/opencode`) must return nothing outside OpenViking
    session state and any explicitly kept backups; log kept files in the
    Changelog entry.
-6. Mac mirror: the same global deletions + plugin entry + env check + `_private`
-   clone + verification; record in Changelog (done or dated deferral).
+6. Mac: user-managed. The user is removing the vault clone and engram from the
+   Mac directly; no agent-side Mac steps. Note it in the Changelog entry.
 7. Log + credit (§3.6).
 8. Acceptance (§7).
 
@@ -383,30 +386,43 @@ the Loop; fixed here.
 3. One due review (the next day): cold recall first, immediate feedback, row
    updated by `review.py`.
 4. `grep -ri engram --exclude-dir=.git --exclude-dir=.opencode
-   --exclude-dir=_private .` returns only `Changelog/`, `Daily/`, and two
-   historical lines in `learner.md` (the stale cue + the old-memory pointer).
+   --exclude-dir=_private .` returns only `Changelog/`, `Daily/`, and the
+   `learner.md` commitment-cue lines (verbatim learner words).
    `.opencode/plan/**` is historical and intentionally excluded. No `_private/`
    output is ever pasted into tracked files.
 5. `git ls-files _private/` empty; `git check-ignore -q _private/` passes;
    `git status --ignored _system/engram` empty.
 6. README credits Amos; `_system/learning/README.md` exists; Changelog entry
    present; OpenViking `learning-preferences` memory present and the old memory
-   gone; `~/.config/opencode` grep clean per §5.5; Mac cleanup done or
-   explicitly dated.
+   gone; `~/.config/opencode` grep clean per §5.5; Mac is out of scope
+   (user-removed).
 
 ## 8. Deliberately out (anti-bloat)
 
 Daily debrief skill (existing Daily flow stays, engram refs removed only);
-mermaid roadmap view; git automation; simulator builder; FSRS/headless engine;
-engram migration beyond preferences; custom quiz plugin; maker/viz agents (until
-a lesson needs a visual twice).
+git automation; simulator builder; FSRS/headless engine; engram migration beyond
+preferences; custom quiz plugin; maker/viz agents (until a lesson needs a visual
+twice). The topic tree and its mermaid views are in scope (built 2026-09-11).
 
 ## 9. Open questions (non-blocking)
 
-- Private repo name (decide in step A; user creates it).
 - Ladder rung lengths after first real use.
 - Daily debrief later: own skill or folded into the study close.
 - Assessor sampling rate for claim gates.
+
+## 10. Build log (2026-09-11)
+
+- A: `learner.md` + OpenViking `learning-preferences` (old memory deleted) +
+  private repo `_private/` + guards (`.gitignore`, `save.sh`, `diagnose.py`).
+- B: skills `study`/`map`/`resources` + agents `scout`/`verifier` +
+  `scripts/review.py` (selftest + smoke pass).
+- C: skill `review` + agent `assessor`; topic tree + theory/link web
+  (`_system/learning/topic-tree.md`).
+- D: engram store deleted; global install removed; docs self-contained
+  (`AGENT.md`, How to Learn, README, index/domain files, templates); Changelog
+  transition entry; stale engram/mac branches cleaned.
+- Acceptance status: items 1, 4, 5, 6 pass; items 2 (first lesson) and 3 (first
+  due review) await a real learner session.
 
 ## Appendix A - curriculum file skeleton (pinned)
 
@@ -434,6 +450,16 @@ a lesson needs a visual twice).
 
 ## Misconceptions
 - <YYYY-MM-DD> c1 - "<learner's words>" (or: dated observation, evidence: <link>)
+
+## Problems
+| id | problem | source | theory | attempts | status |
+|----|---------|--------|--------|----------|--------|
+| p1 | <statement> | <milestone 0.N / authored / generated> | <theory topic> | - | open |
+
+## Links
+- Rests on: <theory topics this practice depends on>
+- Teaches: <what this gives back to theory or other topics>
+- Lessons: <newest-first lesson links>
 
 ## Log
 - <YYYY-MM-DD> - <one-liner>
