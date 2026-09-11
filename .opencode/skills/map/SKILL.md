@@ -17,13 +17,16 @@ This is an estimate, provisional by design. It never gates teaching. Read
    the list with the learner. The pruned aims seed the `## Concepts` rows
    (state `unknown`).
 3. **Question rounds**, one strand at a time: broad open question ("how would
-   you approach X?") -> gradable probes -> narrow. Use the question tool only
-   where it is gradable; conversation otherwise. Cap: 6 gradable probes per
+   you approach X?") -> gradable probes -> narrow. Adapt every question to the
+   last answer - never fire a fixed batch. Binary-search the edge: on a hit,
+   jump difficulty up sharply; on a miss, narrow back in. Use the question tool
+   only where it is gradable; conversation otherwise. Cap: 6 gradable probes per
    sitting; continue only if the learner asks.
 4. **Bracket** each strand: one floor (a probe they get right) and one ceiling
-   (one they miss). All correct -> escalate until something breaks. One miss ->
-   probe around it and characterize (slip, gap, or misconception) before
-   concluding.
+   (one they miss). All correct -> not done, the ceiling is unfound; escalate
+   until something breaks. One miss -> probe around it and characterize (slip,
+   gap, or misconception) before concluding. The edge sits between floor and
+   ceiling; teaching starts just past the floor (N+1).
 5. **Self-report is never evidence.** "I know that" means test it; "no idea"
    is data.
 6. **Zero schema** -> stop and hand to **study** for orientation.
