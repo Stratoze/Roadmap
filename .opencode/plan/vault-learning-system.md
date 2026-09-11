@@ -88,7 +88,9 @@ the Loop; fixed here.
 2. **Orient before questions (zero schema), then Predict -> Attempt -> feedback.**
    A zero-schema topic starts with orientation (video / worked example / demo),
    then the Loop. The 3-tier struggle rule is skipped for zero-schema novices
-   (How to Learn: scaffold FIRST, then predict).
+   (How to Learn: scaffold FIRST, then predict). Default modality is video-first
+   (standing order 5): video/explorable -> learner questions -> probing; wrong
+   premises are challenged, not smoothed over.
 3. **Mapping is scoped and provisional.** Scoping question first (what to DO,
    by when). Strands come from the goal plus a scout field scan (so unknown
    unknowns can enter). Edge found by bracketing (floor + ceiling). Self-report

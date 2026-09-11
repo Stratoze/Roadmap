@@ -49,6 +49,11 @@ verifies per sitting; continue only if asked.
 
 ## The loop (per concept)
 
+Default modality (standing orders 5-6): video/explorable first (from the
+dossier), then the learner's questions, then probing - minimal chat tutoring;
+wrong premises are named and dislodged, never papered over. Zero-schema
+concepts: orientation before any question.
+
 - **Motivate**: why this now, tied to their goal. One or two sentences.
 - **Predict**: "I expect ___ because ___" - their words.
 - **Attempt**: they try. 15 minutes of solo struggle with attempts logged
