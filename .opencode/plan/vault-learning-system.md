@@ -118,6 +118,12 @@ the Loop; fixed here.
    observation linked to its evidence.
 9. **Anti-bloat.** v1 is one loop. Deferred items stay deferred until v1 has
    run at least two weeks.
+10. **Logistics are the agent's; struggle stays in the material.** Sequencing,
+   next-step selection, resources, and scheduling are agent work: decide them
+   and lead - state what is next and start it. Never ask the learner to choose
+   the topic, order the work, or invoke a routine command. The learner's inputs
+   are goals, probes, attempts, answers, and reviews; `/study` is intent for a
+   brand-new topic, not a routine duty.
 
 ## 3. v1 spec
 

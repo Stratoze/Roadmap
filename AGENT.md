@@ -49,6 +49,11 @@ append-only), never into Daily files. Template: `_system/Daily Template.md`.
 - Entry points: `/study`, `/map`, `/resources`, `/review` - thin commands in
   `.opencode/command/` that load the project skills `study`, `map`, `resources`,
   `review` (`.opencode/skills/`).
+- **Sequencing is the agent's.** Decide and lead the next action - due reviews
+  first, then the sequenced step from the roadmap + curriculum state (pre-system
+  milestone with no topic file -> intake; next unchecked milestone -> map, then
+  study). Never ask the learner to pick the topic or run a routine command;
+  `/study` is new-topic intent only.
 - Agents: `scout`, `verifier`, `assessor` (project `.opencode/agents/`).
 - Reviews: `python3 scripts/review.py due|schedule|next`. Never hand-compute
   scheduling; never re-expose material before a cold recall probe.

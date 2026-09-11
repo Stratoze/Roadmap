@@ -14,7 +14,9 @@ Read first: `_system/How to Learn.md` (the Loop and the rules),
 ## Session start
 
 1. Topic = the learner's words, or the topic file in
-   `_system/learning/curriculum/`.
+   `_system/learning/curriculum/`. If neither: derive the next action yourself -
+   due reviews first, then intake for pre-system milestones, else the next
+   unchecked milestone (map, then study). Never ask the learner to choose.
 2. NEW topic: create `_system/learning/curriculum/<topic>.md` from the
    skeleton in the plan (Appendix A). Ask the scoping question (what do you
    want to be able to DO with this, by when?) and store the answer verbatim in
