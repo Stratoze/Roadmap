@@ -5,6 +5,8 @@ title: Knowledge Base
 
 # 🧠 System
 - [[_system/How to Learn|How to Learn]] — core protocols
+- [[_system/learning/README|Learning system]] — skills, private store, reviews
+- [[_system/learning/topic-tree|Topic tree]] — subjects → chunk topics + theory links
 - [[_system/Landmine Log|Landmine Log]]
 - [[Daily/Index|Daily notes]] (template: [[_system/Daily Template|Daily Template]])
 
@@ -22,10 +24,10 @@ title: Knowledge Base
 - [[Japanese/Index|Japanese hub]] — routing, resources
 
 # 📊 Data Science & AI
-- [[DataScience/Index|Index]] — engram topic `data-science-ai`
+- [[DataScience/Index|Index]] — vault learning system topic file `_system/learning/curriculum/data-science-ai.md`
 
 # 🔬 Science Foundations
-- [[Science/Index|Index]] — engram topics `math-foundations`, `physics-first-principles`
+- [[Science/Index|Index]] — vault learning system topic files `_system/learning/curriculum/math-foundations.md`, `_system/learning/curriculum/physics-first-principles.md`
 
 # 🧩 Templates
 - [[_templates/Index|Template index]] — task → template file

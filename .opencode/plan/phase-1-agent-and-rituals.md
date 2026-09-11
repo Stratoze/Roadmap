@@ -1,5 +1,11 @@
 # Phase 1 — Agent Rituals (AGENT.md + reminders + vault catch-up)
 
+> **AMENDED 2026-09-11.** Engram is retired. The session-start protocol in §3
+> below is replaced by `AGENT.md` (session-start block) and the vault learning
+> system (`.opencode/plan/vault-learning-system.md`). Engram runner references
+> below are historical and never executed; the vault-structure work in this
+> plan stays valid.
+
 Status: PLAN — do not implement until user approves this file + reviewer sign-off.
 ACTIVE ON FIRST BUILD: Phase 1 is active from the first build commit; Phase 2 is
 reference-only until Phase-1 §5 passes. AGENT.md §Hard Rules names the active phase
@@ -73,7 +79,7 @@ Required sections (link, don't duplicate; pointers must name exact paths):
    (Video-pair-per-topic and GOAL.md-single-source rules are Phase-2 rules, cited here as
    FORWARD POINTERS ONLY — not enforced during Phase 1.)
 
-## 3. Task 3 — Session-start reminder loop (engine-native, ambient, non-repeating)
+## 3. Task 3 — Session-start reminder loop (engine-native, ambient, non-repeating) — REPLACED by AGENT.md; below is historical
 
 On every new session in this repo, before other work, run EXACTLY this (repo root):
 

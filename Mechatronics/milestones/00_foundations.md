@@ -24,7 +24,7 @@ You don't need to master these before building. You need them at "Applied" level
 ### MVM
 - [ ] Can re-solve each milestone task with notes open
 - [ ] Can explain each concept aloud, Feynman test — stumble = gap
-- [ ] Git repo + log + Engram topic subscribed (first review done)
+- [ ] Git repo + log + vault review queue started (first review done)
 - [ ] Can state basic measurement sanity: voltage across, current through, scope ground/probe discipline, current-limited supply default (state, not perform — scopes and bench supplies are Phase 1 tools)
 - [ ] Can look at a part and name the manufacturing process that made it
 - [ ] Can look at a mechanism and name it, count its DOF, and state its input→output motion
@@ -59,7 +59,7 @@ Interactive: set up the toolchain and flash a blinky. That *is* the milestone - 
 
 ### Deliverable
 
-Working dev environment, local Git repo with first commit, Engram topic subscribed, and a problem-solving vocabulary you can use when stuck.
+Working dev environment, local Git repo with first commit, vault review queue started, and a problem-solving vocabulary you can use when stuck.
 
 ## Pass Condition
 

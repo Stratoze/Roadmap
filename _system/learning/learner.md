@@ -1,8 +1,7 @@
 # Learner - Kohaku
 
-Canonical learner state for the vault learning system. Engram is being retired
-(see `.opencode/plan/vault-learning-system.md`); this file replaces its learner
-model. Mirrors: OpenViking
+Canonical learner state for the vault learning system. This file replaced the
+previous learner model (see `.opencode/plan/vault-learning-system.md`). Mirrors: OpenViking
 `viking://user/default/memories/preferences/user/learning-preferences.md`
 (session-start visibility) and a thin pointer in `~/.config/opencode/AGENTS.md`.
 Preferences are the learner's own; the system stores no AI inference about the

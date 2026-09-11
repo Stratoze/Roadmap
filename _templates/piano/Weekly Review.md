@@ -17,7 +17,7 @@ tags:
 - [ ] Moved recurring errors into piece error logs (archetype named for movement errors)
 - [ ] Updated tempo logs for active pieces
 - [ ] Checked whether any piece needs shelving (shelved = return date in 12-Week Goal; archived = reason)
-- [ ] Engram piano reviews done per rotation (safety net intact — nothing unplayed past 14 days)
+- [ ] Piano reviews done per rotation in the vault learning system (safety net intact — nothing unplayed past 14 days)
 - [ ] This week's Recording Review logged (take context + rubric scores + single fix)
 - [ ] Scanned [[_system/Landmine Log|Landmine Log]] for recurring patterns → if ≥3 same-domain entries this week, trigger deload or re-scope
 

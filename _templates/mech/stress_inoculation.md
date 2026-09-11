@@ -57,5 +57,5 @@ What was the root cause?
 
 ## Integration
 - [ ] Add any new landmines discovered to the relevant milestone file
-- [ ] If a knowledge gap was revealed, re-derive the concept (Engram if reconstructable, Anki only if Japanese vocab)
+- [ ] If a knowledge gap was revealed, re-derive the concept (vault learning system if reconstructable, Anki only if Japanese vocab)
 - [ ] Update the relevant FMEA if the fault wasn't predicted

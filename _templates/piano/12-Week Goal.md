@@ -52,7 +52,7 @@ Pick 1–2 archetype targets from [Movement](../../Piano/Resources/Movement.md) 
 -
 
 ### Maintenance pool
-- (piece — card types per Maintenance rotation; Engram-scheduled)
+- (piece — card types per Maintenance rotation; scheduled by the vault learning system)
 -
 
 ### Shelved / archived (return date or reason — nothing shelf-rots without one)

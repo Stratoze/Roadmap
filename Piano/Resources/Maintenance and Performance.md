@@ -1,9 +1,10 @@
 # Maintenance and Performance
 
-## Maintenance rotation (Engram)
+## Maintenance rotation (vault learning system)
 
-Engram schedules all piece review, including "review this song today"
-(topic `piano`, via `/review-loop`). Its interval math is receipt-based, so
+The vault learning system schedules all piece review, including "review this song today"
+(topic file `_system/learning/curriculum/piano.md`, via the `review` skill —
+`python3 scripts/review.py due`). Its interval math is receipt-based, so
 treat its suggestions as the schedule, not heuristics.
 
 ### Card types
@@ -42,7 +43,7 @@ Performance mode:
 | Good | Complete and musically coherent, minor problems only |
 | Easy | Secure cold performance, good control, successful start points |
 
-Reviews are scheduled by Engram; the safety net below still applies on top.
+Reviews are scheduled by the vault learning system; the safety net below still applies on top.
 
 ### Workload
 

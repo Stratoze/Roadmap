@@ -1,5 +1,11 @@
 # Phase 2 — Skill Builder (decouple vault + foolproof gates + nodes + lenses)
 
+> **AMENDED 2026-09-11.** Engram is retired. §5 (engram topics/landings/WIP caps)
+> is replaced by the vault learning system (`.opencode/plan/vault-learning-system.md`,
+> §3 Curriculum store); runner/`ENGRAM_HOME`/receipt references below are
+> historical and never executed. The vault-structure work (§1-§4, §6, §7 minus
+> engram items) stays valid.
+
 Status: APPROVED 2026-09-08 — user approved; implementable. (Reviewer basis: debloat-round
 verifiers CLEAN ×2 + mechanical re-verify; no full 4-brief round on the final one-liners — see Changelog.)
 (Win-adapted 2026-09-08 for reviewer blockers: ordering, checkability, tag grammar,
@@ -491,7 +497,7 @@ each `refusal-N/` holds input files + `expected-exit` (single int) + `expected-s
 + `expected-stderr-fragment` (both substring matches); `clean/`
 holds passing inputs. Skill-checking fixtures share one `scripts/tests/fixtures/registry.md` (single shared fixture registry, no per-fixture copies); the harness selects registries via env `SKILL_REGISTRY=<path>` (default: the real registry). Harness isolation (pinned pseudo-code — implementer writes the trap): make temp dir, `git clone` the vault `file://` URL into it, run the gate there, delete the dir even on failure.
 
-## 5. Engram topics — engine-native WIP, JIT-cut, capstone-only builds
+## 5. Engram topics — engine-native WIP, JIT-cut, capstone-only builds — REPLACED (see banner at top; kept for history only)
 
 GATE (satisfied 2026-09-08 — proposal landed to main + ENGINE_PIN green, engine sha FULL
 match both sides): landings proceed under the WIP caps below, evaluated against the LANDED

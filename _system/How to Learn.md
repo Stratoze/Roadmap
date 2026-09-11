@@ -41,9 +41,9 @@ The delta between prediction and reality is where the mental model gets correcte
 `[HYPOTHESIS]` expected · `[COMMUNITY]` common trap · `[DATASHEET]` from the source · `[VERIFIED]` you hit it (add date) · `[RETIRED]` obsolete. When one fires, promote it: `[VERIFIED — 2026-08-14]`. Landmines feed the FMEA.
 
 ## Memory / SRS Strategy
-- **Engram owns spaced repetition for concepts & procedures.** All learning trees run on its FSRS engine with receipt-based evidence: mechatronics (spine + software/electronics/mechanical/project-safety), piano, data science/AI, math foundations, physics, Japanese grammar + output. Reviews via `/review-loop`.
-- **Anki owns Japanese vocabulary only.** Kaishi 1.5k + mined cards (no fixed frequency cutoff — cutoffs are corpus-dependent). Routing heuristic (not a law — overlap can help; the point is no double-SRS maintenance burden): one fact lives in exactly one SRS. In particular: piano maintenance and "review this song today" scheduling live in Engram (topic `piano`); Anki holds zero piano cards.
-- **Routing rule:** a pattern/procedure you must *reconstruct* → Engram. A word you must recognize/produce *instantly* → Anki.
+- **The vault learning system owns spaced repetition for concepts & procedures** (transparent ladder in `_system/learning/curriculum/*.md`; `python3 scripts/review.py due|schedule|next`; reviews via the `review` skill, cold recall first).
+- **Anki owns Japanese vocabulary only.** Kaishi 1.5k + mined cards (no fixed frequency cutoff — cutoffs are corpus-dependent). Routing heuristic (not a law — overlap can help; the point is no double-SRS maintenance burden): one fact lives in exactly one SRS. In particular: piano maintenance and "review this song today" scheduling live in the vault learning system; Anki holds zero piano cards.
+- **Routing rule:** a pattern/procedure you must *reconstruct* → vault spaced review. A word you must recognize/produce *instantly* → Anki.
 
 ## Definitions
 - **MVM** = enough evidence to move on without lying to yourself. A clean handoff, not mastery.

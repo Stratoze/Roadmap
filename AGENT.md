@@ -1,92 +1,100 @@
-# AGENT.md — Operating Contract for AI Sessions in This Vault
+# AGENT.md - Operating Contract for AI Sessions in This Vault
 
-Active phase: **Phase 1** (`./.opencode/plan/phase-1-agent-and-rituals.md`).
-Phase 2 (`./.opencode/plan/phase-2-skill-builder.md`) is reference-only until
-Phase-1 verification passes. This file is the authority on conflict for rituals.
-Waiver 2026-09-08 (user-ordered): Phase-2 plan APPROVED and under implementation
-(GOAL/registry/lenses landed) with Phase-1 verification still pending — the user's
-explicit orders override the reference-only gate per item, not as a blanket repeal.
+Active system: **Vault Learning System**
+(`.opencode/plan/vault-learning-system.md`). The predecessor system is
+retired and its store deleted. This file is the authority on conflict for rituals and session
+protocol, and it is self-sufficient: a fresh clone plus this file should be
+enough to run the system without any external memory.
 
 ## Operating contract (ask-first, minimal noise)
 
-Ask-first: surface nudges as ONE short message with a question — never act silently
-on reminders, reviews, or notes. Daily loop is Q&A in flow: agent asks Target +
-Predict at session start, Got + Gap at close; learner answers in their own words.
-Scope approval before landing
-engram maps; maps-only landings (no pretests/teaching unless asked).
-Evidence via `bash scripts/save.sh` / `bash scripts/milestone.sh` (scripts are NOT +x).
+Ask-first: surface nudges as ONE short message with a question - never act
+silently on reminders, reviews, or notes. Daily loop is Q&A in flow: agent asks
+Target + Predict at session start, Got + Gap at close; learner answers in their
+own words. Evidence via `bash scripts/save.sh` / `bash scripts/milestone.sh`
+(scripts are NOT +x; invoke with `bash`).
 
 ## Session-start protocol (every session, before other work)
 
 Run verbatim (repo root):
-`[ -n "$ENGRAM_RUNNER" ] || { echo 'ENGRAM_RUNNER unset — see _system/engram/README.md'; exit 1; }`
-`$ENGRAM_RUNNER session-start`
-`$ENGRAM_RUNNER due --cap 12`
-`test -f "Daily/$(date +%F).md" && echo "note: exists" || echo "note: missing"`
-Quote source: `grep -h -A3 -E "^## (One-liner|Sticky)" Daily/*.md | tail -20`
-If dues need attention OR note missing: ONE chat reply (chat only — no Telegram, no hooks) —
-`Reviews due: N (topics: …) | unencoded: M. Today's note: missing/exists.`
-+ one direct quote (file + date) + one question offering action.
-Else silence. Never repeat after a same-day decline. Never auto-create/auto-start.
-Fallback if runner errors (inline, runnable, read-only — retired = node `retired`
-dict present with `restored` None, NEVER `state == 'retired'`):
-`python3 -c "import json,glob,os; [print(f\"{f.split('/')[-1]}:{k}\") for f in glob.glob(os.environ['ENGRAM_HOME']+'/graphs/*.json') for k,n in json.load(open(f))['nodes'].items() if isinstance(n.get('retired'),dict) and n['retired'].get('restored') is None]"`
-Then stop and report the runner failure. Do not hand-compute dues.
+
+```bash
+python3 scripts/review.py due
+test -f "Daily/$(date +%F).md" && echo "note: exists" || echo "note: missing"
+```
+
+If the due output is non-empty OR the note is missing: ONE chat reply -
+`Due: N (topics: ...) | Today's note: missing/exists.` + optionally one direct
+quote from the last 7 days (file + date) + one question offering action.
+Otherwise silence. Never repeat after a same-day decline. Never auto-create or
+auto-start. No hooks, no Telegram, no background jobs.
 
 ## Session-end protocol (daily Q&A in flow; dailies are the learner's)
 
-Target + Predict are asked at session start, Got + Gap at close — as part of the
-day's procedure, never out of nowhere. Learner answers in their own words; agent
-formats only (links, indent, template shape) and pastes quotes verbatim, marked.
-If Got is missing, vague, or faulty (no mechanism, no numbers), the agent says so
-and asks once more — then drops it till tomorrow. Gap is the learner's own
-words — NEVER pre-fill it. Agent session activity goes to `Changelog/YYYY-MM.md`
-(monthly, append-only), never into Daily files.
-Template: `_system/Daily Template.md`.
+Target + Predict at session start, Got + Gap at close - as part of the day's
+procedure. Learner answers in their own words; the agent formats only and pastes
+quotes verbatim, marked. If Got is missing, vague, or faulty, say so and ask
+once more - then drop it till tomorrow. Gap is the learner's own words - NEVER
+pre-fill it. Agent activity goes to `Changelog/YYYY-MM.md` (monthly,
+append-only), never into Daily files. Template: `_system/Daily Template.md`.
 
-## Learning prefs (see `_system/How to Learn.md` — link, don't duplicate)
+## Learning system (read before teaching or reviewing)
+
+- `_system/How to Learn.md` - the method (Loop, 3-tier unblock, AI use zones).
+- `_system/learning/README.md` - system layout + private store rules.
+- `_system/learning/learner.md` - preferences + standing orders (canonical;
+  OpenViking is a mirror only).
+- `_system/learning/topic-tree.md` - the curriculum map + theory links.
+- Plan of record: `.opencode/plan/vault-learning-system.md`.
+- Skills: `study`, `map`, `resources`, `review` (project `.opencode/skills/`).
+- Agents: `scout`, `verifier`, `assessor` (project `.opencode/agents/`).
+- Reviews: `python3 scripts/review.py due|schedule|next`. Never hand-compute
+  scheduling; never re-expose material before a cold recall probe.
+- Raw learner text goes to `_private/learning/` only (private companion repo).
+  If `_private/.git` is missing, pause verbatim capture, say so, and continue
+  with public summaries.
 
 ## Review-loop format (learner-pinned: readability over brevity)
 
-Reveals in plain sentences that explain the blindspot — never dense one-liners or
-buzzword summaries. After each reveal STOP and invite questions; next probe only
-when the learner moves on (unless a hard reason not to, stated aloud).
+Reveals in plain sentences that explain the blindspot - never dense one-liners
+or buzzword summaries. After each reveal STOP and invite questions; the next
+probe only when the learner moves on (unless a hard reason not to, stated
+aloud).
 
-## Improvement notes (mined 2026-09-07 from Landmine Log + recent Gaps)
+## Improvement notes (mined from Landmine Log + recent Gaps)
 
-- Predict the HARD STEP + failure mode, not the load ("reasonable load" predicts nothing).
-- No empty Got/Gap — agent asks until answered or explicitly deferred; blank = session failed to close.
-- Blank-page re-solves (blank-page rule): claim mastery only from memory, not from notes.
-- Verify before claiming: 08-27 slips (12.4→12.60, `(x,-y)` rotation sign) were caught
-  by verification, not by feel. Recompute, don't nod.
+- Predict the HARD STEP + failure mode, not the load.
+- No empty Got/Gap - the agent asks until answered or explicitly deferred;
+  blank = session failed to close.
+- Blank-page re-solves: claim mastery only from memory, not from notes.
+- Verify before claiming: recompute, don't nod.
 - Day-tasks-first (anti-creep); estimate the DAY before the plan.
-- reconstruct-before-using: rebuild from memory before reaching for aids or notes.
-- When a landmine fires, promote it: `[VERIFIED — date]` into the owning file.
-- Radians in code, always. Interface before implementation. Telemetry out of hot paths.
+- Reconstruct-before-using: rebuild from memory before reaching for aids.
+- When a landmine fires, promote it: `[VERIFIED - date]` into the owning file.
+- Radians in code, always. Interface before implementation. Telemetry out of
+  hot paths.
 
 ## Toolchain (re-verify before toolchain-dependent work)
 
-Re-verify with: `bash scripts/versions.sh` (covers git/python3/arm-none-eabi-gcc/gcc/
-cmake/make/openocd/kicad-cli) AND `clangd --version; julia --version; nvim --version;
-code --list-extensions | grep -i -e vim -e clangd -e ruff -e julia` — record drift
-from the facts below (full rule: Phase-1 plan §2 item 4,
-`./.opencode/plan/phase-1-agent-and-rituals.md`).
-Facts (2026-09-07): Apple clang/clangd 21 · cmake 4.4.3 · python 3.14.7 ·
-julia 1.12.7 · nvim 0.12.5. VSCode Vim (`jj`→Esc, space leader) + clangd + Ruff + Julia
-(`~/Library/Application Support/Code/User/settings.json`).
-Engram runner: `$ENGRAM_RUNNER` (see `_system/engram/README.md`) — never hand-compute scheduling.
-Health: `python3 scripts/diagnose.py` (known-baseline in Phase-1 plan §0; EXEMPT block
-at the top of the script is authoritative for carried failures).
+Re-verify with: `bash scripts/versions.sh` AND `clangd --version; julia
+--version; nvim --version; code --list-extensions | grep -i -e vim -e clangd
+-e ruff -e julia` - record drift from the facts below before toolchain work.
 
-## Hard Rules (authoritative Forbidden list; interim authority = this section)
+Facts (2026-09-07, Mac reference; this machine is Windows git-bash with python
+3.13.11): Apple clang/clangd 21 - cmake 4.4.3 - python 3.14.7 - julia 1.12.7 -
+nvim 0.12.5.
+
+Health: `python3 scripts/diagnose.py`. The EXEMPT block at the top of the
+script is authoritative for carried failures.
+
+## Hard Rules (authoritative Forbidden list)
 
 - PLAN-marked files implement ONLY on explicit user `approve`.
-- Never auto-create notes/reviews; never invent activity; never pre-fill Gap.
-- Maps-only engram landings (no pretests/teaching unless asked); scope approval first.
+- Never auto-create notes or reviews; never invent activity; never pre-fill Gap.
+- Scope approval before landing curriculum changes; maps-only landings.
 - NEVER AI-generated video (chat directly instead).
-- (Phase-2 forward pointers, NOT enforced in Phase 1 and not yet built — absence is
-  expected, do not "fix" by creating: video-pair-per-topic rule, GOAL.md-single-source
-  (`Mechatronics/GOAL.md`), skill registry (`Mechatronics/skills/registry.md`),
-  machine-gated tags.)
-- Evidence via `bash scripts/save.sh` / `bash scripts/milestone.sh`; status lives ONLY
-  in the ROADMAP table — never duplicate ✅.
+- The learner produces: never write the artifact they are building (code,
+  derivation, solution). AI scaffolds, executes, verifies, reviews.
+- Raw verbatim learner text never enters the public repo (`_private/` only).
+- Evidence via `bash scripts/save.sh` / `bash scripts/milestone.sh`; status
+  lives ONLY in the ROADMAP table - never duplicate.

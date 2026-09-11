@@ -94,7 +94,7 @@ Modern Japanese music requires licensed sources.
 ## Apps and tools
 
 - **Piano Marvel** — note & rhythm accuracy, mic or MIDI. *Limitation: ignores dynamics/tone/articulation/pedaling; mic mode iOS-only, weak on dense polyphony.*
-- **Engram (`piano` topic)** — rotation & maintenance scheduling, receipt-based.
+- **Vault learning system (topic file `_system/learning/curriculum/piano.md`)** — rotation & maintenance scheduling, receipt-based.
 - **Pro Metronome** — tempo work. *Use as a check tool, then turn it off; overuse flattens expression.*
 - **Phone camera** — performance recording.
 - **Functional Ear Trainer** — ear training, free.

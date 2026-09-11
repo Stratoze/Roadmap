@@ -76,7 +76,7 @@ Sit down, play, 15 minutes.
 
 ### Weeks 3 to 4: Repair repertoire management
 - Establish learning, polishing, and maintenance pool (2-week safety net lives in [[Piano/Resources/Maintenance and Performance|Maintenance]], not here).
-- Convert song-title reminders into specific Engram review tasks.
+- Convert song-title reminders into specific review tasks in the vault learning system.
 - Limit review by time, not card count.
 - Lower maintenance entry bar to performance-ready.
 - Add sleep consolidation protocol: visualize before bed.
