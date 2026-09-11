@@ -69,7 +69,8 @@ verifies per sitting; continue only if asked.
   mechanism for each link ("why does this follow?"); label conventions as
   conventions; never manufacture a link.
 - **Check**: ONE compressed verify (standing order 3) - quiz via the question
-  tool where gradable, free recall otherwise. No quiz before schema.
+  tool where gradable (construction: `_system/learning/quiz-protocol.md`),
+  free recall otherwise. No quiz before schema.
 - **Record**: update the concept row; schedule with
   `python3 scripts/review.py schedule <topic> <id>`. First contact sets rung 0
   and state `review`. Confidence goes to `_private/learning/receipts/`. Add or
@@ -103,7 +104,9 @@ previous lesson. Raw text goes to
 
 ## Close
 
-- One next step (concept or review date). No recap wall.
+- One next step (concept or review date), named by category + content + link
+  (e.g. "vectors & frames - math; feeds kinematics"), never a bare vault id.
+  No recap wall.
 - Offer the stale commitment cue once (verbatim, never rewritten) in
   `learner.md`; if renewed, store their new words verbatim with a new date and
   update the OpenViking mirror.

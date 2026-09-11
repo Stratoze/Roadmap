@@ -10,6 +10,9 @@ Read `_system/learning/learner.md` (standing orders) and
 `_system/How to Learn.md` (the Loop). The plan of record is
 `.opencode/plan/vault-learning-system.md`.
 
+One item per message, in order: recall -> confidence -> feedback -> record.
+Never batch items or pre-empt later ones.
+
 1. **Load the queue**: `python3 scripts/review.py due`. Cap at 12 items per
    sitting.
 2. **Backlog over the cap**: one calm amnesty line ("spacing doing its job, not

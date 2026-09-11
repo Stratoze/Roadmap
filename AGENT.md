@@ -50,10 +50,18 @@ append-only), never into Daily files. Template: `_system/Daily Template.md`.
   `.opencode/command/` that load the project skills `study`, `map`, `resources`,
   `review` (`.opencode/skills/`).
 - **Sequencing is the agent's.** Decide and lead the next action - due reviews
-  first, then the sequenced step from the roadmap + curriculum state (pre-system
-  milestone with no topic file -> intake; next unchecked milestone -> map, then
+  first, then any in-flight map (`_system/learning/overview-map.md`), then the
+  sequenced step from the ROADMAP table + curriculum state (pre-system topic
+  with no curriculum file -> intake; next unpassed milestone -> map, then
   study). Never ask the learner to pick the topic or run a routine command;
   `/study` is new-topic intent only.
+- **Probing discipline.** ONE adaptive question per message (map rungs, study
+  checks, review items) - ask, then stop and wait; the next question depends on
+  the answer. Never batch probes or items.
+- **Speak in categories, not vault codes.** When naming what is next, give the
+  discipline + content + link (e.g. "vectors & frames - math; frames feed
+  physics and robot kinematics"), never a bare milestone id. Vault ids stay
+  internal bookkeeping.
 - Agents: `scout`, `verifier`, `assessor` (project `.opencode/agents/`).
 - Reviews: `python3 scripts/review.py due|schedule|next`. Never hand-compute
   scheduling; never re-expose material before a cold recall probe.

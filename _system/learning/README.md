@@ -23,6 +23,10 @@ review - everything visible, versioned, and hand-editable in the vault.
   **intake**: one compressed cold verify per concept - clean -> scheduled at
   rung 2, effortful -> rung 1, miss -> taught first. No re-teaching of passing
   verifies.
+- `quiz-protocol.md` - how graded probes/quizzes are constructed (bare claims,
+  mutated distractors) and graded (keys by execution; confidence first).
+- `overview-map.md` - roadmap-level edge map (in-flight scoping; strand queue +
+  provisional brackets by unit).
 
 ## The link web
 

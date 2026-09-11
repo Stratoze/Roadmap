@@ -157,6 +157,8 @@ the Loop; fixed here.
 - `_private/learning/verbatim/<YYYY-MM-DD>-<topic>.md` - raw learner text.
 - `_private/learning/receipts/<YYYY-MM-DD>-<topic>.jsonl` - confidence picks,
   grades, assessor outputs.
+- `_system/learning/quiz-protocol.md` - graded-probe construction rules
+  (Amos-derived; used by map rungs and study checks).
 
 ### 3.2 Skills (`.opencode/skills/`, each with frontmatter `name` + `description`)
 
@@ -204,8 +206,11 @@ the Loop; fixed here.
   1. Scoping question (goal + by when) if not already in the topic file.
   2. Scout field scan -> provisional concept/strand list -> learner prunes.
   3. Question rounds, one strand at a time: broad open -> gradable probes ->
-     narrow. Quiz where gradable, conversation where not. Cap: 6 gradable
-     probes per sitting (continue only if the learner asks).
+     narrow. ONE adaptive question per message (ask, wait, then pick the next
+     from the answer) - never a batch or parallel sweep. Binary-search: hit ->
+     jump difficulty up; miss -> narrow back. Quiz where gradable (construction:
+     quiz-protocol.md), conversation where not. Cap: 6 graded probes per
+     sitting (continue only if the learner asks).
   4. Bracket each strand: one floor (right) + one ceiling (miss). All-correct ->
      escalate. One miss -> characterize (slip, gap, misconception) with
      adjacent probes before concluding. Self-report is never evidence.
@@ -442,6 +447,9 @@ twice). The topic tree and its mermaid views are in scope (built 2026-09-11).
 - Intake amendment (user-found same day): pre-system topics (0.1/0.2) had no
   queue path; `study` gains intake (cold verifies -> schedule passes, teach
   misses). Plan §3.1/§3.2 updated.
+- Protocol hardening (user): map probing is ONE adaptive question per message
+  (hard rules in the map skill, AGENT.md, `/map` command, plan §3.2); quiz
+  construction ported to `_system/learning/quiz-protocol.md`.
 - Acceptance status: items 1, 4, 5, 6 pass; items 2 (first lesson) and 3 (first
   due review) await a real learner session.
 
