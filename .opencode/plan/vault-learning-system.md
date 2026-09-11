@@ -201,6 +201,9 @@ the Loop; fixed here.
   6. Reflection: learner writes; summary public, verbatim private.
   7. Close: one next step; offer the stale commitment cue once (verbatim, never
      rewritten); no recap wall.
+  8. Daily ritual (AGENT.md): Target + Predict before the day's work; Got + Gap
+     at close - learner's raw words, agent-formatted; Gap never pre-filled;
+     agent activity to Changelog only.
   Bans: no quiz before schema; no answer before an attempt; no AI-written
   solution or derivation; no unverified claim as established; no AI-generated
   video; no scores or streaks.

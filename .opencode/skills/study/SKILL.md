@@ -107,6 +107,17 @@ Target / Predict (summary) / Orientation / Attempts / Feedback / Reflection
 previous lesson. Raw text goes to
 `_private/learning/verbatim/<YYYY-MM-DD>-<topic>.md`.
 
+## Daily ritual (AGENT.md; dailies are the learner's)
+
+- **Open**: ask Target(s) + Predict (mechanism: hard step? time needed? what
+  failed last time?) in the learner's raw words; format into
+  `Daily/YYYY-MM-DD.md` (template `_system/Daily Template.md`) - never invent
+  results, never pre-fill Gap, omit empty sections, weak prediction ->
+  `prediction-weak`. `Current` comes from the sequenced next step.
+- **Close**: ask Got + Gap (learner's words). Got vague or faulty -> say so and
+  ask once, then drop till tomorrow. Gap is NEVER pre-filled. Agent activity
+  goes to `Changelog/`, never the Daily.
+
 ## Close
 
 - One next step (concept or review date), named by category + content + link
