@@ -137,8 +137,10 @@ the Loop; fixed here.
   (Appendix A) by `study` step 0 (new topic) or `map` on first contact.
 - Concepts state machine: `unknown -> seen` (first contact/orientation),
   `seen -> review` (taught + first schedule), `review -> solid` (clean recall at
-  rung >= 4); `solid -> review` on a miss. No other transitions. Mapping
-  estimates live in `## Map` as `provisional (<date>)`, never in `state`.
+  rung >= 4); `solid -> review` on a miss. Intake (pre-system topics, §3.2) may
+  go `unknown -> review` on a passing cold verify. No other transitions.
+  Mapping estimates live in `## Map` as `provisional (<date>)`, never in
+  `state`.
 - `_system/learning/lessons/<topic>/YYYY-MM-DD-<slug>.md` - sections exactly:
   `## Target`, `## Predict` (summary; verbatim in `_private/`), `## Orientation`,
   `## Attempts` (what happened; where the verbatim lives), `## Feedback`
@@ -158,6 +160,14 @@ the Loop; fixed here.
      (provisional concepts, strands, common gotchas); learner prunes; the scan
      seeds `## Map` and inserts the pruned one-claim aims as `unknown` rows in
      `## Concepts` (rows must exist before any `review.py schedule` call).
+  0b. Intake (pre-system topics: completed milestones with boxes already
+     checked, migrated tracks): rows come from the milestone's checked pass
+     conditions (no scoping/scout). Per concept, one compressed cold verify -
+     no priming, confidence before feedback. Pass clean ->
+     `review.py schedule <topic> <id> 2`; pass with effort -> rung 1; miss ->
+     normal loop (teach), then rung 0. Never re-teach a passing verify
+     (standing order 3). Evidence = probe date. Cap: 6 verifies per sitting,
+     continue only if the learner asks.
   1. Load topic file + `learner.md`. Preflight: `[ -d _private/.git ]` else
      pause verbatim capture and tell the learner to clone (public summaries
      continue).
@@ -423,6 +433,9 @@ twice). The topic tree and its mermaid views are in scope (built 2026-09-11).
   transition entry; stale engram/mac branches cleaned.
 - Entry points: `/study`, `/map`, `/resources`, `/review` command wrappers in
   `.opencode/command/` (skills stay the source of truth).
+- Intake amendment (user-found same day): pre-system topics (0.1/0.2) had no
+  queue path; `study` gains intake (cold verifies -> schedule passes, teach
+  misses). Plan §3.1/§3.2 updated.
 - Acceptance status: items 1, 4, 5, 6 pass; items 2 (first lesson) and 3 (first
   due review) await a real learner session.
 

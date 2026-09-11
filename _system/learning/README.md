@@ -19,6 +19,10 @@ review - everything visible, versioned, and hand-editable in the vault.
 - Review schedule: every concept row carries `rung` and `next_review`; the
   ladder is 1, 3, 7, 16, 35, 90 days. `python3 scripts/review.py due` lists
   today's items; `next` and `schedule` update them.
+- Pre-system knowledge (completed milestones, migrated tracks) enters through
+  **intake**: one compressed cold verify per concept - clean -> scheduled at
+  rung 2, effortful -> rung 1, miss -> taught first. No re-teaching of passing
+  verifies.
 
 ## The link web
 

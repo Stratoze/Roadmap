@@ -20,6 +20,9 @@ Read first: `_system/How to Learn.md` (the Loop and the rules),
    want to be able to DO with this, by when?) and store the answer verbatim in
    `## Goal`. Spawn **scout** for a goal-bounded field scan; prune with the
    learner; write the pruned one-claim aims as `unknown` rows in `## Concepts`.
+   New topic with plausible priors (school, work, an earlier milestone): offer
+   `map` first - scoping question + bracket - then teach from the floor; the
+   comfort branch probes as you go, and mapping never blocks.
 3. Check `_private/.git` exists. If not: say verbatim capture is paused, tell
    the learner to clone the private repo, and continue with public summaries
    only.
@@ -30,6 +33,17 @@ Read first: `_system/How to Learn.md` (the Loop and the rules),
    approved sources win for orientation.
 6. Show what is due today (`python3 scripts/review.py due`) before starting new
    material; the learner chooses.
+
+## Intake (pre-system topics)
+
+Knowledge that predates the system (completed milestones with boxes already
+checked, migrated tracks): rows come from the milestone's checked pass
+conditions; skip scoping and scout. Per concept, one compressed cold verify -
+no priming, confidence picked before feedback. Clean pass ->
+`review.py schedule <topic> <id> 2`; effortful pass -> rung 1; miss -> run the
+normal loop (teach from the scaffold), then schedule at rung 0. Never re-teach
+a passing verify (standing order 3); evidence gets the probe date. Cap 6
+verifies per sitting; continue only if asked.
 
 ## The loop (per concept)
 
