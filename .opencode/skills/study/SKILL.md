@@ -1,6 +1,7 @@
 ---
 name: Study
 description: Learn, practice, or continue a topic the vault way - verified resources first, orient/predict/attempt/feedback, multi-lens teaching, struggle budget, reflection, spaced review. Use when Kohaku wants a lesson, or says "study", "teach me", "continue <topic>".
+slash: false
 ---
 
 # Study - the vault learning session

@@ -46,7 +46,9 @@ append-only), never into Daily files. Template: `_system/Daily Template.md`.
   OpenViking is a mirror only).
 - `_system/learning/topic-tree.md` - the curriculum map + theory links.
 - Plan of record: `.opencode/plan/vault-learning-system.md`.
-- Skills: `study`, `map`, `resources`, `review` (project `.opencode/skills/`).
+- Entry points: `/study`, `/map`, `/resources`, `/review` - thin commands in
+  `.opencode/command/` that load the project skills `study`, `map`, `resources`,
+  `review` (`.opencode/skills/`).
 - Agents: `scout`, `verifier`, `assessor` (project `.opencode/agents/`).
 - Reviews: `python3 scripts/review.py due|schedule|next`. Never hand-compute
   scheduling; never re-expose material before a cold recall probe.

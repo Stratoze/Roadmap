@@ -51,8 +51,11 @@ public summaries continue.
 
 Project-scoped; no global plugin needed.
 
-- `.opencode/skills/study/`, `map/`, `resources/`, `review/`
-- `.opencode/agents/scout.md`, `verifier.md`, `assessor.md`
+- Skills: `.opencode/skills/study/`, `map/`, `resources/`, `review/`.
+- Slash entry points: `/study`, `/map`, `/resources`, `/review` - thin commands
+  in `.opencode/command/` that load the matching skill. The skills also
+  auto-invoke from plain language ("study X", "review", "test me in X").
+- Agents: `.opencode/agents/scout.md`, `verifier.md`, `assessor.md`.
 
 ## Provenance
 

@@ -1,6 +1,7 @@
 ---
 name: Map
 description: Estimate what Kohaku already knows on a topic - scoping question, strand selection, question rounds with floor/ceiling bracketing - and record a provisional map. Use at the start of a new topic, or when he says "test me in" or "what do I already know".
+slash: false
 ---
 
 # Map - approximate the edge

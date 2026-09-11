@@ -1,6 +1,7 @@
 ---
 name: Resources
 description: Build or refresh a topic's verified resource dossier - scout finds candidates, verifier checks them independently against the live sources, entries are dated with a verdict. Use when a topic has no dossier or needs re-verification.
+slash: false
 ---
 
 # Resources - the dossier

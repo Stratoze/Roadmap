@@ -421,6 +421,8 @@ twice). The topic tree and its mermaid views are in scope (built 2026-09-11).
 - D: engram store deleted; global install removed; docs self-contained
   (`AGENT.md`, How to Learn, README, index/domain files, templates); Changelog
   transition entry; stale engram/mac branches cleaned.
+- Entry points: `/study`, `/map`, `/resources`, `/review` command wrappers in
+  `.opencode/command/` (skills stay the source of truth).
 - Acceptance status: items 1, 4, 5, 6 pass; items 2 (first lesson) and 3 (first
   due review) await a real learner session.
 

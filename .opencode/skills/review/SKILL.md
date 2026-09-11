@@ -1,6 +1,7 @@
 ---
 name: Review
 description: Clear due spaced reviews for the vault learning system - cold free recall first, immediate feedback, transparent ladder scheduling. Use when reviews are due or Kohaku says "review".
+slash: false
 ---
 
 # Review - the maintain leg
