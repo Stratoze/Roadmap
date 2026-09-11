@@ -33,3 +33,6 @@ _system/engram/sessions.jsonl
 _system/engram/exports/
 *.bak
 *.pre-batch*
+
+# Private companion repo (verbatim learner text; separate private remote)
+_private/

@@ -30,7 +30,7 @@ from pathlib import Path
 # Folders ignored for ORPHAN detection. Templates are plugin-invoked;
 # journals/logs are append-only and are not meant to be linked. Add more here
 # (e.g. "docs") if you consider folder-READMEs acceptable as orphans.
-ORPHAN_EXCLUDE_DIRS = {"_templates", "journal", "Daily", "Logs", "Changelog"}
+ORPHAN_EXCLUDE_DIRS = {"_templates", "journal", "Daily", "Logs", "Changelog", "_private"}
 # Files allowed to have zero incoming links (entry points).
 ENTRY_POINTS = {"index.md", "README.md"}
 # EXEMPT carried failures (Phase-2 gate reads this block as authoritative).
@@ -58,6 +58,8 @@ def md_files(vault):
     for p in sorted(vault.rglob("*.md")):
         dirs = p.relative_to(vault).parts[:-1]
         if any(part.startswith(".") for part in dirs):   # .obsidian/.git/.trash
+            continue
+        if "_private" in dirs:                          # private companion repo
             continue
         yield p
 
