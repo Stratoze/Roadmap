@@ -98,6 +98,9 @@ Re-verify with: `bash scripts/versions.sh` AND `clangd --version; julia
 Facts (2026-09-07, Mac reference; this machine is Windows git-bash with python
 3.13.11): Apple clang/clangd 21 - cmake 4.4.3 - python 3.14.7 - julia 1.12.7 -
 nvim 0.12.5.
+Mac facts (2026-09-12, this Mac): Apple clang/clangd 21 - cmake 4.4.3 - python
+3.14.7 - julia 1.12.7 - nvim 0.12.5 - arm-none-eabi-gcc 16.2.0 - openocd 0.12.0 -
+kicad-cli 10.0.6 (all via brew; `gcc` = Apple clang, brew gcc is `gcc-16`).
 
 Health: `python3 scripts/diagnose.py`. The EXEMPT block at the top of the
 script is authoritative for carried failures.
