@@ -8,6 +8,7 @@
 
 ## Map
 - Provisional (2026-09-14): mapping not started (new topic; priors from mech software work unknown - bracket on first contact)
+- Bracket 2026-09-14 (data model strand, open conversation - no code run yet): floor = general reference/mutation reasoning only (mutable default `[]` persists across calls; `b = a` aliases; rebinding vs mutating distinguished). **Correction (learner, same session): "i have never touched python before" - the probes showed transferable reasoning, NOT Python schema; dict/`def`/`print` were read cold, not known.** Ceiling: zero Python experience is the true floor - this is a zero-schema start (orientation before prediction; no quiz before schema).
 - Scout scan 2026-09-14: sequence proposed - env → core data model/containers → control/iteration idioms → modules/stdlib/I/O → light OOP/dataclasses → numpy (arrays, broadcasting, views vs copies, radians) → matplotlib (OO fig/ax, equal aspect) → pandas (loc/iloc, CoW, groupby, resample) → scipy (optimize, signal, solve_ivp, Rotation) → one integration loop. Projects proposed (each 1 skill, chained): log summarizer → binary frame decoder (optional) → vectorized arm-tip sweep → arm-tip figure → telemetry clean-and-plot. Cross-cutting gotchas: venv vs global, radians, vectorization vs loops, views vs copies, axis semantics, index alignment, float equality. Prune pending with learner.
 - Env check 2026-09-14: python 3.14.7; numpy 2.5.3 present; matplotlib/scipy/pandas NOT installed (scout's 3.14 wheel-lag flag is partly live - verify at install time).
 
@@ -43,4 +44,4 @@
 - Lessons: -
 
 ## Log
-- 2026-09-14 - file created from Appendix A; goal stored verbatim (data/AI/robotics prototyping, core Python + common libraries, 1 month, project-based); map not started
+- 2026-09-14 - file created from Appendix A; goal stored verbatim (data/AI/robotics prototyping, core Python + common libraries, 1 month, project-based); map opened. Learner correction same day: "i have never touched python before" - zero-schema start, orientation first; project scope cut to a first script that teaches one skill at the smallest size.
