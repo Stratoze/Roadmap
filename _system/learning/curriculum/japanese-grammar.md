@@ -50,3 +50,4 @@
 ## Log
 - 2026-09-14 - file created from Appendix A; goal stored verbatim; map opened at sentence skeleton
 - 2026-09-14 - map: strand 1 bracketed (floor: skeleton + particles + i-row masu; ceiling: e-row potential). Taught e-row potential; misconception (loose kana rows) corrected with gojuuon-row lens; 2 concepts scheduled at rung 0 (due 2026-09-15).
+- 2026-09-14 - close. Got: "e row in godan, for potential form specifically". Gap: "other row, i row seems fine, a row + nai seems fine". Next: cold recall of jp-godan-potential + jp-godan-masu, then the o-row (volitional, のもう) and the を→が potential flip.

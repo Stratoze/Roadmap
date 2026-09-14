@@ -33,4 +33,5 @@ Recorded privately: `_private/learning/receipts/2026-09-14-japanese.jsonl` (band
 
 ## Next
 - `jp-godan-potential` + `jp-godan-masu` due 2026-09-15 (rung 0, cold recall).
+- Learner's own gap at close (2026-09-14): "other row, i row seems fine, a row + nai seems fine" — next new form is the **o-row** (volitional, のもう) and the a-row + ない negative, each checked against the gojuuon grid.
 - Untaught, adjacent: the を→が flip in the potential (みずがのめる) — return to it after the form is automatic.
