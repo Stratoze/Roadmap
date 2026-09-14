@@ -15,7 +15,8 @@
 ## Concepts
 | id | aim | prereqs | state | rung | next_review | evidence |
 |----|-----|---------|-------|------|-------------|----------|
-| py-env | run scripts in a project venv; install/pin a library | - | unknown | 0 | - | - |
+| py-env | run scripts in a project venv; install/pin a library | - | seen | 0 | - | 2026-09-14 venv+jupyter setup |
+| py-first-touch | write and run a first cell; read output; change one value and re-run | py-env | unknown | 0 | - | - |
 | py-core-types | types, variables, strings, f-strings, numbers | py-env | unknown | 0 | - | - |
 | py-control | conditionals, loops, range, comprehensions | py-core-types | unknown | 0 | - | - |
 | py-functions | def, args, returns, scope, modules/imports | py-control | unknown | 0 | - | - |
