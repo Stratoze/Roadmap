@@ -27,7 +27,7 @@
 | - | - | - | - | - | - |
 
 ## Links
-- Rests on: japanese-grammar (sentence skeleton, particles, verb forms feed production)
+- Rests on: japanese-grammar (sentence skeleton, particles, verb forms feed production); `jp-godan-potential` gives the can-do form the journal needs (みずがのめる)
 - Teaches: gives back error patterns to grammar; feeds immersion
 - Lessons: -
 
