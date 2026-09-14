@@ -6,7 +6,8 @@
 - Source: `Daily/2026-09-14.md`, verbatim in `_private/learning/verbatim/2026-09-14-japanese.md`
 
 ## Map
-- Provisional (2026-09-14): mapping in progress, strand 1 (sentence skeleton) open; nothing bracketed yet
+- Provisional (2026-09-14): mapping in progress, strand 1 (sentence skeleton + core particles) bracketed; verb-core strand opened, not bracketed
+- Bracket 2026-09-14 skeleton/particles: floor = topic-comment breakdown (watashi-wa/gakusei/desu) + ga-spotlight vs wa-topic + ni-exists/de-acts + wo-object plain (all hit); ceiling = potential e-row formation (nomeru uncertain: "nomaru? or nomeru", explicit "no idea/forgot") + ga-flip above it untested (prereq missing). Gap (not slip/misconception: hedged throughout). Teaching starts N+1: godan e-row potential from solid i-row masu.
 - Scout scan 2026-09-14: full grammar order proposed (kana → skeleton → adjectives/noun-mod → verb core → te/aspect → nominalization → giving-receiving/voice → conditionals → modality/explanation → register/keigo/discourse → formal written); stub flagged too coarse (skeleton/particles/verb/past/te/conditionals/keigo each need splits; kanji parallel track). Prune pending with learner; Concepts rows stay coarse until prune.
 
 ## Concepts
