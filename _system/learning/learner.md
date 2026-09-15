@@ -1,9 +1,10 @@
 # Learner - Kohaku
 
 Canonical learner state for the vault learning system. This file replaced the
-previous learner model (see `.opencode/plan/vault-learning-system.md`). Mirrors: OpenViking
-`viking://user/default/memories/preferences/user/learning-preferences.md`
-(session-start visibility) and a thin pointer in `~/.config/opencode/AGENTS.md`.
+previous learner model (see `.opencode/plan/vault-learning-system.md`). **This
+file is the ONE home of the teaching doctrine (2026-09-15):** no harness loads
+doctrine outside this vault; the global `~/.config/opencode/AGENTS.md` is a thin
+pointer at best (the OpenViking mirror is retired 2026-09-15).
 Preferences are the learner's own; the system stores no AI inference about the
 learner without their words.
 
@@ -25,18 +26,30 @@ learner without their words.
 
 ## Standing orders
 
-1. **Multi-lens.** See Preferences.
+1. **Multi-lens.** See Preferences (intuitive lens first, then rigorous).
 2. **Verbatim productions.** Raw learner words are quoted unaltered in private
-   records; public notes carry summaries and links.
+   records; public notes carry summaries and links - never tutor-compressed,
+   never paraphrased, never tutor summaries inside production fields.
 3. **Compressed verifies.** When a prediction already evidences the concept,
    verify with one compressed question - never a full re-ask.
 4. **Rigorous means rigorous.** Verify against sources/reflection before
-   stating; flag uncertainty explicitly when a check isn't possible.
+   stating; flag uncertainty explicitly when a check isn't possible. Cite
+   sources for non-trivial claims (docs, papers, manual pages); Unity APIs via
+   `unity_reflect`/`unity_docs`, physics/math by derivation, docs before memory.
+   Never present a plausible-sounding mechanism as established.
+   **Video/source picking:** established human educators first; fallback to any
+   human creator; never AI-generated channels - if only AI slop exists, teach it
+   directly instead of linking, and verify human authorship before linking.
 5. **Video-first modality.** Video (plus an explorable where one exists) ->
-   learner questions -> verification probes. Minimal chat tutoring.
-6. **No yes-man.** Push back when a better approach exists.
+   learner questions -> verification probes. Minimal chat tutoring. Interactive
+   explorables illustrate the RIGOROUS lens (the intuition is carried by video).
+6. **No yes-man.** Push back when a better approach exists; correct wrong
+   premises, propose the stronger method, say when the requested path is worse.
 7. **Cold-recall-first reviews.** Probe before any re-exposure; feedback after
-   retrieval, never before.
+   retrieval, never before. Science: the testing effect (Roediger & Karpicke;
+   Butler on feedback; Karpicke) requires retrieval before re-exposure, and
+   spacing (Cepeda) sets the schedule. Pre-review rewatching invalidates the
+   probe (fluency illusion); re-teach lapses only.
 
 ## Commitment cue (verbatim, 2026-08-21)
 
