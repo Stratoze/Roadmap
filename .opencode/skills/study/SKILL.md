@@ -107,7 +107,7 @@ Target / Predict (summary) / Orientation / Attempts / Feedback / Reflection
 previous lesson. Raw text goes to
 `_private/learning/verbatim/<YYYY-MM-DD>-<topic>.md`.
 
-## Daily ritual (AGENT.md; dailies are the learner's)
+## Daily ritual (AGENTS.md; dailies are the learner's)
 
 - **Open**: ask Target(s) + Predict (mechanism: hard step? time needed? what
   failed last time?) in the learner's raw words; format into

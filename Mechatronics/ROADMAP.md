@@ -236,7 +236,7 @@ foundation, not a hard project.
   power (mains — never DIY), cutting physics, G-code/CAM chain, interlocked
   extraction enclosure.
   Gated behind 4.3 safety PLUS a spindle/process addendum with its own safety
-  case, built at point of need under the AGENT.md proximity trigger.
+  case, built at point of need under the AGENTS.md proximity trigger.
 - Non-claim: this roadmap alone does not qualify you to build a cutting
   machine, touch mains/VFD power, or run pressure/fluid systems unsupervised.
   Those are post-roadmap addenda with their own safety cases.

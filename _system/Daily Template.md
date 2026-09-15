@@ -17,7 +17,7 @@ Frontmatter exactly as above. -->
 ## Focus
 - **Domain:** mech / piano / reading / japanese / system / software / science / data-science
 - **Cue / when-where:**
-- **Current:** (mech milestone · piano pieces · book — from AGENT.md next-step)
+- **Current:** (mech milestone · piano pieces · book — from AGENTS.md next-step)
 - **Targets:**
 - **If miss, then:**
 - **Log:** (optional ear / fun / misc one-liners)

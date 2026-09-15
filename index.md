@@ -1,7 +1,7 @@
 ---
 title: Knowledge Base
 ---
-> New session? Start at [[AGENT.md|AGENT.md]] — it routes everything below.
+> New session? Start at [[AGENTS.md|AGENTS.md]] — it routes everything below.
 
 # 🧠 System
 - [[_system/How to Learn|How to Learn]] — core protocols

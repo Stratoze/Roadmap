@@ -1,4 +1,4 @@
-# AGENT.md - Operating Contract for AI Sessions in This Vault
+# AGENTS.md - Operating Contract for AI Sessions in This Vault
 
 Active system: **Vault Learning System**
 (`.opencode/plan/vault-learning-system.md`). The predecessor system is
@@ -29,6 +29,12 @@ quote from the last 7 days (file + date) + one question offering action.
 Otherwise silence. Never repeat after a same-day decline. Never auto-create or
 auto-start. No hooks, no Telegram, no background jobs.
 
+Ordering is load-bearing: daily Target + Predict first, then the sequenced
+work. Never open a map rung, study check, or review item before today's
+Target + Predict is captured; the map/study probe waits for the next message.
+Daily ask and content probe never share a message (ONE question per message
+still holds).
+
 ## Session-end protocol (daily Q&A in flow; dailies are the learner's)
 
 Target + Predict at session start, Got + Gap at close - as part of the day's
@@ -54,7 +60,10 @@ append-only), never into Daily files. Template: `_system/Daily Template.md`.
   sequenced step from the ROADMAP table + curriculum state (pre-system topic
   with no curriculum file -> intake; next unpassed milestone -> map, then
   study). Never ask the learner to pick the topic or run a routine command;
-  `/study` is new-topic intent only.
+  `/study` is new-topic intent only. A handoff is executed, not announced: the
+  same turn that names the next leg runs that leg's open (study: topic file,
+  scoping ask, scout + verifier spawns); naming it while leaving the open for
+  later is a procedural error.
 - **Probing discipline.** ONE adaptive question per message (map rungs, study
   checks, review items) - ask, then stop and wait; the next question depends on
   the answer. Never batch probes or items.
