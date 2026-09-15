@@ -48,13 +48,14 @@ append-only), never into Daily files. Template: `_system/Daily Template.md`.
 
 - `_system/How to Learn.md` - the method (Loop, 3-tier unblock, AI use zones).
 - `_system/learning/README.md` - system layout + private store rules.
-- `_system/learning/learner.md` - preferences + standing orders (canonical;
-  OpenViking is a mirror only).
+- `_system/learning/learner.md` - preferences + standing orders (canonical; no
+  mirrors - OpenViking retired 2026-09-15).
 - `_system/learning/topic-tree.md` - the curriculum map + theory links.
 - Plan of record: `.opencode/plan/vault-learning-system.md`.
-- Entry points: `/study`, `/map`, `/resources`, `/review` - thin commands in
-  `.opencode/command/` that load the project skills `study`, `map`, `resources`,
-  `review` (`.opencode/skills/`).
+- Entry points: `/study`, `/map`, `/resources`, `/review` - thin OpenCode
+  commands in `.opencode/command/` that load the project skills `study`, `map`,
+  `resources`, `review`, which live in **`.agents/skills/`** (read by both
+  OpenCode and Codex; each carries an `agents/openai.yaml`).
 - **Sequencing is the agent's.** Decide and lead the next action - due reviews
   first, then any in-flight map (`_system/learning/overview-map.md`), then the
   sequenced step from the ROADMAP table + curriculum state (pre-system topic
@@ -71,7 +72,8 @@ append-only), never into Daily files. Template: `_system/Daily Template.md`.
   discipline + content + link (e.g. "vectors & frames - math; frames feed
   physics and robot kinematics"), never a bare milestone id. Vault ids stay
   internal bookkeeping.
-- Agents: `scout`, `verifier`, `assessor` (project `.opencode/agents/`).
+- Agents: `scout`, `verifier`, `assessor` - Codex `.codex/agents/*.toml`
+  (project-scoped), OpenCode `.opencode/agents/*.md`.
 - Reviews: `python3 scripts/review.py due|schedule|next`. Never hand-compute
   scheduling; never re-expose material before a cold recall probe.
 - Raw learner text goes to `_private/learning/` only (private companion repo).

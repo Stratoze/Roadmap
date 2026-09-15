@@ -1,0 +1,4 @@
+# Project-scoped Codex config for the learning vault.
+# Loaded only when this project is trusted (Codex `[projects."..."]`).
+# Subagents: `.codex/agents/*.toml` · skills: `.agents/skills/`.
+# Keep append-only and free of provider/auth/notify keys (Codex rejects those here).

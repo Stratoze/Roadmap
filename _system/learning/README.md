@@ -59,11 +59,16 @@ public summaries continue.
 
 Project-scoped; no global plugin needed.
 
-- Skills: `.opencode/skills/study/`, `map/`, `resources/`, `review/`.
-- Slash entry points: `/study`, `/map`, `/resources`, `/review` - thin commands
-  in `.opencode/command/` that load the matching skill. The skills also
-  auto-invoke from plain language ("study X", "review", "test me in X").
-- Agents: `.opencode/agents/scout.md`, `verifier.md`, `assessor.md`.
+- Skills: `.agents/skills/study/`, `map/`, `resources/`, `review/` - one shared
+  home (both OpenCode and Codex read `.agents/skills/`); each carries a Codex
+  `agents/openai.yaml`. They auto-invoke from plain language ("study X",
+  "review", "test me in X") under the ask-first rules in `AGENTS.md`.
+- Slash entry points (OpenCode): `/study`, `/map`, `/resources`, `/review` - thin
+  commands in `.opencode/command/` that load the matching skill. Codex has no
+  repo-shareable prompt files (`~/.codex/prompts/` is deprecated + user-local),
+  so in Codex the trigger phrases are the entry point.
+- Agents: Codex `.codex/agents/{scout,verifier,assessor}.toml` (project-scoped,
+  read-only sandbox); OpenCode `.opencode/agents/{scout,verifier,assessor}.md`.
 
 ## Provenance
 

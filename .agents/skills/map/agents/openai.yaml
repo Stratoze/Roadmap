@@ -1,0 +1,3 @@
+interface:
+  display_name: "Map"
+  short_description: "Estimate what Kohaku already knows on a topic"

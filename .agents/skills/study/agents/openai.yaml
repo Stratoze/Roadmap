@@ -1,0 +1,3 @@
+interface:
+  display_name: "Study"
+  short_description: "Run a vault study session (learn or continue a topic)"

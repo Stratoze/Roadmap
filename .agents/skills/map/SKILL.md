@@ -25,6 +25,9 @@ This is an estimate, provisional by design. It never gates teaching. Read
   the vague rungs and reasoning that cannot be option-set.
 - **Self-report routes; it is never evidence.** "I know that" means test it;
   "no idea" is data.
+- **Daily first.** If today's Target + Predict is not yet captured, do not
+  open a map rung - ask the daily open first and let the map probe wait for
+  the next message.
 
 1. **Scoping question first** (open, no right answer): "What do you want to be
    able to DO with this, and by when?" Store the answer verbatim in the topic

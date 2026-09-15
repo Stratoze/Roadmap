@@ -1,0 +1,3 @@
+interface:
+  display_name: "Resources"
+  short_description: "Build or refresh a topic's verified resource dossier"
