@@ -55,9 +55,14 @@ append-only), never into Daily files. Template: `_system/Daily Template.md`.
   with no curriculum file -> intake; next unpassed milestone -> map, then
   study). Never ask the learner to pick the topic or run a routine command;
   `/study` is new-topic intent only.
-- **Probing discipline.** ONE adaptive question per message (map rungs, study
+- Probing discipline. ONE adaptive question per message (map rungs, study
   checks, review items) - ask, then stop and wait; the next question depends on
   the answer. Never batch probes or items.
+- **Source-first lessons.** Each concept has a cited locator (book chapter /
+  video) in its topic `## Resources`; the lesson opens there, then the
+  learner's questions, then probes. AI explains only on a documented `blocker`
+  the source does not cover, and that block gets logged. Missing citation =
+  run the sourcing routine, never substitute a lecture.
 - **Speak in categories, not vault codes.** When naming what is next, give the
   discipline + content + link (e.g. "vectors & frames - math; frames feed
   physics and robot kinematics"), never a bare milestone id. Vault ids stay

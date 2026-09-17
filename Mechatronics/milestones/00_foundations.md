@@ -19,6 +19,26 @@ You don't need to master these before building. You need them at "Applied" level
 
 ---
 
+## Phase Sources — the foundational spine
+
+Catch-all texts for the whole phase: when a lesson's own citation does not cover something and a *blocker* fires, look here before asking the AI. Verified 2026-09-15; level is stated because a correct book at the wrong level is useless. Each also has a milestone-level section citation in the topic files under `_system/learning/curriculum/m0-*.md`.
+
+| Discipline | Book | Level | Why it is the spine |
+|---|---|---|---|
+| Math | Strang, Herman et al., *Calculus Volume 1* (OpenStax, free) | beginner | Owns derivative-as-rate and the net-change theorem, which 0.3 and every controller after it rest on |
+| Physics | *Classical Mechanics* 8.01SC (MIT OpenCourseWare, free) | beginner-intermediate | Newton's laws through rotation, with worked examples and problem sets; covers the conservation-law framing 0.1 asks for |
+| Statics | Baker & Haynes, *Engineering Statics: Open and Interactive* (free, CC BY-NC-SA) | beginner | FBDs, equilibrium, moments - no statics prerequisite, so it is usable cold |
+| Circuits | Horowitz & Hill, *The Art of Electronics* (3rd ed.) | intermediate | The reference for 0.5, 0.6 and every analog front end through Phase 3; assumes only Ohm/KVL |
+| Materials | Callister & Rethwisch, *Materials Science and Engineering: An Introduction* (10th ed.) | intermediate | Stress-strain, dislocations, failure, corrosion in one place; pairs with Ashby for *selection* |
+| Materials selection | Ashby, *Materials Selection in Mechanical Design* (3rd ed.) | intermediate | Property charts and material indices - the E/rho vs sigma_y/rho reasoning in 0.7 |
+| Manufacturing | Kalpakjian & Schmid, *Manufacturing Engineering and Technology* (8th ed.) | intermediate, **skim by section** | The process taxonomy for 0.8; 1200+ pp., a reference not a read-through |
+| DFMA | Boothroyd, Dewhurst & Knight, *Product Design for Manufacture and Assembly* | intermediate | The DFA method itself; ch 3 is self-contained |
+| Mechanisms | Norton, *Design of Machinery* (6th ed.) | intermediate | Kinematic diagrams, mobility, Grashof, cams, gear trains - 0.9's vocabulary |
+
+Not on this list, deliberately: Feynman Lectures Vol. I (the right home for the conservation-law framing, but `feynmanlectures.caltech.edu` returns 403 to automated fetch, so it stays uncited per the no-unverified-claims rule), and Erickson & Maksimovic *Fundamentals of Power Electronics* (no fetchable TOC). Add either once a TOC or a reachable copy is verified.
+
+---
+
 ## Phase Pass Condition
 
 ### MVM
@@ -47,14 +67,19 @@ You don't need to master these before building. You need them at "Applied" level
 ## Milestone 0.1 — Problem-Solving Framework + Toolchain
 
 > [!info] 📚 Resources — Problem-Solving & Toolchain
-> **Visual:** your own [[_system/How to Learn]] (functional decomposition, first principles).
-> **Interactive:** set up the toolchain and flash a blinky. That *is* the milestone — stop when it blinks.
-> **Theory:** none. This is an environment milestone, not a theory one.
+> **Read:** Polya, *How to Solve It* — ch 6 "Four phases" (the problem-solving frame). Decomposition: Simon, *The Sciences of the Artificial* (3rd ed.) ch 8 "The Architecture of Complexity: Hierarchic Systems". Debugging: Agans, *Debugging* ch 8 "Divide and Conquer". First principles / the conservation law doing the work: MIT 8.01SC *Classical Mechanics* — Week 8 "Potential Energy and Energy Conservation" (Lesson 24 "Conservation of Energy") and Week 7 "Kinetic Energy and Work" (Lesson 20).
+> **Visual:** your own [[_system/How to Learn]] (functional decomposition, first principles); Veritasium *The Science of Thinking*; TED-Ed *A clever way to estimate enormous numbers* (Fermi).
+> **Interactive:** set up the toolchain and flash a blinky. That *is* the milestone — stop when it blinks. Wokwi if no board is at hand.
+> **Theory:** not zero-theory: Polya's four phases for the problem-solving frame, Simon ch 8 for hierarchic decomposition. Git: Pro Git ch 1. Reviews: Anki Manual "Getting Started" / "Deck Options".
 
 <a id="m0-1"></a>
 Lenses - m0-1
 Rigorous: Learning How to Learn | Barbara Oakley | https://www.youtube.com/watch?v=O96fE1E-rf8 | approved
 Intuitive: The Science of Thinking | Veritasium | https://www.youtube.com/watch?v=UBVV8pch1dM | approved
+Book: ch 6 "Four phases" | How to Solve It (Princeton Science Library 2014) | George Polya | https://press.princeton.edu/books/paperback/9780691164076/how-to-solve-it | verified 2026-09-15
+Book: ch 8 "The Architecture of Complexity: Hierarchic Systems" | The Sciences of the Artificial (3rd ed.) | Herbert A. Simon | - | verified 2026-09-15
+Book: ch 8 "Divide and Conquer" (see also ch 4 "Make It Fail") | Debugging: The 9 Indispensable Rules | David J. Agans | - | verified 2026-09-15
+Book: ch 1 "Getting Started" | Pro Git (2nd ed.) | Chacon & Straub | https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control | verified 2026-09-15
 Interactive: set up the toolchain and flash a blinky. That *is* the milestone - stop when it blinks.   Theory: none. This is an environment milestone, not a theory one.
 
 ### Deliverable
@@ -100,14 +125,17 @@ Working dev environment, local Git repo with first commit, vault review queue st
 # Milestone 0.2 — Vectors, Trig, Frames of Reference
 
 > [!info] 📚 Resources — Vectors, Trig & Frames
-> **Visual:** 3Blue1Brown *Essence of Linear Algebra* (vectors, linear combinations).
-> **Interactive:** plot the 2-link arm tip in Python for a few (θ1,θ2); see the vector add.
-> **Theory:** Craig *Introduction to Robotics* Ch 2 (frames & transformations) / Khan Academy — only what forward kinematics needs.
+> **Read:** Craig, *Introduction to Robotics: Mechanics and Control* (3rd ed.) — ch 2 "Spatial descriptions and transformations". Free companion: Lynch & Park, *Modern Robotics* ch 3 "Rigid-Body Motions" + ch 4 "Forward Kinematics".
+> **Visual:** *(substitute only)* 3Blue1Brown *Essence of Linear Algebra* (vectors, linear combinations); Peter Corke (QUT Robot Academy) *Analyzing a 2-joint planar robot arm* — the closest single source to this milestone's deliverable.
+> **Interactive:** plot the 2-link arm tip in Python for a few (θ1,θ2); see the vector add. Math Insight applets for tail-to-head addition and live dot-product projection.
+> **Theory:** frames & transformations — only what forward kinematics needs. `math.radians`/`math.atan2` docs for the two code landmines (radians; quadrant-correct angle).
 
 <a id="m0-2"></a>
 Lenses - m0-2
 Rigorous: Vectors - Chapter 1, Essence of linear algebra | 3Blue1Brown | https://www.youtube.com/watch?v=fNk_zzaMoSs | approved
 Intuitive: Vectors - Precalculus | Khan Academy | https://www.youtube.com/playlist?list=PLSQl0a2vh4HCmCL_bFUJSuCAV4P_D18oi | approved
+Book: ch 2 "Spatial descriptions and transformations" | Introduction to Robotics: Mechanics and Control (3rd ed.) | John J. Craig | - | verified 2026-09-15
+Book: ch 3 "Rigid-Body Motions" + ch 4 "Forward Kinematics" | Modern Robotics: Mechanics, Planning, and Control | Lynch & Park | https://hades.mech.northwestern.edu/index.php/Modern_Robotics | verified 2026-09-15
 Interactive: plot the 2-link arm tip in Python for a few (th1,th2); see the vector add.   Theory: Craig Introduction to Robotics Ch 2 (frames and transformations) / Khan Academy - only what forward kinematics needs.
 
 ## Deliverable
@@ -143,14 +171,18 @@ Hand-calculated forward kinematics for a 2-link planar arm. Given link lengths a
 # Milestone 0.3 — Calculus Intuition
 
 > [!info] 📚 Resources — Calculus Intuition
-> **Visual:** 3Blue1Brown *Essence of Calculus* ch.1–3 (derivative=rate, integral=accumulation, chain rule idea).
-> **Interactive:** Desmos (desmos.com/calculator) — plot y=2x, shade 0→3 with the integral command; area reads 9. Confirm with `scipy.integrate.quad(lambda t: 2*t, 0, 3)` → (9.0, ~1e-13). Agreement to 6 decimals passes.
-> **Theory:** intuition over symbolic fluency. (No textbook required — video + doing is the whole theory here.)
+> **Read:** OpenStax *Calculus Volume 1* — ch 3 §3.4 "Derivatives as Rates of Change", ch 5 §5.1 "Approximating Areas" + §5.4 "Integration Formulas and the Net Change Theorem", ch 4 §4.10 "Antiderivatives", ch 6 §6.5 "Physical Applications". (The old "no textbook required" line is dropped: the net-change theorem *is* the theory here.)
+> **Visual:** *(substitute only)* 3Blue1Brown *Essence of Calculus* ch 2 "The paradox of the derivative" → ch 8 "Integration and the fundamental theorem of calculus" → ch 10 "Higher order derivatives". *(Ch 1-3 does not cover integration; ch 8/10 are the ones this milestone needs.)*
+> **Interactive:** Desmos (desmos.com/calculator) — plot y=2x, shade 0→3 with the integral command; area reads 9. Confirm with `scipy.integrate.quad(lambda t: 2*t, 0, 3)` → (9.0, ~1e-13). Agreement to 6 decimals passes. MIT 18.01SC mathlets (drag the secant into a tangent) for the limit idea.
+> **Theory:** intuition over symbolic fluency — net change theorem (integral of a rate = net change) is the load-bearing piece. Physics side: OpenStax *University Physics Volume 1* §7.4 "Power".
 
 <a id="m0-3"></a>
 Lenses - m0-3
 Rigorous: The essence of calculus | 3Blue1Brown | https://www.youtube.com/watch?v=WUvTyaaNkzM | approved
 Intuitive: Calculus 1 Lecture 1.1: An Introduction to Limits | Professor Leonard | https://www.youtube.com/watch?v=54_XRjHhZzI | approved
+Book: ch 3 §3.4 "Derivatives as Rates of Change"; ch 5 §5.1 "Approximating Areas"; ch 5 §5.4 "Integration Formulas and the Net Change Theorem"; ch 4 §4.10 "Antiderivatives"; ch 6 §6.5 "Physical Applications" | Calculus Volume 1 (OpenStax) | Strang, Herman et al. | https://openstax.org/books/calculus-volume-1/pages/5-4-integration-formulas-and-the-net-change-theorem | verified 2026-09-15
+Book: lesson 10 "The Theory of Derivatives"; lesson 11 "The Fundamental Theorem Of Calculus" | Calculus, Better Explained (web lessons) | Kalid Azad | https://betterexplained.com/calculus/lesson-11/ | verified 2026-09-15
+Book: ch 7 §7.4 "Power" | University Physics Volume 1 (OpenStax) | Moebs, Ling, Sanny | https://openstax.org/books/university-physics-volume-1/pages/7-4-power | verified 2026-09-15
 Interactive: Desmos - plot y=2x, shade 0 to 3 with the integral command; area reads 9.   Theory: intuition over symbolic fluency. (No textbook required - video + doing is the whole theory here.)
 
 ## Deliverable
@@ -183,14 +215,19 @@ Given v(t) = 2t m/s with x(0) = 0: derive acceleration, calculate position at t 
 # Milestone 0.4 — Statics + Free Body Diagrams
 
 > [!info] 📚 Resources — Statics & FBDs
-> **Visual:** The Efficient Engineer *Understanding Statics*; Jeffrey Hanson statics playlist (FBD gold standard).
-> **Interactive:** PhET *Balancing Act* — 15 min for torque intuition before the math.
-> **Theory:** Shigley Ch 3 (equilibrium & FBDs). Skip the rest until Phase 3.
+> **Read:** Baker & Haynes, *Engineering Statics: Open and Interactive* — **beginner, no statics prerequisite, free full text, has figures and exercise sets**; the right primary for a self-taught learner. ch 4 "Moments and Static Equivalence" §4.1 "Direction of a Moment" + §4.2 "Magnitude of a Moment"; ch 5 "Rigid Body Equilibrium" §5.2 "Free Body Diagrams" + §5.3 "Equations of Equilibrium" + §5.4 "2D Rigid Body Equilibrium". Second voice: Moore et al., *Mechanics Map* ch 3 "Static Equilibrium in Rigid Body Systems" §3.1 "Moment of a Force about a Point", §3.6 "Equilibrium Analysis for a Rigid Body".
+> **Visual:** *(substitute only — the two open textbooks are the spine)* The Efficient Engineer *Understanding the Finite Element Method* for the FEM concept; Jeff Hanson's *Online Statics Course* (94 lessons) for FBD problems. **The old prose anchor "The Efficient Engineer *Understanding Statics*" was wrong — that channel has no such video; same-titled videos elsewhere are unverified, so it is dropped.**
+> **Interactive:** PhET *Balancing Act* — 15 min for torque intuition before the math. Then the textbook exercises: Baker & Haynes §4.8 and §5.8, Mechanics Map §3.7.
+> **Theory:** τ = F·d⊥ — the moment arm shrinks as it rotates to perpendicular (Baker & Haynes §4.2). For FEM: Fish & Belytschko, *A First Course in Finite Elements* ch 2 "Direct Approach for Discrete Systems" (discretize → element stiffness → assemble → BCs → displacement → stress) and §8.2 "Verification and Validation". Shigley 9th ed. **§3-1** "Equilibrium and Free-Body Diagrams" only — the chapter itself, ch 3, is "Load and Stress Analysis", so read the one section and skip the rest until Phase 3.
 
 <a id="m0-4"></a>
 Lenses - m0-4
-Rigorous: Online Statics Course | Jeff Hanson | https://www.youtube.com/playlist?list=PLRqDfxcafc23LXGoItpkYMKtUdHaQwSDC | approved
+Rigorous: Online Statics Course | Jeff Hanson | https://www.youtube.com/playlist?list=PLRqDfxcafc23LXGoItpkYMKtUdHaQwSDC | verified 2026-09-15
 Intuitive: Forces and free-body diagrams | AP Physics | Khan Academy | https://www.youtube.com/watch?v=i447NWNpScM | approved
+Book: ch 4 "Moments and Static Equivalence" §4.1 "Direction of a Moment", §4.2 "Magnitude of a Moment"; ch 5 "Rigid Body Equilibrium" §5.2 "Free Body Diagrams", §5.3 "Equations of Equilibrium", §5.4 "2D Rigid Body Equilibrium" | Engineering Statics: Open and Interactive (free, CC BY-NC-SA) | Baker & Haynes | https://eng.libretexts.org/Bookshelves/Mechanical_Engineering/Engineering_Statics%3A_Open_and_Interactive_(Baker_and_Haynes) | verified 2026-09-15
+Book: ch 3 "Static Equilibrium in Rigid Body Systems" §3.1 "Moment of a Force about a Point", §3.6 "Equilibrium Analysis for a Rigid Body", §3.7 "Chapter 3 Homework Problems" | Mechanics Map (free, CC BY-NC-SA) | Moore et al. | https://eng.libretexts.org/Bookshelves/Mechanical_Engineering/Mechanics_Map_(Moore_et_al.) | verified 2026-09-15
+Book: ch 2 "Direct Approach for Discrete Systems"; ch 8 §8.2 "Verification and Validation" | A First Course in Finite Elements | Fish & Belytschko | https://www.wiley.com/en-us/A+First+Course+in+Finite+Elements-p-9780470035801 | verified 2026-09-15
+Book: ch 3 "Load and Stress Analysis" §3-1 "Equilibrium and Free-Body Diagrams" (pp. 72-75, 9th ed.) - read the section only, not the chapter | Shigley's Mechanical Engineering Design | Budynas & Nisbett | - | verified 2026-09-15
 Interactive: PhET Balancing Act - 15 min for torque intuition before the math.   Theory: Shigley Ch 3 (equilibrium and FBDs). Skip the rest until Phase 3.
 
 ## Deliverable
@@ -230,14 +267,17 @@ FBD of the 2-link arm holding 0.5 kg at full horizontal extension. Calculate hol
 # Milestone 0.5 — Circuits Basics
 
 > [!info] 📚 Resources — Circuits Basics
-> **Visual:** Efficient Engineer / ElectroBOOM (voltage=pressure, current=flow).
-> **Interactive:** Falstad — build LED+resistor, watch current, then measure it.
-> **Theory:** Rizzoni Ch 1–2 / Horowitz & Hill intro. KVL + Ohm only.
+> **Read:** Horowitz & Hill, *The Art of Electronics* (3rd ed.) — ch 1 "ONE: Foundations" (1.2 "Voltage, current and resistance"; 1.6 "Diodes and diode circuits"); hands-on DC laws + meters: Hayes & Abrams, *Learning the Art of Electronics* (2nd ed.) ch 1N "DC Circuits" / 1L "Lab: DC Circuits".
+> **Visual:** *(substitute only)* GreatScott! *Electronic Basics #8: LEDs and current limiting resistors* and *#16: Resistors*; w2aew *#9: Basic 1X and 10X Oscilloscope Probe tutorial* — the probe/ground discipline is the one thing here a book handles poorly.
+> **Interactive:** Falstad — build LED+resistor, watch current, then measure it. PhET *Circuit Construction Kit: DC* for KCL/multi-loop.
+> **Theory:** KVL + Ohm only. Rizzoni ch 1-2 as backup; AoE ch 1 is the primary and is verified.
 
 <a id="m0-5"></a>
 Lenses - m0-5
 Rigorous: Electronic Basics #16: Resistors | GreatScott! | https://www.youtube.com/watch?v=7w5I-KbJ1Sg | approved
 Intuitive: Electronic Basics #8: Everything about LEDs and current limiting resistors | GreatScott! | https://www.youtube.com/watch?v=Qlayua3yjuE | approved
+Book: ch 1 "ONE: Foundations" (1.2 Voltage, current and resistance; 1.6 Diodes and diode circuits; Appendix O The Oscilloscope) | The Art of Electronics (3rd ed.) | Horowitz & Hill | https://artofelectronics.net/the-book/table-of-contents/ | verified 2026-09-15
+Book: ch 1N "DC Circuits" (1N.2 Three laws) + ch 1L "Lab: DC Circuits" (1L.2 Meters, VOM and DVM) + ch 13N.3 "Sketchy datasheets for LED and phototransistor" | Learning the Art of Electronics (2nd ed.) | Hayes & Abrams | https://learningtheartofelectronics.com/about-the-book/table-of-contents/ | verified 2026-09-15
 Interactive: Falstad - build LED+resistor, watch current, then measure it.   Theory: Rizzoni Ch 1-2 / Horowitz and Hill intro. KVL + Ohm only.
 
 ## Deliverable
@@ -274,14 +314,22 @@ Calculate the current-limiting resistor for an LED, Vf = 2.2V, If = 20mA, from a
 # Milestone 0.6 — Power, Efficiency, Thermal
 
 > [!info] 📚 Resources — Power, Efficiency & Thermal
-> **Visual:** Efficient Engineer heat-transfer videos.
-> **Interactive:** hand-calc the H-bridge loss, confirm with a SPICE power readout.
-> **Theory:** Horowitz & Hill power/thermal; reading RθJA in a datasheet.
+> **Read:** Horowitz & Hill, *The Art of Electronics* (3rd ed.) — **intermediate, assumes KVL/Ohm which 0.5 already covers**; ch 9 "NINE: Voltage Regulation and Power Conversion" §9.4 "Heat and power design"; ch 3 "THREE: Field-Effect Transistors" §3.5 "Power MOSFETs" for the device side. Beginner, no assumed background, free: Kuphaldt, *Lessons In Electric Circuits* Vol. I ch 2 "OHM'S LAW" §"Power in electric circuits".
+> **Worked artifact:** TI **DRV8874** datasheet (SLVSF66A) — a real H-bridge in this milestone's exact regime. §8.2.1.2.2 "Power Dissipation and Output Current Capability" (p. 21) states P = I_RMS² × (R_DS(on)_HS + R_DS(on)_LS), the RDS(on)-vs-temperature caveat, and peak-vs-continuous current; §6.4 "Thermal Information" (p. 5). Companion: DRV8871 (SLVSCY9B) §10.3/§10.4; SPRA953D on the Rθ chain; CSD18532Q5B Fig. 4-8 for normalized RDS(on) vs temperature.
+> **Visual:** *(substitute only)* The Engineering Mindset — *Why Electronics Need Cooling - transistor heat sink*.
+> **Interactive:** hand-calc the H-bridge loss, confirm with a SPICE power readout. Falstad — build the H-bridge, plot load power vs I²R loss.
+> **Theory:** P = VI = I²R (LEC Vol. I ch 2), then the junction-temperature chain RθJC + RθCS + RθSA. Reading RθJA in a datasheet is the load-bearing skill.
 
 <a id="m0-6"></a>
 Lenses - m0-6
 Rigorous: DIY Buck Converter - How to step down DC voltage efficiently | GreatScott! | https://www.youtube.com/watch?v=m8rK9gU30v4 | approved
 Intuitive: Inductors Explained - The basics how inductors work working principle | The Engineering Mindset | https://www.youtube.com/watch?v=KSylo01n5FY | approved
+Book: ch 9 "NINE: Voltage Regulation and Power Conversion" §9.4 "Heat and power design"; ch 3 "THREE: Field-Effect Transistors" §3.5 "Power MOSFETs" (3rd ed.) | The Art of Electronics | Horowitz & Hill | https://artofelectronics.net/the-book/table-of-contents/ | verified 2026-09-15
+Book: ch 2 "OHM'S LAW" §"Power in electric circuits"; ch 11 "BATTERIES AND POWER SYSTEMS" (Vol. I, DC; free, CC BY) | Lessons In Electric Circuits | Tony R. Kuphaldt | https://www.ibiblio.org/kuphaldt/electricCircuits/DC/DC_2.html | verified 2026-09-15
+Book: doc SLVSF66A sec 8.2.1.2.2 "Power Dissipation and Output Current Capability" (p.21) + sec 6.4 "Thermal Information" (p.5) | DRV8874 H-Bridge Motor Driver datasheet | Texas Instruments | https://www.ti.com/lit/ds/symlink/drv8874.pdf | verified 2026-09-15
+Book: doc SLPS322E sec 4.3 Fig. 4-8 "Normalized On-State Resistance vs Temperature" + sec 4.2 "Thermal Information" (RthetaJA 40 C/W on 1-in^2 2 oz Cu) | CSD18532Q5B 60 V NexFET Power MOSFET datasheet | Texas Instruments | https://www.ti.com/lit/ds/symlink/csd18532q5b.pdf | verified 2026-09-15
+Book: doc SPRA953D sec 2 "RthetaJC Junction-to-Case" (Eq. 5: RthetaJC + RthetaCS + RthetaSA) | Semiconductor and IC Package Thermal Metrics | Edwards & Nguyen, TI | https://www.ti.com/lit/an/spra953c/spra953c.pdf | verified 2026-09-15
+Unverified: ch ? (TOC not fetchable - no section claimed) | Fundamentals of Power Electronics (3rd ed., Springer 2020) | Erickson & Maksimovic | https://openlibrary.org/books/OL28227058M.json | unverified 2026-09-15
 Interactive: hand-calc the H-bridge loss, confirm with a SPICE power readout.   Theory: Horowitz and Hill power/thermal; reading RthJA in a datasheet.
 
 ## Deliverable
@@ -319,15 +367,18 @@ H-bridge: 2A at 12V, Rds(on) = 0.05Ω, two switches in series. Calculate input p
 # Milestone 0.7 — Materials, Failure, and Selection
 
 > [!info] 📚 Resources — Materials, Failure & Selection
-> **Visual:** Efficient Engineer fatigue / stress-strain / ductile-vs-brittle.
-> **Interactive:** MatWeb or Ansys Granta edu — look up 6061-T6, plot E/ρ vs σy/ρ.
-> **Theory:** Ashby *Materials Selection* (indices chapter); Callister for crystal/fatigue.
+> **Read:** Ashby, *Materials Selection in Mechanical Design* (3rd ed.) — ch 4 "Material property charts" + ch 5 "Materials selection — the basics" (App. B "Material indices"). Mechanism half: Callister & Rethwisch, *Materials Science and Engineering* (10th ed.) ch 6 "Mechanical Properties of Metals", ch 7 "Dislocations and Strengthening Mechanisms", ch 8 "Failure", ch 17 "Corrosion and Degradation".
+> **Visual:** *(substitute only)* The Efficient Engineer — *An Introduction to Stress and Strain*, *Understanding Material Strength, Ductility and Toughness*, *Understanding Fatigue Failure and S-N Curves*; Taylor Sparks *Ductile and Brittle Fracture*.
+> **Interactive:** Cambridge DoITPoMS interactive charts — Young's modulus–Density (with exercises) and the 11-chart index. *(MatWeb 403s to automated fetch and is dropped.)*
+> **Theory:** Ashby ch 5 §5.3 "Attribute limits and material indices" for the performance-index derivation; Callister ch 8 "Failure" for the fatigue S-N basis.
 
 <a id="m0-7"></a>
 Lenses - m0-7
 Rigorous: Mechanics of Materials: Lesson 1 - Intro to Solids, Statics Review Example Problem | Jeff Hanson | https://www.youtube.com/watch?v=Y8tXHk3irqE | approved
 Intuitive: An Introduction to Stress and Strain | The Efficient Engineer | https://www.youtube.com/watch?v=aQf6Q8t1FQE | approved
-Interactive: MatWeb or Ansys Granta edu - look up 6061-T6, plot E/rho vs sigma-y/rho.   Theory: Ashby Materials Selection (indices chapter); Callister for crystal/fatigue.
+Book: ch 4 "Material property charts" + ch 5 "Materials selection - the basics" + App. B "Material indices" (3rd ed.) | Materials Selection in Mechanical Design | Michael F. Ashby | https://archive.org/download/ashby-materials-selection-in-mechanical-design-third-edition/Ashby-Materials%20Selection%20in%20Mechanical%20Design%20Third%20Edition.pdf | verified 2026-09-15
+Book: ch 6 "Mechanical Properties of Metals"; ch 3 "The Structure of Crystalline Solids"; ch 7 "Dislocations and Strengthening Mechanisms"; ch 8 "Failure"; ch 17 "Corrosion and Degradation of Materials" (10th ed.) | Materials Science and Engineering: An Introduction | Callister & Rethwisch | https://bcs.wiley.com/he-bcs/Books?action=contents&itemId=1119405491&bcsId=10955 | verified 2026-09-15
+Interactive: Cambridge DoITPoMS material selection charts - Young's modulus vs density, with exercises (MatWeb dropped: 403).   Theory: Ashby Materials Selection (indices chapter); Callister for crystal/fatigue.
 
 ## Deliverable
 
@@ -399,14 +450,19 @@ Depth rule: state correctly + apply to one example each. (derive) marks the thre
 # Milestone 0.8 — Manufacturing Processes + DFMA
 
 > [!info] 📚 Resources — Manufacturing & DFMA
-> **Visual:** NYC CNC / This Old Tony / Real Engineering (real machining & sheet metal).
-> **Interactive:** 3D-print a bracket, then redesign it for a mill; note what changed.
-> **Theory:** Boothroyd-Dewhurst DFA; GD&T only for fits you'll use.
+> **Read:** Kalpakjian & Schmid, *Manufacturing Engineering and Technology* (8th ed.) — **intermediate, a reference to skim by section, not read cover to cover**; it assumes basic materials/strength (0.1-0.7). ch 10 "Fundamentals of Metal Casting", ch 12 "Metal Casting: Design, Materials, and Economics", ch 16 "Sheet-Metal Forming Processes and Equipment", ch 21 "Fundamentals of Machining", ch 23 "Machining Processes: Turning and Hole Making", ch 32 "Brazing, Soldering, Adhesive-bonding, and Mechanical Fastening", ch 34 "Surface Treatments, Coatings, and Cleaning". Then Boothroyd, Dewhurst & Knight, *Product Design for Manufacture and Assembly* — ch 3 "Product Design for Manual Assembly" is the single best DFA read and is self-contained.
+> **Visual:** *(substitute only — the spine of this milestone is the two books above)* TriMech Group, *What is a K-Factor? - Sheet Metal Bend Allowance Explained*.
+> **Interactive:** 3D-print a bracket, then redesign it for a mill; note what changed. Engineering LibreTexts *Design for Various Manufacturing Methods* ch 2 for the CNC / sheet-metal / casting / injection-molding rule lists — audit your own bracket against each list.
+> **Theory:** Boothroyd-Dewhurst DFA (part-count minimum, z-axis assembly, self-locating features, fastener elimination). Tolerance economics: Jensen, *Introduction to Mechanical Design and Manufacturing* ch "Types of Cutting and Machining Process and Tolerances". Audit tier (advanced, look things up one process at a time): Bralla, *Design for Manufacturability Handbook* (2nd ed.).
 
 <a id="m0-8"></a>
 Lenses - m0-8
 Rigorous: G and M Code - Titan Teaches Manual Programming on a CNC Machine | TITANS of CNC | https://www.youtube.com/watch?v=5XihF05K4yM | approved
 Intuitive: Vertical Mill Tutorial 1: The Basics | Blondihacks | https://www.youtube.com/watch?v=FyuG-B95PQs | approved
+Book: Introduction I.1 "What Is Manufacturing?" + I.3 "Design for Manufacture, Assembly, Disassembly, and Service"; ch 10 "Fundamentals of Metal Casting"; ch 12 "Metal Casting: Design, Materials, and Economics"; ch 16 "Sheet-Metal Forming Processes and Equipment"; ch 21 "Fundamentals of Machining"; ch 23 "Machining Processes: Turning and Hole Making"; ch 32 "Brazing, Soldering, Adhesive-bonding, and Mechanical Fastening"; ch 34 "Surface Treatments, Coatings, and Cleaning" (8th ed.) | Manufacturing Engineering and Technology | Kalpakjian & Schmid | - | verified 2026-09-15
+Book: ch 2 "Selection of Materials and Processes"; ch 3 "Product Design for Manual Assembly"; ch 7 "Design for Machining"; ch 8 "Design for Injection Molding"; ch 9 "Design for Sheet Metalworking"; ch 10 "Design for Die Casting" (2nd ed.) | Product Design for Manufacture and Assembly | Boothroyd, Dewhurst & Knight | - | verified 2026-09-15
+Book: Section 1 "General Design Principles for Manufacturability"; Section 3 "Metal Stampings"; Section 4 "Designing for Machining"; Section 5 "Castings"; Section 7 "Design for Assembly (DFA)"; Section 8 "Polished and Plated Surfaces" (2nd ed.) | Design for Manufacturability Handbook | James G. Bralla (ed.) | - | verified 2026-09-15
+Book: ch "Types of Cutting and Machining Process and Tolerances" -> "Machining Cost and Tolerance", "Expected Tolerances" | Introduction to Mechanical Design and Manufacturing (open, CC BY-NC) | David Jensen | https://uark.pressbooks.pub/mechanicaldesign/chapter/types-of-cutting-and-machining-pocess-and-tolerances/ | verified 2026-09-15
 Interactive: 3D-print a bracket, then redesign it for a mill; note what changed.   Theory: Boothroyd-Dewhurst DFA; GD and T only for fits you will use.
 
 ## Deliverable
@@ -470,15 +526,18 @@ Take a simple L-bracket: design it for CNC milling, then redesign the same funct
 # Milestone 0.9 — Mechanisms & Kinematic Elements + Physical Testbed
 
 > [!info] 📚 Resources — Mechanisms & Kinematic Elements
-> **Visual:** Thang010146 (mechanism animations); *507 Mechanical Movements*.
-> **Interactive:** GeoGebra/linkage sim — build a four-bar, flip the grounded link, watch the TYPE change (the Grashof inequality never changes — only which link is grounded does).
-> **Theory:** Norton *Design of Machinery* Ch 1–5; Gruebler's equation.
-> **Fabrication:** 3D printer (FDM, PLA). No printer yet → cardboard + brass split pins. Same kinematics.
+> **Read:** Norton, *Design of Machinery* (6th ed.) — ch 2 "Kinematics Fundamentals" (§2.4 Drawing Kinematic Diagrams, §2.5 Determining Degree of Freedom or Mobility, §2.11 Intermittent Motion, §2.13 The Grashof Condition); ch 8 "Cam Design" (§8.6 Sizing the Cam — Pressure Angle and Radius of Curvature); ch 9 "Gear Trains" (§9.9 Epicyclic or Planetary Gear Trains, §9.10 Efficiency of Gear Trains).
+> **Visual:** *(substitute only — there is no book for mechanism-watching)* thang010146 (Dr. Nguyen Duc Thang) mechanism animations; Clickspring clockmaking; *507 Mechanical Movements*.
+> **Interactive:** MechSimulator four-bar linkage sim (link sliders, live Grashof check s+l ≤ p+q, transmission angle, coupler curves); Cornell KMODDL Reuleaux collection. GeoGebra/linkage sim — build a four-bar, flip the grounded link, watch the TYPE change (the Grashof inequality never changes — only which link is grounded does).
+> **Theory:** Gruebler/Kutzbach mobility and Grashof rotatability — DOF = 3(n−1) − 2j₁ − j₂. Norton §2.5 and §2.13.
+> **Fabrication:** 3D printer (FDM, PLA). No printer yet → cardboard + brass split pins. Same kinematics; Prusa *Calibration* category for print tolerance.
 
 <a id="m0-9"></a>
 Lenses - m0-9
 Rigorous: Clockmaking - How To Make A Clock In The Home Machine Shop - Part 4 | Clickspring | https://www.youtube.com/watch?v=ZSXDIraHz3k | approved
-Intuitive: Mechanical Models (playlist) | thang010146 | https://www.youtube.com/playlist?list=PLHGVjZ_tV_gwDwoV_0CX7QguS_Vkx2yzV | approved
+Intuitive: Mechanical Models | Proto G Engineering (NOT thang010146 - oEmbed check 2026-09-15) | https://www.youtube.com/playlist?list=PLHGVjZ_tV_gwDwoV_0CX7QguS_Vkx2yzV | unverified 2026-09-15
+Intuitive: Mechanism animations (channel) | thang010146 (Nguyen Duc Thang) | https://www.youtube.com/thang010146/videos | verified 2026-09-15
+Book: ch 2 "Kinematics Fundamentals" (2.4, 2.5, 2.11, 2.13); ch 3 "Graphical Linkage Synthesis"; ch 8 "Cam Design" (8.6); ch 9 "Gear Trains" (9.9, 9.10) | Design of Machinery (6th ed.) | Robert L. Norton | https://designofmachinery.com/wp-content/uploads/2018/12/DOM-6ed-Contents-Sample.pdf | verified 2026-09-15
 Interactive: GeoGebra/linkage sim - build a four-bar, flip the grounded link, watch the TYPE change.   Theory: Norton Design of Machinery Ch 1-5; Gruebler's equation.
 
 ## Deliverable
@@ -567,14 +626,18 @@ Depth rule: each mechanism below is its own sign-off (diagram + DOF + motion + a
 # Milestone 0.10 — Metrology + Measurement Uncertainty
 
 > [!info] 📚 Resources — Metrology & Measurement
-> **Visual:** Mitutoyo/Starrett "how to read calipers and dial indicators" videos.
-> **Interactive:** measure the same printed cube 10×; compute mean, std dev, uncertainty in a spreadsheet or Python.
-> **Theory:** GUM basics — resolution vs accuracy, repeatability, systematic vs random error.
+> **Read:** NPL *Callipers and micrometers* (GPG40) — "Set-up, preparation and measurements" + "Factors affecting calliper performance"; then NPL GPG11 sec 7.1/7.4 and JCGM 100:2008 (GUM) sec 5-7 for the uncertainty budget.
+> **Visual:** *(substitute only)* Mitutoyo America *How To Read A Mitutoyo Dial Caliper*; Travers Tool *How To Read A Dial Indicator*; Khan Academy *Precision in measurement* — useful for instrument hand-skills, which the NPL guides describe but do not demonstrate.
+> **Interactive:** measure the same printed cube 10×; compute mean, std dev, uncertainty. NIST Uncertainty Machine (uncertainty.nist.gov) checks the RSS budget.
+> **Theory:** GUM basics — resolution vs accuracy, repeatability, systematic vs random error. JCGM 100:2008 sec 4.2/4.3 (Type A / Type B).
 
 <a id="m0-10"></a>
 Lenses - m0-10
 Rigorous: Precision in measurement | Science toolkit | Khan Academy | https://www.youtube.com/watch?v=ClW4x6OPDPQ | approved
-Intuitive: Measuring with English and Metric Dial Calipers | Starrett | https://www.youtube.com/watch?v=dgmNBEEN3gM | approved
+Intuitive: Measuring with English and Metric Dial Calipers | Starrett product demo (uploaded by A&M Industrial) | https://www.youtube.com/watch?v=dgmNBEEN3gM | approved
+Book: NPL GPG40 "Callipers and micrometers" sec "Set-up, preparation and measurements" + "Factors affecting calliper performance" | National Physical Laboratory | NPL | https://www.npl.co.uk/resources/gpgs/callipers-micrometers | verified 2026-09-15
+Book: NPL GPG11 "A Beginner's Guide to Uncertainty of Measurement" sec 3.5/3.6, 5.1, 7.1, 7.4, 9 | Stephanie Bell, NPL | NPL | https://www.npl.co.uk/resources/gpgs/beginners-guide-measurement-uncertainty-gpg11 | verified 2026-09-15
+Book: JCGM 100:2008 (GUM) sec 4.2 "Type A evaluation", 4.3 "Type B evaluation", 5 "Combined standard uncertainty", 6 "Expanded uncertainty", 7 "Reporting" | JCGM/WG1 | BIPM | https://www.bipm.org/documents/20126/2071204/JCGM_100_2008_E.pdf/cb0ef43f-baa5-11cf-3f85-4dcd86f77bd6 | verified 2026-09-15
 Interactive: measure the same printed cube 10x; compute mean, std dev, uncertainty in a spreadsheet or Python.   Theory: GUM basics - resolution vs accuracy, repeatability, systematic vs random error.
 
 ## Deliverable
