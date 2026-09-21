@@ -12,5 +12,3 @@ SORT file.name DESC
 LIMIT 5
 ```
 (Gaps hide below LIMIT — scan the folder date sequence weekly; a missing date is a missing note.)
-
-- On break until Sept 7th (noted [[Daily/2026-08-30|08-30]] — remove this line on return; breaks live in Focus status, not here)

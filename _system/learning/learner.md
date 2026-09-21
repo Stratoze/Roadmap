@@ -1,7 +1,7 @@
 # Learner - Kohaku
 
 Canonical learner state for the vault learning system. This file replaced the
-previous learner model (see `.opencode/plan/vault-learning-system.md`). **This
+previous learner model (see `_system/learning/archive/vault-learning-system.md`). **This
 file is the ONE home of the teaching doctrine (2026-09-15):** no harness loads
 doctrine outside this vault; the global `~/.config/opencode/AGENTS.md` is a thin
 pointer at best (the OpenViking mirror is retired 2026-09-15).

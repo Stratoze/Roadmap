@@ -7,12 +7,14 @@ review - everything visible, versioned, and hand-editable in the vault.
 
 ## Layout
 
-- [[learner]] - canonical preferences and standing orders (OpenViking mirror;
-  see the Mirrors note there).
+- [[learner]] - canonical preferences and standing orders (OpenViking mirror
+  retired 2026-09-15; `learner.md` is canonical).
 - [[topic-tree]] - the curriculum map: subjects -> chunk-sized topics, the
   theory spine, and the theory-to-practice link map.
-- `curriculum/<topic>.md` - per-topic file: goal, map, concepts, resources,
-  problems, misconceptions, links, log. Skeleton: plan Appendix A.
+- `curriculum/<domain>-<slug>.md` - per-topic file: goal, map, concepts, resources,
+  problems, misconceptions, links, log. Naming: `<domain>-<slug>` in kebab-case
+  (e.g. `math-odes`); rows are created only by `study` step 0 / intake, never by
+  `review.py`. Skeleton: `archive/vault-learning-system.md` Appendix A.
 - `lessons/<topic>/YYYY-MM-DD-<slug>.md` - lesson notes: target, predict,
   orientation, attempts, feedback, reflection, links, next. Summaries only; raw
   text lives in the private store.
@@ -23,10 +25,10 @@ review - everything visible, versioned, and hand-editable in the vault.
   **intake**: one compressed cold verify per concept - clean -> scheduled at
   rung 2, effortful -> rung 1, miss -> taught first. No re-teaching of passing
   verifies.
-- `quiz-protocol.md` - how graded probes/quizzes are constructed (bare claims,
+- [[quiz-protocol]] - how graded probes/quizzes are constructed (bare claims,
   mutated distractors) and graded (keys by execution; confidence first).
-- `overview-map.md` - roadmap-level edge map (in-flight scoping; strand queue +
-  provisional brackets by unit).
+- `maps/overview.md` - roadmap-level edge map (in-flight scoping; strand queue +
+  provisional brackets by unit). Provisional by design; never canonical status.
 
 ## The link web
 
@@ -57,18 +59,15 @@ public summaries continue.
 
 ## Skills and agents
 
-Project-scoped; no global plugin needed.
+Project-scoped; no global plugin needed. Single live home: `.dsh/`.
 
-- Skills: `.agents/skills/study/`, `map/`, `resources/`, `review/` - one shared
-  home (both OpenCode and Codex read `.agents/skills/`); each carries a Codex
-  `agents/openai.yaml`. They auto-invoke from plain language ("study X",
-  "review", "test me in X") under the ask-first rules in `AGENTS.md`.
-- Slash entry points (OpenCode): `/study`, `/map`, `/resources`, `/review` - thin
-  commands in `.opencode/command/` that load the matching skill. Codex has no
-  repo-shareable prompt files (`~/.codex/prompts/` is deprecated + user-local),
-  so in Codex the trigger phrases are the entry point.
-- Agents: Codex `.codex/agents/{scout,verifier,assessor}.toml` (project-scoped,
-  read-only sandbox); OpenCode `.opencode/agents/{scout,verifier,assessor}.md`.
+- Skills: `.dsh/skills/study/`, `map/`, `resources/`, `review/` - invoked by
+  either party in plain language ("study X", "review", "test me in X") under
+  the ask-first rules in `AGENTS.md`. No slash-command infra.
+- Agents: `.dsh/agents/{scout,verifier,assessor}.md` - briefs are inert until
+  quoted (hand the child the file plus its task).
+- Legacy shims (OpenCode commands/agents, Codex agents, `.agents/skills/`)
+  are frozen in `archive/harness-opencode/` and `archive/harness-codex/`.
 
 ## Provenance
 
@@ -80,4 +79,5 @@ scout + verifier sourcing pipeline, the multi-lens rule, the struggle budget,
 the review/maintain leg with a transparent ladder, evidence gates for
 milestones, and the private verbatim store.
 
-Plan of record: `.opencode/plan/vault-learning-system.md`.
+Plan of record: `archive/vault-learning-system.md` (historical build plan;
+operative docs are `AGENTS.md`, `_system/How to Learn.md`, and this file).

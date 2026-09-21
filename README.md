@@ -11,7 +11,7 @@ learning loop. Every milestone is verified via Git tags (`git tag -l`).
 - **Agent:** [AGENTS.md](AGENTS.md) — operating contract for AI sessions (read first)
 - **Memory:** the vault learning system runs all concept/procedure reviews (transparent ladder, `scripts/review.py`); Anki stays Japanese-vocab-only — see the SRS strategy section in How to Learn
 - **Method credit:** teaching structure inspired by [amosblomqvist/learn](https://github.com/amosblomqvist/learn) — see `_system/learning/README.md`
-- **Obsidian entry:** [index.md](index.md) — the vault map (this README is the GitHub face)
+- **Obsidian entry:** [index.md](index.md) — the vault map (this README is the GitHub face; agents start at [AGENTS.md](AGENTS.md))
 - **Status:** Active, in progress, always incomplete
 
 The final portfolio deliverable (Phase 5) will be a separate, curated repository.

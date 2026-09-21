@@ -7,6 +7,14 @@
 - Decide & record: [[_templates/mech/decision_record|decision_record]] · [[_templates/mech/requirements_brief|requirements_brief]] · [[_templates/mech/interface_contract|interface_contract]] · [[_templates/mech/fmea|fmea]] · [[_templates/mech/stress_inoculation|stress_inoculation]] · [[_templates/mech/portfolio_rubric|portfolio_rubric]] · [[_templates/mech/pcb_emc_review|pcb_emc_review]] · [[_templates/mech/datasheet_bom_check|datasheet_bom_check]]
 - Safety procedures: [[_templates/mech/safety_review|safety_review]] · [[_templates/mech/high_current_test|high_current_test]] — high-current runs only (3.2 thermal, 3.3/4.x high-energy tests); ordinary bring-up follows SAFETY_CARD's procedure routing
 
+### Pull by phase (mech)
+- Phase 0: `requirements_brief` → `experiment_note` / `measurement_capture`
+- Phase 1: `characterization` → `decision_record`; first soldered build → `first_power_on`
+- Phase 2: `firmware_timing_check` → `interface_contract` → `pre_motion_check`
+- Phase 3: `cad_part` / `cad_assembly` / `cad_release` → `fea_check` → `schematic_review` → `pcb_emc_review` → `pcb_bringup` → `verification_matrix`; risks → `fmea` / `safety_review`
+- Phase 4: `pinout_wiring` → `fault_injection_test` → `high_current_test` (high-energy only)
+- Phase 5: `verification_matrix` → `portfolio_rubric` → `stress_inoculation`
+
 ## Piano (`_templates/piano/`)
 - [[_templates/piano/Piece Note|Piece Note]] · [[_templates/piano/Piece Error Log|Piece Error Log]] · [[_templates/piano/Piece Tempo Log|Piece Tempo Log]]
 - [[_templates/piano/Weekly Review|Weekly Review]] · [[_templates/piano/12-Week Goal|12-Week Goal]] · [[_templates/piano/Recording Review|Recording Review]]

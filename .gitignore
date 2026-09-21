@@ -25,7 +25,8 @@ Thumbs.db
 .backup_*/
 session_state.json
 .clipper/
-Reading/
+# Reading full library is local-only; the tracked Reading/README.md skeleton keeps clones navigable
+Reading/Reading RoadMap.md
 
 *.bak
 *.pre-batch*

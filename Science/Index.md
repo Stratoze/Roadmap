@@ -5,11 +5,11 @@ title: Science Foundations
 
 Two vault learning system topics forming the derivation layer under everything else:
 
-## `math-foundations`
+## `math-foundations` `[proposed — file created at activation]`
 Linear algebra (matrix-as-transform, eigen, projection, least squares) · probability (Bayes, CLT, variance) · ODE dynamics (flow fields, oscillators, stability) · Laplace preview.
 Feeds: state-space control, FOC transforms, sensor fusion, data-science-ai.
 
-## `physics-first-principles`
+## `physics-first-principles` `[proposed — file created at activation]`
 Newtonian dynamics · energy/momentum bookkeeping · rotation & oscillation · E&M from charge to induction · thermodynamic limits.
 Feeds: voice-coil rig (Lorentz), BLDC (back-EMF), Puck PCB thermal (I²R), QDD gear tradeoffs.
 

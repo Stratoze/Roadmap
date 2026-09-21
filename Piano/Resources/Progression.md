@@ -102,7 +102,7 @@ Sit down, play, 15 minutes.
 ---
 
 ## Starting from Zero
-For the first sitting only. After that, use the daily note (`_system/Daily Template.md`).
+For the first sitting only. After that, use the daily note (`_templates/daily.md`).
 See [Practice Protocols](Practice%20Protocols.md) Before-playing checklist for setup.
 
 ### Movement setup

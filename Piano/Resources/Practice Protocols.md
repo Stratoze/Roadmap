@@ -28,7 +28,7 @@
 
 ## Session Engine
 ### Minimum rules expanded
-These are the expanded version of the daily note rules (see `_system/Daily Template.md`).
+These are the expanded version of the daily note rules (see `_templates/daily.md`).
 - Sit down. Play something. Even one scale counts.
 - Work on ONE thing with full attention.
 - After 3 identical reps, change something.

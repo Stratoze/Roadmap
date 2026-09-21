@@ -1,14 +1,14 @@
 ---
 title: Knowledge Base
 ---
-> New session? Start at [[AGENTS.md|AGENTS.md]] — it routes everything below.
+> Human map — agents start at [[AGENTS.md|AGENTS.md]], public face is `README.md`.
 
 # 🧠 System
 - [[_system/How to Learn|How to Learn]] — core protocols
 - [[_system/learning/README|Learning system]] — skills, private store, reviews
 - [[_system/learning/topic-tree|Topic tree]] — subjects → chunk topics + theory links
 - [[_system/Landmine Log|Landmine Log]]
-- [[Daily/Index|Daily notes]] (template: [[_system/Daily Template|Daily Template]])
+- [[Daily/Index|Daily notes]] (template: [[_templates/daily|daily]])
 
 # 🔧 Mechatronics
 - [[Mechatronics/Index|Mechatronics hub]] — roadmap, safety, resources, evidence
@@ -18,16 +18,16 @@ title: Knowledge Base
 - [[Piano/Index|Piano Index]]
 
 # 📚 Reading
-- [[Reading/Reading RoadMap|Reading tracker]] — Active-3, shelf, progress
+- [[Reading/README|Reading tracker]] — Active-3, shelf, progress (full library is local-only)
 
 # 🇯🇵 Japanese
 - [[Japanese/Index|Japanese hub]] — routing, resources
 
 # 📊 Data Science & AI
-- [[DataScience/Index|Index]] — vault learning system topic file `_system/learning/curriculum/data-science-ai.md`
+- [[DataScience/Index|Index]] — arc + vault datasets (curriculum file created at activation)
 
 # 🔬 Science Foundations
-- [[Science/Index|Index]] — vault learning system topic files `_system/learning/curriculum/math-foundations.md`, `_system/learning/curriculum/physics-first-principles.md`
+- [[Science/Index|Index]] — derivation layer (curriculum files created at activation)
 
 # 🧩 Templates
 - [[_templates/Index|Template index]] — task → template file

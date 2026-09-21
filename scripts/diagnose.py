@@ -28,14 +28,18 @@ from pathlib import Path
 
 # ---- config ----------------------------------------------------------------
 # Folders ignored for ORPHAN detection. Templates are plugin-invoked;
-# journals/logs are append-only and are not meant to be linked. Add more here
-# (e.g. "docs") if you consider folder-READMEs acceptable as orphans.
-ORPHAN_EXCLUDE_DIRS = {"_templates", "journal", "Daily", "Logs", "Changelog", "_private"}
+# journals/logs are append-only and are not meant to be linked. Archive holds
+# historical plans (never linked). Curriculum/maps/lessons/agents are
+# system-managed: linked by skill convention (code-tick paths), not by
+# wikilink. Add more here (e.g. "docs") if you consider folder-READMEs
+# acceptable as orphans.
+ORPHAN_EXCLUDE_DIRS = {"_templates", "journal", "Daily", "Logs", "Changelog", "_private",
+                       "archive", "curriculum", "maps", "lessons", "agents"}
 # Files allowed to have zero incoming links (entry points).
 ENTRY_POINTS = {"index.md", "README.md"}
 # EXEMPT carried failures (Phase-2 gate reads this block as authoritative).
 # Format: # EXEMPT <check>: <target> — <reason> — expires <YYYY-MM-DD>
-# EXEMPT broken: index.md -> [[Reading/Reading RoadMap|Reading tracker]] — Reading/ dir absent post-merge (remote index edit) — expires 2026-10-07
+# (none carried; Reading skeleton `Reading/README.md` is tracked, so clones resolve it)
 # ----------------------------------------------------------------------------
 
 WIKILINK = re.compile(r"\[\[([^\[\]]+?)\]\]")
@@ -108,14 +112,17 @@ def main():
     incoming = set()
 
     for src in files:
-        in_templates = "_templates" in src.relative_to(vault).parts
+        parts = src.relative_to(vault).parts
+        # _templates is placeholder-rich by design; archive is frozen history
+        # (worked examples full of [[File#X]]-style docs). Neither reports broken.
+        unreported = "_templates" in parts or "archive" in parts
         text = strip_fences(src.read_text(encoding="utf-8", errors="replace"))
 
         for m in WIKILINK.finditer(text):
             raw = m.group(1)
             res = resolve_wiki(raw, vault, by_name)
             if res is None:
-                if not in_templates:
+                if not unreported:
                     broken[src].append(f"[[{raw}]]")
             else:
                 incoming.update(res)
@@ -124,7 +131,7 @@ def main():
             raw = m.group(1)
             res = resolve_md(raw, src)
             if res is None:
-                if not in_templates:
+                if not unreported:
                     broken[src].append(f"[...]({raw})")
             elif isinstance(res, Path):
                 incoming.add(res)

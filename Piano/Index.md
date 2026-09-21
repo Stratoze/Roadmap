@@ -10,7 +10,7 @@ tags:
 # Piano Index
 
 ## Start here
-- [[_system/Daily Template|Daily Template]] — unified daily note (all domains)
+- [[_templates/daily|Daily Template]] — unified daily note (all domains)
 - [[Piano/Resources/Movement|Movement]] — the technique library (M1–M12), canonical source
 - [[Piano/Resources/Practice Protocols|Practice Protocols]] — session engine, learning protocol, tempo, Q-spots
 - [[Piano/Resources/Progression|Progression]] — volume, stages, ladders, cycles

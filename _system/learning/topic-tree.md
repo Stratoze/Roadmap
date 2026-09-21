@@ -699,9 +699,13 @@ Arc, decompose at activation:
 
 ## Japanese (`Japanese/Index.md`)
 
-- Grammar track `[decompose at activation - verify against a standard sequence]`:
-  proposed: kana system · sentence skeleton (topic-comment) · particles · verb groups · polite/plain forms · past forms · te-form (progressive, requests, linking) · conditionals · keigo · kanji system (readings, radicals, writing)
-- Output track: daily journal procedure · self-intro · weekly output review `[proposed]`
+- Grammar track (opened 2026-09-21: `japanese-grammar`; ramp L1 English-led ->
+  L3 Japanese-led): kana system · sentence skeleton (topic-comment) · particles ·
+  verb groups · polite/plain forms · past forms · te-form · conditionals · keigo ·
+  kanji system. Sequence still needs a source pass at activation.
+- Output track: `japanese-output` (daily journal procedure · self-intro) ·
+  `japanese-reading` (graded reading, distinct from the English `Reading/`
+  tracker) · `japanese-immersion` (watch/read log, no quotas).
 - Vocabulary: Anki only (Kaishi 1.5k + mining) - tracked in Anki; not double-SRS'd here
 - Immersion input: graded watching/reading per Resources (Yoku.bi, jiten.moe, jimaku, Yatsu)
 - Next action pointer: due reviews -> immersion; no external plugin.
