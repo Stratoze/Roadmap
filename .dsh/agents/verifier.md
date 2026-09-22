@@ -22,12 +22,17 @@ For each candidate in the brief:
    channel is human and not an AI-generated content farm.
 3. Prefer primary sources. Check the date. Cross-check the central claim
    against one independent source.
-4. Verdict: `verified <YYYY-MM-DD>` / `unverified` / `rejected` (with reason).
+4. Books: verify existence + edition + that the chapter/section number and its
+   printed title match a fetched table of contents (publisher page, official
+   preview, or library record). You may **not** claim to have read the book's
+   interior - if the TOC cannot be fetched, the verdict is `unverified`. Page
+   ranges are advisory and never a basis for `verified`.
+5. Verdict: `verified <YYYY-MM-DD>` / `unverified` / `rejected` (with reason).
 
 Your final message:
 
 ## Verdicts
-- <title> | <url> | verified <date> / unverified / rejected | <one-line reason + evidence>
+- <title> | <locator> | <url> | verified <date> / unverified / rejected | <one-line reason + evidence>
 
 ## Notes
 Cross-checks performed, conflicts found, anything the caller should know.

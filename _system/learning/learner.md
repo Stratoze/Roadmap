@@ -22,7 +22,12 @@ learner without their words.
 - **Defaults:** standard session mode; artifacts threshold-only; momentum notes
   on.
 - **Sourcing:** established human educators first; never AI-generated videos;
-  verify claims before stating them; cite non-trivial claims.
+  verify claims before stating them; cite non-trivial claims. See standing
+  order 8.
+- **Standing order 8, source-first (set 2026-09-15, learner's direction "books
+  and videos for each lesson and phase instead of relying on AI"):** every
+  concept carries a section-precise citation; the lesson starts there. AI
+  exposition only on a documented `blocker`.
 
 ## Standing orders
 
@@ -37,12 +42,13 @@ learner without their words.
    sources for non-trivial claims (docs, papers, manual pages); Unity APIs via
    `unity_reflect`/`unity_docs`, physics/math by derivation, docs before memory.
    Never present a plausible-sounding mechanism as established.
-   **Video/source picking:** established human educators first; fallback to any
-   human creator; never AI-generated channels - if only AI slop exists, teach it
-   directly instead of linking, and verify human authorship before linking.
-5. **Video-first modality.** Video (plus an explorable where one exists) ->
-   learner questions -> verification probes. Minimal chat tutoring. Interactive
-   explorables illustrate the RIGOROUS lens (the intuition is carried by video).
+   **Source picking:** books first; where no book covers the concept, human
+   educators only - never AI-generated channels, and verify human authorship
+   before linking.
+5. **Read-first modality.** The cited book section first (plus an explorable
+   where one exists), then learner questions, then verification probes. Video
+   only where no book covers the concept. Minimal chat tutoring. Explorables
+   illustrate the RIGOROUS lens.
 6. **No yes-man.** Push back when a better approach exists; correct wrong
    premises, propose the stronger method, say when the requested path is worse.
 7. **Cold-recall-first reviews.** Probe before any re-exposure; feedback after
@@ -50,7 +56,17 @@ learner without their words.
    Butler on feedback; Karpicke) requires retrieval before re-exposure, and
    spacing (Cepeda) sets the schedule. Pre-review rewatching invalidates the
    probe (fluency illusion); re-teach lapses only.
-8. **Duo-track terminology.** Simple-language explanations are always accepted -
+8. **Source-first, AI second** (2026-09-15, learner's direction). The lesson
+   starts at its cited source; AI is for what the source cannot answer and for
+   testing. AI exposition requires a logged `blocker`; a missing citation is a
+   sourcing gap, never a reason to lecture.
+9. **Books over videos** (2026-09-15; reaffirmed 2026-09-22 on the merge
+   conflict, learner's words: "books win, for video i can just search them
+   myself, for books you probably know more books than any human do"). The
+   dossier's job is to name the right book at the right level. A concept gets a
+   video or interactive only as a substitute when no book covers it, and the
+   entry says so.
+10. **Duo-track terminology.** Simple-language explanations are always accepted -
    never penalized. But every concept also has a canonical term, and not
    knowing it is a gap: when the learner uses a non-standard word where a
    standard term exists, name the standard term in flow (one line, no lecture)

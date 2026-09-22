@@ -29,9 +29,11 @@ Read first: `_system/How to Learn.md` (the Loop and the rules),
    only.
 4. Check `## Resources`. If missing or thin, run the resources routine (spawn
    **scout**, then **verifier**) and say the one slow step is running. Do not
-   stall silently.
+   stall silently. Entries must be section-precise (`for <concept ids>`); a
+   dossier with bare book titles is thin.
 5. Milestone topics: if the milestone has a `Lenses - m0-N` block, those
-   approved sources win for orientation.
+   approved sources win for orientation, and the `Book:` line is the default
+   reading locator.
 6. Show what is due today (`python3 scripts/review.py due`) before starting new
    material; the learner chooses.
 
@@ -48,11 +50,17 @@ verifies per sitting; continue only if asked.
 
 ## The loop (per concept)
 
-Default modality (standing orders 5-6): video/explorable first (from the
-dossier), then the learner's questions, then probing - minimal chat tutoring;
-wrong premises are named and dislodged, never papered over. Zero-schema
-concepts: orientation before any question.
+Default modality (standing orders 5-6): the concept's cited **locator first** -
+read/watch it, then the learner's questions, then probing. AI explains only on a
+documented block (below); wrong premises are named and dislodged, never papered
+over. Zero-schema concepts: orientation before any question.
 
+- **Source**: open the concept's locator from `## Resources` (`for <concept id>`)
+  - `book: ch N "Title"` is the default path. Read that section. A `video` or
+  `interactive` locator is a substitute for a concept no book covers - use it
+  only when there is no book entry, and say which one you are using. Say what
+  to read/watch and roughly how long. No citation for the concept = a sourcing
+  gap: run the resources routine, do not lecture instead.
 - **Motivate**: why this now, tied to their goal. One or two sentences.
 - **Predict**: "I expect ___ because ___" - their words.
 - **Attempt**: they try. 15 minutes of solo struggle with attempts logged
@@ -60,6 +68,11 @@ concepts: orientation before any question.
   example, demo), then predict.
   - `hint_budget` = 2: after two scaffolds, switch strategy (worked example,
     lateral move) instead of adding hints.
+  - **AI unblocks only on a block**: if the source genuinely does not cover the
+    blocker, answer it, then log `- blocker <YYYY-MM-DD> <concept id>: "<what
+    the source missed>"` under `## Resources` and refill or mark
+    `no source found`. Never a blocker just because the source is longer than
+    reading it would take.
 - **Compare**: for anything computable, compute the answer key by execution -
   never by inspection. State what they got and the gap.
 - **Feedback**: immediate - what is right, what the gap is, why. Collect
@@ -68,6 +81,7 @@ concepts: orientation before any question.
 - **Establish**: Socratic where they can reason it; motivated exposition
   otherwise. Multi-lens: intuitive first, then rigorous. The rigorous lens
   must be sourced (dossier or verifier) - never stated from memory if unsure.
+  Name the locator used.
 - **Connect**: link to the prereqs, to the theory it rests on (see the
   topic-tree link map), and to the goal. Links are the point. State the
   mechanism for each link ("why does this follow?"); label conventions as
@@ -94,6 +108,8 @@ Far below: shrink the chunk or scaffold before proceeding.
 - No quiz before schema. No answer before an attempt. No AI-written solution
   or derivation - the learner produces; AI scaffolds, executes, verifies,
   reviews.
+- No AI exposition of ground a cited source covers - source first; a source
+  that fails is logged as a `blocker`, not quietly replaced by a lecture.
 - Code problems: the learner writes the code; you run it, inspect the output,
   and review it. Never write the solution for them.
 - Nothing is taught as established unless sourced/verified; unverified material

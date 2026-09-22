@@ -1,21 +1,24 @@
-# Japanese output
+# Japanese Output
 
 ## Goal
-- Scoping answer (verbatim, 2026-09-21): "japanese gramar, and data science" (focus track; output alongside grammar)
-- Ramp: L1 -> L2 -> L3 per japanese-grammar (everything in Japanese, gradually).
-- By when: none (alongside foundations; priority JP >= mechatronics)
+- Scoping answer (verbatim, 2026-09-14): "native level japanese"
+- By when: 2028-09-14 to 2029-09-14 (stated "2-3 years" on 2026-09-14)
+- Pacing (2026-09-21 focus queue): alongside foundations; priority JP >= mechatronics
+- Source: `Daily/2026-09-14.md`, verbatim in `_private/learning/verbatim/2026-09-14-japanese.md`
 
 ## Map
-- Provisional (2026-09-21): daily journal procedure first, self-intro
-  optional icebreaker (per [[Japanese/Index]]). Output must use each new
-  grammar point within a week of learning it.
+- Provisional (2026-09-14): mapping pending; entry procedure is daily journal; self-intro optional icebreaker
+- Language ramp (2026-09-21): L1 -> L2 -> L3 per japanese-grammar (everything in Japanese, gradually). Output must use each new grammar point within a week of learning it.
 
 ## Concepts
 | id | aim | prereqs | state | rung | next_review | evidence |
 |----|-----|---------|-------|------|-------------|----------|
+| out-daily-journal-procedure | run daily journal procedure (write, check, correct, log) | - | unknown | 0 | - | - |
+| out-self-intro | self-intro spoken/written (optional icebreaker) | - | unknown | 0 | - | - |
+| out-weekly-review | weekly output review (errors, patterns, next) | out-daily-journal-procedure | unknown | 0 | - | - |
 
 ## Resources
-- See [[Japanese/Resources]]. Dossier per aim at activation via the `resources` skill.
+- (pending scout + verifier dossier; start from `Japanese/Resources.md`, see also [[Japanese/Resources]])
 
 ## Misconceptions
 - (none logged yet)
@@ -25,9 +28,10 @@
 |----|---------|--------|--------|----------|--------|
 
 ## Links
-- Rests on: japanese-grammar
-- Teaches: japanese-immersion (log output sightings of learned patterns)
+- Rests on: japanese-grammar (sentence skeleton, particles, verb forms feed production); `jp-godan-potential` gives the can-do form the journal needs (みずがのめる)
+- Teaches: gives back error patterns to grammar; feeds immersion
 - Lessons: -
 
 ## Log
-- 2026-09-21 - track opened from learner focus declaration; scoping + field scan pending at first lesson.
+- 2026-09-14 - file created from Appendix A; goal stored verbatim
+- 2026-09-22 - merge (Windows line + Mac line): kept the Mac session's concepts and links; re-added the 2026-09-21 L1->L3 ramp + pacing lines.

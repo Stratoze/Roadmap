@@ -88,9 +88,10 @@ the Loop; fixed here.
 2. **Orient before questions (zero schema), then Predict -> Attempt -> feedback.**
    A zero-schema topic starts with orientation (video / worked example / demo),
    then the Loop. The 3-tier struggle rule is skipped for zero-schema novices
-   (How to Learn: scaffold FIRST, then predict). Default modality is video-first
-   (standing order 5): video/explorable -> learner questions -> probing; wrong
-   premises are challenged, not smoothed over.
+   (How to Learn: scaffold FIRST, then predict). Default modality is
+   source-first (standing orders 5 and 8): the concept's cited locator
+   (book chapter / video) -> learner questions -> probing; wrong premises are
+   challenged, not smoothed over. AI exposition only on a logged `blocker`.
 3. **Mapping is scoped and provisional.** Scoping question first (what to DO,
    by when). Strands come from the goal plus a scout field scan (so unknown
    unknowns can enter). Edge found by bracketing (floor + ceiling). Self-report
@@ -186,13 +187,20 @@ the Loop; fixed here.
      `review`/`solid`. Comfort branch ("test me in"): one mid-map probe; hit ->
      walk the unreceipted prereqs; miss -> drop below. If no bracket exists,
      proceed with orientation and bracket as you go. Mapping never blocks.
-  4. Per concept: motivate -> predict ("I expect ___ because ___") -> attempt
-     (struggle budget; hint count) -> compare (answer key by execution) ->
-     immediate feedback (confidence picked before it) -> establish/derive
-     (Socratic where reachable, expository otherwise; intuitive lens then
-     rigorous lens) -> connect -> check (one compressed verify) -> record
-     (state, rung 0 via `review.py schedule`, confidence to private receipts;
-     problem row and reciprocal links updated).
+  4. Per concept: **source-first** - read/watch the concept's cited locator
+     (`<title>, ch N "Title"` or `video @ mm:ss`) -> the learner's questions ->
+     predict ("I expect ___ because ___") -> attempt (struggle budget; hint
+     count) -> compare (answer key by execution) -> immediate feedback
+     (confidence picked before it) -> establish/derive (Socratic where
+     reachable, expository otherwise; intuitive lens then rigorous lens) ->
+     connect -> check (one compressed verify) -> record (state, rung 0 via
+     `review.py schedule`, confidence to private receipts; problem row and
+     reciprocal links updated).
+     AI exposition is gated: it answers only when the source genuinely does not
+     cover the blocker, and that block is logged in the dossier
+     (`blocker <YYYY-MM-DD>: "<what the source missed>"`) so the citation gets
+     fixed or marked `no source found`. A concept with no verified citation is
+     a sourcing gap: fix the dossier, do not substitute a lecture.
      Zero-schema concepts get orientation before predict; no quiz before schema.
      Checks routinely above target_success (0.85) -> escalate difficulty or
      advance; far below -> shrink the chunk or scaffold before proceeding.
@@ -222,13 +230,18 @@ the Loop; fixed here.
   5. Zero schema -> stop, hand to `study` for orientation.
   6. Write `## Map` provisional notes and only unambiguous `state` changes;
      revise from lesson evidence. Never gates teaching.
-- `resources/SKILL.md` - JIT per active topic:
-  1. scout: candidates (title, creator, URL, type, claim covered).
+- `resources/SKILL.md` - JIT per active topic; entries are section-precise:
+  1. scout: candidates at **section granularity** - title, creator, locator
+     (book chapter/section, or video timestamp range), URL, type, concepts
+     covered.
   2. verifier: independent fetch + check (human author, primary source, date,
-     claim cross-check) -> verdict in the entry.
+     claim cross-check). Books: existence + edition + chapter title against a
+     fetched TOC; the verifier may never claim to have read a book's interior.
+     TOC unfetchable -> `unverified`. -> verdict in the entry.
   3. Pinned entry format (Appendix A); rejected stays listed as rejected.
-  4. Re-verify only on trigger: fast-moving field, a lesson contradiction, or
-     learner request. Resources are dated snapshots.
+  4. Re-verify only on trigger: fast-moving field, lesson contradiction, a
+     logged `blocker`, or learner request. Resources are dated snapshots; no
+     refill churn beyond these triggers.
 - `review/SKILL.md`:
   1. `python3 scripts/review.py due` - cap 12 per sitting.
   2. Backlog over cap: one amnesty line; offer capped set / catch-up / not now.
@@ -247,10 +260,13 @@ the Loop; fixed here.
 
 - `scout.md` - research briefs, resource candidates, field scans. Multi-angle
   search; primary sources first; output = candidates + kept/dropped + gaps,
-  each with provenance.
+  each with provenance and a **locator** (chapter/section or video timestamp),
+  never a bare book title.
 - `verifier.md` - independent adversarial check of scout output. Must fetch and
   read sources; per claim: verified / unverifiable / rejected + evidence line.
-  Never shares context with scout.
+  Books are checked by identity + edition + chapter title against a fetched
+  TOC; reading a book interior is never claimed. Never shares context with
+  scout.
 - `assessor.md` - blind grading for claim gates and sampled audits. Never sees
   the lesson or the dialogue; returns grade, gap, and misconception lines
   verbatim.
@@ -458,6 +474,97 @@ twice). The topic tree and its mermaid views are in scope (built 2026-09-11).
 - Acceptance status: items 1, 4, 5, 6 pass; items 2 (first lesson) and 3 (first
   due review) await a real learner session.
 
+## 11. Amendment - source-first lessons (user, 2026-09-15)
+
+Trigger: the dossier was topic-level, so "video-first modality" (standing order
+5) was unfollowable - a lesson had no specific place to read or watch, and the
+loop fell back to chat exposition. Books were never a first-class source.
+
+Decisions locked (user):
+
+1. Home: pin per concept in the dossier that is in the topic file. No
+   cross-subject registry.
+2. AI role: source-first; AI explains only on a documented block, which is
+   logged so the citation gets fixed.
+3. Backfill: JIT per active topic + Phase 0 foundations. Piano and Japanese are
+   excluded (they own their resource files).
+4. Citation depth: book identity + chapter/section title. Page ranges are
+   advisory. Books are verified against a fetched TOC; the verifier never
+   claims to have read a book's interior.
+
+Landed: the locator field + `for <concept ids>` + `blocker` line in the pinned
+entry format (Appendix A, §3.2); source-first study loop (§3.2 step 4);
+section-granularity scout/verifier rules (§3.2, §3.3).
+
+Invariant kept: the `## Concepts` table stays 7 cells - `review.py:27 CELLS = 7`
+counts columns strictly, so the per-concept index lives in the dossier's `for`
+field, never as a new column.
+
+Out of scope: page-precise book citations; prefetching Phase 1-5 lesson
+citations; any change to `review.py`.
+
+### 11b. Amendment - books are the primary tier (user, 2026-09-15, same day)
+
+Learner's words: "we dont really need videos that much, books are more vital,
+with the correct topic i can search the video myself, but it's hard to find the
+correct high quality books."
+
+Consequence - the sourcing priority flips, not just the wording:
+
+1. The dossier's primary job is naming the right **book at the right level**.
+   Scout must state level (beginner / intermediate / advanced) and whether it
+   assumes background the learner lacks, and must emit an explicit "no book
+   found" line for every concept with no book-tier locator.
+2. Videos and interactives are **substitutes** for a concept no book covers, not
+   equivalents. Books are listed first in `## Resources`.
+3. Standing order 5 changes from "Video-first modality" to "Read-first
+   modality" (learner.md). The study loop's Source beat opens the book section
+   by default and uses a video only when no book entry exists.
+4. No guessed `mm:ss` video locators - unchanged from §11, but now mostly moot.
+
+### 11c. Phase 0 foundational pass - record and acceptance (2026-09-15)
+
+Scope: `Mechatronics/milestones/00_foundations.md` (10 milestones) and 9 new
+topic files under `_system/learning/curriculum/m0-*.md`, plus `python.md`.
+Piano and Japanese untouched by decision.
+
+Acceptance (all run 2026-09-15, all pass):
+
+1. `python3 scripts/review.py selftest` -> `selftest ok`, and `due` returns
+   exactly the two `japanese-grammar` rows - the `## Concepts` invariant held.
+2. `callouts=10 read=10 anchors=10 lenses=10` in `00_foundations.md`.
+3. 30 `Book:` lines, every one carrying a dated verdict.
+4. `grep 'pending scout' _system/learning/curriculum/` returns only
+   `japanese-output.md` (Japanese is excluded from this pass by user decision,
+   so that stub is expected - corrected from the original wording).
+5. No guessed `video @ mm:ss` anywhere; the only `video @` locator is
+   `@ chapters:` (CS50P chapter names), which are named landmarks, not numbers.
+
+Vault errors found and corrected by the pass (kept as `rejected`/`unverified`
+entries so they cannot be silently re-proposed):
+
+- m0-9: playlist `PLHGVjZ_tV_gwDwoV_0CX7QguS_Vkx2yzV` was attributed to
+  thang010146; oEmbed returns "Mechanical Models" by **Proto G Engineering**.
+- m0-4: prose anchor "The Efficient Engineer *Understanding Statics*" cites a
+  video that **does not exist** on that channel (confirmed two ways).
+- m0-4: "Shigley Ch 3 (equilibrium & FBDs)" - Shigley 9e ch 3 is "Load and
+  Stress Analysis"; only **§3-1** is statics. Narrowed.
+- m0-3: "No textbook required" was false - the net-change theorem is the theory,
+  and OpenStax *Calculus Volume 1* §5.4 is where it lives. Also ch 1-3 of
+  *Essence of Calculus* contains no integration; re-pointed to ch 8 + ch 10.
+- m0-7: MatWeb 403s to automated fetch and verifies no named datasheet;
+  replaced with Cambridge DoITPoMS charts.
+- m0-10: `dgmNBEEN3gM` is a Starrett product demo uploaded by A&M Industrial,
+  not a Starrett channel.
+
+Publisher defects recorded rather than smoothed: Kalpakjian 8e prints ch 35 with
+ch 34's title (uncited), Boothroyd 3e's TOC mislabels two entries (only 2e
+chapter numbers claimed), Ashby ch 4/5 and Craig ch 2 are 3rd-edition-only, and
+Erickson & Maksimovic has no fetchable TOC (`unverified`; no chapter cited).
+
+Not done, by design: Phases 1-5 have no lesson citations yet (JIT at
+activation); `japanese-output.md` remains a stub per the Japanese exclusion.
+
 ## Appendix A - curriculum file skeleton (pinned)
 
 ```markdown
@@ -478,9 +585,16 @@ twice). The topic tree and its mermaid views are in scope (built 2026-09-11).
 | c1 | <one claim-sized aim> | - | unknown | 0 | - | - |
 
 ## Resources
-- rigorous | <title> | <creator> | <url> | unverified
-- intuitive | <title> | <creator> | <url> | verified <YYYY-MM-DD>
-- interactive | <name> | <creator> | <url> | verified <YYYY-MM-DD>
+- rigorous | <title> | <creator> | <book: ch N "Title" | video @ mm:ss | docs: <section path>> | <url> | for <concept ids> | unverified
+- intuitive | <title> | <creator> | <book: ch N "Title" | video @ mm:ss | docs: <section path>> | <url> | for <concept ids> | verified <YYYY-MM-DD>
+- interactive | <name> | <creator> | <locator> | <url> | for <concept ids> | verified <YYYY-MM-DD>
+- blocker <YYYY-MM-DD> <concept id>: "<what the cited source failed to cover>"
+
+Locator rule: books carry the printed chapter/section title; videos carry a
+timestamp range **only when the verifier could confirm it** (YouTube watch pages
+are JS-rendered and expose no metadata to a fetcher, so `video` alone is
+correct and a guessed `@ mm:ss` is forbidden); docs/tools carry the section or
+the tool name. A placeholder timestamp is worse than none.
 
 ## Misconceptions
 - <YYYY-MM-DD> c1 - "<learner's words>" (or: dated observation, evidence: <link>)

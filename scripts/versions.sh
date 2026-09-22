@@ -3,7 +3,11 @@
 echo "=== Toolchain versions - $(date +%F) ==="
 for cmd in git python3 arm-none-eabi-gcc gcc cmake make openocd kicad-cli; do
   if command -v "$cmd" >/dev/null 2>&1; then
-    printf "%-20s %s\n" "$cmd" "$("$cmd" --version 2>&1 | head -1)"
+    if [ "$cmd" = "kicad-cli" ]; then
+      printf "%-20s %s\n" "$cmd" "$(kicad-cli version 2>&1 | head -1)"
+    else
+      printf "%-20s %s\n" "$cmd" "$("$cmd" --version 2>&1 | head -1)"
+    fi
   else
     printf "%-20s (not installed)\n" "$cmd"
   fi

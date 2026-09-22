@@ -3,6 +3,8 @@
 
 # Python
 Mechatronics/.pytest_cache/
+Mechatronics/simulations/python/.venv/
+.ipynb_checkpoints/
 *.pyc
 __pycache__/
 
