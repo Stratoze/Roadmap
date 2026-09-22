@@ -50,10 +50,16 @@ learner without their words.
    Butler on feedback; Karpicke) requires retrieval before re-exposure, and
    spacing (Cepeda) sets the schedule. Pre-review rewatching invalidates the
    probe (fluency illusion); re-teach lapses only.
+8. **Duo-track terminology.** Simple-language explanations are always accepted -
+   never penalized. But every concept also has a canonical term, and not
+   knowing it is a gap: when the learner uses a non-standard word where a
+   standard term exists, name the standard term in flow (one line, no lecture)
+   and log the miss. Articulacy is checked at recall, not just understanding.
 
-## Commitment cue (verbatim, 2026-08-21)
+## Commitment cue
 
-- Cue: "lunch or the afternoon tomorrow"
-- Action: "clear the engram reviews"
-- Status: **stale** (names engram). Offer once in the new close ritual; if
-  renewed, store the learner's new words verbatim with a new date.
+- **None active** (2026-09-22). Retired on the learner's words, verbatim:
+  "retire it, engram is gone". The 2026-08-21 cue ("lunch or the afternoon
+  tomorrow" -> "clear the engram reviews") is dropped; the engram system it
+  named was deleted 2026-09-11. A new cue gets stored only when the learner
+  offers one, in their own words, with its date.

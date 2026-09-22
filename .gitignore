@@ -27,6 +27,9 @@ session_state.json
 .clipper/
 # Reading full library is local-only; the tracked Reading/README.md skeleton keeps clones navigable
 Reading/Reading RoadMap.md
+# Learner's local scratch space, local-only by its own name. Holds a .venv:
+# ~9.9k files / 94 MB. Never commit it.
+Python For Testing Stuff, user only/
 
 *.bak
 *.pre-batch*

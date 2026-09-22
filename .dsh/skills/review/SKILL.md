@@ -19,7 +19,10 @@ Never batch items or pre-empt later ones.
    language, no nagging.
 3. **Per item**:
    - Show the concept id and its aim only. Then free recall, COLD: no
-     re-exposure, no hints, no "remember when". Standing order 7.
+     re-exposure, no hints, no "remember when". Standing order 7. The answer must include the standard
+      term (standing order 8): simple-words reasoning earns the understanding
+      half; the canonical term earns the other half. A right idea with a
+      wrong or missing term is a `hard`, not a `hit`.
    - They produce. Then collect confidence with the question tool (under 50 /
      ~70 / ~90 / certain) BEFORE any feedback.
    - Immediate feedback: the correct answer plus the exact gap. Specific, about

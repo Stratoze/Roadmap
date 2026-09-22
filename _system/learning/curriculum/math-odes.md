@@ -10,13 +10,13 @@
 ## Concepts
 | id | aim | prereqs | state | rung | next_review | evidence |
 |----|-----|---------|-------|------|-------------|----------|
-| c1 | ODE = unknown is a function; solve means find it, check by plugging in | - | unknown | 0 | - | - |
+| c1 | ODE = unknown is a function; solve means find it, check by plugging in | - | review | 0 | 2026-09-23 | lesson 2026-09-22 (read cooling and dN/dt rules as rules of change) |
 | c2 | Slope field = the rule drawn globally, one arrow per point | c1 | unknown | 0 | - | - |
 | c3 | Solution curves thread the arrows; the initial point picks one | c2 | unknown | 0 | - | - |
-| c4 | Euler chaining = walk the arrows; smaller steps hug the true curve | c3 | unknown | 0 | - | - |
-| c5 | y' = ky means proportional rate, so exponential shape | c4 | unknown | 0 | - | - |
-| c6 | Rate constant sets timescale (1/abs(k), half-life) | c5 | unknown | 0 | - | - |
-| c7 | Equilibria plus stability on a phase line | c3 | unknown | 0 | - | - |
+| c4 | Euler chaining = walk the arrows; smaller steps hug the true curve | c3 | review | 0 | 2026-09-23 | lesson 2026-09-22 (wrote the Euler loop unaided; found the sign fix) |
+| c5 | y' = ky means proportional rate, so exponential shape | c4 | review | 0 | 2026-09-23 | lesson 2026-09-22 (growth vs decay transfer check) |
+| c6 | Rate constant sets timescale (1/abs(k), half-life) | c5 | review | 0 | 2026-09-23 | lesson 2026-09-22 (1/k settling: 7 / 13 / 152 min) |
+| c7 | Equilibria plus stability on a phase line | c3 | review | 0 | 2026-09-23 | lesson 2026-09-22 (fixed point 50 stable; P=0 unstable) |
 | c8 | Second order needs two starting values (spring preview) | c3 | unknown | 0 | - | - |
 | c9 | Forcing/input as the control entry point (preview only) | c7 | unknown | 0 | - | - |
 
@@ -51,16 +51,25 @@
 
 ## Misconceptions
 - 2026-09-11 - integrate-against-y: solved y'=-y by integrating -y over y (evidence: `_private/learning/verbatim/2026-09-11-map-r3.md`)
+- 2026-09-22 - k read as a multiplier, not a rate: the per-step update `T -= k*gap` at dt=1 looks like "shrink by k", which pulled `dP/dt = 0.5P` into a decay reading ("halves toward 0"). The sign of k decides growth vs decay; the size sets only the timescale. (evidence: lesson 2026-09-22)
+- 2026-09-22 - update sign inverted: `T -= const_change * gap` with `const_change = -0.07` added heat instead of removing it, and the loop never terminated. (evidence: lesson 2026-09-22)
 
 ## Problems
 | id | problem | source | theory | attempts | status |
 |----|---------|--------|--------|----------|--------|
+| p1 | Cup at 90, room 20, loses 0.07 of the gap per minute - when does it first reach 60? | authored | rate rule, Euler step | 1 | solved (minute 8) |
+| p2 | Does the cup ever reach room temperature exactly? | authored | fixed point, asymptote | 1 | solved (only T=20 steps to 20; T==20 never fires in double) |
+| p3 | One 30-minute step with the slope frozen at the start | authored | step size, Euler instability | 1 | solved (T=-57; the method breaks, not the rule) |
+| p4 | Read `dP/dt = 0.5P` - growth or decay, and what shape? | authored | sign of k, rate tied to P itself | 1 | attempted (read as decay; corrected) |
+| p5 | Read `dN/dt = -0.3(N - 50)` - direction, fixed point, autonomy | authored | stable equilibrium, autonomous equation | 1 | solved |
+| p6 | Change k from -0.3 to -0.03 - what changes, and by how much? | authored | rate constant sets timescale | 1 | solved (slower, ~10x: 13 to 152 min) |
 
 ## Links
 - Rests on: calculus chain (derivative/integral, limits); Euler stepping picture
 - Teaches: dynamics and control models downstream
-- Lessons: -
+- Lessons: [[_system/learning/lessons/math-odes/2026-09-22-cooling-rule-and-euler|2026-09-22 - cooling rule and Euler]]
 
 ## Log
 - 2026-09-11 - topic opened from the strand-1 bracket; scoping pending; field scan + resource pipeline started.
 - 2026-09-11 - scoping landed (everyday first, EPIC later, ~1 month); all nine aims kept as unknown rows; orientation opened video-first.
+- 2026-09-22 - first study session. Cooling rule -> learner-written Euler loop (sign bug found by running it) -> gap form -> algebraic fixed point -> frozen 30-minute step diverging to -57 -> convergence table -> growth vs decay on `dP/dt = 0.5P` (misread, corrected) -> stable vs unstable equilibria on `dN/dt = -0.3(N - 50)`. c1, c4, c5, c6, c7 scheduled at rung 0; c2/c3/c8/c9 untouched. Lesson note written; verbatim captured to `_private/learning/verbatim/2026-09-22-odes-euler.md`.
