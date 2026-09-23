@@ -19,8 +19,8 @@
 | jp-sentence-skeleton | topic-comment skeleton (wa/ga/o/ni/de/e/to) in simple sentences | jp-kana | unknown | 0 | - | - |
 | jp-particles-core | core particles wa/ga/o/ni/de/e/to/no in production | jp-sentence-skeleton | unknown | 0 | - | - |
 | jp-verb-groups | verb groups + polite/plain present | jp-sentence-skeleton | unknown | 0 | - | - |
-| jp-godan-masu | godan i-row masu form (のむ→のみます) | jp-verb-groups | review | 0 | 2026-09-15 | - |
-| jp-godan-potential | godan e-row potential (のむ→のめる) - same consonant row, e column | jp-godan-masu | review | 0 | 2026-09-15 | - |
+| jp-godan-masu | godan i-row masu form (のむ→のみます) | jp-verb-groups | review | 0 | 2026-09-23 | - |
+| jp-godan-potential | godan e-row potential (のむ→のめる) - same consonant row, e column | jp-godan-masu | review | 0 | 2026-09-23 | - |
 | jp-past | past forms polite/plain | jp-verb-groups | unknown | 0 | - | - |
 | jp-teform | te-form linking, requests, progressive | jp-verb-groups | unknown | 0 | - | - |
 | jp-conditionals | conditionals (tara/ba/nara/to) | jp-teform | unknown | 0 | - | - |
@@ -37,12 +37,15 @@
 
 ## Misconceptions
 - 2026-09-14 jp-godan-potential - "tsu and bu behaves differently because theres no tse and te sounds weird and be also sounds weird but it is used apparently" — treated the e-row move as free-floating kana, so まつ→まねる, よぶ→よねる. Evidence: `_private/learning/verbatim/2026-09-14-japanese.md`.
+- 2026-09-22 jp-godan-masu - canonical term missing at cold recall: produced のむ/かく/はなす → のみます/かきます/はなします (all correct) and the rule as "go into the i ladder and then add masu", but could not name the verb class or the stem ("standard term ? whats that"). Understanding hit, articulacy miss -> outcome `hard`, rung 0 held. Re-probe `godan` and the i-row stem (連用形 / ren'yōkei). Note the mechanism is the same same-consonant-row grid move as the 2026-09-14 e-row miss, in the i column instead of the e column.
+- 2026-09-22 jp-godan-potential - **SECOND LAPSE, same root cause.** Cold recall produced かく→かける ✅, たべる→たべられる ✅, but まつ→ませる ❌ (expected またれる) and よぶ→dictionary form ❌ (expected よべる); する left as "suru ?". The t-row got the s-row's e column, i.e. the consonant changed — the identical failure shape as 2026-09-14 (まつ→まねる). Not a memory lapse: the gojuuon-row lookup is not automatic. Learner's own objection "yobu adding ru seems cursed, what in the world is yoberu ?" is a real frequency observation, not an error — b-row/m-row potentials are regular but comparatively rare in speech; say so and do not let it read as irregularity. Outcome `miss` at rung 0. Per the review skill, two or more lapses -> **re-encode differently next session**: switch from "potential-form rules" to a gojuuon-grid lookup drill (draw the five rows, mark the e column, read the answer off the grid).
 
 ## Problems
 | id | problem | source | theory | attempts | status |
 |----|---------|--------|--------|----------|--------|
 | p1 | Dictionary → plain potential for かく/まつ/よぶ/たべる/する (E5) | authored (study check) | jp-godan-potential | 1 | solved |
 | p2 | かう/あそぶ → potential (E5) | authored (study check) | jp-godan-potential | 1 | solved |
+| p3 | Cold recall of the same five: かく/まつ/よぶ/たべる/する → potential | review 2026-09-22 | jp-godan-potential | 1 | attempted (2/5: かける, たべられる; まつ→ませる, よぶ unchanged) |
 
 ## Links
 - Rests on: jp-kana (the gojuuon rows - the e-column move is a kana-grid operation); no external theory
@@ -55,3 +58,5 @@
 - 2026-09-14 - map: strand 1 bracketed (floor: skeleton + particles + i-row masu; ceiling: e-row potential). Taught e-row potential; misconception (loose kana rows) corrected with gojuuon-row lens; 2 concepts scheduled at rung 0 (due 2026-09-15).
 - 2026-09-14 - close. Got: "e row in godan, for potential form specifically". Gap: "other row, i row seems fine, a row + nai seems fine". Next: cold recall of jp-godan-potential + jp-godan-masu, then the o-row (volitional, のもう) and the を→が potential flip.
 - 2026-09-22 - merge (Windows line + Mac line): kept the Mac session's content (concepts, resources, misconceptions, problems, lessons) and re-added the 2026-09-21 L1->L3 ramp + pacing lines that the local restructure had introduced.
+- 2026-09-22 - backlog review (both items overdue since 2026-09-15). jp-godan-masu: `hard` (forms all correct, `godan`/i-row stem term missing). jp-godan-potential: `miss` at rung 0 — second lapse, same root cause as 2026-09-14 (the t-row got the s-row's e column; よぶ unchanged). Both due 2026-09-23. Verbatim: `_private/learning/verbatim/2026-09-22-jp-review.md`.
+- 2026-09-22 - relearn attempt for jp-godan-potential switched encoding to a gojuuon-grid lookup (t-row → て → またれる worked example), then probed the same operation on よぶ and かう. **Left unfinished** — the learner closed the session to continue on the Mac. The grid re-encode is NOT yet confirmed; reopen it there, and do not treat the two lapses as settled by this attempt.
