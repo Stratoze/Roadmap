@@ -1,21 +1,33 @@
-# Japanese reading
+# Japanese Reading
 
 ## Goal
 - Scoping answer (verbatim, 2026-09-21): "maybe also reading ?"
-- Ramp: L1 -> L2 -> L3 per japanese-grammar (everything in Japanese, gradually).
-- By when: none (alongside foundations; priority JP >= mechatronics)
+- Learner chooses the novel, edition, and page/section.
+- Reading gate: 30 actual novel-reading sessions use an English explanation
+  first. After the 30th session, the learner attempts Japanese first, then
+  English explanation/correction. Sentence-analysis fallback does not count.
+- Pacing: alongside foundations; priority JP >= mechatronics
 
 ## Map
-- Provisional (2026-09-21): graded reading first (Yotsuba-level per
-  [[Japanese/Resources]]), parse sentences and note recurring patterns.
-  Distinct from the English book library in `Reading/` (local-only tracker).
+- Start with material the learner chooses and can sustain. The tutor helps
+  when a page is too dense, but does not silently substitute a recommended
+  novel.
+- For each session: receive the page screenshot/context, ask for the learner's
+  interpretation, then correct the important Japanese and connect useful words
+  or grammar to the current curriculum.
+- Raw screenshots and passages are transient. Public records contain only short
+  summaries, opaque references, and links.
 
 ## Concepts
 | id | aim | prereqs | state | rung | next_review | evidence |
 |----|-----|---------|-------|------|-------------|----------|
+| read-30-session-gate | complete 30 actual novel-reading sessions with the agreed language order | - | seen | 0 | - | count `reading_session` events below |
+| read-page-interpretation | explain what a page is doing, not merely translate it | jp-sentence-skeleton | unknown | 0 | - | - |
+| read-sentence-fallback | analyse one level-appropriate sentence when reading is skipped | jp-sentence-skeleton | unknown | 0 | - | - |
 
 ## Resources
-- See [[Japanese/Resources]] (Yatsu reader, graded watching/reading). Dossier per aim at activation via the `resources` skill.
+- Active source/material selected JIT. Stable reader/lookup links live in
+  [[Japanese/Resources]].
 
 ## Misconceptions
 - (none logged yet)
@@ -26,8 +38,18 @@
 
 ## Links
 - Rests on: japanese-grammar
-- Teaches: japanese-immersion (mined words feed Anki; patterns feed output)
+- Teaches: japanese-immersion; mined words feed Anki; patterns feed output
 - Lessons: -
 
+## Usage events
+| date | event_id | concept/item_ref | event | evidence | public note |
+|------|----------|------------------|-------|----------|-------------|
+
+Each `reading_session` event is one actual novel-reading session. The
+`read-sentence-fallback` row is deliberately separate and never increments
+this gate.
+
 ## Log
-- 2026-09-21 - track opened from learner focus declaration; scoping + field scan pending at first lesson.
+- 2026-09-21 - track opened from learner focus declaration.
+- 2026-09-27 - reading gate changed from calendar month to 30 actual sessions;
+  fallback sessions excluded.

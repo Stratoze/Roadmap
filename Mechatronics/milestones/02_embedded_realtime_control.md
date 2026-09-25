@@ -87,10 +87,7 @@ have a timing problem.
 
 # Milestone 2.1 — Bare-Metal STM32 Foundation
 
-> [!info] 📚 Resources — Bare-Metal STM32
-> **Visual:** Controllers Tech / Quantum Leaps (STM32 from registers).
-> **Interactive:** arm-none-eabi-gcc + CMake + OpenOCD + GDB; blink, then 1 kHz timer on a scope.
-> **Theory:** STM32 Reference Manual + Datasheet. RCC → GPIO → TIM order.
+> Sources are selected JIT through the `resources` skill when this milestone activates. Historical candidates and verification decisions are in [[_system/learning/archive/source-ledger|source ledger]].
 
 ## Deliverable
 
@@ -163,10 +160,7 @@ LED blinking via direct register writes, no HAL, compiled from command line, fla
 
 # Milestone 2.2 — PID Theory + Tuning in Simulation
 
-> [!info] 📚 Resources — PID Theory & Tuning
-> **Visual:** Brian Douglas / MATLAB Tech Talks PID series — the gold standard (P/I/D roles, windup).
-> **Interactive:** Python PID sim — step response, Bode, tune Kp→Ki→Kd.
-> **Theory:** Nise Ch 8–10; Åström & Murray for depth.
+> Sources are selected JIT through the `resources` skill when this milestone activates. Historical candidates and verification decisions are in [[_system/learning/archive/source-ledger|source ledger]].
 
 ## Deliverable
 
@@ -218,10 +212,7 @@ Python PID simulation with step response plots, Bode plots, and a tuning guide i
 
 # Milestone 2.3 — FOC Closed-Loop on Hardware
 
-> [!info] 📚 Resources — FOC Closed-Loop
-> **Visual:** Ben Briny FOC series; SimpleFOC overview.
-> **Interactive:** SimpleFOC as reference; scope the current loop.
-> **Theory:** ST AN1086, TI SLUA171 (Clarke/Park, ADC-to-PWM sync, encoder offset).
+> Sources are selected JIT through the `resources` skill when this milestone activates. Historical candidates and verification decisions are in [[_system/learning/archive/source-ledger|source ledger]].
 
 ## Deliverable
 
@@ -285,10 +276,7 @@ The goal is not to "copy FOC." The goal is to understand what each transformatio
 
 # Milestone 2.4 — FreeRTOS Multi-Task Firmware
 
-> [!info] 📚 Resources — FreeRTOS Multi-Task
-> **Visual:** Quantum Leaps RTOS course; FreeRTOS explainers.
-> **Interactive:** FreeRTOS on your STM32 — 3 tasks, priority-inversion demo, watchdog.
-> **Theory:** FreeRTOS manual; WCET measurement; hard vs soft real-time.
+> Sources are selected JIT through the `resources` skill when this milestone activates. Historical candidates and verification decisions are in [[_system/learning/archive/source-ledger|source ledger]].
 
 ## Deliverable
 
@@ -349,10 +337,7 @@ hard? Which are soft? What happens if a soft task blocks a hard task?
 
 # Milestone 2.5 — Multi-DOF Dynamics + State-Space Control
 
-> [!info] 📚 Resources — Multi-DOF Dynamics & State-Space
-> **Visual:** 3Blue1Brown linear algebra; Brian Douglas state-space videos.
-> **Interactive:** sympy for the 2-link Lagrangian, scipy to simulate, eigenvalues for natural freqs.
-> **Theory:** Craig *Intro to Robotics* Ch 6–7; Lynch & Park for state-space.
+> Sources are selected JIT through the `resources` skill when this milestone activates. Historical candidates and verification decisions are in [[_system/learning/archive/source-ledger|source ledger]].
 
 ## Deliverable
 
@@ -410,10 +395,7 @@ This milestone connects Phase 0 statics and Phase 1 pendulum dynamics to the act
 
 # Milestone 2.6 — Limit Switches, Homing, and State Machine Design
 
-> [!info] 📚 Resources — Limit Switches, Homing & State Machines
-> **Visual:** CNC homing / debounce / state-machine videos.
-> **Interactive:** wire an NC limit switch, scope the bounce, debounce in HW+SW.
-> **Theory:** state-machine patterns (states/transitions/guards); NC-fails-safe reasoning.
+> Sources are selected JIT through the `resources` skill when this milestone activates. Historical candidates and verification decisions are in [[_system/learning/archive/source-ledger|source ledger]].
 
 ## Deliverable
 
@@ -479,11 +461,7 @@ The homing sequence is also your first real state machine. The pattern — state
 
 # Milestone 2.7 — Integrated Sub-System: Haptic Knob
 
-> [!info] 📚 Resources — Haptic Knob
-> **Visual:** Scott Bezek "smartknob" videos (GitHub/YouTube) — the reference for BLDC haptic devices.
-> **Interactive:** your FOC firmware from 2.3 on a gimbal BLDC + AS5048.
-> **Theory:** impedance control τ = Kp(θ_des − θ) + Kd(ω_des − ω); nested loops (FOC inner, impedance outer); encoder SPI from 2.1.
-> **Fabrication:** 3D-printed housing + knob grip (PETG/ABS), purchased 6800-series bearings, purchased diametric magnet for AS5048. No CNC.
+> Sources are selected JIT through the `resources` skill when this milestone activates. Historical candidates and verification decisions are in [[_system/learning/archive/source-ledger|source ledger]].
 
 ## Deliverable
 
@@ -552,11 +530,7 @@ This artifact is the QDD actuator's firmware and sensor stack in miniature. Ever
 
 # Milestone 2.8 — Inverted Pendulum Cart
 
-> [!info] 📚 Resources — Inverted Pendulum Cart
-> **Visual:** Brian Douglas inverted pendulum / LQR videos.
-> **Interactive:** linearize your 2.5 model around upright, design LQR in Python, simulate, THEN build.
-> **Theory:** 2.5 state-space; LQR/pole placement; 2.6 homing + limit switches; 2.3 or 1.6 for drive.
-> **Fabrication:** MGN12 linear rail (purchased, bolted to 2020 extrusion with T-nuts — no drilling metal), printed chassis (PETG/ABS), printed pendulum arm or purchased carbon tube.
+> Sources are selected JIT through the `resources` skill when this milestone activates. Historical candidates and verification decisions are in [[_system/learning/archive/source-ledger|source ledger]].
 
 ## Deliverable
 
@@ -639,7 +613,7 @@ No new inputs. Do not start CAD/PCB yet.
 - [ ] Explain LQR Q/R physically from memory
 - [ ] Name 3 other firmware state machines and sketch one
 - [ ] Run largest integrated firmware cold
-- [ ] Run `scripts/versions.sh` and `scripts/cold_tools.sh`
+- [ ] Run `scripts/versions.sh` and the Cold Verification checklist in `_system/How to Learn.md`
 - [ ] Clean code naming, commit phase state
 - [ ] **Physical:** haptic knob + pendulum cart photographed, labeled, videos in `docs/captures/`
 

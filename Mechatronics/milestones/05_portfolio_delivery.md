@@ -40,7 +40,7 @@ Are decisions documented? Are limitations acknowledged honestly?
 - [ ] One demo video: workcell running
 - [ ] Code repo clean and navigable
 - [ ] Verification matrix completed (`_templates/mech/verification_matrix.md`)
-- [ ] **Physical:** exploded view assembled, ≥ 5 labeled components (if 5.2 elected — optional example, see Skill Spine)
+- [ ] **Physical:** exploded view assembled, ≥ 5 labeled components (if 5.2 elected — optional example, see [[Mechatronics/skills/registry#Graded-path rules|graded-path rules]])
 
 ### Full Pass
 - [ ] Report: requirements → design → build → test → results → lessons
@@ -67,9 +67,7 @@ survived.
 
 # Milestone 5.1 — Portfolio + Documentation
 
-> [!info] 📚 Resources — Portfolio & Delivery
-> Self-work: compile decision records, captures, retros.
-> Use `_templates/mech/verification_matrix.md`, `portfolio_rubric.md`, `stress_inoculation.md`.
+> Sources are selected JIT through the `resources` skill when this milestone activates. Historical candidates and verification decisions are in [[_system/learning/archive/source-ledger|source ledger]].
 
 ## Deliverable
 
@@ -198,10 +196,7 @@ metacognitive reflection.
 
 # Milestone 5.2 — Exploded-View Pedestal + Bench Museum (optional example — presentation, no new skill)
 
-> [!info] 📚 Resources — Display Fabrication
-> **Visual:** iFixit-style teardown displays; museum exhibit labeling.
-> **Interactive:** laser-cut acrylic stand (service), mount components, label, light.
-> **Fabrication:** laser-cut 3–5 mm acrylic via service; hand assembly; label maker; LED strip. No machining.
+> Sources are selected JIT through the `resources` skill when this milestone activates. Historical candidates and verification decisions are in [[_system/learning/archive/source-ledger|source ledger]].
 
 ## Deliverable
 

@@ -30,6 +30,31 @@ review - everything visible, versioned, and hand-editable in the vault.
 - `maps/overview.md` - roadmap-level edge map (in-flight scoping; strand queue +
   provisional brackets by unit). Provisional by design; never canonical status.
 
+## Active session skills
+
+- `.dsh/skills/japanese/SKILL.md` coordinates the daily Japanese grammar,
+  conversation, reading, immersion, Anki boundary, and usage evidence.
+- `.dsh/skills/technical/SKILL.md` coordinates technical source selection,
+  learner reading, cold conceptual checks, breaks, fresh transfer,
+  implementation, Feynman correction, and assessor handoff.
+
+These compose the existing `study`, `map`, `resources`, and `review` skills;
+they do not create a second curriculum or vocabulary database.
+
+## Schemas and ownership
+
+- `## Resources` is the canonical active source-dossier heading. Raw roadmaps
+  contain deliverables, dependencies, keywords, and safety/evidence boundaries,
+  not source libraries.
+- `## Usage events` is append-only. Events are `introduced`, `practised`,
+  `produced`, or learner-reported `mined`; passive exposure is not use.
+- Anki owns Japanese vocabulary. Public notes contain summaries and links;
+  raw learner productions stay in `_private/`.
+- Technical lesson records are written under
+  `_system/learning/lessons/<topic>/`; the technical-session template adds the
+  cold/transfer/implementation signature table and timestamped break block.
+  Use `scripts/question_signatures.py check` before a fresh prompt.
+
 ## The link web
 
 Everything links: topics, theory, problems, lessons, evidence - and links run
@@ -61,13 +86,13 @@ public summaries continue.
 
 Project-scoped; no global plugin needed. Single live home: `.dsh/`.
 
-- Skills: `.dsh/skills/study/`, `map/`, `resources/`, `review/` - invoked by
-  either party in plain language ("study X", "review", "test me in X") under
-  the ask-first rules in `AGENTS.md`. No slash-command infra.
+- Skills: `.dsh/skills/study/`, `map/`, `resources/`, `review/`, `japanese/`,
+  `technical/` - invoked by either party in plain language under the ask-first
+  rules in `AGENTS.md`. No slash-command infra.
 - Agents: `.dsh/agents/{scout,verifier,assessor}.md` - briefs are inert until
   quoted (hand the child the file plus its task).
-- Legacy shims (OpenCode commands/agents, Codex agents, `.agents/skills/`)
-  are frozen in `archive/harness-opencode/` and `archive/harness-codex/`.
+- Retired OpenCode/Codex harness mirrors are historical provenance only; they
+  are not active procedure.
 
 ## Provenance
 

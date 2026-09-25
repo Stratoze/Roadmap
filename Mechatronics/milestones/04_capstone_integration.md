@@ -59,10 +59,7 @@ You don't need to implement the full standard. But the capstone's safety milesto
 
 # Milestone 4.1 — CAN + C++ Messaging
 
-> [!info] 📚 Resources — CAN + C++ Messaging
-> **Visual:** CAN-bus arbitration/frame explainers.
-> **Interactive:** two-node CAN round-trip; 1000-packet stress test; no dynamic allocation.
-> **Theory:** CAN frame format; Lospinoso *C++ Crash Course*.
+> Sources are selected JIT through the `resources` skill when this milestone activates. Historical candidates and verification decisions are in [[_system/learning/archive/source-ledger|source ledger]].
 
 ## Deliverable
 
@@ -114,10 +111,7 @@ Object-oriented C++ communication layer, error-free packets across physical CAN 
 
 # Milestone 4.2 — Motion Integration + Dynamics-Aware Control
 
-> [!info] 📚 Resources — Motion Integration & Dynamics-Aware Control
-> **Visual:** inverse-kinematics / trajectory-shaping videos.
-> **Interactive:** Python IK — X,Y→θ1,θ2, straight-line interpolation, feedforward torque.
-> **Theory:** Craig Ch 6–7; computed-torque / minimum-jerk trajectories; your 2.5 model.
+> Sources are selected JIT through the `resources` skill when this milestone activates. Historical candidates and verification decisions are in [[_system/learning/archive/source-ledger|source ledger]].
 
 ## Deliverable
 
@@ -181,10 +175,7 @@ The 2-DOF arm — two QDD actuators — tracking coordinated trajectories. IK on
 
 # Milestone 4.3 — Safety PDU + Hardwired E-Stop
 
-> [!info] 📚 Resources — Safety PDU & Hardwired E-Stop
-> **Standards:** IEC 62061 / ISO 13849-1 (functional safety); dual-channel E-stop; safe-state definition.
-> **Interactive:** build the PDU on DIN rail; test E-stop with MCU power pulled; fault injection on the HIL bench.
-> **Fabrication:** DIN rail + DC-rated contactors + NC dual-channel E-stop + fuses; panel via laser-cut acrylic or sheet-metal service.
+> Sources are selected JIT through the `resources` skill when this milestone activates. Historical candidates and verification decisions are in [[_system/learning/archive/source-ledger|source ledger]].
 
 ## Deliverable
 
@@ -254,9 +245,7 @@ A panel-mounted Power Distribution Unit: 48 V in → fuse → dual-channel conta
 
 # Milestone 4.4 — Workcell Integration + Harness (split: integration checklist foldable into 4.2/4.3 exit; harness-scale EMC + operability review graded here)
 
-> [!info] 📚 Resources — Workcell Integration
-> Mostly self-work: labeling, shielding, cable management, cold-boot testing.
-> Reference: your own EMC rules from Milestone 3.2.
+> Sources are selected JIT through the `resources` skill when this milestone activates. Historical candidates and verification decisions are in [[_system/learning/archive/source-ledger|source ledger]].
 
 ## Deliverable
 
@@ -305,11 +294,7 @@ Clean, labeled, shielded, industry-grade installation. Everything wired, aligned
 
 # Milestone 4.5 — Electromechanical Gripper + Tool Changer (graded: end-effector + separable power/signal interface — no alternate owner)
 
-> [!info] 📚 Resources — Gripper & Tool Changer
-> **Visual:** Robotiq-style gripper teardowns; quick-changer mechanism videos.
-> **Interactive:** design in CAD, print in PETG/nylon, test grip force with your Phase 1 load cell.
-> **Theory:** friction cone at the fingertips, linkage mechanical advantage, pogo-pin working stroke (datasheet), dowel alignment.
-> **Fabrication:** 3D print (PETG or nylon). Purchased pogo pins, dowel pins, small magnets, adhesive rubber feet. No CNC.
+> Sources are selected JIT through the `resources` skill when this milestone activates. Historical candidates and verification decisions are in [[_system/learning/archive/source-ledger|source ledger]].
 
 ## Deliverable
 
@@ -367,7 +352,7 @@ Clean, labeled, shielded, industry-grade installation. Everything wired, aligned
 - [ ] Draw the E-Stop circuit from memory, including why the contactors are DC-rated and dual-channel
 - [ ] State the safe state per axis from memory, including the gravity case
 - [ ] List all HIL fault scenarios and expected firmware responses
-- [ ] Run `scripts/versions.sh` and `scripts/cold_tools.sh`
+- [ ] Run `scripts/versions.sh` and the Cold Verification checklist in `_system/How to Learn.md`
 
 ## Phase 4 Retro
 

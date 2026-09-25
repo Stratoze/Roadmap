@@ -1,5 +1,8 @@
 # Template index — task → template file
 
+## Learning (`_templates/learning/`)
+- [[_templates/learning/technical_session|technical_session]] — technical source/read, cold check, break, transfer, implementation, and assessor record
+
 ## Mech (`_templates/mech/`)
 - Bring-up: [[_templates/mech/first_power_on|first_power_on]] · [[_templates/mech/pre_motion_check|pre_motion_check]] · [[_templates/mech/lipo_check|lipo_check]]
 - Build: [[_templates/mech/cad_release|cad_release]] · [[_templates/mech/cad_assembly|cad_assembly]] · [[_templates/mech/cad_part|cad_part]] · [[_templates/mech/schematic_review|schematic_review]] · [[_templates/mech/pcb_bringup|pcb_bringup]] · [[_templates/mech/pinout_wiring|pinout_wiring]] · [[_templates/mech/module_readme|module_readme]] · [[_templates/mech/quote_package|quote_package]]

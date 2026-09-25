@@ -80,10 +80,7 @@ with coupling coefficient Ke = Kt (in SI units: V·s/rad = N·m/A — in V/kRPM 
 
 # Milestone 1.1 — I2C Sensor + Telemetry
 
-> [!info] 📚 Resources — I2C Sensor + Telemetry
-> **Visual:** any clear "I2C protocol explained" (start/address/ACK/stop).
-> **Interactive:** Velxio (self-hosted, free) — wire MPU6050+ESP32, verify WHO_AM_I before hardware. Logic analyzer on SDA/SCL.
-> **Theory:** MPU6050 register map/datasheet; I2C spec basics.
+> Sources are selected JIT through the `resources` skill when this milestone activates. Historical candidates and verification decisions are in [[_system/learning/archive/source-ledger|source ledger]].
 
 ## Deliverable
 
@@ -145,10 +142,7 @@ ESP32 reading raw MPU6050 registers over I2C, streaming live in PlotJuggler. No 
 
 # Milestone 1.2 — Noise, Filtering, and Frequency Domain
 
-> [!info] 📚 Resources — Noise, FFT & Filtering
-> **Visual:** 3Blue1Brown *But what is the Fourier Transform?* — mandatory before FFT code.
-> **Interactive:** Falstad RC low-pass + square wave (this is what an EMA does in code). Plot your real IMU noise floor with scipy/Audacity FFT.
-> **Theory:** Smith *DSP Guide* Ch 8–9 (free, better than Ulaby for this topic).
+> Sources are selected JIT through the `resources` skill when this milestone activates. Historical candidates and verification decisions are in [[_system/learning/archive/source-ledger|source ledger]].
 
 ## Deliverable
 
@@ -207,10 +201,7 @@ EMA filter on raw IMU data, PlotJuggler overlay: raw vs. filtered. Then: FFT of 
 
 # Milestone 1.3 — H-Bridge, BLDC Commutation + Characterization
 
-> [!info] 📚 Resources — H-Bridge, BLDC & Characterization
-> **Visual:** Ben Briny / Informed comment (BLDC commutation, H-bridge, FOC intro).
-> **Interactive:** LTspice/Falstad H-bridge — watch flyback & dead-time before wiring. Scope the phase terminals for back-EMF.
-> **Theory:** Hughes *Electric Motors & Drives* Ch 1–4; ST/TI gate-driver & current-sense app notes.
+> Sources are selected JIT through the `resources` skill when this milestone activates. Historical candidates and verification decisions are in [[_system/learning/archive/source-ledger|source ledger]].
 
 ## Deliverable
 
@@ -306,10 +297,7 @@ The H-bridge is the brick. A 3-phase BLDC inverter is three H-bridges with sinus
 
 # Milestone 1.4 — Pendulum Dynamics Model + Hardware Validation
 
-> [!info] 📚 Resources — Pendulum Dynamics Model
-> **Visual:** 3Blue1Brown differential-equations videos.
-> **Interactive:** scipy.integrate.solve_ivp pendulum sim; compare to the real drop.
-> **Theory:** Ulaby Ch 4–5, Nise Ch 2 & 7. Derive on paper before coding.
+> Sources are selected JIT through the `resources` skill when this milestone activates. Historical candidates and verification decisions are in [[_system/learning/archive/source-ledger|source ledger]].
 
 ## Deliverable
 
@@ -368,10 +356,7 @@ Python simulation of a 1D simple or physical pendulum, `scipy.integrate.solve_iv
 
 # Milestone 1.5 — Phase 1 Integration + Sensor Fusion + Calibration
 
-> [!info] 📚 Resources — Integration, Sensor Fusion & Calibration
-> **Visual:** complementary/Madgwick filter explainers.
-> **Interactive:** PlotJuggler — fuse gyro+accel, watch drift disappear; calibrate 6 orientations.
-> **Theory:** calibration (offset/gain); complementary-filter math.
+> Sources are selected JIT through the `resources` skill when this milestone activates. Historical candidates and verification decisions are in [[_system/learning/archive/source-ledger|source ledger]].
 
 ## Deliverable
 
@@ -431,10 +416,7 @@ Single loop on ESP32: IMU → calibration → complementary filter → motor res
 
 # Milestone 1.6 — Stepper Motor + Microstepping Driver
 
-> [!info] 📚 Resources — Stepper + Microstepping
-> **Visual:** stepper-drive / microstepping / chopper-drive explainers.
-> **Interactive:** TMC2209 — set current limit, sweep microsteps, listen for resonance.
-> **Theory:** TMC2209 datasheet; stepper torque-speed fundamentals.
+> Sources are selected JIT through the `resources` skill when this milestone activates. Historical candidates and verification decisions are in [[_system/learning/archive/source-ledger|source ledger]].
 
 ## Deliverable
 
@@ -490,11 +472,7 @@ Steppers are the other half of the actuator world. BLDC for continuous rotation 
 
 # Milestone 1.7 — Voice Coil Actuator + Motor Test Rig
 
-> [!info] 📚 Resources — VCA & Motor Characterization
-> **Visual:** Ben Briny FOC series (Lorentz force context); any "how a voice coil works" video.
-> **Interactive:** wind the coil, measure resistance, plot F vs I in Python.
-> **Theory:** Lorentz force F = B·I·L·N; Hooke's law for the flexure; H-bridge drive (from 1.3); Ohm/KVL (from 0.5).
-> **Fabrication:** 3D print (PETG for the flexure), hand-wound magnet wire, purchased N42 ring magnet, purchased S-beam load cell. NO metal cutting.
+> Sources are selected JIT through the `resources` skill when this milestone activates. Historical candidates and verification decisions are in [[_system/learning/archive/source-ledger|source ledger]].
 
 ## Deliverable
 
@@ -582,7 +560,7 @@ No new inputs.
 - [ ] Clean ESP32 firmware: consistent naming, remove debug prints
 - [ ] Commit clean state
 - [ ] **Physical:** all Phase 1 artifacts photographed, labeled, stored in `docs/captures/`
-- [ ] Run `scripts/cold_tools.sh`
+- [ ] Run the Cold Verification checklist in `_system/How to Learn.md`
 
 ## Phase 1 Retro
 

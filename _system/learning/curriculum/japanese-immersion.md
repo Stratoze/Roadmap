@@ -1,21 +1,26 @@
-# Japanese immersion log
+# Japanese Immersion Log
 
 ## Goal
 - Scoping answer (verbatim, 2026-09-21): "maybe we can gradually increase the level until everything is in japanese etc ? and also like immersion log or sth ?"
-- By when: none (ongoing input thread; priority JP >= mechatronics)
+- Ordinary input target: approximately 3 hours, with no completion quota.
+- By when: ongoing input thread; priority JP >= mechatronics
 
 ## Map
-- Provisional (2026-09-21): log what was watched/read, time, one mined
-  pattern or word per session. No quotas, no streaks - the log exists so
-  immersion compounds instead of evaporating. Anki holds mined vocab
-  (recognition); the vault owns patterns and production.
+- Log what was watched/read, time, and useful words/patterns only when they
+  matter to the learner's current work. No fixed mining target, streak, or
+  guilt language.
+- Anki owns vocabulary. This file records learner-reported mining events and
+  input context; it does not become a vocabulary database.
 
 ## Concepts
 | id | aim | prereqs | state | rung | next_review | evidence |
 |----|-----|---------|-------|------|-------------|----------|
+| immersion-log-event | record useful input context without turning it into a quota | - | seen | 0 | - | count optional `introduced`/`practised` events below |
+| immersion-level-ramp | gradually increase input difficulty from useful comprehension to Japanese-led immersion | read-page-interpretation | unknown | 0 | - | - |
 
 ## Resources
-- See [[Japanese/Resources]] (difficulty sort, subtitles). Dossier at activation via the `resources` skill.
+- Active material selected JIT through the learner. Stable discovery links live
+  in [[Japanese/Resources]].
 
 ## Misconceptions
 - (none logged yet)
@@ -29,5 +34,11 @@
 - Teaches: japanese-output (input feeds production)
 - Lessons: -
 
+## Usage events
+| date | event_id | concept/item_ref | event | evidence | public note |
+|------|----------|------------------|-------|----------|-------------|
+
 ## Log
-- 2026-09-21 - track opened from learner focus declaration; first log entry at first immersion session.
+- 2026-09-21 - track opened from learner focus declaration.
+- 2026-09-27 - removed the implied one-item-per-session quota; input remains
+  optional and no-quota.

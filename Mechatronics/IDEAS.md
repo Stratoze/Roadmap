@@ -15,8 +15,8 @@ with pass conditions, landmines, and dependencies.
 - **Phase 1:** Hand-Wound Voice Coil Actuator + 3D-Printed Motor Test Rig (Milestone 1.7)
 - **Phase 2:** Force-Feedback Haptic Knob + Inverted Pendulum Cart (Milestones 2.7, 2.8)
 - **Phase 3:** Quasi-Direct Drive Actuator — CNC housing + Puck PCB + gearbox (Milestones 3.1–3.3)
-- **Phase 4:** 2-DOF Arm + Safety PDU + Gripper + Tool Changer (Milestones 4.2–4.5; 4.4 split — integration checklist foldable, harness-EMC + operability graded — see Skill Spine)
-- **Phase 5:** Exploded-View Pedestal + Bench Museum (Milestone 5.2 — optional example unless elected; see Skill Spine)
+- **Phase 4:** 2-DOF Arm + Safety PDU + Gripper + Tool Changer (Milestones 4.2–4.5; 4.4 split — see [[Mechatronics/skills/registry#Graded-path rules|graded-path rules]])
+- **Phase 5:** Exploded-View Pedestal + Bench Museum (Milestone 5.2 — optional example unless elected; see [[Mechatronics/skills/registry#Graded-path rules|graded-path rules]])
 
 ## Maybe later
 
@@ -38,7 +38,19 @@ with pass conditions, landmines, and dependencies.
 
 ---
 
-## Revisit during 12-week review
+## Optional speed runs
+
+These are recommendations, not commitments. After a phase, ask whether the
+learner wants the next one or wants to move on.
+
+- **Phase 0** — LED blinky + motor spin on breadboard, video it (~1 week)
+- **Phase 0 option** — speaker from scratch: cup + magnet + coil (~1 weekend)
+- **Phase 0 option** — hand-crank generator into an LED (~1 weekend)
+- **Phase 1** — IMU → PlotJuggler, screenshot + explanation (~3 days)
+- **Phase 2** — port SimpleFOC to STM32 in a weekend (~1 week)
+- **Phase 3** — order a PCB, modify one thing, and hand-check one bracket (~2 weeks)
+- **Phase 4** — contribute a bug fix or documentation improvement upstream (~1 week)
+
 
 Ask:
 - Does this fit the current phase?

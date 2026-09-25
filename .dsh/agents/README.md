@@ -11,6 +11,5 @@ with no memory of the asking session.
 - `assessor.md` — blind grader for claim gates (MVM / Full Pass) and sampled
   audits. Sees only claim + rubric + question + production.
 
-Skills that spawn them live in `.dsh/skills/`. Legacy harness mirrors
-(OpenCode / Codex) are frozen in `_system/learning/archive/harness-opencode/`
-and `_system/learning/archive/harness-codex/`.
+Skills that spawn them live in `.dsh/skills/`. Retired OpenCode/Codex harness
+mirrors were removed after reference cleanup; `.dsh/` is the only live home.

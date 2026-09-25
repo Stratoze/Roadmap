@@ -143,11 +143,7 @@ Severity × Occurrence ≥ 12 or RPN ≥ 48 needs a documented mitigation before
 
 # Milestone 3.1 — QDD Actuator: CAD + Machine Elements + FEA + Drawings
 
-> [!info] 📚 Resources — QDD Mechanical Design
-> **Visual:** MIT Mini Cheetah / Ben Katz actuator teardowns; Solid Edge CE tutorials; Jakub Michalski PrePoMax series.
-> **Interactive:** model → STEP → PrePoMax static stress → validate vs hand calc. FreeCAD as macOS STEP viewer.
-> **Theory:** SKF/NSK bearing-fit tables; fastener preload; GD&T; Shigley machine elements.
-> **Fabrication:** Solid Edge CE for design; 3D print for prototype; CNC service for final housing.
+> Sources are selected JIT through the `resources` skill when this milestone activates. Historical candidates and verification decisions are in [[_system/learning/archive/source-ledger|source ledger]].
 
 ## Deliverable
 
@@ -224,11 +220,7 @@ Complete QDD actuator mechanical design in Solid Edge CE: housing (two halves or
 
 # Milestone 3.2 — The Puck: Custom FOC Driver PCB
 
-> [!info] 📚 Resources — The Puck PCB
-> **Visual:** Phil's Lab STM32 motor driver PCB series — watch before opening KiCad.
-> **Interactive:** KiCad 9 — schematic → footprints → 4-layer layout → DRC → Gerbers → JLCPCB. Built-in PCB Calculator for trace widths (IPC-2152 for current capacity).
-> **Theory:** TI SLVA404 (buck layout); IPC-2152 for current capacity (IPC-2221 is obsolete for this — KiCad's calculator is still fine for geometry); ground-plane & switching-node EMC; your own Phase 1 analog front-end experience.
-> **Fabrication:** JLCPCB/PCBWay 4-layer + stencil; hotplate or hot-air reflow. NEW soldering territory — budget time to learn it.
+> Sources are selected JIT through the `resources` skill when this milestone activates. Historical candidates and verification decisions are in [[_system/learning/archive/source-ledger|source ledger]].
 
 ## Deliverable
 
@@ -336,11 +328,7 @@ Before finalizing schematic:
 
 # Milestone 3.3 — QDD Actuator Assembly + Characterization
 
-> [!info] 📚 Resources — QDD Assembly & Characterization
-> **Visual:** actuator assembly videos (Mini Cheetah class); your own Phase 1 characterization captures as the template.
-> **Interactive:** assemble → FOC on the Puck → characterize on the Phase 1 test rig.
-> **Theory:** reflected inertia (motor side: J_m + J_gb,m + J_load/N²; output side: J_load + (J_m+J_gb,m)×N² — state the frame, a 10:1 REDUCES motor-side inertia ~100×); backdrivability as the QDD's defining property; encoder offset calibration (1.3); bearing preload.
-> **Fabrication:** assembly only. Hand tools + press fits. 48 V bus — follow SAFETY_CARD.
+> Sources are selected JIT through the `resources` skill when this milestone activates. Historical candidates and verification decisions are in [[_system/learning/archive/source-ledger|source ledger]].
 
 ## Deliverable
 
@@ -469,7 +457,7 @@ The nominal behavior is the easy part.
 - [ ] State the QDD's measured Kt, backdrivability, and thermal limit from memory
 - [ ] Explain the SIL→HIL flow: what was verified in simulation, what was verified on hardware, where they diverged and why
 - [ ] Review and update the Mini-FMEA with actual failure modes encountered during fabrication and bring-up
-- [ ] Run `scripts/versions.sh` and `scripts/cold_tools.sh`
+- [ ] Run `scripts/versions.sh` and the Cold Verification checklist in `_system/How to Learn.md`
 
 ## Phase 3 Retro
 

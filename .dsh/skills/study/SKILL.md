@@ -6,9 +6,9 @@ description: Learn, practice, or continue a topic the vault way - verified resou
 # Study - the vault learning session
 
 Read first: `_system/How to Learn.md` (the Loop and the rules),
-`_system/learning/README.md` (system layout), `_system/learning/learner.md`
-(preferences + standing orders). Build history:
-`_system/learning/archive/vault-learning-system.md`.
+`_system/learning/README.md` (system layout), and `_system/learning/learner.md`
+(preferences + standing orders). Use the active topic dossier for its current
+source; do not preload resources from a roadmap.
 
 ## Session start
 
@@ -27,14 +27,15 @@ Read first: `_system/How to Learn.md` (the Loop and the rules),
 3. Check `_private/.git` exists. If not: say verbatim capture is paused, tell
    the learner to clone the private repo, and continue with public summaries
    only.
-4. Check `## Resources`. If missing or thin, run the resources routine (spawn
-   **scout**, then **verifier**) and say the one slow step is running. Do not
-   stall silently. Entries must be section-precise (`for <concept ids>`); a
-   dossier with bare book titles is thin.
-5. Milestone topics: if the milestone has a `Lenses - m0-N` block, those
-   approved sources win for orientation, and the `Book:` line is the default
-   reading locator.
-6. Show what is due today (`python3 scripts/review.py due`) before starting new
+4. Check the active concept's `## Resources` dossier. If it is missing, run
+   the JIT resources routine (ask for a book/source, then scout/verifier) and
+   say that the source step is running. A bare title or inactive roadmap list
+   is not an active locator.
+5. Milestone topics may retain approved lenses as historical/curriculum
+   guidance, but the activated curriculum dossier is the source authority.
+6. Technical work routes to `.dsh/skills/technical/SKILL.md`; generic study
+   handles concepts that do not need the technical session sequence.
+7. Show what is due today (`python3 scripts/review.py due`) before starting new
    material; the learner chooses.
 
 ## Intake (pre-system topics)
@@ -50,17 +51,20 @@ verifies per sitting; continue only if asked.
 
 ## The loop (per concept)
 
-Default modality (standing orders 5-6): the concept's cited **locator first** -
-read/watch it, then the learner's questions, then probing. AI explains only on a
-documented block (below); wrong premises are named and dislodged, never papered
-over. Zero-schema concepts: orientation before any question.
+Default modality: the active concept's cited locator first. Ask for or verify
+one source JIT when needed, read it, then take the learner's questions and
+probe. A faithful translation/restatement into Japanese may add no new claims;
+an explanation beyond the source is a documented blocker. Wrong premises are
+named and dislodged, never papered over. Zero-schema concepts: orientation
+before any question.
 
-- **Source**: open the concept's locator from `## Resources` (`for <concept id>`)
-  - `book: ch N "Title"` is the default path. Read that section. A `video` or
-  `interactive` locator is a substitute for a concept no book covers - use it
-  only when there is no book entry, and say which one you are using. Say what
-  to read/watch and roughly how long. No citation for the concept = a sourcing
-  gap: run the resources routine, do not lecture instead.
+- **Source**: open the concept's active locator from `## Resources` (`for <concept id>`).
+  - If no active locator exists, ask for a book/source and run the resources
+    scout/verifier routine. Do not lecture from memory.
+  - A learner-supplied book is valid when its edition and locator are recorded.
+  - Videos/interactives are verified substitutes or supplements, selected at
+    activation rather than stockpiled.
+
 - **Motivate**: why this now, tied to their goal. One or two sentences.
 - **Predict**: "I expect ___ because ___" - their words.
 - **Attempt**: they try. 15 minutes of solo struggle with attempts logged

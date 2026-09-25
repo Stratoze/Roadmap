@@ -1,10 +1,10 @@
 # Mechatronics hub
 
-- [[Mechatronics/ROADMAP|Roadmap]] — phase table, gates, evidence discipline
+- [[Mechatronics/ROADMAP|Roadmap]] — phase table, deliverables, dependencies, keywords, safety, evidence discipline
 - [[Mechatronics/resources/SAFETY_CARD|Safety card]] — envelopes per phase
-- [[Mechatronics/IDEAS|Ideas]] — parking lot
-- Current milestone + evidence: see the Focus block in the latest [[Daily/Index|daily note]],
-  worked solutions in [[Mechatronics/milestones/evidence/Index|evidence/]]
+- [[Mechatronics/IDEAS|Ideas]] — optional projects and speed runs
+- Current milestone status: [[Mechatronics/ROADMAP|Roadmap]] only
+- Evidence index: [[Mechatronics/milestones/evidence/Index|evidence/]]
 
 ## Resources
 - [[Mechatronics/resources/CONVENTIONS|Conventions]]

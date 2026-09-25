@@ -5,7 +5,7 @@
 - By when: ~1 month for a good level (learner's estimate, uncertain; pacing holds one strand at a time across the subject juggle)
 
 ## Map
-- Provisional (2026-09-11): floor symbolic calculus chain both ways with limits + Euler step with run/rise picture; ceiling solving y'=-y (shape/method). Detail: `_system/learning/overview-map.md`.
+- Provisional (2026-09-11): floor symbolic calculus chain both ways with limits + Euler step with run/rise picture; ceiling solving y'=-y (shape/method). Detail: `_system/learning/maps/overview.md`.
 
 ## Concepts
 | id | aim | prereqs | state | rung | next_review | evidence |
@@ -33,21 +33,15 @@
 - Deferred: separation/integrating factor, characteristic equation, Laplace, systems/matrix form, nonlinearity theorems
 
 ## Resources
-- intuitive | Differential equations, studying the unsolvable | Grant Sanderson (3Blue1Brown) | https://www.3blue1brown.com/lessons/differential-equations | verified 2026-09-11
-- intuitive | Differential equations introduction | Khan Academy | https://www.khanacademy.org/math/differential-equations/first-order-differential-equations/differential-equations-intro/v/differential-equation-introduction | unverified (stale URL path; migrated page exists, needs browser check)
-- intuitive | Slope fields introduction | Khan Academy | https://www.khanacademy.org/math/ap-calculus-ab/ab-differential-equations-new/ab-7-3/v/creating-a-slope-field | unverified (fetch JS-walled; search-confirmed, needs browser check)
-- intuitive | Euler's method | Khan Academy | https://www.khanacademy.org/math/differential-equations/first-order-differential-equations/eulers-method-tutorial/v/eulers-method | unverified (stale URL path + fetch wall; migrated page exists, needs browser check)
-- intuitive | Worked example: Euler's method | Khan Academy | https://www.khanacademy.org/math/differential-equations/first-order-differential-equations/eulers-method-tutorial/v/example-eulers-method-exercise | unverified (stale URL path + fetch wall; migrated page exists, needs browser check)
-- rigorous | Lecture 2: Euler's Numerical Method for y'=f(x,y) | Prof. Arthur Mattuck, MIT OCW 18.03 | https://ocw.mit.edu/courses/18-03-differential-equations-spring-2010/resources/lecture-2-eulers-numerical-method-for-y-f-x-y | verified 2026-09-11
-- rigorous | Euler's Method | MIT OCW 18.03SC | https://ocw.mit.edu/courses/18-03sc-differential-equations-fall-2011/resources/eulers-method | verified 2026-09-11
-- rigorous | Lecture 1: The Geometrical View of y'=f(x,y) | Prof. Arthur Mattuck, MIT OCW 18.03 | https://ocw.mit.edu/courses/18-03-differential-equations-spring-2010/resources/lecture-1-the-geometrical-view-of-y-f-x-y | verified 2026-09-11
-- intuitive | Introduction to Differential Equations | Professor Leonard | https://www.youtube.com/watch?v=EWVSxND_iWA | verified 2026-09-11
-- interactive | Isoclines | MIT Mathlets | https://mathlets.org/mathlets/isoclines | verified 2026-09-11
-- interactive | Euler's Method | MIT Mathlets | https://mathlets.org/mathlets/eulers-method | verified 2026-09-11
-- interactive | Slope field and Euler's Method | talljerome, GeoGebra | https://www.geogebra.org/m/yrvqthte | verified 2026-09-11
-- reference | Definitions + Direction Fields | Paul Dawkins, Paul's Online Math Notes | https://tutorial.math.lamar.edu/classes/de/definitions.aspx | verified 2026-09-11
-- rigorous | Exponential Growth and Decay (Calc Vol 2 §2.8) | OpenStax | https://openstax.org/books/calculus-volume-2/pages/2-8-exponential-growth-and-decay | verified 2026-09-11
-- reference | Exponential growth and decay: a differential equation | Math Insight (UMN) | https://mathinsight.org/exponential_growth_decay_differential_equation_refresher | verified 2026-09-11
+- rigorous | Lecture 1: The Geometrical View of y'=f(x,y) | Prof. Arthur Mattuck, MIT OCW 18.03 | video: Lecture 1 | https://ocw.mit.edu/courses/18-03-differential-equations-spring-2010/resources/lecture-1-the-geometrical-view-of-y-f-x-y | for c1, c2, c3 | verified 2026-09-11
+- rigorous | Euler's Method | MIT OCW 18.03SC | page: Euler's Method | https://ocw.mit.edu/courses/18-03sc-differential-equations-fall-2011/resources/eulers-method | for c4 | verified 2026-09-11
+- rigorous | Exponential Growth and Decay (Calc Vol 2 §2.8) | OpenStax | book: §2.8 | https://openstax.org/books/calculus-volume-2/pages/2-8-exponential-growth-and-decay | for c5, c6 | verified 2026-09-11
+- interactive | Slope field and Euler's Method | talljerome, GeoGebra | interactive: slope field/Euler | https://www.geogebra.org/m/yrvqthte | for c2, c4 | verified 2026-09-11
+
+Historical alternatives and unverified decisions are in [[_system/learning/archive/source-ledger|source ledger]].
+## Usage events
+| date | event_id | concept/item_ref | event | evidence | public note |
+|------|----------|------------------|-------|----------|-------------|
 
 ## Misconceptions
 - 2026-09-11 - integrate-against-y: solved y'=-y by integrating -y over y (evidence: `_private/learning/verbatim/2026-09-11-map-r3.md`)

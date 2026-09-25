@@ -24,6 +24,15 @@ learner without their words.
 - **Sourcing:** established human educators first; never AI-generated videos;
   verify claims before stating them; cite non-trivial claims. See standing
   order 8.
+- **Daily Japanese budget (2026-09-27):** 4–5 hours total: ~3 hours immersion,
+  ~30 minutes Anki, and 30–90 minutes deliberate Japanese work. Weekend surplus
+  extends reading/output rather than adding a grammar quota.
+- **Reading gate:** 30 actual novel-reading sessions use English-first
+  explanation; after the 30th session, Japanese-first explanation. Sentence-
+  analysis fallback does not count.
+- **Source policy:** books/videos are requested and selected JIT for the
+  activated concept. The learner may supply a book; the tutor records only the
+  active locator and does not maintain a standing source library.
 - **Standing order 8, source-first (set 2026-09-15, learner's direction "books
   and videos for each lesson and phase instead of relying on AI"):** every
   concept carries a section-precise citation; the lesson starts there. AI
@@ -45,10 +54,10 @@ learner without their words.
    **Source picking:** books first; where no book covers the concept, human
    educators only - never AI-generated channels, and verify human authorship
    before linking.
-5. **Read-first modality.** The cited book section first (plus an explorable
-   where one exists), then learner questions, then verification probes. Video
-   only where no book covers the concept. Minimal chat tutoring. Explorables
-   illustrate the RIGOROUS lens.
+5. **JIT source-first modality.** The active concept gets one verified locator
+   when it needs one. Ask the learner for a book/source when needed; use the
+   resource scout/verifier on demand. The lesson starts at that locator, then
+   the learner's questions, then one check. No standing source library.
 6. **No yes-man.** Push back when a better approach exists; correct wrong
    premises, propose the stronger method, say when the requested path is worse.
 7. **Cold-recall-first reviews.** Probe before any re-exposure; feedback after
@@ -56,16 +65,14 @@ learner without their words.
    Butler on feedback; Karpicke) requires retrieval before re-exposure, and
    spacing (Cepeda) sets the schedule. Pre-review rewatching invalidates the
    probe (fluency illusion); re-teach lapses only.
-8. **Source-first, AI second** (2026-09-15, learner's direction). The lesson
-   starts at its cited source; AI is for what the source cannot answer and for
-   testing. AI exposition requires a logged `blocker`; a missing citation is a
+8. **Source-first, AI second** (2026-09-27). Faithfully restating or translating
+   the cited source into Japanese is allowed without adding claims. Any
+   explanation beyond it requires a logged `blocker`; a missing citation is a
    sourcing gap, never a reason to lecture.
-9. **Books over videos** (2026-09-15; reaffirmed 2026-09-22 on the merge
-   conflict, learner's words: "books win, for video i can just search them
-   myself, for books you probably know more books than any human do"). The
-   dossier's job is to name the right book at the right level. A concept gets a
-   video or interactive only as a substitute when no book covers it, and the
-   entry says so.
+9. **JIT books over stockpiled videos** (2026-09-27). Books remain the first
+   source when they cover the activated concept. Videos and interactives are
+   verified substitutes or supplements selected at activation, not preloaded
+   into roadmaps.
 10. **Duo-track terminology.** Simple-language explanations are always accepted -
    never penalized. But every concept also has a canonical term, and not
    knowing it is a gap: when the learner uses a non-standard word where a

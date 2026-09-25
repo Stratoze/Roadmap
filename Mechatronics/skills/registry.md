@@ -53,3 +53,55 @@
 | mech-knob-integration | Printed housing + bearing press + shaft/set-screw + secured wiring + zero-play feel | qdd-arm-m2.7-mvm | qdd-arm (2026-08-) | 2.7 Haptic Knob | sw-c-impedance-control, mech-testbed-build |
 | sw-c-lqr-balance | Sim LQR to 500 Hz-1 kHz hardware + Q/R physical meaning + model-vs-reality gap | qdd-arm-m2.8-mvm | qdd-arm (2026-08-) | 2.8 Inverted Pendulum Cart | sw-py-statespace-lqr, ee-stepper-microstep |
 | mech-cart-integration | Rail/extrusion assembly + hand-smooth check + cable routing + homing reuse + NC stops + push-recovery demo | qdd-arm-m2.8-mvm | qdd-arm (2026-08-) | 2.8 Inverted Pendulum Cart | sw-c-lqr-balance, sw-c-homing-sequence |
+
+## Assessment policy
+
+- A planned row is not evidence. A skill is earned only through the
+  learner's own production and the assessor result.
+- MVM requires the rubric criteria for the milestone; Full Pass additionally
+  requires fresh transfer and implementation evidence when the claim includes
+  them.
+- A `partial` or `lapsed` assessor result earns no gate.
+- The signed milestone tag is created only after the evidence and the ROADMAP
+  checkbox are committed: evidence → checkbox flip → commit → signed tag.
+- Safety, red-zone hardware, and evidence artifacts remain protected by the
+  safety card and milestone files.
+
+### Transferable-verb spine
+
+The roadmap teaches verbs, not machines. Every verb has one intro owner and
+may be reused at a tighter envelope later.
+
+| Verb | Intro owner | Reuse |
+|---|---|---|
+| derive | 0.2 FK / 0.4 statics | 1.4 EOM, 2.5 Lagrangian, 4.2 IK |
+| measure | 0.10 Type A/B + RSS | 1.7 load-cell, 3.3 Kt/Ke/thermal |
+| drive | 1.3 H-bridge + BLDC | 1.6 stepper, 2.3 FOC |
+| coordinate | 2.4 multi-task → 2.6 state machines → 4.1/4.2 CAN/motion | distributed chain |
+| power | 0.6 P/I²R/efficiency | 3.2 buck, 4.3 PDU |
+| prove safe-state | 2.6 NC-failsafe + FAULT | 3.4 HIL, 4.3 contactors/per-axis states |
+| calibrate | 0.10 zero/uncertainty, 1.3 first offset subtraction | 1.5/1.7/2.7/3.3 offsets |
+| verify SIL→HIL | Phase-3 SIL entry + HIL exit | 4.3 automated HIL |
+
+### Graded-path rules
+
+- Every milestone or project on the graded path must teach at least one new
+  transferable skill, named at intake.
+- Pure integration or polish with no new verb belongs to the example pool.
+- 4.4 splits: the route/secure/label and cold-boot integration checklist is
+  foldable; harness-scale EMC and operability review are graded.
+- 4.5 is graded: the end-effector and separable power/signal interface have no
+  alternate owner.
+- 5.2 is an optional example unless explicitly elected.
+
+### Custom-project approval
+
+A substitute project must hit the same verbs as the milestone it replaces. The
+approval record names the verbs, evidence plots with uncertainty and sample
+counts, the safety envelope, the downstream feed it preserves, and the
+mechanical/electrical/data interface contract. Simulation-only substitutes
+cannot satisfy hardware verbs. A human may overrule the agent.
+
+Wild proposals begin with a learner-led component breakdown; the breakdown is
+the skill. Final builds target roughly 20% unknown work, never roughly 90%.
+A final build that is mostly unknown indicates a missing foundation.

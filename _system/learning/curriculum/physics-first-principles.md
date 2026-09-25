@@ -10,3 +10,26 @@
 ## Concepts
 | id | aim | prereqs | state | rung | next_review | evidence |
 |----|-----|---------|-------|------|-------------|----------|
+
+## Resources
+Sources are selected JIT through the `resources` skill when a concept needs
+one. No standing source catalogue.
+
+## Usage events
+| date | event_id | concept/item_ref | event | evidence | public note |
+|------|----------|------------------|-------|----------|-------------|
+
+## Misconceptions
+
+## Problems
+| id | problem | source | theory | attempts | status |
+|----|---------|--------|--------|----------|--------|
+
+## Links
+- Rests on: math foundations selected at activation
+- Teaches: mechatronics mechanics and dynamics
+- Lessons: -
+
+## Log
+- 2026-09-25 - topic opened from the learner focus declaration.
+- 2026-09-27 - JIT resource and usage-event sections added.

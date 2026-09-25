@@ -41,9 +41,22 @@ The delta between prediction and reality is where the mental model gets correcte
 `[HYPOTHESIS]` expected · `[COMMUNITY]` common trap · `[DATASHEET]` from the source · `[VERIFIED]` you hit it (add date) · `[RETIRED]` obsolete. When one fires, promote it: `[VERIFIED — 2026-08-14]`. Landmines feed the FMEA.
 
 ## Memory / SRS Strategy
-- **The vault learning system owns spaced repetition for concepts & procedures** (transparent ladder in `_system/learning/curriculum/*.md`; `python3 scripts/review.py due|schedule|next`; reviews via the `review` skill, cold recall first).
+- **The vault learning system owns spaced repetition for concepts & procedures** (transparent ladder in `_system/learning/curriculum/*.md`; `python3 scripts/review.py due|schedule|next|usage|selftest`; reviews via the `review` skill, cold recall first).
 - **Anki owns Japanese vocabulary only.** Kaishi 1.5k + mined cards (no fixed frequency cutoff — cutoffs are corpus-dependent). Routing heuristic (not a law — overlap can help; the point is no double-SRS maintenance burden): one fact lives in exactly one SRS. In particular: piano maintenance and "review this song today" scheduling live in the vault learning system; Anki holds zero piano cards.
 - **Routing rule:** a pattern/procedure you must *reconstruct* → vault spaced review. A word you must recognize/produce *instantly* → Anki.
+- Natural-use freshness is separate from the dedicated review ladder. Passive exposure is not use; an attempted use is not a clean use; a clean independent production is the strongest usage evidence.
+- A source selected for an activated concept is temporary working context, not a standing library. Ask for or verify a book/source when the concept needs one; do not prebuild a roadmap-sized source catalogue.
+
+## Cold Verification
+
+At a phase gate or deload, verify the current work from a clean state:
+
+1. Fresh checkout/clone of the current milestone code.
+2. Rebuild from scratch without cached objects.
+3. Flash or run the artifact.
+4. Reproduce the last known-good behavior and record the result.
+
+This is a learner procedure, not a background job. Record the real time or outcome; never claim a timer ran while the session was inactive.
 
 ## Definitions
 - **MVM** = enough evidence to move on without lying to yourself. A clean handoff, not mastery.
