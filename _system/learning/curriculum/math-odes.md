@@ -10,13 +10,13 @@
 ## Concepts
 | id | aim | prereqs | state | rung | next_review | evidence |
 |----|-----|---------|-------|------|-------------|----------|
-| c1 | ODE = unknown is a function; solve means find it, check by plugging in | - | review | 0 | 2026-09-23 | lesson 2026-09-22 (read cooling and dN/dt rules as rules of change) |
+| c1 | ODE = unknown is a function; solve means find it, check by plugging in | - | review | 0 | 2026-09-26 | lesson 2026-09-22 (read cooling and dN/dt rules as rules of change) |
 | c2 | Slope field = the rule drawn globally, one arrow per point | c1 | unknown | 0 | - | - |
 | c3 | Solution curves thread the arrows; the initial point picks one | c2 | unknown | 0 | - | - |
-| c4 | Euler chaining = walk the arrows; smaller steps hug the true curve | c3 | review | 0 | 2026-09-23 | lesson 2026-09-22 (wrote the Euler loop unaided; found the sign fix) |
-| c5 | y' = ky means proportional rate, so exponential shape | c4 | review | 0 | 2026-09-23 | lesson 2026-09-22 (growth vs decay transfer check) |
-| c6 | Rate constant sets timescale (1/abs(k), half-life) | c5 | review | 0 | 2026-09-23 | lesson 2026-09-22 (1/k settling: 7 / 13 / 152 min) |
-| c7 | Equilibria plus stability on a phase line | c3 | review | 0 | 2026-09-23 | lesson 2026-09-22 (fixed point 50 stable; P=0 unstable) |
+| c4 | Euler chaining = walk the arrows; smaller steps hug the true curve | c3 | review | 0 | 2026-09-26 | lesson 2026-09-22 (wrote the Euler loop unaided; found the sign fix) |
+| c5 | y' = ky means proportional rate, so exponential shape | c4 | review | 0 | 2026-09-26 | lesson 2026-09-22 (growth vs decay transfer check) |
+| c6 | Rate constant sets timescale (1/abs(k), half-life) | c5 | review | 0 | 2026-09-26 | lesson 2026-09-22 (1/k settling: 7 / 13 / 152 min) |
+| c7 | Equilibria plus stability on a phase line | c3 | review | 0 | 2026-09-26 | lesson 2026-09-22 (fixed point 50 stable; P=0 unstable) |
 | c8 | Second order needs two starting values (spring preview) | c3 | unknown | 0 | - | - |
 | c9 | Forcing/input as the control entry point (preview only) | c7 | unknown | 0 | - | - |
 
