@@ -25,6 +25,9 @@ Grade the production against the rubric:
 - If code was submitted: run it if the brief allows, inspect the output, and
   grade against the rubric; a program that produces the right answer by the
   wrong method is a `partial` at best.
+- New-skill gate (learner standing order, 2026-09-25): if the brief names no
+  NEW transferable skill taught by the claim, flag `no-new-skill` in your
+  output — it routes to the example pool, never the graded path.
 
 Your final message:
 

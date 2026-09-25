@@ -209,7 +209,7 @@ foundation, not a hard project.
 | calibrate | 0.10 zero + instrument uncertainty, 1.3 first offset-subtraction | 1.5/1.7/2.7/3.3 offsets (same verb, rising stakes) |
 | verify SIL→HIL | Phase-3 SIL entry + HIL exit | 4.3 automated HIL |
 
-- A project belongs in the graded path only if it teaches a NEW transferable
+- Graded-path rule (learner standing order, 2026-09-25): every milestone AND project DONE must teach ≥1 NEW transferable skill, named at intake. A project belongs in the graded path only if it teaches a NEW transferable
   skill. Pure integration/polish with no new verb is an example, not a gate:
   5.2 (display) is tagged as such above. 4.4 splits: the route/secure/label +
   cold-boot integration checklist is foldable into 4.2/4.3 exit (including structural mounting and limit-switch install-at-scale, which are reuse with no new verb); harness-scale

@@ -145,4 +145,6 @@ previous lesson. Raw text goes to
 - Offer the stale commitment cue once (verbatim, never rewritten) in
   `learner.md`; if renewed, store their new words verbatim with a new date.
 - Claims (MVM / Full Pass) go to **assessor** before anything is recorded as
-  earned.
+  earned. Graded-path rule (learner standing order, 2026-09-25): every
+  milestone/project DONE names its ≥1 NEW transferable skill at intake; a claim
+  teaching nothing new routes to the example pool, never the graded path.

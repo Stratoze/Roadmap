@@ -33,7 +33,9 @@ This is an estimate, provisional by design. It never gates teaching. Read
 2. **Field scan**: spawn **scout** with the topic + goal and ask for the
    standard concepts, common framings, and gotchas (no sources needed). Prune
    the list with the learner. The pruned aims seed the `## Concepts` rows
-   (state `unknown`).
+   (state `unknown`). Graded-path rule (learner standing order, 2026-09-25):
+   each kept aim names its ≥1 NEW transferable skill; aims teaching nothing
+   new drop to the example pool.
 3. **Question rounds**, one strand at a time: broad open question ("how would
    you approach X?") -> gradable probes -> narrow. Per question: ask -> wait ->
    grade (computable keys by execution) -> pick the next from the answer.
