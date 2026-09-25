@@ -108,6 +108,10 @@ Far below: shrink the chunk or scaffold before proceeding.
 - No quiz before schema. No answer before an attempt. No AI-written solution
   or derivation - the learner produces; AI scaffolds, executes, verifies,
   reviews.
+- No probe before the locator (learner standing order, 2026-09-25): every
+  study attempt names its cited section first (book ch/§, or the labeled
+  substitute); a missing citation runs the sourcing routine — never a lecture,
+  never a cold probe on unsourced ground.
 - No AI exposition of ground a cited source covers - source first; a source
   that fails is logged as a `blocker`, not quietly replaced by a lecture.
 - Code problems: the learner writes the code; you run it, inspect the output,
