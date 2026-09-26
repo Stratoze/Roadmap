@@ -2,6 +2,7 @@
 """Read-only validation for the approved learning-system layout."""
 import argparse
 import datetime as dt
+import hashlib
 import re
 import subprocess
 import sys
@@ -282,13 +283,9 @@ def variant_rows(text, rel, errors):
         else:
             signature_cells = [cells[4], cells[5]]
             reused_cell = cells[6]
-        # `reused?` is a violation only where repeating is actually forbidden.
-        # A cold conceptual check re-asking a concept is retention testing, so
-        # marking it honestly must not fail the record - otherwise the two
-        # checks disagree and an agent cannot record the truth.
-        is_cold = row_exempts_cold_reuse(cells)
-        if not is_cold and reused_cell.strip().lower() in {"yes", "true", "1", "reused"}:
-            errors.append(f"technical record marks a prompt reused: {rel}")
+        # `reused?` is disclosure and justification, not a pass/fail of its own.
+        # A bare yes/no carries no reason, so it does not unlock a repeat; text
+        # in the cell is the "unless you can give a good reason" escape hatch.
         for signature_cell in signature_cells:
             if not signature_cell or not re.fullmatch(r"(?:sha256:)?[0-9a-f]{64}", signature_cell):
                 errors.append(f"technical record has a missing/invalid prompt/variant signature: {rel}")
@@ -301,49 +298,121 @@ def variant_rows(text, rel, errors):
             expected_variant = "sha256:" + variant_signature(cells[2], cells[3])
             if cells[4].lower() != expected_prompt.lower() or cells[5].lower() != expected_variant.lower():
                 errors.append(f"technical record signature does not match stored prompt/variant: {rel}")
-        yield cells[0], cells[1], cells[2] if len(cells) == 7 else "", cells[3] if len(cells) == 7 else ""
+        yield (cells[0], cells[1],
+               cells[2] if len(cells) == 7 else "",
+               cells[3] if len(cells) == 7 else "",
+               reused_cell)
+
+
+def record_date(rel):
+    """The session date encoded in a lesson record's filename."""
+    match = re.search(r"(\d{4}-\d{2}-\d{2})", rel)
+    if not match:
+        return None
+    try:
+        return dt.date.fromisoformat(match.group(1))
+    except ValueError:
+        return None
+
+
+# The whole test instance - question plus value set plus scenario - is used
+# once, ever. "We dont want it (the same question with the same value and
+# scenario etc) to happen twice." Change any one of the three and it is a
+# different instance.
+REUSE_MAX_INSTANCES = 1
+# A question alone may recur a little, but not twice in quick succession.
+REUSE_MAX_QUESTIONS = 2
+REUSE_COOLDOWN_DAYS = 30
+# `reused?` values that mean "disclosed", not "justified".
+_REUSE_BARE = {"", "no", "n", "false", "0", "yes", "y", "true", "1", "reused"}
+
+
+def instance_signature(prompt, values, context):
+    """Digest of question + value set + scenario, or None for a bare concept check."""
+    if not (values or context):
+        return None
+    combined = f"{prompt_signature(prompt)}|{variant_signature(values, context)}"
+    return hashlib.sha256(combined.encode("utf-8")).hexdigest()
+
+
+def reuse_justification(reused_cell):
+    """Reason text recorded in `reused?`, or "" when there is no justification.
+
+    The learner allows a repeat with a good reason ("unless you can give a good
+    reason to I wouldn't reuse the questions"). Anything other than a bare
+    yes/no counts as the reason, so the escape hatch costs no schema change.
+    """
+    text = str(reused_cell or "").strip()
+    if text.lower() in _REUSE_BARE:
+        return ""
+    return text
 
 
 def check_signature_reuse(errors, records):
-    """A test item may not repeat for fresh transfer or implementation.
+    """Bound repeated *questions*, and forbid repeated *values*.
 
-    Per the learner's decision (2026-09-26, "same concept/equation: allowed.
-    Same exact test item, value set, or lab condition: forbidden for fresh
-    transfer and implementation. Full Pass requires a new scenario").
+    Per the learner (2026-09-26). The concept and the recipe are free to reuse
+    — the approach is from first principles, so re-deriving the same idea is
+    the point, not cheating. Two different rules follow, because the two
+    things are not equally worth repeating:
 
-    The stage being checked decides, not the stage that used it first. A cold
-    conceptual check may re-ask a concept - retrieving a known concept is the
-    whole point, and it is how retention is tested. But a fresh transfer or
-    implementation row may not reuse a prompt or a test instance, whether that
-    signature was first spent on a cold check or on an earlier transfer.
+    - **A question** may be asked at most `REUSE_MAX_QUESTIONS` times, and a
+      repeat inside `REUSE_COOLDOWN_DAYS` is a failure: "it gets annoying to
+      see the same questions again and again".
+    - **A value set / lab condition** may be used once, ever. Re-running the
+      same numbers is the same arithmetic whatever the interval: "why would
+      you wanna use the same value anyway? ... at least change up the number".
+      There is no cooldown that makes this useful.
 
-    The cold exemption is deliberately narrow: it applies only to a genuine
-    conceptual probe, which records no value set or lab condition (see
-    `row_exempts_cold_reuse`). A cold row carrying real values is describing a
-    test instance, and a test instance may not repeat whatever the stage.
+    Both are module constants so they can be retuned without touching logic.
     """
-    seen = {"prompt": {}, "variant": {}}
+    uses = {"instance": {}, "prompt": {}}
     for topic, rel, rows in records:
-        for stage, prompt, values, context in rows:
-            plain = is_plain_concept_check(stage, values, context)
+        when = record_date(rel)
+        for stage, prompt, values, context, reused in rows:
+            reason = reuse_justification(reused)
             for kind, digest in (
+                ("instance", instance_signature(prompt, values, context)),
                 ("prompt", prompt_signature(prompt)),
-                # A pure concept check has no test instance, so it produces no
-                # variant signature to reuse.
-                ("variant", None if plain else (
-                    variant_signature(values, context) if values or context else None
-                )),
             ):
                 if digest is None:
                     continue
-                first = seen[kind].get(digest)
-                if first and not plain:
-                    errors.append(
-                        f"technical record reuses a {kind} signature: {rel} (stage '{stage}') "
-                        f"already used in {first}"
-                    )
-                if not first:
-                    seen[kind][digest] = f"{rel} (stage '{stage}')"
+                uses[kind].setdefault(digest, []).append((when, rel, stage, reason))
+
+    limits = {
+        "instance": ("test instance", REUSE_MAX_INSTANCES,
+                     "Change the question, the numbers, or the scenario - the same three "
+                     "together is the same test, however long ago."),
+        "prompt": ("question", REUSE_MAX_QUESTIONS,
+                   "Ask it differently, or give a reason in `reused?`."),
+    }
+    for kind, table in uses.items():
+        label, cap, advice = limits[kind]
+        for digest, seen in table.items():
+            unjustified = [row for row in seen if not row[3]]
+            if len(unjustified) <= cap:
+                continue
+            when, rel, stage, _reason = unjustified[cap]
+            errors.append(
+                f"{label} used more than {cap} time(s) with no recorded reason: {rel} "
+                f"(stage '{stage}') repeats one already used in "
+                f"{unjustified[0][1]}. {advice}"
+            )
+
+    # The cooldown applies to a repeated question even when it is only the
+    # second use, which is within the count cap.
+    for digest, seen in uses["prompt"].items():
+        for previous, current in zip(seen, seen[1:]):
+            if current[3]:
+                continue
+            if not previous[0] or not current[0]:
+                continue
+            gap = (current[0] - previous[0]).days
+            if gap < REUSE_COOLDOWN_DAYS:
+                errors.append(
+                    f"question repeated after {gap} day(s), inside the "
+                    f"{REUSE_COOLDOWN_DAYS}-day cooldown: {current[1]} repeats {previous[1]}"
+                )
 
 
 def check_technical_records(errors):

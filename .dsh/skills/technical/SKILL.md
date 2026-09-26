@@ -68,10 +68,7 @@ A technical record is evidence only when it carries real evidence:
 - Every `## Question variants` row (cold, fresh transfer, implementation) holds
   the exact prompt, its values/conditions, its context, and both signatures. An
   empty cell or a placeholder signature makes the record incomplete, not partial
-  credit. `reused? = yes` is stage-aware: on `fresh transfer` or
-  `implementation` it makes the record incomplete, because repeating a test
-  hands over the answer it was meant to test; on `cold` it is honest disclosure
-  and the record stands. See *Question and test variants* below.
+  credit. See *Question and test variants* below for what `reused?` means.
 - The record was read back, not written from memory: the learner's own words
   stay in `_private/`, and no timing, signature, or gate is invented.
 
@@ -108,31 +105,27 @@ Also vary the test instance, not only the wording:
 - change the surface context and at least one meaningful input/condition;
 - Full Pass requires a new scenario and new evidence.
 
-**Severity is graduated, and the stage sets the severity** (learner's decision,
-2026-09-26: *"Same concept/equation: allowed. Same exact test item, value set,
-or lab condition: forbidden for fresh transfer and implementation. Full Pass
-requires a new scenario."*):
+**What may be reused, and what may not** (learner's decision, 2026-09-26).
+Concepts and recipes are **free** — the approach is from first principles, so
+re-deriving the same idea is the point, not cheating. Two things are bounded:
 
-- **Cold conceptual check — may repeat.** The check exists to retrieve one
-  named concept, so re-asking a concept in a later session is retention
-  testing, not cheating. Do not manufacture a new phrasing to look compliant.
-- **Fresh transfer — hard failure.** A repeated prompt *or* a repeated test
-  instance here means the learner was handed the answer they were meant to
-  reach. Stop, discard the attempt, and re-ask with a new context and new
-  values.
-- **Implementation / theory test — hard failure.** Same standard. A reused
-  fixture or lab condition is a reused test, regardless of the wording.
-- **Full Pass** requires a new scenario and new evidence.
+- **The same question, the same values, and the same scenario must not happen
+  twice.** Not after a week, not after a year. Change any one of the three and
+  it is a different test. "Why would you want to use the same value anyway —
+  at least change up the number."
+- **A question on its own** may be asked at most twice, and a repeat inside
+  30 days is a failure: *"it gets annoying to see the same questions again and
+  again."*
+- **Any of that may be overridden** by writing the reason in the `reused?`
+  column. A bare `yes` is disclosure that a repeat happened; it is not a
+  reason, and does not unlock anything. Text in the cell is the reason.
 
-`scripts/validate_learning.py` enforces exactly this, and nothing more: it
-fails a fresh-transfer or implementation row that reuses a prompt or
-test-instance signature — whether that signature was first spent on a cold
-check or on an earlier transfer — and does not fail a cold row for re-asking a
-concept. The `reused?` column follows the same rule: `yes` on a cold row is
-honest disclosure and passes, so record the truth; `yes` on a transfer or
-implementation row fails the record. A validator failure here is a real
-violation; if you believe it is not, the record or the model is wrong, not the
-check.
+`scripts/validate_learning.py` enforces exactly this: an instance (question +
+values + context) used more than once with no reason fails, a third use of a
+question fails, and a question repeated inside the cooldown fails. It is
+checked across every topic in the corpus, not just within one. A validator
+failure here is a real violation; if you believe it is not, the record or the
+model is wrong, not the check.
 
 Record the values/conditions and context in the technical session record so a
 future agent can detect a repeated test instance, not merely a repeated

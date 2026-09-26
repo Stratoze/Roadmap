@@ -44,12 +44,12 @@ the context, and both signatures. An empty cell or a placeholder signature means
 the record is incomplete and cannot back a gate. Fill the row before asking the
 question, then paste the signatures the check printed.
 
-`reused?` is stage-aware. On `fresh transfer` or `implementation`, `yes` means
-you reused a test item and the record is incomplete — a repeated test hands
-over the answer it was meant to test. On `cold`, `yes` is allowed: a cold
-conceptual check may re-ask a concept, because retrieving something known is
-the entire point. Record the truth either way; do not tidy the cell to look
-clean.
+Concepts and recipes are free to reuse — the approach is from first principles.
+What is bounded: the same question *with the same values and scenario* must not
+happen twice, ever; and a question alone may be asked at most twice, never
+inside 30 days. `reused?` is where a justified exception goes — write the reason
+there. A bare `yes` only records that a repeat happened; it is not a reason and
+does not unlock anything.
 
 | stage | prompt | values/conditions | context | prompt signature | variant signature | reused? |
 |-------|----------------|------------------|---------|------------------|------------------|---------|

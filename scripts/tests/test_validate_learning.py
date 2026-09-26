@@ -50,7 +50,8 @@ class ValidateLearningTests(unittest.TestCase):
             )
             self.assertEqual(self.check(root), [])
 
-    def test_reused_or_malformed_variant_is_rejected(self):
+    def test_bare_reused_yes_is_disclosure_not_a_reason(self):
+        """`reused? = yes` records that a repeat happened; it does not excuse it."""
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             record = root / "_system" / "learning" / "lessons" / "math-odes" / "record.md"
@@ -61,21 +62,7 @@ class ValidateLearningTests(unittest.TestCase):
                 + variant_row("fresh transfer", "What is the force?", "m=5", "lift").replace("| no |", "| yes |"),
                 encoding="utf-8",
             )
-            errors = self.check(root)
-            self.assertTrue(any("reused" in error for error in errors), errors)
-
-    def test_cold_check_may_disclose_a_repeat_honestly(self):
-        """An agent must be able to record the truth on a permitted repeat."""
-        with tempfile.TemporaryDirectory() as directory:
-            root = Path(directory)
-            record = root / "_system" / "learning" / "lessons" / "math-odes" / "record.md"
-            record.parent.mkdir(parents=True)
-            record.write_text(
-                "## Technical record status: legacy\n\n## Question variants\n"
-                + VARIANT_HEADER
-                + variant_row("cold", "What is the force?", "-", "-").replace("| no |", "| yes |"),
-                encoding="utf-8",
-            )
+            # A single row cannot be a repeat, so the bare yes is simply recorded.
             self.assertEqual(self.check(root), [])
 
     def test_technical_record_requires_break_and_variants(self):
@@ -132,153 +119,150 @@ class ValidateLearningTests(unittest.TestCase):
             )
             self.assertEqual(self.check(root), [])
 
-    def test_repeated_prompt_in_the_same_topic_is_rejected(self):
+    def test_same_question_with_same_values_and_scenario_is_refused(self):
+        """The learner's rule: the same question, value and scenario must not
+        happen twice - not after a day, not after a year."""
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
-            write_record(
-                root,
-                "math-odes",
-                "2026-09-27-a.md",
-                "## Technical record status: legacy\n\n## Question variants\n"
-                + VARIANT_HEADER
-                + variant_row("cold", "What is the force?", "-", "-")
-                + variant_row("fresh transfer", "What is the force?", "m=9", "push"),
-            )
-            write_record(
-                root,
-                "math-odes",
-                "2026-09-28-b.md",
-                "## Technical record status: legacy\n\n## Question variants\n"
-                + VARIANT_HEADER
-                + variant_row("cold", "What is the force?", "-", "-"),
-            )
+            for day, stage in (("2026-09-27", "cold"), ("2026-09-28", "fresh transfer")):
+                write_record(
+                    root,
+                    "math-odes",
+                    f"{day}-a.md",
+                    "## Technical record status: legacy\n\n## Question variants\n"
+                    + VARIANT_HEADER
+                    + variant_row(stage, "Find the applied force.", "m=5 kg", "vertical lift"),
+                )
             errors = self.check(root)
-            # Only the fresh transfer is a violation: it re-asked the question
-            # the cold check had just spent. The later cold check re-asking the
-            # same concept is retention testing, which the decision allows.
-            self.assertEqual(
-                sum("reuses a prompt signature" in error for error in errors),
-                1,
-                errors,
-            )
-            self.assertTrue(any("fresh transfer" in error for error in errors), errors)
+            self.assertTrue(any("test instance" in e for e in errors), errors)
 
-    def test_cold_check_may_repeat_a_concept(self):
+    def test_same_question_with_different_values_is_a_different_instance(self):
+        """Change the numbers and it is a new test, not a repeat."""
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             write_record(
-                root,
-                "math-odes",
-                "2026-09-27-a.md",
+                root, "math-odes", "2026-01-05-a.md",
                 "## Technical record status: legacy\n\n## Question variants\n"
                 + VARIANT_HEADER
-                + variant_row("cold", "Define equilibrium.", "-", "-"),
+                + variant_row("cold", "Find the applied force.", "m=5 kg", "vertical lift"),
             )
             write_record(
-                root,
-                "math-odes",
-                "2026-09-28-b.md",
+                root, "math-odes", "2026-09-28-b.md",
                 "## Technical record status: legacy\n\n## Question variants\n"
                 + VARIANT_HEADER
-                + variant_row("cold", "Define equilibrium.", "-", "-"),
+                + variant_row("cold", "Find the applied force.", "m=12 kg", "tilted push"),
             )
             self.assertEqual(self.check(root), [])
 
-    def test_cold_row_carrying_a_real_test_instance_is_still_caught(self):
-        """The cold exemption must not become a blank pass.
-
-        A cold row with a real value set or lab condition is describing a test
-        instance, and a test instance may not repeat whatever the stage. Only a
-        pure concept check, recording `-` for both, gets the exemption.
-        """
+    def test_bare_reused_yes_is_disclosure_not_a_reason(self):
+        """`reused? = yes` records that a repeat happened; it does not excuse it."""
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
-            write_record(
-                root,
-                "math-odes",
-                "2026-09-27-a.md",
+            record = root / "_system" / "learning" / "lessons" / "math-odes" / "record.md"
+            record.parent.mkdir(parents=True)
+            record.write_text(
                 "## Technical record status: legacy\n\n## Question variants\n"
                 + VARIANT_HEADER
-                + variant_row("cold", "Find the applied force.", "m=5 kg", "vertical lift"),
+                + variant_row("cold", "What is the force?", "m=5", "lift").replace("| no |", "| yes |"),
+                encoding="utf-8",
             )
-            write_record(
-                root,
-                "math-odes",
-                "2026-09-28-b.md",
-                "## Technical record status: legacy\n\n## Question variants\n"
-                + VARIANT_HEADER
-                + variant_row("cold", "Find the applied force.", "m=5 kg", "vertical lift"),
-            )
-            errors = self.check(root)
-            self.assertTrue(any("reuses a variant signature" in e for e in errors), errors)
+            # A single row cannot be a repeat, so the bare yes is simply recorded.
+            self.assertEqual(self.check(root), [])
 
-    def test_cold_check_after_a_transfer_still_fails_a_transfer(self):
-        """The stage being checked decides, not the stage that used it first."""
+    def test_a_question_may_be_asked_twice_after_the_cooldown(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
-            write_record(
-                root,
-                "math-odes",
-                "2026-09-27-a.md",
-                "## Technical record status: legacy\n\n## Question variants\n"
-                + VARIANT_HEADER
-                + variant_row("cold", "Find the applied force.", "m=5 kg", "vertical lift"),
-            )
-            write_record(
-                root,
-                "math-odes",
-                "2026-09-28-b.md",
-                "## Technical record status: legacy\n\n## Question variants\n"
-                + VARIANT_HEADER
-                + variant_row("implementation", "Find the applied force.", "m=5 kg", "vertical lift"),
-            )
-            errors = self.check(root)
-            self.assertTrue(any("reuses a variant signature" in error for error in errors), errors)
+            for day, values in (("2026-01-05", "m=5 kg"), ("2026-09-28", "m=12 kg")):
+                write_record(
+                    root, "math-odes", f"{day}-a.md",
+                    "## Technical record status: legacy\n\n## Question variants\n"
+                    + VARIANT_HEADER
+                    + variant_row("cold", "Find the applied force.", values, "vertical lift"),
+                )
+            self.assertEqual(self.check(root), [])
 
-    def test_repeated_test_instance_in_the_same_topic_is_rejected(self):
+    def test_a_question_repeated_inside_the_cooldown_is_refused(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
-            write_record(
-                root,
-                "math-odes",
-                "2026-09-27-a.md",
-                "## Technical record status: legacy\n\n## Question variants\n"
-                + VARIANT_HEADER
-                + variant_row("cold", "Find the applied force.", "m=5 kg", "vertical lift")
-                + variant_row("implementation", "Compute the load.", "m=5 kg", "vertical lift"),
-            )
+            for day, values in (("2026-09-20", "m=5 kg"), ("2026-09-28", "m=12 kg")):
+                write_record(
+                    root, "math-odes", f"{day}-a.md",
+                    "## Technical record status: legacy\n\n## Question variants\n"
+                    + VARIANT_HEADER
+                    + variant_row("cold", "Find the applied force.", values, "vertical lift"),
+                )
             errors = self.check(root)
-            self.assertTrue(any("reuses a variant signature" in error for error in errors), errors)
+            self.assertTrue(any("cooldown" in e for e in errors), errors)
 
-    def test_same_prompt_in_another_topic_scope_is_rejected(self):
+    def test_a_third_use_of_a_question_is_refused(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            for day, values in (
+                ("2026-01-05", "m=5 kg"), ("2026-05-05", "m=12 kg"), ("2026-09-28", "m=20 kg")
+            ):
+                write_record(
+                    root, "math-odes", f"{day}-a.md",
+                    "## Technical record status: legacy\n\n## Question variants\n"
+                    + VARIANT_HEADER
+                    + variant_row("cold", "Find the applied force.", values, "vertical lift"),
+                )
+            errors = self.check(root)
+            self.assertTrue(any("used more than 2 time(s)" in e for e in errors), errors)
+
+    def test_a_recorded_reason_allows_the_repeat(self):
+        """The escape hatch: "unless you can give a good reason"."""
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            for day in ("2026-09-27", "2026-09-28"):
+                write_record(
+                    root, "math-odes", f"{day}-a.md",
+                    "## Technical record status: legacy\n\n## Question variants\n"
+                    + VARIANT_HEADER
+                    + variant_row(
+                        "cold", "Find the applied force.", "m=5 kg", "vertical lift"
+                    ).replace("| no |", "| confirming retention after a lapse |"),
+                )
+            self.assertEqual(self.check(root), [])
+
+    def test_a_bare_yes_is_not_a_reason(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            for day in ("2026-09-27", "2026-09-28"):
+                write_record(
+                    root, "math-odes", f"{day}-a.md",
+                    "## Technical record status: legacy\n\n## Question variants\n"
+                    + VARIANT_HEADER
+                    + variant_row("cold", "Find the applied force.", "m=5 kg", "vertical lift")
+                    .replace("| no |", "| yes |"),
+                )
+            errors = self.check(root)
+            self.assertTrue(any("no recorded reason" in e for e in errors), errors)
+
+    def test_a_pure_concept_check_may_repeat_with_new_values(self):
+        """Same concept, different numbers - the first-principles case."""
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            for day, values in (("2026-01-05", "m=5 kg"), ("2026-09-28", "m=12 kg")):
+                write_record(
+                    root, "math-odes", f"{day}-a.md",
+                    "## Technical record status: legacy\n\n## Question variants\n"
+                    + VARIANT_HEADER
+                    + variant_row("cold", "Define equilibrium.", values, "vertical lift"),
+                )
+            self.assertEqual(self.check(root), [])
+
+    def test_reuse_is_checked_across_topics(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             for topic in ("math-odes", "physics"):
                 write_record(
-                    root,
-                    topic,
-                    "2026-09-27-record.md",
+                    root, topic, "2026-09-27-a.md",
                     "## Technical record status: legacy\n\n## Question variants\n"
                     + VARIANT_HEADER
-                    + variant_row("fresh transfer", "What is the force?", "m=5", "lift"),
+                    + variant_row("fresh transfer", "Find the applied force.", "m=5 kg", "vertical lift"),
                 )
             errors = self.check(root)
-            self.assertTrue(any("reuses a prompt signature" in error for error in errors), errors)
-
-    def test_cold_check_may_repeat_across_topics(self):
-        """Reuse is corpus-wide, but a cold check re-asking a concept is allowed."""
-        with tempfile.TemporaryDirectory() as directory:
-            root = Path(directory)
-            for topic in ("math-odes", "physics"):
-                write_record(
-                    root,
-                    topic,
-                    "2026-09-27-record.md",
-                    "## Technical record status: legacy\n\n## Question variants\n"
-                    + VARIANT_HEADER
-                    + variant_row("cold", "What is the force?", "-", "-"),
-                )
-            self.assertEqual(self.check(root), [])
+            self.assertTrue(any("test instance" in e for e in errors), errors)
 
     def test_missing_signature_record_path_fails_closed(self):
         errors = []

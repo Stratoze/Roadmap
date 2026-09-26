@@ -138,9 +138,12 @@ class TemplateValidatorContractTests(unittest.TestCase):
         )
         self.assertTrue(any("20 minutes" in error for error in self.errors_for(body)))
 
-    def test_a_reused_variant_is_rejected(self):
-        body = filled_record(TEMPLATE.read_text(encoding="utf-8")).replace("| no |", "| yes |")
-        self.assertTrue(any("reused" in error for error in self.errors_for(body)))
+    def test_a_recorded_reason_unlocks_an_instance_repeat(self):
+        """`reused?` carries the "unless you can give a good reason" escape."""
+        body = filled_record(TEMPLATE.read_text(encoding="utf-8")).replace(
+            "| no |", "| confirming retention after a lapse |"
+        )
+        self.assertEqual(self.errors_for(body), [])
 
 
 @unittest.skipUnless(BASH, "bash is required to exercise scripts/milestone.sh")
