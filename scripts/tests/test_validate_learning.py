@@ -58,11 +58,25 @@ class ValidateLearningTests(unittest.TestCase):
             record.write_text(
                 "## Technical record status: legacy\n\n## Question variants\n"
                 + VARIANT_HEADER
-                + variant_row("cold", "What is the force?", "m=5", "lift").replace("| no |", "| yes |"),
+                + variant_row("fresh transfer", "What is the force?", "m=5", "lift").replace("| no |", "| yes |"),
                 encoding="utf-8",
             )
             errors = self.check(root)
             self.assertTrue(any("reused" in error for error in errors), errors)
+
+    def test_cold_check_may_disclose_a_repeat_honestly(self):
+        """An agent must be able to record the truth on a permitted repeat."""
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            record = root / "_system" / "learning" / "lessons" / "math-odes" / "record.md"
+            record.parent.mkdir(parents=True)
+            record.write_text(
+                "## Technical record status: legacy\n\n## Question variants\n"
+                + VARIANT_HEADER
+                + variant_row("cold", "What is the force?", "m=5", "lift").replace("| no |", "| yes |"),
+                encoding="utf-8",
+            )
+            self.assertEqual(self.check(root), [])
 
     def test_technical_record_requires_break_and_variants(self):
         with tempfile.TemporaryDirectory() as directory:

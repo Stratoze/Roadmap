@@ -125,8 +125,11 @@ requires a new scenario."*):
 fails a fresh-transfer or implementation row that reuses a prompt or
 test-instance signature — whether that signature was first spent on a cold
 check or on an earlier transfer — and does not fail a cold row for re-asking a
-concept. A validator failure here is a real violation; if you believe it is
-not, the record or the model is wrong, not the check.
+concept. The `reused?` column follows the same rule: `yes` on a cold row is
+honest disclosure and passes, so record the truth; `yes` on a transfer or
+implementation row fails the record. A validator failure here is a real
+violation; if you believe it is not, the record or the model is wrong, not the
+check.
 
 Record the values/conditions and context in the technical session record so a
 future agent can detect a repeated test instance, not merely a repeated

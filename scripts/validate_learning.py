@@ -234,7 +234,12 @@ def variant_rows(text, rel, errors):
         else:
             signature_cells = [cells[4], cells[5]]
             reused_cell = cells[6]
-        if reused_cell.strip().lower() in {"yes", "true", "1", "reused"}:
+        # `reused?` is a violation only where repeating is actually forbidden.
+        # A cold conceptual check re-asking a concept is retention testing, so
+        # marking it honestly must not fail the record - otherwise the two
+        # checks disagree and an agent cannot record the truth.
+        is_cold = cells[0].strip().lower() == "cold"
+        if not is_cold and reused_cell.strip().lower() in {"yes", "true", "1", "reused"}:
             errors.append(f"technical record marks a prompt reused: {rel}")
         for signature_cell in signature_cells:
             if not signature_cell or not re.fullmatch(r"(?:sha256:)?[0-9a-f]{64}", signature_cell):
