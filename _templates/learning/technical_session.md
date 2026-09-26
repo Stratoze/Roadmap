@@ -40,9 +40,16 @@ claimed, and the record is not valid gate or milestone evidence.
 ## Question variants
 
 Every cell of every row is required: exact prompt, the values/conditions used,
-the context, and both signatures. An empty cell, a placeholder signature, or
-`reused? = yes` means the record is incomplete and cannot back a gate. Fill the
-row before asking the question, then paste the signatures the check printed.
+the context, and both signatures. An empty cell or a placeholder signature means
+the record is incomplete and cannot back a gate. Fill the row before asking the
+question, then paste the signatures the check printed.
+
+`reused?` is stage-aware. On `fresh transfer` or `implementation`, `yes` means
+you reused a test item and the record is incomplete — a repeated test hands
+over the answer it was meant to test. On `cold`, `yes` is allowed: a cold
+conceptual check may re-ask a concept, because retrieving something known is
+the entire point. Record the truth either way; do not tidy the cell to look
+clean.
 
 | stage | prompt | values/conditions | context | prompt signature | variant signature | reused? |
 |-------|----------------|------------------|---------|------------------|------------------|---------|
