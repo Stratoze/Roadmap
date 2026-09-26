@@ -6,6 +6,28 @@ status source. It is not a book/video library.
 
 Legend: ⬜ not started · 🔨 active · ✅ complete
 
+## Confirmed goal
+
+**QDD 2-DOF arm** — confirmed by the learner 2026-09-08; parameterization
+authorized.
+
+- **Actuator:** quasi-direct-drive (BLDC + low-ratio planetary gearbox + dual
+  encoders); see Phase-3 QDD artifact in
+  [[Mechatronics/milestones/03_mech_pcb_verification|03 — MBD & Verification]].
+- **DOF:** 2 (shoulder + elbow).
+- **Envelope:** bench-scale 2-link arm; voltage/fabrication ceilings per the
+  phase envelopes below.
+- **Success:** two characterized QDD joints integrated into a 2-DOF arm on CAN
+  with Safety PDU + gripper, trajectory tracking demonstrated, portfolio demo
+  recorded (Phase-4 hero).
+- **Era slug:** `qdd-arm (2026-08-)`.
+- **Parked history:** `Mechatronics/goals/parked/` (empty — first goal).
+
+This is the goal statement, not a checklist. Milestone status is the tables
+below, and the order is evidence → checkbox → commit → signed tag. Semantic
+passes over arm-flavoured text are ordinary technical work selected by the
+active target, not a separate status file.
+
 ## Target-driven selection
 
 The active target and next prerequisite live in [[Mechatronics/CURRENT|current technical handoff]]. The learner chooses a capability or artifact. The agent maps its dependencies,
