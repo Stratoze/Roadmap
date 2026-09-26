@@ -377,5 +377,46 @@ class IPlusOneLaneTests(unittest.TestCase):
         self.assertEqual(client.writes(), [])
 
 
+class EncodingRecorder(io.StringIO):
+    def __init__(self):
+        super().__init__()
+        self.reconfigured = {}
+
+    def reconfigure(self, **kwargs):
+        self.reconfigured.update(kwargs)
+
+
+class IPlusOneEncodingTests(unittest.TestCase):
+    def test_main_configures_utf8_so_japanese_survives_the_console(self):
+        """Regression: a fresh agent got stuck words back as replacement chars.
+
+        The bridge is the script that emits Japanese. Without this guard the
+        Windows console codepage turns あまり into ����, which silently costs
+        the command its entire point.
+        """
+        recorder = EncodingRecorder()
+        client = FakeLaneAnki()
+        with patch.object(anki_bridge, "client_from_args", return_value=client), \
+             patch.object(anki_bridge.sys, "stdout", recorder), \
+             patch.object(anki_bridge.sys, "stderr", recorder):
+            self.assertEqual(anki_bridge.main(["iplusone"]), 0)
+        self.assertEqual(recorder.reconfigured.get("encoding"), "utf-8")
+        self.assertEqual(recorder.reconfigured.get("errors"), "replace")
+
+    def test_a_stream_without_reconfigure_is_tolerated(self):
+        class Old:
+            def write(self, _text):
+                return 0
+
+            def flush(self):
+                pass
+
+        client = FakeLaneAnki()
+        with patch.object(anki_bridge, "client_from_args", return_value=client), \
+             patch.object(anki_bridge.sys, "stdout", Old()), \
+             patch.object(anki_bridge.sys, "stderr", Old()):
+            self.assertEqual(anki_bridge.main(["iplusone"]), 0)
+
+
 if __name__ == "__main__":
     unittest.main()

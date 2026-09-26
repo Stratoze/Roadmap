@@ -350,6 +350,15 @@ def run(args):
 
 
 def main(argv=None):
+    # This script is the one that emits Japanese - `iplusone` names stuck words,
+    # `propose` echoes the term. On Windows the console codepage otherwise
+    # mangles them into replacement characters, and the actionable part of the
+    # output is lost. review.py and session_state.py already guard this; being
+    # the odd one out meant a fresh agent had to know about PYTHONIOENCODING
+    # before it could use the words the command found.
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8", errors="replace")
     args = build_parser().parse_args(argv)
     try:
         return run(args)

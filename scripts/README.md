@@ -58,11 +58,28 @@ number.
 **Define the unit before quoting a trend.** The original baselines ("12 steps",
 "6 steps") never said whether a step was a tool call or a round, so a later
 6-calls/3-rounds reading is not strictly comparable. Record all three: tool
-calls, rounds, and files read. Current measurement, 2026-09-26 after `b7ebf21`:
-**6 calls, 3 rounds, 3 files read** (the `session_state.py` output plus the two
-`CURRENT.md` files), against a pre-`554e611` baseline of 12. Alignment confirmed:
-the probe verified `Mechatronics/CURRENT.md`'s claim that `review.py frontier`
-reports c2 and c9 as ready, rather than trusting it.
+calls, rounds, and files read.
+
+Measurements, 2026-09-26:
+
+- "what's next?", after `b7ebf21` — **6 calls, 3 rounds, 3 files read** (the
+  `session_state.py` output plus the two `CURRENT.md` files), against a
+  pre-`554e611` baseline of 12. Alignment confirmed: the probe verified
+  `Mechatronics/CURRENT.md`'s claim that `review.py frontier` reports c2 and c9
+  as ready, rather than trusting it.
+- "Japanese session, plan the opening", after `2cdc82e` — **9 calls, 4 blocks,
+  3 reasoning turns**. Alignment confirmed, and the probe earned its keep twice:
+  it reported the `stuck_samples` as `����` (a real encoding defect in
+  `anki_bridge.py`, now fixed), and it found that the i+1 lane was reachable
+  *only* by reading the japanese skill. An agent that had not opened that file
+  would have planned around due counts alone and opened with a new word on a
+  `patch` lane. The lane is now also printed by `session_state.py today`, so the
+  invariant is visible without loading a skill.
+
+**Test the wiring, not just the code.** Both defects above were invisible to
+the unit tests, which passed throughout. A command can work perfectly and still
+never be reached, or be reached and produce unusable output.
+
 
 Windows git-bash notes: invoke shell scripts with `bash scripts/*.sh` (not `+x`);
 Python output needs `PYTHONIOENCODING=utf-8`. Repo is LF (`* text=auto eol=lf`).

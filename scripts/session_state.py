@@ -2,6 +2,7 @@
 """Read and explicitly update the daily session checklist."""
 import argparse
 import datetime as dt
+import json
 import re
 import subprocess
 import sys
@@ -114,6 +115,30 @@ def handoff_summary(path):
     return f"status={status_text} | next={next_line}"
 
 
+def iplusone_lane():
+    """The i+1 lane for the Japanese branch, or a reason it is unavailable.
+
+    The gate is written down in the japanese skill, so an agent that never
+    opens that file would plan a session around due counts alone and open with
+    a new word on a `patch` lane. Surfacing the lane here makes the invariant
+    visible from the first command, without duplicating the frontier or the
+    reading count, which the curriculum and CURRENT.md already own.
+    """
+    ok, out = run_readonly([
+        sys.executable, str(ROOT / "scripts" / "anki_bridge.py"), "iplusone", "--sample", "0"
+    ])
+    if not ok:
+        return "lane=unavailable — ask the learner; do not assume new words are fine"
+    try:
+        payload = json.loads(out)
+    except (ValueError, TypeError):
+        return "lane=unreadable — ask the learner; do not assume new words are fine"
+    lane = payload.get("lane", "unknown")
+    unlearned = payload.get("unlearned_total", "?")
+    stuck = payload.get("stuck_total", "?")
+    return f"lane={lane} (unlearned={unlearned}, stuck={stuck})"
+
+
 def report_today():
     path = today_note()
     if not path.exists():
@@ -134,6 +159,7 @@ def report_today():
         if next_key:
             print(f"next: {next_key} — {items[next_key]['body']}")
     print(f"Japanese handoff: Japanese/CURRENT.md | {handoff_summary(ROOT / 'Japanese' / 'CURRENT.md')}")
+    print(f"  i+1 {iplusone_lane()}")
     print(f"Technical handoff: Mechatronics/CURRENT.md | {handoff_summary(ROOT / 'Mechatronics' / 'CURRENT.md')}")
     ok, due = run_readonly([sys.executable, str(ROOT / "scripts" / "review.py"), "due"])
     if not ok:

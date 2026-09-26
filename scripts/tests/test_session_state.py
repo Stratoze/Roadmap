@@ -1,5 +1,6 @@
 import contextlib
 import io
+import json
 import subprocess
 import sys
 import tempfile
@@ -62,7 +63,8 @@ class SessionStateTests(unittest.TestCase):
             self.assertIn("Due review: unavailable", text)
             self.assertNotIn("Due review: 0 item(s)", text)
             self.assertIn("Anki: 20–30 minutes — unavailable", text)
-            self.assertEqual(run.call_count, 2)
+            # review.py due, anki_bridge.py iplusone, anki_bridge.py due.
+            self.assertEqual(run.call_count, 3)
 
     def test_run_readonly_fails_closed_on_nonzero_exit(self):
         result = subprocess.CompletedProcess(args=[], returncode=2, stdout="", stderr="error: no curriculum file\n")
@@ -123,6 +125,51 @@ class HandoffSummaryTests(unittest.TestCase):
 
     def test_missing_file_is_reported(self):
         self.assertEqual(session_state.handoff_summary(Path("does/not/exist.md")), "missing")
+
+
+class IPlusOneLaneTests(unittest.TestCase):
+    def _lane(self, ok, output):
+        with patch.object(session_state, "run_readonly", return_value=(ok, output)):
+            return session_state.iplusone_lane()
+
+    def test_lane_is_read_from_the_bridge(self):
+        payload = json.dumps({"lane": "patch", "unlearned_total": 9, "stuck_total": 1000})
+        lane = self._lane(True, payload)
+        self.assertIn("lane=patch", lane)
+        self.assertIn("unlearned=9", lane)
+        self.assertIn("stuck=1000", lane)
+
+    def test_unreachable_anki_fails_closed_not_open(self):
+        """An unavailable bridge must not read as permission to use new words."""
+        lane = self._lane(False, "unavailable: error: connection refused")
+        self.assertIn("lane=unavailable", lane)
+        self.assertIn("do not assume new words are fine", lane)
+        self.assertNotIn("lane=stretch", lane)
+
+    def test_unparsable_output_fails_closed(self):
+        lane = self._lane(True, "not json at all")
+        self.assertIn("lane=unreadable", lane)
+        self.assertIn("do not assume new words are fine", lane)
+
+    def test_stretch_lane_is_reported_when_nothing_is_pending(self):
+        payload = json.dumps({"lane": "stretch", "unlearned_total": 0, "stuck_total": 4})
+        self.assertIn("lane=stretch", self._lane(True, payload))
+
+    def test_today_surfaces_the_lane_on_the_japanese_line(self):
+        payload = json.dumps({"lane": "patch", "unlearned_total": 9, "stuck_total": 1000})
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "2026-09-27.md"
+            with patch.object(session_state, "ROOT", Path(directory)), \
+                    patch.object(session_state, "today_note", return_value=path), \
+                    patch.object(session_state, "run_readonly", return_value=(True, payload)):
+                buffer = io.StringIO()
+                with contextlib.redirect_stdout(buffer):
+                    self.assertEqual(session_state.report_today(), 0)
+            self.assertIn("i+1 lane=patch", buffer.getvalue())
+
+    def test_lane_survives_a_bridge_that_never_returns(self):
+        with patch.object(session_state, "run_readonly", return_value=(False, "")):
+            self.assertIn("lane=unavailable", session_state.iplusone_lane())
 
 
 if __name__ == "__main__":
