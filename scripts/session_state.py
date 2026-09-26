@@ -246,28 +246,30 @@ def technical_ready():
 
     A roadmap deliverable is not learnable on its own; the curriculum carries
     the concepts underneath it, and those are what a session actually opens.
+    `review.py frontier` reports one line per concept:
+    `<topic> | <id> | <state> | ready to teach`.
     """
     ok, out = run_readonly([
         sys.executable, str(ROOT / "scripts" / "review.py"), "frontier"
     ])
     if not ok:
         return "  ready to teach: unknown — review.py frontier unavailable"
-    try:
-        rows = json.loads(out)
-    except (ValueError, TypeError):
-        return "  ready to teach: unknown — frontier output unreadable"
-    wanted = ("math", "physics", "m0-", "py-")
-    items = []
-    for deck in rows.get("decks", []):
-        if not str(deck.get("deck", "")).startswith(wanted):
+    # The m0-* curriculum files mirror the ROADMAP milestone rows printed just
+    # above, so repeating them here is noise. What a session can actually teach
+    # toward a technical deliverable is the concept track underneath.
+    wanted = ("math-odes", "physics", "python")
+    ready = []
+    for line in (out or "").splitlines():
+        cells = [cell.strip() for cell in line.split("|")]
+        if len(cells) < 4 or cells[-1] != "ready to teach":
             continue
-        blocked = deck.get("blocked_by")
-        items.append(f"{deck['deck']} ({deck.get('unlearned_new', 0)} new, "
-                     f"{deck.get('unlearned_learning', 0)} learning, "
-                     f"{deck.get('stuck', 0)} stuck)")
-    if not items:
+        if cells[0].startswith(wanted):
+            ready.append(f"{cells[0]}/{cells[1]}")
+    if not ready:
         return "  ready to teach: no open technical concept is unblocked"
-    return "  ready to teach: " + "; ".join(items)
+    shown = ready[:4]
+    tail = f" (+{len(ready) - len(shown)} more)" if len(ready) > len(shown) else ""
+    return "  ready to teach: " + ", ".join(shown) + tail
 
 
 def report_today():

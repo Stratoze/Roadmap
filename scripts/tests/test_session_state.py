@@ -251,23 +251,33 @@ class TechnicalNextTests(unittest.TestCase):
             with patch.object(session_state, "ROOT", Path(directory)):
                 self.assertEqual(session_state.technical_next(), [])
 
-    def test_ready_to_teach_reports_technical_decks_only(self):
-        payload = json.dumps({
-            "lane": "patch",
-            "decks": [
-                {"deck": "math-odes", "unlearned_new": 0, "unlearned_learning": 0, "stuck": 1000},
-                {"deck": "japanese-grammar", "unlearned_new": 64, "unlearned_learning": 0, "stuck": 0},
-            ],
-        })
-        with patch.object(session_state, "run_readonly", return_value=(True, payload)):
+    def test_ready_to_teach_reports_technical_concepts_only(self):
+        output = (
+            "math-odes | c2 | unknown | ready to teach\n"
+            "math-odes | c9 | unknown | ready to teach\n"
+            "m0-1-problem-solving | m1-1 | unknown | ready to teach\n"
+            "jp-yokubi-00 | unknown | ready to teach\n"
+            "21 ready; 137 blocked behind unmet prerequisites\n"
+        )
+        with patch.object(session_state, "run_readonly", return_value=(True, output)):
             line = session_state.technical_ready()
-        self.assertIn("math-odes", line)
-        self.assertNotIn("japanese-grammar", line)
+        self.assertIn("math-odes/c2", line)
+        self.assertIn("math-odes/c9", line)
+        # The m0-* files mirror the ROADMAP rows already printed; repeating them
+        # is noise, and Japanese is the other lane entirely.
+        self.assertNotIn("m1-1", line)
+        self.assertNotIn("jp-yokubi", line)
 
     def test_ready_to_teach_fails_closed_when_frontier_is_down(self):
         with patch.object(session_state, "run_readonly", return_value=(False, "broken")):
             line = session_state.technical_ready()
         self.assertIn("unknown", line)
+
+    def test_ready_to_teach_says_so_when_nothing_is_unblocked(self):
+        output = "jp-yokubi-00 | unknown | ready to teach\n21 ready; 0 blocked\n"
+        with patch.object(session_state, "run_readonly", return_value=(True, output)):
+            line = session_state.technical_ready()
+        self.assertIn("no open technical concept", line)
 
 
 if __name__ == "__main__":
