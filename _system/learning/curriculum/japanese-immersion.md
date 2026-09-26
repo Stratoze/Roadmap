@@ -15,8 +15,8 @@
 ## Concepts
 | id | aim | prereqs | state | rung | next_review | evidence |
 |----|-----|---------|-------|------|-------------|----------|
-| immersion-log-event | record useful input context without turning it into a quota | - | seen | 0 | - | count optional `introduced`/`practised` events below |
-| immersion-level-ramp | gradually increase input difficulty from useful comprehension to Japanese-led immersion | read-page-interpretation | unknown | 0 | - | - |
+| immersion-log-event | record useful input context without turning it into a quota | - | unknown | 0 | - | reset 2026-09-27; no quota |
+| immersion-level-ramp | gradually increase input difficulty from useful comprehension to Japanese-led immersion | read-page-interpretation | unknown | 0 | - | reset 2026-09-27 |
 
 ## Resources
 - Active material selected JIT through the learner. Stable discovery links live
@@ -39,6 +39,5 @@
 |------|----------|------------------|-------|----------|-------------|
 
 ## Log
-- 2026-09-21 - track opened from learner focus declaration.
-- 2026-09-27 - removed the implied one-item-per-session quota; input remains
-  optional and no-quota.
+- 2026-09-27 - active immersion log reset; input remains optional and no-quota.
+  Next action is in [[Japanese/CURRENT|current Japanese session]].

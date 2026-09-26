@@ -7,8 +7,9 @@ description: Run a daily Japanese learning session - grammar contrast, i+1 conve
 
 Compose `study`, `review`, `resources`, and the four Japanese curriculum files.
 Do not create a vocabulary database or a second scheduler. Read
-`_system/learning/learner.md`, `_system/How to Learn.md`, and
-`_system/learning/README.md` first.
+`_system/learning/learner.md`, `_system/How to Learn.md`,
+`_system/learning/README.md`, and `Japanese/CURRENT.md` first. The CURRENT
+file is the next-action handoff; curriculum files own state.
 
 ## Start from the learner's day
 
@@ -28,9 +29,14 @@ show the four-field brief only when it helps orient the session:
 
 ## Choose the branch
 
-- **New grammar:** open the current frontier from curriculum/map/log evidence,
-  request/verify one source JIT, teach one usable contrast, practise it, then
-  use it in conversation.
+For a fresh/reset handoff, do not open with a generic due-review pass. Start
+with a short conversation warm-up, then teach the first usable grammar
+contrast, then use it immediately. Dedicated review is used when the learner
+asks for it or after the current concept has actually been taught.
+
+- **New grammar:** open the current frontier from `Japanese/CURRENT` and
+  curriculum state, request/verify one source JIT, teach one usable contrast,
+  practise it, then use it in conversation.
 - **Conversation:** use mostly known grammar with a small useful i+1 addition.
   Reuse old grammar when it fits even if it is not due.
 - **Reading:** use the learner's novel and page context. For the first 30
@@ -82,4 +88,7 @@ contain summaries and evidence links. Do not persist novel screenshots or long
 passages. If the private store is missing, pause verbatim capture and continue
 with public summaries.
 
-At close, report only evidence-backed outcomes and the next relevant action.
+At close, report only evidence-backed outcomes and rewrite
+`Japanese/CURRENT.md` with the new next action, frontier, reading count, last
+evidence link, and any blocker. The next agent must be able to start from that
+file without reconstructing the session.

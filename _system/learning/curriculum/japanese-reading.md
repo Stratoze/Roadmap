@@ -21,9 +21,9 @@
 ## Concepts
 | id | aim | prereqs | state | rung | next_review | evidence |
 |----|-----|---------|-------|------|-------------|----------|
-| read-30-session-gate | complete 30 actual novel-reading sessions with the agreed language order | - | seen | 0 | - | count `reading_session` events below |
-| read-page-interpretation | explain what a page is doing, not merely translate it | jp-sentence-skeleton | unknown | 0 | - | - |
-| read-sentence-fallback | analyse one level-appropriate sentence when reading is skipped | jp-sentence-skeleton | unknown | 0 | - | - |
+| read-30-session-gate | complete 30 actual novel-reading sessions with the agreed language order | - | unknown | 0 | - | reset 2026-09-27; sessions=0 |
+| read-page-interpretation | explain what a page is doing, not merely translate it | jp-sentence-skeleton | unknown | 0 | - | reset 2026-09-27 |
+| read-sentence-fallback | analyse one level-appropriate sentence when reading is skipped | jp-sentence-skeleton | unknown | 0 | - | reset 2026-09-27 |
 
 ## Resources
 - Active source/material selected JIT. Stable reader/lookup links live in
@@ -50,6 +50,5 @@ Each `reading_session` event is one actual novel-reading session. The
 this gate.
 
 ## Log
-- 2026-09-21 - track opened from learner focus declaration.
-- 2026-09-27 - reading gate changed from calendar month to 30 actual sessions;
-  fallback sessions excluded.
+- 2026-09-27 - active reading gate reset to 0; no due reviews. Next action is
+  in [[Japanese/CURRENT|current Japanese session]].

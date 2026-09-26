@@ -38,7 +38,7 @@ Active skills in `.dsh/skills/`:
 - `map` - one-question knowledge mapping.
 - `resources` - JIT source selection and verification.
 - `review` - cold spaced review.
-- `japanese` - daily Japanese grammar, conversation, reading, immersion, and evidence orchestration.
+- `japanese` - daily Japanese grammar, conversation, reading, immersion, and evidence orchestration; reads/rewrites `Japanese/CURRENT.md`.
 - `technical` - technical scheduler, source/read handoff, conceptual check, break, transfer, implementation, and assessor flow.
 
 Use plain language (`study X`, `review`, `test me in X`, `Japanese session`, `technical session`). No slash-command infrastructure.

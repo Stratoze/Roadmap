@@ -14,9 +14,16 @@ Japanese is one learning system with four coordinated modes:
 The ordinary day is 4–5 hours: ~3 hours immersion, ~30 minutes Anki, and
 30–90 minutes of deliberate grammar/conversation/reading work.
 
-Start with the `japanese` skill. It reads the current curriculum frontier,
-preserves unfinished evidence, and composes the existing study/review/resources
-skills. See [[_system/learning/README|Vault learning system]].
+## Start here
+
+Read [[Japanese/CURRENT|current session handoff]] first. It names the next
+action, current grammar frontier, reading count, and the last evidence. After
+every Japanese session, the tutor rewrites that file before closing.
+
+For a fresh/reset session, do **not** begin with a generic review backlog.
+Start with conversation, then one ground-up grammar contrast, then reading or
+sentence analysis. The `japanese` skill reads this handoff and the curriculum
+frontier.
 
 - [[Japanese/Resources|Resources]] — compact discovery links and JIT source
   request policy; not a source library or tracker.

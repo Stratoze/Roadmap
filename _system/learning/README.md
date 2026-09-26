@@ -37,6 +37,8 @@ review - everything visible, versioned, and hand-editable in the vault.
 - `.dsh/skills/technical/SKILL.md` coordinates technical source selection,
   learner reading, cold conceptual checks, breaks, fresh transfer,
   implementation, Feynman correction, and assessor handoff.
+- `Japanese/CURRENT.md` is the mutable next-session handoff. The Japanese
+  skill reads it before branching and rewrites it at every close.
 
 These compose the existing `study`, `map`, `resources`, and `review` skills;
 they do not create a second curriculum or vocabulary database.
@@ -47,7 +49,8 @@ they do not create a second curriculum or vocabulary database.
   contain deliverables, dependencies, keywords, and safety/evidence boundaries,
   not source libraries.
 - `## Usage events` is append-only. Events are `introduced`, `practised`,
-  `produced`, or learner-reported `mined`; passive exposure is not use.
+  `produced`, learner-reported `mined`, or `reading_session`; passive exposure
+  is not use.
 - Anki owns Japanese vocabulary. Public notes contain summaries and links;
   raw learner productions stay in `_private/`.
 - Technical lesson records are written under
