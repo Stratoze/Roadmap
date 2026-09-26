@@ -40,12 +40,21 @@ rather than assuming.
 1. **A waste-reduction scout role was requested and never created.** The
    learner asked for a scout scoped *only* to reducing waste in the system
    (transcript L185). **Closed 2026-09-26:** `.dsh/agents/waste-scout.md` now
-   exists, read-only, staging proposals rather than deleting, with protected
-   material excluded by name.
-2. **Q10's graduated severity only half-landed.** **Closed 2026-09-26:**
-   `.dsh/skills/technical/SKILL.md` now states the severity per stage — cold
-   conceptual check is a warning, fresh transfer and implementation are hard
-   failures.
+   exists and stages proposals rather than deleting, with protected material
+   excluded by name. *Correction, same day:* an earlier version of this line
+   called the scout "read-only" on the strength of its `permissions:` block.
+   That was wrong — a brief in `.dsh/agents/` is inert text, nothing parses it
+   into a profile, so `effect: deny` is a declaration of expected discipline,
+   not enforcement.
+2. **Q10's graduated severity only half-landed.** **Closed 2026-09-26**, and
+   the earlier wording of this line was itself wrong twice over. There is no
+   "warning" tier: the decision was *"Same concept/equation: allowed. Same
+   exact test item, value set, or lab condition: forbidden for fresh transfer
+   and implementation. Full Pass requires a new scenario."* A cold conceptual
+   check may re-ask a concept, and the reuse exemption applies only to a pure
+   concept check — one recording `-` for both values and context, not a row
+   carrying a real test instance. `scripts/validate_learning.py` enforces this
+   and `.dsh/skills/technical/SKILL.md` states it.
 3. **Anki is read-only, by decision (2026-09-26).** The learner closed this:
    *"anki gets new cards from stuff like mining, not from our chat"*. Anki is
    populated by mining, not by conversation, so the chat does not write. The

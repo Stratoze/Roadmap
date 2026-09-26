@@ -67,8 +67,11 @@ A technical record is evidence only when it carries real evidence:
   gate or milestone evidence.
 - Every `## Question variants` row (cold, fresh transfer, implementation) holds
   the exact prompt, its values/conditions, its context, and both signatures. An
-  empty cell, a placeholder signature, or `reused? = yes` makes the record
-  incomplete, not partial credit.
+  empty cell or a placeholder signature makes the record incomplete, not partial
+  credit. `reused? = yes` is stage-aware: on `fresh transfer` or
+  `implementation` it makes the record incomplete, because repeating a test
+  hands over the answer it was meant to test; on `cold` it is honest disclosure
+  and the record stands. See *Question and test variants* below.
 - The record was read back, not written from memory: the learner's own words
   stay in `_private/`, and no timing, signature, or gate is invented.
 

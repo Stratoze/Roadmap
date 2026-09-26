@@ -22,6 +22,9 @@ authorized.
   recorded (Phase-4 hero).
 - **Era slug:** `qdd-arm (2026-08-)`.
 - **Parked history:** `Mechatronics/goals/parked/` (empty — first goal).
+- **Provenance:** the original goal record, including the semantic-pass
+  migration checklist that was never applied, is archived at
+  [[_system/learning/archive/mech-goal-qdd-arm-2026-09-08|the 2026-09-08 goal record]].
 
 This is the goal statement, not a checklist. Milestone status is the tables
 below, and the order is evidence → checkbox → commit → signed tag. Semantic

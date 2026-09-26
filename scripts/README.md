@@ -58,7 +58,9 @@ number.
 **Define the unit before quoting a trend.** The original baselines ("12 steps",
 "6 steps") never said whether a step was a tool call or a round, so a later
 6-calls/3-rounds reading is not strictly comparable. Record all three: tool
-calls, rounds, and files read.
+calls, rounds, and files read. A measurement missing any of the three is not
+comparable to one that has all three, and should be marked incomplete rather
+than quoted alongside.
 
 Measurements, 2026-09-26:
 
@@ -68,7 +70,8 @@ Measurements, 2026-09-26:
   `Mechatronics/CURRENT.md`'s claim that `review.py frontier` reports c2 and c9
   as ready, rather than trusting it.
 - "Japanese session, plan the opening", after `2cdc82e` — **9 calls, 4 blocks,
-  3 reasoning turns**. Alignment confirmed, and the probe earned its keep twice:
+  3 reasoning turns, 5 files read** (2 `CURRENT.md`, the japanese skill, the
+  curriculum table, `How to Learn`, `learner.md`, `learning/README`). Alignment confirmed, and the probe earned its keep twice:
   it reported the `stuck_samples` as `����` (a real encoding defect in
   `anki_bridge.py`, now fixed), and it found that the i+1 lane was reachable
   *only* by reading the japanese skill. An agent that had not opened that file

@@ -46,7 +46,7 @@ class ValidateLearningTests(unittest.TestCase):
                 "record.md",
                 "## Technical record status: legacy\n\n## Question variants\n"
                 + VARIANT_HEADER
-                + variant_row("cold", "What is the force?", "m=5", "lift"),
+                + variant_row("cold", "What is the force?", "-", "-"),
             )
             self.assertEqual(self.check(root), [])
 
@@ -73,7 +73,7 @@ class ValidateLearningTests(unittest.TestCase):
             record.write_text(
                 "## Technical record status: legacy\n\n## Question variants\n"
                 + VARIANT_HEADER
-                + variant_row("cold", "What is the force?", "m=5", "lift").replace("| no |", "| yes |"),
+                + variant_row("cold", "What is the force?", "-", "-").replace("| no |", "| yes |"),
                 encoding="utf-8",
             )
             self.assertEqual(self.check(root), [])
@@ -103,7 +103,7 @@ class ValidateLearningTests(unittest.TestCase):
                 "2026-09-27-record.md",
                 "## Technical record status: legacy\n\n- gate_earned: mvm\n\n## Question variants\n"
                 + VARIANT_HEADER
-                + variant_row("cold", "What is the force?", "m=5", "lift"),
+                + variant_row("cold", "What is the force?", "-", "-"),
             )
             errors = self.check(root)
             self.assertTrue(any("claims a gate" in error for error in errors), errors)
@@ -141,7 +141,7 @@ class ValidateLearningTests(unittest.TestCase):
                 "2026-09-27-a.md",
                 "## Technical record status: legacy\n\n## Question variants\n"
                 + VARIANT_HEADER
-                + variant_row("cold", "What is the force?", "m=5", "lift")
+                + variant_row("cold", "What is the force?", "-", "-")
                 + variant_row("fresh transfer", "What is the force?", "m=9", "push"),
             )
             write_record(
@@ -150,7 +150,7 @@ class ValidateLearningTests(unittest.TestCase):
                 "2026-09-28-b.md",
                 "## Technical record status: legacy\n\n## Question variants\n"
                 + VARIANT_HEADER
-                + variant_row("cold", "What is the force?", "m=7", "haul"),
+                + variant_row("cold", "What is the force?", "-", "-"),
             )
             errors = self.check(root)
             # Only the fresh transfer is a violation: it re-asked the question
@@ -183,6 +183,34 @@ class ValidateLearningTests(unittest.TestCase):
                 + variant_row("cold", "Define equilibrium.", "-", "-"),
             )
             self.assertEqual(self.check(root), [])
+
+    def test_cold_row_carrying_a_real_test_instance_is_still_caught(self):
+        """The cold exemption must not become a blank pass.
+
+        A cold row with a real value set or lab condition is describing a test
+        instance, and a test instance may not repeat whatever the stage. Only a
+        pure concept check, recording `-` for both, gets the exemption.
+        """
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            write_record(
+                root,
+                "math-odes",
+                "2026-09-27-a.md",
+                "## Technical record status: legacy\n\n## Question variants\n"
+                + VARIANT_HEADER
+                + variant_row("cold", "Find the applied force.", "m=5 kg", "vertical lift"),
+            )
+            write_record(
+                root,
+                "math-odes",
+                "2026-09-28-b.md",
+                "## Technical record status: legacy\n\n## Question variants\n"
+                + VARIANT_HEADER
+                + variant_row("cold", "Find the applied force.", "m=5 kg", "vertical lift"),
+            )
+            errors = self.check(root)
+            self.assertTrue(any("reuses a variant signature" in e for e in errors), errors)
 
     def test_cold_check_after_a_transfer_still_fails_a_transfer(self):
         """The stage being checked decides, not the stage that used it first."""
@@ -248,7 +276,7 @@ class ValidateLearningTests(unittest.TestCase):
                     "2026-09-27-record.md",
                     "## Technical record status: legacy\n\n## Question variants\n"
                     + VARIANT_HEADER
-                    + variant_row("cold", "What is the force?", "m=5", "lift"),
+                    + variant_row("cold", "What is the force?", "-", "-"),
                 )
             self.assertEqual(self.check(root), [])
 

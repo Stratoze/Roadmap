@@ -238,6 +238,30 @@ def signature_record_text(path, rel, errors):
         return None
 
 
+def is_plain_concept_check(stage, values, context):
+    """True when a cold row is a genuine conceptual probe, not a reused test.
+
+    A cold conceptual check may re-ask a concept - that is retention testing,
+    and the learner's decision scopes the reuse ban to fresh transfer and
+    implementation. But the exemption must not become a blank pass: a cold row
+    that carries a real value set or lab condition is describing a *test
+    instance*, and a test instance may not repeat whatever the stage. So the
+    exemption holds only when the row records no instance - the placeholder `-`
+    used throughout these records for "not applicable".
+    """
+    if str(stage).strip().lower() != "cold":
+        return False
+    return all(not str(part).strip() or str(part).strip() == "-"
+               for part in (values, context))
+
+
+def row_exempts_cold_reuse(cells):
+    """`is_plain_concept_check` for a raw variant-table row."""
+    if len(cells) == 4:
+        return is_plain_concept_check(cells[0], "", "")
+    return is_plain_concept_check(cells[0], cells[2], cells[3])
+
+
 def variant_rows(text, rel, errors):
     """Yield validated (stage, prompt, values, context) rows of the variant table."""
     variants = section(text, "Question variants")
@@ -262,7 +286,7 @@ def variant_rows(text, rel, errors):
         # A cold conceptual check re-asking a concept is retention testing, so
         # marking it honestly must not fail the record - otherwise the two
         # checks disagree and an agent cannot record the truth.
-        is_cold = cells[0].strip().lower() == "cold"
+        is_cold = row_exempts_cold_reuse(cells)
         if not is_cold and reused_cell.strip().lower() in {"yes", "true", "1", "reused"}:
             errors.append(f"technical record marks a prompt reused: {rel}")
         for signature_cell in signature_cells:
@@ -292,19 +316,28 @@ def check_signature_reuse(errors, records):
     whole point, and it is how retention is tested. But a fresh transfer or
     implementation row may not reuse a prompt or a test instance, whether that
     signature was first spent on a cold check or on an earlier transfer.
+
+    The cold exemption is deliberately narrow: it applies only to a genuine
+    conceptual probe, which records no value set or lab condition (see
+    `row_exempts_cold_reuse`). A cold row carrying real values is describing a
+    test instance, and a test instance may not repeat whatever the stage.
     """
     seen = {"prompt": {}, "variant": {}}
     for topic, rel, rows in records:
         for stage, prompt, values, context in rows:
-            is_cold = stage.strip().lower() == "cold"
+            plain = is_plain_concept_check(stage, values, context)
             for kind, digest in (
                 ("prompt", prompt_signature(prompt)),
-                ("variant", variant_signature(values, context) if values or context else None),
+                # A pure concept check has no test instance, so it produces no
+                # variant signature to reuse.
+                ("variant", None if plain else (
+                    variant_signature(values, context) if values or context else None
+                )),
             ):
                 if digest is None:
                     continue
                 first = seen[kind].get(digest)
-                if first and not is_cold:
+                if first and not plain:
                     errors.append(
                         f"technical record reuses a {kind} signature: {rel} (stage '{stage}') "
                         f"already used in {first}"
