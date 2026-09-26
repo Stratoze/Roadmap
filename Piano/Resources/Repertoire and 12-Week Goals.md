@@ -5,7 +5,7 @@
 ## Always maintain
 - 1 learning piece — at level, actively teaching the current technical goals
 - 1 polishing piece — mostly learned; musical and performance work
-- Maintenance pool — previously completed, in the vault review rotation (topic file `_system/learning/curriculum/piano.md`)
+- Maintenance pool — previously completed, reviewed on the cadence in [[Piano/Resources/Maintenance and Performance|Maintenance and Performance]]. There is no `curriculum/piano.md`: piano is not routed through the vault review scheduler.
 - Optional: 1 easy or fun piece — below level, no perfection required
 
 Two concurrent pieces must never become two concurrent obligations.
