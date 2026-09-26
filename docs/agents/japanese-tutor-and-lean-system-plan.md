@@ -55,8 +55,8 @@ Read-only impact and waste scouts found:
 - `japanese-immersion.md` says “no quotas” while suggesting one mined item per session. Remove the ambiguity.
 - No question-signature persistence, break timer, or technical test runner exists. This pass will use append-only records and procedural timestamps, not build a large runner.
 - Current learner standing orders still say books/videos are supplied for each lesson and phase. They must be rewritten to match JIT source acquisition.
-- `Mechatronics/Index.md` points to the latest Daily for current milestone state while `AGENTS.md` says ROADMAP is the only status owner. This must be reconciled.
-- The roadmap's milestone order is now resolved: evidence → flip → commit → signed tag. `scripts/milestone.sh` and its documentation must be updated to match.
+- `Mechatronics/Index.md` pointing at the latest Daily for milestone state while `AGENTS.md` says ROADMAP is the only status owner — now resolved: `Mechatronics/Index.md` reads "Current milestone status: Roadmap only".
+- The roadmap's milestone order is now resolved and implemented: evidence → flip → commit → signed tag. `scripts/milestone.sh` refuses to tag on an unclean tree and says so.
 
 ## 4. Target ownership and protected content
 

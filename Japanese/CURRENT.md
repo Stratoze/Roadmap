@@ -24,7 +24,11 @@ of every Japanese session so the next agent never has to infer what to do.
 - Next concept: `jp-yokubi-00` (Yokubi Lesson 0, sentence anatomy).
 - Source locator: <https://yoku.bi/Section1/Part1/Lesson0.html>, reached
   through [[Japanese/SOURCES|the source map]].
-- Verify the locator resolves and the spine still matches before teaching:
+- Verify the locator resolves and the spine still matches before teaching.
+  `build_japanese_curriculum.py` is **read-only** — it prints
+  `verified N Yokubi concept rows` and writes nothing, so run it freely
+  mid-session. Only `build_japanese_source_map.py` regenerates and writes
+  `Japanese/source-map.json`; it is not a teaching step:
 
   ```bash
   python3 scripts/build_japanese_curriculum.py
