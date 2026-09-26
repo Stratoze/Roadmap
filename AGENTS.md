@@ -107,3 +107,17 @@ structural changes, run `python3 scripts/diagnose.py`. Use
 and `python3 -m unittest discover -s scripts/tests -p "test_*.py"` for the
 executable tests. Do not claim completion from prose alone. Keep the plan and
 active documents aligned: one fact has one owner.
+
+Run the validation set under `danger-full-access`. Under the default
+`workspace-write` sandbox, `tempfile.mkdtemp()` creates `0700` directories
+that the sandbox then refuses to write into, so every test using
+`tempfile.TemporaryDirectory()` errors with `PermissionError` before it
+exercises any logic. That is an environment artifact, not a code defect: judge
+these failures by their exception type, and never read a `PermissionError` in
+this suite as a real regression. `test_technical_session` additionally spawns a
+child process, which fails the same way.
+
+Do not request a sandbox escalation to work around this. Prefer omitting the
+sandbox-permission parameter entirely. If the session's mode cannot run the
+suite, say the suite is unvalidated in this mode — an honest "could not
+validate" beats a green claim you did not earn.

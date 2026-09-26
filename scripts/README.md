@@ -1,7 +1,8 @@
 # scripts
 
 ## The loop (used every session)
-- `review.py due | schedule <topic> <id> [rung] | next <topic> <id> hit|hard|miss | selftest` — transparent spaced-review scheduler (ladder 1, 3, 7, 16, 35, 90 days). Rows are created only by the `study` skill; this script never upserts. Topic names are the `curriculum/<domain>-<slug>.md` stem (e.g. `math-odes`).
+- `review.py due | frontier | schedule <topic> <id> [rung] | next <topic> <id> hit|hard|miss | selftest` — transparent spaced-review scheduler (ladder 1, 3, 7, 16, 35, 90 days). Rows are created only by the `study` skill; this script never upserts. Topic names are the `curriculum/<domain>-<slug>.md` stem (e.g. `math-odes`).
+- `review.py due` and `review.py frontier` answer two different questions and must not be merged. `due` answers "is my evidence for this concept stale?" and ignores prerequisites entirely — a learner may learn out of order, and withholding a concept they demonstrably learned defeats spaced review. `frontier` answers "what can I usefully teach next?" and reports only the roots of the unlearned forest: unlearned concepts whose own prerequisites are already learned, plus a count of what is blocked behind them. Ordering is otherwise owned by the `technical` and `map` skills.
 - `review.py usage <topic>` — read-only derived usage freshness; usage events never change review state.
 - `review.py usage <topic> <id> <introduced|practised|produced|mined|reading_session> <evidence-path> [public-note]` — append an idempotent usage event; the evidence path must exist. `reading_session` counts only an actual novel-reading session; fallback analysis uses `practised` on its separate concept.
 - `diagnose.py` — vault link health (broken links + orphan notes). Exit 0 = clean. The `EXEMPT` block at the top is authoritative for carried failures. Ignores code fences; `_templates/`, `Daily/`, `Changelog/`, `_private/` never count as orphans.

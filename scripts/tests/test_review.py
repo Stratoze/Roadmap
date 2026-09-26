@@ -23,29 +23,43 @@ class ReviewTests(unittest.TestCase):
             self.assertEqual(review.cmd_due(), 0)
         return output.getvalue()
 
-    def test_due_hides_items_whose_prerequisites_are_unmet(self):
+    def _frontier_output(self, root):
+        output = io.StringIO()
+        errors = io.StringIO()
+        with (
+            patch.object(review, "CURRICULUM", root),
+            contextlib.redirect_stdout(output),
+            contextlib.redirect_stderr(errors),
+        ):
+            self.assertEqual(review.cmd_frontier(), 0)
+        return output.getvalue(), errors.getvalue()
+
+    # --- due: evidence is stale, regardless of teaching order ---
+
+    def test_due_ignores_unmet_prerequisites(self):
+        """Regression: due once withheld concepts the learner had learned.
+
+        Learners learn out of order. Withholding a concept you demonstrably
+        learned defeats spaced review, and produced the incoherent queue where
+        c5 was offered while its own prerequisite c4 was withheld.
+        """
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             (root / "topic.md").write_text(
                 "# t\n\n## Concepts\n"
                 + self.HEADER
                 + "| a | no prereq | - | review | 0 | 2000-01-01 | - |\n"
-                + "| b | needs a | a | review | 0 | 2000-01-01 | - |\n"
-                + "| c | needs x, unlearned | x | review | 0 | 2000-01-01 | - |\n"
-                + "| x | not learned yet | - | unknown | 0 | 2000-01-01 | - |\n",
+                + "| c | needs x, which was never taught | x | review | 0 | 2000-01-01 | - |\n"
+                + "| x | never taught | - | unknown | 0 | - | - |\n",
                 encoding="utf-8",
             )
             output = self._due_output(root)
-            # a and b are due: b's prerequisite a is learned.
             self.assertIn("| a |", output)
-            self.assertIn("| b |", output)
-            # c's prerequisite x is still unknown, so c must not be offered.
-            # cmd_due gates on prerequisites, not on state, so x itself is
-            # still listed by date -- that is existing behaviour, not the gate.
-            self.assertNotIn("| c |", output)
+            # c's prerequisite is unknown, but c itself has real evidence.
+            self.assertIn("| c |", output)
 
     def test_due_resolves_prerequisites_across_topic_files(self):
-        """Regression: a per-file state map hid cross-file dependents forever."""
+        """The concept index is global; a per-file map broke this."""
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             (root / "base.md").write_text(
@@ -63,26 +77,6 @@ class ReviewTests(unittest.TestCase):
             output = self._due_output(root)
             self.assertIn("| child |", output)
 
-    def test_due_warns_on_dangling_prerequisite_instead_of_hiding_silently(self):
-        with tempfile.TemporaryDirectory() as directory:
-            root = Path(directory)
-            (root / "topic.md").write_text(
-                "# t\n\n## Concepts\n"
-                + self.HEADER
-                + "| a | typo in the prereq cell | does-not-exist | review | 0 | 2000-01-01 | - |\n",
-                encoding="utf-8",
-            )
-            output = io.StringIO()
-            errors = io.StringIO()
-            with (
-                patch.object(review, "CURRICULUM", root),
-                contextlib.redirect_stdout(output),
-                contextlib.redirect_stderr(errors),
-            ):
-                self.assertEqual(review.cmd_due(), 0)
-            self.assertNotIn("| a |", output.getvalue())
-            self.assertIn("does-not-exist", errors.getvalue())
-
     def test_due_ignores_rows_with_an_unparsable_date(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
@@ -93,6 +87,90 @@ class ReviewTests(unittest.TestCase):
                 encoding="utf-8",
             )
             self.assertEqual(self._due_output(root), "")
+
+    # --- frontier: teaching order, the job `due` no longer does ---
+
+    def test_frontier_lists_only_the_roots_of_the_unlearned_forest(self):
+        """Downstream rows are reachable, so listing them is pure noise."""
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "topic.md").write_text(
+                "# t\n\n## Concepts\n"
+                + self.HEADER
+                + "| base | learned | - | review | 0 | - | - |\n"
+                + "| mid | needs base, not taught yet | base | unknown | 0 | - | - |\n"
+                + "| deep | needs mid | mid | unknown | 0 | - | - |\n",
+                encoding="utf-8",
+            )
+            output, errors = self._frontier_output(root)
+            # `mid` is the only thing teachable right now.
+            self.assertIn("| mid |", output)
+            self.assertNotIn("| deep |", output)
+            self.assertEqual(errors, "")
+            self.assertIn("1 ready; 1 blocked", output)
+
+    def test_frontier_treats_seen_as_unlearned_but_offerable(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "topic.md").write_text(
+                "# t\n\n## Concepts\n"
+                + self.HEADER
+                + "| exposed | touched but not learned | - | seen | 0 | - | - |\n",
+                encoding="utf-8",
+            )
+            output, _ = self._frontier_output(root)
+            self.assertIn("| exposed |", output)
+            self.assertIn("seen", output)
+
+    def test_frontier_skips_learned_concepts(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "topic.md").write_text(
+                "# t\n\n## Concepts\n"
+                + self.HEADER
+                + "| done | learned | - | solid | 0 | - | - |\n"
+                + "| kept | in rotation | - | review | 0 | - | - |\n",
+                encoding="utf-8",
+            )
+            output, _ = self._frontier_output(root)
+            self.assertNotIn("| done |", output)
+            self.assertNotIn("| kept |", output)
+            self.assertIn("0 ready; 0 blocked", output)
+
+    def test_frontier_resolves_prerequisites_across_topic_files(self):
+        """Regression: a per-file state map reported these as blocked forever."""
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "base.md").write_text(
+                "# base\n\n## Concepts\n"
+                + self.HEADER
+                + "| shared | learned in another file | - | review | 0 | - | - |\n",
+                encoding="utf-8",
+            )
+            (root / "dependent.md").write_text(
+                "# dependent\n\n## Concepts\n"
+                + self.HEADER
+                + "| child | needs shared, in base.md | shared | unknown | 0 | - | - |\n",
+                encoding="utf-8",
+            )
+            output, _ = self._frontier_output(root)
+            self.assertIn("| child |", output)
+            self.assertIn("1 ready; 0 blocked", output)
+
+    def test_frontier_warns_on_a_dangling_prerequisite(self):
+        """A typo must not silently strand a concept forever."""
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "topic.md").write_text(
+                "# t\n\n## Concepts\n"
+                + self.HEADER
+                + "| a | typo in the prereq cell | does-not-exist | unknown | 0 | - | - |\n",
+                encoding="utf-8",
+            )
+            output, errors = self._frontier_output(root)
+            self.assertIn("does-not-exist", errors)
+            self.assertNotIn("| a | ready", output)
+            self.assertIn("0 ready; 1 blocked", output)
 
     def test_concept_parser_keeps_seven_column_rows(self):
         text = """# t

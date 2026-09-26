@@ -299,23 +299,25 @@ def unmet_prerequisites(states, cells):
 
 
 def cmd_due():
+    """Concepts whose own evidence is due.
+
+    Deliberately does NOT filter on prerequisites. Two different questions are
+    easy to conflate here:
+
+      - Is my evidence for this concept stale?      -> this is `due`
+      - Can I usefully *teach* this concept now?    -> this is `frontier`
+
+    Learners legitimately learn out of order, and withholding a concept you
+    demonstrably learned defeats the point of spaced review. A prerequisite is
+    a teaching-order recommendation, not a law. Enforcing it against the review
+    queue produced the incoherent output where c5 was offered while its own
+    stated prerequisite c4 was withheld. Ordering is owned by the technical and
+    map skills, and made inspectable by `frontier`.
+    """
     today = dt.date.today()
-    states = concept_index()
     rows = []
     for path in sorted(CURRICULUM.glob("*.md")):
         for _, cells in read_rows(path.read_text(encoding="utf-8")):
-            unmet = unmet_prerequisites(states, cells)
-            if unmet:
-                # A dangling id would otherwise hide this concept forever with
-                # no explanation, so name the culprit instead of swallowing it.
-                dangling = [item for item in unmet if item not in states]
-                if dangling:
-                    print(
-                        f"warning: {path.name}: {cells[0]} references unknown prereq "
-                        f"{', '.join(dangling)}; treating it as unmet",
-                        file=sys.stderr,
-                    )
-                continue
             try:
                 when = dt.date.fromisoformat(cells[5])
             except ValueError:
@@ -324,6 +326,43 @@ def cmd_due():
                 rows.append(format_row(path.stem, cells))
     for row in sorted(rows):
         print(row)
+    return 0
+
+
+def cmd_frontier():
+    """Concepts ready to teach, and how much is queued behind them.
+
+    This is the teaching gate that `due` deliberately is not. It reports only
+    the *roots* of the unlearned forest -- an unlearned concept whose own
+    prerequisites are already learned. Everything downstream is reachable by
+    teaching these first, so listing all 150 blocked rows would be noise, and
+    noise is exactly what a cold agent has to sift through.
+    """
+    states = concept_index()
+    ready = []
+    blocked = 0
+    dangling = []
+    for path in sorted(CURRICULUM.glob("*.md")):
+        for _, cells in read_rows(path.read_text(encoding="utf-8")):
+            if cells[3] in {"review", "solid"}:
+                continue
+            unmet = unmet_prerequisites(states, cells)
+            missing = [item for item in unmet if item not in states]
+            if missing:
+                dangling.append((path.stem, cells[0], missing))
+            if unmet:
+                blocked += 1
+            else:
+                ready.append((path.stem, cells[0], cells[3]))
+    for topic, concept_id, state in sorted(ready):
+        print(f"{topic} | {concept_id} | {state} | ready to teach")
+    print(f"\n{len(ready)} ready; {blocked} blocked behind unmet prerequisites")
+    for topic, concept_id, missing in dangling:
+        print(
+            f"warning: {topic}: {concept_id} references unknown prereq "
+            f"{', '.join(missing)}; treating it as unmet",
+            file=sys.stderr,
+        )
     return 0
 
 
@@ -437,6 +476,8 @@ def main(argv):
     cmd, rest = argv[0], argv[1:]
     if cmd == "due" and not rest:
         return cmd_due()
+    if cmd == "frontier" and not rest:
+        return cmd_frontier()
     if cmd == "usage" and len(rest) == 1:
         return derived_usage(rest[0])
     if cmd == "usage" and len(rest) in (4, 5):
@@ -452,7 +493,7 @@ def main(argv):
         return cmd_next(rest[0], rest[1], rest[2])
     if cmd == "selftest" and not rest:
         return cmd_selftest()
-    print("usage: review.py due | schedule <topic> <id> [rung] | next <topic> <id> hit|hard|miss | usage <topic> | usage <topic> <id> <event> <evidence> [note] | selftest", file=sys.stderr)
+    print("usage: review.py due | frontier | schedule <topic> <id> [rung] | next <topic> <id> hit|hard|miss | usage <topic> | usage <topic> <id> <event> <evidence> [note] | selftest", file=sys.stderr)
     return 2
 
 

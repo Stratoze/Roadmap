@@ -55,8 +55,11 @@ Pass requires a new scenario and new evidence.
 - The 2026-09-22 ODE lesson produced review evidence for c1 and c4–c7, but it
   never taught the c2 → c3 chain underneath them (slope field, solution
   curves). The evidence is real; the foundation below it is not.
-- `review.py due` therefore withholds c4 and c7, because both depend on c3 and
-  c3 is still `unknown`. This is the queue working, not missing data.
+- This is a **teaching** gap, not a review gap. `review.py due` lists c1, c4,
+  c5, c6 and c7 because each has its own evidence due; prerequisites do not
+  withhold a concept you have already learned. `review.py frontier` is the
+  teaching gate: it reports `c2` as ready to teach (its prerequisite c1 is
+  learned) and `c9` as ready (its prerequisite c7 is learned).
 - If the chosen target requires 0.3, teach c2 → c3 first, then return to the
   target. Do not re-probe c4–c7 cold; they are already in review state.
 
