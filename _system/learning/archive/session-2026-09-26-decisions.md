@@ -39,19 +39,22 @@ rather than assuming.
 
 1. **A waste-reduction scout role was requested and never created.** The
    learner asked for a scout scoped *only* to reducing waste in the system
-   (transcript L185). It was run ad hoc once. `.dsh/agents/scout.md` remains
-   scoped to source research. Decide whether it earns a brief of its own.
-2. **Q10's graduated severity only half-landed.** The learner asked for hard
-   failure on fresh transfer and implementation, warning on a concept check.
-   `.dsh/skills/technical/SKILL.md` states the hard-failure half; the
-   concept-check leniency is unstated.
+   (transcript L185). **Closed 2026-09-26:** `.dsh/agents/waste-scout.md` now
+   exists, read-only, staging proposals rather than deleting, with protected
+   material excluded by name.
+2. **Q10's graduated severity only half-landed.** **Closed 2026-09-26:**
+   `.dsh/skills/technical/SKILL.md` now states the severity per stage — cold
+   conceptual check is a warning, fresh transfer and implementation are hard
+   failures.
 3. **Live Anki card creation has never been exercised.** Known debt, recorded
-   in `Daily/2026-09-25.md`. Not a surprise, not a blocker.
-4. **Cold-start was re-measured once, then the session ended.** Measured 2026-09-26
-   after `b7ebf21`: the fresh-agent answer was aligned and current. The exact
-   step count was not captured, because a finished background subagent cannot
-   be resumed for the self-audit (`send_message` reaches team members only).
-   Treat the number as unmeasured and the alignment as confirmed.
+   in `Daily/2026-09-25.md`. Not a surprise, not a blocker. Writing to Anki
+   needs the learner's deck/model/field mapping and an approval-evidence file,
+   so it stays open until they supply those.
+4. **Cold-start measurement.** Measured 2026-09-26 after `b7ebf21`: the
+   fresh-agent answer was aligned and current. The step count was not captured,
+   because the probe was spawned as a background subagent and `send_message`
+   cannot reach one. The method in `AGENTS.md` now records that trap and calls
+   for a team member. Re-measure before trusting a number.
 
 ## Method note
 

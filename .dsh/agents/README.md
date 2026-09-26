@@ -10,6 +10,10 @@ with no memory of the asking session.
   verdict (verified / unverified / rejected) with evidence.
 - `assessor.md` — blind grader for claim gates (MVM / Full Pass) and sampled
   audits. Sees only claim + rubric + question + production.
+- `waste-scout.md` — waste auditor, scoped only to reducing waste inside the
+  system: duplicated ownership, superseded content, unreferenced files, and
+  process that produces no evidence. Read-only, and stages proposals rather
+  than deleting; protected material is never a candidate.
 
 **Never review with a forked subagent.** A fork inherits the asking session's
 context, which biases the reviewer toward an answer it can already see. Use a

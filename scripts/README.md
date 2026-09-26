@@ -21,5 +21,47 @@
 - `versions.sh` — toolchain snapshot; run before toolchain-dependent work.
 - `diagnose.py` — link/orphan check; run after structural changes.
 
+## Running the suite, and the sandbox
+- The suite is `python3 -m unittest discover -s scripts/tests -p "test_*.py"`.
+- **Under the default `workspace-write` sandbox it cannot pass, and the failures
+  are not regressions.** `tempfile.mkdtemp()` creates `0700` directories that the
+  sandbox then refuses to write into, so every test using
+  `tempfile.TemporaryDirectory()` raises `PermissionError` before it exercises
+  any logic. `test_technical_session` additionally spawns a child process and
+  fails the same way (`STATUS_DLL_INIT_FAILED`).
+- Judge these by exception type. A `PermissionError` here means "not run", never
+  "broken". To confirm a real failure, re-run under `danger-full-access`: 138
+  passed / 2 skipped, and the same 7 subprocess tests fail there too, so they
+  are environmental in both modes.
+- **Escalation default:** omit the sandbox-permission parameter and let the
+  operation run in the session's current mode. Escalate only as a fallback when
+  the mode genuinely cannot do the job. Approval is auto-reviewed by another
+  model, so a justified fallback is cheap and a refused one costs only an
+  unvalidated claim. Never work around a denial by retrying a different way.
+
+## Measuring cold-start cost
+Cold-start — how many steps a fresh agent needs to answer "what's next?" — is a
+maintained metric (learner's own, 2026-09-26), not a one-off. After changing
+anything a fresh agent must read to branch, re-measure it.
+
+Method: spawn a fresh agent, give it **only** the prompt `what's next?`, let it
+finish, then ask that same agent how many steps it took and what it had to
+infer. Score the step count *and* whether the answer was aligned and current. If
+it is stale, find which document lied.
+
+**Spawn it as a team member, not a background subagent.** `send_message` reaches
+team members only; a finished background subagent is unresumable, so the
+self-audit half silently becomes unobtainable and you get alignment but no
+number.
+
+**Define the unit before quoting a trend.** The original baselines ("12 steps",
+"6 steps") never said whether a step was a tool call or a round, so a later
+6-calls/3-rounds reading is not strictly comparable. Record all three: tool
+calls, rounds, and files read. Current measurement, 2026-09-26 after `b7ebf21`:
+**6 calls, 3 rounds, 3 files read** (the `session_state.py` output plus the two
+`CURRENT.md` files), against a pre-`554e611` baseline of 12. Alignment confirmed:
+the probe verified `Mechatronics/CURRENT.md`'s claim that `review.py frontier`
+reports c2 and c9 as ready, rather than trusting it.
+
 Windows git-bash notes: invoke shell scripts with `bash scripts/*.sh` (not `+x`);
 Python output needs `PYTHONIOENCODING=utf-8`. Repo is LF (`* text=auto eol=lf`).

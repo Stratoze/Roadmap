@@ -1,142 +1,40 @@
 # AGENTS.md - Operating Contract for AI Sessions in This Vault
 
-Active system: **Vault Learning System** (`_system/learning/`). This file is the short operating contract. Read the pointed-to method and skill files for procedure; do not recreate their content here.
+Active system: **Vault Learning System** (`_system/learning/`). Procedure lives
+in the files below — read, don't restate. Tooling: `scripts/README.md`.
 
-## Session start
-
-Before other work, run from the repository root:
+## Start
 
 ```bash
 python3 scripts/session_state.py today
-test -f "Daily/$(date +%F).md" && echo "note: exists" || echo "note: missing"
 ```
 
-`session_state.py` resolves the daily checklist and next action without
-starting anything. The default order is Japanese → Anki/due review → target-
-driven technical work. Do not nag about a missing daily note. Do not auto-create
-notes, start sessions, reminders, or background jobs.
+Resolves checklist and next action, starting nothing. Order: Japanese →
+Anki/due (30-min cap) → technical. Never nag about a missing daily note, or
+auto-create notes, sessions, or jobs. Reading and Piano stay opt-in.
 
-## Session shape
+## Working
 
-- Start with the work. No pre-work form or Target/Predict gate.
-- Use `python3 scripts/session_state.py today` to resolve the daily
-  checklist. The default order is Japanese deliberate work → Anki/due review
-  (30-minute cap when the backlog is larger) → target-driven technical work.
-- Lead sequencing yourself within that order: read `Japanese/CURRENT.md` for
-  Japanese, then due reviews, then the active target in
-  `Mechatronics/CURRENT.md` and its dependency frontier.
-- Ask **one adaptive question per message** when probing, mapping, studying, or reviewing. Ask, then wait.
-- Do not re-ask what the learner has already settled. Infer the answer from
-  prior context and from this contract, state the assumption in one clause, and
-  continue. Ask again only where the answer is genuinely ambiguous. (Learner
-  standing order, 2026-09-26: "you can probably just assume based on prev
-  answers, only ask about ambiguous ones".)
-- Your own context is the scarce resource. Delegate execution *and*
-  verification to background subagents and team members rather than spending
-  lead context on work a bounded brief can do. Prefer a background subagent
-  when the task must survive to a follow-up message. (Learner standing order,
-  2026-09-26.)
-- At close, draft the session log from evidence. The learner owns corrections. No session means no daily note.
-- Raw learner productions go only to `_private/learning/`. Public files contain summaries and links.
-- The learner produces code, derivations, and solutions. The agent scaffolds, executes, verifies, and reviews.
+- One adaptive question per message, then wait. Never re-ask what is settled;
+  infer and continue.
+- Delegate execution and verification; your context is the scarce resource.
+  Team member when a follow-up is needed.
+- The learner works; you scaffold, execute, verify. Never write their artifact
+  or invent evidence.
+- Raw productions go only to `_private/`; public files hold summaries.
+- No sandbox escalation by default; escalate only as fallback.
+- PLAN-marked files need approval. Keep records, private data, safety
+  material, and provenance.
 
-## Domain routing
+## Evidence
 
-The active daily checklist has three deliberate slots: Japanese, Anki/due
-review, and target-driven technical work. English Reading and Piano maintenance
-remain separate opt-in maintenance domains; they are not auto-started by
-`session_state.py` and are not silently dropped. If the learner opens one,
-follow that domain's own file and record the work there.
+- `review.py` owns review state. Never hand-compute schedules.
+- Milestone status lives only in `Mechatronics/ROADMAP.md`: evidence →
+  checkbox → commit → signed tag.
+- MVM/Full Pass routes through `.dsh/agents/assessor.md`.
 
-## Active documents and skills
+## Read before teaching
 
-Read before teaching or reviewing:
-
-- `_system/How to Learn.md` - method, Loop, struggle, AI boundaries.
-- `_system/learning/README.md` - layout, ownership, schemas.
-- `_system/learning/learner.md` - canonical learner preferences and standing orders.
-- `_system/learning/topic-tree.md` - hierarchy and dependency map.
-- `_system/learning/maps/overview.md` - provisional cross-strand map.
-- `Japanese/CURRENT.md` and `Mechatronics/CURRENT.md` - mutable next-session
-  handoffs; read before choosing a branch.
-
-Active skills in `.dsh/skills/`:
-
-- `study` - source-first concept teaching and checks.
-- `map` - one-question knowledge mapping.
-- `resources` - JIT source selection and verification.
-- `review` - cold spaced review.
-- `japanese` - daily Japanese grammar, conversation, reading, immersion, and evidence orchestration; reads/rewrites `Japanese/CURRENT.md`.
-- `technical` - technical scheduler, source/read handoff, conceptual check, break, transfer, implementation, and assessor flow.
-- `.dsh/agents/{scout,verifier,assessor}.md` - bounded subagent roles; use
-  `.dsh/agents/assessor.md` for every MVM/Full Pass claim.
-
-Use plain language (`study X`, `review`, `test me in X`, `Japanese session`, `technical session`). No slash-command infrastructure.
-
-## Source and curriculum policy
-
-Raw roadmaps contain **deliverables, dependencies, search keywords, and safety/evidence boundaries**. They do not maintain a book/video library.
-
-When an active topic needs a source:
-
-1. Identify the exact concept and blocker.
-2. Ask the learner for a book or source when needed; the resource skill may scout and verify one on demand.
-3. Record only the active locator in the topic dossier.
-4. Open the source before teaching or testing.
-5. A faithful Japanese translation/restatement of the cited source is allowed. An explanation beyond it requires a documented sourcing blocker; never substitute an unsourced AI lecture.
-
-Stable discovery links may remain in compact index files. Rejected/unverified source decisions move to `_system/learning/archive/source-ledger.md` rather than disappearing.
-
-## Review and evidence
-
-- `python3 scripts/review.py` owns spaced-review state. Never hand-compute schedules.
-- Dedicated due review is separate from natural use. Old material remains eligible when it fits a session.
-- Usage events are append-only. Passive exposure is not use; an attempted use is not a clean use.
-- Anki owns Japanese vocabulary. The vault owns grammar, output, reading, immersion, and evidence. Without a bridge, Anki knowledge claims are learner-reported.
-- No exact technical question prompt or identical test instance (values, conditions, context) may be reused for fresh transfer or implementation. Store prompt and variant signatures in the technical lesson record.
-- MVM/Full Pass claims route through the assessor. A partial/lapsed result does not earn a gate.
-- Milestone status lives only in `Mechatronics/ROADMAP.md`. Milestone checkboxes are frozen acceptance history. The order is evidence → checkbox flip → commit → signed tag.
-- `Mechatronics/resources/SAFETY_CARD.md` and milestone safety/landmine material are protected.
-- Use `bash scripts/save.sh` only for reviewed, scoped changes. It stages broadly; never use it for cleanup commits.
-
-## Hard rules
-
-- PLAN-marked files implement only after explicit user approval.
-- Scope approval before landing curriculum changes; maps-only landings.
-- Never invent activity, evidence, reviews, or session outcomes.
-- Never write the learner's artifact. Verify independently.
-- Never AI-generate video. Books win when they cover the concept; otherwise use a verified human source.
-- Keep learner records, private data, evidence, safety material, signed tags, and useful historical provenance intact.
-- Do not delete archive material by default. The approved thin retired harness mirrors and unused issue/triage/domain documents are the only cleanup exceptions; check references first.
-
-## Validation and maintenance
-
-Before toolchain-dependent work, run `bash scripts/versions.sh`. After
-structural changes, run `python3 scripts/diagnose.py`. Use
-`python3 scripts/validate_learning.py` for the layout/protected-path checks
-and `python3 -m unittest discover -s scripts/tests -p "test_*.py"` for the
-executable tests. Do not claim completion from prose alone. Keep the plan and
-active documents aligned: one fact has one owner.
-
-Run the validation set under `danger-full-access`. Under the default
-`workspace-write` sandbox, `tempfile.mkdtemp()` creates `0700` directories
-that the sandbox then refuses to write into, so every test using
-`tempfile.TemporaryDirectory()` errors with `PermissionError` before it
-exercises any logic. That is an environment artifact, not a code defect: judge
-these failures by their exception type, and never read a `PermissionError` in
-this suite as a real regression. `test_technical_session` additionally spawns a
-child process, which fails the same way.
-
-Do not request a sandbox escalation to work around this. Prefer omitting the
-sandbox-permission parameter entirely. If the session's mode cannot run the
-suite, say the suite is unvalidated in this mode — an honest "could not
-validate" beats a green claim you did not earn.
-
-**Cold-start cost is a maintained metric.** After changing anything a fresh
-agent must read to answer "what's next?", measure it rather than assuming the
-change helped. Method (learner's own, 2026-09-26): spawn a fresh background
-subagent, give it only the prompt "what's next?", let it finish, then ask that
-same agent how many steps it took and what it had to infer. Score two things —
-the step count, and whether the answer was aligned and current. If it is
-misaligned or stale, find which document lied. Baselines: 12 steps before
-`554e611`, 6 on the second probe of that session.
+`_system/How to Learn.md`; `_system/learning/{README,learner,topic-tree}.md`;
+`Japanese/CURRENT.md`; `Mechatronics/CURRENT.md`; `.dsh/skills/`;
+`.dsh/agents/`.
