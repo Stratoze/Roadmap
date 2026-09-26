@@ -11,6 +11,7 @@ kept for provenance only. The operative docs are `AGENTS.md` (contract),
 - `topic-tree-details.md` — historical detail removed from the active topic tree.
 - `session-2026-09-26-decisions.md` — decisions distilled from a finished session archive; what was promoted to operative docs, what was checked and cleared, and the threads left open.
 - `mech-goal-qdd-arm-2026-09-08.md` — the learner-confirmed QDD 2-DOF arm goal record. Superseded by the *Confirmed goal* section of `Mechatronics/ROADMAP.md`; the migration checklist there was a Full Pass that never started.
+- `session-284fdde3-summary.md` — end-of-session summary reconstructed from the session transcript rather than from the changelog, so it keeps the learner's own interventions and the shape of the session, not only the landed changes.
 
 Do not cite an archived plan as the current rule. If archive and system docs
 conflict, the system docs win.
