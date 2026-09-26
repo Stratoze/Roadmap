@@ -139,6 +139,137 @@ def iplusone_lane():
     return f"lane={lane} (unlearned={unlearned}, stuck={stuck})"
 
 
+def roadmap_milestones():
+    """Every row of the ROADMAP milestone table as a dict."""
+    path = ROOT / "Mechatronics" / "ROADMAP.md"
+    if not path.is_file():
+        return []
+    rows = []
+    for line in path.read_text(encoding="utf-8").splitlines():
+        stripped = line.strip()
+        if not stripped.startswith("|") or stripped.startswith("|---"):
+            continue
+        cells = [cell.strip() for cell in stripped.strip("|").split("|")]
+        if len(cells) < 7 or not re.fullmatch(r"\d+", cells[0]):
+            continue
+        link = re.match(r"\[([^\]]+)\]\(([^)]+)\)", cells[1])
+        label, target = (link.group(1), link.group(2)) if link else (cells[1], None)
+        rows.append({
+            "phase": cells[0],
+            "id": label.split()[0] if label else cells[1],
+            "label": label,
+            "milestone": label,
+            "target": target,
+            "status": cells[2],
+            "deliverable": cells[3],
+            "depends": cells[4],
+            "keywords": cells[5],
+            "safety": cells[6],
+        })
+    return rows
+
+
+def _pass_items(path, milestone_id, heading):
+    """Unchecked pass-condition items for one milestone, not the whole file.
+
+    A milestone file holds a `### MVM` / `### Full Pass` pair per milestone
+    plus a generic contract near the top, so the section has to be scoped to
+    the milestone's own H1 or you get the wrong list.
+    """
+    if not path.is_file():
+        return []
+    text = path.read_text(encoding="utf-8")
+    start = None
+    for match in re.finditer(r"^#\s+Milestone\s+(\S+)", text, re.MULTILINE):
+        if match.group(1).rstrip("—").strip().startswith(milestone_id):
+            start = match.end()
+            break
+    if start is None:
+        return []
+    end = re.search(r"^#\s+Milestone\s+", text[start:], re.MULTILINE)
+    section = text[start:start + end.start()] if end else text[start:]
+
+    items = []
+    inside = False
+    for line in section.splitlines():
+        if line.startswith("### "):
+            inside = line[4:].strip().lower().startswith(heading.lower())
+            continue
+        if inside and re.match(r"^\s*-\s*\[ \]", line):
+            items.append(re.sub(r"^\s*-\s*\[ \]\s*", "", line).strip())
+    return items
+
+
+def technical_next():
+    """The first open milestone, with its dependencies, keywords and pass bars.
+
+    A cold agent should not have to open ROADMAP.md and a milestone file to
+    learn what the next technical step is; that was the cold-start cost this
+    is meant to remove.
+    """
+    rows = roadmap_milestones()
+    if not rows:
+        return []
+    by_id = {r["milestone"]: r for r in rows}
+    pending = [r for r in rows if r["status"] != "✅"]
+    if not pending:
+        return ["Technical: every milestone in ROADMAP is complete"]
+    row = pending[0]
+    lines = [f"Technical: {row['label']}  (first open milestone, phase {row['phase']})"]
+    lines.append(f"  deliverable: {row['deliverable']}")
+
+    depends = [d.strip() for d in row["depends"].split(",") if d.strip() and d.strip() != "—"]
+    unmet = [d for d in depends if not any(r["id"] == d and r["status"] == "✅" for r in rows)]
+    if depends:
+        state = "all met" if not unmet else f"UNMET: {', '.join(unmet)}"
+        lines.append(f"  depends on:  {', '.join(depends)}  ({state})")
+    lines.append(f"  keywords:    {row['keywords']}")
+    lines.append(f"  safety:      {row['safety']}")
+
+    if row["target"]:
+        target = (ROOT / "Mechatronics" / row["target"]).resolve()
+        for label in ("MVM", "Full Pass"):
+            items = _pass_items(target, row["id"], label)
+            if not items:
+                continue
+            shown = items[:3]
+            lines.append(f"  {label}:")
+            for item in shown:
+                lines.append(f"    [ ] {item}")
+            if len(items) > len(shown):
+                lines.append(f"    ... and {len(items) - len(shown)} more")
+    return lines
+
+
+def technical_ready():
+    """Curriculum concepts ready to teach toward the technical track.
+
+    A roadmap deliverable is not learnable on its own; the curriculum carries
+    the concepts underneath it, and those are what a session actually opens.
+    """
+    ok, out = run_readonly([
+        sys.executable, str(ROOT / "scripts" / "review.py"), "frontier"
+    ])
+    if not ok:
+        return "  ready to teach: unknown — review.py frontier unavailable"
+    try:
+        rows = json.loads(out)
+    except (ValueError, TypeError):
+        return "  ready to teach: unknown — frontier output unreadable"
+    wanted = ("math", "physics", "m0-", "py-")
+    items = []
+    for deck in rows.get("decks", []):
+        if not str(deck.get("deck", "")).startswith(wanted):
+            continue
+        blocked = deck.get("blocked_by")
+        items.append(f"{deck['deck']} ({deck.get('unlearned_new', 0)} new, "
+                     f"{deck.get('unlearned_learning', 0)} learning, "
+                     f"{deck.get('stuck', 0)} stuck)")
+    if not items:
+        return "  ready to teach: no open technical concept is unblocked"
+    return "  ready to teach: " + "; ".join(items)
+
+
 def report_today():
     path = today_note()
     if not path.exists():
@@ -161,6 +292,9 @@ def report_today():
     print(f"Japanese handoff: Japanese/CURRENT.md | {handoff_summary(ROOT / 'Japanese' / 'CURRENT.md')}")
     print(f"  i+1 {iplusone_lane()}")
     print(f"Technical handoff: Mechatronics/CURRENT.md | {handoff_summary(ROOT / 'Mechatronics' / 'CURRENT.md')}")
+    for line in technical_next():
+        print(line)
+    print(technical_ready())
     ok, due = run_readonly([sys.executable, str(ROOT / "scripts" / "review.py"), "due"])
     if not ok:
         print(f"Due review: {due} — treat as unknown, not as zero; resolve before the review slot")

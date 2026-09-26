@@ -63,8 +63,9 @@ class SessionStateTests(unittest.TestCase):
             self.assertIn("Due review: unavailable", text)
             self.assertNotIn("Due review: 0 item(s)", text)
             self.assertIn("Anki: 20–30 minutes — unavailable", text)
-            # review.py due, anki_bridge.py iplusone, anki_bridge.py due.
-            self.assertEqual(run.call_count, 3)
+            # review.py due, anki_bridge.py iplusone, review.py frontier,
+            # anki_bridge.py due.
+            self.assertEqual(run.call_count, 4)
 
     def test_run_readonly_fails_closed_on_nonzero_exit(self):
         result = subprocess.CompletedProcess(args=[], returncode=2, stdout="", stderr="error: no curriculum file\n")
@@ -170,6 +171,103 @@ class IPlusOneLaneTests(unittest.TestCase):
     def test_lane_survives_a_bridge_that_never_returns(self):
         with patch.object(session_state, "run_readonly", return_value=(False, "")):
             self.assertIn("lane=unavailable", session_state.iplusone_lane())
+
+
+class TechnicalNextTests(unittest.TestCase):
+    ROADMAP = (
+        "| Phase | Milestone | Status | Deliverable | Depends on | Search keywords | Safety/evidence boundary |\n"
+        "|---|---|---|---|---|---|---|\n"
+        "| 0 | [0.1 Toolchain](milestones/f.md) | ✅ | setup | — | a; b | clean |\n"
+        "| 0 | [0.3 Calculus](milestones/f.md) | ⬜ | derivative meaning | 0.1 | rate; Euler | formula is not evidence |\n"
+    )
+    MILESTONE = (
+        "# Milestone 0.1 — Toolchain\n\n### MVM\n- [ ] a generic item\n\n"
+        "# Milestone 0.3 — Calculus\n\n### MVM\n- [ ] take a derivative\n- [ ] integrate with limits\n\n"
+        "### Full Pass\n- [ ] chain position to acceleration\n"
+    )
+
+    def _vault(self, root):
+        (root / "Mechatronics" / "milestones").mkdir(parents=True)
+        (root / "Mechatronics" / "ROADMAP.md").write_text(self.ROADMAP, encoding="utf-8")
+        (root / "Mechatronics" / "milestones" / "f.md").write_text(self.MILESTONE, encoding="utf-8")
+        return root
+
+    def test_first_open_milestone_is_reported_with_deps_and_keywords(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = self._vault(Path(directory))
+            with patch.object(session_state, "ROOT", root):
+                out = "\n".join(session_state.technical_next())
+            self.assertIn("0.3 Calculus", out)
+            self.assertIn("derivative meaning", out)
+            self.assertIn("rate; Euler", out)
+            self.assertIn("formula is not evidence", out)
+
+    def test_met_dependencies_are_not_reported_as_unmet(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = self._vault(Path(directory))
+            with patch.object(session_state, "ROOT", root):
+                out = "\n".join(session_state.technical_next())
+            self.assertIn("all met", out)
+            self.assertNotIn("UNMET", out)
+
+    def test_unmet_dependency_is_named(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = self._vault(Path(directory))
+            roadmap = (root / "Mechatronics" / "ROADMAP.md").read_text(encoding="utf-8")
+            # 0.9 has no row at all, so 0.3 is still the first open milestone
+            # but one of its dependencies cannot be met.
+            (root / "Mechatronics" / "ROADMAP.md").write_text(
+                roadmap.replace("| derivative meaning | 0.1 |", "| derivative meaning | 0.1, 0.9 |"),
+                encoding="utf-8",
+            )
+            with patch.object(session_state, "ROOT", root):
+                out = "\n".join(session_state.technical_next())
+            self.assertIn("0.3 Calculus", out)
+            self.assertIn("UNMET: 0.9", out)
+
+    def test_pass_items_are_scoped_to_the_chosen_milestone(self):
+        """A milestone file holds a pass bar per milestone plus a generic one."""
+        with tempfile.TemporaryDirectory() as directory:
+            root = self._vault(Path(directory))
+            with patch.object(session_state, "ROOT", root):
+                out = "\n".join(session_state.technical_next())
+            self.assertIn("take a derivative", out)
+            self.assertIn("chain position to acceleration", out)
+            self.assertNotIn("a generic item", out)
+
+    def test_no_open_milestone_says_so(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "Mechatronics").mkdir()
+            (root / "Mechatronics" / "ROADMAP.md").write_text(
+                self.ROADMAP.replace("⬜", "✅"), encoding="utf-8"
+            )
+            with patch.object(session_state, "ROOT", root):
+                out = "\n".join(session_state.technical_next())
+            self.assertIn("every milestone", out)
+
+    def test_missing_roadmap_degrades_quietly(self):
+        with tempfile.TemporaryDirectory() as directory:
+            with patch.object(session_state, "ROOT", Path(directory)):
+                self.assertEqual(session_state.technical_next(), [])
+
+    def test_ready_to_teach_reports_technical_decks_only(self):
+        payload = json.dumps({
+            "lane": "patch",
+            "decks": [
+                {"deck": "math-odes", "unlearned_new": 0, "unlearned_learning": 0, "stuck": 1000},
+                {"deck": "japanese-grammar", "unlearned_new": 64, "unlearned_learning": 0, "stuck": 0},
+            ],
+        })
+        with patch.object(session_state, "run_readonly", return_value=(True, payload)):
+            line = session_state.technical_ready()
+        self.assertIn("math-odes", line)
+        self.assertNotIn("japanese-grammar", line)
+
+    def test_ready_to_teach_fails_closed_when_frontier_is_down(self):
+        with patch.object(session_state, "run_readonly", return_value=(False, "broken")):
+            line = session_state.technical_ready()
+        self.assertIn("unknown", line)
 
 
 if __name__ == "__main__":
