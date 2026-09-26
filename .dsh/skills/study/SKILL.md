@@ -90,7 +90,7 @@ before any question.
   topic-tree link map), and to the goal. Links are the point. State the
   mechanism for each link ("why does this follow?"); label conventions as
   conventions; never manufacture a link.
-- **Name it** (standing order 8): state the canonical term alongside the
+- **Name it** (standing order 10): state the canonical term alongside the
   simple-words version ("the standard word for this is ___"); the learner
   produces the term once from memory before moving on. Term misses get a
   one-line in-flow correction plus a dated line in the topic file

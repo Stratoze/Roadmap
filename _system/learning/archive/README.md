@@ -6,7 +6,7 @@ kept for provenance only. The operative docs are `AGENTS.md` (contract),
 
 - `vault-learning-system.md` — Engram retirement + system build (v3, implemented 2026-09-11).
 - `phase-1-agent-and-rituals.md`, `phase-2-skill-builder.md` — earlier ritual/skill builds.
-- `harness-opencode/` and `harness-codex/` — retired interface mirrors, deleted 2026-09-27 after reference check; DSH is the only live home.
+- `harness-opencode/` and `harness-codex/` — retired interface mirrors, deleted 2026-09-26 after reference check; DSH is the only live home.
 - `source-ledger.md` — inactive source candidates and verification decisions moved out of active curriculum files.
 - `topic-tree-details.md` — historical detail removed from the active topic tree.
 

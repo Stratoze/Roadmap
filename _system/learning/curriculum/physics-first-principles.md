@@ -32,4 +32,4 @@ one. No standing source catalogue.
 
 ## Log
 - 2026-09-25 - topic opened from the learner focus declaration.
-- 2026-09-27 - JIT resource and usage-event sections added.
+- 2026-09-26 - JIT resource and usage-event sections added.

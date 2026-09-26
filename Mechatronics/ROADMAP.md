@@ -6,6 +6,22 @@ status source. It is not a book/video library.
 
 Legend: ⬜ not started · 🔨 active · ✅ complete
 
+## Target-driven selection
+
+The active target and next prerequisite live in [[Mechatronics/CURRENT|current technical handoff]]. The learner chooses a capability or artifact. The agent maps its dependencies,
+checks existing evidence, and selects the smallest missing prerequisite that
+actually gates the target. Phase-0 priority is a tie-breaker among required
+items:
+
+```text
+math → physics → electronics → software/embedded → other mechatronics dependencies
+```
+
+A Phase-0 item not required by the target is not a gate. A required item is
+taught in the target's context, then the target resumes. After the foundational
+phase, choose one MVM/capability, list its dependencies and keywords, and run
+the technical learning cycle.
+
 ## Completion and evidence
 
 1. Meet the milestone's MVM criteria and collect the learner's evidence.
@@ -14,7 +30,7 @@ Legend: ⬜ not started · 🔨 active · ✅ complete
 4. Create the signed tag on that clean commit:
 
 ```bash
-bash scripts/milestone.sh <tag> "<what proves it>"
+bash scripts/milestone.sh <tag> "<what proves it>" --gate mvm --evidence <assessor-record>
 ```
 
 The tag is the durable proof and points at the commit containing the evidence

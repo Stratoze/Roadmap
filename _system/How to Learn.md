@@ -42,7 +42,7 @@ The delta between prediction and reality is where the mental model gets correcte
 
 ## Memory / SRS Strategy
 - **The vault learning system owns spaced repetition for concepts & procedures** (transparent ladder in `_system/learning/curriculum/*.md`; `python3 scripts/review.py due|schedule|next|usage|selftest`; reviews via the `review` skill, cold recall first).
-- **Anki owns Japanese vocabulary only.** Kaishi 1.5k + mined cards (no fixed frequency cutoff — cutoffs are corpus-dependent). Routing heuristic (not a law — overlap can help; the point is no double-SRS maintenance burden): one fact lives in exactly one SRS. In particular: piano maintenance and "review this song today" scheduling live in the vault learning system; Anki holds zero piano cards.
+- **Anki owns Japanese vocabulary only.** Kaishi 1.5k + mined cards (no fixed frequency cutoff — cutoffs are corpus-dependent). Routing heuristic (not a law — overlap can help; the point is no double-SRS maintenance burden): one fact lives in exactly one SRS. Piano maintenance remains a separate opt-in domain and is not currently routed through the active review scheduler; Anki holds zero piano cards.
 - **Routing rule:** a pattern/procedure you must *reconstruct* → vault spaced review. A word you must recognize/produce *instantly* → Anki.
 - Natural-use freshness is separate from the dedicated review ladder. Passive exposure is not use; an attempted use is not a clean use; a clean independent production is the strongest usage evidence.
 - A source selected for an activated concept is temporary working context, not a standing library. Ask for or verify a book/source when the concept needs one; do not prebuild a roadmap-sized source catalogue.

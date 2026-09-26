@@ -53,5 +53,30 @@ requires fresh-transfer and implementation evidence when those are part of the
 claim. A new-skill claim must name the new transferable skill; otherwise flag
 `no-new-skill` and route it to the example pool.
 
+## Gate output contract
+
+The gate lines are machine-read, not prose:
+
+- `gate_met` and `gate_earned` are each exactly one line, spelled
+  `gate_met: yes` and `gate_earned: mvm`, with the bare value and nothing after
+  it. Never emit the option list (`mvm | full | none`, `yes | no`): a
+  placeholder is not a verdict, and `scripts/milestone.sh` refuses it.
+- `gate_earned` never claims more than the verdict supports, and the last
+  gate block you emit is the current one.
+
+## Missing evidence is a failed gate
+
+If the brief does not carry the evidence the claim needs, the gate is not met —
+do not infer, reconstruct, or assume the missing stage:
+
+- no timestamped break proving at least 20 minutes;
+- no fresh-transfer or implementation question with its values/conditions,
+  context, and both signatures;
+- a variant already marked reused.
+
+Return `gate_met: no` with `gate_earned: none`, and name the missing evidence
+under `blockers:`. A record that is merely unverified earns nothing yet; say so
+plainly instead of grading around the gap.
+
 Never expose private context in the output. Return evidence pointers and
 plain-language feedback only.

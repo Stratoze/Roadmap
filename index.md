@@ -11,7 +11,8 @@ title: Knowledge Base
 - [[Daily/Index|Daily notes]] (template: [[_templates/daily|daily]])
 
 # 🔧 Mechatronics
-- [[Mechatronics/Index|Mechatronics hub]] — roadmap, safety, resources, evidence
+- [[Mechatronics/Index|Mechatronics hub]] — roadmap, current target, safety, resources, evidence
+- [[Mechatronics/CURRENT|Current technical handoff]] — active target and next prerequisite
 - [[Mechatronics/resources/SAFETY_CARD|Safety card]] — read before touching hardware
 
 # 🎹 Piano
@@ -22,6 +23,7 @@ title: Knowledge Base
 
 # 🇯🇵 Japanese
 - [[Japanese/Index|Japanese hub]] — routing, resources
+- [[Japanese/CURRENT|Current Japanese handoff]] — next conversation/grammar action
 
 # 📊 Data Science & AI
 - [[DataScience/Index|Index]] — arc + vault datasets (curriculum file created at activation)

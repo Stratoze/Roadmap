@@ -10,11 +10,15 @@ Read `_system/learning/learner.md` (standing orders) and
 usage events; archived build plans are provenance only.
 
 One item per message, in order: recall -> confidence -> feedback -> record.
-Never batch items or pre-empt later ones.
+Never batch items or pre-empt later ones. In the daily sequence, Japanese comes
+first; due review is the second block. If the estimated due workload exceeds
+30 minutes, work for 30 minutes, record the remaining backlog, and continue to
+the chosen target rather than clearing everything.
 
-1. **Load the queue**: `python3 scripts/review.py due`. Cap at 12 items per
-   sitting. Use `python3 scripts/review.py usage <topic>` read-only to find
-   naturally stale items; usage is a selection signal, not a second schedule.
+1. **Load the queue**: `python3 scripts/review.py due`. Cap at 12 items or
+   30 minutes per sitting, whichever comes first. Use
+   `python3 scripts/review.py usage <topic>` read-only to find naturally stale
+   items; usage is a selection signal, not a second schedule.
 2. **Natural-use events**: when a learner deliberately practises or produces a
    concept, append an idempotent event with `review.py usage`; passive reading
    or immersion exposure is not an event. `produced` is independent correct use;
@@ -26,7 +30,7 @@ Never batch items or pre-empt later ones.
 4. **Per item**:
    - Show the concept id and its aim only. Then free recall, COLD: no
      re-exposure, no hints, no "remember when". Standing order 7. The answer must include the standard
-      term (standing order 8): simple-words reasoning earns the understanding
+      term (standing order 10): simple-words reasoning earns the understanding
       half; the canonical term earns the other half. A right idea with a
       wrong or missing term is a `hard`, not a `hit`.
    - They produce. Then collect confidence with the question tool (under 50 /

@@ -2,6 +2,7 @@
 date: "{{date:YYYY-MM-DD}}"
 title: "{{title}}"
 topic: "{{topic}}"
+type: technical
 ---
 
 # Technical session — {{date}} — {{title}}
@@ -21,28 +22,39 @@ Summary only; raw production belongs in `_private/`.
 ## Cold conceptual check
 
 - Prompt:
-- Normalized signature:
+- Normalized signature: (sha256 from `python3 scripts/question_signatures.py signature "<prompt>"`)
 - Response summary:
 - Result:
 
 ## Break
 
+Record the real start and end around an actual break. A break that is not
+timestamped leaves the record incomplete: the post-break stages cannot be
+claimed, and the record is not valid gate or milestone evidence.
+
 - Start (ISO):
 - End (ISO):
 - Elapsed minutes:
-- Verified 20-minute interval: pending
+- Verified 20-minute interval: (yes only when Start/End above prove at least 20 minutes)
 
-## Fresh transfer
+## Question variants
 
-| stage | prompt summary | normalized signature | reused? |
-|-------|----------------|---------------------|---------|
-| cold | | | |
-| fresh transfer | | | |
-| implementation | | | |
+Every cell of every row is required: exact prompt, the values/conditions used,
+the context, and both signatures. An empty cell, a placeholder signature, or
+`reused? = yes` means the record is incomplete and cannot back a gate. Fill the
+row before asking the question, then paste the signatures the check printed.
+
+| stage | prompt | values/conditions | context | prompt signature | variant signature | reused? |
+|-------|----------------|------------------|---------|------------------|------------------|---------|
+| cold | | | | | | |
+| fresh transfer | | | | | | |
+| implementation | | | | | | |
 
 ## Implementation/theory test
 
 - Prompt:
+- Values/conditions:
+- Context/fixture:
 - Artifact/evidence path:
 - Execution or inspection result:
 
@@ -57,8 +69,8 @@ Summary only; raw production belongs in `_private/`.
 - Requested gate: mvm/full/none
 - Verdict:
 - Per-criterion results:
-- Gate met: yes/no
-- Gate earned: mvm/full/none
+- gate_met: yes/no
+- gate_earned: mvm/full/none
 - Blockers:
 
 ## Evidence and next
@@ -66,3 +78,13 @@ Summary only; raw production belongs in `_private/`.
 - Public evidence links:
 - Usage events appended:
 - Next review/action:
+
+## Record validity
+
+- Break timestamps present and at least 20 minutes apart:
+- Every question-variant row filled with prompt, values/conditions, context, and both signatures:
+- No variant row marked reused:
+- `python3 scripts/validate_learning.py` passes for this record:
+
+A record fails the technical gate while any line above is unfilled. Do not
+describe an unfinished record as a completed session or as milestone evidence.

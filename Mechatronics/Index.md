@@ -1,6 +1,7 @@
 # Mechatronics hub
 
 - [[Mechatronics/ROADMAP|Roadmap]] — phase table, deliverables, dependencies, keywords, safety, evidence discipline
+- [[Mechatronics/CURRENT|Current target handoff]] — active capability, dependency frontier, next technical action
 - [[Mechatronics/resources/SAFETY_CARD|Safety card]] — envelopes per phase
 - [[Mechatronics/IDEAS|Ideas]] — optional projects and speed runs
 - Current milestone status: [[Mechatronics/ROADMAP|Roadmap]] only

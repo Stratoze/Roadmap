@@ -15,8 +15,8 @@
 ## Concepts
 | id | aim | prereqs | state | rung | next_review | evidence |
 |----|-----|---------|-------|------|-------------|----------|
-| immersion-log-event | record useful input context without turning it into a quota | - | unknown | 0 | - | reset 2026-09-27; no quota |
-| immersion-level-ramp | gradually increase input difficulty from useful comprehension to Japanese-led immersion | read-page-interpretation | unknown | 0 | - | reset 2026-09-27 |
+| immersion-log-event | record useful input context without turning it into a quota | - | unknown | 0 | - | reset 2026-09-26; no quota |
+| immersion-level-ramp | gradually increase input difficulty from useful comprehension to Japanese-led immersion | read-page-interpretation | unknown | 0 | - | reset 2026-09-26 |
 
 ## Resources
 - Active material selected JIT through the learner. Stable discovery links live
@@ -39,5 +39,5 @@
 |------|----------|------------------|-------|----------|-------------|
 
 ## Log
-- 2026-09-27 - active immersion log reset; input remains optional and no-quota.
+- 2026-09-26 - active immersion log reset; input remains optional and no-quota.
   Next action is in [[Japanese/CURRENT|current Japanese session]].

@@ -12,8 +12,11 @@ concept needs one.
 
 ## Grammar and learner sources
 
-- [Yoku.bi](https://yoku.bi) — optional grammar explanation/reference.
-- [Imabi](https://imabi.org/) — optional grammar explanation/reference.
+- [[Japanese/SOURCES|source map]] — Yokubi ordered spine + IMABI anchor index.
+- Private raw sources: <https://github.com/Stratoze/private-jp>
+- [Yoku.bi](https://yoku.bi) — live companion reference.
+- [Imabi](https://imabi.org/) — live companion reference; verify disputed
+  claims against the live source.
 - When a lesson needs a book, ask the tutor for one; the resource skill selects
   and verifies the right level/edition on demand. A learner-supplied book is
   welcome.

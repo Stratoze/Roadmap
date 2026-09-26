@@ -39,6 +39,8 @@ review - everything visible, versioned, and hand-editable in the vault.
   implementation, Feynman correction, and assessor handoff.
 - `Japanese/CURRENT.md` is the mutable next-session handoff. The Japanese
   skill reads it before branching and rewrites it at every close.
+- `scripts/session_state.py` reads/updates the daily checklist; `anki_bridge.py`
+  is an optional local AnkiConnect reader with approval-gated writes.
 
 These compose the existing `study`, `map`, `resources`, and `review` skills;
 they do not create a second curriculum or vocabulary database.
@@ -54,9 +56,11 @@ they do not create a second curriculum or vocabulary database.
 - Anki owns Japanese vocabulary. Public notes contain summaries and links;
   raw learner productions stay in `_private/`.
 - Technical lesson records are written under
-  `_system/learning/lessons/<topic>/`; the technical-session template adds the
-  cold/transfer/implementation signature table and timestamped break block.
-  Use `scripts/question_signatures.py check` before a fresh prompt.
+  `_system/learning/lessons/<topic>/`; technical sessions use the
+  `_templates/learning/technical_session.md` shape with the timestamped break
+  and prompt/variant signature table. Generic concept lessons keep the
+  Target/Predict/Attempts/Feedback/Reflection schema. Use
+  `scripts/question_signatures.py check` before a fresh prompt.
 
 ## The link web
 

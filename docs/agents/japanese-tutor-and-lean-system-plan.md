@@ -1,6 +1,11 @@
-# PLAN — Japanese Tutor, JIT Sources, and Lean Learning System
+# IMPLEMENTED DESIGN RECORD — Japanese Tutor, JIT Sources, and Lean Learning System
 
-**Status:** IMPLEMENTED — changes landed 2026-09-27; validation evidence recorded in `Changelog/2026-09.md`.
+> **Historical context, not operative procedure.** The active contract is
+> `AGENTS.md`; active procedures are `.dsh/skills/`, `scripts/`, `Japanese/CURRENT.md`,
+> and `Mechatronics/CURRENT.md`. Do not treat the design sections below as a
+> second protocol.
+
+**Status:** IMPLEMENTED — changes landed 2026-09-26; validation evidence recorded in `Changelog/2026-09.md`.
 **Approval:** user approved the plan before implementation.
 
 ## 1. Objective

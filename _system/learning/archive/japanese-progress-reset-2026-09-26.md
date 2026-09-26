@@ -1,6 +1,6 @@
 # Japanese active progress reset
 
-Date: 2026-09-27
+Date: 2026-09-26
 
 The learner chose to restart the active Japanese curriculum so the next session
 opens with conversation and a new grammar contrast, not a backlog review.

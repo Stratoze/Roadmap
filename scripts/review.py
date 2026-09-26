@@ -11,7 +11,7 @@ Commands:
   selftest                     in-memory fixture checks
 
 Ladder: 1, 3, 7, 16, 35, 90 days (rung 0..5).
-Usage events are append-only and never change review state or rung. `reading_session` counts an actual novel-reading session; sentence-analysis fallback uses `practised` on its separate concept and does not increment the reading gate.
+Usage events are append-only and never change review state or rung. `reading_session` counts an actual novel-reading session; sentence-analysis fallback uses `practised` on its separate concept and does not increment the reading gate. A `reading_session` event is only valid on the single gate pair `japanese-reading` / `read-30-session-gate`; any other topic/id fails closed instead of being silently dropped.
 """
 import datetime as dt
 import hashlib
@@ -25,6 +25,10 @@ CURRICULUM = ROOT / "_system" / "learning" / "curriculum"
 CONCEPT_CELLS = 7
 USAGE_CELLS = 6
 USAGE_EVENTS = {"introduced", "practised", "produced", "mined", "reading_session"}
+READING_GATE_TOPIC = "japanese-reading"
+READING_GATE_ID = "read-30-session-gate"
+READING_GATE = (READING_GATE_TOPIC, READING_GATE_ID)
+BASELINE_USAGE_IDS = {READING_GATE_TOPIC: [READING_GATE_ID]}
 SEP_RE = re.compile(r"^:?-+:?$")
 
 
@@ -172,12 +176,21 @@ def append_usage(path, topic, concept_id, event, evidence, public_note):
     if not concept_id or "|" in concept_id or "\n" in concept_id:
         print("error: usage id must be a non-empty table-safe value", file=sys.stderr)
         return 2
+    if event == "reading_session" and (topic, concept_id) != READING_GATE:
+        print(
+            f"error: reading_session must use {READING_GATE_TOPIC} / {READING_GATE_ID}",
+            file=sys.stderr,
+        )
+        return 2
     if not valid_public_note(public_note):
         print("error: public note must be one table cell", file=sys.stderr)
         return 2
     resolved = evidence_path(evidence)
     if not resolved.exists():
         print(f"error: evidence path does not exist: {evidence}", file=sys.stderr)
+        return 2
+    if not resolved.is_file():
+        print(f"error: evidence path is not a file: {evidence}", file=sys.stderr)
         return 2
 
     text = path.read_text(encoding="utf-8")
@@ -223,20 +236,29 @@ def derived_usage(topic):
         rows.append(cells)
     rows.sort(key=lambda cells: cells[0])
     latest = {}
+    for concept_id in BASELINE_USAGE_IDS.get(topic, []):
+        latest[concept_id] = {"last_used": "-", "last_clean_use": "-", "last_event": "-", "sessions": 0}
     for date, event_id, concept_id, event, evidence, note in rows:
         try:
             dt.date.fromisoformat(date)
         except ValueError:
             print(f"error: invalid usage date in row {event_id}", file=sys.stderr)
             return 2
+        if event == "reading_session" and (topic, concept_id) != READING_GATE:
+            print(
+                f"error: reading_session row {event_id} must use {READING_GATE_TOPIC} / "
+                f"{READING_GATE_ID}, not {topic} / {concept_id}",
+                file=sys.stderr,
+            )
+            return 2
         state = latest.setdefault(
             concept_id,
             {"last_used": "-", "last_clean_use": "-", "last_event": "-", "sessions": 0},
         )
         state["last_event"] = f"{date}:{event}"
-        if event in {"practised", "produced", "reading_session"}:
+        if event in {"practised", "produced"} or (event == "reading_session" and (topic, concept_id) == READING_GATE):
             state["last_used"] = date
-        if event == "reading_session":
+        if event == "reading_session" and (topic, concept_id) == READING_GATE:
             state["sessions"] += 1
         if event == "produced":
             state["last_clean_use"] = date
@@ -357,6 +379,10 @@ def cmd_selftest():
     event_id = usage_event_id("t", "c1", "produced", "scripts/review.py", "2026-09-13")
     assert len(event_id) == 12
     assert event_id == usage_event_id("t", "c1", "produced", "scripts/review.py", "2026-09-13")
+
+    assert READING_GATE == ("japanese-reading", "read-30-session-gate"), READING_GATE
+    assert BASELINE_USAGE_IDS == {READING_GATE_TOPIC: [READING_GATE_ID]}, BASELINE_USAGE_IDS
+    assert "read-30-session-gate" in __doc__, "module docstring must name the reading gate id"
 
     print("selftest ok")
     return 0

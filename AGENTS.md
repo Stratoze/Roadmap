@@ -7,20 +7,36 @@ Active system: **Vault Learning System** (`_system/learning/`). This file is the
 Before other work, run from the repository root:
 
 ```bash
-python3 scripts/review.py due
+python3 scripts/session_state.py today
 test -f "Daily/$(date +%F).md" && echo "note: exists" || echo "note: missing"
 ```
 
-If due output is non-empty, send one short message with the count/topics and one question offering action. Do not nag about a missing daily note. Do not auto-create notes, start sessions, reminders, or background jobs.
+`session_state.py` resolves the daily checklist and next action without
+starting anything. The default order is Japanese → Anki/due review → target-
+driven technical work. Do not nag about a missing daily note. Do not auto-create
+notes, start sessions, reminders, or background jobs.
 
 ## Session shape
 
 - Start with the work. No pre-work form or Target/Predict gate.
-- Lead sequencing yourself: due reviews, then in-flight maps, then the next eligible topic from the focus queue, ROADMAP, and curriculum state.
+- Use `python3 scripts/session_state.py today` to resolve the daily
+  checklist. The default order is Japanese deliberate work → Anki/due review
+  (30-minute cap when the backlog is larger) → target-driven technical work.
+- Lead sequencing yourself within that order: read `Japanese/CURRENT.md` for
+  Japanese, then due reviews, then the active target in
+  `Mechatronics/CURRENT.md` and its dependency frontier.
 - Ask **one adaptive question per message** when probing, mapping, studying, or reviewing. Ask, then wait.
 - At close, draft the session log from evidence. The learner owns corrections. No session means no daily note.
 - Raw learner productions go only to `_private/learning/`. Public files contain summaries and links.
 - The learner produces code, derivations, and solutions. The agent scaffolds, executes, verifies, and reviews.
+
+## Domain routing
+
+The active daily checklist has three deliberate slots: Japanese, Anki/due
+review, and target-driven technical work. English Reading and Piano maintenance
+remain separate opt-in maintenance domains; they are not auto-started by
+`session_state.py` and are not silently dropped. If the learner opens one,
+follow that domain's own file and record the work there.
 
 ## Active documents and skills
 
@@ -31,6 +47,8 @@ Read before teaching or reviewing:
 - `_system/learning/learner.md` - canonical learner preferences and standing orders.
 - `_system/learning/topic-tree.md` - hierarchy and dependency map.
 - `_system/learning/maps/overview.md` - provisional cross-strand map.
+- `Japanese/CURRENT.md` and `Mechatronics/CURRENT.md` - mutable next-session
+  handoffs; read before choosing a branch.
 
 Active skills in `.dsh/skills/`:
 
@@ -40,6 +58,8 @@ Active skills in `.dsh/skills/`:
 - `review` - cold spaced review.
 - `japanese` - daily Japanese grammar, conversation, reading, immersion, and evidence orchestration; reads/rewrites `Japanese/CURRENT.md`.
 - `technical` - technical scheduler, source/read handoff, conceptual check, break, transfer, implementation, and assessor flow.
+- `.dsh/agents/{scout,verifier,assessor}.md` - bounded subagent roles; use
+  `.dsh/agents/assessor.md` for every MVM/Full Pass claim.
 
 Use plain language (`study X`, `review`, `test me in X`, `Japanese session`, `technical session`). No slash-command infrastructure.
 
@@ -63,7 +83,7 @@ Stable discovery links may remain in compact index files. Rejected/unverified so
 - Dedicated due review is separate from natural use. Old material remains eligible when it fits a session.
 - Usage events are append-only. Passive exposure is not use; an attempted use is not a clean use.
 - Anki owns Japanese vocabulary. The vault owns grammar, output, reading, immersion, and evidence. Without a bridge, Anki knowledge claims are learner-reported.
-- No exact technical question prompt may be reused for a fresh-transfer or implementation stage. Store signatures in the technical lesson record.
+- No exact technical question prompt or identical test instance (values, conditions, context) may be reused for fresh transfer or implementation. Store prompt and variant signatures in the technical lesson record.
 - MVM/Full Pass claims route through the assessor. A partial/lapsed result does not earn a gate.
 - Milestone status lives only in `Mechatronics/ROADMAP.md`. Milestone checkboxes are frozen acceptance history. The order is evidence → checkbox flip → commit → signed tag.
 - `Mechatronics/resources/SAFETY_CARD.md` and milestone safety/landmine material are protected.

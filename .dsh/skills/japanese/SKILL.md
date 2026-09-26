@@ -45,8 +45,11 @@ asks for it or after the current concept has actually been taught.
   fallback does not advance the reading count.
 - **Immersion:** log only useful material/time/words/patterns. No streak and no
   fixed mining target.
-- **Anki:** vocabulary lives there. Record only learner-reported mining events
-  in the vault; never claim complete knowledge without a bridge.
+- **Anki:** vocabulary lives there. At session start/close, remind the learner
+  to do 20–30 minutes. If the local bridge is available, use
+  `python3 scripts/anki_bridge.py due`; otherwise use Anki directly. Record only
+  learner-reported mining events in the vault; never claim complete knowledge
+  without a bridge.
 
 ## Teaching grammar
 
@@ -79,9 +82,9 @@ Append usage events with `review.py usage`; never edit raw attempts:
 - `mined`: learner-reported Anki selection, not a knowledge claim;
 - `produced`: independent correct use;
 - `reading_session`: one actual learner-chosen novel-reading session with an
-  interpretation attempt. It increments the 30-session reading gate. Fallback
-  sentence analysis records `practised` on `read-sentence-fallback` and never
-  increments the gate.
+  interpretation attempt. Append it with concept id `read-30-session-gate`;
+  it increments the 30-session reading gate. Fallback sentence analysis records
+  `practised` on `read-sentence-fallback` and never increments the gate.
 
 Raw productions, page attempts, and reflections go to `_private/`. Public notes
 contain summaries and evidence links. Do not persist novel screenshots or long

@@ -24,7 +24,7 @@ learner without their words.
 - **Sourcing:** established human educators first; never AI-generated videos;
   verify claims before stating them; cite non-trivial claims. See standing
   order 8.
-- **Daily Japanese budget (2026-09-27):** 4–5 hours total: ~3 hours immersion,
+- **Daily Japanese budget (2026-09-26):** 4–5 hours total: ~3 hours immersion,
   ~30 minutes Anki, and 30–90 minutes deliberate Japanese work. Weekend surplus
   extends reading/output rather than adding a grammar quota.
 - **Reading gate:** 30 actual novel-reading sessions use English-first
@@ -65,11 +65,11 @@ learner without their words.
    Butler on feedback; Karpicke) requires retrieval before re-exposure, and
    spacing (Cepeda) sets the schedule. Pre-review rewatching invalidates the
    probe (fluency illusion); re-teach lapses only.
-8. **Source-first, AI second** (2026-09-27). Faithfully restating or translating
+8. **Source-first, AI second** (2026-09-26). Faithfully restating or translating
    the cited source into Japanese is allowed without adding claims. Any
    explanation beyond it requires a logged `blocker`; a missing citation is a
    sourcing gap, never a reason to lecture.
-9. **JIT books over stockpiled videos** (2026-09-27). Books remain the first
+9. **JIT books over stockpiled videos** (2026-09-26). Books remain the first
    source when they cover the activated concept. Videos and interactives are
    verified substitutes or supplements selected at activation, not preloaded
    into roadmaps.

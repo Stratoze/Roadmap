@@ -4,8 +4,10 @@
 - Scoping answer (verbatim, 2026-09-21): "maybe also reading ?"
 - Learner chooses the novel, edition, and page/section.
 - Reading gate: 30 actual novel-reading sessions use an English explanation
-  first. After the 30th session, the learner attempts Japanese first, then
-  English explanation/correction. Sentence-analysis fallback does not count.
+  first. From session 31 the learner attempts Japanese first, then English
+  explanation/correction. Sentence-analysis fallback does not count. This
+  paragraph is the canonical wording of the gate; other Japanese files repeat
+  it rather than restating a variant.
 - Pacing: alongside foundations; priority JP >= mechatronics
 
 ## Map
@@ -21,9 +23,9 @@
 ## Concepts
 | id | aim | prereqs | state | rung | next_review | evidence |
 |----|-----|---------|-------|------|-------------|----------|
-| read-30-session-gate | complete 30 actual novel-reading sessions with the agreed language order | - | unknown | 0 | - | reset 2026-09-27; sessions=0 |
-| read-page-interpretation | explain what a page is doing, not merely translate it | jp-sentence-skeleton | unknown | 0 | - | reset 2026-09-27 |
-| read-sentence-fallback | analyse one level-appropriate sentence when reading is skipped | jp-sentence-skeleton | unknown | 0 | - | reset 2026-09-27 |
+| read-30-session-gate | reach 30 actual novel-reading sessions, which switches the reading mode to Japanese-first from session 31 | - | unknown | 0 | - | reset 2026-09-26; sessions=0 |
+| read-page-interpretation | explain what a page is doing, not merely translate it | jp-yokubi-00 | unknown | 0 | - | reset 2026-09-26 |
+| read-sentence-fallback | analyse one level-appropriate sentence when reading is skipped | jp-yokubi-00 | unknown | 0 | - | reset 2026-09-26 |
 
 ## Resources
 - Active source/material selected JIT. Stable reader/lookup links live in
@@ -47,8 +49,9 @@
 
 Each `reading_session` event is one actual novel-reading session. The
 `read-sentence-fallback` row is deliberately separate and never increments
-this gate.
+this gate. The current count is derived, not typed:
+`python3 scripts/review.py usage japanese-reading` prints `sessions=`.
 
 ## Log
-- 2026-09-27 - active reading gate reset to 0; no due reviews. Next action is
+- 2026-09-26 - active reading gate reset to 0; no due reviews. Next action is
   in [[Japanese/CURRENT|current Japanese session]].

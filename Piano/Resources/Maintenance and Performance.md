@@ -1,11 +1,12 @@
 # Maintenance and Performance
 
-## Maintenance rotation (vault learning system)
+## Maintenance rotation (opt-in piano domain)
 
-The vault learning system schedules all piece review, including "review this song today"
-(topic file `_system/learning/curriculum/piano.md`, via the `review` skill —
-`python3 scripts/review.py due`). Its interval math is receipt-based, so
-treat its suggestions as the schedule, not heuristics.
+Piano maintenance is a separate opt-in domain. It is not one of the three
+active daily checklist slots and is not currently routed through
+`review.py`; use this file's own rotation when the learner explicitly opens
+piano maintenance. The historical reference to
+`_system/learning/curriculum/piano.md` is not an active file.
 
 ### Card types
 

@@ -16,4 +16,8 @@ Full ranked library lives in the local-only `Reading/Reading RoadMap.md`
 (Active-3 + Background + reference shelf). If this file is all you see, the
 full library was never cloned — that's expected on a fresh machine.
 
-> Priority: Japanese == Reading ≥ Mechatronics >> Piano. Finish or drop.
+> **Current routing note (2026-09-26):** the active three-slot learning
+> cycle is Japanese → Anki/due review → target-driven technical work. This
+> English Reading tracker is opt-in maintenance and is not auto-started by
+> `session_state.py`. Its historical priority line is retained as context,
+> not as an active sequencing rule.

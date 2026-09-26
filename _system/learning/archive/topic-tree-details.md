@@ -1,6 +1,6 @@
 # Archived topic-tree details
 
-The former detailed topic tree was reduced on 2026-09-27. Its active routing
+The former detailed topic tree was reduced on 2026-09-26. Its active routing
 information remains in the canonical ROADMAP, milestone files, and curriculum
 files. This note preserves the ownership decision and the major cross-domain
 edges that are easy to lose when the tree is used as a names-only map.

@@ -27,6 +27,7 @@ Thumbs.db
 .backup_*/
 session_state.json
 .clipper/
+.scratch/
 # Reading full library is local-only; the tracked Reading/README.md skeleton keeps clones navigable
 Reading/Reading RoadMap.md
 # Learner's local scratch space, local-only by its own name. Holds a .venv:
@@ -38,3 +39,6 @@ Python For Testing Stuff, user only/
 
 # Private companion repo (verbatim learner text; separate private remote)
 _private/
+# Raw Japanese source mirrors live in the private source repository
+今日 IMABI.html
+今日 IMABI_files/

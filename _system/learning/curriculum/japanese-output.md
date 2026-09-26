@@ -18,10 +18,10 @@
 ## Concepts
 | id | aim | prereqs | state | rung | next_review | evidence |
 |----|-----|---------|-------|------|-------------|----------|
-| out-daily-journal-procedure | run daily journal procedure (write, check, correct, log) | - | unknown | 0 | - | reset 2026-09-27 |
-| out-daily-conversation | hold an i+1 Japanese conversation using known grammar plus a small addition | jp-sentence-skeleton | unknown | 0 | - | reset 2026-09-27 |
-| out-self-intro | self-intro spoken/written (optional icebreaker) | - | unknown | 0 | - | reset 2026-09-27 |
-| out-weekly-review | weekly output review (errors, patterns, next) | out-daily-journal-procedure | unknown | 0 | - | reset 2026-09-27 |
+| out-daily-journal-procedure | run daily journal procedure (write, check, correct, log) | - | unknown | 0 | - | reset 2026-09-26 |
+| out-daily-conversation | hold an i+1 Japanese conversation using known grammar plus a small addition | jp-yokubi-00 | unknown | 0 | - | reset 2026-09-26 |
+| out-self-intro | self-intro spoken/written (optional icebreaker) | - | unknown | 0 | - | reset 2026-09-26 |
+| out-weekly-review | weekly output review (errors, patterns, next) | out-daily-journal-procedure | unknown | 0 | - | reset 2026-09-26 |
 
 ## Resources
 - Active source selected JIT through the `resources` skill when a lesson needs
@@ -44,5 +44,5 @@
 |------|----------|------------------|-------|----------|-------------|
 
 ## Log
-- 2026-09-27 - active output track reset; no due reviews or progress claims.
+- 2026-09-26 - active output track reset; no due reviews or progress claims.
   Next action is in [[Japanese/CURRENT|current Japanese session]].

@@ -1,8 +1,8 @@
 # 2026-09-14 - Godan e-row potential
 
-> **Archived/superseded 2026-09-27.** Preserved as learner evidence; not an
+> **Archived/superseded 2026-09-26.** Preserved as learner evidence; not an
 > active lesson, frontier, or review item after the Japanese reset. See
-> [[_system/learning/archive/japanese-progress-reset-2026-09-27|reset record]].
+> [[_system/learning/archive/japanese-progress-reset-2026-09-26|reset record]].
 
 Topic: [[_system/learning/curriculum/japanese-grammar|Japanese Grammar]]
 

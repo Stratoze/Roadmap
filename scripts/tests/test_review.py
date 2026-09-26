@@ -47,6 +47,15 @@ class ReviewTests(unittest.TestCase):
         self.assertEqual(review.apply_outcome("seen", 0, "hard"), ("review", 0))
         self.assertEqual(review.apply_outcome("solid", 4, "hard"), ("review", 4))
 
+    def test_reading_gate_id_is_the_single_source(self):
+        self.assertEqual(review.READING_GATE_TOPIC, "japanese-reading")
+        self.assertEqual(review.READING_GATE_ID, "read-30-session-gate")
+        self.assertEqual(review.READING_GATE, ("japanese-reading", "read-30-session-gate"))
+        self.assertEqual(review.BASELINE_USAGE_IDS, {"japanese-reading": ["read-30-session-gate"]})
+        self.assertIn("read-30-session-gate", review.__doc__)
+        curriculum = ROOT / "_system" / "learning" / "curriculum" / "japanese-reading.md"
+        self.assertIn(f"| {review.READING_GATE_ID} |", curriculum.read_text(encoding="utf-8"))
+
 
 if __name__ == "__main__":
     unittest.main()

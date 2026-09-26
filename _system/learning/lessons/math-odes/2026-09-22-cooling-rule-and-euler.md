@@ -69,7 +69,22 @@ confidence bands were never asked this session. Verbatim for 2026-09-22 was
 written after the fact from the session transcript to
 `_private/learning/verbatim/2026-09-22-odes-euler.md`.
 
-## Links
+## Technical record status: legacy
+
+This record predates the technical-session template. It has reconstructed
+question variants but no timestamped break block; it is not a completed gate.
+
+## Question variants
+
+| stage | prompt | values/conditions | context | prompt signature | variant signature | reused? |
+|-------|----------------|------------------|---------|------------------|------------------|---------|
+| cold | What does dP/dt = 0.5P mean? | k=0.5; P0=1 | growth vs decay | sha256:a2a9596027723fd56a769a40bb3038efbd0b4bd9c8f6c6b3fff23898acbe0611 | sha256:c9791a099f4a1cf6065e934604763f00c24a01830e173d2ff61e631e52491d82 | no |
+| fresh transfer | Analyze dN/dt = -0.3(N - 50). | k=-0.3; fixed point=50 | stability | sha256:44622c421d0438094ddd99845872738053dd5c44800a5634e4ab0821fb95c243 | sha256:69679e42bcbaa57592a128e1c8be8ef4aedf3b60207fb9155429b5eb625b872e | no |
+| implementation | Implement the cup cooling loop. | T0=90; room=20; k=0.07; dt=1 | Euler stepping | sha256:a8487aa64ade045c53075582799711e1c31056f4d3bf0da375bb0bda2cb36bdf | sha256:43c201e604a18474999100da5c1233668774537a25fe822301739d1761946f53 | no |
+
+Legacy record note: this session predates the technical template and has no
+break block; the variants above are reconstructed from its recorded attempts.
+
 - Topic: [[math-odes]]
 - Theory: calculus chain — derivative as slope, rise/run; links forward to
   dynamics and control models downstream
