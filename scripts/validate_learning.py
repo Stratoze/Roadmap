@@ -252,10 +252,22 @@ def variant_rows(text, rel, errors):
 
 
 def check_signature_reuse(errors, records):
-    """A prompt or test variant may not repeat across the whole record corpus."""
+    """A test item may not repeat for fresh transfer or implementation.
+
+    Per the learner's decision (2026-09-26, "same concept/equation: allowed.
+    Same exact test item, value set, or lab condition: forbidden for fresh
+    transfer and implementation. Full Pass requires a new scenario").
+
+    The stage being checked decides, not the stage that used it first. A cold
+    conceptual check may re-ask a concept - retrieving a known concept is the
+    whole point, and it is how retention is tested. But a fresh transfer or
+    implementation row may not reuse a prompt or a test instance, whether that
+    signature was first spent on a cold check or on an earlier transfer.
+    """
     seen = {"prompt": {}, "variant": {}}
     for topic, rel, rows in records:
         for stage, prompt, values, context in rows:
+            is_cold = stage.strip().lower() == "cold"
             for kind, digest in (
                 ("prompt", prompt_signature(prompt)),
                 ("variant", variant_signature(values, context) if values or context else None),
@@ -263,12 +275,12 @@ def check_signature_reuse(errors, records):
                 if digest is None:
                     continue
                 first = seen[kind].get(digest)
-                if first:
+                if first and not is_cold:
                     errors.append(
                         f"technical record reuses a {kind} signature: {rel} (stage '{stage}') "
                         f"already used in {first}"
                     )
-                else:
+                if not first:
                     seen[kind][digest] = f"{rel} (stage '{stage}')"
 
 

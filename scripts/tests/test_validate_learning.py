@@ -139,11 +139,59 @@ class ValidateLearningTests(unittest.TestCase):
                 + variant_row("cold", "What is the force?", "m=7", "haul"),
             )
             errors = self.check(root)
+            # Only the fresh transfer is a violation: it re-asked the question
+            # the cold check had just spent. The later cold check re-asking the
+            # same concept is retention testing, which the decision allows.
             self.assertEqual(
                 sum("reuses a prompt signature" in error for error in errors),
-                2,
+                1,
                 errors,
             )
+            self.assertTrue(any("fresh transfer" in error for error in errors), errors)
+
+    def test_cold_check_may_repeat_a_concept(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            write_record(
+                root,
+                "math-odes",
+                "2026-09-27-a.md",
+                "## Technical record status: legacy\n\n## Question variants\n"
+                + VARIANT_HEADER
+                + variant_row("cold", "Define equilibrium.", "-", "-"),
+            )
+            write_record(
+                root,
+                "math-odes",
+                "2026-09-28-b.md",
+                "## Technical record status: legacy\n\n## Question variants\n"
+                + VARIANT_HEADER
+                + variant_row("cold", "Define equilibrium.", "-", "-"),
+            )
+            self.assertEqual(self.check(root), [])
+
+    def test_cold_check_after_a_transfer_still_fails_a_transfer(self):
+        """The stage being checked decides, not the stage that used it first."""
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            write_record(
+                root,
+                "math-odes",
+                "2026-09-27-a.md",
+                "## Technical record status: legacy\n\n## Question variants\n"
+                + VARIANT_HEADER
+                + variant_row("cold", "Find the applied force.", "m=5 kg", "vertical lift"),
+            )
+            write_record(
+                root,
+                "math-odes",
+                "2026-09-28-b.md",
+                "## Technical record status: legacy\n\n## Question variants\n"
+                + VARIANT_HEADER
+                + variant_row("implementation", "Find the applied force.", "m=5 kg", "vertical lift"),
+            )
+            errors = self.check(root)
+            self.assertTrue(any("reuses a variant signature" in error for error in errors), errors)
 
     def test_repeated_test_instance_in_the_same_topic_is_rejected(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -170,10 +218,25 @@ class ValidateLearningTests(unittest.TestCase):
                     "2026-09-27-record.md",
                     "## Technical record status: legacy\n\n## Question variants\n"
                     + VARIANT_HEADER
-                    + variant_row("cold", "What is the force?", "m=5", "lift"),
+                    + variant_row("fresh transfer", "What is the force?", "m=5", "lift"),
                 )
             errors = self.check(root)
             self.assertTrue(any("reuses a prompt signature" in error for error in errors), errors)
+
+    def test_cold_check_may_repeat_across_topics(self):
+        """Reuse is corpus-wide, but a cold check re-asking a concept is allowed."""
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            for topic in ("math-odes", "physics"):
+                write_record(
+                    root,
+                    topic,
+                    "2026-09-27-record.md",
+                    "## Technical record status: legacy\n\n## Question variants\n"
+                    + VARIANT_HEADER
+                    + variant_row("cold", "What is the force?", "m=5", "lift"),
+                )
+            self.assertEqual(self.check(root), [])
 
     def test_missing_signature_record_path_fails_closed(self):
         errors = []

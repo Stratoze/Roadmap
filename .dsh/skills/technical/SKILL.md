@@ -105,18 +105,28 @@ Also vary the test instance, not only the wording:
 - change the surface context and at least one meaningful input/condition;
 - Full Pass requires a new scenario and new evidence.
 
-**Severity is graduated, and the stage sets the severity** (learner's direction,
-2026-09-26):
+**Severity is graduated, and the stage sets the severity** (learner's decision,
+2026-09-26: *"Same concept/equation: allowed. Same exact test item, value set,
+or lab condition: forbidden for fresh transfer and implementation. Full Pass
+requires a new scenario."*):
 
-- **Cold conceptual check — warning.** The point of the check is retrieval of
-  one named concept, so the same concept asked in new words is legitimate
-  teaching, not cheating. Warn, name the prior use, and move on.
+- **Cold conceptual check — may repeat.** The check exists to retrieve one
+  named concept, so re-asking a concept in a later session is retention
+  testing, not cheating. Do not manufacture a new phrasing to look compliant.
 - **Fresh transfer — hard failure.** A repeated prompt *or* a repeated test
   instance here means the learner was handed the answer they were meant to
   reach. Stop, discard the attempt, and re-ask with a new context and new
   values.
 - **Implementation / theory test — hard failure.** Same standard. A reused
   fixture or lab condition is a reused test, regardless of the wording.
+- **Full Pass** requires a new scenario and new evidence.
+
+`scripts/validate_learning.py` enforces exactly this, and nothing more: it
+fails a fresh-transfer or implementation row that reuses a prompt or
+test-instance signature — whether that signature was first spent on a cold
+check or on an earlier transfer — and does not fail a cold row for re-asking a
+concept. A validator failure here is a real violation; if you believe it is
+not, the record or the model is wrong, not the check.
 
 Record the values/conditions and context in the technical session record so a
 future agent can detect a repeated test instance, not merely a repeated
