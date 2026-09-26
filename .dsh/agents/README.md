@@ -4,6 +4,14 @@ Project-scoped subagent briefs for the vault learning system. A brief here is
 INERT until quoted: hand the child the agent file plus its task — it starts
 with no memory of the asking session.
 
+**The `permissions:` frontmatter in these briefs is a declaration, not an
+enforced sandbox.** Nothing in the harness parses these markdown files into a
+permission profile — the whole file is inert text until an agent reads it. So
+`effect: deny` states the role's expected discipline; it does not stop the
+child from shelling out or editing. Do not describe a brief as making an agent
+*physically* incapable of something. What actually protects the vault is the
+learner's review of the output and the agent honouring its brief.
+
 - `scout.md` — research specialist (read-only posture): candidate sources and
   field scans with provenance. Never shares context with verifier.
 - `verifier.md` — adversarial source check: fetches each candidate, per-item
