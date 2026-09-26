@@ -40,7 +40,7 @@ boundary; it does not contain a source library.
    If the interval is not evidenced, do not claim the post-break stage is
    complete.
 6. **Fresh transfer:** ask the same construct in a different context. Before
-   asking it, run `python3 scripts/question_signatures.py check "<prompt>" --values "<values>" --context "<context>" --record _system/learning/lessons`; a non-zero result means the exact prompt or test variant was already used.
+   asking it, run `python3 scripts/question_signatures.py check "<prompt>" --values "<values>" --context "<context>" --record _system/learning/lessons`; a non-zero result means the exact prompt or test variant was already used. Pass `--stage cold` when running the check for a conceptual probe instead — a cold check is allowed to re-ask a concept and the check will report the match without blocking.
 7. **Implementation/theory:** learner derives, calculates, builds, debugs, or
    otherwise performs the work. The agent executes/inspects/verifies; it does
    not author the artifact.

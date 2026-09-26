@@ -72,7 +72,9 @@ do not infer, reconstruct, or assume the missing stage:
 - no timestamped break proving at least 20 minutes;
 - no fresh-transfer or implementation question with its values/conditions,
   context, and both signatures;
-- a variant already marked reused.
+- a fresh-transfer or implementation variant already marked `reused? = yes`.
+  That is a missing-evidence failure only for those stages — a `cold` row may
+  carry `yes`, because a cold conceptual check is allowed to re-ask a concept.
 
 Return `gate_met: no` with `gate_earned: none`, and name the missing evidence
 under `blockers:`. A record that is merely unverified earns nothing yet; say so

@@ -126,6 +126,50 @@ class CrossRecordTests(unittest.TestCase):
             self.assertEqual(code, 0)
             self.assertIn("fresh", out)
 
+    def test_cold_stage_reports_a_match_without_failing(self):
+        """A cold check may re-ask a concept, so it must not be blocked."""
+        with tempfile.TemporaryDirectory() as directory:
+            base = Path(directory)
+            self.write_record(base / "math-odes" / "a.md", "Find the applied force.", "m=5 kg; a=2", "lift")
+            argv = [
+                "check", "Find the applied force?",
+                "--values", "m=5 kg; a=2",
+                "--context", "lift",
+                "--record", str(base / "math-odes"),
+                "--stage", "cold",
+            ]
+            code, out, _err = self.run_cli(argv)
+            self.assertEqual(code, 0, out)
+            self.assertIn("match", out)
+            self.assertIn("may re-ask", out)
+
+    def test_default_stage_still_fails_on_reuse(self):
+        """The default must stay strict, so nothing silently became permissive."""
+        with tempfile.TemporaryDirectory() as directory:
+            base = Path(directory)
+            self.write_record(base / "math-odes" / "a.md", "Find the applied force.", "m=5 kg; a=2", "lift")
+            argv = [
+                "check", "Find the applied force?",
+                "--values", "m=5 kg; a=2",
+                "--context", "lift",
+                "--record", str(base / "math-odes"),
+            ]
+            code, out, _err = self.run_cli(argv)
+            self.assertEqual(code, 1)
+            self.assertIn("reused", out)
+
+    def test_unknown_stage_is_refused(self):
+        with tempfile.TemporaryDirectory() as directory:
+            base = Path(directory)
+            self.write_record(base / "math-odes" / "a.md", "Find the applied force.", "m=5 kg; a=2", "lift")
+            argv = [
+                "check", "Find the applied force?",
+                "--record", str(base / "math-odes"),
+                "--stage", "warmup",
+            ]
+            with self.assertRaises(SystemExit):
+                self.run_cli(argv)
+
     def test_missing_record_path_is_an_error_not_a_pass(self):
         with tempfile.TemporaryDirectory() as directory:
             code, _out, err = self.run_cli(["check", "anything", "--record", str(Path(directory) / "absent")])

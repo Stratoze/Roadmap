@@ -118,6 +118,14 @@ def main(argv=None):
         "--record", required=True, nargs="+",
         help="record file, topic directory, or several of them; reuse is checked across all of them",
     )
+    check.add_argument(
+        "--stage", default="fresh transfer", choices=["cold", "fresh transfer", "implementation"],
+        help=(
+            "which stage this question is for. `cold` is a conceptual check and may "
+            "re-ask a known concept, so a match is reported but does not fail. The "
+            "other stages forbid reuse, per the learner's 2026-09-26 decision."
+        ),
+    )
     args = parser.parse_args(argv)
     if args.command == "signature":
         print(signature(args.prompt or "", args.values, args.context))
@@ -129,7 +137,17 @@ def main(argv=None):
         return 2
     prompt_hit = prompt_reused(args.prompt, records["prompt"])
     variant_hit = bool(args.values or args.context) and prompt_reused(args.prompt, records["variant"], args.values, args.context)
+    is_cold = args.stage == "cold"
     if prompt_hit or variant_hit:
+        if is_cold:
+            # Reporting a match is still useful - the caller may want to know a
+            # concept was asked before - but a cold check is allowed to repeat,
+            # so it must not block the question.
+            print(
+                "match: signature is already in the record, but a cold conceptual "
+                "check may re-ask a concept; recording reused? = yes is correct here"
+            )
+            return 0
         print("reused: prompt or test-variant signature is already in the record")
         return 1
     print("fresh: prompt or test-variant signature is new")
