@@ -241,5 +241,141 @@ class ApprovedWriteTests(PrivateRootFixture, unittest.TestCase):
         self.assertIn("--approved-by", err)
 
 
+class FakeLaneAnki:
+    """Answers findCards the way the server does, by operator, not by arithmetic.
+
+    Recording every action is the point: the lane code must never reach a write
+    action, and the test asserts that rather than trusting the code path.
+    """
+
+    def __init__(self, new=0, learn=0, stuck=0, notes=(), decks=("Kaishi 1.5k", "Lapis")):
+        self.counts = {"new": new, "learn": learn, "stuck": stuck}
+        self.notes = list(notes)
+        self.decks = list(decks)
+        self.actions = []
+
+    def call(self, action, **params):
+        self.actions.append((action, params))
+        if action == "findCards":
+            query = params["query"]
+            if "is:new" in query:
+                n = self.counts["new"]
+            elif "is:learn" in query:
+                n = self.counts["learn"]
+            elif "prop:ivl<" in query:
+                n = self.counts["stuck"]
+            else:
+                n = 0
+            return list(range(n))
+        if action == "cardsInfo":
+            return [{"note": 900 + i} for i, _ in enumerate(params["cards"])]
+        if action == "notesInfo":
+            return self.notes[: len(params["notes"])]
+        if action == "addNote":
+            raise AssertionError("the i+1 lane must never write")
+        raise AssertionError(f"unexpected action {action}")
+
+    def writes(self):
+        return [a for a, _ in self.actions if a == "addNote"]
+
+    def queries(self):
+        return [p["query"] for a, p in self.actions if a == "findCards"]
+
+
+def kaishi_note(word):
+    return {"modelName": "Kaishi 1.5k", "fields": {"Word": {"value": word}}}
+
+
+class IPlusOneLaneTests(unittest.TestCase):
+    def test_pending_cards_block_the_stretch_lane(self):
+        client = FakeLaneAnki(new=1, learn=8, stuck=1000)
+        result = anki_bridge.iplusone(client, decks=("Kaishi 1.5k",), sample=0)
+        self.assertEqual(result["lane"], "patch")
+        self.assertFalse(result["stretch_available"])
+        self.assertTrue(result["patch_available"])
+        self.assertEqual(result["unlearned_total"], 9)
+        self.assertEqual(result["stuck_total"], 1000)
+
+    def test_caught_up_opens_the_stretch_lane(self):
+        client = FakeLaneAnki(new=0, learn=0, stuck=1000)
+        result = anki_bridge.iplusone(client, decks=("Kaishi 1.5k",), sample=0)
+        self.assertEqual(result["lane"], "stretch")
+        self.assertTrue(result["stretch_available"])
+        # A patch lane is still offered rather than silently dropped.
+        self.assertTrue(result["patch_available"])
+
+    def test_hold_when_nothing_is_available(self):
+        client = FakeLaneAnki(new=0, learn=5, stuck=0)
+        result = anki_bridge.iplusone(client, decks=("Kaishi 1.5k",), sample=0)
+        self.assertEqual(result["lane"], "hold")
+        self.assertFalse(result["stretch_available"])
+        self.assertFalse(result["patch_available"])
+
+    def test_lane_counts_come_from_server_operators(self):
+        client = FakeLaneAnki(new=2, learn=3, stuck=7)
+        anki_bridge.deck_lane_counts(client, "Kaishi 1.5k")
+        queries = client.queries()
+        self.assertIn('deck:"Kaishi 1.5k" is:new', queries)
+        self.assertIn('deck:"Kaishi 1.5k" is:learn', queries)
+        # Never cardsInfo.due arithmetic: for review cards that is a raw day
+        # offset, and counting it locally invents a due date.
+        self.assertIn('deck:"Kaishi 1.5k" prop:reps>=10 prop:ivl<7', queries)
+
+    def test_threshold_is_configurable_and_reported(self):
+        client = FakeLaneAnki(stuck=5)
+        result = anki_bridge.iplusone(
+            client, decks=("Kaishi 1.5k",), sample=0, reps_min=20, interval_max=3
+        )
+        self.assertEqual(result["threshold"], {"reps_min": 20, "interval_max_days": 3})
+        self.assertTrue(
+            any("prop:reps>=20 prop:ivl<3" in q for q in client.queries()),
+            client.queries(),
+        )
+
+    def test_deck_names_are_escaped(self):
+        client = FakeLaneAnki()
+        anki_bridge.deck_lane_counts(client, 'we"ird\\deck')
+        self.assertIn('deck:"we\\"ird\\\\deck" is:new', client.queries())
+
+    def test_stuck_words_are_named_by_model_field(self):
+        client = FakeLaneAnki(stuck=3, notes=[kaishi_note("あまり"), kaishi_note("全然")])
+        result = anki_bridge.iplusone(client, decks=("Kaishi 1.5k",), sample=2)
+        self.assertEqual([w["word"] for w in result["stuck_samples"]], ["あまり", "全然"])
+        self.assertEqual(result["stuck_samples"][0]["model"], "Kaishi 1.5k")
+
+    def test_note_with_no_word_field_mapping_is_skipped_not_guessed(self):
+        client = FakeLaneAnki(
+            stuck=2,
+            notes=[{"modelName": "Basic", "fields": {"Front": {"value": "x"}}}, kaishi_note("置く")],
+        )
+        result = anki_bridge.iplusone(client, decks=("Kaishi 1.5k",), sample=2)
+        self.assertEqual([w["word"] for w in result["stuck_samples"]], ["置く"])
+
+    def test_lane_never_writes(self):
+        client = FakeLaneAnki(new=1, learn=1, stuck=5, notes=[kaishi_note("置く")])
+        anki_bridge.iplusone(client, sample=3)
+        self.assertEqual(client.writes(), [])
+        self.assertEqual({a for a, _ in client.actions}, {"findCards", "cardsInfo", "notesInfo"})
+
+    def test_empty_deck_reports_zero_rather_than_failing(self):
+        client = FakeLaneAnki()
+        result = anki_bridge.iplusone(client, decks=("Lapis",), sample=5)
+        self.assertEqual(result["unlearned_total"], 0)
+        self.assertEqual(result["stuck_total"], 0)
+        self.assertEqual(result["lane"], "stretch")
+        self.assertNotIn("stuck_samples", result)
+
+    def test_iplusone_command_runs_read_only(self):
+        client = FakeLaneAnki(new=1, learn=0, stuck=3, notes=[kaishi_note("置く")])
+        out, err = io.StringIO(), io.StringIO()
+        with patch.object(anki_bridge, "client_from_args", return_value=client), \
+             contextlib.redirect_stdout(out), contextlib.redirect_stderr(err):
+            self.assertEqual(anki_bridge.main(["iplusone"]), 0)
+        payload = json.loads(out.getvalue())
+        self.assertEqual(payload["lane"], "patch")
+        self.assertEqual(err.getvalue(), "")
+        self.assertEqual(client.writes(), [])
+
+
 if __name__ == "__main__":
     unittest.main()

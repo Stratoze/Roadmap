@@ -146,6 +146,133 @@ def parse_fields(args):
     return {args.front_field: args.front, args.back_field: args.back}
 
 
+# --- i+1 lane selection (read-only) -------------------------------------
+#
+# Two lanes, and they are not the same thing:
+#
+#   stretch - a genuinely new word. Legitimate only when nothing is pending,
+#             because introducing new material on top of unlearned cards is
+#             how a backlog silently becomes permanent.
+#   patch   - a word the learner has met enough times that failing it means
+#             something, but whose interval has collapsed. Not new input: it is
+#             consolidation, and it should be labelled as such in conversation.
+#
+# The gate is a selection aid, not a scheduler. It never writes and never
+# reschedules; Anki owns the due queue.
+
+STUCK_REPS_MIN = 10
+STUCK_INTERVAL_MAX_DAYS = 7
+DEFAULT_WATCHED_DECKS = ("Kaishi 1.5k", "Lapis")
+
+# Which field holds the word, per note type. Read-only display only - nothing
+# is ever written from this map.
+WORD_FIELD_BY_MODEL = {
+    "Kaishi 1.5k": "Word",
+    "Lapis": "Expression",
+}
+
+
+def _escape_deck(deck):
+    return str(deck).replace("\\", "\\\\").replace('"', '\\"')
+
+
+def _count(client, query):
+    return len(client.call("findCards", query=query) or [])
+
+
+def stuck_query(deck, reps_min=STUCK_REPS_MIN, interval_max=STUCK_INTERVAL_MAX_DAYS):
+    return (
+        f'deck:"{_escape_deck(deck)}" '
+        f"prop:reps>={int(reps_min)} prop:ivl<{int(interval_max)}"
+    )
+
+
+def deck_lane_counts(client, deck, reps_min=STUCK_REPS_MIN, interval_max=STUCK_INTERVAL_MAX_DAYS):
+    """Counts from AnkiConnect's own search operators, never local arithmetic.
+
+    `cardsInfo.due` is a raw day offset for review cards, not days-from-today,
+    so counting due-ness locally reports nonsense. Ask the server instead.
+    """
+    base = f'deck:"{_escape_deck(deck)}"'
+    return {
+        "deck": deck,
+        "unlearned_new": _count(client, f"{base} is:new"),
+        "unlearned_learning": _count(client, f"{base} is:learn"),
+        "stuck": _count(client, stuck_query(deck, reps_min, interval_max)),
+    }
+
+
+def sample_stuck_words(client, deck, limit):
+    """Name a few stuck words so the conversation has something concrete."""
+    if limit <= 0:
+        return []
+    cards = client.call("findCards", query=stuck_query(deck)) or []
+    if not cards:
+        return []
+    info = client.call("cardsInfo", cards=list(cards)[:limit]) or []
+    note_ids = [c.get("note") for c in info if c.get("note")]
+    if not note_ids:
+        return []
+    words = []
+    for note in client.call("notesInfo", notes=note_ids) or []:
+        model = note.get("modelName")
+        field = WORD_FIELD_BY_MODEL.get(model)
+        fields = note.get("fields") or {}
+        if not field or field not in fields:
+            continue
+        value = str((fields[field] or {}).get("value") or "").strip()
+        if value:
+            words.append({"word": value, "model": model})
+    return words
+
+
+def iplusone(client, decks=DEFAULT_WATCHED_DECKS, sample=5,
+             reps_min=STUCK_REPS_MIN, interval_max=STUCK_INTERVAL_MAX_DAYS):
+    """Decide which lane the next Japanese conversation should use."""
+    rows = [
+        deck_lane_counts(client, deck, reps_min, interval_max)
+        for deck in decks
+    ]
+    unlearned = sum(r["unlearned_new"] + r["unlearned_learning"] for r in rows)
+    stuck = sum(r["stuck"] for r in rows)
+    stretch = unlearned == 0
+    patch = stuck > 0
+
+    if stretch:
+        lane = "stretch"
+        why = "caught up on unlearned cards, so new material is the i+1 lane"
+    elif patch:
+        lane = "patch"
+        why = f"{unlearned} unlearned card(s) pending block new words; patch a known word instead"
+    else:
+        lane = "hold"
+        why = f"{unlearned} unlearned card(s) pending and nothing stuck to patch; clear those first"
+
+    payload = {
+        "lane": lane,
+        "why": why,
+        "stretch_available": stretch,
+        "patch_available": patch,
+        "unlearned_total": unlearned,
+        "stuck_total": stuck,
+        "threshold": {"reps_min": reps_min, "interval_max_days": interval_max},
+        "decks": rows,
+    }
+    if patch and sample > 0:
+        for deck in decks:
+            words = sample_stuck_words(client, deck, sample)
+            if words:
+                payload["stuck_samples"] = words
+                break
+    return payload
+
+
+def print_iplusone(client, decks, sample, reps_min, interval_max):
+    payload = iplusone(client, decks, sample, reps_min, interval_max)
+    print(json.dumps(payload, ensure_ascii=False, indent=2))
+    return payload
+
+
 def build_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument("--url", default=os.environ.get("ANKI_CONNECT_URL", DEFAULT_URL))
@@ -153,6 +280,16 @@ def build_parser():
     sub = parser.add_subparsers(dest="command", required=True)
     sub.add_parser("status", help="show AnkiConnect version and deck names")
     sub.add_parser("due", help="show due counts by deck; read-only")
+    lanes = sub.add_parser(
+        "iplusone",
+        help="decide the i+1 lane (stretch/patch) for the next Japanese session; read-only",
+    )
+    lanes.add_argument("--deck", action="append", dest="decks",
+                       help="deck to watch; repeatable. Default: Kaishi 1.5k and Lapis")
+    lanes.add_argument("--sample", type=int, default=5,
+                       help="how many stuck words to name (0 disables)")
+    lanes.add_argument("--reps-min", type=int, default=STUCK_REPS_MIN)
+    lanes.add_argument("--interval-max", type=int, default=STUCK_INTERVAL_MAX_DAYS)
     propose = sub.add_parser("propose", help="print an approval-gated mining proposal; writes nothing")
     propose.add_argument("word")
     propose.add_argument("--reading", default="")
@@ -201,6 +338,14 @@ def run(args):
         print_status(client)
     elif args.command == "due":
         print_due(client)
+    elif args.command == "iplusone":
+        print_iplusone(
+            client,
+            tuple(args.decks) if args.decks else DEFAULT_WATCHED_DECKS,
+            max(0, args.sample),
+            args.reps_min,
+            args.interval_max,
+        )
     return 0
 
 

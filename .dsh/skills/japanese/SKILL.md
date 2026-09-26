@@ -38,7 +38,8 @@ asks for it or after the current concept has actually been taught.
   curriculum state, request/verify one source JIT, teach one usable contrast,
   practise it, then use it in conversation.
 - **Conversation:** use mostly known grammar with a small useful i+1 addition.
-  Reuse old grammar when it fits even if it is not due.
+  Reuse old grammar when it fits even if it is not due. Before introducing a
+  *new word* in conversation, run the lane gate below.
 - **Reading:** use the learner's novel and page context. For the first 30
   actual reading sessions, take the English explanation first; after session
   30, take Japanese first and then English correction. A sentence-analysis
@@ -50,6 +51,25 @@ asks for it or after the current concept has actually been taught.
   `python3 scripts/anki_bridge.py due`; otherwise use Anki directly. Record only
   learner-reported mining events in the vault; never claim complete knowledge
   without a bridge.
+
+## The i+1 lane gate
+
+Run `python3 scripts/anki_bridge.py iplusone` before introducing a new word in
+conversation. It is read-only and returns one of three lanes. Do not guess the
+lane, and do not introduce a new word when the gate says `patch` or `hold`.
+
+- **stretch** — nothing is pending, so a new word is the correct i+1 move.
+- **patch** — unlearned cards are pending, so new words are blocked. Take a
+  word the learner has met many times and still fails. **Say which lane you are
+  on.** "New word" is a stretch; "you have met this many times and it keeps
+  slipping" is consolidation, and the learner should be able to tell them apart.
+- **hold** — nothing to patch either. Clear the pending cards first rather than
+  adding material.
+
+A `patch` word is not new input, so it does not consume the i+1 budget: reusing
+old material is always allowed when it fits. Without a reachable bridge, fall
+back to the learner's own Anki and say the gate did not run. Anki owns the due
+queue; this gate selects conversation material, it never reschedules anything.
 
 ## Teaching grammar
 
