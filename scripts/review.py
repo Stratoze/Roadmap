@@ -271,11 +271,51 @@ def derived_usage(topic):
     return 0
 
 
+def concept_index():
+    """Every curriculum concept keyed by id, across all topic files.
+
+    The map is global because prereqs legitimately cross files (japanese-reading
+    depends on japanese-grammar's first concept). A per-file map resolves those
+    ids to None and hides the dependent concept forever, even after its prereq
+    is met.
+    """
+    states = {}
+    for path in sorted(CURRICULUM.glob("*.md")):
+        for _, cells in read_rows(path.read_text(encoding="utf-8")):
+            states.setdefault(cells[0], cells[3])
+    return states
+
+
+def unmet_prerequisites(states, cells):
+    """Prereq ids that are not yet learned; ids absent everywhere are dangling."""
+    unmet = []
+    for item in cells[2].split(","):
+        item = item.strip()
+        if not item or item == "-":
+            continue
+        if states.get(item) not in {"review", "solid"}:
+            unmet.append(item)
+    return unmet
+
+
 def cmd_due():
     today = dt.date.today()
+    states = concept_index()
     rows = []
     for path in sorted(CURRICULUM.glob("*.md")):
         for _, cells in read_rows(path.read_text(encoding="utf-8")):
+            unmet = unmet_prerequisites(states, cells)
+            if unmet:
+                # A dangling id would otherwise hide this concept forever with
+                # no explanation, so name the culprit instead of swallowing it.
+                dangling = [item for item in unmet if item not in states]
+                if dangling:
+                    print(
+                        f"warning: {path.name}: {cells[0]} references unknown prereq "
+                        f"{', '.join(dangling)}; treating it as unmet",
+                        file=sys.stderr,
+                    )
+                continue
             try:
                 when = dt.date.fromisoformat(cells[5])
             except ValueError:

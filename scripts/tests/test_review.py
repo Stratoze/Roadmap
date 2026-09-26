@@ -1,7 +1,10 @@
-import datetime as dt
+import contextlib
+import io
 import sys
+import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts"))
@@ -9,6 +12,88 @@ import review  # noqa: E402
 
 
 class ReviewTests(unittest.TestCase):
+    HEADER = (
+        "| id | aim | prereqs | state | rung | next_review | evidence |\n"
+        "|----|-----|---------|-------|------|-------------|----------|\n"
+    )
+
+    def _due_output(self, root):
+        output = io.StringIO()
+        with patch.object(review, "CURRICULUM", root), contextlib.redirect_stdout(output):
+            self.assertEqual(review.cmd_due(), 0)
+        return output.getvalue()
+
+    def test_due_hides_items_whose_prerequisites_are_unmet(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "topic.md").write_text(
+                "# t\n\n## Concepts\n"
+                + self.HEADER
+                + "| a | no prereq | - | review | 0 | 2000-01-01 | - |\n"
+                + "| b | needs a | a | review | 0 | 2000-01-01 | - |\n"
+                + "| c | needs x, unlearned | x | review | 0 | 2000-01-01 | - |\n"
+                + "| x | not learned yet | - | unknown | 0 | 2000-01-01 | - |\n",
+                encoding="utf-8",
+            )
+            output = self._due_output(root)
+            # a and b are due: b's prerequisite a is learned.
+            self.assertIn("| a |", output)
+            self.assertIn("| b |", output)
+            # c's prerequisite x is still unknown, so c must not be offered.
+            # cmd_due gates on prerequisites, not on state, so x itself is
+            # still listed by date -- that is existing behaviour, not the gate.
+            self.assertNotIn("| c |", output)
+
+    def test_due_resolves_prerequisites_across_topic_files(self):
+        """Regression: a per-file state map hid cross-file dependents forever."""
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "base.md").write_text(
+                "# base\n\n## Concepts\n"
+                + self.HEADER
+                + "| shared | learned in another file | - | review | 0 | 2000-01-01 | - |\n",
+                encoding="utf-8",
+            )
+            (root / "dependent.md").write_text(
+                "# dependent\n\n## Concepts\n"
+                + self.HEADER
+                + "| child | depends on a concept in base.md | shared | review | 0 | 2000-01-01 | - |\n",
+                encoding="utf-8",
+            )
+            output = self._due_output(root)
+            self.assertIn("| child |", output)
+
+    def test_due_warns_on_dangling_prerequisite_instead_of_hiding_silently(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "topic.md").write_text(
+                "# t\n\n## Concepts\n"
+                + self.HEADER
+                + "| a | typo in the prereq cell | does-not-exist | review | 0 | 2000-01-01 | - |\n",
+                encoding="utf-8",
+            )
+            output = io.StringIO()
+            errors = io.StringIO()
+            with (
+                patch.object(review, "CURRICULUM", root),
+                contextlib.redirect_stdout(output),
+                contextlib.redirect_stderr(errors),
+            ):
+                self.assertEqual(review.cmd_due(), 0)
+            self.assertNotIn("| a |", output.getvalue())
+            self.assertIn("does-not-exist", errors.getvalue())
+
+    def test_due_ignores_rows_with_an_unparsable_date(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "topic.md").write_text(
+                "# t\n\n## Concepts\n"
+                + self.HEADER
+                + "| a | no date yet | - | review | 0 | - | - |\n",
+                encoding="utf-8",
+            )
+            self.assertEqual(self._due_output(root), "")
+
     def test_concept_parser_keeps_seven_column_rows(self):
         text = """# t
 

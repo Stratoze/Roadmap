@@ -80,5 +80,50 @@ class SessionStateTests(unittest.TestCase):
         self.assertIn("japanese-grammar | c1", message)
 
 
+class HandoffSummaryTests(unittest.TestCase):
+    FENCE = "`" * 3
+
+    def _summary(self, body, name="handoff.md"):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / name
+            path.write_text(body, encoding="utf-8")
+            return session_state.handoff_summary(path)
+
+    def test_reports_status_and_next_action(self):
+        summary = self._summary(
+            "# T\n\n**Status:** fresh reset.\n\n## Next action\n\nRun one fresh Japanese session:\n"
+        )
+        self.assertIn("status=fresh reset.", summary)
+        self.assertIn("next=Run one fresh Japanese session", summary)
+
+    def test_strips_the_trailing_colon_of_a_heading_line(self):
+        summary = self._summary("# T\n\n**Status:** s.\n\n## Next action\n\nDo the thing:\n")
+        self.assertTrue(summary.endswith("next=Do the thing"), summary)
+
+    def test_skips_code_fences_and_finds_the_first_real_line(self):
+        body = "# T\n\n**Status:** idle.\n\n## Next action\n\n" + self.FENCE + "text\nonly a block\n" + self.FENCE + "\n"
+        self.assertIn("next=only a block", self._summary(body))
+
+    def test_handles_crlf_line_endings(self):
+        body = "# T\r\n\r\n**Status:** crlf status.\r\n\r\n## Next action\r\n\r\nRun the CRLF thing:\r\n"
+        summary = self._summary(body)
+        self.assertIn("status=crlf status.", summary)
+        self.assertIn("next=Run the CRLF thing", summary)
+
+    def test_missing_status_is_reported_not_hidden(self):
+        self.assertIn("status=status unavailable", self._summary("# T\n\n## Next action\n\nDo it.\n"))
+
+    def test_no_next_action_section_gives_an_actionable_pointer(self):
+        summary = self._summary("# T\n\n**Status:** nothing pending.\n")
+        self.assertIn("next=no explicit next-action section", summary)
+
+    def test_untargeted_technical_handoff_names_the_missing_step(self):
+        summary = self._summary("# T\n\n**Status:** no active target selected.\n")
+        self.assertIn("next=learner names a target", summary)
+
+    def test_missing_file_is_reported(self):
+        self.assertEqual(session_state.handoff_summary(Path("does/not/exist.md")), "missing")
+
+
 if __name__ == "__main__":
     unittest.main()

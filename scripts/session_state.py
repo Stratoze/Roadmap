@@ -86,6 +86,34 @@ def run_readonly(command):
     return True, result.stdout.strip() or result.stderr.strip() or "no output"
 
 
+def handoff_summary(path):
+    if not path.is_file():
+        return "missing"
+    text = path.read_text(encoding="utf-8")
+    status = re.search(r"^\*\*Status:\*\*\s*(.+)$", text, re.MULTILINE)
+    next_heading = re.search(r"^## Next action[ \t]*\r?\n([\s\S]*?)(?=^## |\Z)", text, re.MULTILINE)
+    next_line = "-"
+    if next_heading:
+        for line in next_heading.group(1).splitlines():
+            stripped = line.strip()
+            if stripped and not stripped.startswith("```") and not stripped.startswith("#"):
+                next_line = stripped
+                break
+    status_text = status.group(1).strip() if status else "status unavailable"
+    if next_line == "-":
+        match = re.search(r"^- Next action:[ \t]*(.*)$", text, re.MULTILINE)
+        if match and match.group(1).strip():
+            next_line = match.group(1).strip()
+    if next_line == "-" and "no active target" in status_text.lower():
+        next_line = "learner names a target; ask one scoping question"
+    if next_line == "-":
+        next_line = "no explicit next-action section; read the handoff file"
+    # A heading line like "Run one fresh Japanese session:" reads as a
+    # truncated fragment in the one-line summary.
+    next_line = next_line.rstrip(":").strip() or next_line
+    return f"status={status_text} | next={next_line}"
+
+
 def report_today():
     path = today_note()
     if not path.exists():
@@ -105,8 +133,8 @@ def report_today():
         next_key = next((key for key in CHECKLIST_IDS if key in items and items[key]["mark"] != "x"), None)
         if next_key:
             print(f"next: {next_key} — {items[next_key]['body']}")
-    print("Japanese handoff: Japanese/CURRENT.md")
-    print("Technical handoff: Mechatronics/CURRENT.md")
+    print(f"Japanese handoff: Japanese/CURRENT.md | {handoff_summary(ROOT / 'Japanese' / 'CURRENT.md')}")
+    print(f"Technical handoff: Mechatronics/CURRENT.md | {handoff_summary(ROOT / 'Mechatronics' / 'CURRENT.md')}")
     ok, due = run_readonly([sys.executable, str(ROOT / "scripts" / "review.py"), "due"])
     if not ok:
         print(f"Due review: {due} — treat as unknown, not as zero; resolve before the review slot")

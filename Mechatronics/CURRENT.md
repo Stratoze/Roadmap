@@ -47,6 +47,19 @@ The same construct may be revisited, but the same test item, value set, or
 lab condition may not be reused for fresh transfer or implementation. Full
 Pass requires a new scenario and new evidence.
 
+## Current known dependency frontier
+
+- ROADMAP milestone 0.3 Calculus Intuition is the first open Phase-0
+  deliverable; its keywords include derivative, accumulation, net change, and
+  Euler step.
+- The 2026-09-22 ODE lesson produced review evidence for c1 and c4–c7, but it
+  never taught the c2 → c3 chain underneath them (slope field, solution
+  curves). The evidence is real; the foundation below it is not.
+- `review.py due` therefore withholds c4 and c7, because both depend on c3 and
+  c3 is still `unknown`. This is the queue working, not missing data.
+- If the chosen target requires 0.3, teach c2 → c3 first, then return to the
+  target. Do not re-probe c4–c7 cold; they are already in review state.
+
 ## Current target
 
 - Target: none selected
