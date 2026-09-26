@@ -163,14 +163,38 @@ def check_protected(errors, base=None):
         if is_new_daily_note(statuses, rel):
             continue
         if rel.startswith("Changelog/"):
-            diff = subprocess.run(
-                ["git", "diff", (f"{base}..HEAD" if base else "HEAD"), "--unified=0", "--", rel], cwd=ROOT, text=True,
-                encoding="utf-8", errors="replace", capture_output=True, check=False,
+            # Per-commit, not net-diff. A whole-range set comparison cannot see a
+            # mid-range rewrite: a commit that removes a line and re-adds a
+            # changed version nets to zero removed lines across the range, so the
+            # violation passes even though the individual commit edited history.
+            # Each commit must be append-only on its own.
+            revisions = subprocess.run(
+                ["git", "log", "--format=%H", (f"{base}..HEAD" if base else "HEAD"), "--", rel],
+                cwd=ROOT, text=True, encoding="utf-8", errors="replace",
+                capture_output=True, check=False,
             ).stdout or ""
-            removed = {line[1:].strip() for line in diff.splitlines() if line.startswith("-") and not line.startswith("---")}
-            added = {line[1:].strip() for line in diff.splitlines() if line.startswith("+") and not line.startswith("+++")}
-            if removed - added:
-                errors.append(f"Changelog change is not append-only: {rel}")
+            for sha in revisions.split():
+                diff = subprocess.run(
+                    ["git", "show", "--format=", "--unified=0", sha, "--", rel],
+                    cwd=ROOT, text=True, encoding="utf-8", errors="replace",
+                    capture_output=True, check=False,
+                ).stdout or ""
+                removed = {
+                    line[1:].strip()
+                    for line in diff.splitlines()
+                    if line.startswith("-") and not line.startswith("---")
+                }
+                added = {
+                    line[1:].strip()
+                    for line in diff.splitlines()
+                    if line.startswith("+") and not line.startswith("+++")
+                }
+                if removed - added:
+                    errors.append(
+                        f"Changelog change is not append-only: {rel} (commit {sha[:7]} rewrote "
+                        f"{len(removed - added)} line(s))"
+                    )
+                    break
             continue
         if any(rel == prefix or rel.startswith(prefix) for prefix in PROTECTED_PREFIXES):
             errors.append(f"protected path changed: {rel}")
