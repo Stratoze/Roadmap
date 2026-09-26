@@ -9,6 +9,7 @@ kept for provenance only. The operative docs are `AGENTS.md` (contract),
 - `harness-opencode/` and `harness-codex/` — retired interface mirrors, deleted 2026-09-26 after reference check; DSH is the only live home.
 - `source-ledger.md` — inactive source candidates and verification decisions moved out of active curriculum files.
 - `topic-tree-details.md` — historical detail removed from the active topic tree.
+- `session-2026-09-26-decisions.md` — decisions distilled from a finished session archive; what was promoted to operative docs, what was checked and cleared, and the threads left open.
 
 Do not cite an archived plan as the current rule. If archive and system docs
 conflict, the system docs win.

@@ -26,6 +26,16 @@ notes, start sessions, reminders, or background jobs.
   Japanese, then due reviews, then the active target in
   `Mechatronics/CURRENT.md` and its dependency frontier.
 - Ask **one adaptive question per message** when probing, mapping, studying, or reviewing. Ask, then wait.
+- Do not re-ask what the learner has already settled. Infer the answer from
+  prior context and from this contract, state the assumption in one clause, and
+  continue. Ask again only where the answer is genuinely ambiguous. (Learner
+  standing order, 2026-09-26: "you can probably just assume based on prev
+  answers, only ask about ambiguous ones".)
+- Your own context is the scarce resource. Delegate execution *and*
+  verification to background subagents and team members rather than spending
+  lead context on work a bounded brief can do. Prefer a background subagent
+  when the task must survive to a follow-up message. (Learner standing order,
+  2026-09-26.)
 - At close, draft the session log from evidence. The learner owns corrections. No session means no daily note.
 - Raw learner productions go only to `_private/learning/`. Public files contain summaries and links.
 - The learner produces code, derivations, and solutions. The agent scaffolds, executes, verifies, and reviews.
@@ -121,3 +131,12 @@ Do not request a sandbox escalation to work around this. Prefer omitting the
 sandbox-permission parameter entirely. If the session's mode cannot run the
 suite, say the suite is unvalidated in this mode — an honest "could not
 validate" beats a green claim you did not earn.
+
+**Cold-start cost is a maintained metric.** After changing anything a fresh
+agent must read to answer "what's next?", measure it rather than assuming the
+change helped. Method (learner's own, 2026-09-26): spawn a fresh background
+subagent, give it only the prompt "what's next?", let it finish, then ask that
+same agent how many steps it took and what it had to infer. Score two things —
+the step count, and whether the answer was aligned and current. If it is
+misaligned or stale, find which document lied. Baselines: 12 steps before
+`554e611`, 6 on the second probe of that session.

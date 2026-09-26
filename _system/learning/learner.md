@@ -33,6 +33,14 @@ learner without their words.
 - **Source policy:** books/videos are requested and selected JIT for the
   activated concept. The learner may supply a book; the tutor records only the
   active locator and does not maintain a standing source library.
+- **AnkiConnect is local-only, by decision (2026-09-26).** Anki runs on the
+  bridge device and Anki's own sync carries the collection between devices;
+  there is no remote bridge. Rationale in the learner's words: AnkiConnect is
+  fundamentally a local interface, a remote bridge adds networking,
+  authentication and availability problems, and a key becomes necessary only
+  if the bridge is exposed beyond the local machine. Motive: cross-device
+  continuity. `scripts/anki_bridge.py` enforces loopback and keeps `apiKey`
+  null while localhost — do not add a hosted bridge without a new decision.
 - **Standing order 8, source-first (set 2026-09-15, learner's direction "books
   and videos for each lesson and phase instead of relying on AI"):** every
   concept carries a section-precise citation; the lesson starts there. AI
