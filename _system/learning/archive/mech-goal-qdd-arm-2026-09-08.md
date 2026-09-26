@@ -1,5 +1,13 @@
 # GOAL — QDD 2-DOF arm (CONFIRMED 2026-09-08 — user-confirmed; parameterization authorized)
 
+> **Superseded 2026-09-26 — archived, never operative.** The goal statement
+> below now lives in `Mechatronics/ROADMAP.md` under *Confirmed goal*, because
+> ROADMAP is the only milestone-status owner. The `## Checklist` here was a
+> Full Pass that never started: no evidence, no assessor gate, and no
+> disposition ever applied. Semantic passes over arm-flavoured text are
+> ordinary target-driven technical work, not a separate status file. Kept for
+> provenance; do not cite as the current rule.
+
 - **Name:** QDD 2-DOF arm
 - **Actuator type:** quasi-direct-drive (BLDC + low-ratio planetary gearbox + dual encoders — see Phase-3 QDD artifact in [[Mechatronics/milestones/03_mech_pcb_verification|03 ⁠— Model-Based Design & Verification]])
 - **DOF:** 2 (shoulder + elbow)
