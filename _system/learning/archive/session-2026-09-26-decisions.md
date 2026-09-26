@@ -46,10 +46,15 @@ rather than assuming.
    `.dsh/skills/technical/SKILL.md` now states the severity per stage — cold
    conceptual check is a warning, fresh transfer and implementation are hard
    failures.
-3. **Live Anki card creation has never been exercised.** Known debt, recorded
-   in `Daily/2026-09-25.md`. Not a surprise, not a blocker. Writing to Anki
-   needs the learner's deck/model/field mapping and an approval-evidence file,
-   so it stays open until they supply those.
+3. **Anki is read-only, by decision (2026-09-26).** The learner closed this:
+   *"anki gets new cards from stuff like mining, not from our chat"*. Anki is
+   populated by mining, not by conversation, so the chat does not write. The
+   `add-approved` path stays unexercised on purpose — not debt, a non-goal.
+   What the bridge is for is *reading* Anki to choose conversation material,
+   which is now `anki_bridge.py iplusone`. Note the lesson: an attempt to
+   "test" that write gate against the live collection was denied by auto-review
+   for exactly this reason. Exercise write gates against a fake client, which
+   the test suite already does.
 4. **Cold-start measurement.** Measured 2026-09-26 after `b7ebf21`: the
    fresh-agent answer was aligned and current. The step count was not captured,
    because the probe was spawned as a background subagent and `send_message`
