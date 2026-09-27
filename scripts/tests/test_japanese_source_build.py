@@ -62,11 +62,11 @@ class SourceFixture:
         (self.yokubi / "src").mkdir()
         (self.yokubi / "src" / "SUMMARY.md").write_text(summary, encoding="utf-8", newline="\n")
         for lesson in range(3):
-            path = self.yokubi / f"Section1/Part1/Lesson{lesson}.md"
+            path = self.yokubi / "src" / f"Section1/Part1/Lesson{lesson}.md"
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text(f"# Lesson {lesson}\n", encoding="utf-8", newline="\n")
-        (self.yokubi / "Section1/Part2").mkdir(parents=True, exist_ok=True)
-        (self.yokubi / "Section1" / "Part2" / "Lesson2.md").write_text("# L2\n", encoding="utf-8", newline="\n")
+        (self.yokubi / "src" / "Section1/Part2").mkdir(parents=True, exist_ok=True)
+        (self.yokubi / "src" / "Section1" / "Part2" / "Lesson2.md").write_text("# L2\n", encoding="utf-8", newline="\n")
         git(self.yokubi, "init", "-q")
         git(self.yokubi, "remote", "add", "origin", yokubi_repo)
         git(self.yokubi, "add", "-A")
@@ -214,7 +214,7 @@ class SourceMapBuildTests(unittest.TestCase):
 
     def test_verified_build_records_derived_locators(self):
         with tempfile.TemporaryDirectory() as directory:
-            code, output, _, _ = self.build(directory)
+            code, output, _, fixture = self.build(directory)
             self.assertEqual(code, 0)
             data = json.loads(output.read_text(encoding="utf-8"))
             self.assertTrue(data["private_root_verified"])
@@ -222,7 +222,13 @@ class SourceMapBuildTests(unittest.TestCase):
             lessons = data["yokubi"]["lessons"]
             self.assertEqual([l["lesson"] for l in lessons], [0, 1, 2])
             self.assertEqual(lessons[0]["id"], "yokubi-lesson-0")
-            self.assertEqual(lessons[0]["path"], "sources/yokubi/Section1/Part1/Lesson0.md")
+            self.assertEqual(lessons[0]["path"], "sources/yokubi/src/Section1/Part1/Lesson0.md")
+            for lesson in lessons:
+                recorded = lesson["path"].split("yokubi/", 1)[1]
+                self.assertTrue(
+                    (fixture.private / "sources" / "yokubi" / recorded).is_file(),
+                    lesson["path"],
+                )
             self.assertEqual(lessons[0]["url"], "https://yoku.bi/Section1/Part1/Lesson0.html")
             self.assertEqual(lessons[2]["url"], "https://yoku.bi/Section1/Part2/Lesson2.html")
             self.assertEqual(data["imabi"]["local_file"], "sources/今日 IMABI.html")

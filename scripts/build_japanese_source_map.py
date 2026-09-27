@@ -29,6 +29,7 @@ ROOT = Path(__file__).resolve().parent.parent
 LINK_RE = re.compile(r"^\s*[*-]\s+\[([^\]]+)\]\(([^)]+)\)\s*$")
 LESSON_RE = re.compile(r"Lesson (\d+):\s*(.*)")
 YOKUBI_PRIVATE_SUBPATH = "sources/yokubi"
+YOKUBI_SOURCE_DIR = "src"
 YOKUBI_URL_BASE = "https://yoku.bi/"
 
 
@@ -78,7 +79,7 @@ def yokubi_lessons(root, private_root):
 
     Raises on anything that would produce an unstable or colliding concept id.
     """
-    summary = root / "src" / "SUMMARY.md"
+    summary = root / YOKUBI_SOURCE_DIR / "SUMMARY.md"
     if not summary.is_file():
         raise SourceError(f"Yokubi summary not found: {summary}")
     lessons = []
@@ -103,7 +104,7 @@ def yokubi_lessons(root, private_root):
             raise SourceError(
                 f"{summary.name}:{number}: lesson path is not a markdown file: {rel!r}"
             )
-        public_path = f"{YOKUBI_PRIVATE_SUBPATH}/{target.as_posix()}"
+        public_path = f"{YOKUBI_PRIVATE_SUBPATH}/{YOKUBI_SOURCE_DIR}/{target.as_posix()}"
         lessons.append({
             "id": f"yokubi-lesson-{lesson_number}",
             "lesson": lesson_number,

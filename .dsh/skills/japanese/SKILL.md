@@ -29,14 +29,17 @@ show the four-field brief only when it helps orient the session:
 
 ## Choose the branch
 
-For a fresh/reset handoff, do not open with a generic due-review pass. Start
-with a short conversation warm-up, then teach the first usable grammar
-contrast, then use it immediately. Dedicated review is used when the learner
-asks for it or after the current concept has actually been taught.
+For a fresh/reset handoff, do not open with a generic due-review pass. Teach
+the first usable grammar contrast, then use it immediately. A conversation
+warm-up comes first only when the curriculum already tracks taught grammar:
+a warm-up exists to activate what is already there, so with nothing taught
+yet it has nothing to activate and turns into an off-frontier detour.
+Dedicated review is used when the learner asks for it or after the current
+concept has actually been taught.
 
 - **New grammar:** open the current frontier from `Japanese/CURRENT` and
-  curriculum state, request/verify one source JIT, teach one usable contrast,
-  practise it, then use it in conversation.
+  curriculum state, read the pinned source from the private clone, teach one
+  usable contrast, practise it, then use it in conversation.
 - **Conversation:** use mostly known grammar with a small useful i+1 addition.
   Reuse old grammar when it fits even if it is not due. Before introducing a
   *new word* in conversation, run the lane gate below.
@@ -78,8 +81,19 @@ examples with a concise English scaffold; at L2, alternate bilingual probes; at
 L3, lead in Japanese. This preserves the requested Japanese explanation style
 without stranding the learner before the schema exists.
 
-Open the cited locator before teaching. Faithfully restate or translate it into
-Japanese without adding claims. Explain the point in Japanese first where the
+Open the cited locator before teaching. Read it from the private clone at the
+pinned commit recorded in `Japanese/source-map.json`, not from the live site:
+the curriculum is built against that commit, and the live HTML is neither
+pinned nor the same artifact. If the clone is missing, restore it first:
+
+```bash
+git clone https://github.com/Morgawr/yokubi _private/sources/yokubi
+git -C _private/sources/yokubi checkout <commit from source-map.json>
+```
+
+`_private/` is gitignored, so the clone is per-machine and can be absent.
+Never fall back to the website. Faithfully restate or translate the source
+into Japanese without adding claims. Explain the point in Japanese first where the
 ramp allows, then give the English bridge. Contrast it with the nearest related
 form and cover:
 

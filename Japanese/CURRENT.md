@@ -11,8 +11,10 @@ of every Japanese session so the next agent never has to infer what to do.
 ## Start here next time
 
 1. Invoke the `japanese` skill.
-2. **Do not open with a generic due-review pass.** Begin with a short
-   conversation warm-up, then teach/confirm the first usable grammar contrast.
+2. **Do not open with a generic due-review pass.** Grammar is at zero and the
+   frontier is the first concept, so teach the first usable grammar contrast
+   directly. A conversation warm-up is for activating grammar that already
+   exists; here there is none, and it becomes an off-frontier detour.
 3. First active grammar path: `jp-yokubi-00` → `jp-yokubi-01` →
    `jp-yokubi-02` → `jp-yokubi-03`. Kana are assumed known; the grammar
    sequence starts from sentence anatomy.
@@ -25,9 +27,15 @@ of every Japanese session so the next agent never has to infer what to do.
 - Source locator: <https://yoku.bi/Section1/Part1/Lesson0.html>, reached
   through [[Japanese/SOURCES|the source map]].
 - Verify the locator resolves and the spine still matches before teaching.
-  `build_japanese_curriculum.py` is **read-only** — it prints
-  `verified N Yokubi concept rows` and writes nothing, so run it freely
-  mid-session. Only `build_japanese_source_map.py` regenerates and writes
+  Read the lesson from `_private/sources/yokubi/src/...`, at the commit
+  pinned in [[Japanese/SOURCES|the source map]] — not from yoku.bi, whose
+  HTML is neither pinned nor the same artifact. `_private/` is gitignored, so
+  the clone can be missing on a new machine; restore it with
+  `git clone https://github.com/Morgawr/yokubi _private/sources/yokubi`
+  then check out the pinned commit. `build_japanese_curriculum.py` is
+  **read-only** — it prints `verified N Yokubi concept rows` and writes
+  nothing, so run it freely mid-session. Only
+  `build_japanese_source_map.py` regenerates and writes
   `Japanese/source-map.json`; it is not a teaching step:
 
   ```bash
@@ -55,8 +63,7 @@ of every Japanese session so the next agent never has to infer what to do.
 Run one fresh Japanese session:
 
 ```text
-conversation warm-up
-→ one ground-up grammar contrast
+one ground-up grammar contrast
 → immediate practice
 → one small reading or sentence-analysis task
 → append evidence events
