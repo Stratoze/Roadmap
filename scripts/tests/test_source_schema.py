@@ -26,6 +26,9 @@ JAPANESE_TOPICS = ["japanese-grammar", "japanese-output", "japanese-reading", "j
 PRIVATE_REPO = "https://github.com/Stratoze/private-jp"
 YOKUBI_HOST = "yoku.bi"
 PRIVATE_SOURCE_PREFIX = "sources/yokubi/"
+# The checkout keeps every file under src/, but the published site is served from
+# the book root, so the URL drops that segment.
+BOOK_SOURCE_PREFIX = PRIVATE_SOURCE_PREFIX + "src/"
 
 LIVE = os.environ.get("JAPANESE_SOURCE_LIVE_CHECK") == "1"
 GATE_COUNT_RE = re.compile(r"(\d+)\s+actual(?:\s+novel)?[- ]reading sessions", re.IGNORECASE)
@@ -51,7 +54,7 @@ def concept_rows(path):
 
 
 def expected_url(lesson):
-    relative = lesson["path"][len(PRIVATE_SOURCE_PREFIX):]
+    relative = lesson["path"][len(BOOK_SOURCE_PREFIX):]
     return "https://" + YOKUBI_HOST + "/" + re.sub(r"\.md$", ".html", relative)
 
 
@@ -104,7 +107,7 @@ class SourceSchemaTests(unittest.TestCase):
 
     def test_every_locator_is_a_derived_yoku_bi_html_url(self):
         for lesson in source_map()["yokubi"]["lessons"]:
-            self.assertTrue(lesson["path"].startswith(PRIVATE_SOURCE_PREFIX), lesson["path"])
+            self.assertTrue(lesson["path"].startswith(BOOK_SOURCE_PREFIX), lesson["path"])
             self.assertTrue(lesson["path"].endswith(".md"), lesson["path"])
             parts = urlsplit(lesson["url"])
             self.assertEqual(parts.scheme, "https", lesson["url"])

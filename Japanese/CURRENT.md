@@ -27,12 +27,14 @@ of every Japanese session so the next agent never has to infer what to do.
 - Source locator: <https://yoku.bi/Section1/Part1/Lesson0.html>, reached
   through [[Japanese/SOURCES|the source map]].
 - Verify the locator resolves and the spine still matches before teaching.
-  Read the lesson from `_private/sources/yokubi/src/...`, at the commit
-  pinned in [[Japanese/SOURCES|the source map]] — not from yoku.bi, whose
-  HTML is neither pinned nor the same artifact. `_private/` is gitignored, so
-  the clone can be missing on a new machine; restore it with
-  `git clone https://github.com/Morgawr/yokubi _private/sources/yokubi`
-  then check out the pinned commit. `build_japanese_curriculum.py` is
+  Read the lesson from `_private/private-jp/sources/yokubi/src/...`, at the
+  commit pinned in [[Japanese/SOURCES|the source map]] — not from yoku.bi,
+  whose HTML is neither pinned nor the same artifact. `_private/` is
+  gitignored, so the checkout is per-machine and can be missing; both sources
+  live in the private repository, so one clone restores them:
+  `git clone https://github.com/Stratoze/private-jp _private/private-jp`
+  then `git -C _private/private-jp submodule update --init`.
+  `build_japanese_curriculum.py` is
   **read-only** — it prints `verified N Yokubi concept rows` and writes
   nothing, so run it freely mid-session. Only
   `build_japanese_source_map.py` regenerates and writes

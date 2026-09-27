@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-26",
+  "generated": "2026-09-27",
   "private_source_repository": "https://github.com/Stratoze/private-jp",
   "private_root_verified": true,
   "verification": {
@@ -20,455 +20,455 @@
         "id": "yokubi-lesson-0",
         "lesson": 0,
         "title": "The anatomy of Japanese sentences",
-        "path": "sources/yokubi/Section1/Part1/Lesson0.md",
+        "path": "sources/yokubi/src/Section1/Part1/Lesson0.md",
         "url": "https://yoku.bi/Section1/Part1/Lesson0.html"
       },
       {
         "id": "yokubi-lesson-1",
         "lesson": 1,
         "title": "State of being with だ and です",
-        "path": "sources/yokubi/Section1/Part1/Lesson1.md",
+        "path": "sources/yokubi/src/Section1/Part1/Lesson1.md",
         "url": "https://yoku.bi/Section1/Part1/Lesson1.html"
       },
       {
         "id": "yokubi-lesson-2",
         "lesson": 2,
         "title": "Nouns, pronouns",
-        "path": "sources/yokubi/Section1/Part1/Lesson2.md",
+        "path": "sources/yokubi/src/Section1/Part1/Lesson2.md",
         "url": "https://yoku.bi/Section1/Part1/Lesson2.html"
       },
       {
         "id": "yokubi-lesson-3",
         "lesson": 3,
         "title": "Particles and grammatical case",
-        "path": "sources/yokubi/Section1/Part1/Lesson3.md",
+        "path": "sources/yokubi/src/Section1/Part1/Lesson3.md",
         "url": "https://yoku.bi/Section1/Part1/Lesson3.html"
       },
       {
         "id": "yokubi-lesson-4",
         "lesson": 4,
         "title": "Verbs",
-        "path": "sources/yokubi/Section1/Part1/Lesson4.md",
+        "path": "sources/yokubi/src/Section1/Part1/Lesson4.md",
         "url": "https://yoku.bi/Section1/Part1/Lesson4.html"
       },
       {
         "id": "yokubi-lesson-5",
         "lesson": 5,
         "title": "Possession and attributes with の",
-        "path": "sources/yokubi/Section1/Part1/Lesson5.md",
+        "path": "sources/yokubi/src/Section1/Part1/Lesson5.md",
         "url": "https://yoku.bi/Section1/Part1/Lesson5.html"
       },
       {
         "id": "yokubi-lesson-6",
         "lesson": 6,
         "title": "Particles に, へ, and から",
-        "path": "sources/yokubi/Section1/Part1/Lesson6.md",
+        "path": "sources/yokubi/src/Section1/Part1/Lesson6.md",
         "url": "https://yoku.bi/Section1/Part1/Lesson6.html"
       },
       {
         "id": "yokubi-lesson-7",
         "lesson": 7,
         "title": "Negated verbs",
-        "path": "sources/yokubi/Section1/Part1/Lesson7.md",
+        "path": "sources/yokubi/src/Section1/Part1/Lesson7.md",
         "url": "https://yoku.bi/Section1/Part1/Lesson7.html"
       },
       {
         "id": "yokubi-lesson-8",
         "lesson": 8,
         "title": "い adjectives",
-        "path": "sources/yokubi/Section1/Part1/Lesson8.md",
+        "path": "sources/yokubi/src/Section1/Part1/Lesson8.md",
         "url": "https://yoku.bi/Section1/Part1/Lesson8.html"
       },
       {
         "id": "yokubi-lesson-9",
         "lesson": 9,
         "title": "Past verbs",
-        "path": "sources/yokubi/Section1/Part1/Lesson9.md",
+        "path": "sources/yokubi/src/Section1/Part1/Lesson9.md",
         "url": "https://yoku.bi/Section1/Part1/Lesson9.html"
       },
       {
         "id": "yokubi-lesson-10",
         "lesson": 10,
         "title": "The て form",
-        "path": "sources/yokubi/Section1/Part1/Lesson10.md",
+        "path": "sources/yokubi/src/Section1/Part1/Lesson10.md",
         "url": "https://yoku.bi/Section1/Part1/Lesson10.html"
       },
       {
         "id": "yokubi-lesson-11",
         "lesson": 11,
         "title": "The て form as auxiliary and giving verbs",
-        "path": "sources/yokubi/Section1/Part1/Lesson11.md",
+        "path": "sources/yokubi/src/Section1/Part1/Lesson11.md",
         "url": "https://yoku.bi/Section1/Part1/Lesson11.html"
       },
       {
         "id": "yokubi-lesson-12",
         "lesson": 12,
         "title": "Soft requests with てください and the imperative form",
-        "path": "sources/yokubi/Section1/Part1/Lesson12.md",
+        "path": "sources/yokubi/src/Section1/Part1/Lesson12.md",
         "url": "https://yoku.bi/Section1/Part1/Lesson12.html"
       },
       {
         "id": "yokubi-lesson-13",
         "lesson": 13,
         "title": "The で particle, では and じゃ",
-        "path": "sources/yokubi/Section1/Part1/Lesson13.md",
+        "path": "sources/yokubi/src/Section1/Part1/Lesson13.md",
         "url": "https://yoku.bi/Section1/Part1/Lesson13.html"
       },
       {
         "id": "yokubi-lesson-14",
         "lesson": 14,
         "title": "Getting detailed with relative clauses",
-        "path": "sources/yokubi/Section1/Part1/Lesson14.md",
+        "path": "sources/yokubi/src/Section1/Part1/Lesson14.md",
         "url": "https://yoku.bi/Section1/Part1/Lesson14.html"
       },
       {
         "id": "yokubi-lesson-15",
         "lesson": 15,
         "title": "な adjectives",
-        "path": "sources/yokubi/Section1/Part1/Lesson15.md",
+        "path": "sources/yokubi/src/Section1/Part1/Lesson15.md",
         "url": "https://yoku.bi/Section1/Part1/Lesson15.html"
       },
       {
         "id": "yokubi-lesson-16",
         "lesson": 16,
         "title": "Irregular and する verbs",
-        "path": "sources/yokubi/Section1/Part1/Lesson16.md",
+        "path": "sources/yokubi/src/Section1/Part1/Lesson16.md",
         "url": "https://yoku.bi/Section1/Part1/Lesson16.html"
       },
       {
         "id": "yokubi-lesson-17",
         "lesson": 17,
         "title": "Basic politeness and ます form",
-        "path": "sources/yokubi/Section1/Part1/Lesson17.md",
+        "path": "sources/yokubi/src/Section1/Part1/Lesson17.md",
         "url": "https://yoku.bi/Section1/Part1/Lesson17.html"
       },
       {
         "id": "yokubi-lesson-18",
         "lesson": 18,
         "title": "Existence with いる and ある plus である",
-        "path": "sources/yokubi/Section1/Part1/Lesson18.md",
+        "path": "sources/yokubi/src/Section1/Part1/Lesson18.md",
         "url": "https://yoku.bi/Section1/Part1/Lesson18.html"
       },
       {
         "id": "yokubi-lesson-19",
         "lesson": 19,
         "title": "Questions with か",
-        "path": "sources/yokubi/Section1/Part2/Lesson19.md",
+        "path": "sources/yokubi/src/Section1/Part2/Lesson19.md",
         "url": "https://yoku.bi/Section1/Part2/Lesson19.html"
       },
       {
         "id": "yokubi-lesson-20",
         "lesson": 20,
         "title": "Questions with の and explanatory のだ",
-        "path": "sources/yokubi/Section1/Part2/Lesson20.md",
+        "path": "sources/yokubi/src/Section1/Part2/Lesson20.md",
         "url": "https://yoku.bi/Section1/Part2/Lesson20.html"
       },
       {
         "id": "yokubi-lesson-21",
         "lesson": 21,
         "title": "Getting more with も and と",
-        "path": "sources/yokubi/Section1/Part2/Lesson21.md",
+        "path": "sources/yokubi/src/Section1/Part2/Lesson21.md",
         "url": "https://yoku.bi/Section1/Part2/Lesson21.html"
       },
       {
         "id": "yokubi-lesson-22",
         "lesson": 22,
         "title": "Enduring actions and state with ている and てある",
-        "path": "sources/yokubi/Section1/Part2/Lesson22.md",
+        "path": "sources/yokubi/src/Section1/Part2/Lesson22.md",
         "url": "https://yoku.bi/Section1/Part2/Lesson22.html"
       },
       {
         "id": "yokubi-lesson-23",
         "lesson": 23,
         "title": "Demonstratives with こそあど words",
-        "path": "sources/yokubi/Section1/Part2/Lesson23.md",
+        "path": "sources/yokubi/src/Section1/Part2/Lesson23.md",
         "url": "https://yoku.bi/Section1/Part2/Lesson23.html"
       },
       {
         "id": "yokubi-lesson-24",
         "lesson": 24,
         "title": "Passive form and transitive pairs",
-        "path": "sources/yokubi/Section1/Part2/Lesson24.md",
+        "path": "sources/yokubi/src/Section1/Part2/Lesson24.md",
         "url": "https://yoku.bi/Section1/Part2/Lesson24.html"
       },
       {
         "id": "yokubi-lesson-25",
         "lesson": 25,
         "title": "Potential form and できる",
-        "path": "sources/yokubi/Section1/Part2/Lesson25.md",
+        "path": "sources/yokubi/src/Section1/Part2/Lesson25.md",
         "url": "https://yoku.bi/Section1/Part2/Lesson25.html"
       },
       {
         "id": "yokubi-lesson-26",
         "lesson": 26,
         "title": "Expressing volition and desire with たい and ほしい",
-        "path": "sources/yokubi/Section1/Part2/Lesson26.md",
+        "path": "sources/yokubi/src/Section1/Part2/Lesson26.md",
         "url": "https://yoku.bi/Section1/Part2/Lesson26.html"
       },
       {
         "id": "yokubi-lesson-27",
         "lesson": 27,
         "title": "Saying \"if\" and \"when\" with the four conditionals",
-        "path": "sources/yokubi/Section1/Part2/Lesson27.md",
+        "path": "sources/yokubi/src/Section1/Part2/Lesson27.md",
         "url": "https://yoku.bi/Section1/Part2/Lesson27.html"
       },
       {
         "id": "yokubi-lesson-28",
         "lesson": 28,
         "title": "Verbs Review",
-        "path": "sources/yokubi/Section1/Part2/Lesson28.md",
+        "path": "sources/yokubi/src/Section1/Part2/Lesson28.md",
         "url": "https://yoku.bi/Section1/Part2/Lesson28.html"
       },
       {
         "id": "yokubi-lesson-29",
         "lesson": 29,
         "title": "Sentence ending particles with ね, な, よ, ぞ, ぜ, わ",
-        "path": "sources/yokubi/Section2/Part3/Lesson29.md",
+        "path": "sources/yokubi/src/Section2/Part3/Lesson29.md",
         "url": "https://yoku.bi/Section2/Part3/Lesson29.html"
       },
       {
         "id": "yokubi-lesson-30",
         "lesson": 30,
         "title": "Quotes with と, って, and という",
-        "path": "sources/yokubi/Section2/Part3/Lesson30.md",
+        "path": "sources/yokubi/src/Section2/Part3/Lesson30.md",
         "url": "https://yoku.bi/Section2/Part3/Lesson30.html"
       },
       {
         "id": "yokubi-lesson-31",
         "lesson": 31,
         "title": "Adverbs",
-        "path": "sources/yokubi/Section2/Part3/Lesson31.md",
+        "path": "sources/yokubi/src/Section2/Part3/Lesson31.md",
         "url": "https://yoku.bi/Section2/Part3/Lesson31.html"
       },
       {
         "id": "yokubi-lesson-32",
         "lesson": 32,
         "title": "Asking kindly with なさい and prohibition with な",
-        "path": "sources/yokubi/Section2/Part3/Lesson32.md",
+        "path": "sources/yokubi/src/Section2/Part3/Lesson32.md",
         "url": "https://yoku.bi/Section2/Part3/Lesson32.html"
       },
       {
         "id": "yokubi-lesson-33",
         "lesson": 33,
         "title": "Question words: なに, だれ, どれ, いつ, etc",
-        "path": "sources/yokubi/Section2/Part3/Lesson33.md",
+        "path": "sources/yokubi/src/Section2/Part3/Lesson33.md",
         "url": "https://yoku.bi/Section2/Part3/Lesson33.html"
       },
       {
         "id": "yokubi-lesson-34",
         "lesson": 34,
         "title": "か, も, and でも as question word modifiers",
-        "path": "sources/yokubi/Section2/Part3/Lesson34.md",
+        "path": "sources/yokubi/src/Section2/Part3/Lesson34.md",
         "url": "https://yoku.bi/Section2/Part3/Lesson34.html"
       },
       {
         "id": "yokubi-lesson-35",
         "lesson": 35,
         "title": "Generic nouns and nominalization with 事, 物, ところ, and の",
-        "path": "sources/yokubi/Section2/Part3/Lesson35.md",
+        "path": "sources/yokubi/src/Section2/Part3/Lesson35.md",
         "url": "https://yoku.bi/Section2/Part3/Lesson35.html"
       },
       {
         "id": "yokubi-lesson-36",
         "lesson": 36,
         "title": "Making lists with や, とか, など, と, か, and に",
-        "path": "sources/yokubi/Section2/Part3/Lesson36.md",
+        "path": "sources/yokubi/src/Section2/Part3/Lesson36.md",
         "url": "https://yoku.bi/Section2/Part3/Lesson36.html"
       },
       {
         "id": "yokubi-lesson-37",
         "lesson": 37,
         "title": "Adversatives with が, けど, しかし, and ても/でも",
-        "path": "sources/yokubi/Section2/Part3/Lesson37.md",
+        "path": "sources/yokubi/src/Section2/Part3/Lesson37.md",
         "url": "https://yoku.bi/Section2/Part3/Lesson37.html"
       },
       {
         "id": "yokubi-lesson-38",
         "lesson": 38,
         "title": "Concurrence with ながら, あいだ, うちに, and つつ",
-        "path": "sources/yokubi/Section2/Part3/Lesson38.md",
+        "path": "sources/yokubi/src/Section2/Part3/Lesson38.md",
         "url": "https://yoku.bi/Section2/Part3/Lesson38.html"
       },
       {
         "id": "yokubi-lesson-39",
         "lesson": 39,
         "title": "Reasoning with から そして ので で",
-        "path": "sources/yokubi/Section2/Part3/Lesson39.md",
+        "path": "sources/yokubi/src/Section2/Part3/Lesson39.md",
         "url": "https://yoku.bi/Section2/Part3/Lesson39.html"
       },
       {
         "id": "yokubi-lesson-40",
         "lesson": 40,
         "title": "Comparing things with より and の方が",
-        "path": "sources/yokubi/Section2/Part3/Lesson40.md",
+        "path": "sources/yokubi/src/Section2/Part3/Lesson40.md",
         "url": "https://yoku.bi/Section2/Part3/Lesson40.html"
       },
       {
         "id": "yokubi-lesson-41",
         "lesson": 41,
         "title": "Counting things",
-        "path": "sources/yokubi/Section2/Part3/Lesson41.md",
+        "path": "sources/yokubi/src/Section2/Part3/Lesson41.md",
         "url": "https://yoku.bi/Section2/Part3/Lesson41.html"
       },
       {
         "id": "yokubi-lesson-42",
         "lesson": 42,
         "title": "Linking conjunctions のに, ように, ために, せいで, and おかげで",
-        "path": "sources/yokubi/Section2/Part3/Lesson42.md",
+        "path": "sources/yokubi/src/Section2/Part3/Lesson42.md",
         "url": "https://yoku.bi/Section2/Part3/Lesson42.html"
       },
       {
         "id": "yokubi-lesson-43",
         "lesson": 43,
         "title": "Likeness and hearsay with みたい, らしい, ぽい, and そう",
-        "path": "sources/yokubi/Section2/Part3/Lesson43.md",
+        "path": "sources/yokubi/src/Section2/Part3/Lesson43.md",
         "url": "https://yoku.bi/Section2/Part3/Lesson43.html"
       },
       {
         "id": "yokubi-lesson-44",
         "lesson": 44,
         "title": "Wrongness with だめ, いけない, ならない, and how to say \"must\"",
-        "path": "sources/yokubi/Section2/Part3/Lesson44.md",
+        "path": "sources/yokubi/src/Section2/Part3/Lesson44.md",
         "url": "https://yoku.bi/Section2/Part3/Lesson44.html"
       },
       {
         "id": "yokubi-lesson-45",
         "lesson": 45,
         "title": "Listing and repeating actions with 〜たり〜たり and ては",
-        "path": "sources/yokubi/Section2/Part4/Lesson45.md",
+        "path": "sources/yokubi/src/Section2/Part4/Lesson45.md",
         "url": "https://yoku.bi/Section2/Part4/Lesson45.html"
       },
       {
         "id": "yokubi-lesson-46",
         "lesson": 46,
         "title": "\"Just\" with だけ, のみ, ばかり, and しか",
-        "path": "sources/yokubi/Section2/Part4/Lesson46.md",
+        "path": "sources/yokubi/src/Section2/Part4/Lesson46.md",
         "url": "https://yoku.bi/Section2/Part4/Lesson46.html"
       },
       {
         "id": "yokubi-lesson-47",
         "lesson": 47,
         "title": "Still, already, and yet with もう, まだ, and また",
-        "path": "sources/yokubi/Section2/Part4/Lesson47.md",
+        "path": "sources/yokubi/src/Section2/Part4/Lesson47.md",
         "url": "https://yoku.bi/Section2/Part4/Lesson47.html"
       },
       {
         "id": "yokubi-lesson-48",
         "lesson": 48,
         "title": "Permission with いい and negative invitations with ませんか",
-        "path": "sources/yokubi/Section2/Part4/Lesson48.md",
+        "path": "sources/yokubi/src/Section2/Part4/Lesson48.md",
         "url": "https://yoku.bi/Section2/Part4/Lesson48.html"
       },
       {
         "id": "yokubi-lesson-49",
         "lesson": 49,
         "title": "The many uses of とする",
-        "path": "sources/yokubi/Section2/Part4/Lesson49.md",
+        "path": "sources/yokubi/src/Section2/Part4/Lesson49.md",
         "url": "https://yoku.bi/Section2/Part4/Lesson49.html"
       },
       {
         "id": "yokubi-lesson-50",
         "lesson": 50,
         "title": "Trying stuff with てみる",
-        "path": "sources/yokubi/Section2/Part4/Lesson50.md",
+        "path": "sources/yokubi/src/Section2/Part4/Lesson50.md",
         "url": "https://yoku.bi/Section2/Part4/Lesson50.html"
       },
       {
         "id": "yokubi-lesson-51",
         "lesson": 51,
         "title": "Thinking and feeling with と思う and と考える",
-        "path": "sources/yokubi/Section2/Part4/Lesson51.md",
+        "path": "sources/yokubi/src/Section2/Part4/Lesson51.md",
         "url": "https://yoku.bi/Section2/Part4/Lesson51.html"
       },
       {
         "id": "yokubi-lesson-52",
         "lesson": 52,
         "title": "More questions with っけ, かな, かい, だい, じゃない, and じゃん",
-        "path": "sources/yokubi/Section2/Part4/Lesson52.md",
+        "path": "sources/yokubi/src/Section2/Part4/Lesson52.md",
         "url": "https://yoku.bi/Section2/Part4/Lesson52.html"
       },
       {
         "id": "yokubi-lesson-53",
         "lesson": 53,
         "title": "The causative form",
-        "path": "sources/yokubi/Section2/Part4/Lesson53.md",
+        "path": "sources/yokubi/src/Section2/Part4/Lesson53.md",
         "url": "https://yoku.bi/Section2/Part4/Lesson53.html"
       },
       {
         "id": "yokubi-lesson-54",
         "lesson": 54,
         "title": "Making and becoming with なる and する",
-        "path": "sources/yokubi/Section2/Part4/Lesson54.md",
+        "path": "sources/yokubi/src/Section2/Part4/Lesson54.md",
         "url": "https://yoku.bi/Section2/Part4/Lesson54.html"
       },
       {
         "id": "yokubi-lesson-55",
         "lesson": 55,
         "title": "Reflexes with 自分",
-        "path": "sources/yokubi/Section2/Part4/Lesson55.md",
+        "path": "sources/yokubi/src/Section2/Part4/Lesson55.md",
         "url": "https://yoku.bi/Section2/Part4/Lesson55.html"
       },
       {
         "id": "yokubi-lesson-56",
         "lesson": 56,
         "title": "More negatives with なくて, ないで, ず and ずに",
-        "path": "sources/yokubi/Section2/Part4/Lesson56.md",
+        "path": "sources/yokubi/src/Section2/Part4/Lesson56.md",
         "url": "https://yoku.bi/Section2/Part4/Lesson56.html"
       },
       {
         "id": "yokubi-lesson-57",
         "lesson": 57,
         "title": "Auxiliaries of regret and peace of mind with てしまう and ておく",
-        "path": "sources/yokubi/Section2/Part4/Lesson57.md",
+        "path": "sources/yokubi/src/Section2/Part4/Lesson57.md",
         "url": "https://yoku.bi/Section2/Part4/Lesson57.html"
       },
       {
         "id": "yokubi-lesson-58",
         "lesson": 58,
         "title": "Directionality with ていく and てくる",
-        "path": "sources/yokubi/Section2/Part4/Lesson58.md",
+        "path": "sources/yokubi/src/Section2/Part4/Lesson58.md",
         "url": "https://yoku.bi/Section2/Part4/Lesson58.html"
       },
       {
         "id": "yokubi-lesson-59",
         "lesson": 59,
         "title": "The colloquial usages of だって",
-        "path": "sources/yokubi/Section2/Part4/Lesson59.md",
+        "path": "sources/yokubi/src/Section2/Part4/Lesson59.md",
         "url": "https://yoku.bi/Section2/Part4/Lesson59.html"
       },
       {
         "id": "yokubi-lesson-60",
         "lesson": 60,
         "title": "Expectation with わけ, はず, べき, ものだ, and かもしれない",
-        "path": "sources/yokubi/Section2/Part4/Lesson60.md",
+        "path": "sources/yokubi/src/Section2/Part4/Lesson60.md",
         "url": "https://yoku.bi/Section2/Part4/Lesson60.html"
       },
       {
         "id": "yokubi-lesson-61",
         "lesson": 61,
         "title": "Approximately with ころ and くらい, and limits with まで, ほど, すぎる",
-        "path": "sources/yokubi/Section2/Part4/Lesson61.md",
+        "path": "sources/yokubi/src/Section2/Part4/Lesson61.md",
         "url": "https://yoku.bi/Section2/Part4/Lesson61.html"
       },
       {
         "id": "yokubi-lesson-62",
         "lesson": 62,
         "title": "Time references with 後, 前, 先, and 時",
-        "path": "sources/yokubi/Section2/Part4/Lesson62.md",
+        "path": "sources/yokubi/src/Section2/Part4/Lesson62.md",
         "url": "https://yoku.bi/Section2/Part4/Lesson62.html"
       },
       {
         "id": "yokubi-lesson-63",
         "lesson": 63,
         "title": "A bit more: Some extra particles and auxiliaries",
-        "path": "sources/yokubi/Section2/Part4/Lesson63.md",
+        "path": "sources/yokubi/src/Section2/Part4/Lesson63.md",
         "url": "https://yoku.bi/Section2/Part4/Lesson63.html"
       }
     ]
   },
   "imabi": {
     "local_file": "sources/今日 IMABI.html",
-    "sha256": "ebcaccb27851ef2f7c3951c3cf0f552b9ec13bb5767859f96de884c5b32ccedf",
+    "sha256": "7c05c48a207d9a313229be78410e47f39f60dbd218b488e0d0b91e25cf6da890",
     "provenance": "local mirror; verify disputed claims against the live source",
     "license": "unverified local mirror; derived structural index only",
     "role": "reference index and nuance map",

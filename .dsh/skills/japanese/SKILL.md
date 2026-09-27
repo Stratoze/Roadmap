@@ -81,19 +81,22 @@ examples with a concise English scaffold; at L2, alternate bilingual probes; at
 L3, lead in Japanese. This preserves the requested Japanese explanation style
 without stranding the learner before the schema exists.
 
-Open the cited locator before teaching. Read it from the private clone at the
-pinned commit recorded in `Japanese/source-map.json`, not from the live site:
-the curriculum is built against that commit, and the live HTML is neither
-pinned nor the same artifact. If the clone is missing, restore it first:
+Open the cited locator before teaching. Read it from the private checkout at
+the pinned commit recorded in `Japanese/source-map.json`, not from the live
+site: the curriculum is built against that commit, and the live HTML is
+neither pinned nor the same artifact. Both sources live in the private
+repository, so one clone restores everything:
 
 ```bash
-git clone https://github.com/Morgawr/yokubi _private/sources/yokubi
-git -C _private/sources/yokubi checkout <commit from source-map.json>
+git clone https://github.com/Stratoze/private-jp _private/private-jp
+git -C _private/private-jp submodule update --init
 ```
 
-`_private/` is gitignored, so the clone is per-machine and can be absent.
-Never fall back to the website. Faithfully restate or translate the source
-into Japanese without adding claims. Explain the point in Japanese first where the
+The lesson is then at `_private/private-jp/sources/yokubi/src/...`, which is
+exactly what the map's `path` field records. `_private/` is gitignored, so the
+checkout is per-machine and can be missing — that is the only reason to
+restore it, and restoring it is still better than the website. Faithfully
+restate or translate the source into Japanese without adding claims. Explain the point in Japanese first where the
 ramp allows, then give the English bridge. Contrast it with the nearest related
 form and cover:
 

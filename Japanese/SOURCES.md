@@ -3,6 +3,10 @@
 Raw source material lives in the private repository:
 
 - <https://github.com/Stratoze/private-jp>
+- `_private/` is gitignored, so the checkout is per-machine and can be
+  missing. One clone restores every source: `git clone
+  <the repo above> _private/private-jp` then `git -C _private/private-jp
+  submodule update --init`.
 - Yokubi is a submodule in the private repository; the commit used for the
   current map is recorded in `source-map.json` and must be refreshed by
   regenerating the map after a source update.
