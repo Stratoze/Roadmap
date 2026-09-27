@@ -34,10 +34,9 @@ of every Japanese session so the next agent never has to infer what to do.
   live in the private repository, so one clone restores them:
   `git clone https://github.com/Stratoze/private-jp _private/private-jp`
   then `git -C _private/private-jp submodule update --init`.
-  `build_japanese_curriculum.py` is
-  **read-only** — it prints `verified N Yokubi concept rows` and writes
-  nothing, so run it freely mid-session. Only
-  `build_japanese_source_map.py` regenerates and writes
+  `build_japanese_curriculum.py` is **read-only** — it prints
+  `verified N Yokubi concept rows` and writes nothing, so run it freely
+  mid-session. Only `build_japanese_source_map.py` regenerates and writes
   `Japanese/source-map.json`; it is not a teaching step:
 
   ```bash
@@ -52,13 +51,14 @@ of every Japanese session so the next agent never has to infer what to do.
 - Reading mode: English explanation first for sessions 1–30; from session 31
   the learner attempts Japanese first, then English correction. Sentence-analysis
   fallback records `practised` and never counts toward the gate.
-- Output: fresh; start with i+1 conversation, not a backlog review.
+- Output: fresh; no backlog to review and no prior output to draw on.
 - Immersion: optional input/logging; no quota.
 - Anki: 20–30 minutes; vocabulary owner. If the local bridge is available,
   run `python3 scripts/anki_bridge.py due`; otherwise use Anki directly.
 - Active source: the Yokubi spine in [[Japanese/SOURCES|the source map]] owns
-  sequencing and lesson locators. The per-lesson locator is opened and verified
-  JIT through the `resources` skill; no source text is pre-selected.
+  sequencing and lesson locators. The pinned markdown is read directly from the
+  private checkout; the map's `url` is the public locator for anyone without it,
+  and no source text is pre-selected.
 
 ## Next action
 
