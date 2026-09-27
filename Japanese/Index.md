@@ -20,10 +20,11 @@ Read [[Japanese/CURRENT|current session handoff]] first. It names the next
 action, current grammar frontier, reading count, and the last evidence. After
 every Japanese session, the tutor rewrites that file before closing.
 
-For a fresh/reset session, do **not** begin with a generic review backlog.
-Start with conversation, then one ground-up grammar contrast, then reading or
-sentence analysis. The `japanese` skill reads this handoff and the curriculum
-frontier.
+For a fresh/reset session, do **not** begin with a generic review backlog or a
+conversation warm-up. Teach the first usable grammar contrast straight from
+the frontier, then practise it, then reading or sentence analysis. A warm-up
+only helps once there is tracked grammar to activate. The `japanese` skill
+reads this handoff and the curriculum frontier.
 
 - [[Japanese/SOURCES|Source map]] — Yokubi grammar spine + IMABI anchor index;
   raw sources live in the private repository.

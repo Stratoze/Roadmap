@@ -1,7 +1,7 @@
 # Japanese — Current Session Handoff
 
 **Updated:** 2026-09-27
-**Status:** Session in progress. `jp-yokubi-00` taught; practice outstanding.
+**Status:** Round closed 2026-09-27; `jp-yokubi-00` introduced, word-order exercise open.
 
 This is the single mutable handoff for the next Japanese session. Read it
 before choosing a branch. Curriculum files own concept state; this file owns
@@ -11,10 +11,10 @@ of every Japanese session so the next agent never has to infer what to do.
 ## Start here next time
 
 1. Invoke the `japanese` skill.
-2. **Do not open with a generic due-review pass.** Grammar is at zero and the
-   frontier is the first concept, so teach the first usable grammar contrast
-   directly. A conversation warm-up is for activating grammar that already
-   exists; here there is none, and it becomes an off-frontier detour.
+2. **Do not open with a generic due-review pass or a conversation warm-up.**
+   The frontier is `jp-yokubi-00` and it is already introduced, so continue it
+   rather than re-teaching it. A warm-up is for activating grammar that
+   already exists; against an unlearned frontier it only produces a detour.
 3. First active grammar path: `jp-yokubi-00` → `jp-yokubi-01` →
    `jp-yokubi-02` → `jp-yokubi-03`. Kana are assumed known; the grammar
    sequence starts from sentence anatomy.
@@ -64,17 +64,21 @@ of every Japanese session so the next agent never has to infer what to do.
 
 ## Next action
 
-Finish the session that is already open, then continue the spine:
+Teach/continue `jp-yokubi-00` — sentence anatomy, word order.
+
+The exercise open when the round closed: put these seven words into one
+sentence, verb last — `が の ない 全然 勉強 アンキ 最近` — then practise the
+result, then continue to `jp-yokubi-01`. The earlier topic-ordering exercise
+was withdrawn as unsound: it changed two variables at once and pulled the
+は/が distinction forward from lesson 3.
 
 ```text
-finish the jp-yokubi-00 practice (topic-first vs content-first ordering)
+one ground-up grammar contrast
+→ immediate practice
 → one small reading or sentence-analysis task
 → append evidence events
 → rewrite this file with the next action
 ```
-
-Do not re-teach `jp-yokubi-00` from scratch; it is already recorded as
-`introduced` with a practised attempt.
 
 ## Evidence and archive
 
