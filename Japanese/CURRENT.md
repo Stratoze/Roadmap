@@ -1,7 +1,7 @@
 # Japanese — Current Session Handoff
 
-**Updated:** 2026-09-26
-**Status:** Fresh reset; no active Japanese review backlog.
+**Updated:** 2026-09-27
+**Status:** Session in progress. `jp-yokubi-00` taught; practice outstanding.
 
 This is the single mutable handoff for the next Japanese session. Read it
 before choosing a branch. Curriculum files own concept state; this file owns
@@ -45,7 +45,9 @@ of every Japanese session so the next agent never has to infer what to do.
 
 ## Current state
 
-- Active grammar concepts: reset to `unknown`; no Japanese due reviews.
+- Active grammar concepts: `jp-yokubi-00` is `seen` (taught 2026-09-27, one
+  practised attempt). `jp-yokubi-01` onward still `unknown`; no Japanese due
+  reviews yet.
 - Reading gate: **0 / 30 actual novel-reading sessions**. Derive the number,
   never hand-count it, with `python3 scripts/review.py usage japanese-reading`.
 - Reading mode: English explanation first for sessions 1–30; from session 31
@@ -62,20 +64,23 @@ of every Japanese session so the next agent never has to infer what to do.
 
 ## Next action
 
-Run one fresh Japanese session:
+Finish the session that is already open, then continue the spine:
 
 ```text
-one ground-up grammar contrast
-→ immediate practice
+finish the jp-yokubi-00 practice (topic-first vs content-first ordering)
 → one small reading or sentence-analysis task
 → append evidence events
 → rewrite this file with the next action
 ```
 
+Do not re-teach `jp-yokubi-00` from scratch; it is already recorded as
+`introduced` with a practised attempt.
+
 ## Evidence and archive
 
 - Active usage events: curriculum `## Usage events` tables.
-- Last Japanese evidence: none since the 2026-09-26 reset.
+- Last Japanese evidence: `jp-yokubi-00` introduced and practised 2026-09-27
+  (receipt `_private/learning/receipts/2026-09-27-jp-yokubi-00.md`).
 - Pre-reset evidence: [[_system/learning/archive/japanese-progress-reset-2026-09-26|archived reset record]].
 - Raw learner work: `_private/` only.
 

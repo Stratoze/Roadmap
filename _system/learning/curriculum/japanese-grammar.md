@@ -119,6 +119,8 @@ active grammar contrast needs one. Pre-reset source decisions are in
 ## Usage events
 | date | event_id | concept/item_ref | event | evidence | public note |
 |------|----------|------------------|-------|----------|-------------|
+| 2026-09-27 | 06b7daeb8404 | jp-yokubi-00 | introduced | _private/learning/receipts/2026-09-27-jp-yokubi-00.md | Lesson 0 taught from pinned source; SOV order, verb-final parsing, topic-driven pro-drop |
+| 2026-09-27 | 4b45409682ca | jp-yokubi-00 | practised | _private/learning/receipts/2026-09-27-jp-yokubi-00.md | Learner wrote a full sentence unaided; verb position correct, case marker to revisit |
 
 Usage events are appended by the Japanese session skill. Passive immersion and
 reading exposure do not count as use. Raw attempts remain in `_private/`.
