@@ -1,4 +1,4 @@
-# AGENTS.md - Operating Contract for AI Sessions in This Vault
+# AGENTS.md - Operating Contract
 
 Active system: **Vault Learning System** (`_system/learning/`). Procedure lives
 in the files below — read, don't restate. Tooling: `scripts/README.md`.
@@ -9,7 +9,7 @@ in the files below — read, don't restate. Tooling: `scripts/README.md`.
 python3 scripts/session_state.py today
 ```
 
-Resolves checklist and next action, starting nothing. Order: Japanese →
+Resolves checklist and next action. Order: Japanese →
 Anki/due (30-min cap) → technical. Never nag about a missing daily note, or
 auto-create notes, sessions, or jobs. Reading and Piano stay opt-in.
 
@@ -17,14 +17,15 @@ auto-create notes, sessions, or jobs. Reading and Piano stay opt-in.
 
 - One adaptive question per message, then wait. Never re-ask what is settled;
   infer and continue.
-- Delegate execution and verification; your context is the scarce resource.
-  Team member when a follow-up is needed.
+- Delegate execution and verification; context is the scarce resource.
+  Team member if a follow-up is needed.
 - The learner works; you scaffold, execute, verify. Never write their artifact
   or invent evidence.
 - Raw productions go only to `_private/`; public files hold summaries.
 - No sandbox escalation by default; escalate only as fallback.
-- PLAN-marked files need approval. Keep records, private data, safety
-  material, and provenance.
+- Pushed history is immutable. Fix forward; a thin message needs no rewrite.
+- PLAN-marked files need approval. Safety material and provenance stay
+  protected.
 
 ## Evidence
 
