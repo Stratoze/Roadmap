@@ -2,11 +2,20 @@
 
 The learning system for this vault. Replaced the previous FSRS-based engine
 (retired 2026-09-11; see the Changelog). Design: verified sources,
-teach-first on new material, struggle in the material, timely feedback, spaced
-review - everything visible, versioned, and hand-editable in the vault.
+learner-owned learning with tutor testing - everything visible, versioned, and
+hand-editable in the vault.
+
+As of 2026-09-29 the operative doctrine is **learn -> test -> record**
+(`_system/learning/loop.md`), not teach-first. The learner owns learning; the
+tutor schedules keywords and source locators, tests, answers questions, and
+records. The earlier *teach-first on new material* phrasing is retained below
+as history and superseded by that loop.
 
 ## Layout
 
+- [[loop]] - the canonical operating loop: scheduler/conversationer roles, the
+  five steps, the L0-6 ladder with its two probe banks, the rules, and the
+  scoring contract. One home; the skills compose it.
 - [[learner]] - canonical preferences and standing orders (OpenViking mirror
   retired 2026-09-15; `learner.md` is canonical).
 - [[topic-tree]] - the curriculum map: subjects -> chunk-sized topics, the
@@ -33,15 +42,19 @@ review - everything visible, versioned, and hand-editable in the vault.
 
 ## Active session skills
 
-- `.dsh/skills/japanese/SKILL.md` coordinates the daily Japanese grammar,
-  conversation, reading, immersion, Anki boundary, and usage evidence.
+- `.dsh/skills/japanese/SKILL.md` coordinates the daily Japanese brief,
+  conversation, reading, immersion, Anki boundary, and usage evidence, on top
+  of [[loop]].
 - `.dsh/skills/technical/SKILL.md` coordinates technical source selection,
   learner reading, cold conceptual checks, breaks, fresh transfer,
-  implementation, Feynman correction, and assessor handoff.
-- `Japanese/CURRENT.md` is the mutable next-session handoff. The Japanese
-  skill reads it before branching and rewrites it at every close.
-- `scripts/session_state.py` reads/updates the daily checklist; `anki_bridge.py`
-  is an optional local AnkiConnect reader with approval-gated writes.
+  implementation, Feynman correction, and assessor handoff, on top of [[loop]].
+- `Japanese/CURRENT.md` and `Mechatronics/CURRENT.md` are the mutable
+  next-session handoffs. The skills read them before branching and rewrite them
+  at every close.
+- `scripts/session_state.py` reads/updates the daily checklist;
+  `scripts/progress.py` owns the progress ledgers, the floor ratchet, and the
+  dashboard; `scripts/anki_read.py` is the default read-only Anki source and
+  `anki_bridge.py` the approval-gated write/sync path.
 
 These compose the existing `study`, `map`, `resources`, and `review` skills;
 they do not create a second curriculum or vocabulary database.
@@ -56,6 +69,10 @@ they do not create a second curriculum or vocabulary database.
   is not use.
 - Anki owns Japanese vocabulary. Public notes contain summaries and links;
   raw learner productions stay in `_private/`.
+- Progress state is owned by `scripts/progress.py`, in two append-only ledgers
+  per domain (`<domain>/probes.jsonl` for one line per probe,
+  `<domain>/progress.jsonl` for one line per session), exactly as `review.py`
+  owns review state. Never hand-compute a floor or a score.
 - Technical lesson records are written under
   `_system/learning/lessons/<topic>/`; technical sessions use the
   `_templates/learning/technical_session.md` shape with the timestamped break
@@ -113,4 +130,5 @@ the review/maintain leg with a transparent ladder, evidence gates for
 milestones, and the private verbatim store.
 
 Plan of record: `archive/vault-learning-system.md` (historical build plan;
-operative docs are `AGENTS.md`, `_system/How to Learn.md`, and this file).
+operative docs are `AGENTS.md`, `_system/How to Learn.md`,
+`_system/learning/loop.md`, and this file).

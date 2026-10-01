@@ -49,3 +49,6 @@ _private/
 # Raw Japanese source mirrors live in the private source repository
 今日 IMABI.html
 今日 IMABI_files/
+
+# Demo dashboard for review; regenerated on demand, never committed.
+_system/learning/progress-demo.html

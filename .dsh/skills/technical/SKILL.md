@@ -1,15 +1,16 @@
 ---
 name: Technical
-description: Run a technical learning session for math, physics, electronics, or mechatronics - select the next deliverable, request a source, check cold understanding, take a real break, test fresh transfer and implementation, then route evidence to the assessor.
+description: Run a technical learning session for math, physics, electronics, or mechatronics - select the next deliverable, hand over a brief, test cold understanding and fresh transfer at the learner's floor, take a real break, verify, then route evidence to the assessor.
 ---
 
-# Technical - scheduler, learner, verifier
+# Technical - scheduler, conversationer, verifier
 
-Compose `map`, `resources`, `study`, `review`, and `assessor`. The learner
-finds and reads the material; the agent selects the destination, asks the
-checks, verifies the work, and records evidence. Read
-`_system/How to Learn.md`, `_system/learning/learner.md`, the active roadmap,
-`Mechatronics/CURRENT.md`, and the topic dossier first.
+Compose `map`, `resources`, `study`, `review`, and `assessor`, on top of
+`_system/learning/loop.md`. The learner owns learning; you schedule the brief,
+test, answer their questions, verify, and record. Read `AGENTS.md`,
+`_system/learning/loop.md`, `_system/How to Learn.md`,
+`_system/learning/learner.md`, the active roadmap, `Mechatronics/CURRENT.md`,
+and the topic dossier first.
 
 ## Select the next leg
 
@@ -29,13 +30,20 @@ boundary; it does not contain a source library.
 
 ## Session sequence
 
+0. **Floor:** read the learner's current Mechatronics floor with
+   `python3 scripts/progress.py show` (owned by `progress.py`; never
+   hand-compute). Open every probe at or near that floor on the L0-6 ladder in
+   `_system/learning/loop.md`.
 1. **Scope:** name the next deliverable and its hard prerequisite/failure mode.
-2. **Source request:** ask the learner to choose/request a book or source. Use
-   `resources` to scout/verify one on demand; record only the active locator.
+2. **Brief:** hand over keywords, the questions to answer yourself, one offline
+   task, and the source locator (books first, per standing order 8). Then stop
+   and let the learner work. Do not put an explanation in the brief, and do not
+   write the learner's solution while they read.
 3. **Learner reads:** let the learner choose how to read/watch the material.
-   Do not write the learner's solution while they work.
-4. **Cold conceptual check:** one Socratic question at a time. Do not re-expose
-   the material before the attempt. Record the prompt and its signature.
+4. **Cold conceptual check:** one Socratic question at a time, one message at a
+   time. Do not re-expose the material before the attempt. Record the prompt and
+   its signature. Correct in one sentence, then move on - a paragraph used to
+   correct is teaching and is the wrong form.
 5. **Break:** record ISO start/end timestamps around an actual 20-minute break.
    If the interval is not evidenced, do not claim the post-break stage is
    complete.
@@ -54,7 +62,9 @@ boundary; it does not contain a source library.
 10. **Record:** write the public technical session record at
     `_system/learning/lessons/<topic>/<YYYY-MM-DD>-<slug>.md` (or the active
     technical record named by the template), including the `## Question variants`
-    table, evidence links, and next review. Rewrite `Mechatronics/CURRENT.md`
+    table, evidence links, and next review. Append the progress ledger with
+    `python3 scripts/progress.py probe ...` per probe and one
+    `... session ...` line. Rewrite `Mechatronics/CURRENT.md`
     with the target, dependency frontier, and next action. MVM/Full Pass
     requires the assessor's gate output.
 
@@ -135,6 +145,8 @@ sentence.
 
 - Technical work is not a second concept tracker; concept state remains in the
   curriculum and review ladder.
+- You schedule and test; you do not teach unprompted. An explanation you were
+  about to volunteer belongs in the next brief (see `_system/learning/loop.md`).
 - `ROADMAP.md` is the only active milestone status. Checkboxes are frozen
   acceptance history.
 - Safety and red-zone hardware work remain mastery-gated and independently

@@ -422,6 +422,83 @@ def _svg_matrix(s: dict) -> str:
     return "".join(parts)
 
 
+def _anki_activity() -> dict:
+    """Pull Anki daily activity, or an empty shell when the collection is absent.
+
+    The dashboard must still render on a machine with no Anki profile, so an
+    unreadable collection degrades to "no activity" instead of failing the
+    whole report. The reader itself stays strict about schema.
+    """
+    empty = {"days": {}, "streak": {"current": 0, "longest": 0, "last_active": None}}
+    try:
+        import anki_read
+    except ImportError:
+        return empty
+    try:
+        return anki_read.summary().get("activity", empty)
+    except Exception:
+        return empty
+
+
+def _activity_grid(activity: dict, weeks: int = 26) -> str:
+    """GitHub-style contribution grid of daily study minutes.
+
+    Columns are weeks, rows are weekdays, newest week last. Shading buckets
+    minutes into four levels; a day with no reviews stays empty rather than
+    being drawn as zero-effort, so a genuine rest day reads differently from a
+    day of light study.
+    """
+    days = activity.get("days") or {}
+    if not days:
+        return "<p class='empty'>no Anki activity recorded</p>"
+    from datetime import date, timedelta
+    today = date.fromisoformat(activity["streak"]["last_active"]) \
+        if activity.get("streak", {}).get("last_active") else date.today()
+    # Columns are full weeks ending with the week containing the last active day.
+    end = today
+    start = end - timedelta(days=weeks * 7 - 1)
+    start -= timedelta(days=start.weekday())  # back to Sunday
+    cell = 13
+    gap = 3
+    top = 20
+    width = 7 * (cell + gap) + 34
+    height = top + 7 * (cell + gap) + 8
+    parts = [f"<svg viewBox='0 0 {width} {height}' class='heatmap' role='img'>"]
+    for col in range(weeks + 1):
+        week_start = start + timedelta(days=col * 7)
+        for row in range(7):
+            day = week_start + timedelta(days=row)
+            if day > end:
+                continue
+            entry = days.get(day.isoformat())
+            minutes = entry["minutes"] if entry else 0
+            if entry is None:
+                klass = "hm-empty"
+            elif minutes < 5:
+                klass = "hm-l1"
+            elif minutes < 15:
+                klass = "hm-l2"
+            elif minutes < 30:
+                klass = "hm-l3"
+            else:
+                klass = "hm-l4"
+            x = 30 + col * (cell + gap)
+            y = top + row * (cell + gap)
+            title = (f"{day.isoformat()} — {entry['reviews']} reviews, "
+                     f"{minutes:.0f} min") if entry else f"{day.isoformat()} — no reviews"
+            parts.append(
+                f"<rect x='{x}' y='{y}' width='{cell}' height='{cell}' "
+                f"class='hm-cell {klass}'><title>{html.escape(title)}</title></rect>")
+    for row, label in enumerate(("M", "", "W", "", "F", "", "")):
+        if label:
+            parts.append(f"<text x='2' y='{top + row * (cell + gap) + cell - 2}' "
+                         f"class='lab'>{label}</text>")
+    parts.append(f"<text x='{width - 2}' y='{height - 2}' class='lab end'>"
+                 f"{html.escape(start.isoformat())} → {html.escape(end.isoformat())}</text>")
+    parts.append("</svg>")
+    return "".join(parts)
+
+
 def render_dashboard(domains: list) -> str:
     """Self-contained HTML: inline data + vanilla JS, no dependencies."""
     data = {}
@@ -442,14 +519,34 @@ def render_dashboard(domains: list) -> str:
         cards.append(f"""
         <section class='card'>
           <h2>{html.escape(domain)}</h2>
-          <div class='stat'><b>{s['floor']}</b><span>floor ({html.escape(LEVEL_NAMES.get(s['floor'], '?'))})</span></div>
-          <div class='stat'><b>{s['recent_rate']:.2f}</b><span>recent rate (target {PROBE_TARGET:.2f})</span></div>
-          <div class='stat'><b>{s['readiness']:.2f}</b><span>confidence (Wilson)</span></div>
-          <div class='stat'><b>{s['suggested_floor']}</b><span>suggested floor</span></div>
-          <div class='stat'><b>{trend:+.3f}</b><span>velocity / session</span></div>
+          <div class='stats'>
+            <div class='stat'><b>{s['floor']}</b><span>floor ({html.escape(LEVEL_NAMES.get(s['floor'], '?'))})</span></div>
+            <div class='stat'><b>{s['recent_rate']:.2f}</b><span>recent rate (target {PROBE_TARGET:.2f})</span></div>
+            <div class='stat'><b>{s['readiness']:.2f}</b><span>confidence (Wilson)</span></div>
+            <div class='stat'><b>{s['suggested_floor']}</b><span>suggested floor</span></div>
+            <div class='stat'><b>{trend:+.3f}</b><span>velocity / session</span></div>
+          </div>
           {_svg_chart(s)}
           {_svg_matrix(s)}
         </section>""")
+    activity = _anki_activity()
+    streak = activity.get("streak") or {}
+    days = activity.get("days") or {}
+    recent = sorted(days)[-28:]
+    recent_minutes = sum(days[d]["minutes"] for d in recent)
+    anki_card = f"""
+        <section class='card'>
+          <h2>Anki — immersion and review</h2>
+          <div class='stats'>
+            <div class='stat'><b>{streak.get('current', 0)}</b><span>day streak</span></div>
+            <div class='stat'><b>{streak.get('longest', 0)}</b><span>longest streak</span></div>
+            <div class='stat'><b>{recent_minutes / 60:.1f}h</b><span>last 28 days</span></div>
+            <div class='stat'><b>{streak.get('last_active') or '—'}</b><span>last active</span></div>
+          </div>
+          {_activity_grid(activity)}
+          <p class='sub' style='margin:10px 0 0'>Daily study minutes from Anki's own review log.
+             Hover a cell for that day's reviews and minutes.</p>
+        </section>"""
     return f"""<!doctype html>
 <html lang='en'><head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
@@ -479,15 +576,26 @@ def render_dashboard(domains: list) -> str:
   .cell.pass     {{ fill:#238636; }}
   .cell.miss     {{ fill:#6e4044; }}
   .cell.untested {{ fill:#21262d; }}
+  .heatmap {{ width:100%; height:auto; background:#0e1114;
+              border:1px solid #21262d; border-radius:8px; margin:12px 0 4px; }}
+  .hm-cell {{ rx:2; }}
+  .hm-empty  {{ fill:#161b22; }}
+  .hm-l1 {{ fill:#0e4429; }}
+  .hm-l2 {{ fill:#006d32; }}
+  .hm-l3 {{ fill:#26a641; }}
+  .hm-l4 {{ fill:#39d353; }}
   .empty {{ color:#8b949e; font-size:13px; }}
   footer {{ color:#6e7681; font-size:12px; max-width:760px; }}
 </style></head><body>
 <h1>Learning progress</h1>
 <p class='sub'>learn &rarr; test &rarr; record &middot; sourced from the append-only ledgers
-   &middot; solid blue = floor, dashed green = Wilson confidence</p>
+   &middot; solid blue = floor, dashed green = Wilson confidence
+   &middot; Anki activity read live from the collection</p>
 {''.join(cards)}
+{anki_card}
 <footer>Generated by scripts/progress.py. The JSONL ledgers remain the source of truth;
-        this page is a view.</footer>
+        this page is a view. Anki figures come from Anki's own review log via
+        <code>scripts/anki_read.py</code>.</footer>
 <script id='data' type='application/json'>{embedded}</script>
 </body></html>"""
 

@@ -1,22 +1,27 @@
 # Mechatronics — Current Target Handoff
 
-**Updated:** 2026-09-26
-**Status:** no active target selected.
+**Updated:** 2026-09-29
+**Status:** no active target selected. Loop inverted 2026-09-29 — learn → test
+→ record; the Mechatronics floor starts at L0.
 
 This is the mutable technical next-action file. The ROADMAP owns deliverables,
 dependencies, keywords, safety, and status. This file owns the currently chosen
-capability, the dependency frontier, and the next technical session.
+capability, the dependency frontier, and the next technical session. The loop
+itself — roles, ladder, rules, scoring — lives in `_system/learning/loop.md`.
 
 ## Start here next time
 
 1. Invoke the `technical` skill.
-2. If the learner has named a target such as “make a robot arm,” ask one scoping
+2. Read the Mechatronics floor with `python3 scripts/progress.py show`.
+3. If the learner has named a target such as "make a robot arm," ask one scoping
    question, then write the target here.
-3. Map the target to required capabilities and compare them with existing
+4. Map the target to required capabilities and compare them with existing
    curriculum evidence.
-4. Select the smallest missing prerequisite that actually gates the target.
-5. Teach that prerequisite in the target's context, then return to the target.
-6. Rewrite this file at the end of the technical session.
+5. Select the smallest missing prerequisite that actually gates the target.
+6. **Brief it** — keywords, questions to answer yourself, one offline task, and
+   the source locator — then let the learner work. Do not teach it unprompted.
+7. Test at the floor, then return to the target.
+8. Rewrite this file at the end of the technical session.
 
 ## Selection rules
 
@@ -26,21 +31,24 @@ capability, the dependency frontier, and the next technical session.
   math → physics → electronics → software/embedded → other mechatronics
   dependencies.
 - A Phase-0 item that the chosen target does not require is not a gate.
-- A required Phase-0 item is taught before attempting the dependent target.
-- Prerequisites are explained both generally and through the chosen target.
+- A required Phase-0 item is briefed before attempting the dependent target.
+- Prerequisites appear both generally and through the chosen target: the brief
+  states the general keywords, and the offline task sets them in target context.
 - After the foundational phase, choose one target capability/MVM, list its
   dependencies and keywords, then run the technical learning cycle.
 
 ## Technical session cycle
 
 ```text
-source/read
-→ cold conceptual check
+brief (keywords, questions, one task, source)
+→ learner studies
+→ cold conceptual check at the floor, one question per message
 → 20–30 minute foreground pause
 → fresh transfer with new values/conditions
 → implementation or theory test
 → Feynman repair if needed
 → assessor/review
+→ record probes + one session line in the ledgers
 ```
 
 The same construct may be revisited, but the same test item, value set, or
@@ -55,12 +63,12 @@ Pass requires a new scenario and new evidence.
 - The 2026-09-22 ODE lesson produced review evidence for c1 and c4–c7, but it
   never taught the c2 → c3 chain underneath them (slope field, solution
   curves). The evidence is real; the foundation below it is not.
-- This is a **teaching** gap, not a review gap. `review.py due` lists c1, c4,
+- This is a **briefing** gap, not a review gap. `review.py due` lists c1, c4,
   c5, c6 and c7 because each has its own evidence due; prerequisites do not
   withhold a concept you have already learned. `review.py frontier` is the
   teaching gate: it reports `c2` as ready to teach (its prerequisite c1 is
   learned) and `c9` as ready (its prerequisite c7 is learned).
-- If the chosen target requires 0.3, teach c2 → c3 first, then return to the
+- If the chosen target requires 0.3, brief c2 → c3 first, then return to the
   target. Do not re-probe c4–c7 cold; they are already in review state.
 
 ## Current target
@@ -70,6 +78,8 @@ Pass requires a new scenario and new evidence.
 - Required capabilities:
 - Existing evidence reused:
 - Missing prerequisite frontier:
+- Floor: 0 (no sessions under the new loop yet). Read with
+  `python3 scripts/progress.py show`; never hand-compute.
 - Safety/evidence boundary:
 - Source requested/selected:
 - Last technical evidence:
@@ -80,6 +90,7 @@ Pass requires a new scenario and new evidence.
 Before ending a technical session, update:
 
 - target/artifact and current dependency frontier;
+- the floor and coverage, derived from `progress.py` (never hand-computed);
 - missing prerequisite and next action;
 - source locator or blocker;
 - last evidence path and assessor result;

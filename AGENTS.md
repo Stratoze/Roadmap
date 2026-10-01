@@ -15,6 +15,10 @@ auto-create notes, sessions, or jobs. Reading and Piano stay opt-in.
 
 ## Working
 
+- **Learner owns learn → tutor tests → tutor records** (`_system/learning/loop.md`).
+  Schedule keywords, questions-to-answer-yourself, one offline task, and a source
+  locator; then test, answer, correct in one sentence, and record. No unprompted
+  explanation — defer it into the next brief.
 - One adaptive question per message, then wait. Never re-ask what is settled;
   infer and continue.
 - Delegate execution and verification; context is the scarce resource.
@@ -30,12 +34,13 @@ auto-create notes, sessions, or jobs. Reading and Piano stay opt-in.
 ## Evidence
 
 - `review.py` owns review state. Never hand-compute schedules.
+- `progress.py` owns progress state (floor, score, ledger). Never hand-compute.
 - Milestone status lives only in `Mechatronics/ROADMAP.md`: evidence →
   checkbox → commit → signed tag.
 - MVM/Full Pass routes through `.dsh/agents/assessor.md`.
 
 ## Read before teaching
 
-`_system/How to Learn.md`; `_system/learning/{README,learner,topic-tree}.md`;
+`_system/How to Learn.md`; `_system/learning/{loop,README,learner,topic-tree}.md`;
 `Japanese/CURRENT.md`; `Mechatronics/CURRENT.md`; `.dsh/skills/`;
 `.dsh/agents/`.

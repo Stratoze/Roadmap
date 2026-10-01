@@ -216,15 +216,26 @@ def check_handoffs(errors):
     current = ROOT / "Japanese" / "CURRENT.md"
     if current.exists():
         text = current.read_text(encoding="utf-8")
-        for marker in ("conversation warm-up", "grammar contrast", "rewrite"):
+        # Markers follow the 2026-09-29 loop (learn -> test -> record). These
+        # used to require "conversation warm-up" and "grammar contrast", which
+        # encoded the retired teach-first doctrine; a fresh handoff now has to
+        # name the brief and the floor instead.
+        for marker in ("brief", "floor", "rewrite"):
             if marker not in text:
                 errors.append(f"Japanese handoff missing {marker}")
     target = ROOT / "Mechatronics" / "CURRENT.md"
     if target.exists():
         text = target.read_text(encoding="utf-8")
-        for marker in ("dependency", "Phase-0", "Next action"):
+        for marker in ("dependency", "Phase-0", "Next action", "floor"):
             if marker not in text:
                 errors.append(f"technical handoff missing {marker}")
+    loop = ROOT / "_system" / "learning" / "loop.md"
+    if not loop.exists():
+        errors.append("missing handoff/tool: _system/learning/loop.md")
+    for rel in ("Japanese/probes.jsonl", "Mechatronics/probes.jsonl",
+                "Japanese/progress.jsonl", "Mechatronics/progress.jsonl"):
+        if not (ROOT / rel).exists():
+            errors.append(f"missing progress ledger: {rel}")
 
 
 def signature_record_text(path, rel, errors):
