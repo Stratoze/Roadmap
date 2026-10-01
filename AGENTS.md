@@ -24,6 +24,13 @@ auto-create notes, sessions, or jobs. Reading and Piano stay opt-in.
   dashboard to count reading is procrastination dressed as rigour — see
   `_system/learning/learner.md` order 1 and the learner's words there. Measurement
   belongs to the conversation ledger, never to the reading itself.
+  - **Pre-existing artifacts of that mistake were deleted on 2026-09-29** (a
+    video player, a local server for it, the novel/video rankers, the frequency
+    table, and their generated indices). Do not rebuild them. The one retention
+    is `scripts/encode_immersion.py`, which frees disk and is not measurement.
+  - **The 30-session reading gate still applies** and is not a contradiction:
+    appending a `reading_session` via `review.py usage` is evidence for an
+    existing gate, not new machinery. Keep doing it.
 - One adaptive question per message, then wait. Never re-ask what is settled;
   infer and continue.
 - Delegate execution and verification; context is the scarce resource.
@@ -46,6 +53,6 @@ auto-create notes, sessions, or jobs. Reading and Piano stay opt-in.
 
 ## Read before teaching
 
-`_system/How to Learn.md`; `_system/learning/{loop,README,learner,topic-tree}.md`;
+`_system/How to Learn.md`; `_system/learning/{loop,README,learner,topic-tree,graded-readers}.md`;
 `Japanese/CURRENT.md`; `Mechatronics/CURRENT.md`; `.dsh/skills/`;
 `.dsh/agents/`.

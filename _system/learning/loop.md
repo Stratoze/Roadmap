@@ -120,11 +120,16 @@ Computed:
 
 | Metric | Method | Why |
 |---|---|---|
-| Readiness | Wilson score interval lower bound, 95%, over the last 20 probes | Naive percent is overconfident at small n and sessions are short. Wilson (1927) is the standard fix. |
-| Advance | 3 consecutive passes at floor AND readiness >= 0.85 | 0.85 is the learner's existing `target_success`; no new magic number. |
+| Recent rate | raw pass rate over the last 6 probes (`RECENT_WINDOW`) — roughly one session | This is the quantity `target_success` was always about, and it is meaningful at the short-n a real session produces. |
+| Advance | 3 consecutive passes at floor AND recent rate >= 0.85 | 0.85 is the learner's existing `target_success`; no new magic number. |
 | Drop | 2 consecutive misses at floor -> floor - 1, re-anchor at L0 for 3 probes, then climb | Re-anchoring is the toddler restart. |
-| Velocity | ordinary least-squares slope of readiness over the last 10 sessions | Separates "too hard" (negative slope) from "bored" (positive slope); they need opposite fixes. |
+| Confidence | Wilson score interval lower bound, 95%, over the last 20 probes | A **readout, not a gate.** Naive percent overstates a short session (9/10 reads 0.90 but the Wilson bound is 0.60), and a lower bound is the honest signal. It is deliberately NOT the advance gate: 6/6 passes yields a Wilson bound of 0.61, so gating on it would pin the floor at L0 for weeks. |
+| Velocity | ordinary least-squares slope of the confidence bound over the last 10 sessions | Separates "too hard" (negative slope) from "bored" (positive slope); they need opposite fixes. |
 | Coverage | concepts x levels, pass / miss / untested | Shows breadth vs one-deep spike. |
+
+The distinction that matters: **the ratchet acts on the recent rate; the Wilson
+bound is only ever reported.** Never hand-compute either - `progress.py` owns
+both.
 
 ## Dashboard
 
