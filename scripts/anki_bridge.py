@@ -142,6 +142,34 @@ def print_due(client):
         print(f"{deck}: {client.due(deck)} due")
 
 
+def print_due_offline(collection=None):
+    """Due summary from the collection file, for when Anki is closed.
+
+    AnkiConnect is an in-process server, so it cannot answer while Anki is not
+    running. This is the read-only fallback that lets the tutor see the deck
+    state anyway. It cannot compute true day-offset due counts, so it reports
+    queue-membership counts and says so, rather than inventing due dates.
+    """
+    try:
+        import anki_read
+    except ImportError:
+        print("error: anki_read.py is not importable; cannot read offline",
+              file=sys.stderr)
+        return 2
+    try:
+        payload = anki_read.summary(collection) if collection else anki_read.summary()
+    except anki_read.AnkiReadError as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        return 2
+    for deck, counts in payload["counts"].items():
+        print(f"{deck}: {counts['total']} cards, {counts['unlearned']} unlearned, "
+              f"{counts['relearning']} relearning, {counts['mature']} mature, "
+              f"{counts['stuck']} stuck")
+    print(f"(offline read; mtime {payload['mtime']}. True due-counts need Anki "
+          f"running via AnkiConnect.)")
+    return 0
+
+
 def parse_fields(args):
     return {args.front_field: args.front, args.back_field: args.back}
 
@@ -279,7 +307,13 @@ def build_parser():
     parser.add_argument("--key", default=os.environ.get("ANKI_API_KEY"))
     sub = parser.add_subparsers(dest="command", required=True)
     sub.add_parser("status", help="show AnkiConnect version and deck names")
-    sub.add_parser("due", help="show due counts by deck; read-only")
+    sub.add_parser("due", help="show due counts by deck; read-only. Falls back "
+                               "to a direct collection read when Anki is closed")
+    offline = sub.add_parser(
+        "due-offline",
+        help="read deck state directly from the collection file, no Anki required; read-only")
+    offline.add_argument("--collection", default=None,
+                         help="path to collection.anki2; defaults to the standard profile")
     lanes = sub.add_parser(
         "iplusone",
         help="decide the i+1 lane (stretch/patch) for the next Japanese session; read-only",
@@ -333,11 +367,19 @@ def run(args):
             "approved_by": approver, "approval_evidence": evidence,
         }, ensure_ascii=False))
         return 0
+    if args.command == "due-offline":
+        return print_due_offline(getattr(args, "collection", None))
     client = client_from_args(args)
     if args.command == "status":
         print_status(client)
     elif args.command == "due":
-        print_due(client)
+        try:
+            print_due(client)
+        except RuntimeError as exc:
+            # AnkiConnect is unreachable (usually: Anki is closed). Fall back
+            # to the direct read so the tutor still sees deck state, and say so.
+            print(f"[{exc}] - falling back to a direct collection read", file=sys.stderr)
+            return print_due_offline(None)
     elif args.command == "iplusone":
         print_iplusone(
             client,

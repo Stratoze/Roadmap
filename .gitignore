@@ -37,6 +37,13 @@ Python For Testing Stuff, user only/
 *.bak
 *.pre-batch*
 
+# anki_read.py snapshot cache (workspace fallback for the sandboxed temp dir).
+# Holds copies of the Anki collection; never commit.
+.anki-read-cache/
+# Generated progress dashboard. A view over the append-only ledgers; rebuild
+# with `python3 scripts/progress.py dashboard`. Never commit the artifact.
+_system/learning/progress.html
+
 # Private companion repo (verbatim learner text; separate private remote)
 _private/
 # Raw Japanese source mirrors live in the private source repository
