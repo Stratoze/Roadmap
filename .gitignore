@@ -52,3 +52,5 @@ _private/
 
 # Demo dashboard for review; regenerated on demand, never committed.
 _system/learning/progress-demo.html
+# one-time library analysis scratch (2026-09-29); regenerable, never committed
+.media-quality-samples/

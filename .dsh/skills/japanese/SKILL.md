@@ -80,6 +80,29 @@ ladder in `_system/learning/loop.md`. One question per message, then wait.
 - Vocabulary routing is **your** read plus the learner's mining; you never add a
   card yourself. `add-approved` stays approval-gated.
 
+## Reading and immersion — say it, do not build it
+
+Reading and immersion are the learner's work. The tutor's whole job is to name
+the material and ask the count.
+
+- **Immersion:** point at `complete-beginner` / `beginner` in the learner's own
+  video library — the folder names are the level, and those folders are well
+  matched to the learner's vocabulary. Do not build a player, log, timer, or
+  dashboard for it.
+- **Reading:** name the source and level from
+  `_system/learning/graded-readers.md`, then ask how many were read. Do not build
+  a reader or a per-sentence logging tool.
+- **Novels (bottom-up):** the learner analyses each sentence and logs it
+  themselves, in their own notes. Record the count in conversation; do not build
+  tooling to count it.
+
+If a tool seems tempting, the standing order is explicit
+(`_system/learning/learner.md` order 1): counting reading is procrastination
+dressed as rigour.
+
+The only measurement that exists is the **probe ledger** (`progress.py`), which
+records the conversation itself — not the reading.
+
 ## Branches
 
 - **New grammar:** continue the current frontier from `Japanese/CURRENT.md`.

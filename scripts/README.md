@@ -1,5 +1,8 @@
 # scripts
 
+## One-time library job (2026-09-29; not per-session)
+- `encode_immersion.py` — re-encode the video library to tier C (CRF 26, max 720p, preset fast, aac 96k) into a new tree. Exists because D: held ~207 GB of video against ~29 GB free, and it runs unattended while the learner immerses. **Read-only on the source**, resumable (a completed output that probes cleanly is skipped), writes to a `.part` file and renames only on success, and copies the `.vtt` sidecars across since the encode drops them from the container. `--verify-only` reports pairing and sizes. Resolves `D:\immersion\advanced`, which is a junction to C:. Result: ~52% of source, zero failures.
+
 ## The loop (used every session)
 - `review.py due | frontier | schedule <topic> <id> [rung] | next <topic> <id> hit|hard|miss | selftest` — transparent spaced-review scheduler (ladder 1, 3, 7, 16, 35, 90 days). Rows are created only by the `study` skill; this script never upserts. Topic names are the `curriculum/<domain>-<slug>.md` stem (e.g. `math-odes`).
 - `review.py due` and `review.py frontier` answer two different questions and must not be merged. `due` answers "is my evidence for this concept stale?" and ignores prerequisites entirely — a learner may learn out of order, and withholding a concept they demonstrably learned defeats spaced review. `frontier` answers "what can I usefully teach next?" and reports only the roots of the unlearned forest: unlearned concepts whose own prerequisites are already learned, plus a count of what is blocked behind them. Ordering is otherwise owned by the `technical` and `map` skills.

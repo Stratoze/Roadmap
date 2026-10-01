@@ -19,6 +19,11 @@ auto-create notes, sessions, or jobs. Reading and Piano stay opt-in.
   Schedule keywords, questions-to-answer-yourself, one offline task, and a source
   locator; then test, answer, correct in one sentence, and record. No unprompted
   explanation — defer it into the next brief.
+- **No tracking machinery for reading or immersion.** Name the source and level,
+  ask how many were read, then get out of the way. Building a player, log, or
+  dashboard to count reading is procrastination dressed as rigour — see
+  `_system/learning/learner.md` order 1 and the learner's words there. Measurement
+  belongs to the conversation ledger, never to the reading itself.
 - One adaptive question per message, then wait. Never re-ask what is settled;
   infer and continue.
 - Delegate execution and verification; context is the scarce resource.

@@ -37,6 +37,9 @@ as history and superseded by that loop.
   verifies.
 - [[quiz-protocol]] - how graded probes/quizzes are constructed (bare claims,
   mutated distractors) and graded (keys by execution; confidence first).
+- [[graded-readers]] - beginner reading material in order, plus the measured
+  reason the 100 GB novel collection is a stretch tier rather than a start.
+  Reading itself is not tracked; the tutor names a source and asks the count.
 - `maps/overview.md` - roadmap-level edge map (in-flight scoping; strand queue +
   provisional brackets by unit). Provisional by design; never canonical status.
 
