@@ -100,6 +100,16 @@ def encode_one(job):
 
     os.makedirs(out_dir, exist_ok=True)
     part = dst + ".part.mp4"          # ffmpeg writes here; rename only on success
+    # A previous run that was killed (reboot, crash, Ctrl-C) leaves a truncated
+    # .part.mp4 behind. It is unusable - ffprobe cannot read it - and re-running
+    # would make ffmpeg truncate it again anyway, so remove it first rather than
+    # letting a stale partial survive. This is what makes the script safe to
+    # resume after an unclean stop.
+    if os.path.exists(part):
+        try:
+            os.remove(part)
+        except OSError:
+            pass
     h = source_height(src)
     needs_scale = h is not None and h > MAX_H
     vf = f"scale=-2:{MAX_H}" if needs_scale else None
@@ -221,6 +231,17 @@ def main():
     with ThreadPoolExecutor(max_workers=args.workers) as pool:
         futures = [pool.submit(encode_one, j) for j in jobs]
         total = len(futures)
+        # ETA must describe the work THIS run still has to do, not the whole
+        # library. After a resume most jobs are already done and report
+        # "skip"; counting them as progress would make the rate look tiny and
+        # the remaining time look enormous. So the denominator is the number of
+        # jobs that are not already complete, measured before any work starts.
+        pending = sum(1 for _lv, src in jobs
+                      if not already_done(os.path.join(
+                          OUTPUT_ROOT, _lv,
+                          os.path.splitext(os.path.basename(src))[0] + ".mp4")))
+        print(f"pending this run: {pending} of {total} "
+              f"({total - pending} already encoded)")
         for i, fut in enumerate(as_completed(futures), start=1):
             r = fut.result()
             if r["status"] == "ok":
@@ -236,19 +257,38 @@ def main():
                 print(f"  FAIL {os.path.basename(r['src'])}: {r.get('error','')[:160]}")
             if i % 10 == 0 or i == total:
                 el = time.time() - started
-                rate = i / el if el else 0
-                left = (total - i) / rate if rate else 0
+                # Remaining ETA is against `pending` (this run's real work),
+                # driven by how many pending jobs have now been processed.
+                processed_pending = min(i, pending)
+                rate = processed_pending / el if el else 0
+                left = (pending - processed_pending) / rate if rate else 0
                 ratio = (out_bytes / in_bytes * 100) if in_bytes else 0
-                print(f"  {i}/{total}  ok={done} skip={skipped} fail={failed}  "
-                      f"{rate*60:.1f}/min  eta={left/60:.0f}min  out={ratio:.0f}%",
+                print(f"  {i}/{total} scanned | {processed_pending}/{pending} encoded"
+                      f"  ok={done} skip={skipped} fail={failed}  "
+                      f"{rate*60:.1f}/min  remaining={left/60:.0f}min"
+                      f"  out={ratio:.0f}%",
                       flush=True)
     print(f"\ndone: ok={done} skip={skipped} fail={failed}  "
           f"elapsed={(time.time()-started)/60:.1f}min")
     if in_bytes:
         print(f"output is {out_bytes/in_bytes*100:.1f}% of source")
-    print(json.dumps(verify(), ensure_ascii=False, indent=2))
-    return 0
+    print(f"library now {total - pending + done + failed}/{total} encoded")
+    report = verify()
+    print(json.dumps(report, ensure_ascii=False, indent=2))
+    # A non-zero exit when something failed, so an unattended run is visible
+    # rather than silently 'complete'.
+    return 0 if failed == 0 else 1
+
+
+def _cli():
+    try:
+        raise SystemExit(main())
+    except KeyboardInterrupt:
+        # Not an error: .part files are self-healing, so stopping here is safe
+        # and the next run resumes. Say so plainly.
+        print("\ninterrupted - safe to resume; re-run the same command.")
+        raise SystemExit(130)
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    _cli()
