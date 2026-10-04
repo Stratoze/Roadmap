@@ -1,9 +1,9 @@
 # Japanese — Current Session Handoff
 
 **Updated:** 2026-10-04
-**Status:** new loop live. 3 probes, 2 passes, floor L0. The full encode pass
-finished with six known failures; five long-video retries are now running in
-the background (see *Pending maintenance*).
+**Status:** new loop live. 6 probes, 4 passes, floor L0. The five-file encode
+retry finished clean; one corrupt source still blocks D replacement
+(see *Pending maintenance*).
 
 This is the single mutable handoff for the next Japanese session. Read it
 before choosing a branch, and read `_system/learning/loop.md` for the loop, the
@@ -53,7 +53,7 @@ every Japanese session so the next agent never has to infer what to do.
 
 ## Current state
 
-- **Progress:** the ledgers contain 3 probes, 2 passes, **floor L0**. The open
+- **Progress:** the ledgers contain 6 probes, 4 passes, **floor L0**. The open
   `progress.jsonl` session line still covers only the first probe; close it at
   the end of the session rather than hand-editing it now.
   Ledgers: `Japanese/probes.jsonl`, `Japanese/progress.jsonl` (append-only).
@@ -80,8 +80,8 @@ replace the immersion on D:**. Three steps, in order, not to be collapsed.
    - Five failures are 61–91-minute sources that exceeded the old fixed
      3600-second timeout. `scripts/encode_immersion.py` now uses a
      duration-aware timeout and supports targeted reruns with `--match`.
-     Active retry: background job `pwsh-671` with
-     `--match 1116 0483 0644 0823 1120 --workers 2`.
+     Retry job `pwsh-671` finished exit 0: 5/5 encoded, 0 failed.
+     Spot-checked outputs are full-length (3667–5440 sec) and probe clean.
    - One source is unrecoverable by encoding:
      `0463.intermediate.日本の夏祭り...mp4` reports `moov atom not found`.
      Its subtitle is already copied, and no duplicate source was found, so it
@@ -90,10 +90,11 @@ replace the immersion on D:**. Three steps, in order, not to be collapsed.
      redundant `0967...mp4.vtt` subtitle name.
    - `.part.mp4` files sitting at 0 MB are **normal buffering**, not a stall.
      Historical mean is ~819 s/file. Do not kill the run over them.
-2. **Verify** — only after the retry exits 0 **and** the corrupt `0463`
-   source is either replaced or explicitly deferred:
-   `& python3 "scripts/encode_immersion.py" --verify-only`.
-   Confirm pairing and sizes before anything on D: is touched.
+2. **Verify** — `--verify-only` after the retry shows every encoded video
+   paired with its subtitle. The single remaining unpaired item is the `0463`
+   subtitle, whose video source is corrupt (see above). So the tree is as clean
+   as encoding can make it; D replacement still waits on the corrupt-source
+   decision **and** the learner's approval.
 3. **Replace D:** — **only after the learner approves the verify result.**
    `D:\immersion\advanced` is a junction to
    `C:\Users\Kohaku\Videos\Immersion\advanced`. Originals on D: must not be
@@ -103,18 +104,14 @@ Disk: C: ~500 GB free, D: ~29 GB free.
 
 ## Next action
 
-**Score the open clean L1 probe before opening anything else.** It was built
-from mature Kaishi vocabulary after the earlier negative probe proved
-ambiguous: standalone `勉強` can be the noun “study” or the front of
-`勉強する`.
+**Score the open L3 probe before opening anything else.** Since the L1 probe,
+the record is: L1 pass (`negative-shinai-choice-2026-10-04d`), L3 miss
+(`sentence-topic-order-watashi-mainichi-2026-10-04e`), L2 pass
+(`short-answer-hai-benkyou-suru-2026-10-04f`). The edge sits between L2 and
+L3. The open probe retests L3 production with different words:
 
-> “(I) don’t study” is:
->
-> A. べんきょう しない
-> B. べんきょう は ない
-
-The prior ambiguous miss stays recorded; do not re-litigate it. If the learner
-answers A, continue the requested binary search upward with deck-backed words.
+> Make one natural sentence using all four:
+> あなた, 毎日, 勉強, する
 The earlier topic-ordering exercise stays withdrawn as unsound: it moved two
 variables at once and pulled the は/が distinction forward from lesson 3.
 
@@ -132,7 +129,10 @@ brief (keywords, questions, one task, source) → learner studies
 - Last Japanese evidence: two L0 passes on 2026-10-04, signatures
   `wordorder-adverb-verb-yoku-benkyou` and `topic-wa-deshi-2026-10-04a`,
   followed by one ambiguous L0 negative-attachment miss,
-  `negative-shinai-attachment-2026-10-04c`.
+  `negative-shinai-attachment-2026-10-04c`; then L1 pass
+  `negative-shinai-choice-2026-10-04d`, L3 miss
+  `sentence-topic-order-watashi-mainichi-2026-10-04e`, and L2 pass
+  `short-answer-hai-benkyou-suru-2026-10-04f`.
 - Pre-reset evidence: [[_system/learning/archive/japanese-progress-reset-2026-09-26|archived reset record]].
 - Raw learner work: `_private/` only.
 
