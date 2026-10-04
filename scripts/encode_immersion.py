@@ -240,6 +240,55 @@ def verify():
     return report
 
 
+def _probe_duration(path):
+    """Duration in seconds, or None when the file does not probe."""
+    try:
+        out = subprocess.run(
+            [FFPROBE, "-v", "error", "-show_entries", "format=duration",
+             "-of", "csv=p=0", path],
+            capture_output=True, text=True, timeout=120)
+        value = float(out.stdout.strip() or 0)
+        return value if out.returncode == 0 and value > 0 else None
+    except Exception:
+        return None
+
+
+def deep_verify(workers=16):
+    """Probe every output and compare its duration against its source.
+
+    Pairing alone cannot see truncation or corruption, so this checks that
+    each output decodes to a duration matching its source within 2 seconds.
+    A source that does not probe at all (e.g. a truncated download with no
+    moov atom) is listed under `source_unreadable`, not counted as an output
+    failure - there was nothing to encode.
+    """
+    jobs = collect_jobs()
+
+    def check(job):
+        level, src = job
+        base = os.path.splitext(os.path.basename(src))[0]
+        dst = os.path.join(OUTPUT_ROOT, level, base + ".mp4")
+        if not os.path.exists(dst):
+            return {"job": f"{level}/{base}", "problem": "missing output"}
+        want = _probe_duration(src)
+        if want is None:
+            return {"job": f"{level}/{base}", "problem": "source unreadable"}
+        got = _probe_duration(dst)
+        if got is None:
+            return {"job": f"{level}/{base}", "problem": "output does not probe"}
+        if abs(got - want) > 2.0:
+            return {"job": f"{level}/{base}", "problem": "duration mismatch",
+                    "source_sec": round(want, 1), "output_sec": round(got, 1)}
+        return None
+
+    bad = []
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        for result in pool.map(check, jobs):
+            if result is not None:
+                bad.append(result)
+    return {"sources": len(jobs), "bad": bad, "ok": not bad}
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=None)
@@ -247,6 +296,8 @@ def main():
                     help="only process sources whose filename contains any of these terms")
     ap.add_argument("--workers", type=int, default=WORKERS)
     ap.add_argument("--verify-only", action="store_true")
+    ap.add_argument("--deep-verify", action="store_true",
+                    help="ffprobe every output and compare duration to source")
     ap.add_argument("--no-subs", action="store_true")
     args = ap.parse_args()
 
@@ -257,6 +308,11 @@ def main():
     if args.verify_only:
         print(json.dumps(verify(), ensure_ascii=False, indent=2))
         return 0
+
+    if args.deep_verify:
+        report = deep_verify()
+        print(json.dumps(report, ensure_ascii=False, indent=2))
+        return 0 if report["ok"] else 1
 
     jobs = collect_jobs(args.limit)
     if args.match:

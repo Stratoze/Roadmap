@@ -1,9 +1,9 @@
 # Japanese — Current Session Handoff
 
 **Updated:** 2026-10-04
-**Status:** new loop live. 6 probes, 4 passes, floor L0. The five-file encode
-retry finished clean; one corrupt source still blocks D replacement
-(see *Pending maintenance*).
+**Status:** new loop live. 7 probes, 4 passes, floor L0. Deep-verify passed
+1717/1718 (only the known-corrupt `0463` source has no output); the D swap is
+in progress (see *Pending maintenance*).
 
 This is the single mutable handoff for the next Japanese session. Read it
 before choosing a branch, and read `_system/learning/loop.md` for the loop, the
@@ -53,7 +53,7 @@ every Japanese session so the next agent never has to infer what to do.
 
 ## Current state
 
-- **Progress:** the ledgers contain 6 probes, 4 passes, **floor L0**. The open
+- **Progress:** the ledgers contain 7 probes, 4 passes, **floor L0**. The open
   `progress.jsonl` session line still covers only the first probe; close it at
   the end of the session rather than hand-editing it now.
   Ledgers: `Japanese/probes.jsonl`, `Japanese/progress.jsonl` (append-only).
@@ -82,6 +82,16 @@ replace the immersion on D:**. Three steps, in order, not to be collapsed.
      duration-aware timeout and supports targeted reruns with `--match`.
      Retry job `pwsh-671` finished exit 0: 5/5 encoded, 0 failed.
      Spot-checked outputs are full-length (3667–5440 sec) and probe clean.
+   - `--deep-verify` (job `pwsh-774`): every one of the 1717 encoded outputs
+     probes clean with source-matching duration. The single exception is the
+     known-corrupt `0463` source, which has no output because there was
+     nothing to encode — not new corruption.
+   - Swap authorized by the learner and underway: D originals (207.5 GB)
+     deleted, the `advanced` junction link removed (target untouched), and
+     the encoded tree is moving `ImmersionC` → `D:/immersion` (job `pwsh-777`,
+     robocopy /MOVE per level). Still pending after the move: delete the old
+     `C:\Users\Kohaku\Videos\Immersion\advanced` originals (43.4 GB) and run a
+     final pairing check on D.
    - One source is unrecoverable by encoding:
      `0463.intermediate.日本の夏祭り...mp4` reports `moov atom not found`.
      Its subtitle is already copied, and no duplicate source was found, so it
@@ -104,14 +114,14 @@ Disk: C: ~500 GB free, D: ~29 GB free.
 
 ## Next action
 
-**Score the open L3 probe before opening anything else.** Since the L1 probe,
-the record is: L1 pass (`negative-shinai-choice-2026-10-04d`), L3 miss
+**The binary search has bracketed the edge.** Since the L1 probe, the record
+is: L1 pass (`negative-shinai-choice-2026-10-04d`), L3 miss
 (`sentence-topic-order-watashi-mainichi-2026-10-04e`), L2 pass
-(`short-answer-hai-benkyou-suru-2026-10-04f`). The edge sits between L2 and
-L3. The open probe retests L3 production with different words:
-
-> Make one natural sentence using all four:
-> あなた, 毎日, 勉強, する
+(`short-answer-hai-benkyou-suru-2026-10-04f`), L3 miss
+(`sentence-topic-order-anata-mainichi-2026-10-04g`). Both L3 misses are the
+same error: the time word fronted before the topic (`毎日、あなたは...`
+instead of `あなたは毎日...`). L1 and L2 pass; L3 fails twice on word order.
+The learner decides whether the floor moves.
 The earlier topic-ordering exercise stays withdrawn as unsound: it moved two
 variables at once and pulled the は/が distinction forward from lesson 3.
 
@@ -132,7 +142,9 @@ brief (keywords, questions, one task, source) → learner studies
   `negative-shinai-attachment-2026-10-04c`; then L1 pass
   `negative-shinai-choice-2026-10-04d`, L3 miss
   `sentence-topic-order-watashi-mainichi-2026-10-04e`, and L2 pass
-  `short-answer-hai-benkyou-suru-2026-10-04f`.
+  `short-answer-hai-benkyou-suru-2026-10-04f`, followed by a second L3 miss
+  on the same ordering error,
+  `sentence-topic-order-anata-mainichi-2026-10-04g`.
 - Pre-reset evidence: [[_system/learning/archive/japanese-progress-reset-2026-09-26|archived reset record]].
 - Raw learner work: `_private/` only.
 
