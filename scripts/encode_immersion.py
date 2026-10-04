@@ -53,6 +53,10 @@ MAX_H = 720
 AUDIO_KBPS = 96
 PRESET = "fast"       # 'medium' compresses ~10% better but is ~2x slower
 WORKERS = 4
+TIMEOUT_BASE_SECONDS = 3600
+TIMEOUT_PER_SOURCE_SECOND = 2.0
+TIMEOUT_MARGIN_SECONDS = 900
+TIMEOUT_MAX_SECONDS = 21600
 
 
 def log(record):
@@ -73,6 +77,26 @@ def source_height(path):
         return int(parts[1]) if len(parts) >= 2 and parts[1].strip() else None
     except Exception:
         return None
+
+
+def source_duration(path):
+    """Source duration in seconds, so long videos get a sufficient timeout."""
+    try:
+        out = subprocess.run(
+            [FFPROBE, "-v", "error", "-show_entries", "format=duration",
+             "-of", "csv=p=0", path],
+            capture_output=True, text=True, timeout=60)
+        return float(out.stdout.strip() or 0) or None
+    except Exception:
+        return None
+
+
+def encode_timeout_seconds(src):
+    duration = source_duration(src)
+    if not duration:
+        return TIMEOUT_BASE_SECONDS
+    scaled = int(duration * TIMEOUT_PER_SOURCE_SECOND + TIMEOUT_MARGIN_SECONDS)
+    return min(TIMEOUT_MAX_SECONDS, max(TIMEOUT_BASE_SECONDS, scaled))
 
 
 def already_done(dst):
@@ -123,10 +147,12 @@ def encode_one(job):
             "-movflags", "+faststart",      # moov first: streams before fully downloaded
             part]
     started = time.time()
+    timeout = encode_timeout_seconds(src)
     try:
-        res = subprocess.run(cmd, capture_output=True, text=True, timeout=3600)
+        res = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout)
     except subprocess.TimeoutExpired:
-        return {"level": level, "src": src, "status": "fail", "error": "timeout"}
+        return {"level": level, "src": src, "status": "fail",
+                "error": f"encoding timed out after {timeout} seconds"}
     elapsed = time.time() - started
     if res.returncode != 0 or not os.path.exists(part):
         return {"level": level, "src": src, "status": "fail",
@@ -161,6 +187,13 @@ def collect_jobs(limit=None):
     return jobs
 
 
+def subtitle_destination(name):
+    """Normalize a subtitle filename that redundantly ends in `.mp4.vtt`."""
+    if name.lower().endswith(".mp4.vtt"):
+        return name[:-len(".mp4.vtt")] + ".vtt"
+    return name
+
+
 def copy_subtitles():
     """Copy every .vtt next to its new .mp4. These carry the subtitles; the
     encode drops them from the container, so the sidecar files are the only
@@ -174,10 +207,15 @@ def copy_subtitles():
         os.makedirs(out_dir, exist_ok=True)
         for name in os.listdir(real):
             if name.lower().endswith(".vtt"):
-                dst = os.path.join(out_dir, name)
+                dst = os.path.join(out_dir, subtitle_destination(name))
                 if not os.path.exists(dst):
-                    shutil.copyfile(os.path.join(real, name), dst)
-                    copied += 1
+                    legacy = os.path.join(out_dir, name)
+                    if legacy != dst and os.path.exists(legacy):
+                        os.rename(legacy, dst)
+                        copied += 1
+                    else:
+                        shutil.copyfile(os.path.join(real, name), dst)
+                        copied += 1
     return copied
 
 
@@ -205,6 +243,8 @@ def verify():
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=None)
+    ap.add_argument("--match", nargs="*", default=None,
+                    help="only process sources whose filename contains any of these terms")
     ap.add_argument("--workers", type=int, default=WORKERS)
     ap.add_argument("--verify-only", action="store_true")
     ap.add_argument("--no-subs", action="store_true")
@@ -219,6 +259,13 @@ def main():
         return 0
 
     jobs = collect_jobs(args.limit)
+    if args.match:
+        terms = [term.casefold() for term in args.match]
+        jobs = [(level, src) for level, src in jobs
+                if any(term in os.path.basename(src).casefold() for term in terms)]
+        if not jobs:
+            print(f"no sources matched: {' '.join(args.match)}", file=sys.stderr)
+            return 2
     print(f"jobs: {len(jobs)}  workers: {args.workers}  crf: {CRF}  "
           f"max-h: {MAX_H}  preset: {PRESET}")
     if not args.no_subs:
