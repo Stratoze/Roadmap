@@ -1,9 +1,9 @@
 # Japanese — Current Session Handoff
 
 **Updated:** 2026-10-04
-**Status:** new loop live. 7 probes, 4 passes, floor L0. Deep-verify passed
-1717/1718 (only the known-corrupt `0463` source has no output); the D swap is
-in progress (see *Pending maintenance*).
+**Status:** new loop live. 7 probes, 4 passes, floor L0. The immersion swap is
+complete — `D:/immersion` now holds the encoded tree (see *Pending
+maintenance*, struck out).
 
 This is the single mutable handoff for the next Japanese session. Read it
 before choosing a branch, and read `_system/learning/loop.md` for the loop, the
@@ -66,51 +66,32 @@ every Japanese session so the next agent never has to infer what to do.
   `python3 scripts/review.py usage japanese-reading`, never hand-count.
 - Reading mode: English explanation first for sessions 1–30; from session 31
   the learner attempts Japanese first.
-- Immersion: the encoded library in
-  `C:\Users\Kohaku\Videos\ImmersionC` is what the learner actually watches
-  (`complete-beginner`, `beginner`). No quota, no log.
+- Immersion: the encoded library in `D:/immersion` is what the learner
+  actually watches (`complete-beginner`, `beginner`). No quota, no log. The
+  only gap is the `0463` intermediate video (corrupt source, subtitle present;
+  re-download wanted).
 
-## Pending maintenance — encode → verify → replace D:
+## Pending maintenance — ~~encode → verify → replace D~~ DONE 2026-10-04
 
-The learner's standing instruction: **finish the encode, verify it, then
-replace the immersion on D:**. Three steps, in order, not to be collapsed.
+1. ~~**Encode**~~ — full pass plus targeted retry: all 1718 jobs scanned,
+   1717 outputs produced. The five 61–91-minute timeouts were fixed with a
+   duration-aware timeout (`--match` rerun, job `pwsh-671`, exit 0).
+2. ~~**Verify**~~ — `--deep-verify` (job `pwsh-774`): all 1717 outputs probe
+   clean with source-matching durations. Pairing check clean. Spot-probed 8
+   files on D after the move: all good.
+3. ~~**Replace D**~~ — done with learner approval: D originals (207.5 GB)
+   deleted, `advanced` junction link removed (target untouched at the time),
+   encoded tree moved `ImmersionC` → `D:/immersion` (job `pwsh-777`, all
+   robocopy codes 1), old `C:\...\Videos\Immersion\advanced` originals
+   (43.4 GB) deleted (job `pwsh-787`). Final D counts: complete-beginner
+   356/356, beginner 657/657, intermediate 536/537, advanced 168/168.
 
-1. **Encode** — the full pass has scanned all 1718 jobs: 488 newly encoded,
-   1224 skipped, 6 failed. Former background job `pwsh-11` is finished, exit 1.
-   - Five failures are 61–91-minute sources that exceeded the old fixed
-     3600-second timeout. `scripts/encode_immersion.py` now uses a
-     duration-aware timeout and supports targeted reruns with `--match`.
-     Retry job `pwsh-671` finished exit 0: 5/5 encoded, 0 failed.
-     Spot-checked outputs are full-length (3667–5440 sec) and probe clean.
-   - `--deep-verify` (job `pwsh-774`): every one of the 1717 encoded outputs
-     probes clean with source-matching duration. The single exception is the
-     known-corrupt `0463` source, which has no output because there was
-     nothing to encode — not new corruption.
-   - Swap authorized by the learner and underway: D originals (207.5 GB)
-     deleted, the `advanced` junction link removed (target untouched), and
-     the encoded tree is moving `ImmersionC` → `D:/immersion` (job `pwsh-777`,
-     robocopy /MOVE per level). Still pending after the move: delete the old
-     `C:\Users\Kohaku\Videos\Immersion\advanced` originals (43.4 GB) and run a
-     final pairing check on D.
-   - One source is unrecoverable by encoding:
-     `0463.intermediate.日本の夏祭り...mp4` reports `moov atom not found`.
-     Its subtitle is already copied, and no duplicate source was found, so it
-     needs a fresh download rather than another encode attempt.
-   - Removed the output-only `MANUAL-TEST.mp4` artifact and normalized the
-     redundant `0967...mp4.vtt` subtitle name.
-   - `.part.mp4` files sitting at 0 MB are **normal buffering**, not a stall.
-     Historical mean is ~819 s/file. Do not kill the run over them.
-2. **Verify** — `--verify-only` after the retry shows every encoded video
-   paired with its subtitle. The single remaining unpaired item is the `0463`
-   subtitle, whose video source is corrupt (see above). So the tree is as clean
-   as encoding can make it; D replacement still waits on the corrupt-source
-   decision **and** the learner's approval.
-3. **Replace D:** — **only after the learner approves the verify result.**
-   `D:\immersion\advanced` is a junction to
-   `C:\Users\Kohaku\Videos\Immersion\advanced`. Originals on D: must not be
-   deleted before the verify passes.
+One known gap, not corruption in the tree: `0463.intermediate.日本の夏祭り`
+has no video because its source download is truncated (`moov atom not
+found`); its subtitle is on D. Re-download that one source whenever it is
+wanted — it is the only file missing from `D:/immersion`.
 
-Disk: C: ~500 GB free, D: ~29 GB free.
+Disk after swap: D ~125 GB free, C ~455 GB free plus the 43 GB reclaimed.
 
 ## Next action
 
