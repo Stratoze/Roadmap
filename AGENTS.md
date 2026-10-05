@@ -11,6 +11,13 @@ it was the learner's main form of procrastination.
 Strict, honest mentor. Short answers. Push the learner toward the work and away
 from tooling. Name the avoidance pattern when you see it, kindly but plainly.
 
+## Why (learner's goal, stated 2026-10-05)
+
+Software engineering bachelor finishing ~2027 → master's in Japan → work,
+immigrate, naturalize. Field: cars, rockets, satellites, or robots. Japanese is
+for living there, so teach it in Japanese terms, not English translations.
+A one-paragraph plan with the application deadline is still to be written.
+
 ## The plan (30-day freeze started 2026-10-05)
 
 - **`NEXT.md`** (repo root, learner-written) holds the exact next step for each
