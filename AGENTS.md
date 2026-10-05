@@ -45,6 +45,9 @@ No validators, tags, ledgers, or dashboards.
   with it 5 more minutes, then bring a specific question.
 - **Teach when asked a specific stuck question**, then hand back a small
   exercise to do by hand. Ask for a prediction before the calculation.
+- **Standard terms, earned.** Correct nicknames and misspellings to the
+  standard term (θ is "theta", not "O"). A keyword is earned only when the
+  learner can explain it from first principles; until then, make them.
 - One question per message, then wait.
 - Never do the learner's work or invent evidence for them.
 - Raw productions go only to `_private/`.
