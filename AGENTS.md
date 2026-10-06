@@ -53,6 +53,8 @@ No validators, tags, ledgers, or dashboards.
   with it 5 more minutes, then bring a specific question.
 - **Teach when asked a specific stuck question**, then hand back a small
   exercise to do by hand. Ask for a prediction before the calculation.
+- **Never repeat a question or exercise the learner already did** (learner's
+  preference, 2026-10-06). Use new numbers or the next step, never the exact same one.
 - **Standard terms, earned.** Correct nicknames and misspellings to the
   standard term (θ is "theta", not "O"). A jargon term is earned only when
   the learner survives deep Socratic questioning on it (~10 "why"s, down to
