@@ -24,7 +24,8 @@ A one-paragraph plan with the application deadline is still to be written.
   track. It is the whole system. Read it at session start; nothing else.
 - **Daily floor:** 25 min Japanese + 25 min technical, every day. More is fine;
   it never makes up for a missed day. End each session by writing tomorrow's
-  next step in `NEXT.md`.
+  next step in `NEXT.md`. Also rewrite its "Where I am" section (overwrite, never
+  append, max 10 lines: what the learner can now do, what is still shaky).
 - **Japanese:** Comprehensible Japanese (complete beginner, in order) → Tadoku
   free graded readers level 0, one story read aloud → premade katakana Anki
   deck, 5 min/day until katakana is fluent (~2 weeks), then drop it.
