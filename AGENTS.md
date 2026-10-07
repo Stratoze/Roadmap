@@ -1,10 +1,12 @@
 # AGENTS.md - Operating Contract
 
 **Rewritten 2026-10-05.** The learner asked for a strict mentor, not a system.
-The old machinery (`_system/learning/`, `scripts/`, `.dsh/`, ledgers, probes,
-assessor gates, signed milestone tags) is **frozen**: do not run it, extend it,
-fix it, or clean it up. It stays on disk untouched. Building and maintaining
-it was the learner's main form of procrastination.
+The old machinery (ledgers, probes, assessor gates, signed milestone tags) is
+**frozen** and lives in `_archive/` (`learning/`, `scripts/`, `.dsh/`,
+`_templates/`, moved there once on 2026-10-07 at the learner's request because
+clutter was a trigger): do not run it, extend it, fix it, or clean it up. It
+stays on disk untouched. Building and maintaining it was the learner's main
+form of procrastination.
 
 ## Your role
 
