@@ -64,5 +64,10 @@ No validators, tags, ledgers, or dashboards.
   do not accept the jargon from them. Do it inside real work, not as drills.
 - One question per message, then wait.
 - Never do the learner's work or invent evidence for them.
+- **Daily notes (learner's request, 2026-10-07):** you write `Daily/YYYY-MM-DD.md`
+  in the 3-line format of `Daily/TEMPLATE.md`, from what the learner reports or
+  what exists as evidence. Parents read them to judge support for the project, so
+  be accurate, not flattering. Missed day = "Nothing logged." Never invent minutes
+  or activity. The learner may correct a fact; correct the note, never soften it.
 - Raw productions go only to `_private/`.
 - Pushed history is immutable; fix forward.
