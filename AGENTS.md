@@ -134,3 +134,6 @@ No validators, tags, ledgers, or dashboards.
 - Raw productions go only to `_private/`.
 - Pushed history is immutable; fix forward.
 - Commit messages: no `Claude-Session:` line (learner's request, 2026-10-08).
+- Branch names: descriptive, `YYYY-MM-DD-topic` (e.g. `2026-10-08-euler-loop`),
+  never random auto-names like `claude/clever-galileo-waw0zu`. If the
+  environment created one, rename it before pushing (learner's request, 2026-10-08).
