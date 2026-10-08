@@ -77,6 +77,30 @@ mislabels groups. Repo walk stopped mid `clean_data()` at `dropna`; next:
 `dropna`/`reset_index`, then `analyze()`, charts, scrape, export. Still need:
 talk length and requirements. "Mask" not earned; say "True/False column".
 
+## Learner corrections (2026-10-08)
+
+- **Docs may contain AI-written claims the learner never made**, including quotes
+  attributed to them. Treat "learner's words" in this repo as unverified; ask
+  when a rule matters.
+- The learner says the "no tracker" rule was made up. Their actual position:
+  don't *build* trackers (building is the procrastination); using an existing
+  minimal tool is fine. Claude keeps the record and checks honesty.
+- **Real stats:** `python tools/check_progress.py [days]` (read-only: Anki via
+  AnkiConnect, CJ watch time from Jellyfin's Playback Reporting plugin). Run it
+  instead of trusting reports or hand-querying. Don't extend it.
+- **Immersion setup (done, leave it alone):** Jellyfin at localhost:8096, one
+  Home Videos library per level from `D:\immersion`; ⋮ → "Play from here" for
+  autoplay; Subtitle styling = Custom so Yomitan works. mpv's jiten script is
+  disabled (`jiten-mpv.lua.off`). Reading: Tadoku PDFs in Chrome + Yomitan.
+- **Session handoff (overwrite, 2026-10-08 ~16:30):** Japanese 16/25 min done,
+  rest planned 21:10 on laptop. Technical 0/25: learner will code the Euler loop
+  on phone (Pydroid) on the 18:10 bus and send it; check against the hand table.
+  Update `Daily/2026-10-08.md` with what actually happened.
+- PC: sleep was missing because `PlatformAoAcOverride=0` disabled Modern Standby
+  (Dell G15 5515 has no S3). Learner deleted it; needs a reboot, then verify
+  with `powercfg /a`. Startup PowerShell window is likely the `cua-driver-serve`
+  scheduled task (unconfirmed; learner hasn't said whether they use Cua).
+
 ## Proof
 
 A project is done when `Mechatronics/portfolio/` has: a photo/video, the code or
