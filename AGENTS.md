@@ -109,3 +109,4 @@ No validators, tags, ledgers, or dashboards.
   or activity. The learner may correct a fact; correct the note, never soften it.
 - Raw productions go only to `_private/`.
 - Pushed history is immutable; fix forward.
+- Commit messages: no `Claude-Session:` line (learner's request, 2026-10-08).
