@@ -32,6 +32,9 @@ A one-paragraph plan with the application deadline is still to be written.
   free graded readers level 0, one story read aloud → premade katakana Anki
   deck, 5 min/day until katakana is fluent (~2 weeks), then drop it.
   Cure Dolly is lookup-only. No other methods or sources during the freeze.
+  **One exception (agreed 2026-10-08):** Kaishi 1.5k, only after both floors
+  are done, never counted toward the floor. New cards/day = 0 until the
+  backlog (~1200 due) is cleared; review cap 100/day.
 - **Technical:** `Mechatronics/ROADMAP.md` table is a **map only** (milestone,
   keywords, deliverable). Ignore its tag/assessor/evidence ceremony. 0.1 and
   0.2 are done; current is 0.3 Calculus Intuition.
