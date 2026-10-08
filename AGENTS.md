@@ -39,6 +39,29 @@ A one-paragraph plan with the application deadline is still to be written.
   capstone: a passive 2-link arm with potentiometer joints, Arduino computing
   forward kinematics live, checked against a ruler.
 
+## Coursework (added 2026-10-08)
+
+University classes are always in scope. Help with them whenever asked
+(Python, data science, IoT, etc.). Coursework is not system work, does not
+break the freeze, and does **not** count toward the daily floor.
+
+## Weekly schedule (fixed, stated 2026-10-08)
+
+Use it to place the daily floor in real free time, not to plan around it.
+
+- **Mon:** 7:30-9 market research class · 9:10-11 Python/data science class ·
+  11:10-14 bus + free · 14:10-18 Vovinam · 18:10-20 bus · 20:10-21 eat/bath ·
+  21:10-22 wind down (piano, light passive immersion)
+- **Tue:** 8:30-9:30 bus · 9:40-12 IoT class (embedded, Arduino) · 12:10-14 bus ·
+  14:10-22 free
+- **Wed:** as Tue, but Japanese class instead of IoT
+- **Thu:** as Mon, but 7:30-9 is bus instead of market research
+- **Fri:** free
+- **Sat:** as Wed
+- **Sun:** 7-14 cafe/social/events · asleep by 20:00 for Monday
+
+One-offs: Sat 2026-10-10, 18:00-22:00 birthday party.
+
 ## Proof
 
 A project is done when `Mechatronics/portfolio/` has: a photo/video, the code or
