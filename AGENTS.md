@@ -94,7 +94,7 @@ talk length and requirements. "Mask" not earned; say "True/False column".
   disabled (`jiten-mpv.lua.off`). Reading: Tadoku PDFs in Chrome + Yomitan.
 - **Session handoff (overwrite, 2026-10-08 ~16:30):** Japanese 16/25 min done,
   rest planned 21:10 on laptop. Technical 0/25: learner will code the Euler loop
-  on phone (Pydroid) on the 18:10 bus and send it; check against the hand table.
+  on phone (iOS, hand-typed pseudocode, no Python runtime) on the 18:10 bus and send it; check against the hand table.
   Update `Daily/2026-10-08.md` with what actually happened.
 - PC: sleep was missing because `PlatformAoAcOverride=0` disabled Modern Standby
   (Dell G15 5515 has no S3). Learner deleted it; needs a reboot, then verify
