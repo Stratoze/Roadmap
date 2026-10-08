@@ -52,8 +52,8 @@ break the freeze, and does **not** count toward the daily floor.
 
 Use it to place the daily floor in real free time, not to plan around it.
 
-- **Mon:** 7:30-9 market research class · 9:10-11 Python/data science class ·
-  11:10-14 bus + free · 14:10-18 Vovinam · 18:10-20 bus · 20:10-21 eat/bath ·
+- **Mon:** 7:30-9 market research class · 9:10-12 Python/data science class ·
+  12:10-14 bus + free · 14:10-18 Vovinam · 18:10-20 bus · 20:10-21 eat/bath ·
   21:10-22 wind down (piano, light passive immersion)
 - **Tue:** 8:30-9:30 bus · 9:40-12 IoT class (embedded, Arduino) · 12:10-14 bus ·
   14:10-22 free
