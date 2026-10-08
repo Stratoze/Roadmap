@@ -64,6 +64,9 @@ Use it to place the daily floor in real free time, not to plan around it.
 - **Sun:** 7-14 cafe/social/events · asleep by 20:00 for Monday
 
 One-offs: Sat 2026-10-10, 18:00-22:00 birthday party.
+Mon 2026-10-12: Python/data science presentation on `Stratoze/python-data-scraping`
+(high priority). Slides: Claude drafts. Understanding and speaker notes: learner,
+in own words. Prep blocks: Fri, Sat 14:10-17:30, Sun 14-18. Floors still daily.
 
 ## Proof
 
