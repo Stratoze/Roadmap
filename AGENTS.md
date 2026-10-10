@@ -38,11 +38,13 @@ missed day. Japanese goes first when the previous day's Japanese was missed.
   live, checked against a ruler.
 - **Coursework:** always in scope when asked; never counts toward the floor.
 
-## Weekly schedule (place the floor in real free time)
+## Weekly schedule (JST; learner first gave it in GMT+7, shifted +2h on 2026-10-10)
 
-- **Mon:** classes 7:30-12 · 12:10-14 bus + free · 14:10-18 Vovinam · 18:10-20 bus · 21:10-22 wind down
-- **Tue / Wed / Sat:** 8:30-9:30 bus · 9:40-12 class (Tue IoT, Wed/Sat Japanese) · 12:10-14 bus · 14:10-22 free
-- **Thu:** as Mon (7:30-9 is bus) · **Fri:** free · **Sun:** 7-14 social · asleep by 20:00
+Place the floor in real free time. Use `TZ=Asia/Tokyo date` for the clock.
+
+- **Mon:** classes 9:30-14 · 14:10-16 bus + free · 16:10-20 Vovinam · 20:10-22 bus · 23:10-24 wind down
+- **Tue / Wed / Sat:** 10:30-11:30 bus · 11:40-14 class (Tue IoT, Wed/Sat Japanese) · 14:10-16 bus · 16:10-24 free
+- **Thu:** as Mon (9:30-11 is bus) · **Fri:** free · **Sun:** 9-16 social · asleep by 22:00
 
 ## Rules for you
 
