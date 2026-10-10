@@ -55,7 +55,9 @@ Place the floor in real free time. Use `TZ=Asia/Tokyo date` for the clock.
   Tofugu article and let the learner read it, then quiz on return.
 - **Japanese chat:** from now, Claude says one simple Japanese line per lesson
   using only taught grammar; the learner answers in Japanese. Grow it as the
-  NEXT.md list is ticked.
+  NEXT.md list is ticked. Aim for how people actually talk, not textbook
+  completeness: short natural answers are right; correct only what is wrong or
+  unnatural, and say what a native would say.
 - **Done means done.** Once an exercise matches its check, tick it and move on;
   never re-ask for it.
 - One question per message, then wait. Never the exact same question twice;
