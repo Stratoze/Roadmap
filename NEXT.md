@@ -7,8 +7,20 @@
 - Anki: Kaishi backlog (~1249 due as of 2026-10-08), 0 new, cap 100/day, only after both floors. Count for 2026-10-09 not reported.
 - Habit to watch: drifts to system-building and tangents when work gets hard. Tonight: a tangent (series algebra) took about 20 min and was not needed.
 
+## This week (2026-10-10 to 10-16) — tick [x] when done, never redo a ticked item
+Technical:
+- [x] 0.3 Euler loop (matched hand table)
+- [ ] 0.3 close: three portfolio sentences (predicted / measured / why differ)
+- [ ] 0.4 first free-body diagram by hand
+- [ ] 0.4 moment arm: torque on one link, by hand
+- [ ] 0.4 equilibrium: solve one static case, by hand
+Japanese:
+- [ ] CJ 0009 · [ ] 0010 · [ ] 0011 · [ ] 0012 · [ ] 0013 · [ ] 0014 · [ ] 0015
+- [ ] Tadoku level 0: two stories read aloud
+- [ ] Katakana deck 5 min/day started
+
 ## Technical (2026-10-10)
-Paste the Euler loop exactly as typed on the phone. Trace it by hand pass by pass for dt = 0.5 (α = 1, θ = 0, ω = 0) before running it: expect θ 0.25, ω 1 after pass 2. Then say whether the code matches. No closed-form formula tonight.
+Euler loop is DONE (matched the hand table for all three dt; do not re-check it). Close 0.3: write the three sentences in `Mechatronics/portfolio/` (predicted, measured, why they differ) for the Euler loop and the (1, 1) FK tip. Then start 0.4 Statics + FBDs: first free-body diagram by hand.
 
 ## Japanese (2026-10-10)
 - Comprehensible Japanese, next episode after 0008, complete-beginner pace.
