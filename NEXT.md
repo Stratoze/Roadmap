@@ -8,8 +8,8 @@ Missed item: move it to the next day; don't redo ticked ones.
 
 | Day | When (free time) | Japanese | Technical |
 |---|---|---|---|
-| Sat 10/10 | bus 14:10-16 (prep + party times to confirm) | [ ] CJ 25 min (next unwatched) · [ ] ます forms practice | [ ] 0.3 close: 3 portfolio sentences |
-| Sun 10/11 | evening before 22:00 bed (prep times to confirm) | [ ] CJ 25 min (next unwatched) · [ ] は vs が | [ ] 0.4 FBD: book on a table, by hand |
+| Sat 10/10 | bus 14:10-16 (prep 16:10-19:30, party 20-24) | [ ] CJ 25 min (next unwatched) · [ ] ます forms practice | [ ] 0.3 close: 3 portfolio sentences |
+| Sun 10/11 | 20:00-21:30 (social 9-16, prep 16-20, bed 22:00) | [ ] CJ 25 min (next unwatched) · [ ] は vs が | [ ] 0.4 FBD: book on a table, by hand |
 | Mon 10/12 | bus 20:10-22 (presentation day) | [ ] CJ 25 min (next unwatched) · [ ] あります / います | [ ] 0.4 FBD: one link held horizontal |
 | Tue 10/13 | 16:10-24 | [ ] CJ 25 min (next unwatched) · [ ] い-adjectives · [ ] Tadoku story 1 aloud · [ ] start katakana deck | [ ] 0.4 moment arm: torque of link weight about the shoulder |
 | Wed 10/14 | 16:10-24 | [ ] CJ 25 min (next unwatched) · [ ] な-adjectives | [ ] 0.4 torque at 0°, 45°, 90° (predict first) |
