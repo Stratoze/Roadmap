@@ -7,27 +7,25 @@
 - Anki: Kaishi backlog (~1249 due as of 2026-10-08), 0 new, cap 100/day, only after both floors. Count for 2026-10-09 not reported.
 - Habit to watch: drifts to system-building and tangents when work gets hard. Tonight: a tangent (series algebra) took about 20 min and was not needed.
 
-## This week (2026-10-10 to 10-16) — tick [x] when done, never redo a ticked item
-Technical:
-- [x] 0.3 Euler loop (matched hand table)
-- [ ] 0.3 close: three portfolio sentences (predicted / measured / why differ)
-- [ ] 0.4 first free-body diagram by hand
-- [ ] 0.4 moment arm: torque on one link, by hand
-- [ ] 0.4 equilibrium: solve one static case, by hand
-Japanese:
-- [ ] CJ 0009 · [ ] 0010 · [ ] 0011 · [ ] 0012 · [ ] 0013 · [ ] 0014 · [ ] 0015
-- [ ] Tadoku level 0: two stories read aloud
-- [ ] Katakana deck 5 min/day started
+## Plan 10/10 (Sat) to 10/18 (Sun) — tick [x] when done, never redo a ticked item
+Floor every day: 25 min Japanese (CJ + new grammar point) + 25 min technical. Japanese first.
+Missed item: move it to the next day; don't redo ticked ones.
+
+| Day | When (free time) | Japanese | Technical |
+|---|---|---|---|
+| Sat 10/10 | bus 12:10-14 (prep 14:10-17:30, party 18-22) | [ ] CJ 0009 · [ ] ます forms practice | [ ] 0.3 close: 3 portfolio sentences |
+| Sun 10/11 | 18:00-19:30 (prep 14-18, bed 20:00) | [ ] CJ 0010 · [ ] は vs が | [ ] 0.4 FBD: book on a table, by hand |
+| Mon 10/12 | bus 18:10-20 (presentation day) | [ ] CJ 0011 · [ ] あります / います | [ ] 0.4 FBD: one link held horizontal |
+| Tue 10/13 | 14:10-22 | [ ] CJ 0012 · [ ] い-adjectives · [ ] Tadoku story 1 aloud · [ ] start katakana deck | [ ] 0.4 moment arm: torque of link weight about the shoulder |
+| Wed 10/14 | 14:10-22 | [ ] CJ 0013 · [ ] な-adjectives | [ ] 0.4 torque at 0°, 45°, 90° (predict first) |
+| Thu 10/15 | bus 12:10-14 / 18:10-20 | [ ] CJ 0014 · [ ] ～たい | [ ] 0.4 equilibrium: hold the link with a hand force, solve it |
+| Fri 10/16 | free | [ ] CJ 0015 · [ ] て-form (1): making it | [ ] 0.4 2-link: shoulder + elbow torque, arm straight out |
+| Sat 10/17 | bus 12:10-14, 14:10-22 | [ ] CJ 0016 · [ ] て-form (2): ～てください · [ ] Tadoku story 2 aloud | [ ] 0.4 check one torque with a ruler + weight, write 3 sentences |
+| Sun 10/18 | 14:00-19:30 (bed 20:00) | [ ] CJ 0017 · [ ] review week's points | [ ] review: what went wrong this week, pick 0.4 next step |
+
+Done so far: [x] 0.3 Euler loop (matched hand table).
+Kaishi Anki: reviews only, after both floors, cap 100, never counted. Easy anime does not count.
 
 ## Japanese grammar (one new point per lesson, then practice)
 - Taught: に (point) / で (stage, tool) / を · counters 冊・本・台 · [noun][count]しかありません · ます / ました / ません / ませんでした (2026-10-10, practice pending)
-- Queue: は vs が · あります / います · い-adjectives (たかい / たかくない) · な-adjectives · ～たい (want to) · て-form
-
-## Technical (2026-10-10)
-Euler loop is DONE (matched the hand table for all three dt; do not re-check it). Close 0.3: write the three sentences in `Mechatronics/portfolio/` (predicted, measured, why they differ) for the Euler loop and the (1, 1) FK tip. Then start 0.4 Statics + FBDs: first free-body diagram by hand.
-
-## Japanese (2026-10-10)
-- Comprehensible Japanese, next episode after 0008, complete-beginner pace.
-- Anki reviews on the bus, no new cards.
-- One Tadoku level 0 story, read aloud.
-- Easy anime is for fun; it does not count toward the hour.
+- Queue: は vs が · あります / います · い-adjectives (たかい / たかくない) · な-adjectives · ～たい (want to) · て-form · ～てください · から / まで · ～ましょう
