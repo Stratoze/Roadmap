@@ -19,6 +19,10 @@ Japanese:
 - [ ] Tadoku level 0: two stories read aloud
 - [ ] Katakana deck 5 min/day started
 
+## Japanese grammar (one new point per lesson, then practice)
+- Taught: に (point) / で (stage, tool) / を · counters 冊・本・台 · [noun][count]しかありません · ます / ました / ません / ませんでした (2026-10-10, practice pending)
+- Queue: は vs が · あります / います · い-adjectives (たかい / たかくない) · な-adjectives · ～たい (want to) · て-form
+
 ## Technical (2026-10-10)
 Euler loop is DONE (matched the hand table for all three dt; do not re-check it). Close 0.3: write the three sentences in `Mechatronics/portfolio/` (predicted, measured, why they differ) for the Euler loop and the (1, 1) FK tip. Then start 0.4 Statics + FBDs: first free-body diagram by hand.
 
