@@ -19,5 +19,5 @@ Claude updates this at the end of each session. Status: taught = shown once; sol
 ## Anki
 - Kaishi 1.5k: backlog ~1249 due (2026-10-08), 0 new, cap 100/day, only after both floors, never counted
 
-## Queue (next new points, in order)
-は vs が · あります / います · い-adjectives · な-adjectives · ～たい · て-form · ～てください · から / まで · ～ましょう
+## Queue
+See the Japanese grammar list in `NEXT.md`.

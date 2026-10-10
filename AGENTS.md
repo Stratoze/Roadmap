@@ -16,7 +16,9 @@ Japanese terms, not English translations.
 
 ## Files
 
-- `NEXT.md`: this week's plan, one row per day, tick boxes. Read it at session start.
+- `NEXT.md`: the next 50 technical items and next 50 Japanese grammar points, no
+  dates, worked top-down, tick boxes. When a list runs out, write the next 50.
+  Read it at session start.
 - `Learned/japanese.md`, `Learned/technical.md`, `Learned/coursework.md`: what
   has been taught, what is solid, what is shaky. Read the relevant one before
   teaching; update it at the end of each session.
@@ -29,7 +31,7 @@ Japanese terms, not English translations.
 missed day. Japanese goes first when the previous day's Japanese was missed.
 
 - **Japanese:** Comprehensible Japanese (complete beginner, in order) counts.
-  Plus one new grammar point per lesson from the Queue in `Learned/japanese.md`,
+  Plus the next unticked grammar point in `NEXT.md`,
   Tadoku level 0 read aloud, katakana deck 5 min/day until fluent.
   Kaishi Anki: reviews only, after both floors, cap 100/day, never counted.
 - **Technical:** `Mechatronics/ROADMAP.md` table is a map (milestone, keywords).
