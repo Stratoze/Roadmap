@@ -11,7 +11,7 @@ Also: Tadoku level 0, one story aloud twice a week · katakana deck 5 min/day un
 0.3 Calculus intuition
 - [x] 1. Euler loop matches the hand table
 - [x] 2. 2-link tip: predicted vs measured, 3 sentences (photo pending)
-- [ ] 3. MVM: derivative of a polynomial: v(t) = 2t → a(t); p(t) = t³ − 2t → p'(t), p''(t)
+- [x] 3. MVM: derivative of a polynomial: v(t) = 2t → a(t); p(t) = t³ − 2t → p'(t), p''(t)
 - [ ] 4. MVM: integrate with limits: position at t = 3 s from v(t) = 2t, x(0) = 0 (units)
 - [ ] 5. MVM: chain position → velocity → acceleration and back on those two items
 - [ ] 6. MVM: explain derivative = rate of change, integral = accumulation (formula allowed)
