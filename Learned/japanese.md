@@ -9,6 +9,12 @@ Claude updates this at the end of each session. Status: taught = shown once; sol
 - [noun][count]しかありません: taught
 - ます / ました / ません / ませんでした: taught + practised 2026-10-10. Slips: ませんだった (→ ませんでした), 本 as book counter (→ 冊), がっこ (→ がっこう)
 
+## Chat practice (one Japanese line per lesson, started 2026-10-10)
+- Natural short answers already: うちです, 八時です, 日本語です
+- Taught in chat: にほん (Japan) vs にほんご (language); subject studied takes を, not で; なにも = nothing; [action]する not がする (ファスティングしてます); このあと = after this; ええ = yes, not an answer to なに; ～します (will do) vs ～しました (did)
+- Slip: language + する (日本語します → 日本語です / 日本語をべんきょうします)
+- Types with the iOS romaji keyboard (setup suggested 2026-10-10)
+
 ## Kana
 - Hiragana: solid. Small ゃゅょ: one slip (としよかん → としょかん)
 - Katakana: slow
