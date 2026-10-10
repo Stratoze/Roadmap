@@ -10,7 +10,7 @@ Also: Tadoku level 0, one story aloud twice a week · katakana deck 5 min/day un
 
 Next session, in this order:
 1. **Technical:** item 7 (blank page, v = 4t² + t). Today's technical was 10:12–10:36 ≈ 24 min, 1 min short of the floor.
-2. **Japanese lesson:** grammar item 4, は vs が (new point first, then practice).
+2. **Japanese lesson:** grammar item 4, は vs が. Learner reads Tofugu's は/が article first (https://www.tofugu.com/japanese-grammar/), Claude then quizzes; open with one Japanese line.
 3. **Immersion:** learner reports today's CJ minutes (~5 episodes planned on the bus). Then Claude writes `Daily/2026-10-10.md` (JP lesson ≈ 09:41–09:49 + ます practice; technical ≈ 24 min, items 3–6).
 Pending: photo of the FK drawing for `Mechatronics/portfolio/0.3-2link-fk-tip.md`. Tue 10/13: run `tools/check_progress.py` on the PC.
 
