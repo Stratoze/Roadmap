@@ -13,7 +13,7 @@ Also: Tadoku level 0, one story aloud twice a week · katakana deck 5 min/day un
 - [x] 2. 2-link tip: predicted vs measured, 3 sentences (photo pending)
 - [x] 3. MVM: derivative of a polynomial: v(t) = 2t → a(t); p(t) = t³ − 2t → p'(t), p''(t)
 - [x] 4. MVM: integrate with limits: position at t = 3 s from v(t) = 2t, x(0) = 0 (units)
-- [ ] 5. MVM: chain position → velocity → acceleration and back on those two items
+- [x] 5. MVM: chain position → velocity → acceleration and back on those two items
 - [ ] 6. MVM: explain derivative = rate of change, integral = accumulation (formula allowed)
 - [ ] 7. Full (blank page): same chain on a new item, v(t) = 4t² + t
 - [ ] 8. Full: power → energy, P(t) = 6t W from 0 to 2 s, answer in joules
