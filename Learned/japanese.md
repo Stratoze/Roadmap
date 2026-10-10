@@ -14,7 +14,7 @@ Claude updates this at the end of each session. Status: taught = shown once; sol
 - Katakana: slow
 
 ## Input
-- CJ (complete beginner): last watched 0008 (顔)
+- CJ (complete beginner): past 0009 (learner, 2026-10-10); exact episode to confirm from Jellyfin on Tue 10/13
 
 ## Anki
 - Kaishi 1.5k: backlog ~1249 due (2026-10-08), 0 new, cap 100/day, only after both floors, never counted
