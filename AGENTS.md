@@ -31,7 +31,8 @@ Japanese terms, not English translations.
 missed day. Japanese goes first when the previous day's Japanese was missed.
 
 - **Japanese:** Comprehensible Japanese (complete beginner, in order) counts.
-  Plus the next unticked grammar point in `NEXT.md`,
+  Plus the next unticked grammar point in `NEXT.md`, plus a short written chat
+  in Japanese every day (≥5 exchanges, taught grammar only; counts toward the 25),
   Tadoku level 0 read aloud, katakana deck 5 min/day until fluent.
   Kaishi Anki: reviews only, after both floors, cap 100/day, never counted.
 - **Technical:** `Mechatronics/ROADMAP.md` table is a map (milestone, keywords).
