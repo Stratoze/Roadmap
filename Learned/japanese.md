@@ -7,7 +7,7 @@ Claude updates this at the end of each session. Status: taught = shown once; sol
 - Counters 冊 (books), 本 (long things, いっぽん), 台 (machines): taught; 三冊 = さんさつ ok
 - Word order: [noun]を[count][verb], e.g. ほんをさんさつよみます: shaky (put count before noun once)
 - [noun][count]しかありません: taught
-- ます / ました / ません / ませんでした: taught 2026-10-10, practice pending
+- ます / ました / ません / ませんでした: taught + practised 2026-10-10. Slips: ませんだった (→ ませんでした), 本 as book counter (→ 冊), がっこ (→ がっこう)
 
 ## Kana
 - Hiragana: solid. Small ゃゅょ: one slip (としよかん → としょかん)
