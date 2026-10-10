@@ -6,67 +6,77 @@ When a list runs out, Claude writes the next 50. What I've learned lives in `Lea
 **Every day:** 25 min Japanese (CJ ~5 episodes + next grammar point) + 25 min technical (next items). Japanese first.
 Also: Tadoku level 0, one story aloud twice a week · katakana deck 5 min/day until fluent · Kaishi reviews only after both floors (cap 100, never counted).
 
-## Technical (50)
+## Technical (60)
 
 0.3 Calculus intuition
 - [x] 1. Euler loop matches the hand table
 - [x] 2. 2-link tip: predicted vs measured, 3 sentences (photo pending)
+- [ ] 3. MVM: derivative of a polynomial: v(t) = 2t → a(t); p(t) = t³ − 2t → p'(t), p''(t)
+- [ ] 4. MVM: integrate with limits: position at t = 3 s from v(t) = 2t, x(0) = 0 (units)
+- [ ] 5. MVM: chain position → velocity → acceleration and back on those two items
+- [ ] 6. MVM: explain derivative = rate of change, integral = accumulation (formula allowed)
+- [ ] 7. Full (blank page): same chain on a new item, v(t) = 4t² + t
+- [ ] 8. Full: power → energy, P(t) = 6t W from 0 to 2 s, answer in joules
+- [ ] 9. Full: explain why area under v(t) is displacement, no formula
 
 0.4 Statics + free-body diagrams
-- [ ] 3. FBD: book resting on a table (every force, arrow, label)
-- [ ] 4. FBD: book pushed sideways but not sliding
-- [ ] 5. FBD: one link held horizontal by a hand at one end
-- [ ] 6. Predict, then compute: torque of a 1 N force at 0.1 m, at 90°
-- [ ] 7. Same force at 45° and 0°: predict which is bigger, then compute
-- [ ] 8. Moment arm in plain words: draw it for item 7
-- [ ] 9. Torque of a link's own weight about the shoulder (weight at the middle)
-- [ ] 10. That torque at link angles 0°, 45°, 90°: predict, then compute
-- [ ] 11. Equilibrium: two forces on a seesaw, find the missing one
-- [ ] 12. Equilibrium: link held by a hand force, solve for the force
-- [ ] 13. 2-link straight out: shoulder torque from both link weights
-- [ ] 14. Same arm: elbow torque
-- [ ] 15. Add a 50 g weight at the tip: new shoulder and elbow torques
-- [ ] 16. Measure: ruler + weight balanced on a pencil, check one torque, 3 sentences
-- [ ] 17. List every assumption you made in items 9-16
-- [ ] 18. FEM in plain words: what it does and why hand calcs check it
+- [ ] 10. FBD: book resting on a table (every force, arrow, label)
+- [ ] 11. FBD: book pushed sideways but not sliding
+- [ ] 12. FBD: one link held horizontal by a hand at one end
+- [ ] 13. Predict, then compute: torque of a 1 N force at 0.1 m, at 90°
+- [ ] 14. Same force at 45° and 0°: predict which is bigger, then compute
+- [ ] 15. Moment arm in plain words: draw it for item 14
+- [ ] 16. Torque of a link's own weight about the shoulder (weight at the middle)
+- [ ] 17. That torque at link angles 0°, 45°, 90°: predict, then compute
+- [ ] 18. Equilibrium: two forces on a seesaw, find the missing one
+- [ ] 19. Equilibrium: link held by a hand force, solve for the force
+- [ ] 20. 2-link straight out: shoulder torque from both link weights
+- [ ] 21. Same arm: elbow torque
+- [ ] 22. Add a 50 g weight at the tip: new shoulder and elbow torques
+- [ ] 23. Measure: ruler + weight balanced on a pencil, check one torque, 3 sentences
+- [ ] 24. List every assumption you made in items 16-23
+- [ ] 25. FEM in plain words: what it does and why hand calcs check it
+- [ ] 26. 0.4 deliverable: FBD of the 2-link arm holding 0.5 kg at full horizontal extension, shoulder holding torque with units
+- [ ] 27. 0.4 Full: what happens to shoulder torque if the elbow extends further
+- [ ] 28. 0.4 Full: reaction forces at the base
 
 0.5 Circuits basics
-- [ ] 19. Ohm's law: predict current for 5 V across 1 kΩ, then compute
-- [ ] 20. LED + resistor on 5 V: pick the resistor from a datasheet's forward voltage
-- [ ] 21. Two resistors in series: predict total, then compute
-- [ ] 22. Two in parallel: predict total, then compute
-- [ ] 23. Voltage divider: predict the middle voltage
-- [ ] 24. KVL in plain words: walk around one loop and add the voltages
-- [ ] 25. KCL in plain words: currents into a node
-- [ ] 26. Read one datasheet: find max current and max voltage of a part
-- [ ] 27. Multimeter: measure a resistor, compare to its color code
-- [ ] 28. Build the LED circuit, measure current, 3 sentences
-- [ ] 29. Build the divider, measure the middle voltage, 3 sentences
-- [ ] 30. Potentiometer as a divider: predict voltage at 3 knob positions
-- [ ] 31. Measure those 3 positions, 3 sentences
-- [ ] 32. Arduino analogRead: predict the number for 2.5 V
-- [ ] 33. Read a pot with analogRead, compare to prediction
+- [ ] 29. Ohm's law: predict current for 5 V across 1 kΩ, then compute
+- [ ] 30. LED + resistor on 5 V: pick the resistor from a datasheet's forward voltage
+- [ ] 31. Two resistors in series: predict total, then compute
+- [ ] 32. Two in parallel: predict total, then compute
+- [ ] 33. Voltage divider: predict the middle voltage
+- [ ] 34. KVL in plain words: walk around one loop and add the voltages
+- [ ] 35. KCL in plain words: currents into a node
+- [ ] 36. Read one datasheet: find max current and max voltage of a part
+- [ ] 37. Multimeter: measure a resistor, compare to its color code
+- [ ] 38. Build the LED circuit, measure current, 3 sentences
+- [ ] 39. Build the divider, measure the middle voltage, 3 sentences
+- [ ] 40. Potentiometer as a divider: predict voltage at 3 knob positions
+- [ ] 41. Measure those 3 positions, 3 sentences
+- [ ] 42. Arduino analogRead: predict the number for 2.5 V
+- [ ] 43. Read a pot with analogRead, compare to prediction
 
 0.6 Power + thermal
-- [ ] 34. P = VI: power of the LED circuit, predict then compute
-- [ ] 35. Power in the resistor (I²R) vs the LED
-- [ ] 36. Power budget: Arduino + 2 pots + LED from USB 5 V
-- [ ] 37. Efficiency in plain words, one example
-- [ ] 38. Thermal resistance in plain words: why parts get hot
-- [ ] 39. Temperature rise of a resistor from its datasheet
-- [ ] 40. Feel-check: which part warms up, and does it match the prediction
-- [ ] 41. Write the 0.6 three sentences
+- [ ] 44. P = VI: power of the LED circuit, predict then compute
+- [ ] 45. Power in the resistor (I²R) vs the LED
+- [ ] 46. Power budget: Arduino + 2 pots + LED from USB 5 V
+- [ ] 47. Efficiency in plain words, one example
+- [ ] 48. Thermal resistance in plain words: why parts get hot
+- [ ] 49. Temperature rise of a resistor from its datasheet
+- [ ] 50. Feel-check: which part warms up, and does it match the prediction
+- [ ] 51. Write the 0.6 three sentences
 
 0.7 Materials + failure
-- [ ] 42. Stress = force / area: predict, then compute for a wire
-- [ ] 43. Strain in plain words; stretch a rubber band, measure
-- [ ] 44. Stress-strain curve: sketch one, label the regions
-- [ ] 45. Factor of safety: choose one for a cardboard link
-- [ ] 46. Cardboard vs wood vs aluminum for the arm link: compare 3 properties
-- [ ] 47. Fatigue in plain words: bend a paperclip until it breaks, count
-- [ ] 48. Predict where the cardboard link would fail under the tip weight
-- [ ] 49. Test it, 3 sentences
-- [ ] 50. Pick the capstone link material and write why
+- [ ] 52. Stress = force / area: predict, then compute for a wire
+- [ ] 53. Strain in plain words; stretch a rubber band, measure
+- [ ] 54. Stress-strain curve: sketch one, label the regions
+- [ ] 55. Factor of safety: choose one for a cardboard link
+- [ ] 56. Cardboard vs wood vs aluminum for the arm link: compare 3 properties
+- [ ] 57. Fatigue in plain words: bend a paperclip until it breaks, count
+- [ ] 58. Predict where the cardboard link would fail under the tip weight
+- [ ] 59. Test it, 3 sentences
+- [ ] 60. Pick the capstone link material and write why
 
 ## Japanese grammar (50, one new point per lesson, then practice)
 
