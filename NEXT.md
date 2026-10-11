@@ -91,7 +91,7 @@ Pending: photo of the FK drawing for `Mechatronics/portfolio/0.3-2link-fk-tip.md
 - [x] 1. に (point) / で (stage, tool) / を
 - [x] 2. Counters 冊 / 本 / 台, [noun]を[count][verb]
 - [x] 3. ます / ました / ません / ませんでした
-- [ ] 4. は vs が
+- [x] 4. は vs が
 - [ ] 5. あります / います
 - [ ] 6. これ / それ / あれ / どれ
 - [ ] 7. ここ / そこ / あそこ / どこ
