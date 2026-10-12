@@ -19,6 +19,23 @@ the questions or answer keys in `WEEK.md`. Read the project file before you
 ask about it. Never quote a number or code line you have not read in a file:
 an invented fact in a grill gets repeated to a teacher.
 
+## Work from a fixed list
+
+Weaker models drift: they keep asking smaller follow-ups on the last answer
+and lose the plan. So the grill runs from a numbered list, not from the
+conversation.
+
+1. Use the learner's own list if they gave one; otherwise the list in
+   `WEEK.md`; otherwise write 5-8 questions a teacher would ask about the
+   project, show them, and use those.
+2. Say where you are: "Q3 of 8."
+3. At most one follow-up per question. After that, give the answer in one
+   line, mark it "shaky", and move to the next list item. Rabbit holes are
+   for a later session, not this one.
+4. When the learner says stop ("enough", "move on", "that's enough python"),
+   stop the topic right away. Do not ask "one last" question. List what was
+   left open in `Learned/coursework.md`.
+
 ## Each question
 
 - One question per message, then wait. Several at once lets the learner

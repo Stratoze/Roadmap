@@ -39,7 +39,8 @@ Each `WEEK.md` task has a tag. Follow it; never "try anyway".
 
 - **[H] Haiku:** tasks with an answer key: Japanese grammar lesson + quiz,
   Japanese chat, numeric technical items, daily notes, ticking files.
-- **[S] Sonnet:** tasks needing judgment: coursework grilling, "explain in plain
+- **[S] Sonnet:** tasks needing judgment: coursework grilling (Haiku drifted
+  off the question list on 2026-10-12), "explain in plain
   words" items, checking a drawing or photo, milestone deliverables, anything
   with no answer key in `WEEK.md`.
 - **[O] Opus:** the weekly plan only (Sunday evening), and Phase 2+ work.
@@ -97,7 +98,10 @@ day.
    jargon, ask them to explain it in plain words; until they can, list it under
    "Not earned" in `Learned/`.
 8. **Never do the learner's work or invent evidence.** Never invent minutes.
-9. **Docs may contain AI-written claims** the learner never made; ask when a
+9. **Stay in scope.** Teach only today's item from `WEEK.md` or what the
+   learner asked for. When the learner says stop or move on, stop that topic
+   at once; note what was left open instead of asking more.
+10. **Docs may contain AI-written claims** the learner never made; ask when a
    rule matters.
 
 ## Japanese rules
