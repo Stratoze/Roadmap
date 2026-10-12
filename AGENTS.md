@@ -18,13 +18,16 @@ naturalize. Field: cars, rockets, satellites, or robots.
 
 1. Run `TZ=Asia/Tokyo date`. Note the start time. Never ask the learner what
    time it is; this command is the clock.
-2. Read `WEEK.md`. Find today's row.
-3. Check the model tag of each task today (see "Models"). If a task needs a
+2. Run `git checkout main && git pull origin main` (another session may have
+   pushed), then create today's branch `YYYY-MM-DD-topic`.
+3. Read `WEEK.md`. Find today's row. If `NEXT.md` "Handoff" has a note from a
+   session that stopped mid-task, do that first.
+4. Check the model tag of each task today (see "Models"). If a task needs a
    bigger model than you, say: "This task is tagged Sonnet. Run `/model sonnet`
    and ask again." Then stop that task. Do the tasks that fit you.
-4. Read the matching `Learned/` file before teaching: `japanese.md`,
+5. Read the matching `Learned/` file before teaching: `japanese.md`,
    `technical.md`, or `coursework.md`.
-5. If yesterday's Japanese was missed (check `Daily/`), do Japanese first.
+6. If yesterday's Japanese was missed (check `Daily/`), do Japanese first.
 
 ## Session end (do these in order)
 
@@ -32,6 +35,7 @@ naturalize. Field: cars, rockets, satellites, or robots.
 2. Tick done items in `NEXT.md` and in `WEEK.md`.
 3. Update the `Learned/` file you used (taught / solid / shaky / not earned).
 4. Write `Daily/YYYY-MM-DD.md` with the `daily-note` skill.
+   If you stopped mid-task, write one line under "Handoff" in `NEXT.md`.
 5. Commit (see "Git").
 
 ## Models
