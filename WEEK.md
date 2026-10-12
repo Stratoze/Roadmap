@@ -52,6 +52,8 @@ Answer keys are for the agent: show them only after the learner answers.
 - [ ] [H] Grammar 10: と (key A10). Chat opening line: きのう だれと たべましたか。
 - [ ] [H] Technical item 18 (key T18).
 - [ ] [O] Weekly plan, about 20:00: Opus reads the week's `Daily/` notes and `Learned/`, then rewrites this file.
+- [ ] [O] Haiku audit: Opus picks one Japanese session from this week (`list_sessions` / `list_events`), has a Sonnet subagent check every correction and every Haiku line for errors, untaught grammar, and drift. Wrong corrections go in `Learned/japanese.md` as "corrected by audit".
+- [ ] Learner: bring 3 sentences Haiku corrected this week to the Sat Japanese class and ask the teacher if the fixes are right. Report the answer.
 
 ---
 
