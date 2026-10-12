@@ -6,13 +6,10 @@ When a list runs out, Claude writes the next 50. What I've learned lives in `Lea
 **Every day:** 25 min Japanese (CJ ~5 episodes + next grammar point + ≥5-exchange Japanese chat) + 25 min technical (next items). Japanese first.
 Also: Tadoku level 0, one story aloud twice a week · katakana deck 5 min/day until fluent · Kaishi reviews only after both floors (cap 100, never counted).
 
-## Handoff (overwrite each session; last: 2026-10-10 10:36 JST)
+## Handoff
 
-Next session, in this order:
-1. **Technical:** item 7 (blank page, v = 4t² + t). Today's technical was 10:12–10:36 ≈ 24 min, 1 min short of the floor.
-2. **Japanese lesson:** grammar item 4, は vs が. Learner reads Tofugu's は/が article first (https://www.tofugu.com/japanese-grammar/), Claude then quizzes; open with one Japanese line.
-3. **Immersion:** learner reports today's CJ minutes (~5 episodes planned on the bus). Then Claude writes `Daily/2026-10-10.md` (JP lesson ≈ 09:41–09:49 + ます practice; Japanese chat ≈ 10:41–10:55; technical ≈ 24 min, items 3–6).
-Pending: photo of the FK drawing for `Mechatronics/portfolio/0.3-2link-fk-tip.md`. Tue 10/13: run `tools/check_progress.py` on the PC.
+The day-by-day plan lives in `WEEK.md` (Opus rewrites it each Sunday). Start there.
+Pending: photo of the FK drawing for `Mechatronics/portfolio/0.3-2link-fk-tip.md`.
 
 ## Technical (60)
 
@@ -23,7 +20,7 @@ Pending: photo of the FK drawing for `Mechatronics/portfolio/0.3-2link-fk-tip.md
 - [x] 4. MVM: integrate with limits: position at t = 3 s from v(t) = 2t, x(0) = 0 (units)
 - [x] 5. MVM: chain position → velocity → acceleration and back on those two items
 - [x] 6. MVM: explain derivative = rate of change, integral = accumulation (formula allowed)
-- [ ] 7. Full (blank page): same chain on a new item, v(t) = 4t² + t
+- [x] 7. Full (blank page): same chain on a new item, v(t) = 4t² + t
 - [ ] 8. Full: power → energy, P(t) = 6t W from 0 to 2 s, answer in joules
 - [ ] 9. Full: explain why area under v(t) is displacement, no formula
 
