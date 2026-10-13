@@ -14,7 +14,7 @@ Answer keys are for the agent: show them only after the learner answers.
 - [x] [H] Grammar 5: あります / います (see key A5).
 - [x] [H] Japanese chat, ≥5 exchanges, opening line: きょう がっこうに いきましたか。 (6 exchanges)
 - [x] [H] Technical item 8 (key T8).
-- [ ] [S] Technical item 9 (key T9).
+- [x] [S] Technical item 9 (key T9).
 - [ ] [S] Coursework: grill Q22 (key C22), then the learner drafts speaker notes for `presentation/talk.pptx` in their own words. Ask: talk length? live or recorded?
 - [ ] Learner, on PC: run `python tools/check_progress.py 7`, paste the output.
 

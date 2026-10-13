@@ -11,7 +11,10 @@ Claude updates this at the end of each session. Status: done = matched its check
 
 - 0.4 item 8 (2026-10-13): power → energy. P(t) = 6t W, 0–2 s: energy = area under P(t) = triangle, 1/2 × 2 s × 12 W = 12 J. Units given after a prompt.
 
+- 0.3 item 9 (2026-10-13): area under v(t) = distance. Steady case 2 m/s × 3 s = 6 m; triangle 0→6 m/s over 3 s = 9 m. Said all three parts after hints: thin strip with steady speed, strip area = v × t = distance, strips add to the total. First attempts were circular ("area is distance because...") and a units-only argument; the missing link (rectangle area = height × width = speed × time) needed a nudge. Euler link not said.
+
 ## Shaky
+- Item 8 note for Opus: Haiku accepted "area under the curve" as the reason, which is circular; the learner caught this on item 9.
 - Power vs energy (2026-10-13): predicted 6 J, taking the average power (6 W) as the energy. Energy = area under P(t), not the average. Final answer phrased as a question ("Area under the curve?"): not yet said as a confident sentence.
 - First instinct on area under v(t) was right-endpoint steps (2+4+6 = 12 m, overestimate); fixed with average speed
 - Answers rules before concrete numbers ("derivative tells you the result…")

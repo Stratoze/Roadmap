@@ -10,7 +10,7 @@ Also: Tadoku level 0, one story aloud twice a week · katakana deck 5 min/day un
 
 The day-by-day plan lives in `WEEK.md` (Opus rewrites it each Sunday). Start there.
 Pending: photo of the FK drawing for `Mechatronics/portfolio/0.3-2link-fk-tip.md`.
-2026-10-13 stopped at Technical 9 (tagged [S]: learner runs `/model sonnet` first) and the coursework grill Q22 (also [S], not started). Japanese floor done that day; next Japanese is grammar 6.
+2026-10-13 Technical 9 done on Sonnet. Left: coursework grill Q22 and speaker notes (both [S], not started).
 
 ## Technical (60)
 
@@ -23,7 +23,7 @@ Pending: photo of the FK drawing for `Mechatronics/portfolio/0.3-2link-fk-tip.md
 - [x] 6. MVM: explain derivative = rate of change, integral = accumulation (formula allowed)
 - [x] 7. Full (blank page): same chain on a new item, v(t) = 4t² + t
 - [x] 8. Full: power → energy, P(t) = 6t W from 0 to 2 s, answer in joules
-- [ ] 9. Full: explain why area under v(t) is displacement, no formula
+- [x] 9. Full: explain why area under v(t) is displacement, no formula
 
 0.4 Statics + free-body diagrams
 - [ ] 10. FBD: book resting on a table (every force, arrow, label)
