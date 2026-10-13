@@ -14,6 +14,9 @@ Claude updates this at the end of each session. Status: taught = shown once; sol
 - Taught in chat: にほん (Japan) vs にほんご (language); subject studied takes を, not で; なにも = nothing; [action]する not がする (ファスティングしてます); このあと = after this; ええ = yes, not an answer to なに; ～します (will do) vs ～しました (did)
 - Slip: language + する (日本語します → 日本語です / 日本語をべんきょうします)
 - Types with the iOS romaji keyboard (setup suggested 2026-10-10)
+- 2026-10-13 grammar 5 (あります / います): taught; 犬がいます, くるま → あります, 先生がいますか correct after two slips. Slips: ほんは いますか (wrong verb, and は for が); ぺんは ありまづか (は for が; まづか for ますか). Shaky: existence question uses が, not は.
+- 2026-10-13 chat slips: 学校行きました (に for the place you go to dropped); 夜の食べ物が食べました (→ を, the food is what is eaten); "Nothing" typed in English; 勉強する (plain form, not taught yet; answer with 勉強します). Natural short answers: 水です, 家です, 肉を食べました.
+- 2026-10-13: the learner's sound-based reading of kana (きょうが / がっこう) is a fair point; kept writing kana with spaces for now.
 
 ## Kana
 - Hiragana: solid. Small ゃゅょ: one slip (としよかん → としょかん)

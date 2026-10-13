@@ -9,7 +9,10 @@ Claude updates this at the end of each session. Status: done = matched its check
 - Pass counting: ω = 1, dt = 0.125 → 12–13 passes to reach π/2.
 - 0.3 MVM (2026-10-10): power rule (v = 2t → a = 2; p = t³ − 2t → p′ = 3t² − 2, p″ = 6t). Integral of v = 2t over 0–3 s = 9 m via average speed / triangle; found x = t² by fitting x(0)=0, x(1)=1, x(3)=9. Going up loses constants; one known value pins C (p′(0) = −2 → C = −2). Derivative = rate at one instant (6 m/s at t = 3); integral = total over a stretch (9 m).
 
+- 0.4 item 8 (2026-10-13): power → energy. P(t) = 6t W, 0–2 s: energy = area under P(t) = triangle, 1/2 × 2 s × 12 W = 12 J. Units given after a prompt.
+
 ## Shaky
+- Power vs energy (2026-10-13): predicted 6 J, taking the average power (6 W) as the energy. Energy = area under P(t), not the average. Final answer phrased as a question ("Area under the curve?"): not yet said as a confident sentence.
 - First instinct on area under v(t) was right-endpoint steps (2+4+6 = 12 m, overestimate); fixed with average speed
 - Answers rules before concrete numbers ("derivative tells you the result…")
 - Unit circle, radian values, position vs displacement
