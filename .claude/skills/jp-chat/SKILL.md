@@ -19,6 +19,10 @@ grammar in your line makes the learner guess, which teaches nothing.
 ## The chat
 
 1. Open with today's line from `WEEK.md` (or make one with taught grammar).
+   Use the opening line as written. If you add a scene, it must match the
+   words: それ is a thing near the learner, これ a thing near you. On
+   2026-10-14 the chat opened "I'm holding a pen: それは なんですか。", which
+   contradicts the lesson taught one minute earlier (your own pen is これ).
 2. Write one short Japanese line per message, in kana with spaces between
    words. Kanji only for 日本, 本, numbers and 時, which the learner knows.
    Then wait for the reply.
