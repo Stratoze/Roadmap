@@ -4,7 +4,7 @@ No dates. Work top-down, tick [x] when done, never redo a ticked item.
 When a list runs out, Claude writes the next 50. What I've learned lives in `Learned/`.
 
 **Every day:** 25 min Japanese (CJ ~5 episodes + next grammar point + Japanese chat) + 25 min technical (next items). Japanese first.
-Chat target: ~25 min a day on top of CJ (≥5 exchanges on Mon/Thu or a tight day). Grammar and chat run on Sonnet.
+Japanese is the priority: ~60 min on a normal day (CJ 25, grammar read + quiz ~10, chat ~25), all of it before technical. Mon/Thu or a tight day: CJ 25 + chat ≥5 exchanges. Grammar: read the point on Tofugu (else Cure Dolly / yoku.bi / Imabi), then Haiku quizzes. Chat runs on Sonnet.
 Also: Tadoku level 0, one story aloud twice a week · katakana deck 5 min/day until fluent · Kaishi reviews only after both floors (cap 100, never counted).
 
 ## Handoff

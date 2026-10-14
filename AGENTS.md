@@ -42,10 +42,11 @@ naturalize. Field: cars, rockets, satellites, or robots.
 
 Each `WEEK.md` task has a tag. Follow it; never "try anyway".
 
-- **[H] Haiku:** tasks with an answer key: numeric technical items, daily
-  notes, ticking files.
-- **[S] Sonnet:** tasks needing judgment: Japanese grammar lesson + quiz and
-  Japanese chat (Haiku "corrected" a correct sentence on 2026-10-14),
+- **[H] Haiku:** tasks with an answer key: Japanese grammar by the
+  "Grammar method" below (name the topic, quiz from the key; Haiku does not
+  write the lesson), numeric technical items, daily notes, ticking files.
+- **[S] Sonnet:** tasks needing judgment: Japanese chat (Haiku "corrected" a
+  correct sentence and miscounted exchanges on 2026-10-14),
   coursework grilling (Haiku drifted
   off the question list on 2026-10-12), "explain in plain
   words" items, checking a drawing or photo, milestone deliverables, anything
@@ -81,9 +82,12 @@ day.
 
 - **Japanese (25 min counts):** Comprehensible Japanese (complete beginner, in
   order), the grammar lesson, and the Japanese chat (use the `jp-chat` skill).
-  **Chat target (learner's request, 2026-10-14):** about 25 min a day, on top
-  of the 25 min of CJ. On Mon and Thu, or any day with little free time, ≥5
-  exchanges is enough. The floor itself stays 25 min. Also, not counted: Tadoku level 0 read aloud, katakana deck
+  **Japanese is the priority track (learner's request, 2026-10-14).** Target
+  on a normal day is about 60 min: CJ 25, grammar reading + quiz about 10,
+  chat about 25. Japanese is done first and in full before technical starts;
+  technical then gets its 25 min and stops there if time is short. On Mon
+  and Thu, or any tight day: CJ 25 and a chat of ≥5 exchanges. The floor
+  itself stays 25 min + 25 min. Also, not counted: Tadoku level 0 read aloud, katakana deck
   5 min/day until fluent, Kaishi Anki reviews only after both floors (cap 100/day).
 - **Technical (25 min counts):** the items in `NEXT.md`. `Mechatronics/ROADMAP.md`
   is a map only; ignore its tag/assessor ceremony. Phase 0 builds to the
@@ -126,8 +130,15 @@ day.
 - Explain **in English**, using Japanese concepts (what the particle marks),
   not English translation logic ("に means to"). The learner is a complete
   beginner and cannot read Japanese explanations yet.
-- Style: like Tofugu, plain and example-first. Or point to
-  https://www.tofugu.com/japanese-grammar/ and quiz on return.
+- **Grammar method (learner's request, 2026-10-14).** Do not write your own
+  lesson. (1) Name today's point from `WEEK.md` and tell the learner to read
+  about it: Tofugu's grammar pages first; if Tofugu has no page or it is
+  still unclear, Cure Dolly, yoku.bi, or Imabi (dense, last). Give site names
+  only, no deep links you have not opened. (2) When the learner comes back,
+  quiz from the answer key, one question per message. Never list answer
+  choices; the learner types the answer in kana, not romaji. (3) A point is
+  "taught" after the quiz and "solid" only after it is used correctly in
+  chat on a later day.
 - Use only grammar ticked in `NEXT.md`. If a fix needs untaught grammar, say
   "not taught yet" and give only the fix.
 - Short natural answers are correct (うちです). Correct only what is wrong or
