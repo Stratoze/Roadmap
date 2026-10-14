@@ -19,7 +19,7 @@ Answer keys are for the agent: show them only after the learner answers.
 - [x] [H] Japanese chat, ≥5 exchanges, opening line: きょう がっこうに いきましたか。 (6 exchanges)
 - [x] [H] Technical item 8 (key T8).
 - [x] [S] Technical item 9 (key T9).
-- [ ] [S] Coursework: grill Q22 (key C22), then the learner drafts speaker notes for `presentation/talk.pptx` in their own words. Ask: talk length? live or recorded?
+- [x] [S] Coursework: grill Q22 (key C22) (done 10-14 on Opus as a 7-question grill on the current repo; key C22 was stale), then the learner drafts speaker notes for `presentation/talk.pptx` in their own words. Ask: talk length? live or recorded?
 - [ ] Learner, on PC: run `python tools/check_progress.py 7`, paste the output.
 
 ## Wed 10-14 (free 16:10-24)
