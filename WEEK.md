@@ -4,7 +4,8 @@ Written by Opus on Mon 10-12. Rewritten each Sunday evening. Tags: [H] Haiku,
 [S] Sonnet, [O] Opus. Changed Wed 10-14: Japanese first and in full each day
 (~60 min: CJ 25, grammar ~10, chat ~25), then technical 25 min. Grammar [H]: Haiku
 names the point, the learner reads it on Tofugu (or Cure Dolly / yoku.bi / Imabi),
-Haiku quizzes from the key with no choices listed, answers in kana. Chat [S]. Tick `[x]` here and in `NEXT.md` when the check passes.
+Haiku quizzes from the key with no choices listed, answers in kana. Chat [H]: Haiku
+prints the prompt, the learner chats in a free chat service, pastes it back, Haiku logs. Tick `[x]` here and in `NEXT.md` when the check passes.
 Answer keys are for the agent: show them only after the learner answers.
 
 **Big event:** Python presentation, Thu 10-15 11:00 JST.
@@ -33,7 +34,7 @@ Answer keys are for the agent: show them only after the learner answers.
 
 - [ ] [H] CJ on the bus, ~25 min.
 - [ ] [H] Grammar 7: ここ / そこ / あそこ / どこ: read, then quiz (key A7).
-- [ ] [S] Chat ≥5 exchanges (tight day), opening line: トイレは どこですか。
+- [ ] [H] Chat ≥5 exchanges (tight day), opening line: トイレは どこですか。
 - [ ] [H] Technical item 13 (key T13), by hand on paper.
 - [ ] [H] After the talk: learner reports the questions the teacher asked. Log them in `Learned/coursework.md`.
 
@@ -41,7 +42,7 @@ Answer keys are for the agent: show them only after the learner answers.
 
 - [ ] [H] CJ ~25 min.
 - [ ] [H] Grammar 8: の: read, then quiz (key A8).
-- [ ] [S] Chat ~25 min, opening line: それは だれの ほんですか。
+- [ ] [H] Chat ~25 min, opening line: それは だれの ほんですか。
 - [ ] [S] Technical item 12 (key T12), photo of the drawing.
 - [ ] [H] Technical items 14, 15 (keys T14, T15).
 
@@ -49,14 +50,14 @@ Answer keys are for the agent: show them only after the learner answers.
 
 - [ ] [H] CJ ~25 min.
 - [ ] [H] Grammar 9: も: read, then quiz (key A9).
-- [ ] [S] Chat ~25 min, opening line: わたしは がくせいです。あなたは？
+- [ ] [H] Chat ~25 min, opening line: わたしは がくせいです。あなたは？
 - [ ] [H] Technical items 16, 17 (keys T16, T17).
 
 ## Sun 10-18 (social 9-16, asleep by 22:00)
 
 - [ ] [H] CJ ~25 min.
 - [ ] [H] Grammar 10: と: read, then quiz (key A10).
-- [ ] [S] Chat ~25 min, opening line: きのう だれと たべましたか。
+- [ ] [H] Chat ~25 min, opening line: きのう だれと たべましたか。
 - [ ] [H] Technical item 18 (key T18).
 - [ ] [O] Weekly plan, about 20:00: Opus reads the week's `Daily/` notes and `Learned/`, then rewrites this file.
 - [ ] [O] Chat audit: Opus picks one Japanese session from this week (`list_sessions` / `list_events`), has a Sonnet subagent check every correction and every Claude line for errors, untaught grammar, and drift. Wrong corrections go in `Learned/japanese.md` as "corrected by audit".

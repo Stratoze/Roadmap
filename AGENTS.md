@@ -44,20 +44,22 @@ Each `WEEK.md` task has a tag. Follow it; never "try anyway".
 
 - **[H] Haiku:** tasks with an answer key: Japanese grammar by the
   "Grammar method" below (name the topic, quiz from the key; Haiku does not
-  write the lesson), numeric technical items, daily notes, ticking files.
-- **[S] Sonnet:** tasks needing judgment: Japanese chat (Haiku "corrected" a
-  correct sentence and miscounted exchanges on 2026-10-14),
+  write the lesson), Japanese chat hand-over and logging (the chat itself
+  runs in a free chat service, see the `jp-chat` skill; Haiku does not chat
+  or correct, because it "corrected" a correct sentence and miscounted
+  exchanges on 2026-10-14), numeric technical items, daily notes, ticking
+  files.
+- **[S] Sonnet:** tasks needing judgment:
   coursework grilling (Haiku drifted
   off the question list on 2026-10-12), "explain in plain
   words" items, checking a drawing or photo, milestone deliverables, anything
   with no answer key in `WEEK.md`.
 - **[O] Opus:** the weekly plan only (Sunday evening), and Phase 2+ work.
 
-**Japanese sessions: prefer the learner's PC** (desktop app, or Remote Control
-from the phone, which needs the PC on). Opus can only read transcripts saved
-on the PC, and the Sunday audit needs one. A cloud session is fine when the
-PC is off; then the learner pastes one chat from the week to Opus on Sunday
-(agreed 2026-10-14).
+**Sunday audit:** Opus cannot read cloud sessions or the outside chat
+service, so the learner pastes one chat from the week to Opus on Sunday
+(agreed 2026-10-14). Sonnet costs enough that the learner skips tasks tagged
+with it; keep [S] for coursework and judgment-only technical items.
 
 If Haiku ever accepts a wrong answer, the learner tells Opus at the weekly plan
 and that task type moves to Sonnet.
