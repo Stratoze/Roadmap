@@ -60,7 +60,7 @@ Answer keys are for the agent: show them only after the learner answers.
 - [ ] [H] Chat ~25 min, opening line: きのう だれと たべましたか。
 - [ ] [H] Technical item 18 (key T18).
 - [ ] [O] Weekly plan, about 20:00: Opus reads the week's `Daily/` notes and `Learned/`, then rewrites this file.
-- [ ] [O] Chat audit: Opus picks one Japanese session from this week (`list_sessions` / `list_events`), has a Sonnet subagent check every correction and every Claude line for errors, untaught grammar, and drift. Wrong corrections go in `Learned/japanese.md` as "corrected by audit".
+- [ ] [O] Chat audit: the learner pastes one chat from this week (from the free chat service) to Opus, who checks every correction and every partner line for errors, untaught grammar, and drift. The 10-14 Haiku chat is already audited. Wrong corrections go in `Learned/japanese.md` as "corrected by audit".
 - [ ] Learner: bring 3 sentences Claude corrected this week to the Sat Japanese class and ask the teacher if the fixes are right. Report the answer.
 
 ---
