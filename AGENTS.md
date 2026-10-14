@@ -52,6 +52,12 @@ Each `WEEK.md` task has a tag. Follow it; never "try anyway".
   with no answer key in `WEEK.md`.
 - **[O] Opus:** the weekly plan only (Sunday evening), and Phase 2+ work.
 
+**Japanese sessions run on the learner's PC** (desktop app, or Remote Control
+from the phone), never in a cloud session: Opus can only read transcripts
+saved on the PC, and the Sunday audit needs them (agreed 2026-10-14). If you
+are a cloud session and today's task is Japanese grammar or chat, say so and
+stop that task.
+
 If Haiku ever accepts a wrong answer, the learner tells Opus at the weekly plan
 and that task type moves to Sonnet.
 
