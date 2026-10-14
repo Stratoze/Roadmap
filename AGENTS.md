@@ -42,9 +42,11 @@ naturalize. Field: cars, rockets, satellites, or robots.
 
 Each `WEEK.md` task has a tag. Follow it; never "try anyway".
 
-- **[H] Haiku:** tasks with an answer key: Japanese grammar lesson + quiz,
-  Japanese chat, numeric technical items, daily notes, ticking files.
-- **[S] Sonnet:** tasks needing judgment: coursework grilling (Haiku drifted
+- **[H] Haiku:** tasks with an answer key: numeric technical items, daily
+  notes, ticking files.
+- **[S] Sonnet:** tasks needing judgment: Japanese grammar lesson + quiz and
+  Japanese chat (Haiku "corrected" a correct sentence on 2026-10-14),
+  coursework grilling (Haiku drifted
   off the question list on 2026-10-12), "explain in plain
   words" items, checking a drawing or photo, milestone deliverables, anything
   with no answer key in `WEEK.md`.
@@ -72,8 +74,10 @@ and that task type moves to Sonnet.
 day.
 
 - **Japanese (25 min counts):** Comprehensible Japanese (complete beginner, in
-  order), the grammar lesson, and the Japanese chat (≥5 exchanges, use the
-  `jp-chat` skill). Also, not counted: Tadoku level 0 read aloud, katakana deck
+  order), the grammar lesson, and the Japanese chat (use the `jp-chat` skill).
+  **Chat target (learner's request, 2026-10-14):** about 25 min a day, on top
+  of the 25 min of CJ. On Mon and Thu, or any day with little free time, ≥5
+  exchanges is enough. The floor itself stays 25 min. Also, not counted: Tadoku level 0 read aloud, katakana deck
   5 min/day until fluent, Kaishi Anki reviews only after both floors (cap 100/day).
 - **Technical (25 min counts):** the items in `NEXT.md`. `Mechatronics/ROADMAP.md`
   is a map only; ignore its tag/assessor ceremony. Phase 0 builds to the

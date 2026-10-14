@@ -1,7 +1,8 @@
 # WEEK 2026-10-12 → 2026-10-18
 
 Written by Opus on Mon 10-12. Rewritten each Sunday evening. Tags: [H] Haiku,
-[S] Sonnet, [O] Opus. Tick `[x]` here and in `NEXT.md` when the check passes.
+[S] Sonnet, [O] Opus. Changed Wed 10-14: Japanese grammar and chat moved to
+Sonnet; chat target ~25 min a day (≥5 exchanges on Mon/Thu). Tick `[x]` here and in `NEXT.md` when the check passes.
 Answer keys are for the agent: show them only after the learner answers.
 
 **Big event:** Python presentation, Thu 10-15 11:00 JST.
@@ -29,31 +30,31 @@ Answer keys are for the agent: show them only after the learner answers.
 ## Thu 10-15 (presentation 11:00; free only 14:10-16 bus, 22:00+)
 
 - [ ] [H] CJ on the bus, ~25 min.
-- [ ] [H] Grammar 7: ここ / そこ / あそこ / どこ (key A7). Chat opening line: トイレは どこですか。
+- [ ] [S] Grammar 7: ここ / そこ / あそこ / どこ (key A7). Chat ≥5 exchanges (tight day), opening line: トイレは どこですか。
 - [ ] [H] Technical item 13 (key T13), by hand on paper.
 - [ ] [H] After the talk: learner reports the questions the teacher asked. Log them in `Learned/coursework.md`.
 
 ## Fri 10-16 (free)
 
 - [ ] [H] CJ ~25 min.
-- [ ] [H] Grammar 8: の (key A8). Chat opening line: それは だれの ほんですか。
+- [ ] [S] Grammar 8: の (key A8). Chat ~25 min, opening line: それは だれの ほんですか。
 - [ ] [S] Technical item 12 (key T12), photo of the drawing.
 - [ ] [H] Technical items 14, 15 (keys T14, T15).
 
 ## Sat 10-17 (free 16:10-24)
 
 - [ ] [H] CJ ~25 min.
-- [ ] [H] Grammar 9: も (key A9). Chat opening line: わたしは がくせいです。あなたは？
+- [ ] [S] Grammar 9: も (key A9). Chat ~25 min, opening line: わたしは がくせいです。あなたは？
 - [ ] [H] Technical items 16, 17 (keys T16, T17).
 
 ## Sun 10-18 (social 9-16, asleep by 22:00)
 
 - [ ] [H] CJ ~25 min.
-- [ ] [H] Grammar 10: と (key A10). Chat opening line: きのう だれと たべましたか。
+- [ ] [S] Grammar 10: と (key A10). Chat ~25 min, opening line: きのう だれと たべましたか。
 - [ ] [H] Technical item 18 (key T18).
 - [ ] [O] Weekly plan, about 20:00: Opus reads the week's `Daily/` notes and `Learned/`, then rewrites this file.
-- [ ] [O] Haiku audit: Opus picks one Japanese session from this week (`list_sessions` / `list_events`), has a Sonnet subagent check every correction and every Haiku line for errors, untaught grammar, and drift. Wrong corrections go in `Learned/japanese.md` as "corrected by audit".
-- [ ] Learner: bring 3 sentences Haiku corrected this week to the Sat Japanese class and ask the teacher if the fixes are right. Report the answer.
+- [ ] [O] Chat audit: Opus picks one Japanese session from this week (`list_sessions` / `list_events`), has a Sonnet subagent check every correction and every Claude line for errors, untaught grammar, and drift. Wrong corrections go in `Learned/japanese.md` as "corrected by audit".
+- [ ] Learner: bring 3 sentences Claude corrected this week to the Sat Japanese class and ask the teacher if the fixes are right. Report the answer.
 
 ---
 

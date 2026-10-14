@@ -18,7 +18,7 @@ Claude updates this at the end of each session. Status: taught = shown once; sol
 - 2026-10-13 chat slips: 学校行きました (に for the place you go to dropped); 夜の食べ物が食べました (→ を, the food is what is eaten); "Nothing" typed in English; 勉強する (plain form, not taught yet; answer with 勉強します). Natural short answers: 水です, 家です, 肉を食べました.
 - 2026-10-14 grammar 6 (これ / それ / あれ / どれ): taught; quiz 4/4 (kore, sore, are, dore). Solid on the distance rule; dore answered with a full sentence (どれが あなたの バッグですか).
 - 2026-10-14 chat (opener それは なんですか。): ぺんです correct. Slips: ないです for "no" (→ いいえ; ないです means "there is not", it does not answer ほんですか). わくるないです (→ わかりません, not taught yet). Shaky: はい / いいえ answers.
-- 2026-10-14 audit note: Haiku "corrected" 学校にいます to いきます when asked "will you go?". Wrong: 学校にいます is correct for "I'm at school now". Retracted in chat. Corrected by audit (Opus to check).
+- 2026-10-14 audit note: Haiku "corrected" 学校にいます to いきます when asked "will you go?". Wrong: 学校にいます is correct for "I'm at school now". Retracted in chat. Corrected by audit; Opus confirmed 2026-10-14 from this note only (the session transcript is not on the PC): にいます = is at a place, にいきます = goes to it, both are correct sentences.
 - 2026-10-13: the learner's sound-based reading of kana (きょうが / がっこう) is a fair point; kept writing kana with spaces for now.
 
 ## Kana

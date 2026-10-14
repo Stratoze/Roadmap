@@ -1,6 +1,6 @@
 ---
 name: jp-chat
-description: Run the learner's daily Japanese written chat (at least 5 exchanges, using only grammar already taught) and correct their replies. Use this whenever WEEK.md lists a Japanese chat, the learner writes to you in Japanese, asks to "chat in Japanese" or "practice Japanese", or sends a Japanese sentence to check.
+description: Run the learner's daily Japanese written chat (about 25 minutes, at least 5 exchanges, using only grammar already taught) and correct their replies. Use this whenever WEEK.md lists a Japanese chat, the learner writes to you in Japanese, asks to "chat in Japanese" or "practice Japanese", or sends a Japanese sentence to check.
 ---
 
 # jp-chat
@@ -38,7 +38,11 @@ grammar in your line makes the learner guess, which teaches nothing.
 7. Explain in English, using what the particle or form *marks*, not an
    English translation. The learner cannot read Japanese explanations yet,
    and "に = to" style rules break quickly.
-8. Stop after 5 or more exchanges.
+8. Run for about 25 minutes by the clock (`TZ=Asia/Tokyo date` at the start
+   and when you think time is up). On Mon and Thu, or when the learner says
+   they are short on time, stop after 5 or more exchanges. A long chat with
+   few grammar points gets repetitive, so vary the topic (food, school,
+   family, things in the room, yesterday, tomorrow), not the grammar.
 
 ## Correction format
 
