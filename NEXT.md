@@ -8,6 +8,7 @@ Japanese is the priority: ~60 min on a normal day (CJ 25, grammar read + quiz ~1
 Also: Tadoku level 0, one story aloud twice a week · katakana deck 5 min/day until fluent · Kaishi reviews only after both floors (cap 100, never counted).
 
 ## Handoff
+For Opus (weekly plan): learner asked for Haiku to log weight, food and exercise, and to suggest what to eat and do each day, so the Opus plan can decide. Not set up. AGENTS.md covers learning only, and diet or exercise advice needs a qualified source, not this repo.
 
 The day-by-day plan lives in `WEEK.md` (Opus rewrites it each Sunday). Start there.
 Pending: photo of the FK drawing for `Mechatronics/portfolio/0.3-2link-fk-tip.md`.
