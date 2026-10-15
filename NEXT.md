@@ -8,6 +8,7 @@ Japanese is the priority: ~60 min on a normal day (CJ 25, grammar read + quiz ~1
 Also: Tadoku level 0, one story aloud twice a week · katakana deck 5 min/day until fluent · Kaishi reviews only after both floors (cap 100, never counted).
 
 ## Handoff
+For Opus, same proposal, more options from learner: a mini self-driving car (AI in a car, fits the goal), or a small robot with a QDD (quasi-direct drive) actuator (fits robots). Learner has not chosen. Feng shui AI is still on the list.
 For Opus (weekly plan), proposed by learner 2026-10-15: add learning to make AI and statistics. First milestone idea: a feng shui AI. Rules (feng shui), building blocks (walls, furniture, ceiling at a set height), a bot places blocks, scored by an evaluator, then reinforcement learning. Physics simulation (thermodynamics, light) might be part of the evaluator. Learner unsure it is the best path. Flags for Opus: the stated goal field is cars, rockets, satellites, or robots (AGENTS.md Goal), and market research is not statistics as such.
 For Opus (weekly plan): learner asked for Haiku to log weight, food and exercise, and to suggest what to eat and do each day, so the Opus plan can decide. Not set up. AGENTS.md covers learning only, and diet or exercise advice needs a qualified source, not this repo.
 
