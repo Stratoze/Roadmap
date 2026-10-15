@@ -37,7 +37,7 @@ Pending: photo of the FK drawing for `Mechatronics/portfolio/0.3-2link-fk-tip.md
 - [x] 13. Predict, then compute: torque of a 1 N force at 0.1 m, at 90°
 - [x] 14. Same force at 45° and 0°: predict which is bigger, then compute
 - [ ] 15. Moment arm in plain words: draw it for item 14
-- [ ] 16. Torque of a link's own weight about the shoulder (weight at the middle)
+- [x] 16. Torque of a link's own weight about the shoulder (weight at the middle)
 - [ ] 17. That torque at link angles 0°, 45°, 90°: predict, then compute
 - [ ] 18. Equilibrium: two forces on a seesaw, find the missing one
 - [ ] 19. Equilibrium: link held by a hand force, solve for the force
@@ -106,7 +106,7 @@ Pending: photo of the FK drawing for `Mechatronics/portfolio/0.3-2link-fk-tip.md
 - [ ] 13. に for time (３時に)
 - [ ] 14. 時 / 分, telling time
 - [ ] 15. 曜日, days of the week
-- [ ] 16. Counter つ (ひとつ, ふたつ)
+- [x] 16. Counter つ (ひとつ, ふたつ)
 - [ ] 17. Counter 人 (ひとり, ふたり)
 - [ ] 18. い-adjectives: たかい / たかくない
 - [ ] 19. い-adjectives past: たかかった / たかくなかった
