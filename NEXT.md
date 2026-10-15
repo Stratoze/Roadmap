@@ -33,7 +33,7 @@ Pending: photo of the FK drawing for `Mechatronics/portfolio/0.3-2link-fk-tip.md
 - [ ] 10. FBD: book resting on a table (every force, arrow, label)
 - [ ] 11. FBD: book pushed sideways but not sliding
 - [ ] 12. FBD: one link held horizontal by a hand at one end
-- [ ] 13. Predict, then compute: torque of a 1 N force at 0.1 m, at 90°
+- [x] 13. Predict, then compute: torque of a 1 N force at 0.1 m, at 90°
 - [ ] 14. Same force at 45° and 0°: predict which is bigger, then compute
 - [ ] 15. Moment arm in plain words: draw it for item 14
 - [ ] 16. Torque of a link's own weight about the shoulder (weight at the middle)

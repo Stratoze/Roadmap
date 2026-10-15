@@ -22,6 +22,7 @@ Claude updates this at the end of each session. Status: done = matched its check
 
 ## Parked
 - Closed-form sum for θ after n passes (series algebra, not needed for the loop)
+- 2026-10-15 item 13 (torque of 1 N at 0.1 m, 90°): answer 0.1 N·m, matches the check. First try was 1 N/0.1 m and 10 N/m (divided, and N/m is the wrong unit). Corrected: torque is N·m and distance multiplies. Shaky: the formula F × d × sin θ, written before the number. Not yet earned: "torque" in plain words (it was not explained by the learner). Items 10–12 still open (Sonnet-tagged).
 
 ## Not earned (explain in plain words instead)
 - "first-order"
