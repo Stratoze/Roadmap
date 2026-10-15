@@ -44,14 +44,14 @@ Answer keys are for the agent: show them only after the learner answers.
 - [ ] [H] Grammar 8: の: read, then quiz (key A8).
 - [ ] [H] Chat ~25 min, opening line: それは だれの ほんですか。
 - [ ] [S] Technical item 12 (key T12), photo of the drawing.
-- [ ] [H] Technical items 14, 15 (keys T14, T15).
+- [ ] [H] Technical items 14, 15 (keys T14, T15). Item 14 done 10-15 (45°: 0.07 N·m; predicted 90° bigger). Item 15 waits for the drawing, locked for Sat 10-17 12:00 JST.
 
 ## Sat 10-17 (free 16:10-24)
 
 - [ ] [H] CJ ~25 min.
 - [ ] [H] Grammar 9: も: read, then quiz (key A9).
 - [ ] [H] Chat ~25 min, opening line: わたしは がくせいです。あなたは？
-- [ ] [H] Technical items 16, 17 (keys T16, T17).
+- [ ] [H] Technical items 16, 17 (keys T16, T17). Item 16 done 10-15 (learner's own numbers, 0.2 kg, 0.3 m link: 0.294 N·m; key uses 0.05 kg, 0.2 m). Item 17 open.
 
 ## Sun 10-18 (social 9-16, asleep by 22:00)
 
