@@ -28,7 +28,7 @@ Answer keys are for the agent: show them only after the learner answers.
 - [x] [H] Grammar 6: これ / それ / あれ / どれ (key A6). (quiz 4/4)
 - [x] [H] Japanese chat, opening line: それは なんですか。 (4 exchanges, recounted)
 - [ ] [S] Technical items 10, 11 (keys T10, T11). Learner sends a photo of each drawing.
-- [ ] [S] Coursework: timed read-aloud of the talk + 3 surprise questions from the list below (C-list). Note the time.
+- [ ] [S] Coursework: timed read-aloud of the talk + 3 surprise questions from the list below (C-list). Note the time. (Moot: the talk was delivered 10-15; not done.)
 
 ## Thu 10-15 (presentation 11:00; free only 14:10-16 bus, 22:00+)
 
