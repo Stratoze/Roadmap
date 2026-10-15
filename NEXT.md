@@ -95,7 +95,7 @@ Pending: photo of the FK drawing for `Mechatronics/portfolio/0.3-2link-fk-tip.md
 - [x] 5. あります / います
 - [x] 6. これ / それ / あれ / どれ
 - [x] 7. ここ / そこ / あそこ / どこ
-- [ ] 8. の (my, the teacher's)
+- [x] 8. の (my, the teacher's)
 - [ ] 9. も (also)
 - [ ] 10. と (and, with)
 - [ ] 11. や (and so on)

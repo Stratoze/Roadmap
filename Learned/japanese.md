@@ -9,6 +9,8 @@ Claude updates this at the end of each session. Status: taught = shown once; sol
 - [noun][count]しかありません: taught
 - ます / ました / ません / ませんでした: taught + practised 2026-10-10. Slips: ませんだった (→ ませんでした), 本 as book counter (→ 冊), がっこ (→ がっこう)
 
+- の (grammar 8, 2026-10-15): taught, quiz 5/5 (わたしの学校, 先生のバッグ, 日本の本, あなたの本, あなたの学校). Learner asked whether 日本の本 means "about Japan": no, の links the two nouns, so it means a book from Japan or a Japanese book. "About" needs a structure not taught yet. Not solid until used in chat.
+
 ## Chat practice (one Japanese line per lesson, started 2026-10-10)
 - Natural short answers already: うちです, 八時です, 日本語です
 - Taught in chat: にほん (Japan) vs にほんご (language); subject studied takes を, not で; なにも = nothing; [action]する not がする (ファスティングしてます); このあと = after this; ええ = yes, not an answer to なに; ～します (will do) vs ～しました (did)
