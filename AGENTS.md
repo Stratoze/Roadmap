@@ -170,8 +170,8 @@ tracks, plans, or automates learning.
 
 - Raw productions go only to `_private/`.
 - Pushed history is immutable; fix forward.
-- Commit messages: no `Claude-Session:` line. A `Co-Authored-By` line names
-  the model actually running this session, not another one.
+- Commit messages: no `Claude-Session:` line. A `Co-Authored-By` line is fine
+  but names only `Claude <noreply@anthropic.com>`, never a model name or version.
 - Commit during the session; push the branch and fast-forward `main` once,
   at session end (new sessions start from `main`). No push per tiny commit.
 - Branch names: `YYYY-MM-DD-topic`; rename auto-generated names before pushing.
