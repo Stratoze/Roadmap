@@ -20,6 +20,12 @@ Claude updates this at the end of each session. Status: taught = shown once; sol
 - 2026-10-14 chat (opener それは なんですか。): ぺんです correct. Slips: ないです for "no" (→ いいえ; ないです means "there is not", it does not answer ほんですか). わくるないです (→ わかりません, not taught yet). Shaky: はい / いいえ answers. Missed by Haiku: それわ → それは (the topic particle is written は, said wa).
 - 2026-10-14 audit note: Haiku "corrected" 学校にいます to いきます when asked "will you go?". Wrong: 学校にいます is correct for "I'm at school now". Retracted in chat. Corrected by audit; Opus confirmed 2026-10-14 from this note only (the session transcript is not on the PC): にいます = is at a place, にいきます = goes to it, both are correct sentences.
 - 2026-10-13: the learner's sound-based reading of kana (きょうが / がっこう) is a fair point; kept writing kana with spaces for now.
+- 2026-10-15 (external chat): 21 learner replies, opener トイレは どこですか。, grammar 1-7 from NEXT.md. Corrections, as the chat listed them:
+  - 2026-10-15 (external chat): はい、白の犬です → はい、しろい いぬです。 (not taught yet)
+  - 2026-10-15 (external chat): いいえ、いきないです → いいえ、いきません。 (ません: polite negative action)
+  - 2026-10-15 (external chat): ここにぺんはありませn → ここに ペンは ありません。 (ません: polite negative verb)
+  - 2026-10-15 (external chat): はい、おおい車があります → はい、くるまが たくさん あります。 (not taught yet)
+  - 2026-10-15 (external chat): にじゅだいくらいです → にじゅうだいくらいです。 (20 is にじゅう, long vowel)
 
 ## Kana
 - Hiragana: solid. Small ゃゅょ: one slip (としよかん → としょかん)

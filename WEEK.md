@@ -34,7 +34,7 @@ Answer keys are for the agent: show them only after the learner answers.
 
 - [ ] [H] CJ on the bus, ~25 min.
 - [ ] [H] Grammar 7: ここ / そこ / あそこ / どこ: read, then quiz (key A7).
-- [ ] [H] Chat ≥5 exchanges (tight day), opening line: トイレは どこですか。
+- [x] [H] Chat ≥5 exchanges (tight day), opening line: トイレは どこですか。 (21 replies, external chat, 10-15)
 - [ ] [H] Technical item 13 (key T13), by hand on paper.
 - [x] [H] After the talk: learner reports the questions the teacher asked. Log them in `Learned/coursework.md`. (Teacher asked nothing, 10-15.)
 
