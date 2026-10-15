@@ -23,6 +23,7 @@ Claude updates this at the end of each session. Status: done = matched its check
 ## Parked
 - Closed-form sum for θ after n passes (series algebra, not needed for the loop)
 - 2026-10-15 item 13 (torque of 1 N at 0.1 m, 90°): answer 0.1 N·m, matches the check. First try was 1 N/0.1 m and 10 N/m (divided, and N/m is the wrong unit). Corrected: torque is N·m and distance multiplies. Shaky: the formula F × d × sin θ, written before the number. Not yet earned: "torque" in plain words (it was not explained by the learner). Items 10–12 still open (Sonnet-tagged).
+- 2026-10-15 item 14 (1 N at 0.1 m, 45° vs 0°): predicted 90° bigger than 45° (right), computed 0.07 N·m at 45° (right, 0.0707). 0° case: predicted no torque for a force along the arm (right, 0 N·m). Asked "why" in depth (components along vs perpendicular to the arm, distance factor, torque = F·d·sin θ as work per radian); explained by Sonnet this session, learner can't yet say it back. Open: the learner's friction/slide-angle (tan θ > μ), pressure/area and material questions, parked for items 10–11 and 52–60.
 
 ## Not earned (explain in plain words instead)
 - "first-order"
