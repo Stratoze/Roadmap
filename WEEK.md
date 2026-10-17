@@ -49,7 +49,7 @@ Answer keys are for the agent: show them only after the learner answers.
 ## Sat 10-17 (free 16:10-24)
 
 - [ ] [H] CJ ~25 min.
-- [ ] [H] Grammar 9: も: read, then quiz (key A9).
+- [x] [H] Grammar 9: も: read, then quiz (key A9). (quiz 1/1, 10-17: 私も学生です, kanji; kana answer わたしも がくせいです)
 - [ ] [H] Chat ~25 min, opening line: わたしは がくせいです。あなたは？
 - [ ] [H] Technical items 16, 17 (keys T16, T17). Item 16 done 10-15 (learner's own numbers, 0.2 kg, 0.3 m link: 0.294 N·m; key uses 0.05 kg, 0.2 m). Item 17 open.
 
