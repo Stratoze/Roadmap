@@ -14,6 +14,7 @@ Decided by Opus 2026-10-17 (Sat, called early):
 - Grammar pace: up to 3 points on a free day until 2026-11-15, then 1 a day. Rule in AGENTS.md "Grammar pace". Keys A10-A14 are in WEEK.md.
 - Push after each item: now in AGENTS.md "Git".
 - Project choice (mini self-driving car / QDD robot / feng shui AI): no new project until Phase 0 is done (item 17 of 60 now). When it is, the QDD robot is first choice: it reuses the 2-link arm's statics, circuits and kinematics, and fits "robots". The self-driving car is second. The feng shui AI is off-goal; keep it as a hobby idea, not a milestone.
+- ML and statistics (learner's main ask, missed in the first pass): yes, inside the technical track, not as a third daily track. Statistics block S1-S4 after 0.4 (measurement spread: every portfolio entry already compares predicted vs measured, and that comparison means nothing without spread). First ML block M1-M4 after item 43 (fit a line to the arm's own potentiometer data: least squares is the simplest ML model, and the capstone needs that calibration). Later ML (classification, neural nets, learning control) is planned when Phase 0 ends, on the robot's own data. Not RL now: it needs a simulator and an evaluator first, which is tool-building, and the floor is 25 min.
 - Weight, food, exercise logging: not in this repo. Advice on diet needs a qualified source (doctor or dietitian); a plain notes app is enough for logging.
 - Second pass, same day, after the learner said proposals were missing: the 10-17 chat (17 replies) was logged and audited (it had only been filed as a proposal); quiz answers may be kanji from the keyboard, never romaji; drawing items 10, 11, 12, 15 go to Haiku as typed lines against the keys; the teacher-check task moved to Wed 10-21 class.
 - Technical round moved to Haiku + free chat AI (`tech-tutor` skill), learner's proposal. Sonnet is now only for coursework grilling. Keys get a Given / Answer / Check split so Haiku never leaks an answer; T17, T18 rewritten that way, the Sunday plan writes the rest that way. Sunday audit now takes one technical tutor chat as well.
@@ -24,7 +25,7 @@ The day-by-day plan lives in `WEEK.md` (Opus rewrites it each Sunday). Start the
 Pending: photo of the FK drawing for `Mechatronics/portfolio/0.3-2link-fk-tip.md`.
 2026-10-13 Technical 9 done on Sonnet. Left: coursework grill Q22 and speaker notes (both [S], not started).
 
-## Technical (60)
+## Technical (60 + S1-S4 + M1-M4)
 
 0.3 Calculus intuition
 - [x] 1. Euler loop matches the hand table
@@ -58,6 +59,12 @@ Pending: photo of the FK drawing for `Mechatronics/portfolio/0.3-2link-fk-tip.md
 - [ ] 27. 0.4 Full: what happens to shoulder torque if the elbow extends further
 - [ ] 28. 0.4 Full: reaction forces at the base
 
+0.4s Statistics for measurement (added by Opus 2026-10-17, learner's ML/statistics proposal; keys come with the Sunday plan)
+- [ ] S1. Measure one length 10 times with a ruler: mean and range, with units
+- [ ] S2. Standard deviation of those 10 by hand; what it means in plain words
+- [ ] S3. Item 2's tip: is predicted − measured bigger than the spread? Say what that tells you
+- [ ] S4. Same mean and standard deviation in Python (numpy); match the hand numbers
+
 0.5 Circuits basics
 - [ ] 29. Ohm's law: predict current for 5 V across 1 kΩ, then compute
 - [ ] 30. LED + resistor on 5 V: pick the resistor from a datasheet's forward voltage
@@ -74,6 +81,12 @@ Pending: photo of the FK drawing for `Mechatronics/portfolio/0.3-2link-fk-tip.md
 - [ ] 41. Measure those 3 positions, 3 sentences
 - [ ] 42. Arduino analogRead: predict the number for 2.5 V
 - [ ] 43. Read a pot with analogRead, compare to prediction
+
+0.5m First machine learning: calibration (added by Opus 2026-10-17)
+- [ ] M1. Record 6 pairs (knob angle, analogRead number); plot them
+- [ ] M2. Fit a straight line by least squares in Python on 5 pairs; predict the 6th, compare
+- [ ] M3. Plain words: why this fit is a machine learning model; what the training data and the test point were
+- [ ] M4. The fit's error vs the spread from S2: is the model good enough for the arm?
 
 0.6 Power + thermal
 - [ ] 44. P = VI: power of the LED circuit, predict then compute
