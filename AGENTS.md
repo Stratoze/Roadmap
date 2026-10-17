@@ -95,7 +95,14 @@ day.
   technical then gets its 25 min and stops there if time is short. On Mon
   and Thu, or any tight day: CJ 25 and a chat of ≥5 exchanges. The floor
   itself stays 25 min + 25 min. Also, not counted: Tadoku level 0 read aloud, katakana deck
-  5 min/day until fluent, Kaishi Anki reviews only after both floors (cap 100/day).
+  5 min/day until fluent.
+- **Kaishi (Opus 2026-10-17, learner's proposal):** clear the backlog by
+  reviewing it, no reset (the learner's RWKV-scheduler fork of Anki keeps
+  its memory model only if the history stays). Up to 100 reviews a day,
+  right after the grammar quiz, inside the ~60 min Japanese target; not part
+  of the 25-min floor. No new cards until fewer than 100 are due, then 10
+  new a day. The learner reports the due count at session start; log it in
+  `Learned/japanese.md`.
 - **Technical (25 min counts):** the items in `NEXT.md`. `Mechatronics/ROADMAP.md`
   is a map only; ignore its tag/assessor ceremony. Phase 0 builds to the
   capstone: a passive 2-link arm with potentiometer joints, Arduino computing

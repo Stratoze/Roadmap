@@ -50,7 +50,7 @@ Claude updates this at the end of each session. Status: taught = shown once; sol
 - CJ (complete beginner): past 0009 (learner, 2026-10-10); exact episode to confirm from Jellyfin on Tue 10/13. Episodes are ~5 min, so the 25-min floor is ~5 episodes
 
 ## Anki
-- Kaishi 1.5k: backlog ~1249 due (2026-10-08), 0 new, cap 100/day, only after both floors, never counted
+- Kaishi 1.5k: backlog ~1249 due (2026-10-08), 0 new. From 2026-10-17: review the backlog down, up to 100/day after the grammar quiz; no new cards until under 100 due, then 10 new/day. Not counted in the floor. Due count: (learner reports)
 
 ## Queue
 See the Japanese grammar list in `NEXT.md`.
