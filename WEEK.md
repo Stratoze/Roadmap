@@ -52,7 +52,9 @@ Answer keys are for the agent: show them only after the learner answers.
 - [x] [H] Grammar 9: も: read, then quiz (key A9). (quiz 1/1, 10-17: 私も学生です, kanji; kana answer わたしも がくせいです)
 - [ ] [H] Grammar 10: と (key A10), then grammar 11: や (key A11). New pace (AGENTS.md "Grammar pace"): 11 only if the 10 quiz passed. Added by Opus 10-17.
 - [x] [H] Chat ~25 min, opening line: わたしは がくせいです。あなたは？ (17 replies, external chat, before the new template; audited by Opus 10-17, see `Learned/japanese.md`). From the next chat, use the new template.
-- [ ] [H] Technical items 10, 11, 12, 15 (notebook unlocks 12:00), retagged [H] by Opus 10-17: the learner draws on paper, then types each arrow as one line: force name, direction, what pushes or pulls, where it acts. Haiku checks the lines against keys T10, T11, T12, T15. The photo goes to `Mechatronics/portfolio/` unchecked. If a line doesn't fit the key and Haiku isn't sure, mark it "check Sunday".
+- [ ] [H] Technical items 10, 11, 12, 15 (notebook unlocks 12:00), retagged [H] by Opus 10-17, via `tech-tutor`: draw on paper, type each arrow as one line for the tutor, paste the `end` output to Haiku, who checks it against the key. The photo goes to `Mechatronics/portfolio/` unchecked.
+
+From 10-17 every technical item runs through the `tech-tutor` skill (free chat AI tutors, Haiku checks the final answer against the key). Keys below: Haiku copies only **Given** into the prompt.
 - [ ] [H] Technical items 16, 17 (keys T16, T17). Item 16 done 10-15 (learner's own numbers, 0.2 kg, 0.3 m link: 0.294 N·m; key uses 0.05 kg, 0.2 m). Item 17 open.
 
 ## Sun 10-18 (social 9-16, asleep by 22:00)
@@ -136,6 +138,9 @@ Ask for a prediction first. Units required.
 
 **T9** Explain, no formula, why area under v(t) is displacement. Check: the learner says all three: (1) over a short time, speed × time = small distance; (2) that small distance is a thin strip of area under the curve (height = speed, width = time); (3) adding all strips = total area = total distance moved. Bonus: links it to the Euler loop (new = old + rate × dt). Uses "displacement" only if they can say what it is (change in position).
 
+Format from 10-17: Given (safe to show the learner) / Answer / Check. Keys
+T10-T15 have no Given beyond the item text in `NEXT.md`.
+
 **T10** Book resting on a table. Check: exactly 2 forces: weight (down, from Earth, at the book's center) and normal force (up, from the table), same length arrows, labelled. Wrong if: a "force of the table" pointing down on the book, or unequal arrows.
 
 **T11** Book pushed sideways, not sliding. Check: 4 forces: weight down, normal up (equal), push sideways, static friction opposite the push and equal to it. Wrong if friction is drawn bigger or smaller than the push.
@@ -150,9 +155,9 @@ Ask for a prediction first. Units required.
 
 **T16** Use: link mass 0.05 kg, length 0.2 m, horizontal. Weight = 0.05 × 9.81 = 0.49 N at the middle (0.1 m). Torque = 0.49 × 0.1 = **0.049 N·m**.
 
-**T17** Same link, angle from horizontal: τ = 0.049 × cos θ. 0°: **0.049 N·m**. 45°: **0.035 N·m**. 90° (pointing straight up): **0 N·m**. Check the prediction: biggest when horizontal.
+**T17** Given: link mass 0.05 kg, length 0.2 m, its weight acts at the middle, pivot at the shoulder; link angle measured from horizontal: 0°, 45°, 90° (straight up). Find the torque of its weight about the shoulder at each angle. Answer: τ = 0.049 × cos θ. 0°: **0.049 N·m**. 45°: **0.035 N·m**. 90°: **0 N·m**. Check: all three with units; prediction said biggest when horizontal (or was corrected to it).
 
-**T18** Seesaw: 2 N at 0.3 m left of the pivot. Find the force at 0.2 m right that balances it: 2 × 0.3 = F × 0.2 → **F = 3 N**.
+**T18** Given: seesaw, 2 N pushes down 0.3 m left of the pivot. What force pushing down 0.2 m right of the pivot balances it? Answer: 2 × 0.3 = F × 0.2 → **F = 3 N**. Check: number with units.
 
 ## Answer keys: coursework
 

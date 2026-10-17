@@ -47,21 +47,23 @@ Each `WEEK.md` task has a tag. Follow it; never "try anyway".
   write the lesson), Japanese chat hand-over and logging (the chat itself
   runs in a free chat service, see the `jp-chat` skill; Haiku does not chat
   or correct, because it "corrected" a correct sentence and miscounted
-  exchanges on 2026-10-14), numeric technical items, daily notes, ticking
-  files.
-- **[S] Sonnet:** tasks needing judgment:
-  coursework grilling (Haiku drifted
-  off the question list on 2026-10-12), "explain in plain
-  words" items (Haiku accepted a circular "area under the curve" on
-  2026-10-13), milestone deliverables, anything with no answer key in
-  `WEEK.md`. Drawings with a key go to Haiku as typed lines (one per
-  arrow), not as a photo (Opus, 2026-10-17: the learner skips [S] tasks
-  for cost, so drawings sat undone for 4 days).
+  exchanges on 2026-10-14), technical items by hand-over and key check
+  (the `tech-tutor` skill: a free chat AI tutors, Haiku checks the final
+  answer against the key and logs; Haiku does not tutor; Opus 2026-10-17,
+  learner's request, for cost), daily notes, ticking files.
+- **[S] Sonnet:** coursework grilling (Haiku drifted off the question list
+  on 2026-10-12) and anything with no key in `WEEK.md`. Technical items,
+  including "explain in plain words" and drawings, no longer use Sonnet:
+  they go through `tech-tutor` (Opus, 2026-10-17; the learner skipped [S]
+  tasks for cost, so drawings sat undone for 4 days). A technical item
+  without a key waits for Opus to write one; it does not go to Sonnet.
 - **[O] Opus:** the weekly plan only (Sunday evening), and Phase 2+ work.
 
 **Sunday audit:** Opus cannot read cloud sessions or the outside chat
-service, so the learner pastes one chat from the week to Opus on Sunday
-(agreed 2026-10-14). Sonnet costs enough that the learner skips tasks tagged
+service, so the learner pastes one Japanese chat and one technical tutor
+chat from the week to Opus on Sunday (agreed 2026-10-14; technical added
+2026-10-17). Opus checks every "you're wrong" and every explanation the
+tutor gave. Sonnet costs enough that the learner skips tasks tagged
 with it; keep [S] for coursework and judgment-only technical items.
 
 If Haiku ever accepts a wrong answer, the learner tells Opus at the weekly plan
@@ -75,7 +77,7 @@ and that task type moves to Sonnet.
   worked top-down, tick boxes. Opus writes the next 50 when a list runs out.
 - `Learned/japanese.md`, `Learned/technical.md`, `Learned/coursework.md`.
 - `Daily/YYYY-MM-DD.md`: daily note.
-- `.claude/skills/`: `daily-note`, `jp-chat`, `grill`. Use them; do not add more.
+- `.claude/skills/`: `daily-note`, `jp-chat`, `tech-tutor`, `grill`. Use them; only Opus adds more.
 - **Old system, do not read or follow:** `_archive/`, `_system/`, `Japanese/`
   (CURRENT.md, probes, jsonl files), `docs/`, `Changelog/`. Do not run, extend,
   fix, or clean them up.
