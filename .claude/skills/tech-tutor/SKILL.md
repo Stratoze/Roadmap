@@ -22,7 +22,7 @@ The key never goes in the prompt: the learner reads the prompt.
 3. Print the template below in one code block with `{...}` filled in.
    Change nothing else.
 4. Say: "Paste this into your free chat service. Work until it's done, then
-   write `end` and paste the end output back here."
+   write `end` and paste MY FINAL ANSWER and WHERE I STRUGGLED back here."
 
 ```
 You are my tutor for one engineering exercise. I am a beginner: calculus
@@ -67,5 +67,6 @@ The exercise: {item text}. {Given part of the key}
    WHERE I STRUGGLED lines as written. If the tutor gave the answer away
    (it did the step for the learner), write "answer given by tutor" and do
    not tick.
-3. The TRANSCRIPT is raw production: never in the repo. If the learner
-   wants it kept, save it to `_private/tech/YYYY-MM-DD-item-N.md`.
+3. The TRANSCRIPT stays in the chat service, which is the record: this
+   session runs in a cloud container that gets wiped, and `_private/` is
+   never pushed. Never commit it to the repo.

@@ -89,20 +89,22 @@ day.
 
 - **Japanese (25 min counts):** Comprehensible Japanese (complete beginner, in
   order), the grammar lesson, and the Japanese chat (use the `jp-chat` skill).
-  **Japanese is the priority track (learner's request, 2026-10-14).** Target
-  on a normal day is about 60 min: CJ 25, grammar reading + quiz about 10,
-  chat about 25. Japanese is done first and in full before technical starts;
-  technical then gets its 25 min and stops there if time is short. On Mon
-  and Thu, or any tight day: CJ 25 and a chat of ≥5 exchanges. The floor
-  itself stays 25 min + 25 min. Also, not counted: Tadoku level 0 read aloud, katakana deck
-  5 min/day until fluent.
+  **Japanese is the priority track (learner's request, 2026-10-14).**
+  Free day (Tue, Wed, Fri, Sat; Opus 2026-10-17, learner agreed to about
+  2 h 15 min in all): CJ 40, grammar up to 3 points (read + quiz, about 10
+  each), Kaishi 20, chat about 25, then technical 25. Tight day (Mon, Thu,
+  Sun, or any day short on time): CJ 25, 1 grammar point, Kaishi 10, chat
+  of ≥5 replies, then technical 25. Japanese is done first and in full
+  before technical starts; technical then gets its 25 min and stops there
+  if time is short. The floor itself stays 25 min + 25 min. Also, not
+  counted: Tadoku level 0 read aloud, katakana deck 5 min/day until fluent.
 - **Kaishi (Opus 2026-10-17, learner's proposal):** clear the backlog by
   reviewing it, no reset (the learner's RWKV-scheduler fork of Anki keeps
-  its memory model only if the history stays). Up to 100 reviews a day,
-  right after the grammar quiz, inside the ~60 min Japanese target; not part
-  of the 25-min floor. No new cards until fewer than 100 are due, then 10
-  new a day. The learner reports the due count at session start; log it in
-  `Learned/japanese.md`.
+  its memory model only if the history stays). Limited by time, not count:
+  20 min on a free day, 10 on a tight day, right after the grammar quiz.
+  Inside the Japanese target, not part of the 25-min floor. No new cards
+  until fewer than 100 are due, then 10 new a day. The learner reports the
+  due count at session start; log it in `Learned/japanese.md`.
 - **Technical (25 min counts):** the items in `NEXT.md`. `Mechatronics/ROADMAP.md`
   is a map only; ignore its tag/assessor ceremony. Phase 0 builds to the
   capstone: a passive 2-link arm with potentiometer joints, Arduino computing

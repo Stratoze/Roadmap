@@ -22,7 +22,7 @@ in Japanese yourself.
    filled in. Change nothing else in it.
 3. Say: "Paste this into your free chat service. Chat about 25 minutes by
    your own clock (5 replies is enough on Mon, Thu or a tight day). Write
-   `end`, then paste the whole chat back here."
+   `end`, then paste the CORRECTIONS and NEW WORDS parts back here."
 
 ```
 You are my Japanese conversation partner: a friendly Japanese university
@@ -84,22 +84,8 @@ Start now with this line: {opening line from WEEK.md}
    under the date, one line per word, as written. Not counted, not quizzed.
 5. Tick the chat in `WEEK.md` with the reply count.
 
-The pasted chat is the learner's raw production: do not commit it anywhere
-in the repo (the repo is public). If the learner wants it kept, save the
-TRANSCRIPT part to `_private/jp-chat/YYYY-MM-DD.md` (`_private/` is
-gitignored; it is a separate private repo). On Sunday the learner pastes one
-chat to Opus for the audit, from the chat service itself if possible: the
-TRANSCRIPT is the partner model's reprint and can drift from the original.
-
-## If the learner sends one Japanese sentence to check
-
-Answer directly, in this form:
-
-`<their line> → <fixed line>. <what the particle/form marks, one sentence>.`
-
-- `がっこうに たべます → がっこうで たべます. で marks where the action happens; に marks a point you go to.`
-- `ほんを あります → ほんが あります. With あります the thing that exists takes が; を marks something an action is done to.`
-
-Check first that the sentence is really wrong; changing a correct sentence
-teaches a false rule. If you are not sure, say "not sure, ask in the chat or
-on Sunday" instead of guessing.
+Ask the learner to paste only CORRECTIONS and NEW WORDS; the TRANSCRIPT
+stays in the chat service, which is the record (this session runs in a
+cloud container that gets wiped, and `_private/` is never pushed, so a copy
+saved here is lost). Never commit a transcript to the repo. On Sunday the
+learner pastes one chat to Opus from the chat service.

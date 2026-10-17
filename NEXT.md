@@ -4,8 +4,8 @@ No dates. Work top-down, tick [x] when done, never redo a ticked item.
 When a list runs out, Claude writes the next 50. What I've learned lives in `Learned/`.
 
 **Every day:** 25 min Japanese (CJ ~5 episodes + next grammar point + Japanese chat) + 25 min technical (next items). Japanese first.
-Japanese is the priority: ~60 min on a normal day (CJ 25, grammar read + quiz ~10, chat ~25), all of it before technical. Mon/Thu or a tight day: CJ 25 + chat ≥5 exchanges. Grammar: read the point on Tofugu (else Cure Dolly / yoku.bi / Imabi), then Haiku quizzes. Chat: Haiku gives the prompt, chat in a free chat service, paste it back for logging.
-Also: Tadoku level 0, one story aloud twice a week · katakana deck 5 min/day until fluent · Kaishi: review the backlog, up to 100 a day after the grammar quiz; no new cards until under 100 due (AGENTS.md).
+Japanese is the priority, all of it before technical. Free day: CJ 40, grammar up to 3 points, Kaishi 20 min, chat ~25. Tight day (Mon/Thu/Sun): CJ 25, 1 point, Kaishi 10 min, chat ≥5 replies. Grammar: read the point on Tofugu (else Cure Dolly / yoku.bi / Imabi), then Haiku quizzes. Chat: Haiku gives the prompt, chat in a free chat service, paste it back for logging.
+Also: Tadoku level 0, one story aloud twice a week · katakana deck 5 min/day until fluent · Kaishi: review the backlog by time (20 min free day, 10 tight), after the grammar quiz; no new cards until under 100 due (AGENTS.md).
 
 ## Handoff
 Notebook items (10, 11, 12 free-body drawings; 15 moment-arm drawing) are locked for Sat 2026-10-17 12:00 JST (noon, lunch) (learner has no notebook now, 2026-10-15). Learner sends photos then; Learner's 'Sat 12am' means noon, not midnight (corrected 2026-10-15). Do these first on that session. Item 16 onward needs no drawing and can continue before then.
@@ -19,6 +19,7 @@ Decided by Opus 2026-10-17 (Sat, called early):
 - Second pass, same day, after the learner said proposals were missing: the 10-17 chat (17 replies) was logged and audited (it had only been filed as a proposal); quiz answers may be kanji from the keyboard, never romaji; drawing items 10, 11, 12, 15 go to Haiku as typed lines against the keys; the teacher-check task moved to Wed 10-21 class.
 - Technical round moved to Haiku + free chat AI (`tech-tutor` skill), learner's proposal. Sonnet is now only for coursework grilling. Keys get a Given / Answer / Check split so Haiku never leaks an answer; T17, T18 rewritten that way, the Sunday plan writes the rest that way. Sunday audit now takes one technical tutor chat as well.
 - Kaishi (~1249 overdue): no reset, the learner reviews it down (their proposal; reset would wipe the RWKV scheduler's history). Rule in AGENTS.md.
+- Flow reviewed with the learner 2026-10-17: free day ~2 h 15 min (CJ 40, grammar up to 3, Kaishi 20 min, chat 25, technical 25); tight day CJ 25, 1 point, Kaishi 10 min, chat ≥5, technical 25. Transcripts stay in the chat service (cloud container gets wiped); only the end summaries are pasted to Haiku. Sunday plan must write about 15 grammar keys a week (keys end at A14) and every technical key as Given / Answer / Check.
 - Still for the Sunday plan: the 10-17 chat is already audited, so Sunday's audit takes a different chat or is skipped; rest of the WEEK rewrite. Also: Fri 10-16 was missed entirely, and the 10-14 chat was ticked at 4 replies (below 5). Both count against a 3-a-day grammar pace; look at it again at the Sunday plan.
 
 The day-by-day plan lives in `WEEK.md` (Opus rewrites it each Sunday). Start there.
