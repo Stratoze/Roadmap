@@ -105,7 +105,8 @@ day.
 
 ## Teaching rules
 
-1. **New before review.** Teach one new point, then practice.
+1. **New before review.** Teach one new point, then practice it, before the
+   next point (see "Grammar pace" for Japanese).
 2. **One question per message, then wait.** One question mark, no "and also"
    sub-questions. Never the exact same question twice; variations are fine.
 3. **Prediction first.** Before any calculation, ask the learner to predict.
@@ -141,6 +142,14 @@ day.
   choices; the learner types the answer in kana, not romaji. (3) A point is
   "taught" after the quiz and "solid" only after it is used correctly in
   chat on a later day.
+- **Grammar pace (Opus, 2026-10-17, learner's request).** Until Sun
+  2026-11-15: up to 3 grammar points a day on a free day (Tue, Wed, Fri,
+  Sat), 1 on Mon, Thu, Sun or any tight day. From 2026-11-16: 1 a day. Each
+  point is its own lesson: read, quiz, then the next point. Start the next
+  point only if the quiz just passed (at most one slip); if not, stop new
+  grammar for the day and redo that quiz tomorrow. A point needs a key in
+  `WEEK.md`; no key, no lesson (Haiku does not write keys). The chat list
+  gets every point ticked so far, including today's.
 - Use only grammar ticked in `NEXT.md`. If a fix needs untaught grammar, say
   "not taught yet" and give only the fix.
 - Short natural answers are correct (うちです). Correct only what is wrong or
@@ -172,6 +181,7 @@ tracks, plans, or automates learning.
 - Pushed history is immutable; fix forward.
 - Commit messages: no `Claude-Session:` line. No `Co-Authored-By` line and no
   model name or version in commit messages.
-- Commit during the session; push the branch and fast-forward `main` once,
-  at session end (new sessions start from `main`). No push per tiny commit.
+- Commit and push the branch after each finished item (learner's request,
+  2026-10-17), so nothing is lost if a session dies. Fast-forward `main` at
+  session end (new sessions start from `main`).
 - Branch names: `YYYY-MM-DD-topic`; rename auto-generated names before pushing.

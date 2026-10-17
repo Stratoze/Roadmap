@@ -50,13 +50,14 @@ Answer keys are for the agent: show them only after the learner answers.
 
 - [ ] [H] CJ ~25 min.
 - [x] [H] Grammar 9: も: read, then quiz (key A9). (quiz 1/1, 10-17: 私も学生です, kanji; kana answer わたしも がくせいです)
-- [ ] [H] Chat ~25 min, opening line: わたしは がくせいです。あなたは？
+- [ ] [H] Grammar 10: と (key A10), then grammar 11: や (key A11). New pace (AGENTS.md "Grammar pace"): 11 only if the 10 quiz passed. Added by Opus 10-17.
+- [ ] [H] Chat ~25 min, opening line: わたしは がくせいです。あなたは？ Use the new template (role, vocab, culture, `end` with transcript). Grammar list: everything ticked by chat time.
 - [ ] [H] Technical items 16, 17 (keys T16, T17). Item 16 done 10-15 (learner's own numbers, 0.2 kg, 0.3 m link: 0.294 N·m; key uses 0.05 kg, 0.2 m). Item 17 open.
 
 ## Sun 10-18 (social 9-16, asleep by 22:00)
 
 - [ ] [H] CJ ~25 min.
-- [ ] [H] Grammar 10: と: read, then quiz (key A10).
+- [ ] [H] Next unticked grammar point, one only (tight day): 12 へ vs に (key A12) if 10 and 11 passed Sat; else redo what failed.
 - [ ] [H] Chat ~25 min, opening line: きのう だれと たべましたか。
 - [ ] [H] Technical item 18 (key T18).
 - [ ] [O] Weekly plan, about 20:00: Opus reads the week's `Daily/` notes and `Learned/`, then rewrites this file.
@@ -97,6 +98,34 @@ and も is added: がっこうにも いきます。 Slip: わたしはも (は 
 **A10 と.** Two uses: "and" between nouns (a complete list): パンと ごはん.
 "With" a person: ともだちと たべます。 Quiz: "I eat with a friend" →
 ともだちと たべます。; "books and pens" → ほんと ペン.
+
+**A11 や.** Lists nouns as examples: "A, B, and things like that"; the list
+is not complete. と lists everything (complete). ほんや ペンが あります。
+(there are books, pens, and so on). Only between nouns; "with a person" is
+always と. Quiz: "There are books, pens, and so on" → ほんや ペンが あります。;
+"I eat bread and rice (only those two)" → パンと ごはんを たべます。;
+"I go with a friend" → ともだちと いきます。 Slip: ともだちや いきます (や
+never means "with").
+
+**A12 へ vs に.** With movement verbs (いきます, きます) both mark where you
+go: がっこうへ いきます。 = がっこうに いきます。 Both are correct. へ marks the
+direction you head in; に marks the point you arrive at. へ is written へ and
+said "e". Only に marks where something is (A5): がっこうに います (not へ).
+Quiz: "I go to Japan" → 日本へ いきます。 (に also correct); "The teacher is
+at school" → せんせいは がっこうに います。 Slips: がっこうえ (→ がっこうへ,
+written へ); がっこうへ います (→ に).
+
+**A13 に for time.** A clock time or date takes に: 三時に いきます。 Words
+for time relative to now take no particle: きょう, あした, きのう, まいにち,
+いま. Quiz: "I go at 3 o'clock" → 三時に いきます。; "I go tomorrow" →
+あした いきます。; "I eat at 7 o'clock" → 七時に たべます。 Slip: あしたに (no に).
+
+**A14 時 / 分.** Hours: いちじ, にじ, さんじ, よじ, ごじ, ろくじ, しちじ, はちじ,
+くじ, じゅうじ, じゅういちじ, じゅうにじ (watch 4 よじ, 7 しちじ, 9 くじ). Minutes:
+いっぷん, にふん, さんぷん, よんぷん, ごふん, ろっぷん, ななふん, はっぷん,
+きゅうふん, じゅっぷん; 30 = はん. "What time is it now?" → いま なんじですか。
+Quiz (kana): 4:00 → よじ; 9:00 → くじ; 7:10 → しちじ じゅっぷん; 3:30 →
+さんじ はん. Slips: よんじ, きゅうじ.
 
 ## Answer keys: technical
 

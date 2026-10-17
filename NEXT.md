@@ -9,11 +9,13 @@ Also: Tadoku level 0, one story aloud twice a week · katakana deck 5 min/day un
 
 ## Handoff
 Notebook items (10, 11, 12 free-body drawings; 15 moment-arm drawing) are locked for Sat 2026-10-17 12:00 JST (noon, lunch) (learner has no notebook now, 2026-10-15). Learner sends photos then; Learner's 'Sat 12am' means noon, not midnight (corrected 2026-10-15). Do these first on that session. Item 16 onward needs no drawing and can continue before then.
-For Opus, same proposal, more options from learner: a mini self-driving car (AI in a car, fits the goal), or a small robot with a QDD (quasi-direct drive) actuator (fits robots). Learner has not chosen. Feng shui AI is still on the list.
-For Opus (weekly plan), proposed by learner 2026-10-15: add learning to make AI and statistics. First milestone idea: a feng shui AI. Rules (feng shui), building blocks (walls, furniture, ceiling at a set height), a bot places blocks, scored by an evaluator, then reinforcement learning. Physics simulation (thermodynamics, light) might be part of the evaluator. Learner unsure it is the best path. Flags for Opus: the stated goal field is cars, rockets, satellites, or robots (AGENTS.md Goal), and market research is not statistics as such.
-For Opus (weekly plan): learner asked for Haiku to log weight, food and exercise, and to suggest what to eat and do each day, so the Opus plan can decide. Not set up. AGENTS.md covers learning only, and diet or exercise advice needs a qualified source, not this repo.
-
-For Opus (weekly plan), proposed by learner 2026-10-17 for the jp-chat template (`.claude/skills/jp-chat/SKILL.md`), not changed by Haiku: (a) add a role: a patient native-speaker partner about the learner's age, plain polite です/ます, one question per line, no lecturing; (b) add a cultural rule: for a soft "no", use いいえ、結構です or ちょっと… and say in one English line that a native would soften it (the plain いいえ can sound blunt); (c) on `end`, print the whole chat verbatim in one code block, after the corrections list, for the learner to save in `_private/`; (d) grammar pace: up to 3 points a day for the first month, then 1 a day (NEXT list written by Opus; one point per lesson rule in AGENTS.md to be reconciled). Also from the 2026-10-14 review: the first chat's opening scene was wrong and それわ went uncorrected. (e) More vocabulary: the partner should use a wider range of everyday words (food, rooms, time, days, family, places), not only the taught grammar, and gloss any new word in English once. The learner wants more words per chat. (f) Raw chat transcripts go to `_private/` only, never to the repo; the 2026-10-17 chat the learner pasted to Haiku was not saved in the repo. Opus audit of that chat is on the Sunday list.
+Decided by Opus 2026-10-17 (Sat, called early):
+- jp-chat template: role, culture rule (soft no), vocabulary (1-2 new words per line, glossed once), and `end` prints corrections + new words + transcript. All in `.claude/skills/jp-chat/SKILL.md`. Transcripts only to `_private/jp-chat/`.
+- Grammar pace: up to 3 points on a free day until 2026-11-15, then 1 a day. Rule in AGENTS.md "Grammar pace". Keys A10-A14 are in WEEK.md.
+- Push after each item: now in AGENTS.md "Git".
+- Project choice (mini self-driving car / QDD robot / feng shui AI): no new project until Phase 0 is done (item 17 of 60 now). When it is, the QDD robot is first choice: it reuses the 2-link arm's statics, circuits and kinematics, and fits "robots". The self-driving car is second. The feng shui AI is off-goal; keep it as a hobby idea, not a milestone.
+- Weight, food, exercise logging: not in this repo. Advice on diet needs a qualified source (doctor or dietitian); a plain notes app is enough for logging.
+- Still for the Sunday plan: chat audit (paste one chat, from the chat service), rest of the WEEK rewrite.
 
 The day-by-day plan lives in `WEEK.md` (Opus rewrites it each Sunday). Start there.
 Pending: photo of the FK drawing for `Mechatronics/portfolio/0.3-2link-fk-tip.md`.
@@ -91,7 +93,7 @@ Pending: photo of the FK drawing for `Mechatronics/portfolio/0.3-2link-fk-tip.md
 - [ ] 59. Test it, 3 sentences
 - [ ] 60. Pick the capstone link material and write why
 
-## Japanese grammar (50, one new point per lesson, then practice)
+## Japanese grammar (50, one point per lesson; pace in AGENTS.md "Grammar pace")
 
 - [x] 1. に (point) / で (stage, tool) / を
 - [x] 2. Counters 冊 / 本 / 台, [noun]を[count][verb]
