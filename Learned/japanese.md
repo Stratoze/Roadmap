@@ -21,6 +21,18 @@ Claude updates this at the end of each session. Status: taught = shown once; sol
 - 2026-10-14 grammar 6 (これ / それ / あれ / どれ): taught; quiz 4/4 (kore, sore, are, dore). Taught, not solid (the quiz listed the choices; answered in romaji); dore answered with a full sentence (どれが あなたの バッグですか).
 - 2026-10-14 chat (opener それは なんですか。): ぺんです correct. Slips: ないです for "no" (→ いいえ; ないです means "there is not", it does not answer ほんですか). わくるないです (→ わかりません, not taught yet). Shaky: はい / いいえ answers. Missed by Haiku: それわ → それは (the topic particle is written は, said wa).
 - 2026-10-17 grammar 9 も: taught, quiz 1/1. 私も学生です is right in meaning; in kana: わたしも がくせいです. も replaces は and keeps です. Quiz answer typed in kanji, not kana; ask for kana. Not solid until used in chat.
+- 2026-10-17 (external chat): 17 learner replies, opener わたしは がくせいです。あなたは？, minutes not reported. Audited by Opus the same day (the chat was pasted into this session, not saved). Corrections, checked:
+  - ご飯とにくとさかなはたべました → ごはんと にくと さかなを たべました。 Right: を marks what is eaten.
+  - お茶をもみませんでした → おちゃを のみませんでした。 Right fix, wrong reason: the slip is もみ for のみ (typo), not the ませんでした form.
+  - これはNothingです → なにも ありません。 Right, but なにも is not taught yet (grammar 50); the chat should have said so.
+  - CAFEと家にいきます → カフェと うちに かえります。 Wrong correction, retracted by the chat itself after the learner pushed back. Corrected by audit: カフェに いきます。それから うちに かえります。 Your own home takes かえります (go back), a café takes いきます, so they need two verbs.
+  - ソダをのみます → ソーダを のみます。 Right fix, wrong reason: the slip is the long vowel (ソーダ, written with ー), not を.
+  - たくさんです、50以上です → たくさん あります。 Right: a "how many are there" question is answered with あります. 50以上です alone was fine.
+  - originは分かりません… → どこの 本か わかりません。 (not taught yet). Fine.
+  - Missed by the chat: asked きのうも 本を よみましたか, the learner said いいえ, then said they read a tadoku book. That is a yes: はい、たどくの 本を よみました。 いいえ/はい answers the question as asked.
+  - Correct and natural, not flagged: いいえ、アメリカに います / 十一時です / いいえ、明日は日曜です / いいえ、ごだい あります / 秘密です / はい、犬が います / 八時くらいです.
+  - Used before being taught, correctly: と (grammar 10).
+  - Partner errors: two wrong reasons in corrections, one wrong correction, untaught なにも unmarked, repeated a question (かぞくは どこに いますか). Usable, but trust the fix more than the reason.
 - 2026-10-14 audit note: Haiku "corrected" 学校にいます to いきます when asked "will you go?". Wrong: 学校にいます is correct for "I'm at school now". Retracted in chat. Corrected by audit; Opus confirmed 2026-10-14 from this note only (the session transcript is not on the PC): にいます = is at a place, にいきます = goes to it, both are correct sentences.
 - 2026-10-13: the learner's sound-based reading of kana (きょうが / がっこう) is a fair point; kept writing kana with spaces for now.
 - 2026-10-15 (external chat): 21 learner replies, opener トイレは どこですか。, grammar 1-7 from NEXT.md. Corrections, as the chat listed them:

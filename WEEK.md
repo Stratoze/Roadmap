@@ -51,7 +51,8 @@ Answer keys are for the agent: show them only after the learner answers.
 - [ ] [H] CJ ~25 min.
 - [x] [H] Grammar 9: も: read, then quiz (key A9). (quiz 1/1, 10-17: 私も学生です, kanji; kana answer わたしも がくせいです)
 - [ ] [H] Grammar 10: と (key A10), then grammar 11: や (key A11). New pace (AGENTS.md "Grammar pace"): 11 only if the 10 quiz passed. Added by Opus 10-17.
-- [ ] [H] Chat ~25 min, opening line: わたしは がくせいです。あなたは？ Use the new template (role, vocab, culture, `end` with transcript). Grammar list: everything ticked by chat time.
+- [x] [H] Chat ~25 min, opening line: わたしは がくせいです。あなたは？ (17 replies, external chat, before the new template; audited by Opus 10-17, see `Learned/japanese.md`). From the next chat, use the new template.
+- [ ] [H] Technical items 10, 11, 12, 15 (notebook unlocks 12:00), retagged [H] by Opus 10-17: the learner draws on paper, then types each arrow as one line: force name, direction, what pushes or pulls, where it acts. Haiku checks the lines against keys T10, T11, T12, T15. The photo goes to `Mechatronics/portfolio/` unchecked. If a line doesn't fit the key and Haiku isn't sure, mark it "check Sunday".
 - [ ] [H] Technical items 16, 17 (keys T16, T17). Item 16 done 10-15 (learner's own numbers, 0.2 kg, 0.3 m link: 0.294 N·m; key uses 0.05 kg, 0.2 m). Item 17 open.
 
 ## Sun 10-18 (social 9-16, asleep by 22:00)
@@ -62,7 +63,7 @@ Answer keys are for the agent: show them only after the learner answers.
 - [ ] [H] Technical item 18 (key T18).
 - [ ] [O] Weekly plan, about 20:00: Opus reads the week's `Daily/` notes and `Learned/`, then rewrites this file.
 - [ ] [O] Chat audit: the learner pastes one chat from this week (from the free chat service) to Opus, who checks every correction and every partner line for errors, untaught grammar, and drift. The 10-14 Haiku chat is already audited. Wrong corrections go in `Learned/japanese.md` as "corrected by audit".
-- [ ] Learner: bring 3 sentences Claude corrected this week to the Sat Japanese class and ask the teacher if the fixes are right. Report the answer.
+- [ ] Learner: bring 3 sentences Claude corrected this week to the Japanese class and ask the teacher if the fixes are right. Report the answer. (Was on the wrong day: class is Wed and Sat, not Sun. Next: Wed 10-21. Good candidates: カフェに いきます。それから うちに かえります。 / ソーダ / the いいえ vs はい one.)
 
 ---
 

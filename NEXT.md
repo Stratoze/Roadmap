@@ -15,7 +15,9 @@ Decided by Opus 2026-10-17 (Sat, called early):
 - Push after each item: now in AGENTS.md "Git".
 - Project choice (mini self-driving car / QDD robot / feng shui AI): no new project until Phase 0 is done (item 17 of 60 now). When it is, the QDD robot is first choice: it reuses the 2-link arm's statics, circuits and kinematics, and fits "robots". The self-driving car is second. The feng shui AI is off-goal; keep it as a hobby idea, not a milestone.
 - Weight, food, exercise logging: not in this repo. Advice on diet needs a qualified source (doctor or dietitian); a plain notes app is enough for logging.
-- Still for the Sunday plan: chat audit (paste one chat, from the chat service), rest of the WEEK rewrite.
+- Second pass, same day, after the learner said proposals were missing: the 10-17 chat (17 replies) was logged and audited (it had only been filed as a proposal); quiz answers may be kanji from the keyboard, never romaji; drawing items 10, 11, 12, 15 go to Haiku as typed lines against the keys; the teacher-check task moved to Wed 10-21 class.
+- Open question to the learner (Opus): the Kaishi deck has ~1249 overdue cards while the learner asks for more vocabulary. Reset it, or keep it? Decide on Sunday.
+- Still for the Sunday plan: the 10-17 chat is already audited, so Sunday's audit takes a different chat or is skipped; rest of the WEEK rewrite. Also: Fri 10-16 was missed entirely, and the 10-14 chat was ticked at 4 replies (below 5). Both count against a 3-a-day grammar pace; look at it again at the Sunday plan.
 
 The day-by-day plan lives in `WEEK.md` (Opus rewrites it each Sunday). Start there.
 Pending: photo of the FK drawing for `Mechatronics/portfolio/0.3-2link-fk-tip.md`.

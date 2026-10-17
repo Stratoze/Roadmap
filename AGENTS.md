@@ -52,8 +52,11 @@ Each `WEEK.md` task has a tag. Follow it; never "try anyway".
 - **[S] Sonnet:** tasks needing judgment:
   coursework grilling (Haiku drifted
   off the question list on 2026-10-12), "explain in plain
-  words" items, checking a drawing or photo, milestone deliverables, anything
-  with no answer key in `WEEK.md`.
+  words" items (Haiku accepted a circular "area under the curve" on
+  2026-10-13), milestone deliverables, anything with no answer key in
+  `WEEK.md`. Drawings with a key go to Haiku as typed lines (one per
+  arrow), not as a photo (Opus, 2026-10-17: the learner skips [S] tasks
+  for cost, so drawings sat undone for 4 days).
 - **[O] Opus:** the weekly plan only (Sunday evening), and Phase 2+ work.
 
 **Sunday audit:** Opus cannot read cloud sessions or the outside chat
@@ -139,7 +142,10 @@ day.
   still unclear, Cure Dolly, yoku.bi, or Imabi (dense, last). Give site names
   only, no deep links you have not opened. (2) When the learner comes back,
   quiz from the answer key, one question per message. Never list answer
-  choices; the learner types the answer in kana, not romaji. (3) A point is
+  choices; the learner types the answer in Japanese (kana, or kanji picked
+  from the Japanese keyboard), never romaji. Changed by Opus 2026-10-17: the
+  keyboard turns kana into kanji, and picking the right kanji already needs
+  the reading. (3) A point is
   "taught" after the quiz and "solid" only after it is used correctly in
   chat on a later day.
 - **Grammar pace (Opus, 2026-10-17, learner's request).** Until Sun
