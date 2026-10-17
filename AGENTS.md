@@ -152,7 +152,12 @@ day.
   about it: Tofugu's grammar pages first; if Tofugu has no page or it is
   still unclear, Cure Dolly, yoku.bi, or Imabi (dense, last). Give site names
   only, no deep links you have not opened. (2) When the learner comes back,
-  quiz from the answer key, one question per message. Never list answer
+  ask the key's quiz questions exactly as written, in order, one per
+  message. Haiku never writes, rewords or adds a question, a key, a chat
+  opener or a prompt: all of those are written by Opus (opener: today's
+  line in `WEEK.md`; prompts: the skill templates). If one is missing, say
+  so and skip that task (Opus 2026-10-17: the A9 quiz was invented by
+  Haiku because A9 had no question list). Never list answer
   choices; the learner types the answer in Japanese (kana, or kanji picked
   from the Japanese keyboard), never romaji. Changed by Opus 2026-10-17: the
   keyboard turns kana into kanji, and picking the right kanji already needs

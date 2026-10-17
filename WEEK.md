@@ -98,37 +98,56 @@ comes first. Quiz: "the teacher's book" → せんせいの ほん; "my car" →
 **A9 も.** "Also". Replaces は, が, を: わたしも がくせいです。 Other particles stay
 and も is added: がっこうにも いきます。 Slip: わたしはも (は is replaced, not kept).
 
-**A10 と.** Two uses: "and" between nouns (a complete list): パンと ごはん.
-"With" a person: ともだちと たべます。 Quiz: "I eat with a friend" →
-ともだちと たべます。; "books and pens" → ほんと ペン.
+Format from 10-17 (Opus): Rule = the one line Haiku may say when an answer
+is wrong. Quiz = ask exactly these, in order, word for word, one per
+message; never add, reword or invent a question. Accept kana or kanji,
+never romaji. Pass = at most one wrong; on a pass, tick and go to the next
+point (AGENTS.md "Grammar pace").
 
-**A11 や.** Lists nouns as examples: "A, B, and things like that"; the list
-is not complete. と lists everything (complete). ほんや ペンが あります。
-(there are books, pens, and so on). Only between nouns; "with a person" is
-always と. Quiz: "There are books, pens, and so on" → ほんや ペンが あります。;
-"I eat bread and rice (only those two)" → パンと ごはんを たべます。;
-"I go with a friend" → ともだちと いきます。 Slip: ともだちや いきます (や
-never means "with").
+**A10 と.** Rule: と joins nouns into a complete list ("A and B, only
+those"), and marks the person you do something with.
+Quiz:
+1. Say "bread and rice". → パンと ごはん
+2. Say "I eat with a friend." → ともだちと たべます。
+3. Say "There are a dog and a cat." → いぬと ねこが います。
+4. Say "I went to school with the teacher." → せんせいと がっこうに いきました。 (also accept がっこうへ)
+Slips: ともだちに たべます (に marks a point, not a companion); いぬと ねこが あります (animals take います).
 
-**A12 へ vs に.** With movement verbs (いきます, きます) both mark where you
-go: がっこうへ いきます。 = がっこうに いきます。 Both are correct. へ marks the
-direction you head in; に marks the point you arrive at. へ is written へ and
-said "e". Only に marks where something is (A5): がっこうに います (not へ).
-Quiz: "I go to Japan" → 日本へ いきます。 (に also correct); "The teacher is
-at school" → せんせいは がっこうに います。 Slips: がっこうえ (→ がっこうへ,
-written へ); がっこうへ います (→ に).
+**A11 や.** Rule: や lists nouns as examples ("A, B, and things like
+that"); と lists all of them; "with a person" is always と.
+Quiz:
+1. Say "There are books, pens, and so on." → ほんや ペンが あります。
+2. Say "I eat bread and rice (only those two)." → パンと ごはんを たべます。
+3. Say "I go with a friend." → ともだちと いきます。
+4. Say "In the room there are a desk, a chair and so on." (desk = つくえ, chair = いす) → へやに つくえや いすが あります。
+Slips: ともだちや いきます (や never means "with").
 
-**A13 に for time.** A clock time or date takes に: 三時に いきます。 Words
-for time relative to now take no particle: きょう, あした, きのう, まいにち,
-いま. Quiz: "I go at 3 o'clock" → 三時に いきます。; "I go tomorrow" →
-あした いきます。; "I eat at 7 o'clock" → 七時に たべます。 Slip: あしたに (no に).
+**A12 へ vs に.** Rule: with いきます / きます both へ and に mark where you
+go, both correct; へ is written へ and said "e"; only に marks where
+something is (with います / あります).
+Quiz:
+1. Say "I go to Japan." → 日本へ いきます。 (also accept 日本に)
+2. Say "The teacher is at school." → せんせいは がっこうに います。 (へ is wrong)
+3. Say "I go to the station." (station = えき) → えきへ いきます。 (also accept えきに; えきえ is wrong: written へ)
+4. Say "I came to school." → がっこうに きました。 (also accept がっこうへ)
 
-**A14 時 / 分.** Hours: いちじ, にじ, さんじ, よじ, ごじ, ろくじ, しちじ, はちじ,
-くじ, じゅうじ, じゅういちじ, じゅうにじ (watch 4 よじ, 7 しちじ, 9 くじ). Minutes:
-いっぷん, にふん, さんぷん, よんぷん, ごふん, ろっぷん, ななふん, はっぷん,
-きゅうふん, じゅっぷん; 30 = はん. "What time is it now?" → いま なんじですか。
-Quiz (kana): 4:00 → よじ; 9:00 → くじ; 7:10 → しちじ じゅっぷん; 3:30 →
-さんじ はん. Slips: よんじ, きゅうじ.
+**A13 に for time.** Rule: a clock time takes に; words for time relative
+to now (きょう, あした, きのう, まいにち, いま) take no particle.
+Quiz:
+1. Say "I go at 3 o'clock." → 三時に いきます。
+2. Say "I go tomorrow." → あした いきます。 (あしたに is wrong)
+3. Say "I eat at 7 o'clock." → 七時に たべます。
+4. Say "I study every day." → まいにち べんきょうします。 (まいにちに is wrong)
+
+**A14 時 / 分.** Rule: hours いちじ…じゅうにじ, with よじ (4), しちじ (7),
+くじ (9); minutes いっぷん, にふん, さんぷん, よんぷん, ごふん, ろっぷん,
+ななふん, はっぷん, きゅうふん, じゅっぷん; half past = はん.
+Quiz (answers in kana):
+1. Read 4:00. → よじ
+2. Read 9:00. → くじ
+3. Read 7:10. → しちじ じゅっぷん (also accept じっぷん)
+4. Read 3:30. → さんじ はん (also accept さんじ さんじゅっぷん)
+Slips: よんじ, きゅうじ, ななじ.
 
 ## Answer keys: technical
 
