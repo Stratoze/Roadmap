@@ -42,6 +42,20 @@ Claude updates this at the end of each session. Status: taught = shown once; sol
   - 2026-10-15 (external chat): はい、おおい車があります → はい、くるまが たくさん あります。 (not taught yet)
   - 2026-10-15 (external chat): にじゅだいくらいです → にじゅうだいくらいです。 (20 is にじゅう, long vowel)
 
+- 2026-10-19 (external chat): 23 learner replies (counted: every Japanese answer; excluded: 5 English messages and the "End"). Opener きのう だれと たべましたか。 (the unused 10-18 opener). Corrections, copied as written:
+  - Nothingです → なにも たべませんでした。 The particle も with a question word and a negative verb marks complete negation.
+  - 食べません → たべませんでした。 The past negative ending ませんでした marks an action that did not occur in the past.
+  - いいえ、だいがくにいませn → いいえ、だいがく に いません。 The negative ending ません marks the polite non-past negative form of a verb.
+  - テレビはoffです → テレビ は ついていません。(not taught yet)
+  - はい、たくさんです → はい、たくさん あります。 The verb あります marks the existence of inanimate things.
+  - いいえ、がっこますー → いいえ、 がっこう に います。 The particle に marks the location of existence.
+  - 1人でです → ひとり で たべます。 The particle で marks the condition of an action and connects directly to a verb.
+  - いいえ、へやは日本の本がありませn → いいえ、 へや に 日本 の 本 が ありません。 The particle に marks the location where an item exists or does not exist.
+  - 昼ごはんはたべませn → ひるごはん は たべません。 The negative ending ません marks the polite non-past negative form of a verb.
+  - はい。でも、晩ご飯をたべます、たくさんをたべまづ → はい。 でも、 ばんごはん を たくさん たべます。 The particle を marks the direct object of an action, so quantity words like たくさん modify the verb directly without it.
+  - Check on Sunday: the last line's explanation contradicts itself ("modify the verb directly without it" while the fix keeps を). Also: the partner answered "Wait, why で?" with a sound explanation (で = where the action happens, に = where something exists), and the partner put English into a question ("brothers and sisters の きょうだい").
+  - Learner asked for (not a correction): no () glosses. Partner still used them. Learner asked for more complex, still natural Japanese.
+
 ## Kana
 - Hiragana: solid. Small ゃゅょ: one slip (としよかん → としょかん)
 - Katakana: slow
@@ -55,3 +69,6 @@ Claude updates this at the end of each session. Status: taught = shown once; sol
 ## Queue
 See the Japanese grammar list in `NEXT.md`.
 - 2026-10-19 grammar 10 と: taught, quiz 3/4. Right: パンと ごはん; 友達とたべます (kanji for 友達 accepted); いぬと ねこがいます. Slip (the one wrong): 私と友達は学校にいました is correct for "me and my friend were at school", but the quiz asked "went to school with the teacher": せんせいと がっこうに いきました。 Not solid until used in chat. Learner also asked for quoting (と with 言う) and cause (から): not taught yet, not in scope.
+
+## Vocabulary
+- 2026-10-19 (external chat, new words, not quizzed): ばんごはん (dinner); あさごはん (breakfast); いま (now); だいがく (university)
