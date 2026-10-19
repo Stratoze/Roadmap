@@ -54,3 +54,4 @@ Claude updates this at the end of each session. Status: taught = shown once; sol
 
 ## Queue
 See the Japanese grammar list in `NEXT.md`.
+- 2026-10-19 grammar 10 と: taught, quiz 3/4. Right: パンと ごはん; 友達とたべます (kanji for 友達 accepted); いぬと ねこがいます. Slip (the one wrong): 私と友達は学校にいました is correct for "me and my friend were at school", but the quiz asked "went to school with the teacher": せんせいと がっこうに いきました。 Not solid until used in chat. Learner also asked for quoting (と with 言う) and cause (から): not taught yet, not in scope.
