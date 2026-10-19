@@ -48,7 +48,7 @@ Claude updates this at the end of each session. Status: taught = shown once; sol
   - いいえ、だいがくにいませn → いいえ、だいがく に いません。 The negative ending ません marks the polite non-past negative form of a verb.
   - テレビはoffです → テレビ は ついていません。(not taught yet)
   - はい、たくさんです → はい、たくさん あります。 The verb あります marks the existence of inanimate things.
-  - いいえ、がっこますー → いいえ、 がっこう に います。 The particle に marks the location of existence.
+  - いいえ、がっこます → いいえ、 がっこう に います。 The particle に marks the location of existence.
   - 1人でです → ひとり で たべます。 The particle で marks the condition of an action and connects directly to a verb.
   - いいえ、へやは日本の本がありませn → いいえ、 へや に 日本 の 本 が ありません。 The particle に marks the location where an item exists or does not exist.
   - 昼ごはんはたべませn → ひるごはん は たべません。 The negative ending ません marks the polite non-past negative form of a verb.
