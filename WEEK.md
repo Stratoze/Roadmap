@@ -55,7 +55,7 @@ Answer keys are for the agent: show them only after the learner answers.
 - [ ] [H] Technical items 10, 11, 12, 15 (notebook unlocks 12:00), retagged [H] by Opus 10-17, via `tech-tutor`: draw on paper, type each arrow as one line for the tutor, paste the `end` output to Haiku, who checks it against the key. The photo goes to `Mechatronics/portfolio/` unchecked.
 
 From 10-17 every technical item runs through the `tech-tutor` skill (free chat AI tutors, Haiku checks the final answer against the key). Keys below: Haiku copies only **Given** into the prompt.
-- [ ] [H] Technical items 16, 17 (keys T16, T17). Item 16 done 10-15 (learner's own numbers, 0.2 kg, 0.3 m link: 0.294 N·m; key uses 0.05 kg, 0.2 m). Item 17 open.
+- [x] [H] Technical items 16, 17 (keys T16, T17). Item 16 done 10-15 (learner's own numbers, 0.2 kg, 0.3 m link: 0.294 N·m; key uses 0.05 kg, 0.2 m). Item 17 done 10-20 via tech-tutor (0.049, 0.0343, 0 N·m; key 0.049, 0.035, 0).
 
 ## Sun 10-18 (social 9-16, asleep by 22:00)
 

@@ -51,7 +51,7 @@ Pending: photo of the FK drawing for `Mechatronics/portfolio/0.3-2link-fk-tip.md
 - [x] 14. Same force at 45° and 0°: predict which is bigger, then compute
 - [ ] 15. Moment arm in plain words: draw it for item 14
 - [x] 16. Torque of a link's own weight about the shoulder (weight at the middle)
-- [ ] 17. That torque at link angles 0°, 45°, 90°: predict, then compute
+- [x] 17. That torque at link angles 0°, 45°, 90°: predict, then compute
 - [ ] 18. Equilibrium: two forces on a seesaw, find the missing one
 - [ ] 19. Equilibrium: link held by a hand force, solve for the force
 - [ ] 20. 2-link straight out: shoulder torque from both link weights

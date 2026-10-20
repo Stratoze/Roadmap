@@ -13,7 +13,10 @@ Claude updates this at the end of each session. Status: done = matched its check
 
 - 0.3 item 9 (2026-10-13): area under v(t) = distance. Steady case 2 m/s × 3 s = 6 m; triangle 0→6 m/s over 3 s = 9 m. Said all three parts after hints: thin strip with steady speed, strip area = v × t = distance, strips add to the total. First attempts were circular ("area is distance because...") and a units-only argument; the missing link (rectangle area = height × width = speed × time) needed a nudge. Euler link not said.
 
+- 0.4 item 17 (2026-10-20, tech-tutor, external chat): torque of link weight at 0°, 45°, 90°. Final: 0.049 N·m, 0.0343 N·m, 0 N·m (key 0.049, 0.035, 0; 0.0343 is within 2% using sin 45° ≈ 0.7, which the tutor gave as the one hint). Predicted 0° biggest, 90° smallest (committed after a hedge), 0.05 N·m at 0° (the key's 0.049 within rounding). Center of gravity explained by the learner as "roughly the middle" (not a full definition). Zero at 90° explained first by sin 0 = 0 (formula, rejected), then by force through the pivot (no lever arm), which the tutor accepted. Haiku checked against Answer and Check; ticked.
+
 ## Shaky
+- Item 17: hedged predictions ("probably", "ish") before committing; first wrote a force formula instead of a torque prediction; sin 45° confused with 1/2 (that is sin 30°); units dropped on the 45° prediction.
 - Item 8 note for Opus: Haiku accepted "area under the curve" as the reason, which is circular; the learner caught this on item 9.
 - Power vs energy (2026-10-13): predicted 6 J, taking the average power (6 W) as the energy. Energy = area under P(t), not the average. Final answer phrased as a question ("Area under the curve?"): not yet said as a confident sentence.
 - First instinct on area under v(t) was right-endpoint steps (2+4+6 = 12 m, overestimate); fixed with average speed
