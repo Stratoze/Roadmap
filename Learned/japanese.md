@@ -72,3 +72,4 @@ See the Japanese grammar list in `NEXT.md`.
 
 ## Vocabulary
 - 2026-10-19 (external chat, new words, not quizzed): ばんごはん (dinner); あさごはん (breakfast); いま (now); だいがく (university)
+- 2026-10-20 grammar 11 や: quiz not passed (2 wrong). Q1 本やペンあります: missing が (あります takes が on what exists; key 本や ペンが あります). Q2 バンとごはんをたべます: the grammar was right (と list, を), but バン (evening) for パン (bread): one-kana typo. Counted as wrong under the quiz rule. Redo tomorrow. Open question for Opus: should a one-kana typo count against a grammar quiz?
