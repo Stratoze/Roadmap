@@ -56,6 +56,13 @@ Claude updates this at the end of each session. Status: taught = shown once; sol
   - Check on Sunday: the last line's explanation contradicts itself ("modify the verb directly without it" while the fix keeps を). Also: the partner answered "Wait, why で?" with a sound explanation (で = where the action happens, に = where something exists), and the partner put English into a question ("brothers and sisters の きょうだい").
   - Learner asked for (not a correction): no () glosses. Partner still used them. Learner asked for more complex, still natural Japanese.
 
+- 2026-10-20 (external chat, AI Studio): 9 learner replies (counted: every Japanese answer). Minutes not reported. Opener きのう だれと たべましたか。 Corrections, copied as written:
+  - はい、パンをtsべました → はい、パンを 食(た)べました。 を marks the direct object of the action, and 食(た)べました is the past polite form.
+  - がい、べんきょうしました → はい、勉強(べんきょう)しました。 はい is the affirmative word for "yes," and しました marks an action completed in the past.
+  - え、IOT勉強しました、electronicです → ええ、IoTを 勉強(べんきょう)しました。 電子(でんし)です。 を marks IoT as the direct object of the action.
+  - 机の上に本があいません、bookshelvesとベッドとコヒてブルーにあります → 机(つくえ) の 上(うえ) に 本(ほん) は ありません。 本棚(ほんだな) と ベッド と コーヒーテーブル に あります。 ありません is the negative polite form of あります, and に marks the location of existence.
+  - Check on Sunday: the last fix uses は for 本 without saying that は contrasts it with other things; the explanation does not cover that. Also the partner used English in the transcript despite the learner's request (the learner typed English as a message, and the partner put (dinner) in the question).
+
 ## Kana
 - Hiragana: solid. Small ゃゅょ: one slip (としよかん → としょかん)
 - Katakana: slow
@@ -73,3 +80,4 @@ See the Japanese grammar list in `NEXT.md`.
 ## Vocabulary
 - 2026-10-19 (external chat, new words, not quizzed): ばんごはん (dinner); あさごはん (breakfast); いま (now); だいがく (university)
 - 2026-10-20 grammar 11 や: quiz not passed (2 wrong). Q1 本やペンあります: missing が (あります takes が on what exists; key 本や ペンが あります). Q2 バンとごはんをたべます: the grammar was right (と list, を), but バン (evening) for パン (bread): one-kana typo. Counted as wrong under the quiz rule. Redo tomorrow. Open question for Opus: should a one-kana typo count against a grammar quiz?
+- 2026-10-20 (external chat, new words): ばんごはん (dinner)
