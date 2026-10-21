@@ -166,3 +166,4 @@ Pending: photo of the FK drawing for `Mechatronics/portfolio/0.3-2link-fk-tip.md
 - [ ] 48. Potential form (読める, 行ける)
 - [ ] 49. あげる / くれる / もらう
 - [ ] 50. Question word + か / も (なにか, だれも)
+- Handoff 2026-10-21: grammar 11 や redo not passed (2 of 4; Q3 and Q4 wrong). Redo the 11 quiz at the next session before any new grammar. Learner asked for grammar 12 today; declined per the rule. Tutor prompts for item 18 and item 12 were handed over; neither came back. Learner is escalating the rule question to Opus.
