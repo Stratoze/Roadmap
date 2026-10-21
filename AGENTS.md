@@ -169,7 +169,14 @@ day.
   Sat), 1 on Mon, Thu, Sun or any tight day. From 2026-11-16: 1 a day. Each
   point is its own lesson: read, quiz, then the next point. Start the next
   point only if the quiz just passed (at most one slip); if not, stop new
-  grammar for the day and redo that quiz tomorrow. A point needs a key in
+  grammar for the day and redo that quiz tomorrow. **Scoring (Opus
+  2026-10-21, learner's request: 11 や was held two days by misses that
+  were not about や):** an answer counts as wrong only if the mistake is in
+  a particle or form named in that key's Rule or Slips line. Other mistakes
+  (a missing が, the wrong place particle from an earlier point) are logged
+  in `Learned/japanese.md` as shaky on that earlier point and do not fail
+  the quiz. A typo that leaves the word clear and the grammar right (バン
+  for パン) is noted, not counted. A point needs a key in
   `WEEK.md`; no key, no lesson (Haiku does not write keys). The chat list
   gets every point ticked so far, including today's.
 - Use only grammar ticked in `NEXT.md`. If a fix needs untaught grammar, say

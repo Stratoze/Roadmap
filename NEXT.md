@@ -126,7 +126,7 @@ Pending: photo of the FK drawing for `Mechatronics/portfolio/0.3-2link-fk-tip.md
 - [x] 8. の (my, the teacher's)
 - [x] 9. も (also)
 - [x] 10. と (and, with)
-- [ ] 11. や (and so on)
+- [x] 11. や (and so on)
 - [ ] 12. へ vs に
 - [ ] 13. に for time (３時に)
 - [ ] 14. 時 / 分, telling time
@@ -167,3 +167,4 @@ Pending: photo of the FK drawing for `Mechatronics/portfolio/0.3-2link-fk-tip.md
 - [ ] 49. あげる / くれる / もらう
 - [ ] 50. Question word + か / も (なにか, だれも)
 - Handoff 2026-10-21: grammar 11 や redo not passed (2 of 4; Q3 and Q4 wrong). Redo the 11 quiz at the next session before any new grammar. Learner asked for grammar 12 today; declined per the rule. Tutor prompts for item 18 and item 12 were handed over; neither came back. Learner is escalating the rule question to Opus.
+- Opus ruling 2026-10-21: quizzes are scored on the point's own particles (AGENTS.md "Grammar pace", Scoring). Re-scored, the 11 や redo passes (one slip, Q3 も for と); 11 ticked. The 10-20 typo question is settled: a clear-word typo is not counted. Grammar 12 is open today.
