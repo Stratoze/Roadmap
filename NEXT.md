@@ -8,9 +8,10 @@ Japanese is the priority, all of it before technical. Free day: CJ 40, grammar u
 Also: Tadoku level 0, one story aloud twice a week · katakana deck 5 min/day until fluent · Kaishi: review the backlog by time (20 min free day, 10 tight), after the grammar quiz; no new cards until under 100 due (AGENTS.md).
 
 ## Handoff
-Notebook items (10, 11, 12 free-body drawings; 15 moment-arm drawing) are locked for Sat 2026-10-17 12:00 JST (noon, lunch) (learner has no notebook now, 2026-10-15). Learner sends photos then; Learner's 'Sat 12am' means noon, not midnight (corrected 2026-10-15). Do these first on that session. Item 16 onward needs no drawing and can continue before then.
+Current (Opus 2026-10-21): no open handoff. WEEK.md now runs 10-21 to 11-01 with keys A12-A26, T10-T28, S1-S4. Resolved today: quiz scoring (AGENTS.md "Grammar pace"; 11 や passed on re-score; a clear-word typo is not counted); jp-chat template (kanji with readings, no English glosses, real back-and-forth); the 10-19 and 10-20 "check on Sunday" lines (Learned/japanese.md).
+Earlier decisions, kept for the reasons:
 Decided by Opus 2026-10-17 (Sat, called early):
-- jp-chat template: role, culture rule (soft no), vocabulary (1-2 new words per line, glossed once), and `end` prints corrections + new words + transcript. All in `.claude/skills/jp-chat/SKILL.md`. Transcripts only to `_private/jp-chat/`.
+- jp-chat template: role, culture rule (soft no), vocabulary (1-2 new words per line, glossed once), and `end` prints corrections + new words + transcript. All in `.claude/skills/jp-chat/SKILL.md`. (Superseded: glosses dropped 10-21; transcripts stay in the chat service.)
 - Grammar pace: up to 3 points on a free day until 2026-11-15, then 1 a day. Rule in AGENTS.md "Grammar pace". Keys A10-A14 are in WEEK.md.
 - Push after each item: now in AGENTS.md "Git".
 - Project choice (mini self-driving car / QDD robot / feng shui AI): no new project until Phase 0 is done (item 17 of 60 now). When it is, the QDD robot is first choice: it reuses the 2-link arm's statics, circuits and kinematics, and fits "robots". The self-driving car is second. The feng shui AI is off-goal; keep it as a hobby idea, not a milestone.
@@ -18,17 +19,11 @@ Decided by Opus 2026-10-17 (Sat, called early):
 - Weight, food, exercise logging: not in this repo. Advice on diet needs a qualified source (doctor or dietitian); a plain notes app is enough for logging.
 - Second pass, same day, after the learner said proposals were missing: the 10-17 chat (17 replies) was logged and audited (it had only been filed as a proposal); quiz answers may be kanji from the keyboard, never romaji; drawing items 10, 11, 12, 15 go to Haiku as typed lines against the keys; the teacher-check task moved to Wed 10-21 class.
 - Technical round moved to Haiku + free chat AI (`tech-tutor` skill), learner's proposal. Sonnet is now only for coursework grilling. Keys get a Given / Answer / Check split so Haiku never leaks an answer; T17, T18 rewritten that way, the Sunday plan writes the rest that way. Sunday audit now takes one technical tutor chat as well.
-- Handoff 2026-10-19 (Opus, for Sunday): the external chat ignored the learner's request for no () glosses; and it made an English-into-question slip. The chat audit list is in Learned/japanese.md (check on Sunday). Technical tutor chat (item 17) not yet run.
-- Handoff 2026-10-20: grammar 11 や quiz not passed (2 wrong: が missing; バン for パン, a typo the learner says should not count). Redo the や quiz tomorrow (free day). Opus to decide whether a one-kana typo counts against a quiz.
-- Proposal for Opus (learner, 2026-10-20), not changed by Haiku: jp-chat template rule 1 and rule 2. Allow kanji with its kana reading in parentheses (e.g. 学校（がっこう）), and drop the English-in-brackets gloss. Reason: the partner keeps adding English glosses the learner doesn't want. The learner's own chat message asked for no English brackets, as a stopgap.
-- Proposal for Opus (learner, 2026-10-20), not changed by Haiku: jp-chat template should make a real back-and-forth, not a string of questions. The partner should sometimes answer, share a short thing about itself, react, then ask one question. Template rule 1 (one line, then wait) is the cause; Opus to decide the wording.
 - Kaishi (~1249 overdue): no reset, the learner reviews it down (their proposal; reset would wipe the RWKV scheduler's history). Rule in AGENTS.md.
 - Flow reviewed with the learner 2026-10-17: free day ~2 h 15 min (CJ 40, grammar up to 3, Kaishi 20 min, chat 25, technical 25); tight day CJ 25, 1 point, Kaishi 10 min, chat ≥5, technical 25. Transcripts stay in the chat service (cloud container gets wiped); only the end summaries are pasted to Haiku. Sunday plan must write about 15 grammar keys a week (keys end at A14) and every technical key as Given / Answer / Check.
-- Still for the Sunday plan: the 10-17 chat is already audited, so Sunday's audit takes a different chat or is skipped; rest of the WEEK rewrite. Also: Fri 10-16 was missed entirely, and the 10-14 chat was ticked at 4 replies (below 5). Both count against a 3-a-day grammar pace; look at it again at the Sunday plan.
 
 The day-by-day plan lives in `WEEK.md` (Opus rewrites it each Sunday). Start there.
 Pending: photo of the FK drawing for `Mechatronics/portfolio/0.3-2link-fk-tip.md`.
-2026-10-13 Technical 9 done on Sonnet. Left: coursework grill Q22 and speaker notes (both [S], not started).
 
 ## Technical (60 + S1-S4 + M1-M4)
 
@@ -166,5 +161,3 @@ Pending: photo of the FK drawing for `Mechatronics/portfolio/0.3-2link-fk-tip.md
 - [ ] 48. Potential form (読める, 行ける)
 - [ ] 49. あげる / くれる / もらう
 - [ ] 50. Question word + か / も (なにか, だれも)
-- Handoff 2026-10-21: grammar 11 や redo not passed (2 of 4; Q3 and Q4 wrong). Redo the 11 quiz at the next session before any new grammar. Learner asked for grammar 12 today; declined per the rule. Tutor prompts for item 18 and item 12 were handed over; neither came back. Learner is escalating the rule question to Opus.
-- Opus ruling 2026-10-21: quizzes are scored on the point's own particles (AGENTS.md "Grammar pace", Scoring). Re-scored, the 11 や redo passes (one slip, Q3 も for と); 11 ticked. The 10-20 typo question is settled: a clear-word typo is not counted. Grammar 12 is open today.

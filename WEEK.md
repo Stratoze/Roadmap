@@ -1,126 +1,147 @@
-# WEEK 2026-10-12 → 2026-10-18
+# WEEK 2026-10-21 → 2026-11-01
 
-Written by Opus on Mon 10-12. Rewritten each Sunday evening. Tags: [H] Haiku,
-[S] Sonnet, [O] Opus. Changed Wed 10-14: Japanese first and in full each day
-(~60 min: CJ 25, grammar ~10, chat ~25), then technical 25 min. Grammar [H]: Haiku
-names the point, the learner reads it on Tofugu (or Cure Dolly / yoku.bi / Imabi),
-Haiku quizzes from the key with no choices listed, answers in kana. Chat [H]: Haiku
-prints the prompt, the learner chats in a free chat service, pastes it back, Haiku logs. Tick `[x]` here and in `NEXT.md` when the check passes.
-Answer keys are for the agent: show them only after the learner answers.
+Written by Opus on Wed 10-21 (learner's request: Opus was called for a
+ruling, so it wrote the plan in the same call). Covers 12 days; the next
+Opus plan is Sun 11-01. Tags: [H] Haiku, [S] Sonnet, [O] Opus.
 
-**Big event:** Python presentation, Thu 10-15 11:00 JST.
+How the rows work (so a failed quiz never breaks the plan): every day says
+"next unticked" for grammar and technical. Work `NEXT.md` top-down in the
+order given here, tick `[x]` in `NEXT.md` and on the day's row here when
+the check passes. Answer keys are for the agent: show them only after the
+learner answers.
+
+- **Grammar [H]:** name the next unticked point, learner reads it on
+  Tofugu (else Cure Dolly / yoku.bi / Imabi), then the key's quiz exactly,
+  one question per message. Scoring: AGENTS.md "Grammar pace" (only the
+  point's own particles or forms count; at most one wrong = pass). Free
+  day: up to 3 points; tight day: 1. Keys A12-A26 below; when they run
+  out, stop new grammar until Opus writes more.
+- **Technical [H]:** `tech-tutor` skill, next item in this order: **18,
+  10, 11, 12, 15, 19, 20, 21, 22, 24, 23, 25, 26, 27, 28**, then S1-S4.
+  25 min, then stop. Keys T10-T28, S1-S4 below.
+- **Chat [H]:** `jp-chat` skill (template changed 10-21: kanji with
+  readings, no English glosses, real back-and-forth). Opener: the day's
+  line below.
+- **Kaishi:** learner reports the due count at session start; log it.
+
+**Weak spot to watch (from the 10-21 quiz):** existence sentences. The
+place takes に and the thing that exists takes が: へやに つくえが あります。
+Missed 10-13, 10-20, 10-21. Openers on 10-21, 10-26 and 10-30 aim at it.
 
 ---
 
-## Tue 10-13 (free 16:10-24)
+## Wed 10-21 (free; class 11:40-14)
 
-- [x] [H] CJ, next episodes, ~5 episodes. Learner reports minutes. (25 min, learner-reported)
-- [x] [H] Grammar 5: あります / います (see key A5).
-- [x] [H] Japanese chat, ≥5 exchanges, opening line: きょう がっこうに いきましたか。 (6 exchanges)
-- [x] [H] Technical item 8 (key T8).
-- [x] [S] Technical item 9 (key T9).
-- [x] [S] Coursework: grill Q22 (key C22) (done 10-14 on Opus as a 7-question grill on the current repo; key C22 was stale), then the learner drafts speaker notes for `presentation/talk.pptx` in their own words. Ask: talk length? live or recorded?
-- [ ] Learner, on PC: run `python tools/check_progress.py 7`, paste the output.
+- [ ] [H] CJ 40 min, learner reports minutes.
+- [x] [H] Grammar 11 や passed on re-score (Opus 10-21, 3 of 4).
+- [ ] [H] Grammar: next unticked, up to 2 more today (12 へ vs に, then 13).
+- [ ] [H] Kaishi 20 min.
+- [ ] [H] Chat ~25 min, opener: へやに なにが ありますか。
+- [ ] [H] Technical: item 18 (key T18), then next in order.
+- [ ] Learner, at class (today or Sat): ask the teacher if these three fixes are right: カフェに いきます。それから うちに かえります。 / ソーダ (long vowel) / はい、たどくの 本を よみました (yes, not いいえ, when you did read). Report the answer.
 
-## Wed 10-14 (free 16:10-24)
+## Thu 10-22 (tight: classes, Vovinam)
 
-- [x] [H] CJ ~25 min. (25 min, learner-reported)
-- [x] [H] Grammar 6: これ / それ / あれ / どれ (key A6). (quiz 4/4)
-- [x] [H] Japanese chat, opening line: それは なんですか。 (4 exchanges, recounted)
-- [ ] [S] Technical items 10, 11 (keys T10, T11). Learner sends a photo of each drawing.
-- [ ] [S] Coursework: timed read-aloud of the talk + 3 surprise questions from the list below (C-list). Note the time. (Moot: the talk was delivered 10-15; not done.)
+- [ ] [H] CJ 25 min.
+- [ ] [H] Grammar: next unticked, 1 point.
+- [ ] [H] Kaishi 10 min.
+- [ ] [H] Chat ≥5 replies, opener: きょう がっこうで なにを しましたか。
+- [ ] [H] Technical: next item in order, 25 min.
 
-## Thu 10-15 (presentation 11:00; free only 14:10-16 bus, 22:00+)
+## Fri 10-23 (free)
 
-- [ ] [H] CJ on the bus, ~25 min.
-- [ ] [H] Grammar 7: ここ / そこ / あそこ / どこ: read, then quiz (key A7).
-- [x] [H] Chat ≥5 exchanges (tight day), opening line: トイレは どこですか。 (21 replies, external chat, 10-15)
-- [x] [H] Technical item 13 (key T13), by hand on paper. (0.1 N·m, 10-15, guessed then corrected; formula shaky)
-- [x] [H] After the talk: learner reports the questions the teacher asked. Log them in `Learned/coursework.md`. (Teacher asked nothing, 10-15.)
+- [ ] [H] CJ 40 min.
+- [ ] [H] Grammar: next unticked, up to 3.
+- [ ] [H] Kaishi 20 min.
+- [ ] [H] Chat ~25 min, opener: かばんの なかに なにが ありますか。
+- [ ] [H] Technical: next items in order, 25 min.
 
-## Fri 10-16 (free)
+## Sat 10-24 (free 16:10-24; class 11:40-14)
 
-- [ ] [H] CJ ~25 min.
-- [ ] [H] Grammar 8: の: read, then quiz (key A8).
-- [ ] [H] Chat ~25 min, opening line: それは だれの ほんですか。
-- [ ] [S] Technical item 12 (key T12), photo of the drawing.
-- [ ] [H] Technical items 14, 15 (keys T14, T15). Item 14 done 10-15 (45°: 0.07 N·m; predicted 90° bigger). Item 15 waits for the drawing, locked for Sat 10-17 12:00 JST.
+- [ ] [H] CJ 40 min.
+- [ ] [H] Grammar: next unticked, up to 3.
+- [ ] [H] Kaishi 20 min.
+- [ ] [H] Chat ~25 min, opener: あした どこに いきますか。
+- [ ] [H] Technical: next items in order, 25 min. If item 23 is reached: needs a 30 cm ruler, a pencil and ten 1-yen coins (1 g each).
 
-## Sat 10-17 (free 16:10-24)
+## Sun 10-25 (social 9-16, asleep by 22:00; tight)
 
-- [ ] [H] CJ ~25 min.
-- [x] [H] Grammar 9: も: read, then quiz (key A9). (quiz 1/1, 10-17: 私も学生です, kanji; kana answer わたしも がくせいです)
-- [ ] [H] Grammar 10: と (key A10), then grammar 11: や (key A11). New pace (AGENTS.md "Grammar pace"): 11 only if the 10 quiz passed. Added by Opus 10-17.
-- [x] [H] Chat ~25 min, opening line: わたしは がくせいです。あなたは？ (17 replies, external chat, before the new template; audited by Opus 10-17, see `Learned/japanese.md`). From the next chat, use the new template.
-- [ ] [H] Technical items 10, 11, 12, 15 (notebook unlocks 12:00), retagged [H] by Opus 10-17, via `tech-tutor`: draw on paper, type each arrow as one line for the tutor, paste the `end` output to Haiku, who checks it against the key. The photo goes to `Mechatronics/portfolio/` unchecked.
+- [ ] [H] CJ 25 min.
+- [ ] [H] Grammar: next unticked, 1 point.
+- [ ] [H] Kaishi 10 min.
+- [ ] [H] Chat ≥5 replies, opener: きょう だれと あいましたか。
+- [ ] [H] Technical: next item in order, 25 min.
+- No Opus plan tonight: this file runs to 11-01.
 
-From 10-17 every technical item runs through the `tech-tutor` skill (free chat AI tutors, Haiku checks the final answer against the key). Keys below: Haiku copies only **Given** into the prompt.
-- [x] [H] Technical items 16, 17 (keys T16, T17). Item 16 done 10-15 (learner's own numbers, 0.2 kg, 0.3 m link: 0.294 N·m; key uses 0.05 kg, 0.2 m). Item 17 done 10-20 via tech-tutor (0.049, 0.0343, 0 N·m; key 0.049, 0.035, 0).
+## Mon 10-26 (tight: classes, Vovinam)
 
-## Sun 10-18 (social 9-16, asleep by 22:00)
+- [ ] [H] CJ 25 min.
+- [ ] [H] Grammar: next unticked, 1 point.
+- [ ] [H] Kaishi 10 min.
+- [ ] [H] Chat ≥5 replies, opener: がっこうに だれが いましたか。
+- [ ] [H] Technical: next item in order, 25 min.
 
-- [ ] [H] CJ ~25 min.
-- [ ] [H] Next unticked grammar point, one only (tight day): 12 へ vs に (key A12) if 10 and 11 passed Sat; else redo what failed.
-- [ ] [H] Chat ~25 min, opening line: きのう だれと たべましたか。
-- [ ] [H] Technical item 18 (key T18).
-- [ ] [O] Weekly plan, about 20:00: Opus reads the week's `Daily/` notes and `Learned/`, then rewrites this file.
-- [ ] [O] Chat audit: the learner pastes one chat from this week (from the free chat service) to Opus, who checks every correction and every partner line for errors, untaught grammar, and drift. The 10-14 Haiku chat is already audited. Wrong corrections go in `Learned/japanese.md` as "corrected by audit".
-- [ ] Learner: bring 3 sentences Claude corrected this week to the Japanese class and ask the teacher if the fixes are right. Report the answer. (Was on the wrong day: class is Wed and Sat, not Sun. Next: Wed 10-21. Good candidates: カフェに いきます。それから うちに かえります。 / ソーダ / the いいえ vs はい one.)
+## Tue 10-27 (free 16:10-24; IoT class)
+
+- [ ] [H] CJ 40 min.
+- [ ] [H] Grammar: next unticked, up to 3.
+- [ ] [H] Kaishi 20 min.
+- [ ] [H] Chat ~25 min, opener: うちに いぬや ねこが いますか。
+- [ ] [H] Technical: next items in order, 25 min.
+
+## Wed 10-28 (free 16:10-24; class 11:40-14)
+
+- [ ] [H] CJ 40 min.
+- [ ] [H] Grammar: next unticked, up to 3.
+- [ ] [H] Kaishi 20 min.
+- [ ] [H] Chat ~25 min, opener: きのう なにを たべましたか。
+- [ ] [H] Technical: next items in order, 25 min.
+
+## Thu 10-29 (tight: classes, Vovinam)
+
+- [ ] [H] CJ 25 min.
+- [ ] [H] Grammar: next unticked, 1 point.
+- [ ] [H] Kaishi 10 min.
+- [ ] [H] Chat ≥5 replies, opener: ボビナムは どこで しますか。
+- [ ] [H] Technical: next item in order, 25 min.
+
+## Fri 10-30 (free)
+
+- [ ] [H] CJ 40 min.
+- [ ] [H] Grammar: next unticked, up to 3.
+- [ ] [H] Kaishi 20 min.
+- [ ] [H] Chat ~25 min, opener: へやに 本が なんさつ ありますか。
+- [ ] [H] Technical: next items in order, 25 min.
+
+## Sat 10-31 (free 16:10-24; class 11:40-14)
+
+- [ ] [H] CJ 40 min.
+- [ ] [H] Grammar: next unticked, up to 3.
+- [ ] [H] Kaishi 20 min.
+- [ ] [H] Chat ~25 min, opener: こんばん なにを しますか。
+- [ ] [H] Technical: next items in order, 25 min.
+
+## Sun 11-01 (social 9-16, asleep by 22:00; tight)
+
+- [ ] [H] CJ 25 min.
+- [ ] [H] Grammar: next unticked, 1 point.
+- [ ] [H] Kaishi 10 min.
+- [ ] [H] Chat ≥5 replies, opener: きょう ともだちと なにを しましたか。
+- [ ] [H] Technical: next item in order, 25 min.
+- [ ] [O] Weekly plan, about 20:00: Opus reads `Daily/` and `Learned/` for 10-21 to 11-01 and rewrites this file (grammar keys from A27, technical from where the learner is).
+- [ ] [O] Audit, same call: the learner pastes one Japanese chat and one technical tutor chat from these 12 days. Opus checks every correction and explanation; "check on Sunday" lines in `Learned/` go here.
 
 ---
 
 ## Answer keys: Japanese
 
-**A5 あります / います.** Both mean something "is there". います: living things
-that move by themselves (people, animals). あります: everything else (objects,
-plants, events). What exists takes が; the place takes に.
-Examples: へやに ねこが います。 つくえに ほんが あります。
-Quiz (one per message): せんせい → います; き (tree) → あります; くるま → あります;
-いぬ → います; "Is there a book?" → ほんが ありますか。
-Common slip: ほんを あります (を is wrong; ほんが).
-
-**A6 これ / それ / あれ / どれ.** これ: near me. それ: near you. あれ: far from
-both. どれ: which one (of three or more). Used alone, not before a noun (that
-is この/その, not taught yet).
-Natural pair: これは なんですか。 → それは ほんです。 (the answerer switches これ to それ).
-Quiz: you hold a pen and ask about it → これ; you point at the friend's bag → それ;
-a building far away → あれ; "which is yours?" → どれ (どれですか).
-
-**A7 ここ / そこ / あそこ / どこ.** Same pattern for places: here, near you,
-over there, where. Natural: トイレは どこですか。 → あそこです。
-Quiz: "Where is the station?" → えきは どこですか。; "It's here." → ここです。
-
-**A8 の.** Links two nouns; the first describes the second. わたしの ほん (my
-book), せんせいの くるま, 日本の くるま (a Japanese car). The owner/describer
-comes first. Quiz: "the teacher's book" → せんせいの ほん; "my car" →
-わたしの くるま. Slip: ほんの わたし (reversed).
-
-**A9 も.** "Also". Replaces は, が, を: わたしも がくせいです。 Other particles stay
-and も is added: がっこうにも いきます。 Slip: わたしはも (は is replaced, not kept).
-
-Format from 10-17 (Opus): Rule = the one line Haiku may say when an answer
-is wrong. Quiz = ask exactly these, in order, word for word, one per
-message; never add, reword or invent a question. Accept kana or kanji,
-never romaji. Pass = at most one wrong; on a pass, tick and go to the next
-point (AGENTS.md "Grammar pace").
-
-**A10 と.** Rule: と joins nouns into a complete list ("A and B, only
-those"), and marks the person you do something with.
-Quiz:
-1. Say "bread and rice". → パンと ごはん
-2. Say "I eat with a friend." → ともだちと たべます。
-3. Say "There are a dog and a cat." → いぬと ねこが います。
-4. Say "I went to school with the teacher." → せんせいと がっこうに いきました。 (also accept がっこうへ)
-Slips: ともだちに たべます (に marks a point, not a companion); いぬと ねこが あります (animals take います).
-
-**A11 や.** Rule: や lists nouns as examples ("A, B, and things like
-that"); と lists all of them; "with a person" is always と.
-Quiz:
-1. Say "There are books, pens, and so on." → ほんや ペンが あります。
-2. Say "I eat bread and rice (only those two)." → パンと ごはんを たべます。
-3. Say "I go with a friend." → ともだちと いきます。
-4. Say "In the room there are a desk, a chair and so on." (desk = つくえ, chair = いす) → へやに つくえや いすが あります。
-Slips: ともだちや いきます (や never means "with").
+Format: Rule = the one line Haiku may say when an answer is wrong. Quiz =
+ask exactly these, in order, word for word, one per message; never add,
+reword or invent a question. Accept kana or kanji, never romaji. Score per
+AGENTS.md "Grammar pace": an answer is wrong only if the mistake is in a
+particle or form named in the Rule or Slips line; other mistakes are
+logged as shaky on the earlier point; a typo that leaves the word clear is
+not counted. Pass = at most one wrong.
 
 **A12 へ vs に.** Rule: with いきます / きます both へ and に mark where you
 go, both correct; へ is written へ and said "e"; only に marks where
@@ -149,16 +170,120 @@ Quiz (answers in kana):
 4. Read 3:30. → さんじ はん (also accept さんじ さんじゅっぷん)
 Slips: よんじ, きゅうじ, ななじ.
 
+**A15 曜日.** Rule: げつようび (Mon), かようび (Tue), すいようび (Wed),
+もくようび (Thu), きんようび (Fri), どようび (Sat), にちようび (Sun);
+"what day" is なんようび; a day of the week can take に (どようびに), or
+no particle.
+Quiz:
+1. Say "Monday". → げつようび
+2. Ask "What day is it today?" → きょうは なんようびですか。 (also accept なにようび)
+3. Say "I go on Saturday." → どようびに いきます。 (also accept どようび いきます)
+4. Say "Wednesday". → すいようび
+Slips: ようひ for ようび; どようび and にちようび swapped.
+
+**A17 Counter 人.** Rule: people are counted with 人: ひとり, ふたり,
+さんにん, よにん, ごにん…; "how many people" is なんにん; the count goes
+before the verb, like other counters: がくせいが ふたり います。
+Quiz:
+1. Say "one person". → ひとり
+2. Say "There are two students." → がくせいが ふたり います。
+3. Say "four people". → よにん
+4. Ask "How many people are there?" → なんにん いますか。
+Slips: いちにん, ににん, よんにん.
+
+**A18 い-adjectives: たかい / たかくない.** Rule: an い-adjective ends in
+い and takes です to be polite; for "not", drop the final い and add
+くないです; いい (good) becomes よくないです.
+Quiz:
+1. Say "It is expensive." → たかいです。
+2. Say "It is not expensive." → たかくないです。 (also accept たかくありません)
+3. Say "The book is interesting." (interesting = おもしろい) → 本は おもしろいです。
+4. Say "It is not good." → よくないです。 (also accept よくありません)
+Slips: たかいじゃないです; いくないです.
+
+**A19 い-adjectives past.** Rule: for the past, drop the final い and add
+かったです; past "not" is くなかったです; いい becomes よかったです. Never
+い + でした.
+Quiz:
+1. Say "It was expensive." → たかかったです。
+2. Say "It was not expensive." → たかくなかったです。 (also accept たかくありませんでした)
+3. Say "It was good." → よかったです。
+4. Say "Yesterday was cold." (cold = さむい) → きのうは さむかったです。
+Slips: たかいでした; いかったです.
+
+**A20 な-adjectives.** Rule: a な-adjective works like a noun: しずかです,
+"not" is しずかじゃないです; きれい and ゆうめい end in い but are
+な-adjectives.
+Quiz:
+1. Say "It is quiet." → しずかです。
+2. Say "It is not quiet." → しずかじゃないです。 (also accept じゃありません, ではありません)
+3. Say "The room is clean." (clean = きれい) → へやは きれいです。
+4. Say "The town is not famous." (town = まち, famous = ゆうめい) → まちは ゆうめいじゃないです。 (also accept じゃありません, ではありません)
+Slips: きれくないです; しずかくないです.
+
+**A21 Adjective + noun.** Rule: an い-adjective goes straight before the
+noun (たかい くるま); a な-adjective adds な (しずかな まち).
+Quiz:
+1. Say "an expensive car". → たかい くるま
+2. Say "a quiet town". → しずかな まち
+3. Say "It is an interesting book." → おもしろい 本です。
+4. Say "a famous teacher". → ゆうめいな せんせい
+Slips: しずかの まち; たかいな くるま.
+
+**A22 ～ましょう / ～ましょうか.** Rule: take the ます form, swap ます for
+ましょう: "let's do it" (together); ましょうか: "shall we?" or, offering,
+"shall I?".
+Quiz:
+1. Say "Let's go." → いきましょう。
+2. Say "Let's eat." → たべましょう。
+3. Ask "Shall we go?" → いきましょうか。
+4. Offer "Shall I read it?" → よみましょうか。
+Slips: いくましょう (start from いきます, not いく).
+
+**A23 ～ませんか.** Rule: ます form with ませんか invites someone ("won't
+you…?"), softer than ましょう; say yes with いいですね + ましょう; say no
+with ちょっと…, not いいえ.
+Quiz:
+1. Invite: "Won't you go to the café?" → カフェに いきませんか。 (also accept カフェへ)
+2. Invite: "Won't you eat together?" (together = いっしょに) → いっしょに たべませんか。
+3. Accept an invitation to go: "That's nice. Let's go." (that's nice = いいですね) → いいですね。いきましょう。
+4. Turn down an invitation politely. → ちょっと… (also accept すみません、ちょっと…)
+Slips: いいえ to an invitation (sounds cold).
+
+**A24 ～たい.** Rule: ます form, swap ます for たいです: "I want to"; it
+then works like an い-adjective: たくないです (don't want to), たかったです
+(wanted to).
+Quiz:
+1. Say "I want to go to Japan." → 日本に いきたいです。 (also accept 日本へ)
+2. Say "I want to eat sushi." (sushi = すし) → すしを たべたいです。 (also accept すしが)
+3. Say "I don't want to study." → べんきょうしたくないです。 (also accept べんきょうを したくないです)
+4. Say "I wanted to read the book." → 本を よみたかったです。 (also accept 本が)
+Slips: たべたいじゃないです; いきますたい.
+
+**A25 から / まで.** Rule: after a time or place, から marks where
+something starts and まで where it ends; after a sentence, から marks the
+reason: [reason]から、[result].
+Quiz:
+1. Say "from 9 o'clock to 5 o'clock". → 九時から 五時まで
+2. Say "I go from home to school." → うちから がっこうまで いきます。 (also accept いえから)
+3. Say "It's expensive, so I won't buy it." (buy = かいます) → たかいですから、かいません。 (also accept たかいから)
+4. Say "I study until 10 o'clock." → 十時まで べんきょうします。
+Slips: 九時からに; まで and から swapped.
+
+**A26 もう / まだ.** Rule: もう + ました = already; "not yet" as a short
+answer is まだです; まだ + a positive verb = still.
+Quiz:
+1. Say "I already ate." → もう たべました。
+2. Asked もう たべましたか, say "Not yet." → いいえ、まだです。
+3. Say "I am still at school." → まだ がっこうに います。
+4. Ask "Did you already go?" → もう いきましたか。
+Slips: まだ たべませんでした for "not yet" (that says you did not eat at some past time).
+
 ## Answer keys: technical
 
-Ask for a prediction first. Units required.
-
-**T8** P(t) = 6t W, 0 to 2 s. Energy = area under P(t) = ∫ 6t dt = 3t² from 0 to 2 = **12 J**. Check: number + joules + says energy is the area under power.
-
-**T9** Explain, no formula, why area under v(t) is displacement. Check: the learner says all three: (1) over a short time, speed × time = small distance; (2) that small distance is a thin strip of area under the curve (height = speed, width = time); (3) adding all strips = total area = total distance moved. Bonus: links it to the Euler loop (new = old + rate × dt). Uses "displacement" only if they can say what it is (change in position).
-
-Format from 10-17: Given (safe to show the learner) / Answer / Check. Keys
-T10-T15 have no Given beyond the item text in `NEXT.md`.
+Format: Given (safe to show) / Answer / Check. Haiku copies only Given into
+the `tech-tutor` prompt; no Given = item text alone. Units required.
+Number answers: within about 2% unless a range is given. g = 9.81 m/s².
 
 **T10** Book resting on a table. Check: exactly 2 forces: weight (down, from Earth, at the book's center) and normal force (up, from the table), same length arrows, labelled. Wrong if: a "force of the table" pointing down on the book, or unequal arrows.
 
@@ -166,31 +291,34 @@ T10-T15 have no Given beyond the item text in `NEXT.md`.
 
 **T12** One link held horizontal by a hand at one end. Check: weight down at the middle; at the hand, an upward force equal to the weight AND a twisting effect (moment) from the grip. Key insight: one upward force at the end cannot hold it; the grip must also twist. If the learner draws only an upward force, ask: "Then why doesn't the link rotate?"
 
-**T13** Torque = force × distance (at 90°) = 1 N × 0.1 m = **0.1 N·m**.
-
-**T14** τ = r F sin θ. 45°: 0.1 × 1 × 0.707 = **0.0707 N·m**. 0°: **0 N·m** (force points through the pivot). 90° is the biggest.
-
-**T15** Moment arm = the perpendicular distance from the pivot to the force's line. For 45°: 0.1 × sin 45° = **0.0707 m**. Check: drawing shows a right angle between the moment arm and the force's line.
-
-**T16** Use: link mass 0.05 kg, length 0.2 m, horizontal. Weight = 0.05 × 9.81 = 0.49 N at the middle (0.1 m). Torque = 0.49 × 0.1 = **0.049 N·m**.
-
-**T17** Given: link mass 0.05 kg, length 0.2 m, its weight acts at the middle, pivot at the shoulder; link angle measured from horizontal: 0°, 45°, 90° (straight up). Find the torque of its weight about the shoulder at each angle. Answer: τ = 0.049 × cos θ. 0°: **0.049 N·m**. 45°: **0.035 N·m**. 90°: **0 N·m**. Check: all three with units; prediction said biggest when horizontal (or was corrected to it).
+**T15** Given: a 1 N force acts 0.1 m from a pivot, at 45° to the arm (item 14). Draw the moment arm and say in plain words what it is. Answer: the perpendicular distance from the pivot to the force's line = 0.1 × sin 45° = **0.0707 m**. Check: drawing shows a right angle between the moment arm and the force's line; plain words say "shortest distance from the pivot to the line the force acts along"; torque = 1 N × 0.0707 m matches item 14.
 
 **T18** Given: seesaw, 2 N pushes down 0.3 m left of the pivot. What force pushing down 0.2 m right of the pivot balances it? Answer: 2 × 0.3 = F × 0.2 → **F = 3 N**. Check: number with units.
 
-## Answer keys: coursework
+**T19** Given: a link 0.2 m long, mass 0.05 kg (weight at its middle), pivots at the shoulder end and is held horizontal by a hand pushing straight up at the far end. What force does the hand push with? Answer: 0.49 N × 0.1 m = F × 0.2 m → **F = 0.245 N** (accept 0.24–0.25 N). Check: number with units; prediction said less than the weight (the hand is twice as far out), or was corrected to it.
 
-**C22** Testing the risk cut-offs. Check: the learner names at least one of:
-split the data (set cut-offs on one part, check the other part); check the
-high-risk group fails more on data the cut-off did not use (G3 is in the rule,
-so "high group has low G3" is circular); try a few cut-offs (e.g. absences
-≥ 8, 10, 12) and compare group sizes and fail rates. Must say the current
-cut-offs were chosen by the author, not fitted.
+**T20** Given: two links in a line, straight out horizontal, each 0.2 m long and 0.05 kg (weight at each link's middle). Torque of both weights about the shoulder. Answer: 0.49 × 0.1 + 0.49 × 0.3 = **0.196 N·m** (accept 0.19–0.20). Check: number with units; link 2's weight taken at 0.3 m from the shoulder, not 0.1 m.
 
-**C-list (Wed surprise questions, pick 3):**
-1. Walk through `main.py` in order, one sentence per function.
-2. Why is the pass rate 0.671, and what happens to it if the 38 zero-G3 students are dropped? (0.742; they count as fails; the cause is a guess)
-3. G2 and G3 correlate at 0.905. Does G2 cause G3? (no; correlation ≠ cause; same course, shared ability or effort)
-4. What does `errors="coerce"` do to "abc"? (NaN)
-5. Why is the PISA table not joined to the student rows? (different populations: countries vs students; it is context only)
-6. Absences barely correlate with G3 (~0). Name one reason a straight-line correlation could miss a real link.
+**T21** Given: same arm as item 20. Torque of the weights about the elbow. Answer: only link 2 counts: 0.49 × 0.1 = **0.049 N·m** (accept 0.049–0.050). Check: number with units; says link 1 does not count (it is on the other side of the elbow).
+
+**T22** Given: same arm, plus 50 g hanging at the tip. New shoulder and elbow torques. Answer: tip weight 0.49 N; shoulder 0.196 + 0.49 × 0.4 = **0.392 N·m** (accept 0.39–0.40); elbow 0.049 + 0.49 × 0.2 = **0.147 N·m** (accept 0.147–0.15). Check: both numbers with units.
+
+**T23** Given: a 30 cm ruler balanced on a pencil (find its balance point first), ten 1-yen coins (1 g each). Put 4 coins 5 cm left of the pencil. Predict where 2 coins must go on the right to balance, then try it. Answer: prediction **10 cm** right (4 × 5 = 2 × 10). Check: prediction written before trying; measured distance with units; three sentences: predicted, measured, why they differ (e.g. coins' centers, ruler not perfectly centered, pencil is not a point). Photo goes to `Mechatronics/portfolio/`.
+
+**T24** List every assumption made in items 16-23. Check: at least 4 of these, in the learner's words: each link's weight acts at its middle (uniform link); g = 9.81 m/s²; links are rigid (don't bend); joints have no friction; the arm is still (not moving or speeding up); masses are exact; the tip weight acts at one point at the tip; all weights point straight down.
+
+**T25** FEM in plain words. Check: all three: (1) the software splits a part into many small simple pieces; (2) it solves simple equations for each piece and joins them up; (3) hand calcs check it because the software gives an answer for any input, even wrong loads, units or supports, and a rough hand number catches those mistakes.
+
+**T26** Given: the 2-link arm (each link 0.2 m, 0.05 kg) straight out horizontal, holding 0.5 kg at the tip. Draw the free-body diagram of the whole arm and find the shoulder holding torque. Answer: 0.196 + 4.905 × 0.4 = **2.16 N·m** (accept 2.1–2.2). Check: drawing has link 1 weight at 0.1 m, link 2 weight at 0.3 m, load 4.9 N at 0.4 m, all down; at the shoulder an upward force (5.9 N) and a holding twist (the torque); number with units.
+
+**T27** Given: same as item 26, but link 2 is 0.3 m long (still 0.05 kg). Predict bigger or smaller, then compute the shoulder torque. Answer: 0.49 × 0.1 + 0.49 × 0.35 + 4.905 × 0.5 = **2.67 N·m** (accept 2.6–2.75). Check: predicted bigger; number with units; says why: the load moved farther from the shoulder.
+
+**T28** Given: the item 26 arm, shoulder bolted to a base. What force and what twist does the base give the arm? Answer: **5.89 N up** (accept 5.8–6.0; the arm's total weight, 0.6 kg × 9.81), **0 N sideways**, **2.16 N·m** twist. Check: all three with units; says the up force equals the total weight because nothing else holds the arm up.
+
+**S1** Given: pick one object (e.g. the long side of your phone). Measure it 10 times with a ruler, to the nearest 0.5 mm, lifting the ruler between readings. Write all 10, then the mean and the range. Answer: the learner's own data. Check: 10 readings with units; Haiku recomputes the mean with `python3 -c "import statistics as s; print(s.mean([...]))"` (within 2%); range = largest − smallest, with units.
+
+**S2** Given: the 10 readings from S1. Find the standard deviation by hand and say what it means. Answer: s = √(Σ(x − mean)² / (n − 1)). Check: Haiku recomputes with `statistics.stdev` (or `statistics.pstdev` if the learner divided by n and said so), within 2%; units mm; plain words: about how far a typical reading sits from the mean.
+
+**S3** Given: item 2's predicted and measured tip position (`Mechatronics/portfolio/0.3-2link-fk-tip.md`) and the S2 standard deviation. Is predicted − measured bigger than the reading spread? Check: the difference with units; compared with about 2 × s; says: much bigger → a real error in the model or setup, not reading noise; smaller → can't tell it apart from reading noise.
+
+**S4** Given: the S1 readings. Compute the mean and standard deviation in Python with numpy. Check: uses `np.mean` and `np.std(..., ddof=1)` (or ddof=0 matching S2's choice); numbers match S2 within 2%; says in plain words that ddof=1 divides by n − 1.
