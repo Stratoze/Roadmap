@@ -128,7 +128,7 @@ Missed 10-13, 10-20, 10-21. Openers on 10-21, 10-26 and 10-30 aim at it.
 - [ ] [H] Kaishi 10 min.
 - [ ] [H] Chat ≥5 replies, opener: きょう ともだちと なにを しましたか。
 - [ ] [H] Technical: next item in order, 25 min.
-- [ ] [O] Weekly plan, about 20:00: Opus reads `Daily/` and `Learned/` for 10-21 to 11-01 and rewrites this file (grammar keys from A27, technical from where the learner is).
+- [ ] [O] Weekly plan, when the learner calls Opus (manual, nothing runs on its own): Opus reads `Daily/` and `Learned/` for 10-21 to 11-01 and rewrites this file (grammar keys from A27, technical from where the learner is).
 - [ ] [O] Audit, same call: the learner pastes one Japanese chat and one technical tutor chat from these 12 days. Opus checks every correction and explanation; "check on Sunday" lines in `Learned/` go here.
 
 ---

@@ -58,6 +58,9 @@ Each `WEEK.md` task has a tag. Follow it; never "try anyway".
   tasks for cost, so drawings sat undone for 4 days). A technical item
   without a key waits for Opus to write one; it does not go to Sonnet.
 - **[O] Opus:** the weekly plan only (Sunday evening), and Phase 2+ work.
+  **Manual only (learner, 2026-10-21):** Opus runs only when the learner
+  calls it. Never create a scheduled task, routine, cron job or reminder
+  that starts a session on its own. The old Sunday routine was turned off.
 
 **Sunday audit:** Opus cannot read cloud sessions or the outside chat
 service, so the learner pastes one Japanese chat and one technical tutor
