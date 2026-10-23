@@ -63,6 +63,10 @@ Claude updates this at the end of each session. Status: taught = shown once; sol
   - 机の上に本があいません、bookshelvesとベッドとコヒてブルーにあります → 机(つくえ) の 上(うえ) に 本(ほん) は ありません。 本棚(ほんだな) と ベッド と コーヒーテーブル に あります。 ありません is the negative polite form of あります, and に marks the location of existence.
   - Check on Sunday: the last fix uses は for 本 without saying that は contrasts it with other things; the explanation does not cover that. Also the partner used English in the transcript despite the learner's request (the learner typed English as a message, and the partner put (dinner) in the question).
 
+- 2026-10-23 (external chat, ChatGPT web free, no thinking): 10 learner replies (counted: every Japanese reply; excluded: 1 English message). Opener かばんの なかに なにが ありますか。 Minutes not reported. Corrections, copied as written:
+  - ほんやでんしやコンプ多があります → 本（ほん）や 電車（でんしゃ）の 本（ほん）が あります。 "や" marks examples, and "の" connects a noun to another noun. Check on Sunday: the learner's line is garbled, so the fix is a rewrite, not a repair of one slip.
+  - 机やいすやベッドやピアノやテレビがあります → 机（つくえ）や 椅子（いす）や ベッドや ピアノや テレビが あります。 "や" marks examples in a list. Check on Sunday: the chat retracted this in its own transcript ("your sentence was correct. Sorry!"). The learner's sentence was right, so this correction should not stand.
+
 ## Kana
 - Hiragana: solid. Small ゃゅょ: one slip (としよかん → としょかん)
 - Katakana: slow
@@ -92,3 +96,24 @@ See the Japanese grammar list in `NEXT.md`.
 - 2026-10-21 Opus audit of the two "check on Sunday" lines. 10-19 たくさんを たべまづ → ばんごはんを たくさん たべます: the fix is right; the reason was garbled. たくさん is an amount word: it sits before the verb with no particle, and を stays on ばんごはん, the thing eaten. 10-20 本は ありません: right and natural; は is used because the sentence denies it (the book is not there, in contrast to where it is). Both closed.
 - 2026-10-23 grammar 12 へ vs に: taught, quiz 3/4, passed (one slip). Q1 日本に行きます: right (に accepted). Q2 先生が学校にいます: に right; が for the teacher is natural, not counted. Q3 えきに行きます: right. Q4 学校にいきました → 学校にきました: に right; slip is the verb (いき for き: went for came). Counted as the one slip, since きます is named in the Rule. Not solid until used in chat.
   - For Opus: the key's quiz does not test へ. All four answers accept に, so a learner who never writes へ passes. The Rule's point (へ is written へ and said "e") has no question. Add one that needs へ.
+- 2026-10-23 (external chat, new words, not quizzed):
+  - かばん (かばん) — bag
+  - 中（なか）(なか) — inside
+  - 何（なに）(なに) — what
+  - 本（ほん）(ほん) — book
+  - 電車（でんしゃ）(でんしゃ) — train
+  - 一冊（いっさつ）(いっさつ) — one book
+  - ノート (のーと) — notebook
+  - 学校（がっこう）(がっこう) — school
+  - 教室（きょうしつ）(きょうしつ) — classroom
+  - 机（つくえ）(つくえ) — desk
+  - 椅子（いす）(いす) — chair
+  - ベッド (べっど) — bed
+  - ピアノ (ぴあの) — piano
+  - テレビ (てれび) — television
+  - 二日（ふつか）(ふつか) — two days
+  - 音楽（おんがく）(おんがく) — music
+  - 毎日（まいにち）(まいにち) — every day
+  - 聞（き）く (きく) — to listen
+  - 昨日（きのう）(きのう) — yesterday
+  - クラシック (くらしっく) — classical music

@@ -53,7 +53,7 @@ Missed 10-13, 10-20, 10-21. Openers on 10-21, 10-26 and 10-30 aim at it.
 - [ ] [H] CJ 40 min.
 - [ ] [H] Grammar: next unticked, up to 3.
 - [ ] [H] Kaishi 20 min.
-- [ ] [H] Chat ~25 min, opener: かばんの なかに なにが ありますか。
+- [x] [H] Chat ~25 min, opener: かばんの なかに なにが ありますか。 (10 learner replies, external chat; minutes not reported)
 - [ ] [H] Technical: next items in order, 25 min.
 
 ## Sat 10-24 (free 16:10-24; class 11:40-14)
