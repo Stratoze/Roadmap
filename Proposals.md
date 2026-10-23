@@ -14,6 +14,13 @@ Opus reads this file at the weekly plan and marks each item done or declined.
   Opus, the only place for them.
 - Source: learner, 2026-10-23.
 
+### 2026-10-23: technical floor counts solved items, not minutes (learner's request)
+- Proposed rule: a technical item that is solved meets the technical floor.
+  If it is not solved, log how long the learner spent on it.
+- Changes the floor in `AGENTS.md` ("Daily floor"), so it is for Opus to adopt.
+  Until then the floor stays 25 minutes.
+- Source: learner, 2026-10-23, after item 18 was solved with no minutes reported.
+
 ### 2026-10-23: item 8 circular reason (for Opus to review)
 - Haiku accepted "area under the curve" as the reason on item 8, which is
   circular. The learner caught it on item 9.
