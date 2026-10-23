@@ -69,9 +69,12 @@ Claude updates this at the end of each session. Status: taught = shown once; sol
 
 ## Input
 - CJ (complete beginner): past 0009 (learner, 2026-10-10); exact episode to confirm from Jellyfin on Tue 10/13. Episodes are ~5 min, so the 25-min floor is ~5 episodes
+- 2026-10-23 CJ 25 min (learner-reported).
+- 2026-10-23 Tadoku: 1 book, not counted. Title not given; the learner first said it was about rice, then said it was about the color blue. Confirm which.
 
 ## Anki
 - Kaishi 1.5k: backlog ~1249 due (2026-10-08), 0 new. From 2026-10-17: review the backlog down, 20 min on a free day, 10 on a tight day, after the grammar quiz; no new cards until under 100 due, then 10 new/day. Not counted in the floor. Due count: (learner reports)
+- 2026-10-23 Kaishi 10 min (learner-reported). Due count at start: not reported.
 
 ## Queue
 See the Japanese grammar list in `NEXT.md`.
