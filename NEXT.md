@@ -47,7 +47,7 @@ Pending: photo of the FK drawing for `Mechatronics/portfolio/0.3-2link-fk-tip.md
 - [ ] 15. Moment arm in plain words: draw it for item 14
 - [x] 16. Torque of a link's own weight about the shoulder (weight at the middle)
 - [x] 17. That torque at link angles 0°, 45°, 90°: predict, then compute
-- [ ] 18. Equilibrium: two forces on a seesaw, find the missing one
+- [x] 18. Equilibrium: two forces on a seesaw, find the missing one
 - [ ] 19. Equilibrium: link held by a hand force, solve for the force
 - [ ] 20. 2-link straight out: shoulder torque from both link weights
 - [ ] 21. Same arm: elbow torque
@@ -122,7 +122,7 @@ Pending: photo of the FK drawing for `Mechatronics/portfolio/0.3-2link-fk-tip.md
 - [x] 9. も (also)
 - [x] 10. と (and, with)
 - [x] 11. や (and so on)
-- [ ] 12. へ vs に
+- [x] 12. へ vs に
 - [ ] 13. に for time (３時に)
 - [ ] 14. 時 / 分, telling time
 - [ ] 15. 曜日, days of the week

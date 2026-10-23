@@ -37,7 +37,7 @@ Missed 10-13, 10-20, 10-21. Openers on 10-21, 10-26 and 10-30 aim at it.
 - [ ] [H] Grammar: next unticked, up to 2 more today (12 へ vs に, then 13).
 - [ ] [H] Kaishi 20 min.
 - [ ] [H] Chat ~25 min, opener: へやに なにが ありますか。
-- [ ] [H] Technical: item 18 (key T18), then next in order.
+- [x] [H] Technical: item 18 (key T18, done 10-23: 3 N down), then next in order.
 - [ ] Learner, at class (today or Sat): ask the teacher if these three fixes are right: カフェに いきます。それから うちに かえります。 / ソーダ (long vowel) / はい、たどくの 本を よみました (yes, not いいえ, when you did read). Report the answer.
 
 ## Thu 10-22 (tight: classes, Vovinam)
@@ -54,7 +54,7 @@ Missed 10-13, 10-20, 10-21. Openers on 10-21, 10-26 and 10-30 aim at it.
 - [ ] [H] Grammar: next unticked, up to 3.
 - [ ] [H] Kaishi 20 min.
 - [x] [H] Chat ~25 min, opener: かばんの なかに なにが ありますか。 (10 learner replies, external chat; minutes not reported)
-- [ ] [H] Technical: next items in order, 25 min.
+- [ ] [H] Technical: next items in order, 25 min. (item 18 done 10-23; minutes not reported)
 
 ## Sat 10-24 (free 16:10-24; class 11:40-14)
 
