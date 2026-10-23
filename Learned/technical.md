@@ -17,7 +17,6 @@ Claude updates this at the end of each session. Status: done = matched its check
 
 ## Shaky
 - Item 17: hedged predictions ("probably", "ish") before committing; first wrote a force formula instead of a torque prediction; sin 45° confused with 1/2 (that is sin 30°); units dropped on the 45° prediction.
-- Item 8 note for Opus: Haiku accepted "area under the curve" as the reason, which is circular; the learner caught this on item 9.
 - Power vs energy (2026-10-13): predicted 6 J, taking the average power (6 W) as the energy. Energy = area under P(t), not the average. Final answer phrased as a question ("Area under the curve?"): not yet said as a confident sentence.
 - First instinct on area under v(t) was right-endpoint steps (2+4+6 = 12 m, overestimate); fixed with average speed
 - Answers rules before concrete numbers ("derivative tells you the result…")
