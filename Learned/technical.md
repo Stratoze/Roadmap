@@ -24,7 +24,6 @@ Claude updates this at the end of each session. Status: done = matched its check
 - Unit circle, radian values, position vs displacement
 
 - 2026-10-23 item 18 (seesaw: 2 N down at 0.3 m left, find the force down at 0.2 m right): final answer 3 N down. Check passed (number with units). Tutor: DeepSeek web. Answer not given by the tutor: the learner made the torque sides (0.6 N·m), then F = 3 N. Ticked. Where the learner struggled: predicted bigger, about 3 N (right); torque in plain words only after prompting ("further from pivot = more torque"); units before the number; the learner did not read the exercise text and needed each side's sentence quoted back; the unit carried through the division only after a prompt; direction: wanted the left side's direction first, then reasoned that the right side pushes down; final answer needed one line with unit and direction.
-- Note for Opus (tech-tutor master prompt, 2026-10-23): (1) the prompt must restate the exercise in its first message, because the learner does not read the instruction prompt; the Given line at the end was not enough. (2) On "end" the tutor must print (a), (b) and (c) as the skill says. The tutor's last output here was "Correct." only. Haiku did not change the template; Opus writes it.
 
 ## Parked
 - Closed-form sum for θ after n passes (series algebra, not needed for the loop)

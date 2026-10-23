@@ -95,7 +95,6 @@ See the Japanese grammar list in `NEXT.md`.
 - 2026-10-21 Opus re-score of the 11 や redo under the new scoring rule: 3 of 4, passed; grammar 11 taught. Q3 たもだちもいきます is the one slip (も for と; "with a person" is と). Q4 used や correctly; its misses (は for に, が missing) are on existence sentences, not や, so not counted. Shaky, now missed three times (10-13, 10-20, 10-21): in an existence sentence the place takes に and the thing that exists takes が (へやに つくえが あります). Practice it in chat.
 - 2026-10-21 Opus audit of the two "check on Sunday" lines. 10-19 たくさんを たべまづ → ばんごはんを たくさん たべます: the fix is right; the reason was garbled. たくさん is an amount word: it sits before the verb with no particle, and を stays on ばんごはん, the thing eaten. 10-20 本は ありません: right and natural; は is used because the sentence denies it (the book is not there, in contrast to where it is). Both closed.
 - 2026-10-23 grammar 12 へ vs に: taught, quiz 3/4, passed (one slip). Q1 日本に行きます: right (に accepted). Q2 先生が学校にいます: に right; が for the teacher is natural, not counted. Q3 えきに行きます: right. Q4 学校にいきました → 学校にきました: に right; slip is the verb (いき for き: went for came). Counted as the one slip, since きます is named in the Rule. Not solid until used in chat.
-  - For Opus: the key's quiz does not test へ. All four answers accept に, so a learner who never writes へ passes. The Rule's point (へ is written へ and said "e") has no question. Add one that needs へ.
 - 2026-10-23 (external chat, new words, not quizzed):
   - かばん (かばん) — bag
   - 中（なか）(なか) — inside
