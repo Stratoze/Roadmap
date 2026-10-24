@@ -77,11 +77,14 @@ Claude updates this at the end of each session. Status: taught = shown once; sol
 - 2026-10-22 Tadoku: 1 book about rice, not counted. Title not given.
 - 2026-10-23 CJ 25 min (learner-reported).
 - 2026-10-23 Tadoku: 1 book about the color blue, not counted. Title not given.
+- 2026-10-24 CJ 25 min (learner-reported).
+- 2026-10-24 Tadoku: 1 book, not counted. Title not given.
 
 ## Anki
 - Kaishi 1.5k: backlog ~1249 due (2026-10-08), 0 new. From 2026-10-17: review the backlog down, 20 min on a free day, 10 on a tight day, after the grammar quiz; no new cards until under 100 due, then 10 new/day. Not counted in the floor. Due count: (learner reports)
 - 2026-10-22 Kaishi 10 min (learner-reported, Thursday session). Due count at start: not reported.
 - 2026-10-23 Kaishi 10 min (learner-reported). Due count at start: 1000 (learner-reported).
+- 2026-10-24 Kaishi 10 min (learner-reported). Due count at start: 993 (learner-reported).
 
 ## Queue
 See the Japanese grammar list in `NEXT.md`.
