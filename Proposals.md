@@ -1,12 +1,34 @@
-# Proposals for Opus
+# Opus inbox (pull-based backlog)
 
-Haiku writes proposals here, not in the Learned files or the Daily notes.
-Opus reads this file when the learner calls it and marks each item done or
-declined.
+Everything waiting on Opus, in one place. Pull-based: nothing runs on its
+own, no schedule. Haiku adds items; only the learner calls Opus; when
+called, Opus works **Open** top-down and moves each item to **Done** with
+its decision. Haiku never acts on an item here.
+
+## How items get here (Haiku)
+
+1. **Proposals** from the learner or from Haiku: one item each, with date
+   and source. Never anywhere else (`AGENTS.md` "Files").
+2. **Audit lines:** any "check on Sunday" line in `Learned/` gets an item
+   pointing to it.
+3. **Pull signals.** At session start, check these; if one is true and not
+   already listed, add an item:
+   - `WEEK.md` ends in 2 days or less → "Plan due: `WEEK.md` ends <date>."
+   - The next grammar point or technical item has no key in `WEEK.md` →
+     "Keys needed from <point/item>." (That task is skipped until then.)
+   - A `NEXT.md` list has 5 or fewer unticked items → "List running out."
+   - The learner says Haiku accepted a wrong answer → "Move <task type> to
+     Sonnet?"
+4. If **Open** has any item, tell the learner once at session start:
+   "Opus inbox: N open (top: <first item>)." Do not push further.
 
 ## Open
 
-(none)
+### Due Sun 11-01: weekly plan + audit
+- `WEEK.md` ends 11-01. Plan from 11-02 (grammar keys from A27, technical
+  from where the learner is), and the audit: the learner pastes one
+  Japanese chat and one technical tutor chat. Rows are at the end of
+  `WEEK.md`.
 
 ## Done
 

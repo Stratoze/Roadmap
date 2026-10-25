@@ -28,6 +28,8 @@ naturalize. Field: cars, rockets, satellites, or robots.
 5. Read the matching `Learned/` file before teaching: `japanese.md`,
    `technical.md`, or `coursework.md`.
 6. If yesterday's Japanese was missed (check `Daily/`), do Japanese first.
+7. Check the pull signals in `Proposals.md` (Opus inbox), add any that are
+   due, and say the open count once if it is not zero.
 
 ## Session end (do these in order)
 
@@ -75,17 +77,20 @@ and that task type moves to Sonnet.
 ## Files
 
 - `WEEK.md`: this week's plan. Per day: tasks, model tag, the check that means
-  done, and the answer key. Opus rewrites it each Sunday.
+  done, and the answer key. Opus rewrites it when the learner calls it
+  (the "Plan due" signal in `Proposals.md` says when).
 - `NEXT.md`: the next 50 technical items and next 50 Japanese grammar points,
   worked top-down, tick boxes. Opus writes the next 50 when a list runs out.
 - `Learned/japanese.md`, `Learned/technical.md`, `Learned/coursework.md`.
 - `Daily/YYYY-MM-DD.md`: daily note.
-- `Proposals.md`: proposals to Opus, and the only place for them (Opus
-  2026-10-25, learner's request). Haiku never writes a proposal anywhere
-  else. At session end Haiku searches `Learned/`, `Daily/`, `WEEK.md` and
-  `NEXT.md` for stray ones ("for Opus", "check on Sunday", "proposal") and
-  moves each to `Proposals.md` with its source. Opus marks each done or
-  declined.
+- `Proposals.md`: the Opus inbox, a pull-based backlog of everything
+  waiting on Opus, and the only place for proposals (Opus 2026-10-25,
+  learner's request). Haiku adds items by the rules at its top, including
+  the pull signals checked at session start, and never writes a proposal
+  anywhere else. At session end Haiku searches `Learned/`, `Daily/`,
+  `WEEK.md` and `NEXT.md` for stray ones ("for Opus", "check on Sunday",
+  "proposal") and moves each there with its source. When the learner calls
+  Opus, Opus works the list and marks each item done or declined.
 - `.claude/skills/`: `daily-note`, `jp-chat`, `tech-tutor`, `grill`. Use them; only Opus adds more.
 - **Old system, do not read or follow:** `_archive/`, `_system/`, `Japanese/`
   (CURRENT.md, probes, jsonl files), `docs/`, `Changelog/`. Do not run, extend,
