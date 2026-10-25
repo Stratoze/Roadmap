@@ -40,8 +40,9 @@ would skip a point the learner has not got yet.
 
 ## What counts
 
-- Floor: 25 min Japanese and 25 min technical. If a track missed it, add the
-  sentence "The 25-min <track> floor was not met today." A missed day is not
+- Floor: 25 min Japanese; technical is met by one item that passed its
+  check today or by 25 min on items (AGENTS.md "Daily floor"). If a track
+  missed it, add the sentence "The <track> floor was not met today." A missed day is not
   made up by a longer day, so never net minutes across days.
 - Japanese floor: Comprehensible Japanese, the grammar lesson, the Japanese
   chat. Katakana, Tadoku and Anki are logged but not counted.
@@ -55,6 +56,6 @@ would skip a point the learner has not got yet.
 
 ```
 **Japanese:** Comprehensible Japanese 25 min (learner-reported). Grammar 5 あります / います: taught, quiz 4/5 (slip: ほんを あります → ほんが あります). Chat: 5 exchanges.
-**Technical:** Item 8 done: 12 J (predicted 6 J; forgot area of a triangle is half). ~15 min by clock. The 25-min technical floor was not met today.
+**Technical:** Item 8 done: 12 J (predicted 6 J; forgot area of a triangle is half). ~15 min by clock. (Item passed its check, so the technical floor is met.)
 **Next:** Technical: item 9. Japanese: grammar 6, これ / それ / あれ / どれ.
 ```

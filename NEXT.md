@@ -8,6 +8,7 @@ Japanese is the priority, all of it before technical. Free day: CJ 40, grammar u
 Also: Tadoku level 0, one story aloud twice a week · katakana deck 5 min/day until fluent · Kaishi: review the backlog by time (20 min free day, 10 tight), after the grammar quiz; no new cards until under 100 due (AGENTS.md).
 
 ## Handoff
+Opus 2026-10-25: all open items in `Proposals.md` decided (see its Done list); A13 quiz in progress tonight.
 Current (Opus 2026-10-21): no open handoff. WEEK.md now runs 10-21 to 11-01 with keys A12-A26, T10-T28, S1-S4. Resolved today: quiz scoring (AGENTS.md "Grammar pace"; 11 や passed on re-score; a clear-word typo is not counted); jp-chat template (kanji with readings, no English glosses, real back-and-forth); the 10-19 and 10-20 "check on Sunday" lines (Learned/japanese.md).
 Earlier decisions, kept for the reasons:
 Decided by Opus 2026-10-17 (Sat, called early):

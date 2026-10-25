@@ -80,6 +80,12 @@ and that task type moves to Sonnet.
   worked top-down, tick boxes. Opus writes the next 50 when a list runs out.
 - `Learned/japanese.md`, `Learned/technical.md`, `Learned/coursework.md`.
 - `Daily/YYYY-MM-DD.md`: daily note.
+- `Proposals.md`: proposals to Opus, and the only place for them (Opus
+  2026-10-25, learner's request). Haiku never writes a proposal anywhere
+  else. At session end Haiku searches `Learned/`, `Daily/`, `WEEK.md` and
+  `NEXT.md` for stray ones ("for Opus", "check on Sunday", "proposal") and
+  moves each to `Proposals.md` with its source. Opus marks each done or
+  declined.
 - `.claude/skills/`: `daily-note`, `jp-chat`, `tech-tutor`, `grill`. Use them; only Opus adds more.
 - **Old system, do not read or follow:** `_archive/`, `_system/`, `Japanese/`
   (CURRENT.md, probes, jsonl files), `docs/`, `Changelog/`. Do not run, extend,
@@ -108,7 +114,12 @@ day.
   Inside the Japanese target, not part of the 25-min floor. No new cards
   until fewer than 100 are due, then 10 new a day. The learner reports the
   due count at session start; log it in `Learned/japanese.md`.
-- **Technical (25 min counts):** the items in `NEXT.md`. `Mechatronics/ROADMAP.md`
+- **Technical floor (Opus 2026-10-25, learner's request):** met by either
+  one `NEXT.md` item that passed its check today, or 25 min of work on
+  items (learner-reported). An item whose answer the tutor gave away does
+  not count. Not met: log the item, how far it got, and the minutes if
+  reported.
+- **Technical (what counts):** the items in `NEXT.md`. `Mechatronics/ROADMAP.md`
   is a map only; ignore its tag/assessor ceremony. Phase 0 builds to the
   capstone: a passive 2-link arm with potentiometer joints, Arduino computing
   forward kinematics live, checked against a ruler.

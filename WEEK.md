@@ -76,7 +76,7 @@ Missed 10-13, 10-20, 10-21. Openers on 10-21, 10-26 and 10-30 aim at it.
 ## Mon 10-26 (tight: classes, Vovinam)
 
 - [ ] [H] CJ 25 min.
-- [ ] [H] Grammar: next unticked, 1 point.
+- [ ] [H] A12 follow-up question 5 (へ written), then grammar: next unticked, 1 point.
 - [ ] [H] Kaishi 10 min.
 - [ ] [H] Chat ≥5 replies, opener: がっこうに だれが いましたか。
 - [ ] [H] Technical: next item in order, 25 min.
@@ -151,6 +151,10 @@ Quiz:
 2. Say "The teacher is at school." → せんせいは がっこうに います。 (へ is wrong)
 3. Say "I go to the station." (station = えき) → えきへ いきます。 (also accept えきに; えきえ is wrong: written へ)
 4. Say "I came to school." → がっこうに きました。 (also accept がっこうへ)
+Follow-up (Opus 2026-10-25: the four questions above all accept に, so
+none tests how へ is written). Ask once, before the day's new point; it
+does not change the pass on 12:
+5. Say "I go to Tokyo", using the particle that is pronounced "e". → とうきょうへ いきます。 (also accept 東京へ; え and に are wrong here)
 
 **A13 に for time.** Rule: a clock time takes に; words for time relative
 to now (きょう, あした, きのう, まいにち, いま) take no particle.

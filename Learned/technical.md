@@ -10,6 +10,7 @@ Claude updates this at the end of each session. Status: done = matched its check
 - 0.3 MVM (2026-10-10): power rule (v = 2t → a = 2; p = t³ − 2t → p′ = 3t² − 2, p″ = 6t). Integral of v = 2t over 0–3 s = 9 m via average speed / triangle; found x = t² by fitting x(0)=0, x(1)=1, x(3)=9. Going up loses constants; one known value pins C (p′(0) = −2 → C = −2). Derivative = rate at one instant (6 m/s at t = 3); integral = total over a stretch (9 m).
 
 - 0.4 item 8 (2026-10-13): power → energy. P(t) = 6t W, 0–2 s: energy = area under P(t) = triangle, 1/2 × 2 s × 12 W = 12 J. Units given after a prompt.
+  Opus review 2026-10-25: the "area under the curve" reason was circular and should not have been accepted as an explanation. The tick stands: item 8's check is the number (12 J with units), and the reason was earned properly on item 9.
 
 - 0.3 item 9 (2026-10-13): area under v(t) = distance. Steady case 2 m/s × 3 s = 6 m; triangle 0→6 m/s over 3 s = 9 m. Said all three parts after hints: thin strip with steady speed, strip area = v × t = distance, strips add to the total. First attempts were circular ("area is distance because...") and a units-only argument; the missing link (rectangle area = height × width = speed × time) needed a nudge. Euler link not said.
 

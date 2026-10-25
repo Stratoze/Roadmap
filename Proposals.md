@@ -1,47 +1,45 @@
 # Proposals for Opus
 
 Haiku writes proposals here, not in the Learned files or the Daily notes.
-Opus reads this file at the weekly plan and marks each item done or declined.
+Opus reads this file when the learner calls it and marks each item done or
+declined.
 
 ## Open
 
-### 2026-10-23: proposals need one designated home (learner's request)
-- This file is the only home for proposals to Opus. Haiku does not write them
-  in `Learned/`, `Daily/`, `WEEK.md` or `NEXT.md`.
-- Each session, Haiku searches those files for stray proposals ("for Opus",
-  "Opus:", "proposal") and moves them here, one item each, with the source.
-- Suggested line for `AGENTS.md` under "Files": `Proposals.md`: proposals to
-  Opus, the only place for them.
-- Source: learner, 2026-10-23.
-
-### 2026-10-23: technical floor counts solved items, not minutes (learner's request)
-- Proposed rule: a technical item that is solved meets the technical floor.
-  If it is not solved, log how long the learner spent on it.
-- Changes the floor in `AGENTS.md` ("Daily floor"), so it is for Opus to adopt.
-  Until then the floor stays 25 minutes.
-- Source: learner, 2026-10-23, after item 18 was solved with no minutes reported.
-
-### 2026-10-23: item 8 circular reason (for Opus to review)
-- Haiku accepted "area under the curve" as the reason on item 8, which is
-  circular. The learner caught it on item 9.
-- Source: `Learned/technical.md` (earlier entry, moved here 2026-10-23).
-
-### 2026-10-23: tech-tutor master prompt (learner's request)
-- Restate the exercise in the prompt's first message. The learner does not
-  read the instruction prompt, so the Given line at the end is not enough.
-- On `end`, the tutor prints (a) MY FINAL ANSWER, (b) WHERE I STRUGGLED and
-  (c) TRANSCRIPT, as the skill says. Its last output on item 18 was "Correct."
-  only.
-- Source: item 18 tutor chat (DeepSeek web), 2026-10-23. Logged in
-  `Learned/technical.md`.
-
-### 2026-10-23: grammar 12 quiz does not test へ
-- All four key answers accept に, so a learner who never writes へ passes.
-  The key's Rule (へ is written へ and said "e") has no question. Add one
-  that needs へ.
-- Source: grammar 12 quiz, 2026-10-23. Logged in `Learned/japanese.md`.
+(none)
 
 ## Done
+
+### 2026-10-23: proposals need one designated home (learner's request)
+- Adopted, Opus 2026-10-25. `AGENTS.md` "Files" now names this file as the
+  only home for proposals, with Haiku's end-of-session sweep of `Learned/`,
+  `Daily/`, `WEEK.md` and `NEXT.md`.
+
+### 2026-10-23: technical floor counts solved items, not minutes (learner's request)
+- Adopted, Opus 2026-10-25. `AGENTS.md` "Daily floor": met by one item that
+  passed its check today, or by 25 min on items. An item whose answer the
+  tutor gave away does not count. `daily-note` skill updated to match.
+
+### 2026-10-23: item 8 circular reason (for Opus to review)
+- Reviewed, Opus 2026-10-25. The reason was circular and should not have
+  been accepted as an explanation, but the tick stands: item 8's check is
+  the number (12 J), and the reason was earned on item 9. Noted in
+  `Learned/technical.md`.
+
+### 2026-10-23: tech-tutor master prompt (learner's request)
+- Adopted, Opus 2026-10-25. The exercise now opens the prompt, rule 0 makes
+  the tutor restate it in its first message, and rule 10 says "Correct." is
+  not enough on `end`: it must print the three headed parts.
+
+### 2026-10-23: grammar 12 quiz does not test へ
+- Adopted, Opus 2026-10-25. A12 gets follow-up question 5 (へ written,
+  pronounced "e"), asked once on Mon 10-26 before the new point. It does
+  not change the pass on 12.
+
+### 2026-10-23: two chat corrections flagged "check on Sunday"
+- Audited, Opus 2026-10-25, in `Learned/japanese.md`: the 電車の本 rewrite
+  was a wrong guess (spelling slip was コンピューター); the 机や… correction
+  is void (the learner was right).
 
 ### 2026-10-20: should a one-kana typo count against a grammar quiz?
 - Raised in the grammar 11 log. Answered by the scoring rule in `AGENTS.md`
