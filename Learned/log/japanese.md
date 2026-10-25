@@ -93,6 +93,8 @@ Append-only history: quiz results, chat corrections, new words, item logs, with 
 See the grammar queue in `BACKLOG.md`.
 - 2026-10-19 grammar 10 と: taught, quiz 3/4. Right: パンと ごはん; 友達とたべます (kanji for 友達 accepted); いぬと ねこがいます. Slip (the one wrong): 私と友達は学校にいました is correct for "me and my friend were at school", but the quiz asked "went to school with the teacher": せんせいと がっこうに いきました。 Not solid until used in chat. Learner also asked for quoting (と with 言う) and cause (から): not taught yet, not in scope.
 
+- 2026-10-25 grammar 13 に for time: taught, quiz 3/4, passed. Q1 三時にいきます: right (ended with ？). Q2 明日にいきます: wrong, the one slip (あした takes no particle). Q3 七時にたべます: right. Q4 毎日、勉強します: right. Not solid until used in chat.
+
 ## Vocabulary
 - 2026-10-19 (external chat, new words, not quizzed): ばんごはん (dinner); あさごはん (breakfast); いま (now); だいがく (university)
 - 2026-10-20 grammar 11 や: quiz not passed (2 wrong). Q1 本やペンあります: missing が (あります takes が on what exists; key 本や ペンが あります). Q2 バンとごはんをたべます: the grammar was right (と list, を), but バン (evening) for パン (bread): one-kana typo. Counted as wrong under the quiz rule. Redo tomorrow.

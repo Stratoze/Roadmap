@@ -12,8 +12,7 @@ Taught = passed its quiz. Solid = used right in chat on a later day.
 - Taught: 2 counters 冊 / 本 / 台, 3 ます / ました / ません / ませんでした,
   4 は vs が, 5 あります / います, 6 これ / それ / あれ / どれ,
   7 ここ / そこ / あそこ / どこ, 8 の, 9 も, 10 と, 11 や, 12 へ vs に,
-  16 counter つ.
-- In progress: 13 に for time (see `BACKLOG.md` Handoff).
+  13 に for time, 16 counter つ.
 
 ## Weak spots (aim chat and corrections here)
 
@@ -26,6 +25,8 @@ Taught = passed its quiz. Solid = used right in chat on a later day.
 - Long vowels and small kana: がっこう, にじゅう, ソーダ, としょかん.
 - Particles written by spelling, not sound: は, を, へ (not わ, お, え).
 - いき / き: went vs came.
+- に after relative time words (明日に いきます → あした いきます); only a
+  clock time takes に.
 
 ## Habits
 

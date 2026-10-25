@@ -11,7 +11,7 @@ score or final answer, slips).
 
 ## Handoff
 
-- G13 quiz in progress: Q1 done (right), ask Q2 next.
+- None. Next grammar: G12b (one question), then G14.
 
 ## Chat openers (next unused first)
 
@@ -44,7 +44,7 @@ Quiz (one question; does not change the pass on 12):
 1. Say "I go to Tokyo", using the particle that is pronounced "e". → とうきょうへ いきます。 (also accept 東京へ; え and に are wrong here)
 Result:
 
-### [ ] G13 に for time (３時に)
+### [x] G13 に for time (３時に)
 Rule: a clock time takes に; words for time relative
 to now (きょう, あした, きのう, まいにち, いま) take no particle.
 Quiz:
@@ -52,7 +52,7 @@ Quiz:
 2. Say "I go tomorrow." → あした いきます。 (あしたに is wrong)
 3. Say "I eat at 7 o'clock." → 七時に たべます。
 4. Say "I study every day." → まいにち べんきょうします。 (まいにちに is wrong)
-Result: 10-25 Q1 三時にいきます: right (drop the ？: with it, it is a question). Q2-Q4 open.
+Result: 10-25 3/4, passed. Q1 三時にいきます right (wrote ？; a statement needs none). Q2 明日にいきます wrong (→ あした いきます). Q3 七時にたべます right. Q4 毎日、勉強します right.
 
 ### [ ] G14 時 / 分, telling time
 Rule: hours いちじ…じゅうにじ, with よじ (4), しちじ (7),
