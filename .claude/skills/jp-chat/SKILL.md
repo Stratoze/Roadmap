@@ -9,11 +9,8 @@ The learner is a complete beginner. The chat exists so they produce real
 Japanese every day with the grammar they have, and learn what a native would
 actually say.
 
-The chat does not run here (changed 2026-10-14). Running it on Sonnet cost
-enough that the learner wanted to skip it, and Haiku miscorrected a correct
-sentence. So the learner chats in a free chat service, and your job is the
-two mechanical ends: hand over the prompt, then log the result. Do not chat
-in Japanese yourself.
+The learner chats in a free chat service. Your job is the two ends: hand
+over the prompt, then log the result.
 
 ## Step 1: hand over the prompt
 
@@ -82,17 +79,16 @@ Start now with this line: {next unused opener from BACKLOG.md}
 
 1. Count the learner's Japanese replies by listing them, numbered. Report
    that number; do not estimate it. Minutes are whatever the learner reports.
-2. Copy each correction from the chat's final list into "Chat practice" in
-   `Learned/japanese.md`, one line each, with the date and "(external chat)".
-   Copy them as written. Do not add corrections of your own.
-3. If a correction looks wrong to you, do not overrule it. Add the line with
-   "check for Opus" and add an item for it to `Proposals.md` (Opus inbox).
-4. Copy the NEW WORDS list into "Vocabulary" in `Learned/japanese.md`
-   under the date, one line per word, as written. Not counted, not quizzed.
-5. Tick the opener in `BACKLOG.md` with the date and reply count.
+2. Copy each correction from the chat's list into "Chat practice" in
+   `Learned/log/japanese.md`, as written, one line each, with the date and
+   "(external chat)". The chat's corrections are the record; yours stay out.
+3. A correction that looks wrong to you: log it as written with "check for
+   Opus", and add an item for it to `Proposals.md`.
+4. Copy NEW WORDS into "Vocabulary" in `Learned/log/japanese.md` under the
+   date, one line per word, as written.
+5. If a slip repeats a weak spot or shows a new one, update "Weak spots" in
+   `Learned/japanese.md`.
+6. Tick the opener in `BACKLOG.md` with the date and reply count.
 
-Ask the learner to paste only CORRECTIONS and NEW WORDS; the TRANSCRIPT
-stays in the chat service, which is the record (this session runs in a
-cloud container that gets wiped, and `_private/` is never pushed, so a copy
-saved here is lost). Never commit a transcript to the repo. When an audit is
-due, the learner pastes one chat to Opus from the chat service.
+The TRANSCRIPT stays in the chat service; the repo gets only corrections
+and new words. For an audit, the learner pastes one chat to Opus.

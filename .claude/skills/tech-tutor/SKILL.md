@@ -5,10 +5,8 @@ description: Hand over the next technical item from BACKLOG.md to a free externa
 
 # tech-tutor
 
-Added by Opus 2026-10-17 (learner's request): Sonnet cost made the learner
-skip judgment items, so the back-and-forth tutoring moves to a free chat AI,
-as the Japanese chat did. Your job is the two mechanical ends: hand over the
-prompt, then check the final answer against the key. You do not tutor.
+A free chat AI tutors the learner. Your job is the two ends: hand over
+the prompt, then check the final answer against the key.
 
 The key never goes in the prompt: the learner reads the prompt.
 
@@ -70,10 +68,9 @@ calculus intuition, statics, circuits. I learn by answering, not by reading.
      go back to the tutor. Do not teach it yourself.
    - Not sure: do not tick. Log it with "check for Opus" and add an
      item to `Proposals.md`.
-2. Log one line in `Learned/technical.md`: date, item, final answer, and the
-   WHERE I STRUGGLED lines as written. If the tutor gave the answer away
+2. Log one entry in `Learned/log/technical.md`: date, item, final answer,
+   and the WHERE I STRUGGLED lines as written. Update `Learned/technical.md`
+   if a weak spot repeats or a new one shows. If the tutor gave the answer away
    (it did the step for the learner), write "answer given by tutor" and do
    not tick.
-3. The TRANSCRIPT stays in the chat service, which is the record: this
-   session runs in a cloud container that gets wiped, and `_private/` is
-   never pushed. Never commit it to the repo.
+3. The TRANSCRIPT stays in the chat service; the repo gets the log entry only.

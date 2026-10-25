@@ -14,7 +14,7 @@ again." and stop: judging partial answers needs the stronger model.
 
 ## Before starting
 
-Read `Learned/coursework.md` (what is solid, what is shaky, what is open) and
+Read `Learned/coursework.md` (status) and
 the questions or answer keys in `BACKLOG.md`, if any. Read the project file before you
 ask about it. Never quote a number or code line you have not read in a file:
 an invented fact in a grill gets repeated to a teacher.
@@ -60,5 +60,6 @@ conversation.
 
 ## At the end
 
-Update `Learned/coursework.md` with the date: what they can explain now,
-what is still shaky, terms not yet earned, and questions still open.
+Add a dated entry to `Learned/log/coursework.md`: what they can explain
+now, what is still shaky, terms not yet earned, open questions. Update the
+status lines in `Learned/coursework.md` to match.

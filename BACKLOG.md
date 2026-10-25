@@ -1,43 +1,19 @@
 # BACKLOG
 
-Pull-based, no dates (learner's request, Opus 2026-10-25; replaces
-`WEEK.md` and `NEXT.md`). Each queue is worked top-down. A session pulls
-the next item(s) from each queue as far as today's budget allows (free or
-tight day: `AGENTS.md` "Daily floor"). A missed day leaves the queue where
-it was; nothing goes stale, nothing is skipped.
+The work, in order, no dates. Each session pulls the next items from each
+queue (how many: `AGENTS.md` "Daily plan"). A missed day leaves the queues
+where they were.
 
-Each item holds its **prompt** (the quiz questions, the tutor's Given, the
-chat opener) and its **key** (the answers and the Check). When the learner
-finishes an item, write the **output** on its `Result:` line (date, score
-or final answer, slips) and tick it `[x]`. Keys are for the agent: show
-them only after the learner answers.
-
-## How to pull (every session, in this order)
-
-1. **Handoff** below, if any.
-2. **Japanese:** CJ (25 min tight / 40 free) → grammar: next unticked
-   item(s) of the grammar queue (1 tight / up to 3 free, each passed
-   before the next) → Kaishi (10 / 20 min) → chat: next unused opener.
-3. **Technical:** next unticked item of the technical queue, via
-   `tech-tutor`. Floor met by one passed item or 25 min.
-4. **Learner tasks** below: mention one once if it is open; don't push.
-5. If a queue has 5 or fewer keyed items left, or its next item has no
-   key, add a line to `Proposals.md` (Opus inbox). An item with no key is
-   skipped until Opus writes one.
+Each item holds its prompt (quiz questions, tutor Given, chat opener) and
+its key. Show a key only after the learner answers. When an item is done,
+tick it `[x]` and write the learner's output on its `Result:` line (date,
+score or final answer, slips).
 
 ## Handoff
 
 - G13 quiz in progress: Q1 done (right), ask Q2 next.
 
-## Weak spot to watch
-
-Existence sentences: the place takes に and the thing that exists takes
-が: へやに つくえが あります。 Missed 10-13, 10-20, 10-21. Openers 2, 7
-below aim at it.
-
-## Chat openers (next unused first; one per session, `jp-chat` skill)
-
-Grammar in the chat: every grammar item ticked so far, including today's.
+## Chat openers (next unused first)
 
 - [ ] 1. きょう だれと あいましたか。
 - [ ] 2. がっこうに だれが いましたか。
@@ -49,19 +25,19 @@ Grammar in the chat: every grammar item ticked so far, including today's.
 - [ ] 8. ボビナムは どこで しますか。
 - [ ] 9. こんばん なにを しますか。
 - [ ] 10. きょう ともだちと なにを しましたか。
-Used: かばんの なかに なにが ありますか。(10-23) and earlier.
 
-## Grammar scoring (all grammar keys)
+## Learner tasks (mention one once if open)
 
-Rule = the one line the agent may say when an answer is wrong. Quiz = ask
-exactly these, in order, word for word, one per message; never add,
-reword or invent a question. Accept kana or kanji, never romaji. An answer
-is wrong only if the mistake is in a particle or form named in the Rule or
-Slips line; other mistakes are logged as shaky on the earlier point; a
-typo that leaves the word clear is not counted. Pass = at most one wrong.
-Grammar done: 1-12 and 16 (results in `Learned/japanese.md`).
+- [ ] At Japanese class: ask the teacher if these three fixes are right:
+  カフェに いきます。それから うちに かえります。 / ソーダ (long vowel) /
+  はい、たどくの 本を よみました (yes, not いいえ, when you did read).
+- [ ] Photo of the FK drawing for `Mechatronics/portfolio/0.3-2link-fk-tip.md`.
+- [ ] Before T23: a 30 cm ruler, a pencil and ten 1-yen coins (1 g each).
 
 ## Japanese grammar queue
+
+Key format: Rule (the one line to say when an answer is wrong) / Quiz /
+Slips. Scoring: `AGENTS.md` "Japanese". Done: 1-12, 16.
 
 ### [ ] G12b へ written (follow-up to 12, ask before G13)
 Quiz (one question; does not change the pass on 12):
@@ -252,6 +228,7 @@ Result:
 Format: Given (safe to show; the only part that goes into the `tech-tutor`
 prompt; no Given = item text alone) / Answer / Check. Units required.
 Number answers: within about 2% unless a range is given. g = 9.81 m/s².
+Done: 1-9, 13, 14, 16, 17, 18.
 
 ### [ ] T10 FBD: book resting on a table (every force, arrow, label)
 Book resting on a table. Check: exactly 2 forces: weight (down, from Earth, at the book's center) and normal force (up, from the table), same length arrows, labelled. Wrong if: a "force of the table" pointing down on the book, or unequal arrows.
@@ -363,29 +340,3 @@ Result:
 - [ ] T59 Test it, 3 sentences
 - [ ] T60 Pick the capstone link material and write why
 
-Technical done: 1-9, 13, 14, 16, 17, 18 (results in `Learned/technical.md`).
-
-## Learner tasks (not agent work)
-
-- [ ] At Japanese class: ask the teacher if these three fixes are right:
-  カフェに いきます。それから うちに かえります。 / ソーダ (long vowel) /
-  はい、たどくの 本を よみました (yes, not いいえ, when you did read).
-  Report the answer.
-- [ ] Photo of the FK drawing for `Mechatronics/portfolio/0.3-2link-fk-tip.md`.
-- [ ] Before T23: a 30 cm ruler, a pencil and ten 1-yen coins (1 g each).
-
-## Decisions kept for the reasons (moved from `NEXT.md`)
-
-Decided by Opus 2026-10-17 (Sat, called early):
-- jp-chat template: role, culture rule (soft no), vocabulary (1-2 new words per line, glossed once), and `end` prints corrections + new words + transcript. All in `.claude/skills/jp-chat/SKILL.md`. (Superseded: glosses dropped 10-21; transcripts stay in the chat service.)
-- Grammar pace: up to 3 points on a free day until 2026-11-15, then 1 a day. Rule in AGENTS.md "Grammar pace". Keys A10-A14 are in WEEK.md.
-- Push after each item: now in AGENTS.md "Git".
-- Project choice (mini self-driving car / QDD robot / feng shui AI): no new project until Phase 0 is done (item 17 of 60 now). When it is, the QDD robot is first choice: it reuses the 2-link arm's statics, circuits and kinematics, and fits "robots". The self-driving car is second. The feng shui AI is off-goal; keep it as a hobby idea, not a milestone.
-- ML and statistics (learner's main ask, missed in the first pass): yes, inside the technical track, not as a third daily track. Statistics block S1-S4 after 0.4 (measurement spread: every portfolio entry already compares predicted vs measured, and that comparison means nothing without spread). First ML block M1-M4 after item 43 (fit a line to the arm's own potentiometer data: least squares is the simplest ML model, and the capstone needs that calibration). Later ML (classification, neural nets, learning control) is planned when Phase 0 ends, on the robot's own data. Not RL now: it needs a simulator and an evaluator first, which is tool-building, and the floor is 25 min.
-- Weight, food, exercise logging: not in this repo. Advice on diet needs a qualified source (doctor or dietitian); a plain notes app is enough for logging.
-- Second pass, same day, after the learner said proposals were missing: the 10-17 chat (17 replies) was logged and audited (it had only been filed as a proposal); quiz answers may be kanji from the keyboard, never romaji; drawing items 10, 11, 12, 15 go to Haiku as typed lines against the keys; the teacher-check task moved to Wed 10-21 class.
-- Technical round moved to Haiku + free chat AI (`tech-tutor` skill), learner's proposal. Sonnet is now only for coursework grilling. Keys get a Given / Answer / Check split so Haiku never leaks an answer; T17, T18 rewritten that way, the Sunday plan writes the rest that way. Sunday audit now takes one technical tutor chat as well.
-- Kaishi (~1249 overdue): no reset, the learner reviews it down (their proposal; reset would wipe the RWKV scheduler's history). Rule in AGENTS.md.
-- Flow reviewed with the learner 2026-10-17: free day ~2 h 15 min (CJ 40, grammar up to 3, Kaishi 20 min, chat 25, technical 25); tight day CJ 25, 1 point, Kaishi 10 min, chat ≥5, technical 25. Transcripts stay in the chat service (cloud container gets wiped); only the end summaries are pasted to Haiku. Sunday plan must write about 15 grammar keys a week (keys end at A14) and every technical key as Given / Answer / Check.
-- Opus 2026-10-21: quiz scoring rule (only the point's own forms count); jp-chat template (kanji with readings, no English glosses, real back-and-forth).
-- Opus 2026-10-25: `WEEK.md` and `NEXT.md` replaced by this backlog (learner's request): the day-by-day plan kept going stale whenever a day was missed, and Opus is manual-only, so a weekly rewrite can't be relied on.

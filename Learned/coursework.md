@@ -1,28 +1,15 @@
-# Coursework: what I've learned
+# Coursework: status
 
-Claude updates this after coursework sessions. Coursework does not count toward the daily floor.
+Read before a grill. Dated grill notes go to `Learned/log/coursework.md`.
+Coursework never counts toward the daily floor.
 
-## Python / data science (presentation Thu 2026-10-15 11:00 JST, moved from Mon 10-12 on `Stratoze/python-data-scraping`)
-- Slides: Claude drafts. Understanding and speaker notes: learner, in own words.
-- Can predict: filtering rows (`&`, `~`), labels kept after filtering, new columns (snapshots, can go stale), `.loc`, `mean` (incl. of True/False = fraction), `groupby().mean()`, `Series.apply` (returns new Series), `df.apply(..., axis=1)` row by row, lambda, `classify_risk` early return.
-- Shaky: gives rules instead of concrete outputs; mislabels groups.
-- Not earned: "mask" (say "True/False column").
-- Repo walk stopped mid `clean_data()` at `dropna`. Next: `dropna` / `reset_index`, then `analyze()`, charts, scrape, export.
-- 2026-10-11: learner did not yet understand the pandas/numpy basics. Taught: numpy array (fixed-length, one type, `arr * 2` makes a new array), Series (labelled column, `.values` = numpy array), DataFrame (table of Series), filtering keeps original row labels, `reset_index`. Learner predicted: `classify_risk` on student 3 → high via `failures >= 2` (correct, said "3 fails" first). `dropna` on 395 rows with 2 blank G3 → 393 (correct). `result = df["G3"].values * 2` leaves `df["G3"]` unchanged (correct after one hedge).
-- Shaky: hedges with "either/or" on predictions (commit to one output); reads a variable on the right side as if it were assigned.
-- Still need from learner: talk length and requirements. Still not done: explain the repo in own words (learner said "I don't even understand the python part" on 2026-10-11).
-- 2026-10-12 grill (repo for the talk). Can explain after correction: pipeline `load_data → clean_data (risk computed here, before dropna) → analyze (correlation) → export_results`; `to_numeric(errors="coerce")` ("12","abc","7" → 12, NaN, 7); `.copy()` = separate in-memory table, raw CSV is never written; `pass_fail` is the text "pass"/"fail" (only yes/no columns are 1/0), grades 0-20, pass mark 10; `apply(axis=1)` = once per row; `NaN < 10` is False, so a NaN-G3 row can get "low" but `dropna` removes it before any number is reported; dropping the 38 zero-G3 students moves the pass rate 0.671 → 0.742 (predicted +0.3); don't drop them (would hide fails); correlation = strength and direction of a straight-line link, not cause; G3 can't cause G2 (temporal precedence); confounder = third factor pushing both up.
-- Report wording accepted: "Guess: the 38 zeroes, which count as fails, came from students not taking the test." `report.md` still says "check that before reading anything into them": learner to update it.
-- Shaky: hedges ("probably"); rounds 0.742 to "0.7"; called a rule an "axiom" (standard term: temporal precedence); first said `.copy()` protects the CSV and `pass_fail` is 1/0.
-- Not earned: "confounder" (asked what it is on 10-12; explained once).
-- Open (from 10-12): absences ≈ 0 correlation, why PISA is not joined. Talk length and format still not given. Speaker notes blank.
-- 2026-10-14 grill on Opus, 7 questions on the repo as of commit 55b9e65 (the rule no longer uses G3; holdout on `por`). Solid: placing a student in a risk group by hand (G1 8, G2 12 → medium, "because of G1"); why the rule can't use G3 ("it's the realized consequence"; the fraction becomes 1); pass rate without the 38 zeroes = 265 / (395 − 38); G2-G3 correlation is not cause, "both measure the student's ability" (own words, good).
-- Shaky: Q1 test set: named `student-por.csv` but not that only `por` students absent from `mat` count (275 of 649); hedged ("probably"). Q3: called precision "the correlation between prediction and reality" (wrong; 0.66 = 64 of the 97 flagged failed); recall 64/70 = 0.91, 6 missed, right after one follow-up. Q7 `main.py`: said fetch → clean → analyze → summary → report; left out the PISA scrape from Wikipedia (the project is named data-scraping) and the separate load step.
-- Not earned: precision, recall, confounder (say the plain sentences).
-- Found 10-14: `presentation/talk.pptx` (7 slides) is older than the code. Slide 6 risk groups (low 167 / medium 91 / high 137) do not match the current rule (149 flagged high); slide 7 "next steps: add student-por.csv" is already done.
-- 2026-10-15 grill on Sonnet, 8 questions on slides 1-8 of the new HTML deck (`presentation/index.html`, repo `Stratoze/python-data-scraping` at commit 1eaa2ef; `presentation/script.md` has 22 slides). Talk delivered 10-15, learner reports it went ok. Solid: main file is `student-mat.csv`, 395 students; failed live PISA scrape leaves the cache alone and the program carries on (after "pick one"); mean above median means a few students with high absences pull the mean up (right-skewed).
-- Shaky: sources (Wikipedia PISA is one table 2000-2025, not "2022 and 2025"; the third source is the OECD Table I.1, used to cross-check the scrape); scrape checks (>= 30 countries per subject/year, scores 200-700, all 3 subjects; "idk"); 395 + 649 = 1044 and `load_data` adds a `subject` column (said "1000 something"); why the 374 overlapping Portuguese rows are excluded (used "test suite" for test set, "probably"); absences skew is handled by the per-subject IQR fence flag `absence_outlier` (Q3 + 1.5 x IQR), not by clamping; said "clamped" for "set to NaN".
-- Learner was right on Q7 (not the grill key): an out-of-range value becomes NaN in step 2, and the row is dropped in step 4 if the column is in REQUIRED_COLS (G1, G2, G3, absences, failures, studytime, age). Other columns keep the NaN and the row.
-- Not earned: "test set" vs "test suite", "right-skewed", "clamp".
-- Open: variation on Q8 (what happens to the 75-absence student in step 6) not answered. Speaker notes, slide 1 placeholders (name, student ID, supervisor) not confirmed.
-- 2026-10-15: the teacher asked no questions at the talk.
+## Python data project (`Stratoze/python-data-scraping`)
+
+- Talk delivered 2026-10-15; learner reports it went ok; no questions asked.
+- Can explain: the pipeline (load → clean → analyze → export); filtering
+  and labels; `.copy()`; `apply(axis=1)`; NaN handling and `dropna`;
+  correlation is not cause; the 38 zero-G3 students and the pass rate.
+- Shaky: hedges; rounds numbers; mixes "test set" and "test suite";
+  precision vs recall.
+- Not earned: confounder, precision, recall, right-skewed, clamp, mask.
+- Open: nothing scheduled. Next coursework: whatever the learner brings.
