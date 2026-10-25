@@ -1,6 +1,6 @@
 ---
 name: grill
-description: Question the learner one question at a time on a coursework project (e.g. the Python data project) until they can answer what a teacher would ask. Use this whenever WEEK.md lists a grill, the learner says "quiz me", "grill me", "test me on my project", is preparing a presentation or defence, or asks what a teacher might ask. Sonnet task.
+description: Question the learner one question at a time on a coursework project (e.g. the Python data project) until they can answer what a teacher would ask. Use this whenever BACKLOG.md lists a grill, the learner says "quiz me", "grill me", "test me on my project", is preparing a presentation or defence, or asks what a teacher might ask. Sonnet task.
 ---
 
 # grill
@@ -15,7 +15,7 @@ again." and stop: judging partial answers needs the stronger model.
 ## Before starting
 
 Read `Learned/coursework.md` (what is solid, what is shaky, what is open) and
-the questions or answer keys in `WEEK.md`. Read the project file before you
+the questions or answer keys in `BACKLOG.md`, if any. Read the project file before you
 ask about it. Never quote a number or code line you have not read in a file:
 an invented fact in a grill gets repeated to a teacher.
 
@@ -26,7 +26,7 @@ and lose the plan. So the grill runs from a numbered list, not from the
 conversation.
 
 1. Use the learner's own list if they gave one; otherwise the list in
-   `WEEK.md`; otherwise write 5-8 questions a teacher would ask about the
+   `BACKLOG.md`; otherwise write 5-8 questions a teacher would ask about the
    project, show them, and use those.
 2. Say where you are: "Q3 of 8."
 3. At most one follow-up per question. After that, give the answer in one

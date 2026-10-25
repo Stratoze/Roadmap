@@ -1,4 +1,4 @@
-# Opus inbox (pull-based backlog)
+# Opus inbox
 
 Everything waiting on Opus, in one place. Pull-based: nothing runs on its
 own, no schedule. Haiku adds items; only the learner calls Opus; when
@@ -9,33 +9,43 @@ its decision. Haiku never acts on an item here.
 
 1. **Proposals** from the learner or from Haiku: one item each, with date
    and source. Never anywhere else (`AGENTS.md` "Files").
-2. **Audit lines:** any "check on Sunday" line in `Learned/` gets an item
+2. **Audit lines:** any "check for Opus" (or older "check on Sunday") line in `Learned/` gets an item
    pointing to it.
 3. **Pull signals.** At session start, check these; if one is true and not
    already listed, add an item:
-   - `WEEK.md` ends in 2 days or less → "Plan due: `WEEK.md` ends <date>."
-   - The next grammar point or technical item has no key in `WEEK.md` →
-     "Keys needed from <point/item>." (That task is skipped until then.)
-   - A `NEXT.md` list has 5 or fewer unticked items → "List running out."
+   - A `BACKLOG.md` queue (grammar, technical, chat openers) has 5 or
+     fewer keyed items left → "Refill <queue>: next keys from <item>."
+   - The next item in a queue has no key → "Keys needed from <item>." (That
+     item is skipped until then.)
+   - 7 days or more since the last audit (see below) → "Audit due: the
+     learner pastes one Japanese chat and one tutor chat."
    - The learner says Haiku accepted a wrong answer → "Move <task type> to
      Sonnet?"
+   Last audit: 2026-10-25 (Opus).
 4. If **Open** has any item, tell the learner once at session start:
    "Opus inbox: N open (top: <first item>)." Do not push further.
 
 ## Open
 
-### Due Sun 11-01: weekly plan + audit
-- `WEEK.md` ends 11-01. Plan from 11-02 (grammar keys from A27, technical
-  from where the learner is), and the audit: the learner pastes one
-  Japanese chat and one technical tutor chat. Rows are at the end of
-  `WEEK.md`.
+### Refill: chat openers and grammar keys
+- Chat openers: 10 left. Grammar keys: G12b-G26 (15 items, ~5-8 sessions
+  at current pace). Technical keys run to S4 (18 items). Not urgent; do it
+  at the next Opus call so no queue runs dry. Grammar keys from G27,
+  technical from T29, then M1-M4 after T43.
 
 ## Done
+
+### 2026-10-25: pull-based backlog instead of a weekly plan (learner's request)
+- Adopted, Opus 2026-10-25. `WEEK.md` and `NEXT.md` merged into
+  `BACKLOG.md`: ordered queues (grammar, chat openers, technical), each
+  item with its prompt, key and `Result:` line. No dates; a missed day
+  leaves the queue where it was. Opus refills when the inbox signals it;
+  audits are pulled every 7 days. `AGENTS.md` and all four skills updated.
 
 ### 2026-10-23: proposals need one designated home (learner's request)
 - Adopted, Opus 2026-10-25. `AGENTS.md` "Files" now names this file as the
   only home for proposals, with Haiku's end-of-session sweep of `Learned/`,
-  `Daily/`, `WEEK.md` and `NEXT.md`.
+  `Daily/` and `BACKLOG.md`.
 
 ### 2026-10-23: technical floor counts solved items, not minutes (learner's request)
 - Adopted, Opus 2026-10-25. `AGENTS.md` "Daily floor": met by one item that

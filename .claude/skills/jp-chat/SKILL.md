@@ -1,6 +1,6 @@
 ---
 name: jp-chat
-description: Set up and log the learner's daily Japanese written chat (about 25 minutes, at least 5 replies, using only grammar already taught). The chat itself runs in a free chat service outside Claude Code; you hand over the prompt and log what comes back. Use this whenever WEEK.md lists a Japanese chat, the learner asks to "chat in Japanese" or "practice Japanese", pastes a finished chat, or sends a Japanese sentence to check.
+description: Set up and log the learner's daily Japanese written chat (about 25 minutes, at least 5 replies, using only grammar already taught). The chat itself runs in a free chat service outside Claude Code; you hand over the prompt and log what comes back. Use this whenever the chat is next in BACKLOG.md, the learner asks to "chat in Japanese" or "practice Japanese", pastes a finished chat, or sends a Japanese sentence to check.
 ---
 
 # jp-chat
@@ -17,7 +17,7 @@ in Japanese yourself.
 
 ## Step 1: hand over the prompt
 
-1. Read the ticked grammar in `NEXT.md` and today's opening line in `WEEK.md`.
+1. Read the ticked grammar and the next unused chat opener in `BACKLOG.md`.
 2. Print the template below in one code block, with the two `{...}` slots
    filled in. Change nothing else in it.
 3. Say: "Paste this into your free chat service. Chat about 25 minutes by
@@ -75,7 +75,7 @@ lecture. I am a complete beginner; I answer you the same way, in です / ます
         word, in one code block, with no edits and no fixes.
 
 
-Start now with this line: {opening line from WEEK.md}
+Start now with this line: {next unused opener from BACKLOG.md}
 ```
 
 ## Step 2: log the pasted chat
@@ -86,13 +86,13 @@ Start now with this line: {opening line from WEEK.md}
    `Learned/japanese.md`, one line each, with the date and "(external chat)".
    Copy them as written. Do not add corrections of your own.
 3. If a correction looks wrong to you, do not overrule it. Add the line with
-   "check on Sunday" so Opus looks at it in the weekly audit.
+   "check for Opus" and add an item for it to `Proposals.md` (Opus inbox).
 4. Copy the NEW WORDS list into "Vocabulary" in `Learned/japanese.md`
    under the date, one line per word, as written. Not counted, not quizzed.
-5. Tick the chat in `WEEK.md` with the reply count.
+5. Tick the opener in `BACKLOG.md` with the date and reply count.
 
 Ask the learner to paste only CORRECTIONS and NEW WORDS; the TRANSCRIPT
 stays in the chat service, which is the record (this session runs in a
 cloud container that gets wiped, and `_private/` is never pushed, so a copy
-saved here is lost). Never commit a transcript to the repo. On Sunday the
-learner pastes one chat to Opus from the chat service.
+saved here is lost). Never commit a transcript to the repo. When an audit is
+due, the learner pastes one chat to Opus from the chat service.

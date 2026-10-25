@@ -1,6 +1,6 @@
 ---
 name: tech-tutor
-description: Hand over a technical item from NEXT.md to a free external chat AI that tutors the learner, then check the learner's final answer against the key in WEEK.md and log it. Use whenever WEEK.md lists a technical item, or the learner says "technical", "next item", or pastes a finished tutor chat. Haiku task.
+description: Hand over the next technical item from BACKLOG.md to a free external chat AI that tutors the learner, then check the learner's final answer against the item's key and log it. Use whenever technical is next, or the learner says "technical", "next item", or pastes a finished tutor chat. Haiku task.
 ---
 
 # tech-tutor
@@ -14,8 +14,8 @@ The key never goes in the prompt: the learner reads the prompt.
 
 ## Step 1: hand over the prompt
 
-1. Take the next unticked technical item in `NEXT.md` and its key in
-   `WEEK.md`.
+1. Take the next unticked item in the technical queue of `BACKLOG.md`
+   and its key (written under it).
 2. From the key, copy only the **Given** part. Never copy the **Answer** or
    **Check** part, and never a bold number. If the key has no Given part,
    use the item text alone.
@@ -64,10 +64,12 @@ calculus intuition, statics, circuits. I learn by answering, not by reading.
      done.
    - Explanation or drawing: every point in Check is there in the learner's
      words. A circular reason does not count.
-   - Pass: tick the item in `NEXT.md` and `WEEK.md` with the answer.
+   - Pass: tick the item in `BACKLOG.md` and write the final answer on
+     its `Result:` line.
    - Fail: tell the learner in one line which Check point is missing; they
      go back to the tutor. Do not teach it yourself.
-   - Not sure: do not tick. Log it with "check Sunday".
+   - Not sure: do not tick. Log it with "check for Opus" and add an
+     item to `Proposals.md`.
 2. Log one line in `Learned/technical.md`: date, item, final answer, and the
    WHERE I STRUGGLED lines as written. If the tutor gave the answer away
    (it did the step for the learner), write "answer given by tutor" and do

@@ -1,6 +1,6 @@
 ---
 name: daily-note
-description: Write or update today's Daily/YYYY-MM-DD.md note for the learner's Roadmap. Use this at the end of every study session, and whenever the learner reports minutes ("I watched 30 min of CJ", "did 20 min of katakana"), finishes a NEXT.md item, or says they are stopping for the day, even if they don't ask for a note.
+description: Write or update today's Daily/YYYY-MM-DD.md note for the learner's Roadmap. Use this at the end of every study session, and whenever the learner reports minutes ("I watched 30 min of CJ", "did 20 min of katakana"), finishes a BACKLOG.md item, or says they are stopping for the day, even if they don't ask for a note.
 ---
 
 # daily-note
@@ -14,7 +14,7 @@ in every other note. So: only facts, plainly said.
 1. Run `TZ=Asia/Tokyo date` for the date. The learner is in Japan; the
    container clock is not.
 2. Gather facts from three sources only: what the learner said this session,
-   the clock, and files that exist (ticks in `NEXT.md` / `WEEK.md`). If the
+   the clock, and files that exist (ticks and `Result:` lines in `BACKLOG.md`). If the
    learner did not give minutes, write "time not reported" rather than an
    estimate, because a guessed number reads as a measured one.
 3. If `Daily/<date>.md` already exists, edit it instead of starting over.
@@ -28,14 +28,14 @@ tags: [daily]
 ---
 **Japanese:** <what was done, minutes, who reported them>
 **Technical:** <items done with result, minutes>
-**Next:** <tomorrow's step per track: unfinished items first, then WEEK.md>
+**Next:** <tomorrow's step per track: unfinished items first, then the next items in BACKLOG.md>
 ```
 
 ## Next line
 
 Unfinished work comes first. If an item's check did not pass today (e.g. a
 grammar quiz 3/5, an item done only with the answer given), tomorrow's step
-is to finish it, not tomorrow's row in `WEEK.md`. Copying the plan blindly
+is to finish it, not the next item in `BACKLOG.md`. Moving on blindly
 would skip a point the learner has not got yet.
 
 ## What counts
