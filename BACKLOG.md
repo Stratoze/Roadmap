@@ -39,7 +39,7 @@ score or final answer, slips).
 Key format: Rule (the one line to say when an answer is wrong) / Quiz /
 Slips. Scoring: `AGENTS.md` "Japanese". Done: 1-12, 16.
 
-### [ ] G12b へ written (follow-up to 12, ask before G13)
+### [ ] G12b へ written (follow-up to 12, ask before G14)
 Quiz (one question; does not change the pass on 12):
 1. Say "I go to Tokyo", using the particle that is pronounced "e". → とうきょうへ いきます。 (also accept 東京へ; え and に are wrong here)
 Result:
