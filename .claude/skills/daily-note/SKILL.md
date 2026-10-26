@@ -11,7 +11,7 @@ in every other note. So: only facts, plainly said.
 
 ## Steps
 
-1. Run `TZ=Asia/Tokyo date` for the date. The learner is in Japan; the
+1. Run `TZ=Asia/Ho_Chi_Minh date` for the date. The learner is in Vietnam; the
    container clock is not.
 2. Gather facts from three sources only: what the learner said this session,
    the clock, and files that exist (ticks and `Result:` lines in `BACKLOG.md`). If the

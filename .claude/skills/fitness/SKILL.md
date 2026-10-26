@@ -23,7 +23,9 @@ Run every command from the repo root: `python3 Fitness/fit.py <command>`.
 
 1. **Decompose** every dish into components you can name: curry rice →
    rice + meat + potato + carrot + roux; ramen → noodles + pork + egg +
-   soup. Give each component its own grams. Cooking fat is a component too:
+   soup; phở → rice noodles + beef + broth; bánh mì → baguette + pork +
+   pâté + vegetables; cơm tấm → broken rice + grilled pork + egg + fish
+   sauce. Give each component its own grams. Cooking fat is a component too:
    fried or breaded (karaage, tonkatsu, tempura) → `oil` at 10% of the fried
    food's weight; stir-fried or sauteed → `oil=10` per plate.
 2. **Classify each component**: a name in `Fitness/foods.csv` first; else

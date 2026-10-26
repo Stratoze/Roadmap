@@ -108,3 +108,9 @@ Decided by Opus 2026-10-17 (Sat, called early):
   Spot-checked 2026-10-26: goat roasted P 27.1 F 3.0; chicken breast
   roasted P 31.0 F 3.6. `foods.csv` stays first because it holds Japanese
   foods and unit sizes.
+
+## Clock (2026-10-26)
+
+- The clock is Vietnam time, where the learner lives until the move to
+  Japan (~September 2027). Tokyo time had been assumed by mistake; it put
+  anything logged after 22:00 local on the next day.

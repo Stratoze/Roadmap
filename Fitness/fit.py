@@ -37,7 +37,7 @@ FILES = {
 
 
 def today():
-    return datetime.now(ZoneInfo("Asia/Tokyo")).date().isoformat()
+    return datetime.now(ZoneInfo("Asia/Ho_Chi_Minh")).date().isoformat()
 
 
 def rows(name):
@@ -306,7 +306,7 @@ def cmd_bmr(a):
 def main():
     p = argparse.ArgumentParser(description=__doc__,
                                 formatter_class=argparse.RawDescriptionHelpFormatter)
-    p.add_argument("--date", help="YYYY-MM-DD, default today in JST")
+    p.add_argument("--date", help="YYYY-MM-DD, default today, Vietnam time")
     s = p.add_subparsers(dest="cmd", required=True)
     fd = s.add_parser("find"); fd.add_argument("words", nargs="+")
     c = s.add_parser("check"); c.add_argument("items", nargs="+")

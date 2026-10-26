@@ -7,7 +7,7 @@ daily floor.
 ## Goal
 
 Visible abs, more muscle, less fat, stronger. Male, 20, 180 cm, 83 kg on
-2026-10-26. Fat loss has stalled after the easy cuts (no soda, no snacks).
+2026-10-26. Lives in Vietnam; moves to Japan ~September 2027. Fat loss has stalled after the easy cuts (no soda, no snacks).
 
 ## Targets (`Fitness/targets.json`)
 

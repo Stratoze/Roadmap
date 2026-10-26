@@ -8,10 +8,11 @@ immigrate, naturalize. Field: cars, rockets, satellites, or robots.
 
 ## Session start
 
-1. `TZ=Asia/Tokyo date` is the clock. Note the start time; take the date
-   and weekday from it, never from the learner.
+1. `TZ=Asia/Ho_Chi_Minh date` is the clock (the learner is in Vietnam until
+   the move to Japan, ~September 2027; then `Asia/Tokyo`). Note the start
+   time; take the date and weekday from it, never from the learner.
 2. `git checkout main && git pull origin main`, then branch
-   `YYYY-MM-DD-topic` with today's JST date.
+   `YYYY-MM-DD-topic` with today's local date.
 3. Read `BACKLOG.md` top (Handoff, openers, learner tasks), then only the
    next unticked item of each queue you will use today.
 4. Read the status file for today's tracks: `Learned/japanese.md`,
