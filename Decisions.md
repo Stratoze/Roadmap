@@ -78,3 +78,18 @@ Decided by Opus 2026-10-17 (Sat, called early):
 - Flow reviewed with the learner 2026-10-17: free day ~2 h 15 min (CJ 40, grammar up to 3, Kaishi 20 min, chat 25, technical 25); tight day CJ 25, 1 point, Kaishi 10 min, chat ≥5, technical 25. Transcripts stay in the chat service (cloud container gets wiped); only the end summaries are pasted to Haiku. Sunday plan must write about 15 grammar keys a week (keys end at A14) and every technical key as Given / Answer / Check.
 - Opus 2026-10-21: quiz scoring rule (only the point's own forms count); jp-chat template (kanji with readings, no English glosses, real back-and-forth).
 - Opus 2026-10-25: `WEEK.md` and `NEXT.md` replaced by this backlog (learner's request): the day-by-day plan kept going stale whenever a day was missed, and Opus is manual-only, so a weekly rewrite can't be relied on.
+
+## Fitness (2026-10-26)
+
+- Haiku classifies (food name, grams, source) and `fit.py` does the maths:
+  Haiku's arithmetic and memory of food values are its weakest points.
+- Scale or label first, photo last: photo portions and hidden oil are the
+  biggest error. Weekly calibration meals (photo estimate, then weigh)
+  measure Haiku's photo error instead of guessing it.
+- Images sent in chat are not saved as files, so the log keeps a written
+  `--note` of what the photo showed.
+- Formula target first, then measured maintenance from intake and the
+  weight trend: the formula is off by hundreds of kcal for many people.
+- No vitamins or minerals: a photo cannot estimate them, and logging them
+  costs time for no decision.
+- No reminders (Opus runs only when called); the skill asks at session start.

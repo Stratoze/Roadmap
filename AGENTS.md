@@ -19,6 +19,7 @@ immigrate, naturalize. Field: cars, rockets, satellites, or robots.
 5. If yesterday's `Daily/` note shows Japanese missed, do Japanese first.
 6. Check the pull signals in `Proposals.md`; add any that are due; say the
    open count once if it is not zero.
+7. Fitness: the `fitness` skill's session-start questions.
 
 ## Logging (every time the learner reports something)
 
@@ -38,7 +39,7 @@ tasks that fit you.
 
 - **Haiku:** anything with a key: grammar quiz, chat hand-over and logging
   (`jp-chat`), technical hand-over and key check (`tech-tutor`), logs,
-  ticks. Haiku asks the key's questions and copies the skill templates;
+  ticks, fitness logging (`fitness`). Haiku asks the key's questions and copies the skill templates;
   Opus writes every key, question, opener and prompt.
 - **Sonnet:** coursework grilling (`grill`).
 - **Opus:** runs only when the learner calls it (no scheduled tasks,
@@ -59,7 +60,9 @@ wrong answer, that task type moves to Sonnet at the next Opus call.
   anything waiting on Opus. At session end, move any stray "for Opus" or
   "check for Opus" line there with its source.
 - `Decisions.md`: why each rule exists. Read it before changing a rule.
-- `.claude/skills/`: `daily-note`, `jp-chat`, `tech-tutor`, `grill`.
+- `Fitness/`: `fit.py` (all fitness arithmetic), `foods.csv`,
+  `targets.json`, `log/`. Plan and targets explained in `Learned/fitness.md`.
+- `.claude/skills/`: `daily-note`, `jp-chat`, `tech-tutor`, `grill`, `fitness`.
 - Old system, left untouched and unread: `_archive/`, `_system/`,
   `Japanese/`, `docs/`, `Changelog/`.
 
@@ -95,7 +98,7 @@ computing forward kinematics live, checked against a ruler. Proof goes in
 `Mechatronics/portfolio/`: photo or video, code or hand calculation, and
 three sentences (predicted, measured, why they differ).
 
-**Coursework:** in scope whenever asked; never counts toward the floor.
+**Coursework and fitness:** in scope whenever asked; never count toward the floor.
 
 ## Teaching
 

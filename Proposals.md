@@ -21,6 +21,8 @@ its decision. Haiku never acts on an item here.
      learner pastes one Japanese chat and one tutor chat."
    - The learner says Haiku accepted a wrong answer → "Move <task type> to
      Sonnet?"
+   - 7 days or more since the last fitness review (`Learned/fitness.md`)
+     → "Fitness review due."
    Last audit: 2026-10-25 (Opus).
 4. If **Open** has any item, tell the learner once at session start:
    "Opus inbox: N open (top: <first item>)." Do not push further.

@@ -1,0 +1,37 @@
+food,protein,carbs,fat,alcohol,unit_g,note
+rice_cooked,2.5,37.1,0.3,0,,white rice cooked; a bowl is about 150-200 g
+bread_white,9.0,46.4,4.2,0,,shokupan; one 6-slice slice is about 60 g
+udon_boiled,2.6,21.6,0.4,0,,
+soba_boiled,4.8,26.0,1.0,0,,
+ramen_noodles_boiled,4.9,27.9,0.6,0,,noodles only; soup not counted
+oats_dry,13.7,69.1,5.7,0,,
+pasta_boiled,5.8,32.2,0.9,0,,
+potato_boiled,1.5,19.7,0.1,0,,
+sweet_potato_baked,1.4,39.0,0.2,0,,
+chicken_breast_skinless_cooked,31.0,0,3.6,0,,
+chicken_thigh_skin_cooked,25.0,0,15.0,0,,karaage is not this; use a label or guess
+pork_loin_cooked,27.0,0,11.0,0,,
+beef_ground_cooked,26.0,0,17.0,0,,
+salmon_cooked,22.0,0,12.0,0,,
+tuna_canned_water,24.0,0,1.0,0,,
+mackerel_cooked,21.0,0,18.0,0,,saba
+egg,12.2,0.4,10.2,0,50,one egg = 50 g edible
+tofu_firm,7.0,1.5,4.9,0,,momen
+natto,16.5,12.1,10.0,0,45,one pack = 45 g
+milk_whole,3.3,4.8,3.8,0,,
+yogurt_plain,3.6,4.9,3.0,0,,
+greek_yogurt_plain_nonfat,10.0,3.6,0.4,0,,
+cheese_cheddar,25.0,1.3,33.0,0,,
+whey_powder,75.0,8.0,6.0,0,30,one scoop = 30 g; label beats this
+banana,1.1,22.5,0.2,0,,
+apple,0.2,15.5,0.2,0,,
+broccoli,4.3,6.6,0.6,0,,
+cabbage,1.3,5.2,0.2,0,,
+mixed_vegetables,2.0,7.0,0.3,0,,unlisted vegetables
+oil,0,0,100,0,,any cooking oil; a tablespoon is about 13 g
+butter,0.6,0.2,81.0,0,,
+mayonnaise,1.5,3.6,72.5,0,,
+peanut_butter,25.0,20.0,50.0,0,,
+nuts_mixed,20.0,21.0,52.0,0,,
+chocolate_milk,7.0,56.0,31.0,0,,chocolate bar
+beer,0.3,3.1,0,3.6,,grams of drink; 350 ml can is about 350 g
