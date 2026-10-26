@@ -21,23 +21,32 @@ Run every command from the repo root: `python3 Fitness/fit.py <command>`.
 
 ## A meal
 
-1. **Classify each item** to a name in `Fitness/foods.csv`, or to a label.
-   Amount source, best first:
+1. **Decompose** every dish into components you can name: curry rice →
+   rice + meat + potato + carrot + roux; ramen → noodles + pork + egg +
+   soup. Give each component its own grams. Cooking fat is a component too:
+   fried or breaded (karaage, tonkatsu, tempura) → `oil` at 10% of the fried
+   food's weight; stir-fried or sauteed → `oil=10` per plate.
+2. **Classify each component** to a name in `Fitness/foods.csv`, or to a
+   label. Amount source, best first:
    - **scale**: grams the learner weighed.
    - **label**: per-serving P/C/F/A from a label photo → `name@P/C/F/A*N`.
-   - **photo**: your estimate of grams from the picture.
-2. **Unclear photo** (portion hidden, sauce or oil unknown, a bowl with no
+     Packaged labels are trusted as written.
+   - **photo**: your estimate of grams from the picture. Restaurant and
+     chain menu numbers count as photo.
+3. **Unclear photo** (portion hidden, sauce or oil unknown, a bowl with no
    depth cue, a food you cannot name) → ask for one more angle or one
    question ("How many eggs?"). Ask at most twice, then log your best guess
    with the doubt in `--note`.
-3. Food not in `foods.csv` and no label → log it as `name@P/C/F/A` with
-   your best estimate, `--source photo`, and add an item to `Proposals.md`:
-   "Add <food> to foods.csv (source: <date> <meal>)."
-4. **Before eating** ("can I eat this?") → `check ITEMS`. Copy the advice
+4. **Component not in `foods.csv`** and no label → use the closest food in
+   the table (goat → `pork_loin_cooked`), write `nearest: <food> for
+   <real food>` in `--note`, and add an item to `Proposals.md`: "Add <real
+   food> to foods.csv (source: <date> <meal>)." Every number comes from the
+   table or a label.
+5. **Before eating** ("can I eat this?") → `check ITEMS`. Copy the advice
    line it prints.
    **Eaten** → `meal MEAL ITEMS --source scale|label|photo --note "<what the
    photo showed, doubts>"`. MEAL is breakfast, lunch, dinner or snack.
-5. **Calibration meal** (a home meal the learner photographs and then
+6. **Calibration meal** (a home meal the learner photographs and then
    weighs): first `check` with your photo grams and note the Meal kcal; then
    log the weighed grams with `meal ... --source scale --photo-kcal <that kcal>`.
    Ask for one each week, at home.

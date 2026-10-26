@@ -93,3 +93,12 @@ Decided by Opus 2026-10-17 (Sat, called early):
 - No vitamins or minerals: a photo cannot estimate them, and logging them
   costs time for no decision.
 - No reminders (Opus runs only when called); the skill asks at session start.
+- Mixed dishes are decomposed into table foods plus cooking oil (10% of
+  fried weight; 10 g per stir-fried plate, an Opus estimate checked by
+  calibration meals). Missing foods map to the nearest table food with a
+  note; Haiku never writes its own nutrient values.
+- Packaged labels are trusted: legal tolerance is about ±20% (Japan's
+  protein/fat; US calories up to +20%), and frozen meals measured ~8% over
+  label (Urban 2010). Restaurant numbers vary far more, so they count as
+  photo estimates. Steady bias from labels does not matter: measured
+  maintenance is computed from the same logged numbers, so it cancels.
