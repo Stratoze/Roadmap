@@ -2,6 +2,7 @@
 """Fitness log and calculator. All arithmetic lives here; the caller only
 names foods and grams.
 
+  fit.py find   WORD...            search foods.csv, then the USDA table
   fit.py check  ITEM...            what a meal adds, and whether it fits today
   fit.py meal   MEAL ITEM... [--source S] [--photo-kcal N] [--note T]
   fit.py body   [--weight KG] [--waist CM]
@@ -12,7 +13,7 @@ names foods and grams.
   fit.py bmr    WEIGHT_KG HEIGHT_CM AGE     Mifflin-St Jeor, male
 
 ITEM is food=grams (a name from foods.csv; food=2x for unit_g foods like
-egg=2x), or name@P/C/F/A*N for a label: grams of protein/carbs/fat/alcohol
+egg=2x), usda:ID=grams (an id from `find`), or name@P/C/F/A*N for a label: grams of protein/carbs/fat/alcohol
 per serving, times N servings.
 """
 import argparse, csv, json, sys
@@ -63,6 +64,11 @@ def foods():
         return {r["food"]: r for r in csv.DictReader(f)}
 
 
+def usda():
+    with (HERE / "usda_sr28.csv").open() as f:
+        return {r["id"]: r for r in csv.DictReader(f)}
+
+
 def targets():
     return json.loads((HERE / "targets.json").read_text())
 
@@ -86,6 +92,13 @@ def parse_item(text, table):
     if "=" not in text:
         sys.exit(f"{text}: write food=grams or name@P/C/F/A*N")
     name, amount = text.split("=", 1)
+    if name.startswith("usda:"):
+        r = usda().get(name[5:])
+        if not r:
+            sys.exit(f"{name}: no such USDA id; run find")
+        grams = float(amount)
+        m = {k: float(r.get(k, 0) or 0) * grams / 100 for k in KCAL}
+        return {"item": f"{name} {r['food'][:40]}", "grams": round(grams), **m}
     if name not in table:
         sys.exit(f"{name}: not in foods.csv. Ask for the label, or log it "
                  f"as {name}@P/C/F/A and add a Proposals.md item.")
@@ -131,6 +144,22 @@ def advise(meal_t, before):
         share = left / meal_t["kcal"]
         print(f"Over by {meal_t['kcal'] - left:.0f} kcal. Eat about "
               f"{share:.0%} of it: keep the protein, leave rice/bread/fried parts.")
+
+
+def cmd_find(a):
+    words = [w.lower() for w in a.words]
+    hit = lambda text: all(w in text.lower() for w in words)
+    own = [r for r in foods().values() if hit(r["food"] + " " + r["note"])]
+    for r in own:
+        print(f"{r['food']}  P {r['protein']} C {r['carbs']} F {r['fat']} per 100 g  (foods.csv)")
+    found = [r for r in usda().values() if hit(r["food"])]
+    found.sort(key=lambda r: len(r["food"]))
+    for r in found[:15]:
+        print(f"usda:{r['id']}  {r['food']}  P {r['protein']} C {r['carbs']} F {r['fat']}")
+    if len(found) > 15:
+        print(f"... {len(found) - 15} more; add a word to narrow it")
+    if not own and not found:
+        print("No match. Try one simpler word (goat, not goat curry).")
 
 
 def cmd_check(a):
@@ -279,6 +308,7 @@ def main():
                                 formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("--date", help="YYYY-MM-DD, default today in JST")
     s = p.add_subparsers(dest="cmd", required=True)
+    fd = s.add_parser("find"); fd.add_argument("words", nargs="+")
     c = s.add_parser("check"); c.add_argument("items", nargs="+")
     m = s.add_parser("meal"); m.add_argument("meal"); m.add_argument("items", nargs="+")
     m.add_argument("--source", choices=["scale", "label", "photo"], required=True)
@@ -292,7 +322,7 @@ def main():
     r = s.add_parser("bmr"); r.add_argument("weight", type=float)
     r.add_argument("height", type=float); r.add_argument("age", type=int)
     a = p.parse_args()
-    {"check": cmd_check, "meal": cmd_meal, "body": cmd_body, "close": cmd_close,
+    {"find": cmd_find, "check": cmd_check, "meal": cmd_meal, "body": cmd_body, "close": cmd_close,
      "lift": cmd_lift, "today": cmd_today, "week": cmd_week, "bmr": cmd_bmr}[a.cmd](a)
 
 

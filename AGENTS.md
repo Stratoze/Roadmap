@@ -60,8 +60,8 @@ wrong answer, that task type moves to Sonnet at the next Opus call.
   anything waiting on Opus. At session end, move any stray "for Opus" or
   "check for Opus" line there with its source.
 - `Decisions.md`: why each rule exists. Read it before changing a rule.
-- `Fitness/`: `fit.py` (all fitness arithmetic), `foods.csv`,
-  `targets.json`, `log/`. Plan and targets explained in `Learned/fitness.md`.
+- `Fitness/`: `fit.py` (all fitness arithmetic), `foods.csv` (curated),
+  `usda_sr28.csv` (USDA table), `targets.json`, `log/`. Plan and targets explained in `Learned/fitness.md`.
 - `.claude/skills/`: `daily-note`, `jp-chat`, `tech-tutor`, `grill`, `fitness`.
 - Old system, left untouched and unread: `_archive/`, `_system/`,
   `Japanese/`, `docs/`, `Changelog/`.

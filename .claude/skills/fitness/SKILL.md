@@ -26,8 +26,11 @@ Run every command from the repo root: `python3 Fitness/fit.py <command>`.
    soup. Give each component its own grams. Cooking fat is a component too:
    fried or breaded (karaage, tonkatsu, tempura) → `oil` at 10% of the fried
    food's weight; stir-fried or sauteed → `oil=10` per plate.
-2. **Classify each component** to a name in `Fitness/foods.csv`, or to a
-   label. Amount source, best first:
+2. **Classify each component**: a name in `Fitness/foods.csv` first; else
+   `find <one or two words>` and pick the `usda:ID` whose state matches
+   what was eaten (cooked, roasted, boiled vs raw; with or without skin);
+   or a label. Alcoholic drinks: `foods.csv` or a label only. Amount
+   source, best first:
    - **scale**: grams the learner weighed.
    - **label**: per-serving P/C/F/A from a label photo → `name@P/C/F/A*N`.
      Packaged labels are trusted as written.
@@ -37,11 +40,10 @@ Run every command from the repo root: `python3 Fitness/fit.py <command>`.
    depth cue, a food you cannot name) → ask for one more angle or one
    question ("How many eggs?"). Ask at most twice, then log your best guess
    with the doubt in `--note`.
-4. **Component not in `foods.csv`** and no label → use the closest food in
-   the table (goat → `pork_loin_cooked`), write `nearest: <food> for
-   <real food>` in `--note`, and add an item to `Proposals.md`: "Add <real
-   food> to foods.csv (source: <date> <meal>)." Every number comes from the
-   table or a label.
+4. **`find` has no match** and no label → use the closest food it does
+   have, write `nearest: <food> for <real food>` in `--note`, and add an
+   item to `Proposals.md`: "Add <real food> to foods.csv (source: <date>
+   <meal>)." Every number comes from a table or a label.
 5. **Before eating** ("can I eat this?") → `check ITEMS`. Copy the advice
    line it prints.
    **Eaten** → `meal MEAL ITEMS --source scale|label|photo --note "<what the

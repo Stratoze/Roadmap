@@ -102,3 +102,9 @@ Decided by Opus 2026-10-17 (Sat, called early):
   label (Urban 2010). Restaurant numbers vary far more, so they count as
   photo estimates. Steady bias from labels does not matter: measured
   maintenance is computed from the same logged numbers, so it cancels.
+- `Fitness/usda_sr28.csv` is USDA Standard Reference release 28 (8,789
+  foods, public domain), taken from the npm package `fda-nutrient-database`
+  1.0.2 because the USDA site is blocked from the cloud environment.
+  Spot-checked 2026-10-26: goat roasted P 27.1 F 3.0; chicken breast
+  roasted P 31.0 F 3.6. `foods.csv` stays first because it holds Japanese
+  foods and unit sizes.
