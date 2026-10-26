@@ -24,8 +24,12 @@ its decision. Haiku never acts on an item here.
    - 7 days or more since the last fitness review (`Learned/fitness.md`)
      → "Fitness review due."
    Last audit: 2026-10-25 (Opus).
-4. If **Open** has any item, tell the learner once at session start:
-   "Opus inbox: N open (top: <first item>)." Do not push further.
+4. At session start, if **Open** has any item, say once:
+   - "Call Opus now: <item>." when an item blocks today's work (the next
+     queue item has no key, a wrong answer was accepted), or **Open** has 3
+     or more items, or an audit or fitness review is due.
+   - Otherwise: "Opus inbox: N open (top: <first item>)."
+   Say it once per session; then carry on with the work.
 
 ## Open
 

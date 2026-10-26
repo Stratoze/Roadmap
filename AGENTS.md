@@ -19,7 +19,7 @@ immigrate, naturalize. Field: cars, rockets, satellites, or robots.
    `Learned/technical.md`, or `Learned/coursework.md`.
 5. If yesterday's `Daily/` note shows Japanese missed, do Japanese first.
 6. Check the pull signals in `Proposals.md`; add any that are due; say the
-   open count once if it is not zero.
+   inbox line its step 4 gives.
 7. Fitness: the `fitness` skill's session-start questions.
 
 ## Logging (every time the learner reports something)
