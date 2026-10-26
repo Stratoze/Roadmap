@@ -114,3 +114,5 @@ Decided by Opus 2026-10-17 (Sat, called early):
 - The clock is Vietnam time, where the learner lives until the move to
   Japan (~September 2027). Tokyo time had been assumed by mistake; it put
   anything logged after 22:00 local on the next day.
+- Times in `Daily/` and `Learned/log/` before 2026-10-26 are Tokyo time:
+  subtract 2 h for the learner's local time. They stay as written.
