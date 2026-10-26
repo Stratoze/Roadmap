@@ -52,7 +52,7 @@ def append(name, row):
     p = LOG / f"{name}.csv"
     new = not p.exists()
     with p.open("a", newline="") as f:
-        w = csv.DictWriter(f, FILES[name])
+        w = csv.DictWriter(f, FILES[name], lineterminator="\n")
         if new:
             w.writeheader()
         w.writerow(row)
