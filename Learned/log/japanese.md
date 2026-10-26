@@ -81,6 +81,8 @@ Append-only history: quiz results, chat corrections, new words, item logs, with 
 - 2026-10-24 Tadoku: 1 book, not counted. Title not given.
 - 2026-10-25 CJ 25 min (learner-reported).
 - 2026-10-25 Tadoku: 1 book, not counted. Title not given.
+- 2026-10-26 CJ 25 min (learner-reported).
+- 2026-10-26 Tadoku: 1 book, not counted. Title not given.
 
 ## Anki
 - Kaishi 1.5k: backlog ~1249 due (2026-10-08), 0 new. From 2026-10-17: review the backlog down, 20 min on a free day, 10 on a tight day, after the grammar quiz; no new cards until under 100 due, then 10 new/day. Not counted in the floor. Due count: (learner reports)
