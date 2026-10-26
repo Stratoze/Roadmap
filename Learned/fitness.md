@@ -29,20 +29,53 @@ Visible abs, more muscle, less fat, stronger. Male, 20, 180 cm, 83 kg on
 
 ## Training plan (until the home gym, ~March 2027)
 
-3 full-body sessions a week, a day apart, about 40 minutes.
+Evidence it rests on (Opus checked the sources 2026-10-26):
+- More weekly hard sets per muscle → more growth, at least up to ~10
+  (Schoenfeld 2017 meta-analysis). Start at ~9-12 per muscle.
+- Each muscle at least twice a week (Schoenfeld 2016 meta-analysis).
+- Light loads grow muscle about as well as heavy ones when sets end close
+  to failure; heavy loads build more strength (Schoenfeld 2017, low vs high
+  load). So 20 kg dumbbells are enough for growth; for strength, use harder
+  one-limb and lever variations.
+- Stopping 1-3 reps short of failure works about as well as failure
+  (Refalo 2023).
+- Push-ups at matched effort grow chest and triceps like bench press
+  (Kikuchi & Nakazato 2017).
+- Ab training does not burn belly fat (Vispute 2011): visible abs come from
+  the deficit. Abs are trained as a muscle, with moves that can get harder.
+- Protein: gains level off around 1.6 g/kg (Morton 2018); 160 g is above it.
 
-| Exercise (log name) | Sets × reps |
-|---|---|
-| Push-up (`pushup`) | 3 × 8-15 |
-| One-arm dumbbell row (`row`) | 3 × 8-12 each arm |
-| Goblet squat (`goblet_squat`) | 3 × 8-12 |
-| Dumbbell Romanian deadlift (`rdl`) | 3 × 8-12 |
-| Dumbbell overhead press (`ohp`) | 3 × 8-12 |
-| Plank (`plank`, reps = seconds) | 3 × 30-60 s |
+Buy: a doorway pull-up bar. Without it there is no vertical pull and no
+hanging leg raise.
 
-Progression: when every set reaches the top of the range, add weight next
-session (or harder version: feet-up push-ups, Bulgarian split squat once
-20 kg goblet squats are easy). Leave 1-2 reps in reserve each set.
+3 full-body sessions a week, a day apart, about 45 minutes. Same session
+each time.
+
+| Exercise (log name) | Sets × reps | Make it harder |
+|---|---|---|
+| Push-up (`pushup`) | 3 × 6-20 | feet up → backpack with books |
+| Pull-up or chin-up (`pullup`); row until the bar arrives (`row`) | 3 × 5-12; row 3 × 8-15 each arm | slower lowering → backpack |
+| Bulgarian split squat, dumbbells (`split_squat`) | 3 × 8-15 each leg | 2 × 20 kg → pause at the bottom |
+| Dumbbell Romanian deadlift (`rdl`) | 3 × 8-15 | single-leg RDL |
+| Dumbbell overhead press (`ohp`) | 2 × 8-15 | slower lowering → pike push-up |
+| Hanging knee raise → leg raise (`leg_raise`); crunch holding a dumbbell until the bar arrives (`crunch`) | 3 × 8-15 | straight legs → slower |
+
+Effort: every set ends 1-3 reps before you could not do another rep with
+good form. Push-ups, pull-ups and abs may go to failure on the last set; the
+leg moves never do.
+
+Progression: when every set reaches the top of the range, use the next
+"harder" step at the next session. A lift that stalls three sessions in a
+row → Fitness review.
+
+Sources:
+- Schoenfeld, Ogborn, Krieger 2017, J Sports Sci (weekly sets)
+- Schoenfeld, Ogborn, Krieger 2016, Sports Med (frequency)
+- Schoenfeld, Grgic, Ogborn, Krieger 2017, JSCR 31(12) (load)
+- Refalo et al. 2023, Sports Med 53(3) (failure)
+- Kikuchi & Nakazato 2017, J Exerc Sci Fit (push-up vs bench)
+- Vispute et al. 2011, JSCR (ab training and belly fat)
+- Morton et al. 2018, Br J Sports Med 52(6) (protein)
 
 ## Haiku accuracy
 
