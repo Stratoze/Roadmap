@@ -42,6 +42,9 @@ its decision. Haiku never acts on an item here.
 ### Fitness: no scale yet
 - The learner has no body weight scale and no food scale (2026-10-27). Weigh-ins and weighed meals are not possible yet. Decide the fallback: label and photo only, or a cheap scale now.
 
+### Kaishi: scheduler changed 10-27
+- Anki switched to a new RWKV scheduler on 2026-10-27. Due counts: 980 (10-25), 1300 (10-27). Decide whether the 100-due gate for new cards still holds, or if the count needs a new baseline.
+
 ## Done
 
 Decided items move to `Decisions.md`.

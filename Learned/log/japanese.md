@@ -83,6 +83,7 @@ Append-only history: quiz results, chat corrections, new words, item logs, with 
 - 2026-10-25 Tadoku: 1 book, not counted. Title not given.
 - 2026-10-26 CJ 25 min (learner-reported).
 - 2026-10-26 Tadoku: 1 book, not counted. Title not given.
+- 2026-10-27 Kaishi: due count at start 1300 (learner-reported). Anki switched to a new RWKV scheduler today, so due counts before and after may not compare; minutes not reported yet.
 - 2026-10-27 G12b (へ): wrong, えい for へい (answer typed as ときょえいきます). Redo next session.
 
 ## Anki
