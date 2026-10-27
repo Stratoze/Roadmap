@@ -11,7 +11,7 @@ score or final answer, slips).
 
 ## Handoff
 
-- None. Next grammar: G12b (one question), then G14.
+- G12b not passed 10-27 (え for へ). Redo it next session; G14 waits until it passes.
 
 ## Chat openers (next unused first)
 

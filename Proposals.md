@@ -39,6 +39,9 @@ its decision. Haiku never acts on an item here.
   at the next Opus call so no queue runs dry. Grammar keys from G27,
   technical from T29, then M1-M4 after T43.
 
+### Fitness: no scale yet
+- The learner has no body weight scale and no food scale (2026-10-27). Weigh-ins and weighed meals are not possible yet. Decide the fallback: label and photo only, or a cheap scale now.
+
 ## Done
 
 Decided items move to `Decisions.md`.
