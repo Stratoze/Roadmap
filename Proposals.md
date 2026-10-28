@@ -45,6 +45,9 @@ its decision. Haiku never acts on an item here.
 ### Kaishi: scheduler changed 10-27
 - Anki switched to a new RWKV scheduler on 2026-10-27. Due counts: 980 (10-25), 1300 (10-27). Decide whether the 100-due gate for new cards still holds, or if the count needs a new baseline.
 
+### Calorie logging: switch app
+- Learner proposal (2026-10-27): replace the Haiku estimate with the Snap Calories app (LiDAR, real food database). Reason: estimating makes the learner less likely to open the app. Opus or Haiku reviews entries weekly and flags an anomaly only if the weight trend does not match. Weight and waist stay with Haiku.
+
 ## Done
 
 Decided items move to `Decisions.md`.
