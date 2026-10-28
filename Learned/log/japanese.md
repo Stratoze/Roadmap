@@ -87,7 +87,8 @@ Append-only history: quiz results, chat corrections, new words, item logs, with 
 - 2026-10-27 (Tue) CJ 20 min (learner-reported, logged late). The 25-min floor was not met that day.
 - 2026-10-28 Kaishi 20 min (learner-reported, logged late).
 - 2026-10-28 CJ 30 min (learner-reported, logged late).
-- 2026-10-27 G12b (へ): wrong, えい for へい (answer typed as ときょえいきます). Redo next session.
+- 2026-10-27 G12b (へ): wrong, えい for へい (answer typed as ときょえいきます).
+- 2026-10-28 G12b (へ) redo: 東京へいきます, passed.
 
 ## Anki
 - Kaishi 1.5k: backlog ~1249 due (2026-10-08), 0 new. From 2026-10-17: review the backlog down, 20 min on a free day, 10 on a tight day, after the grammar quiz; no new cards until under 100 due, then 10 new/day. Not counted in the floor. Due count: (learner reports)
