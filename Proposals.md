@@ -48,6 +48,9 @@ its decision. Haiku never acts on an item here.
 ### Calorie logging: switch app
 - Learner proposal (2026-10-27): replace the Haiku estimate with the Snap Calories app (LiDAR, real food database). Reason: estimating makes the learner less likely to open the app. Opus or Haiku reviews entries weekly and flags an anomaly only if the weight trend does not match. Weight and waist stay with Haiku.
 
+### Rule: lesson links for Japanese grammar
+- Learner asks (2026-10-28): why can't Haiku give the lesson link? Current rule (AGENTS.md "Japanese"): name the site only, so the learner finds the page. Learner proposes a rewrite that allows links. Opus to decide: allow links, and say who checks they still work.
+
 ## Done
 
 Decided items move to `Decisions.md`.
