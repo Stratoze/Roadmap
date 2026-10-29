@@ -11,7 +11,7 @@ score or final answer, slips).
 
 ## Handoff
 
-- G12b passed on redo 10-28. Next grammar: G14 (read it first, then the quiz).
+- G14 passed 10-29. Next grammar: G15 (read it first, then the quiz).
 
 ## Chat openers (next unused first)
 
@@ -54,7 +54,7 @@ Quiz:
 4. Say "I study every day." → まいにち べんきょうします。 (まいにちに is wrong)
 Result: 10-25 3/4, passed. Q1 三時にいきます right (wrote ？; a statement needs none). Q2 明日にいきます wrong (→ あした いきます). Q3 七時にたべます right. Q4 毎日、勉強します right.
 
-### [ ] G14 時 / 分, telling time
+### [x] G14 時 / 分, telling time
 Rule: hours いちじ…じゅうにじ, with よじ (4), しちじ (7),
 くじ (9); minutes いっぷん, にふん, さんぷん, よんぷん, ごふん, ろっぷん,
 ななふん, はっぷん, きゅうふん, じゅっぷん; half past = はん.
@@ -64,7 +64,7 @@ Quiz (answers in kana):
 3. Read 7:10. → しちじ じゅっぷん (also accept じっぷん)
 4. Read 3:30. → さんじ はん (also accept さんじ さんじゅっぷん)
 Slips: よんじ, きゅうじ, ななじ.
-Result:
+Result: 10-29 3/4, passed. Q1 四時 (kanji for よじ; counted right). Q2 くじ right. Q3 しちじ じゅぶん wrong (minutes are じゅっぷん, ぷ not ぶ; ん written as n). Q4 さんじはん right.
 
 ### [ ] G15 曜日, days of the week
 Rule: げつようび (Mon), かようび (Tue), すいようび (Wed),
