@@ -1,6 +1,6 @@
 ---
 name: fitness
-description: Log the learner's weight, waist, meals and workouts with Fitness/fit.py, and say whether a meal fits today's target. Use when the learner sends a food photo or label, names what they ate or plan to eat, reports weight, waist or a workout, or asks "can I eat this". Haiku task.
+description: Log the learner's weight, waist, SnapCalorie day totals, meals and workouts with Fitness/fit.py, and say whether a meal fits today's target. Use when the learner sends a food photo or label, names what they ate or plan to eat, reports weight, waist or a workout, or asks "can I eat this". Haiku task.
 ---
 
 # fitness
@@ -19,7 +19,19 @@ Run every command from the repo root: `python3 Fitness/fit.py <command>`.
 2. Yesterday has food rows and is not in `Fitness/log/days.csv` → ask: "Was
    everything you ate yesterday logged?" Yes → `close`. No → leave it open.
 
-## A meal
+## SnapCalorie day total (the usual way, from 2026-11-01)
+
+The learner logs meals in SnapCalorie and sends the day's totals once
+(screenshot or "2050 kcal, P 120, C 230, F 70").
+
+1. Log one row: `meal snack snap_day@P/C/F/0*1 --source photo --note
+   "SnapCalorie day total"` with the four numbers as sent. Label meals sent
+   separately the same day are logged as labels and the learner says
+   whether the Snap total already includes them; if it does, leave them out.
+2. The learner says the total is the whole day → `close`.
+3. Read no numbers from a screenshot you cannot see clearly; ask for them.
+
+## A meal (only when the learner sends a label, or asks "can I eat this")
 
 1. **Decompose** every dish into components you can name: curry rice →
    rice + meat + potato + carrot + roux; ramen → noodles + pork + egg +

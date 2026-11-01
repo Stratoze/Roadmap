@@ -20,6 +20,38 @@ before changing a rule. Newest sections first.
 
 ## Proposals decided (from `Proposals.md`)
 
+### 2026-11-01: Opus inbox (learner called Opus)
+- **Refill chat openers and grammar keys:** not now. 12 grammar keys left
+  (G15-G26), 10 openers, technical keyed to S4 while the queue sits at T10.
+  The pull signal (5 or fewer left) raises it again in time.
+- **No scale:** buy a body scale now; skip the food scale. Measured
+  maintenance needs a weight trend, and nothing replaces it. Labels and
+  SnapCalorie cover portions well enough (+7% and +12% vs label on 10-29).
+  Until the scale arrives, intake is logged and no target changes.
+- **Kaishi scheduler (RWKV, 10-27):** the 100-due gate stays; it is a due
+  count, whatever the scheduler. No reset. Due went 980 (10-25) → 1300
+  (10-27) → ~1500 (reported 11-01, after a 40-min session). Whether the
+  scheduler re-adds cards can't be judged from one number: log the due
+  count before *and* after each session for a week. If it does not fall
+  across a week of daily sessions, that is a scheduler question for the
+  Anki forums, not a reason to reset.
+- **Calorie app → SnapCalorie:** adopted (learner's proposal). Haiku's
+  photo estimates were the friction: food was logged on 1 day of 6 since
+  10-26. SnapCalorie was within +7% and +12% of the labels on 10-29, as
+  good as or better than Haiku's photo guess. The learner logs meals in
+  SnapCalorie and sends the day's total once (kcal, protein, carbs, fat)
+  to Haiku; a label still beats SnapCalorie when there is one. Opus
+  checks the trend at the fitness review, as before; no weekly
+  scheduled review (Opus is manual-only).
+- **Lesson links:** allowed when Haiku opened the page this session and it
+  covers the item (`AGENTS.md` Teaching rule 7 already says a URL must come
+  from something opened). No reason for "site names only" was ever
+  recorded; the risk was an invented URL, which rule 7 already covers. The
+  learner still reads the page; a link saves the search, not the reading.
+- **Audit (due 11-01):** nothing to audit; no Japanese chat or tutor chat
+  has happened since 10-23. Last audit set to 11-01. The gap itself is the
+  finding: technical has had no item since 10-23 (8 days).
+
 ### 2026-10-25: pull-based backlog instead of a weekly plan (learner's request)
 - Adopted, Opus 2026-10-25. `WEEK.md` and `NEXT.md` merged into
   `BACKLOG.md`: ordered queues (grammar, chat openers, technical), each

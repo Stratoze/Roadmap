@@ -90,8 +90,8 @@ the learner's; when none are given, write "time not reported". A missed day
 stays missed.
 
 **Kaishi:** review the backlog down by time; keep its history (no reset).
-New cards only when under 100 due, then 10 a day. Log the due count the
-learner reports.
+New cards only when under 100 due, then 10 a day. Log the due counts the
+learner reports, before and after the session.
 
 **Technical scope:** `Mechatronics/ROADMAP.md` is a map only. Phase 0 ends
 in the capstone: a passive 2-link arm with potentiometer joints, Arduino
@@ -122,7 +122,8 @@ three sentences (predicted, measured, why they differ).
 - Explain in English by what a particle or form marks, never by English
   translation ("に means to"). The learner is a complete beginner.
 - **Grammar lesson:** name the next grammar item; the learner reads it on
-  Tofugu (else Cure Dolly, yoku.bi, Imabi; site names only). Then ask the
+  Tofugu (else Cure Dolly, yoku.bi, Imabi). Give the link only if you
+  opened the page this session and it covers the item; else the site name. Then ask the
   key's quiz exactly as written, in order, one per message, with no
   answer choices. Answers in kana or keyboard kanji, never romaji.
 - **Scoring:** an answer is wrong only if the mistake is in a form named in

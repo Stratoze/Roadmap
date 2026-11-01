@@ -77,6 +77,12 @@ Sources:
 - Vispute et al. 2011, JSCR (ab training and belly fat)
 - Morton et al. 2018, Br J Sports Med 52(6) (protein)
 
+## Logging (Opus 2026-11-01)
+
+- Meals: SnapCalorie, day total sent to Haiku once a day; labels beat it.
+- No body scale yet: buy one. No target changes until there is a weight
+  trend. Food scale not needed.
+
 ## Haiku accuracy
 
 - No calibration meals yet.

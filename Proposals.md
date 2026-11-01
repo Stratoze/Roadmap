@@ -23,7 +23,7 @@ its decision. Haiku never acts on an item here.
      Sonnet?"
    - 7 days or more since the last fitness review (`Learned/fitness.md`)
      → "Fitness review due."
-   Last audit: 2026-10-25 (Opus).
+   Last audit: 2026-11-01 (Opus; nothing to audit).
 4. At session start, if **Open** has any item, say once:
    - "Call Opus now: <item>." when an item blocks today's work (the next
      queue item has no key, a wrong answer was accepted), or **Open** has 3
@@ -33,25 +33,8 @@ its decision. Haiku never acts on an item here.
 
 ## Open
 
-### Refill: chat openers and grammar keys
-- Chat openers: 10 left. Grammar keys: G12b-G26 (15 items, ~5-8 sessions
-  at current pace). Technical keys run to S4 (18 items). Not urgent; do it
-  at the next Opus call so no queue runs dry. Grammar keys from G27,
-  technical from T29, then M1-M4 after T43.
-
-### Fitness: no scale yet
-- The learner has no body weight scale and no food scale (2026-10-27). Weigh-ins and weighed meals are not possible yet. Decide the fallback: label and photo only, or a cheap scale now.
-
-### Kaishi: scheduler changed 10-27
-- Anki switched to a new RWKV scheduler on 2026-10-27. Due counts: 980 (10-25), 1300 (10-27). Decide whether the 100-due gate for new cards still holds, or if the count needs a new baseline.
-
-### Calorie logging: switch app
-- Learner proposal (2026-10-27): replace the Haiku estimate with the Snap Calories app (LiDAR, real food database). Reason: estimating makes the learner less likely to open the app. Opus or Haiku reviews entries weekly and flags an anomaly only if the weight trend does not match. Weight and waist stay with Haiku.
-- Data point (2026-10-29, lunch): chicken and mushroom box, label 357 kcal vs Snap 381 (Snap +7%). Pork loin box, Snap 386 vs label 343 (Snap +12%; label found 2026-10-29). Two meals total: Snap 767, label 700. One day of data.
-
-### Rule: lesson links for Japanese grammar
-- Learner asks (2026-10-28): why can't Haiku give the lesson link? Current rule (AGENTS.md "Japanese"): name the site only, so the learner finds the page. Learner proposes a rewrite that allows links. Opus to decide: allow links, and say who checks they still work.
+(none)
 
 ## Done
 
-Decided items move to `Decisions.md`.
+Decided items move to `Decisions.md` (last: 2026-11-01).
