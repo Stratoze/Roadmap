@@ -50,7 +50,7 @@ before changing a rule. Newest sections first.
   learner still reads the page; a link saves the search, not the reading.
 - **Apple Watch calories instead of the formula (learner, 11-01):** no.
   Wrist calorie estimates err ~20-30% (Stanford 2017, J Pers Med: no device
-  under 20%; 2023 meta-analysis, Apple Watch ~28%), i.e. ±500-700 kcal on
+  under 20%; meta-analysis of 56 studies, Apple Watch ~28%, seen in news coverage only), i.e. ±500-700 kcal on
   ~2,600, as big as the whole deficit. The formula is only the start;
   measured maintenance (logged intake + scale trend) replaces it, and the
   watch can't measure that. Watch steps and heart rate are fine to use.
