@@ -48,6 +48,12 @@ before changing a rule. Newest sections first.
   from something opened). No reason for "site names only" was ever
   recorded; the risk was an invented URL, which rule 7 already covers. The
   learner still reads the page; a link saves the search, not the reading.
+- **Apple Watch calories instead of the formula (learner, 11-01):** no.
+  Wrist calorie estimates err ~20-30% (Stanford 2017, J Pers Med: no device
+  under 20%; 2023 meta-analysis, Apple Watch ~28%), i.e. ±500-700 kcal on
+  ~2,600, as big as the whole deficit. The formula is only the start;
+  measured maintenance (logged intake + scale trend) replaces it, and the
+  watch can't measure that. Watch steps and heart rate are fine to use.
 - **Audit (due 11-01):** nothing to audit; no Japanese chat or tutor chat
   has happened since 10-23. Last audit set to 11-01. The gap itself is the
   finding: technical has had no item since 10-23 (8 days).
