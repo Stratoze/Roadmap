@@ -17,7 +17,7 @@ over the prompt, then log the result.
 1. Read the ticked grammar and the next unused chat opener in `BACKLOG.md`.
 2. Print the template below in one code block, with the two `{...}` slots
    filled in. Change nothing else in it.
-3. Say: "Paste this into your free chat service. Chat about 25 minutes by
+3. Say: "Paste this into Gemini (AI Studio). Chat about 25 minutes by
    your own clock (5 replies is enough on Mon, Thu or a tight day). Write
    `end`, then paste the CORRECTIONS and NEW WORDS parts back here."
 

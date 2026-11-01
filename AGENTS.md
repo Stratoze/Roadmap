@@ -73,8 +73,12 @@ wrong answer, that task type moves to Sonnet at the next Opus call.
 ## Daily plan
 
 Day type from the weekday: **free** Tue, Wed, Fri, Sat; **tight** Mon, Thu,
-Sun (or any day the learner says is short). Japanese first and in full,
-then technical.
+Sun (or any day the learner says is short).
+
+In the session, in this order: grammar, then the chat prompt, then the
+technical prompt. CJ (phone) and Kaishi (laptop only) happen wherever they
+fit; ask for their minutes once, at session end, or at session start if
+it is after 18:00 local.
 
 | | Free | Tight |
 |---|---|---|
@@ -125,8 +129,8 @@ three sentences (predicted, measured, why they differ).
 - Explain in English by what a particle or form marks, never by English
   translation ("に means to"). The learner is a complete beginner.
 - **Grammar lesson:** name the next grammar item; the learner reads it on
-  Tofugu (else Cure Dolly, yoku.bi, Imabi). Give the link only if you
-  opened the page this session and it covers the item; else the site name. Then ask the
+  Tofugu (else Cure Dolly, yoku.bi, Imabi). Find the page (WebSearch or
+  WebFetch), check it covers the item, and give the link. Then ask the
   key's quiz exactly as written, in order, one per message, with no
   answer choices. Answers in kana or keyboard kanji, never romaji.
 - **Scoring:** an answer is wrong only if the mistake is in a form named in

@@ -19,7 +19,7 @@ The key never goes in the prompt: the learner reads the prompt.
    use the item text alone.
 3. Print the template below in one code block with `{...}` filled in.
    Change nothing else.
-4. Say: "Paste this into your free chat service. Work until it's done, then
+4. Say: "Paste this into Gemini (AI Studio). Work until it's done, then
    write `end` and paste MY FINAL ANSWER and WHERE I STRUGGLED back here."
 
 ```

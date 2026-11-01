@@ -68,6 +68,16 @@ before changing a rule. Newest sections first.
   Kaishi before/after counts added pressure and no audit had material
   since 10-23. Opus still rules on anything the learner flags, including
   "Haiku accepted a wrong answer".
+- **Session order (learner, 11-01):** CJ needs video and audio, Kaishi's
+  scheduler runs only on the laptop, so neither fits a phone session. The
+  session does grammar, chat and technical prompts; CJ and Kaishi minutes
+  are asked once, at the end (or at the start after 18:00).
+- **Chat service: Gemini in AI Studio** (learner's pick, 11-01). On the
+  log: AI Studio 10-20 had no wrong correction (one explanation gap, used
+  English); ChatGPT free 10-23 "corrected" a correct sentence and later
+  retracted it; the 10-19 chat's explanation contradicted its fix. One chat
+  each, so a weak sample, but it agrees with the learner. Technical tutor
+  also Gemini, so there is one place to paste.
 - **Audit (due 11-01):** nothing to audit; no Japanese chat or tutor chat
   has happened since 10-23. Last audit set to 11-01. The gap itself is the
   finding: technical has had no item since 10-23 (8 days).
