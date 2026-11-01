@@ -54,6 +54,15 @@ before changing a rule. Newest sections first.
   ~2,600, as big as the whole deficit. The formula is only the start;
   measured maintenance (logged intake + scale trend) replaces it, and the
   watch can't measure that. Watch steps and heart rate are fine to use.
+- **Fitness out of the repo (learner, 11-01):** the learner's call, for
+  least friction (SnapCalorie + Apple Watch). `fitness` skill deleted,
+  session-start question dropped; `Fitness/` and `Learned/fitness.md` kept
+  unused. Matches the 10-17 ruling (logging not in this repo).
+- **No dead ends from Haiku (learner, 11-01):** Haiku's "that's for Opus"
+  replies made the learner stop working. Now Haiku logs the item and gives
+  the next task in the same reply, and answers keyless questions from a page
+  it opened, with the link. The risk (Haiku explaining wrongly, 10-14) is
+  held by answering from the page, not from memory.
 - **Audit (due 11-01):** nothing to audit; no Japanese chat or tutor chat
   has happened since 10-23. Last audit set to 11-01. The gap itself is the
   finding: technical has had no item since 10-23 (8 days).
