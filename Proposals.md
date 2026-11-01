@@ -17,17 +17,12 @@ its decision. Haiku never acts on an item here.
      fewer keyed items left → "Refill <queue>: next keys from <item>."
    - The next item in a queue has no key → "Keys needed from <item>." (That
      item is skipped until then.)
-   - 7 days or more since the last audit (see below) → "Audit due: the
-     learner pastes one Japanese chat and one tutor chat."
    - The learner says Haiku accepted a wrong answer → "Move <task type> to
      Sonnet?"
-   - 7 days or more since the last fitness review (`Learned/fitness.md`)
-     → "Fitness review due."
-   Last audit: 2026-11-01 (Opus; nothing to audit).
 4. At session start, if **Open** has any item, say once:
    - "Call Opus now: <item>." when an item blocks today's work (the next
      queue item has no key, a wrong answer was accepted), or **Open** has 3
-     or more items, or an audit or fitness review is due.
+     or more items.
    - Otherwise: "Opus inbox: N open (top: <first item>)."
    Say it once per session; then carry on with the work.
 

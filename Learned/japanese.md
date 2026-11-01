@@ -40,7 +40,7 @@ Taught = passed its quiz. Solid = used right in chat on a later day.
 - CJ: complete beginner, in order (past episode 0009 on 10-10). Source: the learner's own archive on Jellyfin, from before the main teacher left (about 600 videos no longer on the service); watch on the phone via the Jellyfin app.
 - Kaishi due: 1249 (10-08) → 1000 (10-23) → 980 (10-25) → 1300 (10-27,
   new RWKV scheduler) → ~1500 (reported 11-01). No new cards until under
-  100. Log due before and after each session (Opus 11-01).
+  100.
 
 ## Chat partner reliability
 

@@ -44,7 +44,7 @@ tasks that fit you.
 - **Sonnet:** coursework grilling (`grill`).
 - **Opus:** runs only when the learner calls it (no scheduled tasks,
   routines or reminders, ever). Works `Proposals.md`: keys and items for
-  `BACKLOG.md`, audits, rulings, Phase 2+ work.
+  `BACKLOG.md`, rulings, Phase 2+ work.
 
 A task with no key waits in `Proposals.md` for Opus: add it in one line,
 then give the next task in the same reply. Never end a reply on "that's
@@ -93,8 +93,8 @@ the learner's; when none are given, write "time not reported". A missed day
 stays missed.
 
 **Kaishi:** review the backlog down by time; keep its history (no reset).
-New cards only when under 100 due, then 10 a day. Log the due counts the
-learner reports, before and after the session.
+New cards only when under 100 due, then 10 a day. Log the due count if the
+learner gives one.
 
 **Technical scope:** `Mechatronics/ROADMAP.md` is a map only. Phase 0 ends
 in the capstone: a passive 2-link arm with potentiometer joints, Arduino

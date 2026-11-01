@@ -91,4 +91,4 @@ Start now with this line: {next unused opener from BACKLOG.md}
 6. Tick the opener in `BACKLOG.md` with the date and reply count.
 
 The TRANSCRIPT stays in the chat service; the repo gets only corrections
-and new words. For an audit, the learner pastes one chat to Opus.
+and new words.

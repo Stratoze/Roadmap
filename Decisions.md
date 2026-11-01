@@ -63,6 +63,11 @@ before changing a rule. Newest sections first.
   the next task in the same reply, and answers keyless questions from a page
   it opened, with the link. The risk (Haiku explaining wrongly, 10-14) is
   held by answering from the page, not from memory.
+- **Audits and extra checks removed (learner, 11-01):** the 7-day audit
+  (pasting chats for Opus to check), the fitness review signal and the
+  Kaishi before/after counts added pressure and no audit had material
+  since 10-23. Opus still rules on anything the learner flags, including
+  "Haiku accepted a wrong answer".
 - **Audit (due 11-01):** nothing to audit; no Japanese chat or tutor chat
   has happened since 10-23. Last audit set to 11-01. The gap itself is the
   finding: technical has had no item since 10-23 (8 days).
