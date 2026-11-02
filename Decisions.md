@@ -37,7 +37,9 @@ before changing a rule. Newest sections first.
   now. CAD is needed only at capstone step 7. SolidCraft is open source
   (Apache 2.0), Rust, Linux builds, but its own page calls it early, for
   simple parts. Decide at step 7: the two links are simple parts, so try
-  SolidCraft then, export STL/STEP.
+  SolidCraft then, export STL/STEP. ArtCraft's own CADCraft is 2D
+  drafting (AutoCAD-style, DXF/DWG), not a Solid Edge replacement;
+  SolidCraft is a separate community app (checked 11-02).
 
 ### 2026-11-01: Opus inbox (learner called Opus)
 - **Refill chat openers and grammar keys:** not now. 12 grammar keys left
