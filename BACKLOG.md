@@ -11,7 +11,7 @@ score or final answer, slips).
 
 ## Handoff
 
-- G15 passed 11-02 (3 of 4). Next grammar: G17 (read it first, then the quiz).
+- G15 passed 11-02 (4 of 4). Next grammar: G17 (read it first, then the quiz).
 
 ## Chat openers (next unused first)
 
