@@ -162,8 +162,7 @@ call; Opus recommends 10 a day once a session clears the day's reviews.
 
 ## Git
 
-- Raw productions go only to `_private/`.
-- Pushed history is immutable; fix forward.
+- Raw productions go only to `_private/`. Pushed history is immutable; fix forward.
 - Commit messages: plain summary only, with no `Co-Authored-By` or
   `Claude-Session` line and no model name.
 - Commit and push after each finished item; fast-forward `main` at the end.
