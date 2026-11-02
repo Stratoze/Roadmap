@@ -45,7 +45,8 @@ would skip a point the learner has not got yet.
   missed it, add the sentence "The <track> floor was not met today." A missed day is not
   made up by a longer day, so never net minutes across days.
 - Japanese floor: Comprehensible Japanese, the grammar lesson, the Japanese
-  chat. Katakana, Tadoku and Anki are logged but not counted.
+  chat, and Kaishi (Anki) while more than 500 cards are due. Katakana and
+  Tadoku are logged but not counted.
 - Coursework (school projects) never counts. Log it inside **Technical:** as
   "Coursework (not counted): ...".
 - A track with nothing done: "Nothing logged."

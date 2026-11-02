@@ -20,6 +20,25 @@ before changing a rule. Newest sections first.
 
 ## Proposals decided (from `Proposals.md`)
 
+### 2026-11-02: maps (learner called Opus)
+- **Mechatronics map cut to the Phase 0 capstone:** the old 5-phase QDD-arm
+  plan summed to roughly 1-2 years of full effort and still referred to
+  signed tags, scripts and an assessor from the old system. At the current
+  pace (2 milestones in ~8 weeks) none of the arm would exist before the move.
+  The capstone (passive 2-link arm, potentiometers, Arduino FK) is
+  finishable before Japan; the QDD arm is parked as the long-term goal.
+- **Kaishi counts toward the Japanese floor while more than 500 are due:**
+  ~1500 due and rising; vocabulary is the weakest part of the Japanese plan,
+  and uncounted minutes lost to CJ and chat. Back to "logged, not counted"
+  once under 500.
+- **JLPT N4, July 2027:** a dated target before the move; fits the pace
+  (1 grammar point a day from 11-16). Registration dates not checked.
+- **CAD (learner asked about leaving Solid Edge for SolidCraft):** no switch
+  now. CAD is needed only at capstone step 7. SolidCraft is open source
+  (Apache 2.0), Rust, Linux builds, but its own page calls it early, for
+  simple parts. Decide at step 7: the two links are simple parts, so try
+  SolidCraft then, export STL/STEP.
+
 ### 2026-11-01: Opus inbox (learner called Opus)
 - **Refill chat openers and grammar keys:** not now. 12 grammar keys left
   (G15-G26), 10 openers, technical keyed to S4 while the queue sits at T10.

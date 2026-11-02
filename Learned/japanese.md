@@ -35,6 +35,10 @@ Taught = passed its quiz. Solid = used right in chat on a later day.
   (うちです, 八時です).
 - Types English mid-chat when stuck ("Nothing", "off").
 
+## Target
+
+- JLPT N4, July 2027 (set 11-02).
+
 ## Input and Anki
 
 - CJ: complete beginner, in order (past episode 0009 on 10-10). Source: the learner's own archive on Jellyfin, from before the main teacher left (about 600 videos no longer on the service); watch on the phone via the Jellyfin app.

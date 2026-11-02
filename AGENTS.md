@@ -90,8 +90,9 @@ it is after 18:00 local.
 
 From 2026-11-16 grammar is 1 point a day on any day.
 
-**Floor:** Japanese 25 min (CJ, grammar and chat count; Kaishi, Tadoku and
-katakana are logged, not counted). Technical: one item passed its check
+**Floor:** Japanese 25 min (CJ, grammar and chat count; Kaishi counts
+while more than 500 cards are due; Tadoku and katakana are logged, not
+counted). Technical: one item passed its check
 today, or 25 min on items. A tutor-given answer does not pass. Minutes are
 the learner's; when none are given, write "time not reported". A missed day
 stays missed.
@@ -99,6 +100,9 @@ stays missed.
 **Kaishi:** review the backlog down by time; keep its history (no reset).
 New cards only when under 100 due, then 10 a day. Log the due count if the
 learner gives one.
+
+**JLPT target:** N4, July 2027 (before the move). Registration dates in
+Vietnam: not checked yet.
 
 **Technical scope:** `Mechatronics/ROADMAP.md` is a map only. Phase 0 ends
 in the capstone: a passive 2-link arm with potentiometer joints, Arduino
