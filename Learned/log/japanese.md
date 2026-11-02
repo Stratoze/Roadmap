@@ -92,6 +92,7 @@ Append-only history: quiz results, chat corrections, new words, item logs, with 
 - 2026-11-02 Tadoku: 3 books, not counted. Titles not given.
 - 2026-10-27 G12b (へ): wrong, えい for へい (answer typed as ときょえいきます).
 - 2026-10-28 G12b (へ) redo: 東京へいきます, passed.
+- 2026-11-02 G15 曜日 quiz: 3 of 4, passed. Q1 月曜日 right. Q2 今日は何日ですか wrong (asks the date; learner objects that the prompt is ambiguous; Opus ruling pending). Q3 土曜に行きます accepted (short form). Q4 水曜日 right.
 
 ## Anki
 - Kaishi 1.5k: backlog ~1249 due (2026-10-08), 0 new. From 2026-10-17: review the backlog down, 20 min on a free day, 10 on a tight day, after the grammar quiz; no new cards until under 100 due, then 10 new/day. Not counted in the floor. Due count: (learner reports)

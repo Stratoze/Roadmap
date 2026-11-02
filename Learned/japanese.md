@@ -12,7 +12,7 @@ Taught = passed its quiz. Solid = used right in chat on a later day.
 - Taught: 2 counters 冊 / 本 / 台, 3 ます / ました / ません / ませんでした,
   4 は vs が, 5 あります / います, 6 これ / それ / あれ / どれ,
   7 ここ / そこ / あそこ / どこ, 8 の, 9 も, 10 と, 11 や, 12 へ vs に,
-  13 に for time, 14 時 / 分 (telling time), 16 counter つ.
+  13 に for time, 14 時 / 分 (telling time), 15 曜日 (days of the week), 16 counter つ.
 
 ## Weak spots (aim chat and corrections here)
 

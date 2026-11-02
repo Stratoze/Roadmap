@@ -11,7 +11,7 @@ score or final answer, slips).
 
 ## Handoff
 
-- G14 passed 10-29. Next grammar: G15 (read it first, then the quiz).
+- G15 passed 11-02 (3 of 4). Next grammar: G17 (read it first, then the quiz).
 
 ## Chat openers (next unused first)
 
@@ -66,7 +66,7 @@ Quiz (answers in kana):
 Slips: よんじ, きゅうじ, ななじ.
 Result: 10-29 3/4, passed. Q1 四時 (kanji for よじ; counted right). Q2 くじ right. Q3 しちじ じゅぶん wrong (minutes are じゅっぷん, ぷ not ぶ; ん written as n). Q4 さんじはん right.
 
-### [ ] G15 曜日, days of the week
+### [x] G15 曜日, days of the week
 Rule: げつようび (Mon), かようび (Tue), すいようび (Wed),
 もくようび (Thu), きんようび (Fri), どようび (Sat), にちようび (Sun);
 "what day" is なんようび; a day of the week can take に (どようびに), or
@@ -77,7 +77,7 @@ Quiz:
 3. Say "I go on Saturday." → どようびに いきます。 (also accept どようび いきます)
 4. Say "Wednesday". → すいようび
 Slips: ようひ for ようび; どようび and にちようび swapped.
-Result:
+Result: 11-02, 3 of 4, passed (one wrong allowed). Q1 月曜日 right. Q2 今日は何日ですか wrong: asks the date, not the weekday; learner objects that the English prompt is ambiguous, Opus ruling pending (Proposals.md, 11-02). Q3 土曜に行きます accepted as the short form of どようびに. Q4 水曜日 right.
 
 ### [ ] G17 Counter 人 (ひとり, ふたり)
 Rule: people are counted with 人: ひとり, ふたり,
