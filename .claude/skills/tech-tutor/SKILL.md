@@ -66,8 +66,8 @@ calculus intuition, statics, circuits. I learn by answering, not by reading.
      its `Result:` line.
    - Fail: tell the learner in one line which Check point is missing; they
      go back to the tutor. Do not teach it yourself.
-   - Not sure: do not tick. Log it with "check for Opus" and add an
-     item to `Proposals.md`.
+   - Not sure: do not tick. Log it with "check for Opus", add one line
+     to `Proposals.md`, and give the next task in the same reply.
 2. Log one entry in `Learned/log/technical.md`: date, item, final answer,
    and the WHERE I STRUGGLED lines as written. Update `Learned/technical.md`
    if a weak spot repeats or a new one shows. If the tutor gave the answer away

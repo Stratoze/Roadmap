@@ -83,7 +83,8 @@ Start now with this line: {next unused opener from BACKLOG.md}
    `Learned/log/japanese.md`, as written, one line each, with the date and
    "(external chat)". The chat's corrections are the record; yours stay out.
 3. A correction that looks wrong to you: log it as written with "check for
-   Opus", and add an item for it to `Proposals.md`.
+   Opus", add one line for it to `Proposals.md`, and carry on with the
+   next step in the same reply.
 4. Copy NEW WORDS into "Vocabulary" in `Learned/log/japanese.md` under the
    date, one line per word, as written.
 5. If a slip repeats a weak spot or shows a new one, update "Weak spots" in

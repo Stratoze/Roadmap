@@ -41,7 +41,7 @@ would skip a point the learner has not got yet.
 ## What counts
 
 - Floor: 25 min Japanese; technical is met by one item that passed its
-  check today or by 25 min on items (AGENTS.md "Daily floor"). If a track
+  check today or by 25 min on items (AGENTS.md "Floor"). If a track
   missed it, add the sentence "The <track> floor was not met today." A missed day is not
   made up by a longer day, so never net minutes across days.
 - Japanese floor: Comprehensible Japanese, the grammar lesson, the Japanese
