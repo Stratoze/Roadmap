@@ -64,8 +64,9 @@ before changing a rule. Newest sections first.
   the 100-due gate and the 500-due counting rule are dropped; new cards
   are the learner's call.
 - **Rule budget:** these replaced the minute floor, the Kaishi gates, the
-  due-count logging and "a ticked item stays done"; AGENTS.md did not
-  grow by more than the review and variant lines.
+  due-count logging and "a ticked item stays done". AGENTS.md still grew
+  from 167 to 200 lines on 11-02 (the Technical section and these rules).
+  Next Opus call: cut it back under 170 before adding anything.
 - **Not fixed, noted:** chat NEW WORDS go to the log and are never seen
   again (no review step); kanji for N4 is covered only through Kaishi.
   Neither blocks today's work.
