@@ -67,6 +67,11 @@ Append-only history: quiz results, chat corrections, new words, item logs, with 
   - ほんやでんしやコンプ多があります → 本（ほん）や 電車（でんしゃ）の 本（ほん）が あります。 "や" marks examples, and "の" connects a noun to another noun. Check on Sunday: the learner's line is garbled, so the fix is a rewrite, not a repair of one slip.
   - 机やいすやベッドやピアノやテレビがあります → 机（つくえ）や 椅子（いす）や ベッドや ピアノや テレビが あります。 "や" marks examples in a list. Check on Sunday: the chat retracted this in its own transcript ("your sentence was correct. Sorry!"). The learner's sentence was right, so this correction should not stand.
 
+- 2026-11-02 (external chat): ともたちとあいました → 友（とも）だち と 会（あ）いました。 The word for friend is 友（とも）だち with a voiced だ, and the particle と marks the person you do an action with.
+- 2026-11-02 (external chat): あさは私がたべません → 朝（あさ） は 食（た）べません。 The particle は marks the topic of the sentence, while が marks focus on the subject.
+- 2026-11-02 (external chat): あしたは土曜日 → 明日（あした） は 土曜日（どようび） です。 The polite copula form です marks politeness when ending a sentence on a noun.
+- 2026-11-02 (external chat): ゲムを作ります → ゲーム を 作（つく）ります。 The katakana word requires a long vowel mark (ゲーム), and the particle を marks the direct object of the action.
+
 ## Kana
 - Hiragana: solid. Small ゃゅょ: one slip (としよかん → としょかん)
 - Katakana: slow
@@ -138,3 +143,16 @@ See the grammar queue in `BACKLOG.md`.
   - 聞（き）く (きく) — to listen
   - 昨日（きのう）(きのう) — yesterday
   - クラシック (くらしっく) — classical music
+
+2026-11-02 (external chat)
+昼ごはん (ひるごはん) lunch
+夜 (よる) night / evening
+朝ごはん (あさごはん) breakfast
+パン (パン) bread
+日曜日 (にちようび) Sunday
+土曜日 (どようび) Saturday
+カレンダー (カレンダー) calendar
+近く (ちかく) near / nearby
+部屋 (へや) room
+パソコン (パソコン) personal computer
+台 (だい) counter for machines / equipment

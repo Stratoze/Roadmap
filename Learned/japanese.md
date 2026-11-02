@@ -28,6 +28,7 @@ Taught = passed its quiz. Solid = used right in chat on a later day.
 - いき / き: went vs came.
 - に after relative time words (明日に いきます → あした いきます); only a
   clock time takes に.
+- Voicing in compounds: 友だち is ともだち, not ともたち (11-02).
 
 ## Habits
 

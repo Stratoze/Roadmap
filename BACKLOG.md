@@ -15,7 +15,7 @@ score or final answer, slips).
 
 ## Chat openers (next unused first)
 
-- [ ] 1. きょう だれと あいましたか。
+- [x] 1. きょう だれと あいましたか。 (11-02, 8 replies)
 - [ ] 2. がっこうに だれが いましたか。
 - [ ] 3. きょう がっこうで なにを しましたか。
 - [ ] 4. あした どこに いきますか。
