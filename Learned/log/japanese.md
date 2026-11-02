@@ -89,6 +89,7 @@ Append-only history: quiz results, chat corrections, new words, item logs, with 
 - 2026-10-28 CJ 30 min (learner-reported, logged late).
 - 2026-10-30 CJ about 10 min (learner-reported, logged 11-01). The 25-min floor was not met that day.
 - 2026-10-31 CJ none. Flashcards for the Japanese class exam 30 min (not Anki; learner-reported, logged 11-01), not counted. The 25-min floor was not met that day.
+- 2026-11-02 Tadoku: 3 books, not counted. Titles not given.
 - 2026-10-27 G12b (へ): wrong, えい for へい (answer typed as ときょえいきます).
 - 2026-10-28 G12b (へ) redo: 東京へいきます, passed.
 
