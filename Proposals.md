@@ -28,7 +28,7 @@ its decision. Haiku never acts on an item here.
 
 ## Open
 
-(none)
+- 2026-11-02, from the learner (G15 quiz Q2): the prompt "Ask What day is it today?" is ambiguous in English (date, 何日, or weekday, なんようび). Learner typed 今日は何日ですか and objects that it counts as wrong. Key counts なんようび (the Rule says "what day" is なんようび). Opus to rule: reword the prompt, or accept 何日, and whether the score stands.
 
 ## Done
 
