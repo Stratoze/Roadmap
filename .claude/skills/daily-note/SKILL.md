@@ -14,9 +14,10 @@ in every other note. So: only facts, plainly said.
 1. Run `TZ=Asia/Ho_Chi_Minh date` for the date. The learner is in Vietnam; the
    container clock is not.
 2. Gather facts from three sources only: what the learner said this session,
-   the clock, and files that exist (ticks and `Result:` lines in `BACKLOG.md`). If the
-   learner did not give minutes, write "time not reported" rather than an
-   estimate, because a guessed number reads as a measured one.
+   the clock, and files that exist (ticks and `Result:` lines in `BACKLOG.md`). Write each
+   piece as done or not done, with the learner's evidence: minutes if
+   given, CJ's three things learned, "Kaishi: done (learner's judgement)".
+   Nothing the learner did not say was done is written as done.
 3. If `Daily/<date>.md` already exists, edit it instead of starting over.
    When a fact changes, change the fact; do not soften it ("almost met").
 4. Write it in this exact format (from `Daily/TEMPLATE.md`):
@@ -40,13 +41,12 @@ would skip a point the learner has not got yet.
 
 ## What counts
 
-- Floor: 25 min Japanese; technical is met by one item that passed its
-  check today or by 25 min on items (AGENTS.md "Floor"). If a track
-  missed it, add the sentence "The <track> floor was not met today." A missed day is not
-  made up by a longer day, so never net minutes across days.
-- Japanese floor: Comprehensible Japanese, the grammar lesson, the Japanese
-  chat, and Kaishi (Anki) while more than 500 cards are due. Katakana and
-  Tadoku are logged but not counted.
+- Floor (AGENTS.md "Floor"): Japanese is met when CJ, Kaishi, and the
+  session's grammar or chat are all done; technical when an item passed
+  today or a Handoff line says how far it got. If a track missed it, add
+  the sentence "The <track> floor was not met today." A missed day is not
+  made up by a longer day.
+- Katakana and Tadoku are logged but not counted.
 - Coursework (school projects) never counts. Log it inside **Technical:** as
   "Coursework (not counted): ...".
 - A track with nothing done: "Nothing logged."
@@ -56,7 +56,7 @@ would skip a point the learner has not got yet.
 ## Example
 
 ```
-**Japanese:** Comprehensible Japanese 25 min (learner-reported). Grammar 5 あります / います: taught, quiz 4/5 (slip: ほんを あります → ほんが あります). Chat: 5 exchanges.
+**Japanese:** CJ done: three things learned (やすみ is a day off; …). Kaishi done (learner's judgement). Grammar 5 あります / います: quiz 4/5 (slip: ほんを あります → ほんが あります). Chat: 5 exchanges.
 **Technical:** Item 8 done: 12 J (predicted 6 J; forgot area of a triangle is half). ~15 min by clock. (Item passed its check, so the technical floor is met.)
 **Next:** Technical: item 9. Japanese: grammar 6, これ / それ / あれ / どれ.
 ```

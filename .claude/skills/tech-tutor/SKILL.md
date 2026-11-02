@@ -75,8 +75,12 @@ by answering.
      done.
    - Explanation or drawing: every point in Check is there in the learner's
      words. A circular reason does not count.
-   - Pass: tick the item in `BACKLOG.md` and write the final answer on
-     its `Result:` line.
+   - Match: ask the key's `Variant:` question yourself, one message, no
+     hints, no tutor. Check it against its answer the same way.
+   - Pass (both match): tick the item in `BACKLOG.md` and write both
+     answers on its `Result:` line.
+   - Variant wrong: not passed. Say what is wrong in one line; write a
+     Handoff line; the item comes back next session.
    - Fail: tell the learner in one line which Check point is missing; they
      go back to the tutor. Do not teach it yourself.
    - Not sure: do not tick. Log it with "check for Opus", add one line

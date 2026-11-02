@@ -44,6 +44,28 @@ before changing a rule. Newest sections first.
 - **Chat corrections 11-02 stand:** 朝は食べません (私が wrongly focuses on
   私; habit reading fits) and 明日は土曜日です (politeness, not grammar).
   Haiku's note that が is untaught was wrong: 4 は vs が is taught.
+- **Audit, four lenses (learner asked; adopted 11-02, the learner's picks
+  plus Opus's):** (1)+(9) every key gets a `Variant:` question; Haiku asks
+  it after a tutor pass (the tutor's own summary was the only proof) and
+  again as the session's review question a week or more later (a ticked
+  item never came back, so nothing was retrieved). (2) Grammar page read
+  at the end of a session, quiz at the start of the next: a quiz right
+  after reading tests the page, not memory. (6) Hardware bought now and a
+  crude arm built early. (7) T25, T45-T51, T53-T59 parked until after the
+  capstone (at ~1 item per 4 days the list ran to ~June 2027, beside
+  JLPT); capstone pass line ±1 cm at three poses.
+- **Done or not, instead of minutes (learner, 11-02):** minutes went
+  unreported on most days, so the floor was "not confirmed" most days and
+  the record said nothing. Now each piece is done or not, with evidence:
+  CJ minutes or three things learned; Kaishi a session the learner judges
+  helped. The learner is treated as a disciplined adult; if that fails,
+  discipline is fixed first (session start step 5 opens with a missed
+  floor). Kaishi's due count is unreliable on the learner's scheduler, so
+  the 100-due gate and the 500-due counting rule are dropped; new cards
+  are the learner's call.
+- **Rule budget:** these replaced the minute floor, the Kaishi gates, the
+  due-count logging and "a ticked item stays done"; AGENTS.md did not
+  grow by more than the review and variant lines.
 - **Not fixed, noted:** chat NEW WORDS go to the log and are never seen
   again (no review step); kanji for N4 is covered only through Kaishi.
   Neither blocks today's work.

@@ -11,7 +11,9 @@ score or final answer, slips).
 
 ## Handoff
 
-- G15 passed 11-02 (4 of 4). Next grammar: G17 (read it first, then the quiz).
+- G15 passed 11-02 (4 of 4). Next grammar: G17. New order (11-02): read
+  the page at the end of a session, take the quiz at the start of the next.
+- Review questions start with G13's `Variant:` (oldest passed item with one).
 
 ## Chat openers (next unused first)
 
@@ -33,6 +35,10 @@ score or final answer, slips).
   はい、たどくの 本を よみました (yes, not いいえ, when you did read).
 - [ ] Photo of the FK drawing for `Mechatronics/portfolio/0.3-2link-fk-tip.md`.
 - [ ] Before T23: a 30 cm ruler, a pencil and ten 1-yen coins (1 g each).
+- [ ] Buy now (capstone parts; hardware early, Opus 11-02): Arduino Uno
+  (or clone) with USB cable, two 10 kΩ rotary potentiometers, breadboard,
+  jumper wires, a basic multimeter. Then build a crude cardboard 2-link
+  arm with the pots at the joints, before the theory is finished.
 
 ## Japanese grammar queue
 
@@ -52,6 +58,7 @@ Quiz:
 2. Say "I go tomorrow." → あした いきます。 (あしたに is wrong)
 3. Say "I eat at 7 o'clock." → 七時に たべます。
 4. Say "I study every day." → まいにち べんきょうします。 (まいにちに is wrong)
+Variant: Say "I eat at 8 o'clock tomorrow." → あした 八時に たべます。 (あしたに is wrong)
 Result: 10-25 3/4, passed. Q1 三時にいきます right (wrote ？; a statement needs none). Q2 明日にいきます wrong (→ あした いきます). Q3 七時にたべます right. Q4 毎日、勉強します right.
 
 ### [x] G14 時 / 分, telling time
@@ -64,6 +71,7 @@ Quiz (answers in kana):
 3. Read 7:10. → しちじ じゅっぷん (also accept じっぷん)
 4. Read 3:30. → さんじ はん (also accept さんじ さんじゅっぷん)
 Slips: よんじ, きゅうじ, ななじ.
+Variant: Read 6:15. → ろくじ じゅうごふん
 Result: 10-29 3/4, passed. Q1 四時 (kanji for よじ; counted right). Q2 くじ right. Q3 しちじ じゅぶん wrong (minutes are じゅっぷん, ぷ not ぶ; ん written as n). Q4 さんじはん right.
 
 ### [x] G15 曜日, days of the week
@@ -77,6 +85,7 @@ Quiz:
 3. Say "I go on Saturday." → どようびに いきます。 (also accept どようび いきます)
 4. Say "Wednesday". → すいようび
 Slips: ようひ for ようび; どようび and にちようび swapped.
+Variant: Say "I go on Sunday." → にちようびに いきます。 (also accept にちようび いきます)
 Result: 11-02, 4 of 4, passed. Q1 月曜日 right. Q2 今日は何日ですか counted right (Opus 11-02): the old prompt "What day is it today?" also means the date, so it was the key's fault; prompt reworded. Q3 土曜に行きます accepted as the short form of どようびに. Q4 水曜日 right.
 
 ### [ ] G17 Counter 人 (ひとり, ふたり)
@@ -89,6 +98,7 @@ Quiz:
 3. Say "four people". → よにん
 4. Ask "How many people are there?" → なんにん いますか。
 Slips: いちにん, ににん, よんにん.
+Variant: Say "There are three people." → さんにん います。 (also accept ひとが さんにん います)
 Result:
 
 ### [ ] G18 い-adjectives: たかい / たかくない
@@ -101,6 +111,7 @@ Quiz:
 3. Say "The book is interesting." (interesting = おもしろい) → 本は おもしろいです。
 4. Say "It is not good." → よくないです。 (also accept よくありません)
 Slips: たかいじゃないです; いくないです.
+Variant: Say "It is not big." (big = おおきい) → おおきくないです。 (also accept おおきくありません)
 Result:
 
 ### [ ] G19 い-adjectives past: たかかった / たかくなかった
@@ -113,6 +124,7 @@ Quiz:
 3. Say "It was good." → よかったです。
 4. Say "Yesterday was cold." (cold = さむい) → きのうは さむかったです。
 Slips: たかいでした; いかったです.
+Variant: Say "It was not good." → よくなかったです。 (also accept よくありませんでした; いくなかった is wrong)
 Result:
 
 ### [ ] G20 な-adjectives: しずかです / しずかじゃないです
@@ -125,6 +137,7 @@ Quiz:
 3. Say "The room is clean." (clean = きれい) → へやは きれいです。
 4. Say "The town is not famous." (town = まち, famous = ゆうめい) → まちは ゆうめいじゃないです。 (also accept じゃありません, ではありません)
 Slips: きれくないです; しずかくないです.
+Variant: Say "It is not clean." → きれいじゃないです。 (also accept じゃありません, ではありません; きれくない is wrong)
 Result:
 
 ### [ ] G21 Adjective + noun (たかい山, しずかな町)
@@ -136,6 +149,7 @@ Quiz:
 3. Say "It is an interesting book." → おもしろい 本です。
 4. Say "a famous teacher". → ゆうめいな せんせい
 Slips: しずかの まち; たかいな くるま.
+Variant: Say "a quiet room". → しずかな へや
 Result:
 
 ### [ ] G22 ～ましょう / ～ましょうか
@@ -148,6 +162,7 @@ Quiz:
 3. Ask "Shall we go?" → いきましょうか。
 4. Offer "Shall I read it?" → よみましょうか。
 Slips: いくましょう (start from いきます, not いく).
+Variant: Say "Let's study." → べんきょうしましょう。
 Result:
 
 ### [ ] G23 ～ませんか (invitation)
@@ -160,6 +175,7 @@ Quiz:
 3. Accept an invitation to go: "That's nice. Let's go." (that's nice = いいですね) → いいですね。いきましょう。
 4. Turn down an invitation politely. → ちょっと… (also accept すみません、ちょっと…)
 Slips: いいえ to an invitation (sounds cold).
+Variant: Invite: "Won't you drink tea?" (tea = おちゃ, drink = のみます) → おちゃを のみませんか。
 Result:
 
 ### [ ] G24 ～たい (want to)
@@ -172,6 +188,7 @@ Quiz:
 3. Say "I don't want to study." → べんきょうしたくないです。 (also accept べんきょうを したくないです)
 4. Say "I wanted to read the book." → 本を よみたかったです。 (also accept 本が)
 Slips: たべたいじゃないです; いきますたい.
+Variant: Say "I want to go to school." → がっこうに いきたいです。 (also accept へ)
 Result:
 
 ### [ ] G25 から (because) / から・まで (from, until)
@@ -184,6 +201,7 @@ Quiz:
 3. Say "It's expensive, so I won't buy it." (buy = かいます) → たかいですから、かいません。 (also accept たかいから)
 4. Say "I study until 10 o'clock." → 十時まで べんきょうします。
 Slips: 九時からに; まで and から swapped.
+Variant: Say "from Monday to Friday". → げつようびから きんようびまで
 Result:
 
 ### [ ] G26 もう / まだ
@@ -195,6 +213,7 @@ Quiz:
 3. Say "I am still at school." → まだ がっこうに います。
 4. Ask "Did you already go?" → もう いきましたか。
 Slips: まだ たべませんでした for "not yet" (that says you did not eat at some past time).
+Variant: Say "I already read the book." → もう 本を よみました。 (also accept 本を もう)
 Result:
 
 ### Not keyed yet (no key, no lesson; Opus writes these)
@@ -227,98 +246,111 @@ Result:
 
 Format: Learn (the lesson before the tutor; `AGENTS.md` "Technical") /
 Given (safe to show; the only part that goes into the `tech-tutor`
-prompt; no Given = item text alone) / Answer / Check. Units required.
+prompt; no Given = item text alone) / Answer / Check / Variant (Haiku asks it after a tutor pass, and again
+as a review a week or more later). Units required.
 Number answers: within about 2% unless a range is given. g = 9.81 m/s².
 Done: 1-9, 13, 14, 16, 17, 18.
 
 ### [ ] T10 FBD: book resting on a table (every force, arrow, label)
 Learn: Khan Academy, "What is normal force?" (article): https://www.khanacademy.org/science/revision-term-1-tg-physics-class-11/xb0b4a99ad77431f6:week-2/xb0b4a99ad77431f6:laws-of-motion/a/what-is-normal-force
 Book resting on a table. Check: exactly 2 forces: weight (down, from Earth, at the book's center) and normal force (up, from the table), same length arrows, labelled. Wrong if: a "force of the table" pointing down on the book, or unequal arrows.
+Variant: A phone lies still on a desk. Name every force on it and its direction. → 2: weight down (from Earth), normal force up (from the desk), equal size.
 Result:
 
 ### [ ] T11 FBD: book pushed sideways but not sliding
 Learn: Khan Academy, "What is friction?" (article; the static friction part).
 Book pushed sideways, not sliding. Check: 4 forces: weight down, normal up (equal), push sideways, static friction opposite the push and equal to it. Wrong if friction is drawn bigger or smaller than the push.
+Variant: A box is pushed sideways with 5 N and does not move. How big is the friction, and which way? → **5 N**, opposite the push.
 Result:
 
 ### [ ] T12 FBD: one link held horizontal by a hand at one end
 Learn: LibreTexts, Engineering Statics (Baker and Haynes) or engineeringstatics.org: supports and reactions, the fixed support (two forces and a moment).
 One link held horizontal by a hand at one end. Check: weight down at the middle; at the hand, an upward force equal to the weight AND a twisting effect (moment) from the grip. Key insight: one upward force at the end cannot hold it; the grip must also twist. If the learner draws only an upward force, ask: "Then why doesn't the link rotate?"
+Variant: A ruler is clamped flat at one end, sticking out. Besides an upward force, what else must the clamp give it? → a twist (moment) against the twist of the ruler's weight.
 Result:
 
 ### [ ] T15 Moment arm in plain words: draw it for item 14
 Learn: Khan Academy, "Torque" (article; the lever arm part).
 Given: a 1 N force acts 0.1 m from a pivot, at 45° to the arm (item 14). Draw the moment arm and say in plain words what it is. Answer: the perpendicular distance from the pivot to the force's line = 0.1 × sin 45° = **0.0707 m**. Check: drawing shows a right angle between the moment arm and the force's line; plain words say "shortest distance from the pivot to the line the force acts along"; torque = 1 N × 0.0707 m matches item 14.
+Variant: A 2 N force acts 0.3 m from a pivot, at 30° to the arm. How long is the moment arm? → 0.3 × sin 30° = **0.15 m**.
 Result:
 
 ### [ ] T19 Equilibrium: link held by a hand force, solve for the force
 Learn: Khan Academy, "Torque and equilibrium review" (article).
 Given: a link 0.2 m long, mass 0.05 kg (weight at its middle), pivots at the shoulder end and is held horizontal by a hand pushing straight up at the far end. What force does the hand push with? Answer: 0.49 N × 0.1 m = F × 0.2 m → **F = 0.245 N** (accept 0.24–0.25 N). Check: number with units; prediction said less than the weight (the hand is twice as far out), or was corrected to it.
+Variant: Same link (0.2 m, 0.05 kg), but the hand pushes up 0.15 m from the shoulder. What force? → 0.49 × 0.1 = F × 0.15 → **0.327 N** (accept 0.32-0.33).
 Result:
 
 ### [ ] T20 2-link straight out: shoulder torque from both link weights
 Learn: none (T19).
 Given: two links in a line, straight out horizontal, each 0.2 m long and 0.05 kg (weight at each link's middle). Torque of both weights about the shoulder. Answer: 0.49 × 0.1 + 0.49 × 0.3 = **0.196 N·m** (accept 0.19–0.20). Check: number with units; link 2's weight taken at 0.3 m from the shoulder, not 0.1 m.
+Variant: Two links straight out, each 0.3 m and 0.1 kg. Shoulder torque from both weights? → 0.981 × 0.15 + 0.981 × 0.45 = **0.589 N·m** (accept 0.58-0.60).
 Result:
 
 ### [ ] T21 Same arm: elbow torque
 Learn: none (T19).
 Given: same arm as item 20. Torque of the weights about the elbow. Answer: only link 2 counts: 0.49 × 0.1 = **0.049 N·m** (accept 0.049–0.050). Check: number with units; says link 1 does not count (it is on the other side of the elbow).
+Variant: The T20 variant arm (0.3 m, 0.1 kg links): elbow torque? → 0.981 × 0.15 = **0.147 N·m** (accept 0.145-0.15).
 Result:
 
 ### [ ] T22 Add a 50 g weight at the tip: new shoulder and elbow torques
 Learn: none (T19).
 Given: same arm, plus 50 g hanging at the tip. New shoulder and elbow torques. Answer: tip weight 0.49 N; shoulder 0.196 + 0.49 × 0.4 = **0.392 N·m** (accept 0.39–0.40); elbow 0.049 + 0.49 × 0.2 = **0.147 N·m** (accept 0.147–0.15). Check: both numbers with units.
+Variant: The T20 arm (0.2 m, 0.05 kg links) with 100 g at the tip: shoulder torque? → 0.196 + 0.981 × 0.4 = **0.589 N·m** (accept 0.58-0.60).
 Result:
 
 ### [ ] T24 List every assumption you made in items 16-23
 Learn: none (items 16-23).
 List every assumption made in items 16-23. Check: at least 4 of these, in the learner's words: each link's weight acts at its middle (uniform link); g = 9.81 m/s²; links are rigid (don't bend); joints have no friction; the arm is still (not moving or speeding up); masses are exact; the tip weight acts at one point at the tip; all weights point straight down.
+Variant: Name one assumption from items 16-23 that is false for a real cardboard arm, and say whether the true torque is bigger or smaller. → any assumption from the T24 list, with a direction and a reason (e.g. links bend, the tip sags toward the shoulder, so slightly smaller).
 Result:
 
 ### [ ] T23 Measure: ruler + weight balanced on a pencil, check one torque, 3 sentences
 Learn: none (T19).
 Given: a 30 cm ruler balanced on a pencil (find its balance point first), ten 1-yen coins (1 g each). Put 4 coins 5 cm left of the pencil. Predict where 2 coins must go on the right to balance, then try it. Answer: prediction **10 cm** right (4 × 5 = 2 × 10). Check: prediction written before trying; measured distance with units; three sentences: predicted, measured, why they differ (e.g. coins' centers, ruler not perfectly centered, pencil is not a point). Photo goes to `Mechatronics/portfolio/`.
-Result:
-
-### [ ] T25 FEM in plain words: what it does and why hand calcs check it
-Learn: video "Understanding the Finite Element Method", The Efficient Engineer (YouTube, about 18 min).
-FEM in plain words. Check: all three: (1) the software splits a part into many small simple pieces; (2) it solves simple equations for each piece and joins them up; (3) hand calcs check it because the software gives an answer for any input, even wrong loads, units or supports, and a rough hand number catches those mistakes.
+Variant: 3 coins 6 cm left of the pencil: where do 2 coins go on the right? → **9 cm** (3 × 6 = 2 × 9).
 Result:
 
 ### [ ] T26 0.4 deliverable: FBD of the 2-link arm holding 0.5 kg at full horizontal extension, shoulder holding torque with units
 Learn: none (T12, T19).
 Given: the 2-link arm (each link 0.2 m, 0.05 kg) straight out horizontal, holding 0.5 kg at the tip. Draw the free-body diagram of the whole arm and find the shoulder holding torque. Answer: 0.196 + 4.905 × 0.4 = **2.16 N·m** (accept 2.1–2.2). Check: drawing has link 1 weight at 0.1 m, link 2 weight at 0.3 m, load 4.9 N at 0.4 m, all down; at the shoulder an upward force (5.9 N) and a holding twist (the torque); number with units.
+Variant: The item 26 arm holding 0.2 kg instead: shoulder torque? → 0.196 + 1.962 × 0.4 = **0.981 N·m** (accept 0.97-0.99).
 Result:
 
 ### [ ] T27 0.4 Full: what happens to shoulder torque if the elbow extends further
 Learn: none (T26).
 Given: same as item 26, but link 2 is 0.3 m long (still 0.05 kg). Predict bigger or smaller, then compute the shoulder torque. Answer: 0.49 × 0.1 + 0.49 × 0.35 + 4.905 × 0.5 = **2.67 N·m** (accept 2.6–2.75). Check: predicted bigger; number with units; says why: the load moved farther from the shoulder.
+Variant: The item 26 arm, but link 1 is 0.3 m (link 2 stays 0.2 m, both 0.05 kg). Bigger or smaller, and the shoulder torque? → bigger; 0.49 × 0.15 + 0.49 × 0.4 + 4.905 × 0.5 = **2.72 N·m** (accept 2.65-2.8).
 Result:
 
 ### [ ] T28 0.4 Full: reaction forces at the base
 Learn: none (T12).
 Given: the item 26 arm, shoulder bolted to a base. What force and what twist does the base give the arm? Answer: **5.89 N up** (accept 5.8–6.0; the arm's total weight, 0.6 kg × 9.81), **0 N sideways**, **2.16 N·m** twist. Check: all three with units; says the up force equals the total weight because nothing else holds the arm up.
+Variant: The item 26 arm holding 1 kg instead: up force from the base? → 1.1 kg × 9.81 = **10.8 N** (accept 10.7-10.9).
 Result:
 
 ### [ ] S1 Measure one length 10 times with a ruler: mean and range, with units
 Learn: Khan Academy, "Measures of spread: range, variance & standard deviation" (video; mean and range).
 Given: pick one object (e.g. the long side of your phone). Measure it 10 times with a ruler, to the nearest 0.5 mm, lifting the ruler between readings. Write all 10, then the mean and the range. Answer: the learner's own data. Check: 10 readings with units; Haiku recomputes the mean with `python3 -c "import statistics as s; print(s.mean([...]))"` (within 2%); range = largest − smallest, with units.
+Variant: Readings 10.0, 10.5, 10.0, 9.5 cm: mean and range? → **10.0 cm**, **1.0 cm**.
 Result:
 
 ### [ ] S2 Standard deviation of those 10 by hand; what it means in plain words
 Learn: Khan Academy, "Standard deviation: calculating step by step" (article), then "Sample standard deviation and bias" (video; why n − 1).
 Given: the 10 readings from S1. Find the standard deviation by hand and say what it means. Answer: s = √(Σ(x − mean)² / (n − 1)). Check: Haiku recomputes with `statistics.stdev` (or `statistics.pstdev` if the learner divided by n and said so), within 2%; units mm; plain words: about how far a typical reading sits from the mean.
+Variant: Readings 2, 4, 6 mm: sample standard deviation? → **2 mm** (squares 4, 0, 4; 8 / 2 = 4; √4).
 Result:
 
 ### [ ] S3 Item 2's tip: is predicted − measured bigger than the spread? Say what that tells you
 Learn: none (S2).
 Given: item 2's predicted and measured tip position (`Mechatronics/portfolio/0.3-2link-fk-tip.md`) and the S2 standard deviation. Is predicted − measured bigger than the reading spread? Check: the difference with units; compared with about 2 × s; says: much bigger → a real error in the model or setup, not reading noise; smaller → can't tell it apart from reading noise.
+Variant: Predicted 20.0 cm, measured 20.3 cm, s = 0.5 mm. Real error or reading noise? → real error: 3 mm is much bigger than 2 × 0.5 = 1 mm.
 Result:
 
 ### [ ] S4 Same mean and standard deviation in Python (numpy); match the hand numbers
 Learn: numpy documentation, numpy.std (the ddof argument).
 Given: the S1 readings. Compute the mean and standard deviation in Python with numpy. Check: uses `np.mean` and `np.std(..., ddof=1)` (or ddof=0 matching S2's choice); numbers match S2 within 2%; says in plain words that ddof=1 divides by n − 1.
+Variant: What does np.std([2, 4, 6], ddof=1) print? → **2.0**.
 Result:
 
 ### Not keyed yet (Opus writes these, in this order)
@@ -342,6 +374,11 @@ Result:
 - [ ] M3 Plain words: why this fit is a machine learning model; what the training data and the test point were
 - [ ] M4 The fit's error vs the spread from S2: is the model good enough for the arm?
 - [ ] T44 P = VI: power of the LED circuit, predict then compute
+- [ ] T52 Stress = force / area: predict, then compute for a wire
+- [ ] T60 Pick the capstone link material and write why
+
+### Parked until after the capstone (Opus 11-02: the passive arm does not need them)
+- [ ] T25 FEM in plain words (key kept in git history, commit effcde3)
 - [ ] T45 Power in the resistor (I²R) vs the LED
 - [ ] T46 Power budget: Arduino + 2 pots + LED from USB 5 V
 - [ ] T47 Efficiency in plain words, one example
@@ -349,7 +386,6 @@ Result:
 - [ ] T49 Temperature rise of a resistor from its datasheet
 - [ ] T50 Feel-check: which part warms up, and does it match the prediction
 - [ ] T51 Write the 0.6 three sentences
-- [ ] T52 Stress = force / area: predict, then compute for a wire
 - [ ] T53 Strain in plain words; stretch a rubber band, measure
 - [ ] T54 Stress-strain curve: sketch one, label the regions
 - [ ] T55 Factor of safety: choose one for a cardboard link
@@ -357,5 +393,3 @@ Result:
 - [ ] T57 Fatigue in plain words: bend a paperclip until it breaks, count
 - [ ] T58 Predict where the cardboard link would fail under the tip weight
 - [ ] T59 Test it, 3 sentences
-- [ ] T60 Pick the capstone link material and write why
-

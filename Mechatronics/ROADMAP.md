@@ -9,7 +9,13 @@ Rewritten 2026-11-02; the old 5-phase plan is in git history.
 Arduino reads both angles and computes the tip position live (forward
 kinematics); the learner checks it against a ruler. Proof goes in
 `Mechatronics/portfolio/`: photo or video, code or hand calculation, and
-three sentences (predicted, measured, why they differ).
+three sentences (predicted, measured, why they differ). **Pass line:** the
+tip is within ±1 cm of the FK prediction at three poses.
+
+Hardware comes early: parts bought now and a crude cardboard arm built
+before the theory ends, so the theory items serve a real build. Items the
+passive arm does not need (FEM, power and thermal, materials and fatigue)
+are parked in `BACKLOG.md` until after the capstone.
 
 Small, finishable, and something to show a professor.
 

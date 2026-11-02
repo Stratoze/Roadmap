@@ -17,7 +17,9 @@ immigrate, naturalize. Field: cars, rockets, satellites, or robots.
    next unticked item of each queue you will use today.
 4. Read the status file for today's tracks: `Learned/japanese.md`,
    `Learned/technical.md`, or `Learned/coursework.md`.
-5. If yesterday's `Daily/` note shows Japanese missed, do Japanese first.
+5. Discipline first: if the last `Daily/` note shows a floor missed, open
+   with it before new work. Say it plainly, ask what got in the way and
+   what changes today, then do that track first.
 6. Check the pull signals in `Proposals.md`; add any that are due; say the
    inbox line its step 4 gives.
 
@@ -45,7 +47,8 @@ tasks that fit you.
 - **Opus:** runs only when the learner calls it (no scheduled tasks,
   routines or reminders, ever). Works `Proposals.md`: keys and items for
   `BACKLOG.md`, rulings, Phase 2+ work. Every key says where its idea is
-  taught (grammar: the lesson page; technical: the `Learn:` line).
+  taught (grammar: the lesson page; technical: the `Learn:` line) and has
+  a `Variant:` question.
 
 A task with no key waits in `Proposals.md` for Opus: add it in one line,
 then give the next task in the same reply. Never end a reply on "that's
@@ -77,10 +80,12 @@ wrong answer, that task type moves to Sonnet at the next Opus call.
 Day type from the weekday: **free** Tue, Wed, Fri, Sat; **tight** Mon, Thu,
 Sun (or any day the learner says is short).
 
-In the session, in this order: grammar, then the chat prompt, then the
-technical prompt. CJ (phone) and Kaishi (laptop only) happen wherever they
-fit; ask for their minutes once, at session end, or at session start if
-it is after 18:00 local.
+In the session, in this order: one review question (Teaching rule 3),
+the quiz on the grammar read last session, the chat prompt, the technical
+prompt, and last the next grammar page to read. CJ (phone) and Kaishi
+(laptop only) happen wherever they fit; ask once whether they were done,
+at session end, or at session start if it is after 18:00 local. Amounts
+in the table are a guide; the floor is done or not.
 
 | | Free | Tight |
 |---|---|---|
@@ -92,16 +97,22 @@ it is after 18:00 local.
 
 From 2026-11-16 grammar is 1 point a day on any day.
 
-**Floor:** Japanese 25 min (CJ, grammar and chat count; Kaishi counts
-while more than 500 cards are due; Tadoku and katakana are logged, not
-counted). Technical: one item passed its check
-today, or 25 min on items. A tutor-given answer does not pass. Minutes are
-the learner's; when none are given, write "time not reported". A missed day
-stays missed.
+**Floor (done or not):** the learner is a disciplined adult; their
+"done" stands, with the evidence below. Minutes are welcome, never
+required.
+- CJ done: minutes, or three things learned from today's episodes.
+- Kaishi done: a session the learner judges helped (not a token few cards).
+- Japanese met: CJ, Kaishi, and the session's grammar or chat all done.
+  Tadoku and katakana are logged, not counted.
+- Technical met: an item passed today (`AGENTS.md` "Technical"), or a
+  Handoff line says how far the item got. A tutor-given answer does not
+  pass.
+- A missed day stays missed.
 
-**Kaishi:** review the backlog down by time; keep its history (no reset).
-New cards only when under 100 due, then 10 a day. Log the due count if the
-learner gives one.
+**Kaishi:** keep its history (no reset). Its due count is not reliable on
+the learner's scheduler, so nothing is gated on it. New cards are the
+learner's call; Opus recommends 10 a day once a session clears the day's
+reviews.
 
 **JLPT target:** N4, July 2027 (before the move). Registration dates in
 Vietnam: not checked yet.
@@ -118,7 +129,10 @@ three sentences (predicted, measured, why they differ).
 
 1. One question per message, then wait. Vary a question rather than repeat it.
 2. Prediction before any calculation.
-3. When an answer matches the key, tick it and move on; a ticked item stays done.
+3. When an answer matches the key, tick it and move on. A ticked item
+   comes back once, a week or more later, as the session's review question
+   (its key's `Variant:`, oldest first). A miss goes to weak spots; the
+   tick stays.
 4. A hedge ("probably", "either") gets "Pick one."
 5. Correct plainly: what is wrong and the right answer, in one or two lines.
 6. Standard terms. Jargon the learner can't say in plain words goes under
@@ -134,15 +148,17 @@ three sentences (predicted, measured, why they differ).
 
 - Explain in English by what a particle or form marks, never by English
   translation ("に means to"). The learner is a complete beginner.
-- **Grammar lesson:** name the next grammar item; the learner reads it on
-  Tofugu (else Cure Dolly, yoku.bi, Imabi). Find the page (WebSearch or
-  WebFetch), check it covers the item, and give the link. Then ask the
-  key's quiz exactly as written, in order, one per message, with no
-  answer choices. Answers in kana or keyboard kanji, never romaji.
+- **Grammar lesson:** at the end of a session, name the next grammar
+  item; the learner reads it on Tofugu (else Cure Dolly, yoku.bi, Imabi).
+  Find the page (WebSearch or WebFetch), check it covers the item, and
+  give the link. At the start of the next session, ask the key's quiz
+  exactly as written, in order, one per message, with no answer choices.
+  The gap is the point: the quiz tests memory, not the page just read.
+  Answers in kana or keyboard kanji, never romaji.
 - **Scoring:** an answer is wrong only if the mistake is in a form named in
   the key's Rule or Slips line. Other mistakes go to the status file as
   weak spots. A typo that leaves the word clear is noted, not counted.
-  Pass = at most one wrong. Fail = no new grammar today; redo the quiz next
+  Pass = at most one wrong. Fail = no new page today; redo the quiz next
   session.
 - Taught = passed the quiz. Solid = used right in chat on a later day.
 - In corrections, use only ticked grammar; a fix that needs more says
@@ -163,7 +179,10 @@ three sentences (predicted, measured, why they differ).
 - Sources: Khan Academy (articles and videos), else OpenStax, LibreTexts
   (Engineering Statics, Baker and Haynes), or the one video a `Learn:`
   line names. Lesson minutes count as minutes on items.
-- A technical key without a `Learn:` line is not keyed yet.
+- A pass needs both: the tutor's final answer matches the key, and the
+  learner answers the key's `Variant:` question to Haiku, with no help.
+  The tutor's own summary is not proof on its own.
+- A technical key without `Learn:` and `Variant:` lines is not keyed yet.
 
 ## Explainer pages
 

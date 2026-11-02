@@ -28,38 +28,7 @@ its decision. Haiku never acts on an item here.
 
 ## Open
 
-- 2026-11-02, Opus audit (learner asked: teaching, neuroscience, engineering,
-  AI-management lenses). One item: the learner picks which fixes to adopt.
-  Evidence: technical 0 items since 10-23; Japanese floor confirmed met on
-  3 of 17 noted days since 10-14 (most say "not reported"); 66 of 158
-  commits since 10-01 changed rules, skills or decisions.
-  1. Retrieval: a ticked item never comes back (Teaching rule 3). Each
-     session opens with one question from an item passed a week or more
-     ago; every key gets a `Variant:` question for it.
-  2. Delayed quiz: read the grammar page this session, take its quiz at
-     the start of the next (tests memory, not the page just read).
-  3. Tutor honesty: after a tutor pass, Haiku asks the key's `Variant:`
-     question itself; the tutor's own summary is the only proof now.
-  4. Hardware now: buy Arduino Uno, two 10 kΩ potentiometers, breadboard,
-     jumpers, multimeter; build a crude cardboard arm early and let the
-     theory items serve the build.
-  5. Scope: at ~1 item per 4 days, the ~54 listed items end around June
-     2027, beside JLPT. Park items the passive arm doesn't need (T25 FEM,
-     T45-T50 power/thermal, T53-T58 materials). Give the capstone a pass
-     line (tip within ±1 cm of the FK prediction).
-  6. Kaishi: no new words since 10-08, due rising (~1500). Count reviews
-     per day, not minutes, and set a date for new cards (N4 ≈ 1500 words).
-  7. Chat NEW WORDS are logged and never seen again: into Anki, or stop
-     logging them.
-  8. Missing minutes: the first question each session is the last
-     session's minutes, if not reported.
-  9. One fixed cue: a set time and place for the session, the learner's
-     choice.
-  10. Rule budget: a new rule replaces an old one; rule changes only on
-      Opus days.
-  11. Network: allow khanacademy.org, tofugu.com, openstax.org in the
-      environment so lesson pages are opened, not judged from search
-      snippets.
+(none)
 
 ## Done
 
