@@ -20,6 +20,25 @@ before changing a rule. Newest sections first.
 
 ## Proposals decided (from `Proposals.md`)
 
+### 2026-11-02: goal path (learner: "would any expert be content with that?")
+- **The repo had no route to the goal.** Study queues existed; admission
+  (programs, labs, professors, research plan), the English test,
+  scholarships, the bachelor's grades, visas and the after-arrival path
+  were in no file. Some deadlines are weeks away (English scores for
+  January applications to October 2027 programs); the system is
+  dateless by design, and deadlines are not. `PATH.md` is the one dated
+  list; session start reads it. Facts are from search results (official
+  pages blocked) and marked unverified where third-party.
+- **Found in the old system and lost in the rewrite:** "scaffold first for
+  zero-schema novices" (`_system/How to Learn.md`). Before replacing a
+  system, list what the old one knew.
+- **Tadoku counts as input** (with CJ): JLPT tests reading, and graded
+  readers are reading. Katakana stays logged, not counted.
+- **Explainer pages rule removed:** never triggered since written;
+  `Learn:` lines cover a first meeting with an idea.
+- **AGENTS.md cut from 200 to under 170 lines** (as promised), with no
+  behaviour dropped except the explainer-pages rule.
+
 ### 2026-11-02: system check (learner called Opus)
 - **Technical had no lesson step (learner found it).** Japanese reads a
   Tofugu page before every quiz; technical went straight to a tutor told
@@ -66,7 +85,7 @@ before changing a rule. Newest sections first.
 - **Rule budget:** these replaced the minute floor, the Kaishi gates, the
   due-count logging and "a ticked item stays done". AGENTS.md still grew
   from 167 to 200 lines on 11-02 (the Technical section and these rules).
-  Next Opus call: cut it back under 170 before adding anything.
+  Cut back the same day (see "goal path").
 - **Not fixed, noted:** chat NEW WORDS go to the log and are never seen
   again (no review step); kanji for N4 is covered only through Kaishi.
   Neither blocks today's work.

@@ -41,12 +41,12 @@ would skip a point the learner has not got yet.
 
 ## What counts
 
-- Floor (AGENTS.md "Floor"): Japanese is met when CJ, Kaishi, and the
-  session's grammar or chat are all done; technical when an item passed
+- Floor (AGENTS.md "Floor"): Japanese is met when input (CJ or Tadoku),
+  Kaishi, and the session's grammar or chat are all done; technical when an item passed
   today or a Handoff line says how far it got. If a track missed it, add
   the sentence "The <track> floor was not met today." A missed day is not
   made up by a longer day.
-- Katakana and Tadoku are logged but not counted.
+- Katakana is logged but not counted.
 - Coursework (school projects) never counts. Log it inside **Technical:** as
   "Coursework (not counted): ...".
 - A track with nothing done: "Nothing logged."

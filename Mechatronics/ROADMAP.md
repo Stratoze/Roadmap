@@ -34,6 +34,10 @@ Small, finishable, and something to show a professor.
 
 CAD is needed only at step 7, and only if the links are printed.
 
+What a lab will also look for (linear algebra, robot programming,
+control, papers, a research plan) is in `PATH.md`; Opus keys it once the
+target labs are chosen.
+
 ## Safety
 
 USB/5V only, breadboard and jumper wires, hand tools and FDM printing.

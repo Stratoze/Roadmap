@@ -30,6 +30,17 @@ score or final answer, slips).
 
 ## Learner tasks (mention one once if open)
 
+- [ ] **First (PATH.md):** answer the four open questions in `PATH.md`
+  (September 2027 plan; graduation month and GPA; English level; money).
+  Everything below in PATH depends on them.
+- [ ] Take the free official TOEFL practice test (ETS) once: the English
+  level decides whether a test date is needed before the January
+  applications.
+- [ ] Take the official JLPT N5 sample questions (jlpt.jp) once, as a
+  baseline; give Haiku the score to log.
+- [ ] Allow khanacademy.org, tofugu.com, openstax.org, jlpt.jp in this
+  environment's network settings (Allowed domains), so lesson pages and
+  official dates can be opened, not judged from search results.
 - [ ] At Japanese class: ask the teacher if these three fixes are right:
   カフェに いきます。それから うちに かえります。 / ソーダ (long vowel) /
   はい、たどくの 本を よみました (yes, not いいえ, when you did read).
