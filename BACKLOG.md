@@ -73,11 +73,11 @@ Rule: げつようび (Mon), かようび (Tue), すいようび (Wed),
 no particle.
 Quiz:
 1. Say "Monday". → げつようび
-2. Ask "What day is it today?" → きょうは なんようびですか。 (also accept なにようび)
+2. Ask what day of the week it is today. → きょうは なんようびですか。 (also accept なにようび)
 3. Say "I go on Saturday." → どようびに いきます。 (also accept どようび いきます)
 4. Say "Wednesday". → すいようび
 Slips: ようひ for ようび; どようび and にちようび swapped.
-Result: 11-02, 3 of 4, passed (one wrong allowed). Q1 月曜日 right. Q2 今日は何日ですか wrong: asks the date, not the weekday; learner objects that the English prompt is ambiguous, Opus ruling pending (Proposals.md, 11-02). Q3 土曜に行きます accepted as the short form of どようびに. Q4 水曜日 right.
+Result: 11-02, 4 of 4, passed. Q1 月曜日 right. Q2 今日は何日ですか counted right (Opus 11-02): the old prompt "What day is it today?" also means the date, so it was the key's fault; prompt reworded. Q3 土曜に行きます accepted as the short form of どようびに. Q4 水曜日 right.
 
 ### [ ] G17 Counter 人 (ひとり, ふたり)
 Rule: people are counted with 人: ひとり, ふたり,
@@ -225,80 +225,99 @@ Result:
 
 ## Technical queue
 
-Format: Given (safe to show; the only part that goes into the `tech-tutor`
+Format: Learn (the lesson before the tutor; `AGENTS.md` "Technical") /
+Given (safe to show; the only part that goes into the `tech-tutor`
 prompt; no Given = item text alone) / Answer / Check. Units required.
 Number answers: within about 2% unless a range is given. g = 9.81 m/s².
 Done: 1-9, 13, 14, 16, 17, 18.
 
 ### [ ] T10 FBD: book resting on a table (every force, arrow, label)
+Learn: Khan Academy, "What is normal force?" (article): https://www.khanacademy.org/science/revision-term-1-tg-physics-class-11/xb0b4a99ad77431f6:week-2/xb0b4a99ad77431f6:laws-of-motion/a/what-is-normal-force
 Book resting on a table. Check: exactly 2 forces: weight (down, from Earth, at the book's center) and normal force (up, from the table), same length arrows, labelled. Wrong if: a "force of the table" pointing down on the book, or unequal arrows.
 Result:
 
 ### [ ] T11 FBD: book pushed sideways but not sliding
+Learn: Khan Academy, "What is friction?" (article; the static friction part).
 Book pushed sideways, not sliding. Check: 4 forces: weight down, normal up (equal), push sideways, static friction opposite the push and equal to it. Wrong if friction is drawn bigger or smaller than the push.
 Result:
 
 ### [ ] T12 FBD: one link held horizontal by a hand at one end
+Learn: LibreTexts, Engineering Statics (Baker and Haynes) or engineeringstatics.org: supports and reactions, the fixed support (two forces and a moment).
 One link held horizontal by a hand at one end. Check: weight down at the middle; at the hand, an upward force equal to the weight AND a twisting effect (moment) from the grip. Key insight: one upward force at the end cannot hold it; the grip must also twist. If the learner draws only an upward force, ask: "Then why doesn't the link rotate?"
 Result:
 
 ### [ ] T15 Moment arm in plain words: draw it for item 14
+Learn: Khan Academy, "Torque" (article; the lever arm part).
 Given: a 1 N force acts 0.1 m from a pivot, at 45° to the arm (item 14). Draw the moment arm and say in plain words what it is. Answer: the perpendicular distance from the pivot to the force's line = 0.1 × sin 45° = **0.0707 m**. Check: drawing shows a right angle between the moment arm and the force's line; plain words say "shortest distance from the pivot to the line the force acts along"; torque = 1 N × 0.0707 m matches item 14.
 Result:
 
 ### [ ] T19 Equilibrium: link held by a hand force, solve for the force
+Learn: Khan Academy, "Torque and equilibrium review" (article).
 Given: a link 0.2 m long, mass 0.05 kg (weight at its middle), pivots at the shoulder end and is held horizontal by a hand pushing straight up at the far end. What force does the hand push with? Answer: 0.49 N × 0.1 m = F × 0.2 m → **F = 0.245 N** (accept 0.24–0.25 N). Check: number with units; prediction said less than the weight (the hand is twice as far out), or was corrected to it.
 Result:
 
 ### [ ] T20 2-link straight out: shoulder torque from both link weights
+Learn: none (T19).
 Given: two links in a line, straight out horizontal, each 0.2 m long and 0.05 kg (weight at each link's middle). Torque of both weights about the shoulder. Answer: 0.49 × 0.1 + 0.49 × 0.3 = **0.196 N·m** (accept 0.19–0.20). Check: number with units; link 2's weight taken at 0.3 m from the shoulder, not 0.1 m.
 Result:
 
 ### [ ] T21 Same arm: elbow torque
+Learn: none (T19).
 Given: same arm as item 20. Torque of the weights about the elbow. Answer: only link 2 counts: 0.49 × 0.1 = **0.049 N·m** (accept 0.049–0.050). Check: number with units; says link 1 does not count (it is on the other side of the elbow).
 Result:
 
 ### [ ] T22 Add a 50 g weight at the tip: new shoulder and elbow torques
+Learn: none (T19).
 Given: same arm, plus 50 g hanging at the tip. New shoulder and elbow torques. Answer: tip weight 0.49 N; shoulder 0.196 + 0.49 × 0.4 = **0.392 N·m** (accept 0.39–0.40); elbow 0.049 + 0.49 × 0.2 = **0.147 N·m** (accept 0.147–0.15). Check: both numbers with units.
 Result:
 
 ### [ ] T24 List every assumption you made in items 16-23
+Learn: none (items 16-23).
 List every assumption made in items 16-23. Check: at least 4 of these, in the learner's words: each link's weight acts at its middle (uniform link); g = 9.81 m/s²; links are rigid (don't bend); joints have no friction; the arm is still (not moving or speeding up); masses are exact; the tip weight acts at one point at the tip; all weights point straight down.
 Result:
 
 ### [ ] T23 Measure: ruler + weight balanced on a pencil, check one torque, 3 sentences
+Learn: none (T19).
 Given: a 30 cm ruler balanced on a pencil (find its balance point first), ten 1-yen coins (1 g each). Put 4 coins 5 cm left of the pencil. Predict where 2 coins must go on the right to balance, then try it. Answer: prediction **10 cm** right (4 × 5 = 2 × 10). Check: prediction written before trying; measured distance with units; three sentences: predicted, measured, why they differ (e.g. coins' centers, ruler not perfectly centered, pencil is not a point). Photo goes to `Mechatronics/portfolio/`.
 Result:
 
 ### [ ] T25 FEM in plain words: what it does and why hand calcs check it
+Learn: video "Understanding the Finite Element Method", The Efficient Engineer (YouTube, about 18 min).
 FEM in plain words. Check: all three: (1) the software splits a part into many small simple pieces; (2) it solves simple equations for each piece and joins them up; (3) hand calcs check it because the software gives an answer for any input, even wrong loads, units or supports, and a rough hand number catches those mistakes.
 Result:
 
 ### [ ] T26 0.4 deliverable: FBD of the 2-link arm holding 0.5 kg at full horizontal extension, shoulder holding torque with units
+Learn: none (T12, T19).
 Given: the 2-link arm (each link 0.2 m, 0.05 kg) straight out horizontal, holding 0.5 kg at the tip. Draw the free-body diagram of the whole arm and find the shoulder holding torque. Answer: 0.196 + 4.905 × 0.4 = **2.16 N·m** (accept 2.1–2.2). Check: drawing has link 1 weight at 0.1 m, link 2 weight at 0.3 m, load 4.9 N at 0.4 m, all down; at the shoulder an upward force (5.9 N) and a holding twist (the torque); number with units.
 Result:
 
 ### [ ] T27 0.4 Full: what happens to shoulder torque if the elbow extends further
+Learn: none (T26).
 Given: same as item 26, but link 2 is 0.3 m long (still 0.05 kg). Predict bigger or smaller, then compute the shoulder torque. Answer: 0.49 × 0.1 + 0.49 × 0.35 + 4.905 × 0.5 = **2.67 N·m** (accept 2.6–2.75). Check: predicted bigger; number with units; says why: the load moved farther from the shoulder.
 Result:
 
 ### [ ] T28 0.4 Full: reaction forces at the base
+Learn: none (T12).
 Given: the item 26 arm, shoulder bolted to a base. What force and what twist does the base give the arm? Answer: **5.89 N up** (accept 5.8–6.0; the arm's total weight, 0.6 kg × 9.81), **0 N sideways**, **2.16 N·m** twist. Check: all three with units; says the up force equals the total weight because nothing else holds the arm up.
 Result:
 
 ### [ ] S1 Measure one length 10 times with a ruler: mean and range, with units
+Learn: Khan Academy, "Measures of spread: range, variance & standard deviation" (video; mean and range).
 Given: pick one object (e.g. the long side of your phone). Measure it 10 times with a ruler, to the nearest 0.5 mm, lifting the ruler between readings. Write all 10, then the mean and the range. Answer: the learner's own data. Check: 10 readings with units; Haiku recomputes the mean with `python3 -c "import statistics as s; print(s.mean([...]))"` (within 2%); range = largest − smallest, with units.
 Result:
 
 ### [ ] S2 Standard deviation of those 10 by hand; what it means in plain words
+Learn: Khan Academy, "Standard deviation: calculating step by step" (article), then "Sample standard deviation and bias" (video; why n − 1).
 Given: the 10 readings from S1. Find the standard deviation by hand and say what it means. Answer: s = √(Σ(x − mean)² / (n − 1)). Check: Haiku recomputes with `statistics.stdev` (or `statistics.pstdev` if the learner divided by n and said so), within 2%; units mm; plain words: about how far a typical reading sits from the mean.
 Result:
 
 ### [ ] S3 Item 2's tip: is predicted − measured bigger than the spread? Say what that tells you
+Learn: none (S2).
 Given: item 2's predicted and measured tip position (`Mechatronics/portfolio/0.3-2link-fk-tip.md`) and the S2 standard deviation. Is predicted − measured bigger than the reading spread? Check: the difference with units; compared with about 2 × s; says: much bigger → a real error in the model or setup, not reading noise; smaller → can't tell it apart from reading noise.
 Result:
 
 ### [ ] S4 Same mean and standard deviation in Python (numpy); match the hand numbers
+Learn: numpy documentation, numpy.std (the ddof argument).
 Given: the S1 readings. Compute the mean and standard deviation in Python with numpy. Check: uses `np.mean` and `np.std(..., ddof=1)` (or ddof=0 matching S2's choice); numbers match S2 within 2%; says in plain words that ddof=1 divides by n − 1.
 Result:
 

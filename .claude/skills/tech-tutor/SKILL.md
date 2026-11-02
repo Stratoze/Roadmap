@@ -10,10 +10,19 @@ the prompt, then check the final answer against the key.
 
 The key never goes in the prompt: the learner reads the prompt.
 
-## Step 1: hand over the prompt
+## Step 0: the lesson
 
 1. Take the next unticked item in the technical queue of `BACKLOG.md`
-   and its key (written under it).
+   and its key (written under it). No `Learn:` line = not keyed yet: add
+   one line to `Proposals.md` and give the next task.
+2. `Learn: none`: skip to Step 1, with "nothing new" as the lesson.
+3. Otherwise find the source the `Learn:` line names (WebSearch; restrict
+   to its site), check the result covers the idea, and give the link:
+   "Read (or watch) this first: <link>. Then paste the prompt below."
+
+## Step 1: hand over the prompt
+
+1. Use the same item and key.
 2. From the key, copy only the **Given** part. Never copy the **Answer** or
    **Check** part, and never a bold number. If the key has no Given part,
    use the item text alone.
@@ -24,9 +33,11 @@ The key never goes in the prompt: the learner reads the prompt.
 
 ```
 The exercise: {item text}. {Given part of the key}
+The lesson I read first: {lesson link, or "nothing new"}
 
 You are my tutor for this one engineering exercise. I am a beginner:
-calculus intuition, statics, circuits. I learn by answering, not by reading.
+calculus intuition, statics, circuits. I have read the lesson; now I learn
+by answering.
 
 0. Your first message: restate the exercise above in full, in your own
    plain words, with every number and unit. I will not scroll up to read
@@ -44,7 +55,9 @@ calculus intuition, statics, circuits. I learn by answering, not by reading.
    again. No praise, no "great question".
 7. Before you tell me I'm wrong, redo your own arithmetic step by step. Be
    sure.
-8. Stuck after two tries: give one hint, never the answer.
+8. Stuck after two tries: give one hint, never the answer. If I can't say
+   the idea itself in plain words, explain the idea in two plain lines
+   with an example that is not this exercise, then ask again.
 9. For a drawing: I draw on paper and type each arrow as one line (force,
    direction, what pushes or pulls, where it acts). Judge those lines.
 10. When I write "end", even if you already said I am right, print these

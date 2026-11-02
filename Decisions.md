@@ -20,6 +20,34 @@ before changing a rule. Newest sections first.
 
 ## Proposals decided (from `Proposals.md`)
 
+### 2026-11-02: system check (learner called Opus)
+- **Technical had no lesson step (learner found it).** Japanese reads a
+  Tofugu page before every quiz; technical went straight to a tutor told
+  "I learn by answering, not by reading" and "never give the first step".
+  So a new idea (normal force, friction, standard deviation, Ohm's law)
+  had nowhere to be taught. Cause: the 10-17 move to a Socratic tutor
+  assumed the tutor taught, and every later review (10-25, 11-01) checked
+  grading and dead ends, never where an idea is first met. The 11-01
+  lesson-links ruling was written for Japanese only. Fix: every technical
+  key opens with a `Learn:` line (source named by Opus, link found by
+  Haiku, as with grammar); a key without one counts as not keyed, so the
+  existing "no key" pull signal catches it; the tutor may explain the
+  idea (never the answer) when the learner can't say it after the lesson.
+  Sources: Khan Academy (articles and videos), OpenStax, LibreTexts, or
+  one named video. Videos allowed because the learner asked and Khan
+  pairs each article with one; other YouTube only when a key names it,
+  because Haiku can't watch a video to check it.
+- **G15 Q2 counted right (4 of 4):** "What day is it today?" also asks the
+  date in English; the learner's 今日は何日ですか answered that reading.
+  The key was at fault. Prompt reworded. Other grammar prompts G17-G26
+  checked: none has two readings.
+- **Chat corrections 11-02 stand:** 朝は食べません (私が wrongly focuses on
+  私; habit reading fits) and 明日は土曜日です (politeness, not grammar).
+  Haiku's note that が is untaught was wrong: 4 は vs が is taught.
+- **Not fixed, noted:** chat NEW WORDS go to the log and are never seen
+  again (no review step); kanji for N4 is covered only through Kaishi.
+  Neither blocks today's work.
+
 ### 2026-11-02: maps (learner called Opus)
 - **Mechatronics map cut to the Phase 0 capstone:** the old 5-phase QDD-arm
   plan summed to roughly 1-2 years of full effort and still referred to

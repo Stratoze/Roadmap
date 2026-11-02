@@ -44,13 +44,15 @@ tasks that fit you.
 - **Sonnet:** coursework grilling (`grill`).
 - **Opus:** runs only when the learner calls it (no scheduled tasks,
   routines or reminders, ever). Works `Proposals.md`: keys and items for
-  `BACKLOG.md`, rulings, Phase 2+ work.
+  `BACKLOG.md`, rulings, Phase 2+ work. Every key says where its idea is
+  taught (grammar: the lesson page; technical: the `Learn:` line).
 
 A task with no key waits in `Proposals.md` for Opus: add it in one line,
 then give the next task in the same reply. Never end a reply on "that's
 for Opus". A learner question with no key (what a particle marks, how
 something works): open a page on it (Japanese: Tofugu, Cure Dolly,
-yoku.bi, Imabi), answer from that page in two lines, and give the link. If Haiku accepts a
+yoku.bi, Imabi; technical: the sources in "Technical"), answer from that
+page in two lines, and give the link. If Haiku accepts a
 wrong answer, that task type moves to Sonnet at the next Opus call.
 
 ## Files
@@ -150,6 +152,18 @@ three sentences (predicted, measured, why they differ).
 
 > がっこうに たべます → がっこうで たべます. で marks the place where the
 > action happens; に marks a point you go to.
+
+## Technical
+
+- **Lesson first**, as with grammar: every technical key opens with a
+  `Learn:` line naming the idea and its source. Before the tutor prompt,
+  find that page or video (WebSearch), check it covers the idea, and give
+  the link; the learner reads or watches it, then starts the tutor.
+  `Learn: none` means the idea was taught by an earlier item.
+- Sources: Khan Academy (articles and videos), else OpenStax, LibreTexts
+  (Engineering Statics, Baker and Haynes), or the one video a `Learn:`
+  line names. Lesson minutes count as minutes on items.
+- A technical key without a `Learn:` line is not keyed yet.
 
 ## Explainer pages
 

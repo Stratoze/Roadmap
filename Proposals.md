@@ -28,12 +28,8 @@ its decision. Haiku never acts on an item here.
 
 ## Open
 
-- 2026-11-02, from the learner (G15 quiz Q2): the prompt "Ask What day is it today?" is ambiguous in English (date, 何日, or weekday, なんようび). Learner typed 今日は何日ですか and objects that it counts as wrong. Key counts なんようび (the Rule says "what day" is なんようび). Opus to rule: reword the prompt, or accept 何日, and whether the score stands.
-
-- 2026-11-02, from the external chat: "あさは私がたべません → 朝は食べません". The question was 朝何を食べましたか (past), so the fix keeps the present tense (ません, not ませんでした). The chat also explains が as "focus on the subject", which is not in the taught list (4 は vs が). Check the tense and the explanation.
-- 2026-11-02, from the external chat: "あしたは土曜日 → 明日は土曜日です". The fix uses です, which is not on the taught list and has no "(not taught yet)" tag. Check whether the fix is needed and whether です is taught.
-- 2026-11-02, from the learner: the repo has no rule for learning mechatronics from videos or web pages. AGENTS.md names Japanese sources only (Tofugu, Cure Dolly, yoku.bi, Imabi). Opus to decide: which sources (videos, pages) are allowed for statics and circuits, and whether they teach the idea before the hand exercise or only support it.
+(none)
 
 ## Done
 
-Decided items move to `Decisions.md` (last: 2026-11-01).
+Decided items move to `Decisions.md` (last: 2026-11-02, system check).
