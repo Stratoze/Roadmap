@@ -28,7 +28,7 @@ its decision. Haiku never acts on an item here.
 
 ## Open
 
-(none)
+- 2026-11-03 (Haiku, session, process gap): Haiku wrote its own chat prompt and told the learner no master prompt existed. Cause: the `jp-chat` text loaded in this session had no Step 1 template; `.claude/skills/jp-chat/SKILL.md` on disk has it. Haiku did not open the file before handing over the prompt. Fix needed: Opus confirms the loaded skill text matches the file, and Haiku reads the file on disk before any prompt. Learner was given the real template at 11-03.
 
 ## Done
 
