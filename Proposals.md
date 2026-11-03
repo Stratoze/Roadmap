@@ -28,7 +28,7 @@ its decision. Haiku never acts on an item here.
 
 ## Open
 
-(none)
+- 2026-11-03 (Haiku, session): `jp-chat` has no template for the external chat prompt, so Haiku wrote one by mistake in the session. Needed: a keyed chat prompt template in `.claude/skills/jp-chat/SKILL.md` (or BACKLOG), so Haiku copies it. Until then, paste only the opener line.
 
 ## Done
 
