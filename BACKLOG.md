@@ -13,6 +13,7 @@ score or final answer, slips).
 
 - G15 passed 11-02 (4 of 4). Next grammar: G17. New order (11-02): read
   the page at the end of a session, take the quiz at the start of the next.
+- T10 passed 11-03. Next technical: T11 (friction article).
 - Review questions start with G13's `Variant:` (oldest passed item with one).
 
 ## Chat openers (next unused first)
@@ -268,11 +269,11 @@ as a review a week or more later). Units required.
 Number answers: within about 2% unless a range is given. g = 9.81 m/s².
 Done: 1-9, 13, 14, 16, 17, 18.
 
-### [ ] T10 FBD: book resting on a table (every force, arrow, label)
+### [x] T10 FBD: book resting on a table (every force, arrow, label)
 Learn: Khan Academy, "What is normal force?" (article): https://www.khanacademy.org/science/revision-term-1-tg-physics-class-11/xb0b4a99ad77431f6:week-2/xb0b4a99ad77431f6:laws-of-motion/a/what-is-normal-force
 Book resting on a table. Check: exactly 2 forces: weight (down, from Earth, at the book's center) and normal force (up, from the table), same length arrows, labelled. Wrong if: a "force of the table" pointing down on the book, or unequal arrows.
 Variant: A phone lies still on a desk. Name every force on it and its direction. → 2: weight down (from Earth), normal force up (from the desk), equal size.
-Result:
+Result: 11-03 (Gemini tutor). Final answer: weight, downward, Earth pulls the book, center; normal force, upward, surface pushes, bottom face. Check passed (both forces, direction, source, point; equal arrow lengths after a prompt). Variant passed 11-03, no help: gravity down, normal up; friction and air left out as out of scope.
 
 ### [ ] T11 FBD: book pushed sideways but not sliding
 Learn: Khan Academy, "What is friction?" (article; the static friction part).

@@ -19,6 +19,7 @@ item logs (final answers, WHERE I STRUGGLED) go to `Learned/log/technical.md`.
 
 - Hedges before committing ("probably", "ish").
 - Gives the rule or formula before the concrete number.
+- 'Normal' taken as 'net force zero', not perpendicular (11-03, T10); unbalanced net force said to cause motion, not acceleration (11-03).
 - Units dropped, added after a prompt.
 - Skims the exercise text; needs the given sentences quoted back.
 - Avoids mental arithmetic (phone calculator is fine).

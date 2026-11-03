@@ -34,3 +34,5 @@ Append-only history: quiz results, chat corrections, new words, item logs, with 
 ## Not earned (explain in plain words instead)
 - "first-order"
 - "integral" (says "interval"), "accumulation", "displacement"
+
+- 2026-11-03 item T10 (FBD: book on a table). Final answer: weight down from Earth at center; normal force up from the surface at the bottom face. Check passed; Variant passed with no help (gravity down, normal up; friction and air left out). Tutor: Gemini (AI Studio). Where the learner struggled: hedged on naming the single agent and point for weight; took "normal" to mean net force zero, not perpendicular (the tutor pointed to geometry); said an unbalanced net force causes motion, not acceleration; equal arrow lengths only after a prompt.
