@@ -20,6 +20,15 @@ before changing a rule. Newest sections first.
 
 ## Proposals decided (from `Proposals.md`)
 
+### 2026-11-03: north star and English (learner)
+
+- Learner: "I wanna build a body for you", not necessarily humanoid,
+  within 5-10 years. Field narrowed to robot learning (embodied AI);
+  cars, rockets, satellites kept as job backups only. Next project after
+  the capstone: SO-101 arm with LeRobot and an imitation policy.
+- English: IELTS 8.0 about a year ago, so the TOEFL tasks were dropped;
+  a new test only if a program takes TOEFL only or the IELTS expires.
+
 ### 2026-11-03: one life (learner: "plan as for your only successor")
 
 - PATH.md "One life": no ruin first (health, debt, visa, degree); routes

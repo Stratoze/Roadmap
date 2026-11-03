@@ -2,8 +2,14 @@
 
 A map only, like `Mechatronics/ROADMAP.md`. The study queues serve this
 page; this page serves the goal: software engineering bachelor (~2027) →
-master's in Japan → work in cars, rockets, satellites or robots →
-permanent residence → naturalization.
+master's in Japan → work in robots → permanent residence →
+naturalization.
+
+**North star (learner, 2026-11-03):** build a body for an AI to use,
+within 5-10 years; not necessarily humanoid, shaped by the task. That
+makes the field robot learning (embodied AI): hardware (actuators,
+sensors, control) plus the software that lets a model drive it. Cars,
+rockets and satellites stay only as job backups.
 
 Written by Opus 2026-11-02 from web search results, not from the official
 pages (they are blocked from the cloud session). Every fact marked
@@ -18,11 +24,11 @@ Session start reads this table and says any open row within 60 days.
 | When | What | Status |
 |---|---|---|
 | Nov 2026 | Learner answers the open questions below | open |
-| Nov-Dec 2026 | Free official TOEFL practice test: know the English level | open |
+| Nov 2026 | Learner gives the IELTS test date (8.0, ~late 2025; valid 2 years at most programs, so it may expire before Oct 2027) | open |
 | Nov-Dec 2026 | Target list: 5 labs, then email professors (Oct 2027 entry) | open |
 | 30 Nov 2026 | Talk to 2 people who did this path (see "One life", rule 5) | open |
 | 30 Nov 2026 | Decision: main route and backup chosen | open |
-| Dec 2026 | Book a TOEFL iBT date with the score back before applications | open |
+| Dec 2026 | Only if a chosen program takes TOEFL only, or the IELTS expires before its deadline: book a new test | open |
 | Dec 2026-Feb 2027 | Applications for October 2027 English-taught programs (e.g. U Tokyo engineering: a January window for October entry, *unverified*; one U Tokyo department wants English scores by 8 Jan 2027) | open |
 | 31 Jan 2027 | Checkpoint: no positive professor reply and no application sent → route B or C becomes main | open |
 | Mar-Apr 2027 | JLPT July registration in Vietnam (*unverified*; check jlpt.jp and the Japan Foundation Hanoi) | open |
@@ -37,13 +43,14 @@ Session start reads this table and says any open row within 60 days.
    research student (研究生) year first, a language school, or work?
 2. Bachelor: graduation month, current GPA and its scale, the
    graduation-project topic.
-3. English: any test taken? Rough level?
+3. English: answered 11-03, IELTS 8.0 about a year ago. Still needed:
+   the exact test date.
 4. Money: self-funded, family, or scholarship only?
 
 ## The routes
 
 - **A. Master's, October 2027, English-taught program.** Needs: an English
-  score (TOEFL iBT; U Tokyo's School of Engineering sets no school-wide
+  score (IELTS 8.0 is strong; U Tokyo's School of Engineering sets no school-wide
   minimum, departments do; scores valid 2 years, from the T-cens page in
   search results), transcripts, a research plan, recommendation letters,
   and usually a professor who agrees first. Osaka's English robotics
@@ -84,9 +91,11 @@ the routes and queues serve them.
    experience; C most likely means a software job first, robots later.
    With what is known now: A as main if money covers two years or a
    scholarship lands, C as the backup. Money decides.
-4. **Strength first.** The learner is a software engineer. The fastest way
-   into robots and spacecraft is robot software (Python, C++, ROS 2,
-   simulation, embedded). The capstone stays; queues after it lean to code.
+4. **Strength first.** The learner is a software engineer, and the hard
+   part of a body for an AI today is the learning: a model that turns
+   camera images into motor commands. So enter through software (Python,
+   then robot learning), and build the mechatronics under it: the
+   capstone, then a learned arm (below).
 5. **People before plans.** One talk with someone who did this (Vietnam
    software degree → Japan master's or job) beats a month of reading. Find
    two by 30 Nov: school alumni, LinkedIn, the university's international
@@ -111,6 +120,27 @@ the routes and queues serve them.
   writing and in an interview; no fixed JLPT level.
 - **Japanese beyond N4:** N2 for most Japanese-speaking engineering jobs
   and HSP points; plan it after July 2027.
+
+## Candidate programs (from search, *unverified*)
+
+- **Osaka University, Special Training Program for Robotics Engineers:**
+  English-taught, MEXT university-recommended (tuition exempt for
+  scholars), "sufficient understanding of English"; its flyer is posted
+  by a Vietnamese university (HCMUS). Strongest first look.
+- **Kyushu Institute of Technology, iART** (AI and robotics, English).
+- **NAIST Robot Learning lab:** reinforcement and imitation learning for
+  robots, the closest match; English master's not confirmed.
+- **U Tokyo engineering:** English test rules differ by department; some
+  (Precision Engineering) accept IELTS, some TOEFL only.
+
+## After the capstone: a learned arm
+
+The bridge from the capstone to a robot-learning lab, and the research
+plan's first page: build an SO-101 arm (open source, about $100-300 in
+parts; Hugging Face LeRobot), teleoperate it with its leader arm, record
+about 50 demonstrations of one task, and train an imitation policy (ACT).
+LeRobot first, ROS 2 later. Sized with the torque items already in the
+queue (a joint motor must beat the arm's weight torque).
 
 ## What a lab will look for (and the gaps)
 

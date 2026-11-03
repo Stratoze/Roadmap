@@ -36,9 +36,8 @@ score or final answer, slips).
 - [ ] By 30 Nov: talk to 2 people who went from a Vietnam software degree
   to a Japan master's or job (alumni, LinkedIn, international office).
   Ask what they'd do a year earlier, what it cost, who decided. Tell Opus.
-- [ ] Take the free official TOEFL practice test (ETS) once: the English
-  level decides whether a test date is needed before the January
-  applications.
+- [x] English level (11-03): IELTS 8.0, about a year ago. Still open:
+  give Opus the exact test date (validity).
 - [ ] Take the official JLPT N5 sample questions (jlpt.jp) once, as a
   baseline; give Haiku the score to log.
 - [ ] Allow khanacademy.org, tofugu.com, openstax.org, jlpt.jp in this
