@@ -20,8 +20,11 @@ Session start reads this table and says any open row within 60 days.
 | Nov 2026 | Learner answers the open questions below | open |
 | Nov-Dec 2026 | Free official TOEFL practice test: know the English level | open |
 | Nov-Dec 2026 | Target list: 5 labs, then email professors (Oct 2027 entry) | open |
+| 30 Nov 2026 | Talk to 2 people who did this path (see "One life", rule 5) | open |
+| 30 Nov 2026 | Decision: main route and backup chosen | open |
 | Dec 2026 | Book a TOEFL iBT date with the score back before applications | open |
 | Dec 2026-Feb 2027 | Applications for October 2027 English-taught programs (e.g. U Tokyo engineering: a January window for October entry, *unverified*; one U Tokyo department wants English scores by 8 Jan 2027) | open |
+| 31 Jan 2027 | Checkpoint: no positive professor reply and no application sent → route B or C becomes main | open |
 | Mar-Apr 2027 | JLPT July registration in Vietnam (*unverified*; check jlpt.jp and the Japan Foundation Hanoi) | open |
 | Apr-Jun 2027 | MEXT Embassy Recommendation round for 2028 entry (the 2027 round ran April to early June 2026; it is closed) | open |
 | 4 Jul 2027 | JLPT N4 (first Sunday of July, *unverified*) | open |
@@ -55,6 +58,45 @@ Session start reads this table and says any open row within 60 days.
   (consultancy sources, *unverified*). A master's can come later, or not.
 
 Pick one main route and one backup once the open questions are answered.
+
+## One life (how Opus would run it, 2026-11-03)
+
+The learner asked: plan as for an only successor with one life, who
+varies day to day, not as a student to tutor. These rules come first;
+the routes and queues serve them.
+
+1. **No ruin.** Guard what cannot be undone before anything else:
+   - Health: sleep and Vovinam first (fitness is tracked outside the repo).
+   - Debt: never pay a broker or study agency; apply direct to
+     universities and employers. Vietnamese trainees arrived with about
+     674,000 yen of debt on average (2022 report, via Viet Nam News).
+   - Visa status: never work past the legal limit (28 h a week for
+     students).
+   - The bachelor's degree: graduate on time; nothing here outranks it.
+2. **Parallel, not one after another.** Apply on route A and route C at
+   the same time and take the better offer. Applications are cheap; a lost
+   year is not.
+3. **A vs C, honestly.** A gives a lab, the hardware side the software
+   degree lacks, company recruiting through the lab, and 10 more HSP
+   points (master's 20, bachelor 10). It costs about two years of fees and
+   living. C earns from day one and starts the residence clock, but the
+   English-only robotics roles found (Mujin, Astroscale) mostly ask for
+   experience; C most likely means a software job first, robots later.
+   With what is known now: A as main if money covers two years or a
+   scholarship lands, C as the backup. Money decides.
+4. **Strength first.** The learner is a software engineer. The fastest way
+   into robots and spacecraft is robot software (Python, C++, ROS 2,
+   simulation, embedded). The capstone stays; queues after it lean to code.
+5. **People before plans.** One talk with someone who did this (Vietnam
+   software degree → Japan master's or job) beats a month of reading. Find
+   two by 30 Nov: school alumni, LinkedIn, the university's international
+   office. Ask: what they wish they had done a year earlier, what it cost,
+   and who decided their admission or hire.
+6. **Dated decisions.** Each decision has a date and a trigger (Deadlines
+   table), so a bad month changes the route on purpose, not by drift.
+7. **Fallback without ruin.** No offer at graduation: work a year (in
+   Vietnam at a Japan-linked company, or remote), keep Japanese going, and
+   reapply. A language school only if chosen and paid directly.
 
 ## After arrival
 

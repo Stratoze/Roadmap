@@ -33,6 +33,9 @@ score or final answer, slips).
 - [ ] **First (PATH.md):** answer the four open questions in `PATH.md`
   (September 2027 plan; graduation month and GPA; English level; money).
   Everything below in PATH depends on them.
+- [ ] By 30 Nov: talk to 2 people who went from a Vietnam software degree
+  to a Japan master's or job (alumni, LinkedIn, international office).
+  Ask what they'd do a year earlier, what it cost, who decided. Tell Opus.
 - [ ] Take the free official TOEFL practice test (ETS) once: the English
   level decides whether a test date is needed before the January
   applications.

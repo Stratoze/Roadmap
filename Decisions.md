@@ -20,6 +20,15 @@ before changing a rule. Newest sections first.
 
 ## Proposals decided (from `Proposals.md`)
 
+### 2026-11-03: one life (learner: "plan as for your only successor")
+
+- PATH.md "One life": no ruin first (health, debt, visa, degree); routes
+  A and C applied in parallel; A vs C weighed (money decides); software
+  strength first; talk to 2 people who did it; dated decisions with
+  triggers (30 Nov route choice, 31 Jan checkpoint); fallback without
+  brokers. Sources: search results (HSP points table, Mujin and Astroscale
+  listings, broker-debt reports), not official pages.
+
 ### 2026-11-02: goal path (learner: "would any expert be content with that?")
 - **The repo had no route to the goal.** Study queues existed; admission
   (programs, labs, professors, research plan), the English test,
