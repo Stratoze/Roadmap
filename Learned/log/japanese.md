@@ -72,6 +72,8 @@ Append-only history: quiz results, chat corrections, new words, item logs, with 
 - 2026-11-02 (external chat): あしたは土曜日 → 明日（あした） は 土曜日（どようび） です。 The polite copula form です marks politeness when ending a sentence on a noun.
 - 2026-11-02 (external chat): ゲムを作ります → ゲーム を 作（つく）ります。 The katakana word requires a long vowel mark (ゲーム), and the particle を marks the direct object of the action.
 
+2026-11-03 (external chat, opener 2, 5 replies): corrections none.
+
 ## Kana
 - Hiragana: solid. Small ゃゅょ: one slip (としよかん → としょかん)
 - Katakana: slow
@@ -166,3 +168,16 @@ Comprehensible Japanese 30 min (learner-reported, episode not reported). Tadoku 
 Asked: say "I eat at 8 o'clock tomorrow." Answer: あしたは8じにたべます. Clock time に right. は after あした is a topic marker, not in the key (key: あした 八時に たべます). Counted as a slip; the tick stays.
 
 Correction (2026-11-03, same day): あしたは8じにたべます is correct. は marks the topic ("as for tomorrow") and is used after time words; the G13 point is に on the clock time and no に after あした. The earlier "slip" call was wrong. The tick stays.
+
+2026-11-03 (external chat)
+学校 (がっこう) school
+教室 (きょうしつ) classroom
+友だち (ともだち) friend
+食堂 (しょくどう) cafeteria
+昼ご飯 (ひるごはん) lunch
+パン (ぱん) bread
+二つ (ふたつ) two (things)
+明日 (あした) tomorrow
+土曜日 (どようび) Saturday
+家 (うち) home / house
+何時 (なんじ) what time
