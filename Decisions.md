@@ -20,6 +20,12 @@ before changing a rule. Newest sections first.
 
 ## Proposals decided (from `Proposals.md`)
 
+### 2026-11-03: procedure cadence (learner)
+
+- Procedure is touched at most once a month, unless a gap stops learning
+  (like the missing lesson step, 11-02). Reason: two days went to
+  procedure while T10 waited.
+
 ### 2026-11-03: money and plan (learner)
 
 - Parents pay the master's and living costs (they had planned New York;

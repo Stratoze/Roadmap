@@ -44,7 +44,8 @@ If a task needs a bigger model than you, say "This task needs Sonnet. Run
   skill templates; it never writes a key, question, opener or prompt.
 - **Sonnet:** coursework grilling (`grill`).
 - **Opus:** runs only when the learner calls it (no scheduled tasks or
-  reminders, ever). Works `Proposals.md` and `PATH.md`. Writes every key:
+  reminders, ever). Changes procedure at most once a month, unless a gap
+  stops learning. Works `Proposals.md` and `PATH.md`. Writes every key:
   each says where its idea is taught (grammar: the lesson page;
   technical: `Learn:`) and has a `Variant:` question.
 

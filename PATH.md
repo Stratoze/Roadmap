@@ -42,7 +42,9 @@ Session start reads this table and says any open row within 60 days.
 1. Plan: answered 11-03. A master's first (parents' plan: U Tokyo), work
    after. Open: master's straight in, or a research-student year first.
 2. Bachelor: graduation month, current GPA and its scale, the
-   graduation-project topic.
+   graduation-project topic. Opus's advice: if the topic can still be
+   chosen, make it the capstone or the learned arm, so one project serves
+   the degree, the application and the north star.
 3. English: answered 11-03, IELTS 8.0 about a year ago. Still needed:
    the exact test date.
 4. Money: answered 11-03. Parents pay the master's and living costs; their
