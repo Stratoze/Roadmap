@@ -164,3 +164,5 @@ Comprehensible Japanese 30 min (learner-reported, episode not reported). Tadoku 
 
 2026-11-03 (review G13, Variant)
 Asked: say "I eat at 8 o'clock tomorrow." Answer: あしたは8じにたべます. Clock time に right. は after あした is a topic marker, not in the key (key: あした 八時に たべます). Counted as a slip; the tick stays.
+
+Correction (2026-11-03, same day): あしたは8じにたべます is correct. は marks the topic ("as for tomorrow") and is used after time words; the G13 point is に on the clock time and no に after あした. The earlier "slip" call was wrong. The tick stays.

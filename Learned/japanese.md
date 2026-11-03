@@ -26,7 +26,6 @@ Taught = passed its quiz. Solid = used right in chat on a later day.
 - Long vowels and small kana: がっこう, にじゅう, ソーダ, としょかん.
 - Particles written by spelling, not sound: は, を, へ (not わ, お, え).
 - いき / き: went vs came.
-- No particle after a relative time word: あしたは8じに (11-03, G13 review). The clock time takes に; あした takes nothing.
 - に after relative time words (明日に いきます → あした いきます); only a
   clock time takes に.
 - Voicing in compounds: 友だち is ともだち, not ともたち (11-02).
