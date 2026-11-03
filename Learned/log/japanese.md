@@ -161,3 +161,6 @@ See the grammar queue in `BACKLOG.md`.
 
 2026-11-03 (input)
 Comprehensible Japanese 30 min (learner-reported, episode not reported). Tadoku 2 books (learner-reported, minutes not reported).
+
+2026-11-03 (review G13, Variant)
+Asked: say "I eat at 8 o'clock tomorrow." Answer: あしたは8じにたべます. Clock time に right. は after あした is a topic marker, not in the key (key: あした 八時に たべます). Counted as a slip; the tick stays.
