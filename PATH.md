@@ -86,7 +86,8 @@ the routes and queues serve them.
    year is not.
 3. **A vs C, honestly.** A gives a lab, the hardware side the software
    degree lacks, company recruiting through the lab, and 10 more HSP
-   points (master's 20, bachelor 10). It costs about two years of fees and
+   points (master's 20, bachelor 10), and two years to reach N2 before the
+   job (learner's point). It costs about two years of fees and
    living. C earns from day one and starts the residence clock, but the
    English-only robotics roles found (Mujin, Astroscale) mostly ask for
    experience; C most likely means a software job first, robots later.
@@ -107,7 +108,10 @@ the routes and queues serve them.
 7. **The lab is the learner's choice.** Contacts can handle housing and
    paperwork; admission is the professor and the exam, and the lab decides
    the two years, the network and the research plan. Choose it by the north
-   star. If a helper charges fees, rule 1 applies.
+   star. If a helper charges fees, rule 1 applies. Hardware is the
+   learner's own (3D printer, circuits; machining through local shops,
+   found by networking). What only a lab gives: the supervisor, peers,
+   GPUs for training, and the degree.
 8. **Startup: job first, startup beside it, startup alone later.** The
    risk is not volatility but the visa: before permanent residence, the
    right to stay hangs on the job or school. Order: degree; a stable job at
@@ -131,8 +135,13 @@ the routes and queues serve them.
   Ministry of Justice screens for about 10 years of residence
   (several secondary sources, *unverified*). Japanese is checked in
   writing and in an interview; no fixed JLPT level.
-- **Japanese beyond N4:** N2 for most Japanese-speaking engineering jobs
-  and HSP points; plan it after July 2027.
+- **Japanese beyond N4:** the master's is also the Japanese buffer
+  (learner, 11-03): two years in Japan before the job. Milestones: N4 July
+  2027, N3 December 2027, N2 December 2028 (job hunting starts about a
+  year before graduation), N1 after (HSP +15). The risk: an English
+  program and English lab-mates let Japanese stall. Keep the daily track,
+  and pick a lab with Japanese students and a part-time job in Japanese
+  (within the student limit).
 
 ## Candidate programs (from search, *unverified*)
 
