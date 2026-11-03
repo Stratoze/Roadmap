@@ -30,9 +30,13 @@ score or final answer, slips).
 
 ## Learner tasks (mention one once if open)
 
-- [ ] **First (PATH.md):** answer the four open questions in `PATH.md`
-  (September 2027 plan; graduation month and GPA; English level; money).
-  Everything below in PATH depends on them.
+- [ ] **First (PATH.md):** still open: graduation month, GPA and scale,
+  graduation-project topic, and the IELTS test date (plan, money and
+  English answered 11-03).
+- [ ] Open the U Tokyo Mechano-Informatics AY2027 application guide on
+  your phone (https://www.i.u-tokyo.ac.jp/edu/course/m-i/pdf/MI-application2027e.pdf):
+  tell Opus the English test, exam dates and entry month. Also add
+  i.u-tokyo.ac.jp to the allowed domains.
 - [ ] By 30 Nov: talk to 2 people who went from a Vietnam software degree
   to a Japan master's or job (alumni, LinkedIn, international office).
   Ask what they'd do a year earlier, what it cost, who decided. Tell Opus.

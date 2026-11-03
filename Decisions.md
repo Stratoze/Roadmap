@@ -20,6 +20,17 @@ before changing a rule. Newest sections first.
 
 ## Proposals decided (from `Proposals.md`)
 
+### 2026-11-03: money and plan (learner)
+
+- Parents pay the master's and living costs (they had planned New York;
+  the learner chose Japan). Their plan is U Tokyo; contacts help with
+  housing. Route A is main, MEXT dropped from the deadlines (not needed).
+- Lab choice stays with the learner (PATH rule 7). First lab to read:
+  U Tokyo IST Mechano-Informatics, JSK (Kawaharazuka, robot foundation
+  models); its guides name TOEFL, so the TOEFL row came back.
+- Startup (learner asked): job first, side project within the visa,
+  startup alone once residence no longer hangs on an employer (rule 8).
+
 ### 2026-11-03: north star and English (learner)
 
 - Learner: "I wanna build a body for you", not necessarily humanoid,

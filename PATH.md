@@ -23,29 +23,30 @@ Session start reads this table and says any open row within 60 days.
 
 | When | What | Status |
 |---|---|---|
-| Nov 2026 | Learner answers the open questions below | open |
+| Nov 2026 | Learner answers the open questions below (money, plan and English answered 11-03) | open |
+| Nov 2026 | Learner reads the U Tokyo Mechano-Informatics AY2027 application guide on the phone (blocked here): test, dates, entry month | open |
 | Nov 2026 | Learner gives the IELTS test date (8.0, ~late 2025; valid 2 years at most programs, so it may expire before Oct 2027) | open |
 | Nov-Dec 2026 | Target list: 5 labs, then email professors (Oct 2027 entry) | open |
 | 30 Nov 2026 | Talk to 2 people who did this path (see "One life", rule 5) | open |
 | 30 Nov 2026 | Decision: main route and backup chosen | open |
-| Dec 2026 | Only if a chosen program takes TOEFL only, or the IELTS expires before its deadline: book a new test | open |
+| Dec 2026 | Book TOEFL iBT if the target is U Tokyo IST (its guides name TOEFL, not IELTS), or if the IELTS expires first | open |
 | Dec 2026-Feb 2027 | Applications for October 2027 English-taught programs (e.g. U Tokyo engineering: a January window for October entry, *unverified*; one U Tokyo department wants English scores by 8 Jan 2027) | open |
 | 31 Jan 2027 | Checkpoint: no positive professor reply and no application sent → route B or C becomes main | open |
 | Mar-Apr 2027 | JLPT July registration in Vietnam (*unverified*; check jlpt.jp and the Japan Foundation Hanoi) | open |
-| Apr-Jun 2027 | MEXT Embassy Recommendation round for 2028 entry (the 2027 round ran April to early June 2026; it is closed) | open |
 | 4 Jul 2027 | JLPT N4 (first Sunday of July, *unverified*) | open |
 | mid 2027 | Bachelor graduation (learner to confirm the date) | open |
 | Sep-Oct 2027 | Move to Japan; October entry | open |
 
 ## Open questions (only the learner can answer)
 
-1. What is the plan for September 2027: a master's from October 2027, a
-   research student (研究生) year first, a language school, or work?
+1. Plan: answered 11-03. A master's first (parents' plan: U Tokyo), work
+   after. Open: master's straight in, or a research-student year first.
 2. Bachelor: graduation month, current GPA and its scale, the
    graduation-project topic.
 3. English: answered 11-03, IELTS 8.0 about a year ago. Still needed:
    the exact test date.
-4. Money: self-funded, family, or scholarship only?
+4. Money: answered 11-03. Parents pay the master's and living costs; their
+   contacts help with housing and arrival.
 
 ## The routes
 
@@ -89,8 +90,8 @@ the routes and queues serve them.
    living. C earns from day one and starts the residence clock, but the
    English-only robotics roles found (Mujin, Astroscale) mostly ask for
    experience; C most likely means a software job first, robots later.
-   With what is known now: A as main if money covers two years or a
-   scholarship lands, C as the backup. Money decides.
+   Decided 11-03: parents fund it, so A is main (B as its entry if
+   timing needs it), C the backup.
 4. **Strength first.** The learner is a software engineer, and the hard
    part of a body for an AI today is the learning: a model that turns
    camera images into motor commands. So enter through software (Python,
@@ -103,7 +104,19 @@ the routes and queues serve them.
    and who decided their admission or hire.
 6. **Dated decisions.** Each decision has a date and a trigger (Deadlines
    table), so a bad month changes the route on purpose, not by drift.
-7. **Fallback without ruin.** No offer at graduation: work a year (in
+7. **The lab is the learner's choice.** Contacts can handle housing and
+   paperwork; admission is the professor and the exam, and the lab decides
+   the two years, the network and the research plan. Choose it by the north
+   star. If a helper charges fees, rule 1 applies.
+8. **Startup: job first, startup beside it, startup alone later.** The
+   risk is not volatility but the visa: before permanent residence, the
+   right to stay hangs on the job or school. Order: degree; a stable job at
+   a robotics company (hardware at scale on its money); a side project
+   within the visa (work outside an engineer visa's scope needs permission,
+   資格外活動許可, and the employer's written OK); the startup alone once
+   residence no longer hangs on an employer. Ideas can be tried in the lab
+   as research first.
+9. **Fallback without ruin.** No offer at graduation: work a year (in
    Vietnam at a Japan-linked company, or remote), keep Japanese going, and
    reapply. A language school only if chosen and paid directly.
 
@@ -130,6 +143,11 @@ the routes and queues serve them.
 - **Kyushu Institute of Technology, iART** (AI and robotics, English).
 - **NAIST Robot Learning lab:** reinforcement and imitation learning for
   robots, the closest match; English master's not confirmed.
+- **U Tokyo, IST Mechano-Informatics (JSK lab):** Kento Kawaharazuka
+  (JSK and EVARL, UTokyo AI Center) works on robot foundation models: the
+  closest fit to the north star. The official guides name TOEFL, not
+  IELTS; older guides had a 7-minute English presentation of the research
+  plan. Parents' plan is U Tokyo: this is the first lab to read.
 - **U Tokyo engineering:** English test rules differ by department; some
   (Precision Engineering) accept IELTS, some TOEFL only.
 
