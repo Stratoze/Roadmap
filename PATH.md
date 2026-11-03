@@ -110,8 +110,8 @@ the routes and queues serve them.
    the two years, the network and the research plan. Choose it by the north
    star. If a helper charges fees, rule 1 applies. Hardware is the
    learner's own (3D printer, circuits; machining through local shops,
-   found by networking). What only a lab gives: the supervisor, peers,
-   GPUs for training, and the degree.
+   found by networking), and so is compute (see the learned arm). What
+   only a lab gives: the supervisor, peers, and the degree.
 8. **Startup: job first, startup beside it, startup alone later.** The
    risk is not volatility but the visa: before permanent residence, the
    right to stay hangs on the job or school. Order: degree; a stable job at
@@ -168,6 +168,13 @@ parts; Hugging Face LeRobot), teleoperate it with its leader arm, record
 about 50 demonstrations of one task, and train an imitation policy (ACT).
 LeRobot first, ROS 2 later. Sized with the torque items already in the
 queue (a joint motor must beat the arm's weight torque).
+
+Compute: rent before buying. LeRobot has Colab notebooks; ACT trains in
+about 1.5 h on an A100 (official notebook) or about 1 h on an RTX 3060
+using about 2 GB of memory (one community test). Google AI Pro reportedly
+includes Colab compute (unconfirmed). Buy a machine only when renting
+costs more per month than owning and it runs most days; a single GPU
+workstation comes before any server rack.
 
 ## What a lab will look for (and the gaps)
 
