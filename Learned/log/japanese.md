@@ -158,3 +158,6 @@ See the grammar queue in `BACKLOG.md`.
 部屋 (へや) room
 パソコン (パソコン) personal computer
 台 (だい) counter for machines / equipment
+
+2026-11-03 (input)
+Comprehensible Japanese 30 min (learner-reported, episode not reported). Tadoku 2 books (learner-reported, minutes not reported).
