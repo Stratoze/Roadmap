@@ -11,7 +11,7 @@ score or final answer, slips).
 
 ## Handoff
 
-- G15 passed 11-02 (4 of 4). Next grammar: G17. New order (11-02): read
+- G15 passed 11-02 (4 of 4). G17 passed 11-04 (4 of 4). Next grammar: G18. New order (11-02): read
   the page at the end of a session, take the quiz at the start of the next.
 - T10 passed 11-03. Next technical: T11 (friction article).
 - Review questions start with G13's `Variant:` (oldest passed item with one).
@@ -106,7 +106,7 @@ Slips: ようひ for ようび; どようび and にちようび swapped.
 Variant: Say "I go on Sunday." → にちようびに いきます。 (also accept にちようび いきます)
 Result: 11-02, 4 of 4, passed. Q1 月曜日 right. Q2 今日は何日ですか counted right (Opus 11-02): the old prompt "What day is it today?" also means the date, so it was the key's fault; prompt reworded. Q3 土曜に行きます accepted as the short form of どようびに. Q4 水曜日 right.
 
-### [ ] G17 Counter 人 (ひとり, ふたり)
+### [x] G17 Counter 人 (ひとり, ふたり)
 Rule: people are counted with 人: ひとり, ふたり,
 さんにん, よにん, ごにん…; "how many people" is なんにん; the count goes
 before the verb, like other counters: がくせいが ふたり います。
@@ -117,7 +117,7 @@ Quiz:
 4. Ask "How many people are there?" → なんにん いますか。
 Slips: いちにん, ににん, よんにん.
 Variant: Say "There are three people." → さんにん います。 (also accept ひとが さんにん います)
-Result:
+Result: 11-04, 4 of 4 (taught). 1 1人 (ひとり); 2 学生がふたりいます; 3 4人 (よにん); 4 何人いましか？ (typo for いますか, noted, not counted). Slips: none.
 
 ### [ ] G18 い-adjectives: たかい / たかくない
 Rule: an い-adjective ends in

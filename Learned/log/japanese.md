@@ -181,3 +181,9 @@ Correction (2026-11-03, same day): あしたは8じにたべます is correct. �
 土曜日 (どようび) Saturday
 家 (うち) home / house
 何時 (なんじ) what time
+
+2026-11-04 G17 counter 人 quiz (start of session): 4 of 4, taught.
+- 1 "one person": 1人 (the word is ひとり; written form accepted).
+- 2 "There are two students.": 学生がふたりいます. Correct.
+- 3 "four people": 4人 (よにん).
+- 4 "How many people are there?": 何人いましか？ Typo for いますか (present); なんにん is right. Noted, not counted.
