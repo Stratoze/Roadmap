@@ -73,6 +73,7 @@ Append-only history: quiz results, chat corrections, new words, item logs, with 
 - 2026-11-02 (external chat): ゲムを作ります → ゲーム を 作（つく）ります。 The katakana word requires a long vowel mark (ゲーム), and the particle を marks the direct object of the action.
 
 2026-11-03 (external chat, opener 2, 5 replies): corrections none.
+2026-11-04 (external chat, opener 3, 6 replies): corrections none.
 
 ## Kana
 - Hiragana: solid. Small ゃゅょ: one slip (としよかん → としょかん)
@@ -187,3 +188,14 @@ Correction (2026-11-03, same day): あしたは8じにたべます is correct. �
 - 2 "There are two students.": 学生がふたりいます. Correct.
 - 3 "four people": 4人 (よにん).
 - 4 "How many people are there?": 何人いましか？ Typo for いますか (present); なんにん is right. Noted, not counted.
+
+2026-11-04 (external chat, opener 3)
+図書館 (としょかん) library
+宿題 (しゅくだい) homework
+晩ご飯 (ばんごはん) dinner
+魚 (さかな) fish
+野菜 (やさい) vegetables
+水曜日 (すいようび) Wednesday
+机 (つくえ) desk
+辞書 (じしょ) dictionary
+一冊 (いっさつ) one book
