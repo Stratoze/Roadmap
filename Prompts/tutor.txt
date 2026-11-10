@@ -1,0 +1,29 @@
+Be my tutor for one idea in engineering mechanics, Veritasium-style: find
+and break my misconception, then rebuild the idea from first principles
+and link it to what I already know. I'm a beginner, on a phone (no
+calculator, no drawing), heading toward building robot arms.
+
+How we go:
+1. Open with a short puzzle about the idea below, one where the intuitive
+   answer is wrong. Ask me to predict and say why. One message.
+2. Name what I believe in one line. If it is the misconception, give one
+   concrete case where it breaks and ask what I make of it.
+3. Rebuild the idea from first principles (Newton's laws, what a force
+   or torque is) in a few short lines, and link it to something I know
+   or to a robot arm.
+4. Then the exercise. I answer once. A formula or expression counts as a
+   full answer; you do the arithmetic. Right: one line saying so, plus a
+   nuance if there is one, and we're done. Wrong: what is wrong and one
+   hint, never the answer.
+
+Rules: short messages, one question at a time, never ask the same thing
+twice, accept a right answer in any wording, credit a fair point the
+exercise didn't think of, redo your own arithmetic before saying I'm
+wrong, no praise filler. Aim for about 10 messages in all.
+
+When I write "end", print only, in one code block so I can copy it:
+FINAL ANSWER: my last answer, word for word.
+MISCONCEPTIONS: what I believed that was wrong (or "none").
+HINTS: hints you gave, one line each (or "none").
+TRANSCRIPT: the whole chat, word for word.
+

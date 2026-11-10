@@ -40,8 +40,9 @@ If a task needs a bigger model than you, say "This task needs Sonnet. Run
 `/model sonnet` and ask again." and do the tasks that fit you.
 
 - **Haiku:** anything with a key: quizzes, `jp-chat`, `tech-tutor`, review
-  questions, logs, ticks. Haiku asks the key's questions and points to
-  `Prompts.md`; it never writes, prints or changes a key, question or prompt.
+  questions, logs, ticks. Haiku asks the key's questions and prints
+  prompts only via `Prompts/give.sh`; it never writes or changes a key,
+  question or prompt.
 - **Sonnet:** coursework grilling (`grill`).
 - **Opus:** runs only when the learner calls it (no scheduled tasks or
   reminders, ever). Changes procedure at most once a month, unless a gap
@@ -57,7 +58,8 @@ moves to Sonnet at the next Opus call.
 
 ## Files
 
-- `Prompts.md`: the ready-to-copy Gemini prompts and exercises.
+- `Prompts/`: ready Gemini prompts; `give.sh chat` or `give.sh T11` prints one.
+- `Sessions/`: pasted Gemini sessions, verbatim, for Opus to analyze.
 - `BACKLOG.md`: the work, queues top-down, each item with prompt, key and
   `Result:` line.
 - `Learned/<track>.md`: short status. `Learned/log/<track>.md`: dated
@@ -78,8 +80,9 @@ Sun (or any day the learner says is short).
 
 In the session, in this order: one review question (Teaching rule 3), the
 quiz on the grammar read last session, the chat, the technical exercise,
-and last the next grammar page to read. Prompts live ready in
-`Prompts.md`; Haiku only names which one, never prints or writes one.
+and last the next grammar page to read. Haiku's three jobs
+there: give the search keywords (or `Learn:` link), give the prompt
+printed by `Prompts/give.sh`, and save and log what is pasted back.
 
 Grammar: up to 3 points on a free day, 1 on a tight day; from 2026-11-16,
 1 a day. Chat: as long as it is fun. Technical: the next item.
@@ -141,19 +144,20 @@ mentions them. Kaishi keeps its history (no reset).
 
 ## Technical
 
-- The Gemini tutor teaches the idea briefly, then the learner answers in
-  one go; a few messages, not an interrogation. `Learn:` lines are an
-  optional deeper read, not a step.
+- Veritasium style: the Gemini tutor opens with a puzzle built on the
+  common misconception, breaks it, rebuilds the idea from first
+  principles and links it to robot arms; then the exercise, answered
+  once. About 10 messages.
 - The learner is on a phone: a formula or expression is a full answer.
   Number-crunching or drawing items go on the laptop.
 - A pass needs both: the tutor's final answer matches the key, and the
   learner answers the key's `Variant:` to Haiku with no help.
 - A key without `Variant:` is not keyed yet. Every keyed item has its
-  exercise text in `Prompts.md` (Opus writes it, without the answer).
+  `Prompts/<T>.txt` file (Opus writes it: SEARCH, idea, exercise, no answer).
 
 ## Git
 
-- Raw productions go only to `_private/`. Pushed history is immutable; fix forward.
+- Pasted Gemini sessions go to `Sessions/` (learner's choice, 11-11); other raw productions only to `_private/`. Pushed history is immutable; fix forward.
 - Commit messages: plain summary only, with no `Co-Authored-By` or
   `Claude-Session` line and no model name.
 - Commit and push after each finished item; fast-forward `main` at the end.

@@ -1,0 +1,3 @@
+SEARCH: torque lever arm perpendicular distance (Khan Academy)
+THE IDEA: moment arm. (Tutor: build the puzzle on the most common beginner misconception about this; do not tell me what it is.)
+THE EXERCISE: A 1 N force pushes on an arm 0.1 m from its pivot, at 45 degrees to the arm. What is the moment arm (in plain words, and how long), and what is the torque?

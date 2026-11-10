@@ -1,31 +1,38 @@
 ---
 name: tech-tutor
-description: Point the learner to the technical tutor prompt and exercise in Prompts.md, then check the pasted FINAL ANSWER against the key in BACKLOG.md, ask the Variant, and log. Use whenever technical is next, or the learner says "technical", "next item", or pastes a finished tutor chat. Haiku task.
+description: Give the learner the next technical item's search keywords and ready tutor prompt (printed by Prompts/give.sh), then save the pasted session, check FINAL ANSWER against the key in BACKLOG.md, ask the Variant, and log. Use whenever technical is next, or the learner says "technical", "next item", or pastes a finished tutor chat. Haiku task.
 ---
 
 # tech-tutor
 
-## Step 1: point to the prompt
+## Step 1: resource and prompt
 
-Say only: "Technical: copy the tutor prompt and exercise <T-number> from
-`Prompts.md` into Gemini." <T-number> = the next unticked item in the
-technical queue of `BACKLOG.md`. Never print, write or change a prompt,
-and never show the key. If the exercise is missing from `Prompts.md`,
-add one line to `Proposals.md` and give the next task.
+1. The item = the next unticked one in the technical queue of `BACKLOG.md`.
+2. Run `bash Prompts/give.sh <T-number>` (from the repo root).
+3. "MISSING": add one line to `Proposals.md`, give the next task.
+4. Otherwise reply with:
+   - the SEARCH line as "Optional, YouTube or Google: <keywords>". If the
+     item's `Learn:` line has a URL, give it too. Never search for or
+     invent other links.
+   - everything below the "copy below" line, in one code block,
+     character for character. You never write or change a prompt, and
+     never show the key.
+   - "Paste this into Gemini. When done, write `end` and paste the block
+     back here."
 
-## Step 2: check and log
+## Step 2: what comes back
 
-1. Compare FINAL ANSWER with the key's Answer and Check.
-   - A formula or expression that gives the key's number counts as the
-     number. Units: if the formula's quantities carry them, that is enough.
-   - Words: every Check point is there, in any wording. Extra true points
-     are fine.
-2. Match: ask the key's `Variant:` once, one message, no hints. A formula
-   counts here too. Right: tick the item in `BACKLOG.md`, write both
-   answers on its `Result:` line. Wrong: one line on what is wrong; one
-   Handoff line; it comes back next session.
-3. No match: one line naming the missing Check point; the learner goes
-   back to Gemini. Do not teach it.
-4. Not sure: do not tick; log "check for Opus", one line to
-   `Proposals.md`, give the next task.
-5. Log in `Learned/log/technical.md`: date, item, final answer, HINTS.
+1. Save the paste verbatim to `Sessions/YYYY-MM-DD-<T-number>.md`.
+   Commit and push it.
+2. Compare FINAL ANSWER with the key's Answer and Check.
+   - A formula that gives the key's number counts as the number.
+   - Words: every Check point is there, in any wording. Extra true
+     points are fine.
+3. Match: ask the key's `Variant:` once, one message, no hints; a
+   formula counts. Right: tick the item, write both answers on its
+   `Result:` line. Wrong: one line on what is wrong; one Handoff line.
+4. No match: one line naming the missing Check point; back to Gemini.
+   Do not teach it.
+5. Not sure: do not tick; "check for Opus", one line to `Proposals.md`.
+6. Log in `Learned/log/technical.md`: date, item, final answer,
+   MISCONCEPTIONS and HINTS as written.

@@ -1,0 +1,3 @@
+SEARCH: static friction explained (Khan Academy)
+THE IDEA: static friction. (Tutor: build the puzzle on the most common beginner misconception about this; do not tell me what it is.)
+THE EXERCISE: A book lies on a table. You push it sideways but it does not slide. Name every force on the book: direction, what causes it, and how big compared with the others.

@@ -32,6 +32,13 @@ before changing a rule. Newest sections first.
   openers retired; previous-chat log dropped (no handover step to carry
   it). Tutor teaches briefly, learner answers once, formula counts.
   CJ and Kaishi untracked. Floor: grammar quiz or chat; technical as before.
+- Same day, learner pushed back ("not doing the bureaucracy myself"):
+  Haiku hands over prompts by running `Prompts/give.sh` and copying its
+  output (no assembly, so nothing to drop or invent), gives search
+  keywords, and saves pasted sessions verbatim to `Sessions/` for Opus.
+  Tutor is Veritasium style (state and break the misconception, first
+  principles, link knowledge); Gemini picks the misconception so the
+  pasted prompt does not spoil it.
 - Haiku stays for logging and keyed checks (the prompt failures were in
   the hand-over, now removed). If it misgrades again, that check moves
   to Sonnet.

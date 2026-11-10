@@ -1,0 +1,3 @@
+SEARCH: robot arm payload torque at each joint
+THE IDEA: a payload's torque depends on its distance from each joint. (Tutor: build the puzzle on the most common beginner misconception about this; do not tell me what it is.)
+THE EXERCISE: Two links in a line, straight out horizontally, each 0.2 m long and 0.05 kg (weight at each link's middle), plus 50 g hanging at the tip. What are the torques about the shoulder and about the elbow?

@@ -1,0 +1,3 @@
+SEARCH: fixed support reactions moment statics; cantilever beam free body diagram
+THE IDEA: a fixed support (a grip) gives a force and a twist (moment). (Tutor: build the puzzle on the most common beginner misconception about this; do not tell me what it is.)
+THE EXERCISE: A thin rod (one robot-arm link) is held horizontal by a hand gripping one end only. Name every force and effect on the rod that keeps it still.
