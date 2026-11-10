@@ -47,6 +47,22 @@ sense, actuate, control, learn), lighter on its pure theory
 a portfolio that shows it. M1 milestones are below; M2+ are keyed by
 Opus when the project before is near done.
 
+## M1 in simulation (no hardware yet, 2026-11-11)
+
+Prompts: `bash Prompts/give.sh M1.1` (and so on). Statics items T11-T22
+run alongside on the phone; M1.2 uses them.
+
+- [ ] M1.1 Arm simulator: draw the arm, sliders, tip position (Python).
+  Result:
+- [ ] M1.2 Simulator shows gravity torque at each joint.
+  Result:
+- [ ] M1.3 Wokwi Arduino: knobs → angles → tip position.
+  Result:
+- [ ] M1.4 CAD the links in Onshape, ready to print.
+  Result:
+
+When hardware comes: print M1.4, wire M1.3 for real, check with a ruler.
+
 ## Steps to the capstone
 
 | # | Step | Status | Where |

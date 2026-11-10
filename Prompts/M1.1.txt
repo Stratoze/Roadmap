@@ -1,0 +1,4 @@
+SEARCH: matplotlib animation 2 link robot arm forward kinematics python
+THE MILESTONE: M1.1 Arm simulator (project: 2-link arm that knows its tip, simulation first)
+BUILD: a Python program that draws a 2-link arm (links 0.2 m each) from two joint angles, with two sliders (matplotlib allowed for drawing), and prints the tip position. Forward kinematics written by me.
+DONE WHEN: for three poses I worked out by hand first, the program's tip matches my hand answer.

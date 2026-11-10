@@ -88,7 +88,8 @@ printed by `Prompts/give.sh`, and save and log what is pasted back.
 
 Grammar: up to 3 points on a free day, 1 on a tight day; from 2026-11-16,
 1 a day. Chat: as long as it is fun. Technical: the next mechatronics
-item (phone). AI: the next milestone in `AI/PROJECTS.md` (laptop, free
+item (phone). Laptop: the next milestone in `AI/PROJECTS.md` or the M1 simulation
+list in `Mechatronics/ROADMAP.md` (laptop, free
 days, more than one session is fine).
 
 **CJ and Kaishi are the learner's own, not tasks** (2026-11-11). Never ask

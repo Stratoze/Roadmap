@@ -1,0 +1,4 @@
+SEARCH: static joint torque robot arm gravity; torque equilibrium
+THE MILESTONE: M1.2 Arm simulator shows joint torques
+BUILD: add each link's weight (0.05 kg at its middle) and an optional tip mass; the program shows the gravity torque at the shoulder and the elbow for any pose. My own torque code.
+DONE WHEN: straight out with no tip mass it shows about 0.196 N·m at the shoulder and 0.049 N·m at the elbow, and I can say why the torque drops when the arm points up.

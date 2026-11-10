@@ -1,0 +1,4 @@
+SEARCH: Onshape beginner tutorial; design for 3D printing tolerances
+THE MILESTONE: M1.4 CAD the links
+BUILD: in Onshape (free, browser), two 0.2 m links with holes that fit the potentiometer shaft and body, ready to print.
+DONE WHEN: the link files export as STL and I can say which dimension needs a print tolerance and how much.

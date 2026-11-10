@@ -3,6 +3,6 @@
 cd "$(dirname "$0")" || exit 1
 if [ "$1" = chat ]; then cat chat.txt; exit; fi
 [ -f "$1.txt" ] || { echo "MISSING: $1 has no prompt file"; exit 1; }
-case "$1" in A*) head=mentor.txt ;; *) head=tutor.txt ;; esac
+case "$1" in A*|M*) head=mentor.txt ;; *) head=tutor.txt ;; esac
 grep '^SEARCH:' "$1.txt"; echo "----- copy below into Gemini -----"
 cat "$head"; grep -v '^SEARCH:' "$1.txt"

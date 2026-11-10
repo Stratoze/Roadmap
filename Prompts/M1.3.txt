@@ -1,0 +1,4 @@
+SEARCH: Wokwi Arduino potentiometer analogRead; ADC to angle
+THE MILESTONE: M1.3 Virtual Arduino reads the joints
+BUILD: in Wokwi (free, browser), an Arduino Uno with two potentiometers; my code turns each analogRead count into an angle in radians and prints the tip position, using my M1.1 math.
+DONE WHEN: turning a knob to a pose I chose, the printed tip matches my M1.1 simulator within 1 cm, and I can say what one ADC count is worth in degrees.
