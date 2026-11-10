@@ -11,12 +11,6 @@ score or final answer, slips).
 
 ## Handoff
 
-- 11-11 (Opus): new setup. Prompts only via `bash Prompts/give.sh <chat|T11|A1.1|M1.1>`,
-  copied verbatim. Laptop milestones: `AI/PROJECTS.md` (A1.1) and
-  `Mechatronics/ROADMAP.md` "M1 in simulation" (M1.1): give the SEARCH
-  line and the prompt; when the learner pastes the end block, save it to
-  `Sessions/`, log it, and tick the milestone if STATUS is done with evidence.
-  No log since 11-04: say it once, plainly, then start with T11.
 - G15 passed 11-02 (4 of 4). G17 passed 11-04 (4 of 4). Next grammar: G18. New order (11-02): read
   the page at the end of a session, take the quiz at the start of the next.
 - T10 passed 11-03. Next technical: T11 (friction article).

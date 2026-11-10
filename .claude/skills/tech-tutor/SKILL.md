@@ -1,6 +1,6 @@
 ---
 name: tech-tutor
-description: Give the learner the next technical item's search keywords and ready tutor prompt (printed by Prompts/give.sh), then save the pasted session, check FINAL ANSWER against the key in BACKLOG.md, ask the Variant, and log. Use whenever technical is next, or the learner says "technical", "next item", or pastes a finished tutor chat. Haiku task.
+description: Give the learner the next technical item (phone T-item, or laptop milestone A1.1 / M1.1) with its search keywords and ready tutor prompt (printed by Prompts/give.sh), then save the pasted session, check FINAL ANSWER against the key in BACKLOG.md, ask the Variant, and log. Use whenever technical is next, or the learner says "technical", "next item", or pastes a finished tutor chat. Haiku task.
 ---
 
 # tech-tutor
@@ -36,3 +36,13 @@ description: Give the learner the next technical item's search keywords and read
 5. Not sure: do not tick; "check for Opus", one line to `Proposals.md`.
 6. Log in `Learned/log/technical.md`: date, item, final answer,
    MISCONCEPTIONS and HINTS as written.
+
+## Laptop milestones (A and M)
+
+Next milestone = the first unticked one in `AI/PROJECTS.md` or in
+"M1 in simulation" in `Mechatronics/ROADMAP.md` (the learner picks the
+track). Step 1 as above with its number (`give.sh A1.1`). When the end
+block is pasted: save it to `Sessions/YYYY-MM-DD-<number>.md`, log it in
+`Learned/log/technical.md`, and tick the milestone with its EVIDENCE on
+the `Result:` line if STATUS is done and the evidence meets "Done when".
+No key, no Variant; the learner's evidence stands.
