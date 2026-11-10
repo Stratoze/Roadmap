@@ -40,8 +40,8 @@ If a task needs a bigger model than you, say "This task needs Sonnet. Run
 `/model sonnet` and ask again." and do the tasks that fit you.
 
 - **Haiku:** anything with a key: quizzes, `jp-chat`, `tech-tutor`, review
-  questions, logs, ticks. Haiku asks the key's questions and copies the
-  skill templates; it never writes a key, question, opener or prompt.
+  questions, logs, ticks. Haiku asks the key's questions and points to
+  `Prompts.md`; it never writes, prints or changes a key, question or prompt.
 - **Sonnet:** coursework grilling (`grill`).
 - **Opus:** runs only when the learner calls it (no scheduled tasks or
   reminders, ever). Changes procedure at most once a month, unless a gap
@@ -57,6 +57,7 @@ moves to Sonnet at the next Opus call.
 
 ## Files
 
+- `Prompts.md`: the ready-to-copy Gemini prompts and exercises.
 - `BACKLOG.md`: the work, queues top-down, each item with prompt, key and
   `Result:` line.
 - `Learned/<track>.md`: short status. `Learned/log/<track>.md`: dated
@@ -76,33 +77,22 @@ Day type from the weekday: **free** Tue, Wed, Fri, Sat; **tight** Mon, Thu,
 Sun (or any day the learner says is short).
 
 In the session, in this order: one review question (Teaching rule 3), the
-quiz on the grammar read last session, the chat prompt, the technical
-prompt, and last the next grammar page to read. CJ (phone) and Kaishi
-(laptop) happen wherever they fit; ask once whether they were done, at
-session end (or at start after 18:00 local).
+quiz on the grammar read last session, the chat, the technical exercise,
+and last the next grammar page to read. Prompts live ready in
+`Prompts.md`; Haiku only names which one, never prints or writes one.
 
-| | Free | Tight |
-|---|---|---|
-| CJ (Comprehensible Japanese, in order) | 40 min | 25 min |
-| Grammar points (each passed before the next) | up to 3 | 1 |
-| Kaishi | 20 min | 10 min |
-| Chat (`jp-chat`) | ~25 min | ≥5 replies |
-| Technical (`tech-tutor`) | next item | next item |
+Grammar: up to 3 points on a free day, 1 on a tight day; from 2026-11-16,
+1 a day. Chat: as long as it is fun. Technical: the next item.
 
-Amounts are a guide. From 2026-11-16 grammar is 1 point a day.
+**CJ and Kaishi are the learner's own, not tasks** (2026-11-11). Never ask
+about them, time them or judge them. Log them only if the learner
+mentions them. Kaishi keeps its history (no reset).
 
-**Floor (done or not):** the learner is a disciplined adult; their "done"
-stands, with this evidence. Minutes are welcome, never required.
-- Input done: CJ or Tadoku, with minutes or three things learned.
-- Kaishi done: a session the learner judges helped (not a token few cards).
-- Japanese met: input, Kaishi, and the session's grammar or chat all done.
-- Technical met: an item passed today ("Technical"), or a Handoff line
-  says how far it got. A tutor-given answer does not pass.
+**Floor (done or not):** the learner's "done" stands.
+- Japanese met: the grammar quiz or a chat, done today.
+- Technical met: an item passed today, or a Handoff line says how far it
+  got. A tutor-given answer does not pass.
 - A missed day stays missed. Coursework never counts.
-
-**Kaishi:** keep its history (no reset). Its due count is unreliable on the
-learner's scheduler, so nothing is gated on it. New cards are the learner's
-call; Opus recommends 10 a day once a session clears the day's reviews.
 
 **Targets:** JLPT N4, July 2027. Technical: the Phase 0 capstone in
 `Mechatronics/ROADMAP.md` (a map only; proof in `Mechatronics/portfolio/`).
@@ -141,8 +131,8 @@ call; Opus recommends 10 a day once a session clears the day's reviews.
   the word clear is noted, not counted. Pass = at most one wrong. Fail =
   no new page today; redo the quiz next session.
 - Taught = passed the quiz. Solid = used right in chat on a later day.
-- In corrections, use only ticked grammar; a fix that needs more says
-  "not taught yet" and gives only the fix.
+- Chat is free conversation: any topic, any vocabulary, English allowed
+  when stuck, corrections only in the end summary.
 - Short natural answers are correct (うちです). Correct only what is wrong
   or unnatural.
 
@@ -151,15 +141,15 @@ call; Opus recommends 10 a day once a session clears the day's reviews.
 
 ## Technical
 
-- **Lesson first:** every key opens with `Learn:` (the idea and its
-  source). Before the tutor prompt, find it (WebSearch), check it covers
-  the idea, give the link. `Learn: none` = taught by an earlier item.
-- Sources: Khan Academy (articles and videos), else OpenStax, LibreTexts
-  (Engineering Statics, Baker and Haynes), or the one video a `Learn:`
-  line names.
+- The Gemini tutor teaches the idea briefly, then the learner answers in
+  one go; a few messages, not an interrogation. `Learn:` lines are an
+  optional deeper read, not a step.
+- The learner is on a phone: a formula or expression is a full answer.
+  Number-crunching or drawing items go on the laptop.
 - A pass needs both: the tutor's final answer matches the key, and the
   learner answers the key's `Variant:` to Haiku with no help.
-- A key without `Learn:` and `Variant:` is not keyed yet.
+- A key without `Variant:` is not keyed yet. Every keyed item has its
+  exercise text in `Prompts.md` (Opus writes it, without the answer).
 
 ## Git
 

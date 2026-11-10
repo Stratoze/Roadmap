@@ -28,10 +28,6 @@ its decision. Haiku never acts on an item here.
 
 ## Open
 
-- 2026-11-03 (learner, after the G13 and chat-prompt errors): reevaluate Haiku for graded tasks (jp-chat, tech-tutor, review questions) and consider Sonnet. Evidence: Haiku called a correct あしたは8じに answer a slip, and wrote a chat prompt itself. Opus decides.
-- 2026-11-03 (learner): the jp-chat master prompt should include a log of the previous Gemini chat(s). If the log is too long, use a summary, but always keep at least the last 10 exchanges verbatim. Source: learner's request; Opus decides the wording and the key.
-- 2026-11-03 (Haiku, session, process gap): Haiku wrote its own chat prompt and told the learner no master prompt existed. Cause: the `jp-chat` text loaded in this session had no Step 1 template; `.claude/skills/jp-chat/SKILL.md` on disk has it. Haiku did not open the file before handing over the prompt. Fix needed: Opus confirms the loaded skill text matches the file, and Haiku reads the file on disk before any prompt. Learner was given the real template at 11-03.
-
 ## Done
 
 Decided items move to `Decisions.md` (last: 2026-11-02, system check).

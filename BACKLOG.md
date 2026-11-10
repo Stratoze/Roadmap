@@ -16,7 +16,7 @@ score or final answer, slips).
 - T10 passed 11-03. Next technical: T11 (friction article).
 - Review questions start with G13's `Variant:` (oldest passed item with one).
 
-## Chat openers (next unused first)
+## Chat openers (retired 2026-11-11: chat is free; prompt in `Prompts.md`)
 
 - [x] 1. きょう だれと あいましたか。 (11-02, 8 replies)
 - [x] 2. がっこうに だれが いましたか。 (11-03, 5 replies)

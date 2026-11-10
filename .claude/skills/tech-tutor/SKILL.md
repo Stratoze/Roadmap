@@ -1,93 +1,31 @@
 ---
 name: tech-tutor
-description: Hand over the next technical item from BACKLOG.md to a free external chat AI that tutors the learner, then check the learner's final answer against the item's key and log it. Use whenever technical is next, or the learner says "technical", "next item", or pastes a finished tutor chat. Haiku task.
+description: Point the learner to the technical tutor prompt and exercise in Prompts.md, then check the pasted FINAL ANSWER against the key in BACKLOG.md, ask the Variant, and log. Use whenever technical is next, or the learner says "technical", "next item", or pastes a finished tutor chat. Haiku task.
 ---
 
 # tech-tutor
 
-A free chat AI tutors the learner. Your job is the two ends: hand over
-the prompt, then check the final answer against the key.
+## Step 1: point to the prompt
 
-The key never goes in the prompt: the learner reads the prompt.
-
-## Step 0: the lesson
-
-1. Take the next unticked item in the technical queue of `BACKLOG.md`
-   and its key (written under it). No `Learn:` line = not keyed yet: add
-   one line to `Proposals.md` and give the next task.
-2. `Learn: none`: skip to Step 1, with "nothing new" as the lesson.
-3. Otherwise find the source the `Learn:` line names (WebSearch; restrict
-   to its site), check the result covers the idea, and give the link:
-   "Read (or watch) this first: <link>. Then paste the prompt below."
-
-## Step 1: hand over the prompt
-
-1. Use the same item and key.
-2. From the key, copy only the **Given** part. Never copy the **Answer** or
-   **Check** part, and never a bold number. If the key has no Given part,
-   use the item text alone.
-3. Print the template below in one code block with `{...}` filled in.
-   Change nothing else.
-4. Say: "Paste this into Gemini (AI Studio). Work until it's done, then
-   write `end` and paste MY FINAL ANSWER and WHERE I STRUGGLED back here."
-
-```
-The exercise: {item text}. {Given part of the key}
-The lesson I read first: {lesson link, or "nothing new"}
-
-You are my tutor for this one engineering exercise. I am a beginner:
-calculus intuition, statics, circuits. I have read the lesson; now I learn
-by answering.
-
-0. Your first message: restate the exercise above in full, in your own
-   plain words, with every number and unit. I will not scroll up to read
-   it. Then ask your first question.
-1. Never give me the answer, a result, or the first step. Ask ONE question
-   per message, then wait.
-2. Before any calculation, ask me to predict (bigger or smaller, a rough
-   number), and make me commit to it.
-3. Every number needs units. If I give none, ask for them.
-4. If I use a term ("moment arm", "area under the curve", "displacement"),
-   ask me to say it in plain words. Reject circular reasons: "it's the area
-   because it's the area under the curve" explains nothing.
-5. If I hedge ("probably", "either", "like 0.7"), ask me to pick one.
-6. If I'm wrong, say what is wrong in one or two lines, then let me try
-   again. No praise, no "great question".
-7. Before you tell me I'm wrong, redo your own arithmetic step by step. Be
-   sure.
-8. Stuck after two tries: give one hint, never the answer. If I can't say
-   the idea itself in plain words, explain the idea in two plain lines
-   with an example that is not this exercise, then ask again.
-9. For a drawing: I draw on paper and type each arrow as one line (force,
-   direction, what pushes or pulls, where it acts). Judge those lines.
-10. When I write "end", even if you already said I am right, print these
-    three parts with these exact headings and nothing else. "Correct." or
-    a summary is not enough.
-    (a) MY FINAL ANSWER: my last answer, word for word, with units.
-    (b) WHERE I STRUGGLED: one line each, honest, including hints you gave.
-    (c) TRANSCRIPT: the whole chat word for word in one code block.
-```
+Say only: "Technical: copy the tutor prompt and exercise <T-number> from
+`Prompts.md` into Gemini." <T-number> = the next unticked item in the
+technical queue of `BACKLOG.md`. Never print, write or change a prompt,
+and never show the key. If the exercise is missing from `Prompts.md`,
+add one line to `Proposals.md` and give the next task.
 
 ## Step 2: check and log
 
-1. Compare MY FINAL ANSWER with the key's Answer and Check.
-   - Number: same value within about 2%, with the right unit. No unit = not
-     done.
-   - Explanation or drawing: every point in Check is there in the learner's
-     words. A circular reason does not count.
-   - Match: ask the key's `Variant:` question yourself, one message, no
-     hints, no tutor. Check it against its answer the same way.
-   - Pass (both match): tick the item in `BACKLOG.md` and write both
-     answers on its `Result:` line.
-   - Variant wrong: not passed. Say what is wrong in one line; write a
-     Handoff line; the item comes back next session.
-   - Fail: tell the learner in one line which Check point is missing; they
-     go back to the tutor. Do not teach it yourself.
-   - Not sure: do not tick. Log it with "check for Opus", add one line
-     to `Proposals.md`, and give the next task in the same reply.
-2. Log one entry in `Learned/log/technical.md`: date, item, final answer,
-   and the WHERE I STRUGGLED lines as written. Update `Learned/technical.md`
-   if a weak spot repeats or a new one shows. If the tutor gave the answer away
-   (it did the step for the learner), write "answer given by tutor" and do
-   not tick.
-3. The TRANSCRIPT stays in the chat service; the repo gets the log entry only.
+1. Compare FINAL ANSWER with the key's Answer and Check.
+   - A formula or expression that gives the key's number counts as the
+     number. Units: if the formula's quantities carry them, that is enough.
+   - Words: every Check point is there, in any wording. Extra true points
+     are fine.
+2. Match: ask the key's `Variant:` once, one message, no hints. A formula
+   counts here too. Right: tick the item in `BACKLOG.md`, write both
+   answers on its `Result:` line. Wrong: one line on what is wrong; one
+   Handoff line; it comes back next session.
+3. No match: one line naming the missing Check point; the learner goes
+   back to Gemini. Do not teach it.
+4. Not sure: do not tick; log "check for Opus", one line to
+   `Proposals.md`, give the next task.
+5. Log in `Learned/log/technical.md`: date, item, final answer, HINTS.

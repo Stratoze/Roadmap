@@ -20,6 +20,22 @@ before changing a rule. Newest sections first.
 
 ## Proposals decided (from `Proposals.md`)
 
+### 2026-11-11: friction rewrite (learner: "following a mediocre teacher")
+
+- Gap: no log since 11-04. Learner: chat felt like a quiz with a wall,
+  tutor took 20 turns to restate one answer, ignored nuance and formulas,
+  asked for arithmetic on a phone; Haiku dropped or invented the master
+  prompt; turning CJ and Kaishi into tasks made them stop.
+- Fix: prompts sit ready in `Prompts.md` (Haiku only names which one, so
+  it cannot drop or invent one; closes the 11-03 Haiku-prompt items).
+  Chat is free talk, no grammar limit, corrections only at the end,
+  openers retired; previous-chat log dropped (no handover step to carry
+  it). Tutor teaches briefly, learner answers once, formula counts.
+  CJ and Kaishi untracked. Floor: grammar quiz or chat; technical as before.
+- Haiku stays for logging and keyed checks (the prompt failures were in
+  the hand-over, now removed). If it misgrades again, that check moves
+  to Sonnet.
+
 ### 2026-11-03: procedure cadence (learner)
 
 - Procedure is touched at most once a month, unless a gap stops learning
