@@ -27,6 +27,26 @@ Statics items come in when the build needs them. The AI track
 (`AI/PROJECTS.md`) ends at imitation learning, which is what the SO-101
 does: the two tracks meet at the arm.
 
+## Projects (2026-11-11; each has its own goal and pulls in its theory)
+
+Aim: StuffMadeHere-style building (learner): CAD, mechanisms,
+electronics, embedded code, control, vision, fast iteration. Theory is
+taught when a project question needs it, Veritasium style (`Prompts/`).
+
+| # | Project | Its goal | Theory it pulls in |
+|---|---|---|---|
+| M1 | Capstone arm (below) | hand-moved 2-link arm knows its tip within 1 cm | trig, statics, circuits, measurement, CAD for printing |
+| M2 | A joint holds itself | one motor holds an arm link at a set angle, resists a push | motors and gearing, feedback and PID, embedded C, filtering |
+| M3 | SO-101 | printed, assembled, a learned policy does one task | dynamics, servos, LeRobot; meets the AI track |
+| M4 | A StuffMadeHere-style machine | e.g. a vision-guided launcher that hits a moving target | mechanisms (gears, bearings, linkages), computer vision, control timing |
+| M5 | Own robot joint | quasi-direct-drive BLDC joint, own driver PCB, CAN | motor control, PCB design (KiCad), power and thermal |
+
+After M1-M5: the practical core of a mechatronics degree (build,
+sense, actuate, control, learn), lighter on its pure theory
+(thermodynamics, fluids, vibrations). Enough for a robot-learning lab;
+a portfolio that shows it. M1 milestones are below; M2+ are keyed by
+Opus when the project before is near done.
+
 ## Steps to the capstone
 
 | # | Step | Status | Where |
@@ -51,7 +71,7 @@ target labs are chosen.
 USB/5V only, breadboard and jumper wires, hand tools and FDM printing.
 No mains, no soldering, no power tools.
 
-## After the capstone (parked, not planned)
+## After the capstone (parked; now M2-M5 above)
 
 Long-term goal: a 2-joint arm with quasi-direct-drive motors (BLDC, own
 driver board, motor control, CAN). Its topics wait here: materials,
