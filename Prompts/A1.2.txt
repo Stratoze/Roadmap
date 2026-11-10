@@ -1,0 +1,4 @@
+SEARCH: 3Blue1Brown neural networks chapter 2, gradient descent
+THE MILESTONE: A1.2 One neuron learns
+BUILD: fit y = 2x + 1 from noisy points with one weight and one bias, my own derivative, no ML library.
+DONE WHEN: loss goes down every few steps; w ends near 2 and b near 1.

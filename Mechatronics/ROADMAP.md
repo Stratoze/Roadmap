@@ -19,6 +19,14 @@ are parked in `BACKLOG.md` until after the capstone.
 
 Small, finishable, and something to show a professor.
 
+## Project order (2026-11-11)
+
+Mechatronics + AI, both project-based. Budget order: 3D printer and
+tools first (they also print the SO-101 later), then the capstone parts.
+Statics items come in when the build needs them. The AI track
+(`AI/PROJECTS.md`) ends at imitation learning, which is what the SO-101
+does: the two tracks meet at the arm.
+
 ## Steps to the capstone
 
 | # | Step | Status | Where |

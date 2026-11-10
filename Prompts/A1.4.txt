@@ -1,0 +1,4 @@
+SEARCH: MNIST neural network from scratch numpy
+THE MILESTONE: A1.4 MNIST
+BUILD: train my A1.3 network on MNIST (any data loader allowed), numpy only.
+DONE WHEN: at least 90% test accuracy, and I show the 10 worst mistakes and say why they are hard.

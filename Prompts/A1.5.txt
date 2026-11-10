@@ -1,0 +1,4 @@
+SEARCH: PyTorch MNIST tutorial
+THE MILESTONE: A1.5 Earn PyTorch
+BUILD: the same network in PyTorch.
+DONE WHEN: similar accuracy, and I can say which PyTorch line replaced which part of my own code.

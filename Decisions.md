@@ -20,6 +20,20 @@ before changing a rule. Newest sections first.
 
 ## Proposals decided (from `Proposals.md`)
 
+### 2026-11-11: AI track and the order (learner)
+
+- Opus proposed pulling SO-101 forward; learner refused: the printer,
+  soldering and fume budget comes first, and the printer prints the
+  SO-101 anyway. Goal framed as mechatronics + AI. Coding is low leverage;
+  the bar is reading any short program and writing a small one unaided.
+- AI track: project-based (`AI/PROJECTS.md`), library earned only after
+  the small version by hand. Order changed by Opus: digits from scratch
+  before RL (RL needs the network), ending at imitation learning to
+  meet the SO-101. Only A1 is keyed; A2-A5 at topic level.
+- Open: the Safety rule in `Mechatronics/ROADMAP.md` says no soldering;
+  the learner plans a soldering station and fume extractor. Opus revisits
+  Safety when the parts are bought.
+
 ### 2026-11-11: friction rewrite (learner: "following a mediocre teacher")
 
 - Gap: no log since 11-04. Learner: chat felt like a quiz with a wall,

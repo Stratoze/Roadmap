@@ -59,6 +59,8 @@ moves to Sonnet at the next Opus call.
 ## Files
 
 - `Prompts/`: ready Gemini prompts; `give.sh chat` or `give.sh T11` prints one.
+- `AI/PROJECTS.md`: the AI track, project-based; a library is earned
+  only after building the small version by hand.
 - `Sessions/`: pasted Gemini sessions, verbatim, for Opus to analyze.
 - `BACKLOG.md`: the work, queues top-down, each item with prompt, key and
   `Result:` line.
@@ -85,7 +87,9 @@ there: give the search keywords (or `Learn:` link), give the prompt
 printed by `Prompts/give.sh`, and save and log what is pasted back.
 
 Grammar: up to 3 points on a free day, 1 on a tight day; from 2026-11-16,
-1 a day. Chat: as long as it is fun. Technical: the next item.
+1 a day. Chat: as long as it is fun. Technical: the next mechatronics
+item (phone). AI: the next milestone in `AI/PROJECTS.md` (laptop, free
+days, more than one session is fine).
 
 **CJ and Kaishi are the learner's own, not tasks** (2026-11-11). Never ask
 about them, time them or judge them. Log them only if the learner
@@ -93,8 +97,8 @@ mentions them. Kaishi keeps its history (no reset).
 
 **Floor (done or not):** the learner's "done" stands.
 - Japanese met: the grammar quiz or a chat, done today.
-- Technical met: an item passed today, or a Handoff line says how far it
-  got. A tutor-given answer does not pass.
+- Technical met: a mechatronics item passed or an AI milestone done
+  today, or a Handoff line says how far it got. A tutor-given answer does not pass.
 - A missed day stays missed. Coursework never counts.
 
 **Targets:** JLPT N4, July 2027. Technical: the Phase 0 capstone in

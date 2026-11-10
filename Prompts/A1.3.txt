@@ -1,0 +1,4 @@
+SEARCH: 3Blue1Brown backpropagation (chapters 3-4); Karpathy micrograd video
+THE MILESTONE: A1.3 Backpropagation
+BUILD: a 2-layer network that solves XOR, gradients by hand, numpy only.
+DONE WHEN: 4 of 4 XOR cases right, and my gradients match a numerical gradient check.

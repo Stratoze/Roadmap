@@ -1,0 +1,4 @@
+SEARCH: 3Blue1Brown Essence of Linear Algebra, chapters 1-4
+THE MILESTONE: A1.1 Matrices (project: digit recognizer from scratch)
+BUILD: matrix times vector and matrix times matrix in plain Python lists, no numpy.
+DONE WHEN: my function matches numpy's @ on a random 3x4 times 4x2. After that, numpy is earned.
