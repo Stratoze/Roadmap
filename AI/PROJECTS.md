@@ -7,6 +7,11 @@ start; the math, the learning and the physics are written by hand first.
 Python on the laptop. Code goes in the learner's own repo; a short note
 and the "done when" evidence go on the `Result:` line.
 
+Each project stands on its own: it has its own goal (a working digit
+reader, a racing robot that learned to drive) and exists to teach its
+topic. The list is a learning path, not the final goal; the final goal
+is in `PATH.md`.
+
 Each milestone: SEARCH (keywords for YouTube or Google), Build, Done when.
 Its ready mentor prompt: `bash Prompts/give.sh A1.1` (and so on).
 Haiku gives the SEARCH line and the prompt, logs what is pasted, and
@@ -50,6 +55,6 @@ ticks when the learner reports the "done when" evidence.
   network. Earns: Gymnasium and Stable-Baselines3 (PPO).
 - **A4 Imitation learning.** Record your own driving, train your network
   to copy it (behavior cloning), compare with RL. This is what the
-  SO-101 arm does with LeRobot (ACT): the bridge to the arm.
+  SO-101 arm does with LeRobot (ACT).
 - **A5 Convolution from scratch.** A small CNN for digits by hand, then
   in PyTorch: the start of vision for the arm.
