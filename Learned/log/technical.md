@@ -36,3 +36,10 @@ Append-only history: quiz results, chat corrections, new words, item logs, with 
 - "integral" (says "interval"), "accumulation", "displacement"
 
 - 2026-11-03 item T10 (FBD: book on a table). Final answer: weight down from Earth at center; normal force up from the surface at the bottom face. Check passed; Variant passed with no help (gravity down, normal up; friction and air left out). Tutor: Gemini (AI Studio). Where the learner struggled: hedged on naming the single agent and point for weight; took "normal" to mean net force zero, not perpendicular (the tutor pointed to geometry); said an unbalanced net force causes motion, not acceleration; equal arrow lengths only after a prompt.
+
+## 2026-11-11, T11 (static friction, Gemini tutor)
+Final answer: not a match. FINAL ANSWER is the interleaved-books formula, not the book-on-table exercise. Transcript shows the exercise answer (gravity down, normal up equal to gravity, push sideways, static friction opposite and equal to the push up to its max); Check points are there only in the transcript.
+MISCONCEPTIONS: friction is zero when still; gravity weak because Earth is massive; contact area sets friction.
+HINTS: 10/15/20 N push while still; split vertical and horizontal; ask whether it accelerates.
+Session: Sessions/2026-11-11-T11.md
+Status: T11 not ticked, awaiting a restated final answer.
