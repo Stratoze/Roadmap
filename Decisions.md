@@ -39,6 +39,11 @@ before changing a rule. Newest sections first.
 - Cure Dolly and yoku.bi pages are checked from their GitHub repos
   (learner's idea, 11-11): github.com is reachable, the sites are not.
   Tofugu and Imabi have no repo, so they are skipped until allowed.
+  `Prompts/page.sh` clones both into the container on first use (always
+  current, nothing copied into this repo: Cure Dolly is 100 MB) and lists
+  lessons holding every form. Its first run caught an Opus error: G19's
+  page had been set to Cure Dolly lesson 7 from a hand grep, whose なかった
+  is verbs only; corrected to yoku.bi Lesson 8.
 - tofugu.com is blocked from the cloud session (learner task in
   `BACKLOG.md`: allow it), so Opus could not open the page either.
 
