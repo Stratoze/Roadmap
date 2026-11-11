@@ -368,3 +368,25 @@ Decided by Opus 2026-10-17 (Sat, called early):
   anything logged after 22:00 local on the next day.
 - Times in `Daily/` and `Learned/log/` before 2026-10-26 are Tokyo time:
   subtract 2 h for the learner's local time. They stay as written.
+
+## Opus inbox 2 (2026-11-11)
+
+- Key leak in a review question: Haiku now prints every quiz question,
+  Variant and page with `Prompts/give.sh quiz|variant|page`, which cuts
+  everything after the arrow. A question Haiku never types cannot carry
+  its answer. The 11-11 G13 review is void.
+- Grammar source order: the search moved from Haiku to Opus. Opus writes
+  a `Page:` line on each key (order Tofugu, Cure Dolly, yoku.bi, Imabi;
+  up to two pages); Haiku prints it. Missing line → "Page needed" here.
+  `page.sh` takes fragments (くなかった) since pages vary in spelling;
+  exact-text hits still need reading (yoku.bi writes 静か, not しずか).
+- G19 page never given: new `grammar` skill, start (quiz) and end (page)
+  in one place, with a Handoff line when a page is given.
+- Interleaving drift after T12: after a technical item, passed or not,
+  next is Japanese; a missed Variant waits for the next session (asking
+  it again minutes later tests short-term memory, not the idea).
+- Also: Haiku left T12 work on an unmerged branch, so the next session
+  thought T11 and T12 were undone. Session start now merges today's and
+  yesterday's branches first.
+- Procedure changed twice on 11-11 (inbox 1 and 2): allowed because each
+  gap stopped learning (a leaked key, a quiz without a page).

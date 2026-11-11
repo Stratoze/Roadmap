@@ -16,7 +16,8 @@ score or final answer, slips).
 - G15 passed 11-02 (4 of 4). G17 passed 11-04 (4 of 4). G18 passed 11-11 (Opus re-score). Next grammar: G19. New order (11-02): read
   the page at the end of a session, take the quiz at the start of the next.
 - T10 passed 11-03. T11 passed 11-11. T12: tutor check passed 11-11, Variant missed (see its Result line); retry the Variant later. Next technical: T12 Variant, then T13.
-- Review questions start with G13's `Variant:` (oldest passed item with one).
+- Review questions start with G13's `Variant:` (oldest passed item with one; `give.sh variant G13`). The 11-11 G13 review was void (answer leaked).
+- G19: page not given before its quiz started 11-11 (Q1 asked, unanswered). Give the page now (`give.sh page G19`), quiz next session.
 
 ## Chat openers (retired 2026-11-11: chat is free; prompt: `Prompts/give.sh chat`)
 
@@ -160,6 +161,7 @@ Quiz:
 4. Say "The town is not famous." (town = まち, famous = ゆうめい) → まちは ゆうめいじゃないです。 (also accept じゃありません, ではありません)
 Slips: きれくないです; しずかくないです.
 Variant: Say "It is not clean." (clean = きれい) → きれいじゃないです。 (also accept じゃありません, ではありません; きれくない is wrong)
+Page: Cure Dolly lessons 7 and 40 (https://kellenok.github.io/cure-script/). Lesson 7: "not" after a noun is ではない (じゃない is its spoken short form). Lesson 40: きれいだ is a な-adjective ("adjectival noun"): 花がきれいだ, きれいな花. Checked 11-11 from the GitHub text; yoku.bi Lesson 15 has neither the "not" form nor きれい.
 Result:
 
 ### [ ] G21 Adjective + noun (たかい山, しずかな町)

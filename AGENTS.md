@@ -13,7 +13,9 @@ AI can use (5-10 years). The route and its deadlines: `PATH.md`.
    ~September 2027; then `Asia/Tokyo`). Take the date and weekday from it,
    never from the learner.
 2. `git checkout main && git pull origin main`, then branch
-   `YYYY-MM-DD-topic` with today's local date.
+   `YYYY-MM-DD-topic` with today's local date. `git branch -r --no-merged
+   main`: fast-forward main to any branch from today or yesterday first
+   (unmerged work hides finished items, 11-11).
 3. Read `BACKLOG.md` top (Handoff, learner tasks), then only the next
    unticked item of each queue you will use today, and the status file of
    today's tracks (`Learned/<track>.md`).
@@ -41,8 +43,9 @@ If a task needs a bigger model than you, say "This task needs Sonnet. Run
 
 - **Haiku:** anything with a key: quizzes, `jp-chat`, `tech-tutor`, review
   questions, logs, ticks. Haiku asks the key's questions and prints
-  prompts only via `Prompts/give.sh`; it never writes or changes a key,
-  question or prompt.
+  prompts only via `Prompts/give.sh` (`quiz`, `variant`, `page`, `chat`,
+  or an item), copied exactly, so no answer is ever shown in a question;
+  it never writes or changes a key, question or prompt.
 - **Sonnet:** coursework grilling (`grill`).
 - **Opus:** runs only when the learner calls it (no scheduled tasks or
   reminders, ever). Changes procedure at most once a month, unless a gap
@@ -73,7 +76,7 @@ moves to Sonnet at the next Opus call.
 - `Proposals.md`: the Opus inbox, the only place for anything waiting on
   Opus. At session end, move any stray "for Opus" line there.
 - `Decisions.md`: why each rule exists. Read it before changing a rule.
-- `.claude/skills/`: `daily-note`, `jp-chat`, `tech-tutor`, `grill`.
+- `.claude/skills/`: `daily-note`, `grammar`, `jp-chat`, `tech-tutor`, `grill`.
 - Unused, left unread: `Fitness/`, `Learned/fitness.md`, `_archive/`,
   `_system/`, `Japanese/`, `docs/`, `Changelog/`.
 
@@ -88,7 +91,9 @@ and last the next grammar page to read.
 
 Order unless the learner asks otherwise (learner, 11-11): on the phone,
 alternate Japanese grammar and technical (the one not done last comes
-next). On the laptop, if Japanese or technical is not done today, do one
+next). After a technical item, passed or not, "next" is Japanese. A
+missed Variant is asked again at the next session's technical turn,
+never in the same session. On the laptop, if Japanese or technical is not done today, do one
 of each first, then the next laptop milestone. Haiku's three jobs
 there: give the search keywords (or `Learn:` link), give the prompt
 printed by `Prompts/give.sh`, and save and log what is pasted back.
@@ -135,19 +140,18 @@ mentions them. Kaishi keeps its history (no reset).
 
 - Explain in English by what a particle or form marks, never by English
   translation ("に means to"). The learner is a complete beginner.
-- **Grammar lesson:** at the end of a session, name the next grammar item;
-  the learner reads it on Tofugu (else Cure Dolly
-  https://kellenok.github.io/cure-script/, then yoku.bi, then Imabi). Find
-  the page and give the link only once you can name where it covers
-  every form in the key's Rule line, else add it to `Proposals.md`. Check
-  Cure Dolly and yoku.bi with `bash Prompts/page.sh <form> <form>...`
-  (each form exactly as in the Rule line, e.g. たかくなかった → くなかった):
-  it lists the lessons that hold every form. A site
-  that cannot be opened (Tofugu, Imabi until allowed) is skipped, not
-  judged from search snippets. At the
-  start of the next session, ask the key's quiz exactly as written, in
-  order, one per message, no answer choices: the gap makes it test memory.
-  Answers in kana or keyboard kanji, never romaji.
+- **Grammar lesson:** the `grammar` skill. The page is read at the end of
+  one session (`give.sh page <G>`), the quiz taken at the start of the
+  next (`give.sh quiz <G>`), one question per message, no answer choices:
+  the gap makes it test memory. Answers in kana or keyboard kanji, never
+  romaji.
+- **Page line (Opus):** each G-key has a `Page:` line naming where every
+  form in its Rule line is taught. Order: Tofugu, then Cure Dolly
+  https://kellenok.github.io/cure-script/, then yoku.bi, then Imabi; a
+  site that cannot be opened is skipped, never judged from snippets;
+  up to two pages if no single one covers it. `bash Prompts/page.sh
+  <form>...` lists Cure Dolly and yoku.bi lessons holding every form;
+  pages written in kanji need a manual check.
 - **Scoring:** wrong only if the mistake is in a form named in the key's
   Rule or Slips line; other mistakes go to weak spots. Send it to Opus
   instead (not counted; "check for Opus" in `Result:`) when the answer is
