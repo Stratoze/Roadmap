@@ -11,7 +11,7 @@ score or final answer, slips).
 
 ## Handoff
 
-- G15 passed 11-02 (4 of 4). G17 passed 11-04 (4 of 4). Next grammar: G18. New order (11-02): read
+- G15 passed 11-02 (4 of 4). G17 passed 11-04 (4 of 4). G18 passed 11-11 (Opus re-score). Next grammar: G19. New order (11-02): read
   the page at the end of a session, take the quiz at the start of the next.
 - T10 passed 11-03. Next technical: T11 (friction article).
 - Review questions start with G13's `Variant:` (oldest passed item with one).
@@ -119,30 +119,30 @@ Slips: いちにん, ににん, よんにん.
 Variant: Say "There are three people." → さんにん います。 (also accept ひとが さんにん います)
 Result: 11-04, 4 of 4 (taught). 1 1人 (ひとり); 2 学生がふたりいます; 3 4人 (よにん); 4 何人いましか？ (typo for いますか, noted, not counted). Slips: none.
 
-### [ ] G18 い-adjectives: たかい / たかくない
+### [x] G18 い-adjectives: たかい / たかくない
 Rule: an い-adjective ends in
 い and takes です to be polite; for "not", drop the final い and add
 くないです; いい (good) becomes よくないです.
 Quiz:
-1. Say "It is expensive." → たかいです。
-2. Say "It is not expensive." → たかくないです。 (also accept たかくありません)
-3. Say "The book is interesting." (interesting = おもしろい) → 本は おもしろいです。
-4. Say "It is not good." → よくないです。 (also accept よくありません)
+1. Say "It is expensive." (expensive = たかい) → たかいです。
+2. Say "It is not expensive." (expensive = たかい) → たかくないです。 (also accept たかくありません)
+3. Say "The book is interesting." (interesting = おもしろい) → 本は おもしろいです。 (also accept 本が)
+4. Say "It is not good." (good = いい) → よくないです。 (also accept よくありません)
 Slips: たかいじゃないです; いくないです.
 Variant: Say "It is not big." (big = おおきい) → おおきくないです。 (also accept おおきくありません)
-Result: 11-11, 2 of 4, contested, check for Opus (not passed yet). Q1 高いです right. Q2 高いくないです wrong (→ 高くないです). Q3 本が面白いです right. Q4 わるいです counted wrong (わるい = bad; key accepts only よくないです, but わるくないです is also a natural "not good": the question is vague). Page: Tofugu covers くない, past form (くなかった) not yet checked.
+Result: passed 11-11 (Opus re-score): 1 wrong of 3 scored. Q1 高いです right. Q2 高いくないです wrong (→ 高くないです, the いくない slip). Q3 本が面白いです right. Q4 void: the question did not give いい, so わるいです answered a different question. Key fixed 11-11. Past form is G19, not G18.
 
 ### [ ] G19 い-adjectives past: たかかった / たかくなかった
 Rule: for the past, drop the final い and add
 かったです; past "not" is くなかったです; いい becomes よかったです. Never
 い + でした.
 Quiz:
-1. Say "It was expensive." → たかかったです。
-2. Say "It was not expensive." → たかくなかったです。 (also accept たかくありませんでした)
-3. Say "It was good." → よかったです。
+1. Say "It was expensive." (expensive = たかい) → たかかったです。
+2. Say "It was not expensive." (expensive = たかい) → たかくなかったです。 (also accept たかくありませんでした)
+3. Say "It was good." (good = いい) → よかったです。
 4. Say "Yesterday was cold." (cold = さむい) → きのうは さむかったです。
 Slips: たかいでした; いかったです.
-Variant: Say "It was not good." → よくなかったです。 (also accept よくありませんでした; いくなかった is wrong)
+Variant: Say "It was not good." (good = いい) → よくなかったです。 (also accept よくありませんでした; いくなかった is wrong)
 Result:
 
 ### [ ] G20 な-adjectives: しずかです / しずかじゃないです
@@ -150,24 +150,24 @@ Rule: a な-adjective works like a noun: しずかです,
 "not" is しずかじゃないです; きれい and ゆうめい end in い but are
 な-adjectives.
 Quiz:
-1. Say "It is quiet." → しずかです。
-2. Say "It is not quiet." → しずかじゃないです。 (also accept じゃありません, ではありません)
+1. Say "It is quiet." (quiet = しずか) → しずかです。
+2. Say "It is not quiet." (quiet = しずか) → しずかじゃないです。 (also accept じゃありません, ではありません)
 3. Say "The room is clean." (clean = きれい) → へやは きれいです。
 4. Say "The town is not famous." (town = まち, famous = ゆうめい) → まちは ゆうめいじゃないです。 (also accept じゃありません, ではありません)
 Slips: きれくないです; しずかくないです.
-Variant: Say "It is not clean." → きれいじゃないです。 (also accept じゃありません, ではありません; きれくない is wrong)
+Variant: Say "It is not clean." (clean = きれい) → きれいじゃないです。 (also accept じゃありません, ではありません; きれくない is wrong)
 Result:
 
 ### [ ] G21 Adjective + noun (たかい山, しずかな町)
 Rule: an い-adjective goes straight before the
 noun (たかい くるま); a な-adjective adds な (しずかな まち).
 Quiz:
-1. Say "an expensive car". → たかい くるま
-2. Say "a quiet town". → しずかな まち
-3. Say "It is an interesting book." → おもしろい 本です。
-4. Say "a famous teacher". → ゆうめいな せんせい
+1. Say "an expensive car" (expensive = たかい, car = くるま). → たかい くるま
+2. Say "a quiet town" (quiet = しずか, town = まち). → しずかな まち
+3. Say "It is an interesting book." (interesting = おもしろい) → おもしろい 本です。
+4. Say "a famous teacher" (famous = ゆうめい, teacher = せんせい). → ゆうめいな せんせい
 Slips: しずかの まち; たかいな くるま.
-Variant: Say "a quiet room". → しずかな へや
+Variant: Say "a quiet room" (quiet = しずか, room = へや). → しずかな へや
 Result:
 
 ### [ ] G22 ～ましょう / ～ましょうか
