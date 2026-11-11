@@ -18,6 +18,7 @@ score or final answer, slips).
 - T10 passed 11-03. T11 passed 11-11. T12: tutor check passed 11-11, Variant missed (see its Result line); retry the Variant later. Next technical: T12 Variant, then T13.
 - Review questions start with G13's `Variant:` (oldest passed item with one; `give.sh variant G13`). The 11-11 G13 review was void (answer leaked).
 - G19: page not given before its quiz started 11-11 (Q1 asked, unanswered). Give the page now (`give.sh page G19`), quiz next session.
+- Page for G19 given 2026-11-11. Quiz next session (none today: page was not given before a quiz).
 
 ## Chat openers (retired 2026-11-11: chat is free; prompt: `Prompts/give.sh chat`)
 
