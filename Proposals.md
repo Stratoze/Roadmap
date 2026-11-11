@@ -28,6 +28,21 @@ its decision. Haiku never acts on an item here.
 
 ## Open
 
+- [ ] 2026-11-11 (T12 session), procedure drift for Opus to analyze. Learner
+  finished technical T12 (tutor check passed, Variant missed) and said "Ok
+  next". Haiku offered the T12 Variant again, not the Japanese grammar item.
+  AGENTS.md "Daily plan" says on the phone, alternate Japanese grammar and
+  technical; the one not done last comes next, so Japanese (G19 quiz) was
+  due. Haiku only offered it after the learner asked "did you forget about
+  the interleaving rule?". Haiku had earlier also re-asked the same Variant
+  after a miss and said "I'll ask at next session", then reopened it in the
+  same session. Question for Opus: is the next-item rule written clearly
+  enough for Haiku at a "next" request (which queue wins when a technical
+  item is open but unpassed), and should the Variant retry wait for the
+  next session? Learner's correction, verbatim: "Hmm, did you forget about
+  the interleaving rule or ?" Quiz given after: G19 Q1 "Say 'It was
+  expensive.' (expensive = たかい)" (not yet answered).
+
 ## Done
 
 Decided items move to `Decisions.md` (last: 2026-11-11, Opus inbox).
