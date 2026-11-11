@@ -43,3 +43,4 @@ MISCONCEPTIONS: friction is zero when still; gravity weak because Earth is massi
 HINTS: 10/15/20 N push while still; split vertical and horizontal; ask whether it accelerates.
 Session: Sessions/2026-11-11-T11.md
 Status: T11 not ticked, awaiting a restated final answer.
+- 2026-11-11 T11 passed (tutor check, then Variant: 5 N opposite the push, no help). Session: Sessions/2026-11-11-T11.md.

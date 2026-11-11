@@ -275,11 +275,11 @@ Book resting on a table. Check: exactly 2 forces: weight (down, from Earth, at t
 Variant: A phone lies still on a desk. Name every force on it and its direction. → 2: weight down (from Earth), normal force up (from the desk), equal size.
 Result: 11-03 (Gemini tutor). Final answer: weight, downward, Earth pulls the book, center; normal force, upward, surface pushes, bottom face. Check passed (both forces, direction, source, point; equal arrow lengths after a prompt). Variant passed 11-03, no help: gravity down, normal up; friction and air left out as out of scope.
 
-### [ ] T11 FBD: book pushed sideways but not sliding
+### [x] T11 FBD: book pushed sideways but not sliding
 Learn: Khan Academy, "What is friction?" (article; the static friction part).
 Book pushed sideways, not sliding. Check: 4 forces: weight down, normal up (equal), push sideways, static friction opposite the push and equal to it. Wrong if friction is drawn bigger or smaller than the push.
 Variant: A box is pushed sideways with 5 N and does not move. How big is the friction, and which way? → **5 N**, opposite the push.
-Result:
+Result: 11-11 (Gemini tutor, sessions/2026-11-11-T11.md). Final answer: gravity down (Earth); normal up, equal to gravity (table); push sideways (hand); static friction opposite the push, equal to it while still, up to its max. Check passed. Variant passed 11-11, no help: 5 N, opposite the push.
 
 ### [ ] T12 FBD: one link held horizontal by a hand at one end
 Learn: LibreTexts, Engineering Statics (Baker and Haynes) or engineeringstatics.org: supports and reactions, the fixed support (two forces and a moment).
