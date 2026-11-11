@@ -28,6 +28,15 @@ its decision. Haiku never acts on an item here.
 
 ## Open
 
+- [ ] 2026-11-11, grammar procedure gap (G19). Haiku gave the G19 quiz at
+  session start without giving the reading link, and never named G19 as the
+  page to read at the end of the previous session. AGENTS.md "Japanese /
+  Grammar lesson" requires naming the next item and its link at session end.
+  Learner's words: "You never gave me the resources for G19... it seems
+  clear that a skill/procedure set is needed." Opus to decide: a grammar
+  skill (name the next item, give its checked link, log that it was read,
+  then quiz next session) or a Haiku step in the session order.
+
 - [ ] 2026-11-11 (T12 session), procedure drift for Opus to analyze. Learner
   finished technical T12 (tutor check passed, Variant missed) and said "Ok
   next". Haiku offered the T12 Variant again, not the Japanese grammar item.
