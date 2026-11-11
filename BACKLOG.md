@@ -11,6 +11,8 @@ score or final answer, slips).
 
 ## Handoff
 
+- When the learner says they are on the laptop: remind them first to do the
+  allow-list task below (cannot be changed from the phone, learner 11-11).
 - G15 passed 11-02 (4 of 4). G17 passed 11-04 (4 of 4). G18 passed 11-11 (Opus re-score). Next grammar: G19. New order (11-02): read
   the page at the end of a session, take the quiz at the start of the next.
 - T10 passed 11-03. Next technical: T11 (friction article).
