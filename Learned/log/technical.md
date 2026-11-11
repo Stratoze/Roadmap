@@ -44,3 +44,11 @@ HINTS: 10/15/20 N push while still; split vertical and horizontal; ask whether i
 Session: Sessions/2026-11-11-T11.md
 Status: T11 not ticked, awaiting a restated final answer.
 - 2026-11-11 T11 passed (tutor check, then Variant: 5 N opposite the push, no help). Session: Sessions/2026-11-11-T11.md.
+
+## 2026-11-11, T12 (fixed support, Gemini tutor)
+Final answer: match. Upward force mg at the grip, horizontal force 0, counterclockwise moment mg L/2 from the grip. Check passed.
+Variant: not a match. Answer "friction, moment of force, normal force". Moment right; friction not needed (no sideways push); normal force is the upward force already named, not an extra one.
+MISCONCEPTIONS (tutor check): none flagged by the tutor; learner first thought horizontal friction was needed.
+HINTS: "The horizontal force from the hand: does the rod need one, or can the grip exert only vertical force and a moment?"
+Session: Sessions/2026-11-11-T12.md
+Status: T12 not ticked; Variant to retry later.

@@ -15,7 +15,7 @@ score or final answer, slips).
   allow-list task below (cannot be changed from the phone, learner 11-11).
 - G15 passed 11-02 (4 of 4). G17 passed 11-04 (4 of 4). G18 passed 11-11 (Opus re-score). Next grammar: G19. New order (11-02): read
   the page at the end of a session, take the quiz at the start of the next.
-- T10 passed 11-03. Next technical: T11 (friction article).
+- T10 passed 11-03. T11 passed 11-11. T12: tutor check passed 11-11, Variant missed (see its Result line); retry the Variant later. Next technical: T12 Variant, then T13.
 - Review questions start with G13's `Variant:` (oldest passed item with one).
 
 ## Chat openers (retired 2026-11-11: chat is free; prompt: `Prompts/give.sh chat`)
@@ -289,7 +289,7 @@ Result: 11-11 (Gemini tutor, sessions/2026-11-11-T11.md). Final answer: gravity 
 Learn: LibreTexts, Engineering Statics (Baker and Haynes) or engineeringstatics.org: supports and reactions, the fixed support (two forces and a moment).
 One link held horizontal by a hand at one end. Check: weight down at the middle; at the hand, an upward force equal to the weight AND a twisting effect (moment) from the grip. Key insight: one upward force at the end cannot hold it; the grip must also twist. If the learner draws only an upward force, ask: "Then why doesn't the link rotate?"
 Variant: A ruler is clamped flat at one end, sticking out. Besides an upward force, what else must the clamp give it? → a twist (moment) against the twist of the ruler's weight.
-Result:
+Result: 11-11 (Gemini tutor, Sessions/2026-11-11-T12.md). Final answer matches: upward force mg at the grip, horizontal 0, counterclockwise moment mg L/2. Variant missed 11-11: answered "friction, moment of force, normal force" (moment right; friction not needed; normal force is the upward force already named). Not ticked; retry the Variant.
 
 ### [ ] T15 Moment arm in plain words: draw it for item 14
 Learn: Khan Academy, "Torque" (article; the lever arm part).
