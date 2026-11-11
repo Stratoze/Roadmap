@@ -36,6 +36,9 @@ before changing a rule. Newest sections first.
   the answer needs. Opus rule: every grammar question gives its words
   (G18-G21 reworded). Haiku rule: a natural off-key answer, or a question
   missing a word, goes to Opus and is not counted.
+- Cure Dolly and yoku.bi pages are checked from their GitHub repos
+  (learner's idea, 11-11): github.com is reachable, the sites are not.
+  Tofugu and Imabi have no repo, so they are skipped until allowed.
 - tofugu.com is blocked from the cloud session (learner task in
   `BACKLOG.md`: allow it), so Opus could not open the page either.
 

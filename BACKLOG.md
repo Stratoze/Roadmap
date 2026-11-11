@@ -146,6 +146,7 @@ Quiz:
 4. Say "Yesterday was cold." (cold = さむい) → きのうは さむかったです。
 Slips: たかいでした; いかったです.
 Variant: Say "It was not good." (good = いい) → よくなかったです。 (also accept よくありませんでした; いくなかった is wrong)
+Page: Cure Dolly lesson 7, "Negative forms and adjectives in past tense" (https://kellenok.github.io/cure-script/, checked by Opus 11-11 in the repo: かった, なかった, よかった, よくない).
 Result:
 
 ### [ ] G20 な-adjectives: しずかです / しずかじゃないです

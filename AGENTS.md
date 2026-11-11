@@ -138,8 +138,13 @@ mentions them. Kaishi keeps its history (no reset).
 - **Grammar lesson:** at the end of a session, name the next grammar item;
   the learner reads it on Tofugu (else Cure Dolly
   https://kellenok.github.io/cure-script/, then yoku.bi, then Imabi). Find
-  the page (WebSearch); give the link only once you can name where it
-  covers every form in the key's Rule line, else add it to `Proposals.md`. At the
+  the page and give the link only once you can name where it covers
+  every form in the key's Rule line, else add it to `Proposals.md`. Cure
+  Dolly and yoku.bi are on GitHub (`kellenok/cure-script`, English lessons
+  in `config/docs/en/`; `Morgawr/yokubi`, lessons in `src/`):
+  `git clone --depth 1` into the scratchpad and grep for the forms. A site
+  that cannot be opened (Tofugu, Imabi until allowed) is skipped, not
+  judged from search snippets. At the
   start of the next session, ask the key's quiz exactly as written, in
   order, one per message, no answer choices: the gap makes it test memory.
   Answers in kana or keyboard kanji, never romaji.
