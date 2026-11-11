@@ -28,6 +28,17 @@ its decision. Haiku never acts on an item here.
 
 ## Open
 
+- [ ] 2026-11-11, grammar resource order not deterministic (G19). Learner:
+  "It should probably use some sort of deterministic script... the ordering
+  clearly states Tofugu, then Cure Dolly, then yoku.bi, then Imabi." AGENTS.md
+  "Japanese / Grammar lesson" gives that order. For G19 the steps are: Tofugu
+  (cannot be opened, skipped); Cure Dolly (`Prompts/page.sh かった くなかった
+  よかった` lists no lesson, so it fails the form check); yoku.bi (lists
+  Lesson8.md, "い-adjectives", which holds the forms). Haiku gave the yoku.bi
+  link without showing these steps. Opus to decide: a script that runs the
+  order and prints the first passing page with its link, and whether the
+  Rule line must hold full forms (たかくなかった) or fragments (くなかった).
+
 - [ ] 2026-11-11, grammar procedure gap (G19). Haiku gave the G19 quiz at
   session start without giving the reading link, and never named G19 as the
   page to read at the end of the previous session. AGENTS.md "Japanese /
