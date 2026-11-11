@@ -28,6 +28,14 @@ its decision. Haiku never acts on an item here.
 
 ## Open
 
+- [ ] 2026-11-11, key shown before the learner answered (defect). In the
+  review-question step I wrote the answer in brackets next to the question
+  (G13 Variant, "I eat at 8 o'clock tomorrow", answer あした 八時に たべます).
+  Rule: "Show a key only after the learner answers" (AGENTS.md Teaching 10).
+  The review is void for today; replaced by the G15 Variant "I go on
+  Sunday." Learner's words: "Now you even leaked the answer." Opus to decide
+  whether a rule or check is needed to stop a key appearing in a question.
+
 - [ ] 2026-11-11, grammar resource order not deterministic (G19). Learner:
   "It should probably use some sort of deterministic script... the ordering
   clearly states Tofugu, then Cure Dolly, then yoku.bi, then Imabi." AGENTS.md
