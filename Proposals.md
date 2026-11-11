@@ -28,6 +28,8 @@ its decision. Haiku never acts on an item here.
 
 ## Open
 
+- 2026-11-11, learner request (sequencing rule, for `AGENTS.md` "Daily plan"): on the phone, interleave Japanese grammar and technical unless asked otherwise (last one done → the other next). On the PC: if no Japanese or technical done today, do 1 of each first, then Python (laptop milestones), unless asked otherwise. Opus: write it into AGENTS.md.
+
 ## Done
 
 Decided items move to `Decisions.md` (last: 2026-11-02, system check).
