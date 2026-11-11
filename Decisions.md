@@ -20,6 +20,25 @@ before changing a rule. Newest sections first.
 
 ## Proposals decided (from `Proposals.md`)
 
+### 2026-11-11: Opus inbox (learner called Opus)
+
+- Sequencing (learner request): written into `AGENTS.md` "Daily plan" as
+  asked. Phone alternates grammar and technical; laptop does one of each
+  first if missing, then the milestone.
+- Grammar source order (learner): kept as applied, Tofugu → Cure Dolly →
+  yoku.bi → Imabi. Haiku must name where the page covers every form in
+  the Rule before giving the link: G18's link went out on a search snippet.
+- G18 contest: passed, 1 wrong of 3. Q4 "It is not good." did not give
+  いい, so わるいです ("it is bad") was a fair reading: voided, not wrong.
+  Q2 高いくないです is the key's own slip and stays wrong. The past form
+  is G19's point, not G18's.
+- Root cause of the recurring vague questions: keys left out the word
+  the answer needs. Opus rule: every grammar question gives its words
+  (G18-G21 reworded). Haiku rule: a natural off-key answer, or a question
+  missing a word, goes to Opus and is not counted.
+- tofugu.com is blocked from the cloud session (learner task in
+  `BACKLOG.md`: allow it), so Opus could not open the page either.
+
 ### 2026-11-11: AI track and the order (learner)
 
 - Opus proposed pulling SO-101 forward; learner refused: the printer,

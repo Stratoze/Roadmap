@@ -48,7 +48,9 @@ If a task needs a bigger model than you, say "This task needs Sonnet. Run
   reminders, ever). Changes procedure at most once a month, unless a gap
   stops learning. Works `Proposals.md` and `PATH.md`. Writes every key:
   each says where its idea is taught (grammar: the lesson page;
-  technical: `Learn:`) and has a `Variant:` question.
+  technical: `Learn:`) and has a `Variant:` question. A grammar question
+  gives every word its answer needs (expensive = たかい), so it tests the
+  form only.
 
 A task with no key: add it to `Proposals.md` in one line, then give the
 next task in the same reply. A learner question with no key: open a page
@@ -82,7 +84,12 @@ Sun (or any day the learner says is short).
 
 In the session, in this order: one review question (Teaching rule 3), the
 quiz on the grammar read last session, the chat, the technical exercise,
-and last the next grammar page to read. Haiku's three jobs
+and last the next grammar page to read.
+
+Order unless the learner asks otherwise (learner, 11-11): on the phone,
+alternate Japanese grammar and technical (the one not done last comes
+next). On the laptop, if Japanese or technical is not done today, do one
+of each first, then the next laptop milestone. Haiku's three jobs
 there: give the search keywords (or `Learn:` link), give the prompt
 printed by `Prompts/give.sh`, and save and log what is pasted back.
 
@@ -129,13 +136,18 @@ mentions them. Kaishi keeps its history (no reset).
 - Explain in English by what a particle or form marks, never by English
   translation ("に means to"). The learner is a complete beginner.
 - **Grammar lesson:** at the end of a session, name the next grammar item;
-  the learner reads it on Tofugu (else Cure Dolly, yoku.bi, Imabi). Find
-  the page (WebSearch), check it covers the item, give the link. At the
+  the learner reads it on Tofugu (else Cure Dolly
+  https://kellenok.github.io/cure-script/, then yoku.bi, then Imabi). Find
+  the page (WebSearch); give the link only once you can name where it
+  covers every form in the key's Rule line, else add it to `Proposals.md`. At the
   start of the next session, ask the key's quiz exactly as written, in
   order, one per message, no answer choices: the gap makes it test memory.
   Answers in kana or keyboard kanji, never romaji.
 - **Scoring:** wrong only if the mistake is in a form named in the key's
-  Rule or Slips line; other mistakes go to weak spots. A typo that leaves
+  Rule or Slips line; other mistakes go to weak spots. Send it to Opus
+  instead (not counted; "check for Opus" in `Result:`) when the answer is
+  natural Japanese for the English but not in the key, or the question
+  did not give a word the answer needs. A typo that leaves
   the word clear is noted, not counted. Pass = at most one wrong. Fail =
   no new page today; redo the quiz next session.
 - Taught = passed the quiz. Solid = used right in chat on a later day.

@@ -28,10 +28,6 @@ its decision. Haiku never acts on an item here.
 
 ## Open
 
-- 2026-11-11, learner request (sequencing rule, for `AGENTS.md` "Daily plan"): on the phone, interleave Japanese grammar and technical unless asked otherwise (last one done → the other next). On the PC: if no Japanese or technical done today, do 1 of each first, then Python (laptop milestones), unless asked otherwise. Opus: write it into AGENTS.md.
-- 2026-11-11, learner proposal (source order for grammar pages, `AGENTS.md` "Japanese"): search in this order, Tofugu, then Cure Dolly (https://kellenok.github.io/cure-script/), then yoku.bi, then Imabi; first page that covers the item wins. Applied from 2026-11-11 unless Opus overrules.
-- 2026-11-11, check for Opus: G18 key. Q4 "It is not good." is vague (わるくないです is also natural; key accepts only よくない). Q2 and the rest fine. Decide the score and fix the key's wording. Also: Tofugu page for G18 covers くない but not くなかった; check the past form before the redo, and say which page covers it. Recurring problem (learner, 11-11): vague questions and unchecked pages. Opus: write a rule for when Haiku must send a key to Opus instead of scoring it.
-
 ## Done
 
-Decided items move to `Decisions.md` (last: 2026-11-02, system check).
+Decided items move to `Decisions.md` (last: 2026-11-11, Opus inbox).
