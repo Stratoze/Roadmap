@@ -47,7 +47,8 @@ score or final answer, slips).
   give Opus the exact test date (validity).
 - [ ] Take the official JLPT N5 sample questions (jlpt.jp) once, as a
   baseline; give Haiku the score to log.
-- [ ] Allow khanacademy.org, tofugu.com, openstax.org, jlpt.jp in this
+- [ ] Allow khanacademy.org, tofugu.com, kellenok.github.io (Cure Dolly
+  transcripts), yoku.bi, imabi.org, openstax.org, jlpt.jp in this
   environment's network settings (Allowed domains), so lesson pages and
   official dates can be opened, not judged from search results.
 - [ ] At Japanese class: ask the teacher if these three fixes are right:
