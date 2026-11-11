@@ -199,3 +199,4 @@ Correction (2026-11-03, same day): あしたは8じにたべます is correct. �
 机 (つくえ) desk
 辞書 (じしょ) dictionary
 一冊 (いっさつ) one book
+- 2026-11-11 G18 quiz: 2 of 4, not passed. Q2 高いくないです (→ 高くないです); Q4 わるいです for "not good" (→ よくないです). Redo next session.

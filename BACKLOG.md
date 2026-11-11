@@ -130,7 +130,7 @@ Quiz:
 4. Say "It is not good." → よくないです。 (also accept よくありません)
 Slips: たかいじゃないです; いくないです.
 Variant: Say "It is not big." (big = おおきい) → おおきくないです。 (also accept おおきくありません)
-Result:
+Result: 11-11, 2 of 4, not passed (redo next session). Q1 高いです right. Q2 高いくないです wrong (→ 高くないです). Q3 本が面白いです right. Q4 わるいです wrong (わるい means bad; "not good" → よくないです).
 
 ### [ ] G19 い-adjectives past: たかかった / たかくなかった
 Rule: for the past, drop the final い and add
