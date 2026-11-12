@@ -28,6 +28,8 @@ its decision. Haiku never acts on an item here.
 
 ## Open
 
+- Prompts/chat.txt line 5: remove "Vovinam" from the topic list (learner 2026-11-12: not interested, it is compulsory at school). Haiku did not edit the file.
+
 ## Done
 
 Decided items move to `Decisions.md` (last: 2026-11-11, Opus inbox 2).
