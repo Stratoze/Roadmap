@@ -201,3 +201,5 @@ Correction (2026-11-03, same day): あしたは8じにたべます is correct. �
 一冊 (いっさつ) one book
 - 2026-11-11 G18 quiz: 2 of 4, not passed. Q2 高いくないです (→ 高くないです); Q4 わるいです for "not good" (→ よくないです). Redo next session.
 - 2026-11-11 G18 re-scored by Opus: passed, 1 wrong of 3. Q4 void (the question did not give いい; わるいです answered "bad"). Q2 高いくないです stays wrong. Key reworded: every question now gives its words.
+
+2026-11-12 G19 quiz: 2 of 4, not passed. Q1 たかいかったです (→ たかかったです). Q2 たかなかったです (→ たかくなかったです). Q3 よかったです right. Q4 きのはさむかったです (→ きのうは さむかったです; きのは is a typo, not counted). Redo next session.

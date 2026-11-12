@@ -31,6 +31,7 @@ Taught = passed its quiz. Solid = used right in chat on a later day.
   clock time takes に.
 - Voicing in compounds: 友だち is ともだち, not ともたち (11-02).
 - い-adjective negative: drop the い, then くない (たかくない, not たかいくない) (11-11).
+- い-adjective past: drop the い, add かった; negative past is くなかった (たかかった, たかくなかった). Missed 11-12: たかいかった, たかなかった.
 
 ## Habits
 

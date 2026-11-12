@@ -18,7 +18,7 @@ score or final answer, slips).
 - T10 passed 11-03. T11 passed 11-11. T12: tutor check passed 11-11, Variant missed (see its Result line); retry the Variant later. Next technical: T12 Variant, then T13.
 - Review questions start with G13's `Variant:` (oldest passed item with one; `give.sh variant G13`). The 11-11 G13 review was void (answer leaked).
 - G19: page not given before its quiz started 11-11 (Q1 asked, unanswered). Give the page now (`give.sh page G19`), quiz next session.
-- Page for G19 given 2026-11-11. Quiz next session (none today: page was not given before a quiz).
+- Page for G19 given 2026-11-11. G19 quiz 2026-11-12: failed 2 of 4. Redo the same quiz next session; no new page today.
 
 ## Chat openers (retired 2026-11-11: chat is free; prompt: `Prompts/give.sh chat`)
 
@@ -149,7 +149,7 @@ Quiz:
 Slips: たかいでした; いかったです.
 Variant: Say "It was not good." (good = いい) → よくなかったです。 (also accept よくありませんでした; いくなかった is wrong)
 Page: yoku.bi, Section 1, Part 1, Lesson 8 "い-adjectives" (https://yoku.bi/; checked 11-11 with `Prompts/page.sh かった くなかった よかった`). Not Cure Dolly lesson 7: its なかった is verbs only.
-Result:
+Result: 2026-11-12 quiz: 2 of 4, not passed. Q1 たかいかったです (→ たかかったです). Q2 たかなかったです (→ たかくなかったです; the stem needs く before なかった). Q3 よかったです right. Q4 きのはさむかったです: きのう typed as きのは, a typo, noted not counted. Redo next session.
 
 ### [ ] G20 な-adjectives: しずかです / しずかじゃないです
 Rule: a な-adjective works like a noun: しずかです,
